@@ -7,13 +7,13 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		78F332812239051C00DA02F6 /* MagicThought.h in Headers */ = {isa = PBXBuildFile; fileRef = 78F3327F2239051C00DA02F6 /* MagicThought.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		78F3328922390FAB00DA02F6 /* MagicThought.h in Headers */ = {isa = PBXBuildFile; fileRef = 78F3328822390FAB00DA02F6 /* MagicThought.h */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		78F3327C2239051C00DA02F6 /* MagicThought.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = MagicThought.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		78F3327F2239051C00DA02F6 /* MagicThought.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MagicThought.h; sourceTree = "<group>"; };
 		78F332802239051C00DA02F6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		78F3328822390FAB00DA02F6 /* MagicThought.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MagicThought.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -46,8 +46,16 @@
 		78F3327E2239051C00DA02F6 /* MagicThought */ = {
 			isa = PBXGroup;
 			children = (
-				78F3327F2239051C00DA02F6 /* MagicThought.h */,
+				78F3328722390FAB00DA02F6 /* MagicThought */,
 				78F332802239051C00DA02F6 /* Info.plist */,
+			);
+			path = MagicThought;
+			sourceTree = "<group>";
+		};
+		78F3328722390FAB00DA02F6 /* MagicThought */ = {
+			isa = PBXGroup;
+			children = (
+				78F3328822390FAB00DA02F6 /* MagicThought.h */,
 			);
 			path = MagicThought;
 			sourceTree = "<group>";
@@ -59,7 +67,7 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				78F332812239051C00DA02F6 /* MagicThought.h in Headers */,
+				78F3328922390FAB00DA02F6 /* MagicThought.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
