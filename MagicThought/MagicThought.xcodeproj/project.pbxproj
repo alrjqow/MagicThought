@@ -7,13 +7,15 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		78F3328922390FAB00DA02F6 /* MagicThought.h in Headers */ = {isa = PBXBuildFile; fileRef = 78F3328822390FAB00DA02F6 /* MagicThought.h */; };
+		7D9CE3933B1BD4251D7E38C8 /* libPods-MagicThought.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 3E6954489A214AEC6611949C /* libPods-MagicThought.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		210510B7765DBA71AEBA6E98 /* Pods-MagicThought.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MagicThought.release.xcconfig"; path = "Pods/Target Support Files/Pods-MagicThought/Pods-MagicThought.release.xcconfig"; sourceTree = "<group>"; };
+		3E6954489A214AEC6611949C /* libPods-MagicThought.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-MagicThought.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		5C1BD1A3B7E4CF44B667CE97 /* Pods-MagicThought.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MagicThought.debug.xcconfig"; path = "Pods/Target Support Files/Pods-MagicThought/Pods-MagicThought.debug.xcconfig"; sourceTree = "<group>"; };
 		78F3327C2239051C00DA02F6 /* MagicThought.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = MagicThought.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		78F332802239051C00DA02F6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		78F3328822390FAB00DA02F6 /* MagicThought.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MagicThought.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -21,6 +23,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7D9CE3933B1BD4251D7E38C8 /* libPods-MagicThought.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -32,6 +35,8 @@
 			children = (
 				78F3327E2239051C00DA02F6 /* MagicThought */,
 				78F3327D2239051C00DA02F6 /* Products */,
+				F87FCD8DD13800263C4EB349 /* Pods */,
+				D559A87529C6794F0A7F249A /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -55,9 +60,25 @@
 		78F3328722390FAB00DA02F6 /* MagicThought */ = {
 			isa = PBXGroup;
 			children = (
-				78F3328822390FAB00DA02F6 /* MagicThought.h */,
 			);
 			path = MagicThought;
+			sourceTree = "<group>";
+		};
+		D559A87529C6794F0A7F249A /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				3E6954489A214AEC6611949C /* libPods-MagicThought.a */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		F87FCD8DD13800263C4EB349 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				5C1BD1A3B7E4CF44B667CE97 /* Pods-MagicThought.debug.xcconfig */,
+				210510B7765DBA71AEBA6E98 /* Pods-MagicThought.release.xcconfig */,
+			);
+			name = Pods;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -67,7 +88,6 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				78F3328922390FAB00DA02F6 /* MagicThought.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -78,10 +98,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 78F332842239051C00DA02F6 /* Build configuration list for PBXNativeTarget "MagicThought" */;
 			buildPhases = (
+				A6300BC003CF5E2206E76CAD /* [CP] Check Pods Manifest.lock */,
 				78F332772239051C00DA02F6 /* Headers */,
 				78F332782239051C00DA02F6 /* Sources */,
 				78F332792239051C00DA02F6 /* Frameworks */,
 				78F3327A2239051C00DA02F6 /* Resources */,
+				98E9855E405714EF86106473 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -132,6 +154,51 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		98E9855E405714EF86106473 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-MagicThought/Pods-MagicThought-resources.sh",
+				"${PODS_ROOT}/IQKeyboardManager/IQKeyboardManager/Resources/IQKeyboardManager.bundle",
+				"${PODS_ROOT}/MJRefresh/MJRefresh/MJRefresh.bundle",
+				"${PODS_ROOT}/SSKeychain/Support/SSKeychain.bundle",
+				"${PODS_ROOT}/SVProgressHUD/SVProgressHUD/SVProgressHUD.bundle",
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/IQKeyboardManager.bundle",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/MJRefresh.bundle",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/SSKeychain.bundle",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/SVProgressHUD.bundle",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-MagicThought/Pods-MagicThought-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		A6300BC003CF5E2206E76CAD /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-MagicThought-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		78F332782239051C00DA02F6 /* Sources */ = {
@@ -264,6 +331,7 @@
 		};
 		78F332852239051C00DA02F6 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 5C1BD1A3B7E4CF44B667CE97 /* Pods-MagicThought.debug.xcconfig */;
 			buildSettings = {
 				CODE_SIGN_IDENTITY = "";
 				CODE_SIGN_STYLE = Automatic;
@@ -274,11 +342,7 @@
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
 				INFOPLIST_FILE = MagicThought/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.dayi.www.MagicThought;
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SKIP_INSTALL = YES;
@@ -288,6 +352,7 @@
 		};
 		78F332862239051C00DA02F6 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 210510B7765DBA71AEBA6E98 /* Pods-MagicThought.release.xcconfig */;
 			buildSettings = {
 				CODE_SIGN_IDENTITY = "";
 				CODE_SIGN_STYLE = Automatic;
@@ -298,11 +363,7 @@
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
 				INFOPLIST_FILE = MagicThought/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.dayi.www.MagicThought;
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SKIP_INSTALL = YES;
