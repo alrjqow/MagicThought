@@ -7,6 +7,7 @@
 //
 
 #import "UITextView+Word.h"
+#import "MTDefine.h"
 
 @implementation UITextView (Word)
 
