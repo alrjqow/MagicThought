@@ -76,7 +76,8 @@ static CGFloat itemMargin = 5;
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.navigationBarTitleColor = [UIColor whiteColor];
+    
+    [self setValue:[UIColor whiteColor] forKey:@"navigationBarTitleColor"];    
     self.isFirstAppear = YES;
     TZImagePickerController *tzImagePickerVc = (TZImagePickerController *)self.navigationController;
     _isSelectOriginalPhoto = tzImagePickerVc.isSelectOriginalPhoto;
@@ -392,7 +393,7 @@ static CGFloat itemMargin = 5;
                     if (![TZImagePickerConfig sharedInstance].notScaleImage) {
                         photo = [[TZImageManager manager] scaleImage:photo toSize:CGSizeMake(tzImagePickerVc.photoWidth, (int)(tzImagePickerVc.photoWidth * photo.size.height / photo.size.width))];
                     }
-                    photo.localIdentifier = [[TZImageManager manager] getAssetIdentifier:model.asset];
+                    [photo setValue:[[TZImageManager manager] getAssetIdentifier:model.asset] forKey:@"localIdentifier"];
                     [photos replaceObjectAtIndex:i withObject:photo];
                 }
                 if (info)  [infoArr replaceObjectAtIndex:i withObject:info];

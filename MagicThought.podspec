@@ -144,7 +144,7 @@ s.author = { "alrjqow" => "764032554@qq.com" }
 s.platform = :ios, "8.0"
 
 s.source = { :git => "https://github.com/alrjqow/MagicThought.git", :tag =>"#{s.version}", :branch => "master" }
-s.source_files = "MagicThought/MagicThought/MagicThought/*"
+s.source_files = "MagicThought/MagicThought/MagicThought/**/*.{h,m}"
 s.resources = "MagicThought/MagicThought/MagicThought/*"
 s.framework = "UIKit"
 # s.frameworks = “SomeFramework”, “AnotherFramework”
