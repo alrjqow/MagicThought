@@ -134,7 +134,7 @@ Pod::Spec.new do |s|
   # s.dependency "JSONKit", "~> 1.4"
 
 s.name = "MagicThought"
-s.version = "1.1.1"
+s.version = "1.1.2"
 s.summary = "MagicThought for ios."
 s.description = "the MagicThought for ios."
 s.homepage = "https://github.com/alrjqow/MagicThought"
@@ -153,16 +153,8 @@ s.framework = "UIKit"
 s.requires_arc = true
 # s.xcconfig = { “HEADER_SEARCH_PATHS” => “$(SDKROOT)/usr/include/libxml2” }
 
-
-s.prefix_header_contents = <<-EOS
-#ifdef __OBJC__
-#import "MTKit.h"    //SGExtension包含了所有头文件
-#endif
-EOS
-end
-
-
 #s.prefix_header_file = 'MagicThought/MagicThought/MagicThought/MTKit.h'
+
 
 s.dependency "Masonry"
 

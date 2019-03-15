@@ -7,19 +7,19 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		7891C94E223B3A960010DD55 /* MTDefine.h in Headers */ = {isa = PBXBuildFile; fileRef = 7891C949223B3A960010DD55 /* MTDefine.h */; };
-		7891C954223B3AE40010DD55 /* MTThirdSDKList.h in Headers */ = {isa = PBXBuildFile; fileRef = 7891C953223B3AE40010DD55 /* MTThirdSDKList.h */; };
+		7891C94E223B3A960010DD55 /* MTDefine.h in Headers */ = {isa = PBXBuildFile; fileRef = 7891C949223B3A960010DD55 /* MTDefine.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		7891C954223B3AE40010DD55 /* MTThirdSDKList.h in Headers */ = {isa = PBXBuildFile; fileRef = 7891C953223B3AE40010DD55 /* MTThirdSDKList.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		7891C957223B3BAA0010DD55 /* MTConst.m in Sources */ = {isa = PBXBuildFile; fileRef = 7891C955223B3BA90010DD55 /* MTConst.m */; };
-		7891C958223B3BAA0010DD55 /* MTConst.h in Headers */ = {isa = PBXBuildFile; fileRef = 7891C956223B3BA90010DD55 /* MTConst.h */; };
-		7891C95A223B3BDE0010DD55 /* MTCategory.h in Headers */ = {isa = PBXBuildFile; fileRef = 7891C959223B3BDE0010DD55 /* MTCategory.h */; };
-		7891C974223B3C1F0010DD55 /* NSString+Exist.h in Headers */ = {isa = PBXBuildFile; fileRef = 7891C95E223B3C1F0010DD55 /* NSString+Exist.h */; };
+		7891C958223B3BAA0010DD55 /* MTConst.h in Headers */ = {isa = PBXBuildFile; fileRef = 7891C956223B3BA90010DD55 /* MTConst.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		7891C95A223B3BDE0010DD55 /* MTCategory.h in Headers */ = {isa = PBXBuildFile; fileRef = 7891C959223B3BDE0010DD55 /* MTCategory.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		7891C974223B3C1F0010DD55 /* NSString+Exist.h in Headers */ = {isa = PBXBuildFile; fileRef = 7891C95E223B3C1F0010DD55 /* NSString+Exist.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		7891C97E223B3C1F0010DD55 /* NSString+Exist.m in Sources */ = {isa = PBXBuildFile; fileRef = 7891C968223B3C1F0010DD55 /* NSString+Exist.m */; };
-		78D56933223A250D00FB3871 /* MTKit.h in Headers */ = {isa = PBXBuildFile; fileRef = 78D56932223A250D00FB3871 /* MTKit.h */; };
-		78D56BA3223A27CF00FB3871 /* MTProtocol.h in Headers */ = {isa = PBXBuildFile; fileRef = 78D56B9E223A27CF00FB3871 /* MTProtocol.h */; };
-		78D56BA4223A27CF00FB3871 /* MTApiProtocol.h in Headers */ = {isa = PBXBuildFile; fileRef = 78D56B9F223A27CF00FB3871 /* MTApiProtocol.h */; };
-		78D56BA5223A27CF00FB3871 /* MTRequestProtocol.h in Headers */ = {isa = PBXBuildFile; fileRef = 78D56BA0223A27CF00FB3871 /* MTRequestProtocol.h */; };
-		78D56BA6223A27CF00FB3871 /* MTStyleProtocol.h in Headers */ = {isa = PBXBuildFile; fileRef = 78D56BA1223A27CF00FB3871 /* MTStyleProtocol.h */; };
-		78D56BA7223A27CF00FB3871 /* MTDelegateProtocol.h in Headers */ = {isa = PBXBuildFile; fileRef = 78D56BA2223A27CF00FB3871 /* MTDelegateProtocol.h */; };
+		78D56933223A250D00FB3871 /* MTKit.h in Headers */ = {isa = PBXBuildFile; fileRef = 78D56932223A250D00FB3871 /* MTKit.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		78D56BA3223A27CF00FB3871 /* MTProtocol.h in Headers */ = {isa = PBXBuildFile; fileRef = 78D56B9E223A27CF00FB3871 /* MTProtocol.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		78D56BA4223A27CF00FB3871 /* MTApiProtocol.h in Headers */ = {isa = PBXBuildFile; fileRef = 78D56B9F223A27CF00FB3871 /* MTApiProtocol.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		78D56BA5223A27CF00FB3871 /* MTRequestProtocol.h in Headers */ = {isa = PBXBuildFile; fileRef = 78D56BA0223A27CF00FB3871 /* MTRequestProtocol.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		78D56BA6223A27CF00FB3871 /* MTStyleProtocol.h in Headers */ = {isa = PBXBuildFile; fileRef = 78D56BA1223A27CF00FB3871 /* MTStyleProtocol.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		78D56BA7223A27CF00FB3871 /* MTDelegateProtocol.h in Headers */ = {isa = PBXBuildFile; fileRef = 78D56BA2223A27CF00FB3871 /* MTDelegateProtocol.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		7D9CE3933B1BD4251D7E38C8 /* libPods-MagicThought.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 3E6954489A214AEC6611949C /* libPods-MagicThought.a */; };
 /* End PBXBuildFile section */
 
