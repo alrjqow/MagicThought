@@ -7,9 +7,9 @@
 //
 
 
-//#import "MTThirdSDKList.h"
+#import "MTThirdSDKList.h"
 //
-//#import "MTDefine.h"
+#import "MTDefine.h"
 //
 //#import "MTConst.h"
 

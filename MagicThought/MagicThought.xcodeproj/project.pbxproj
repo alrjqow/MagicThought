@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		7891C94E223B3A960010DD55 /* MTDefine.h in Headers */ = {isa = PBXBuildFile; fileRef = 7891C949223B3A960010DD55 /* MTDefine.h */; };
+		7891C954223B3AE40010DD55 /* MTThirdSDKList.h in Headers */ = {isa = PBXBuildFile; fileRef = 7891C953223B3AE40010DD55 /* MTThirdSDKList.h */; };
 		78D56933223A250D00FB3871 /* MTKit.h in Headers */ = {isa = PBXBuildFile; fileRef = 78D56932223A250D00FB3871 /* MTKit.h */; };
 		78D56BA3223A27CF00FB3871 /* MTProtocol.h in Headers */ = {isa = PBXBuildFile; fileRef = 78D56B9E223A27CF00FB3871 /* MTProtocol.h */; };
 		78D56BA4223A27CF00FB3871 /* MTApiProtocol.h in Headers */ = {isa = PBXBuildFile; fileRef = 78D56B9F223A27CF00FB3871 /* MTApiProtocol.h */; };
@@ -20,6 +22,8 @@
 		210510B7765DBA71AEBA6E98 /* Pods-MagicThought.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MagicThought.release.xcconfig"; path = "Pods/Target Support Files/Pods-MagicThought/Pods-MagicThought.release.xcconfig"; sourceTree = "<group>"; };
 		3E6954489A214AEC6611949C /* libPods-MagicThought.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-MagicThought.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		5C1BD1A3B7E4CF44B667CE97 /* Pods-MagicThought.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MagicThought.debug.xcconfig"; path = "Pods/Target Support Files/Pods-MagicThought/Pods-MagicThought.debug.xcconfig"; sourceTree = "<group>"; };
+		7891C949223B3A960010DD55 /* MTDefine.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MTDefine.h; sourceTree = "<group>"; };
+		7891C953223B3AE40010DD55 /* MTThirdSDKList.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MTThirdSDKList.h; sourceTree = "<group>"; };
 		78D56932223A250D00FB3871 /* MTKit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MTKit.h; sourceTree = "<group>"; };
 		78D56B9E223A27CF00FB3871 /* MTProtocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MTProtocol.h; sourceTree = "<group>"; };
 		78D56B9F223A27CF00FB3871 /* MTApiProtocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MTApiProtocol.h; sourceTree = "<group>"; };
@@ -42,6 +46,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		7891C948223B3A960010DD55 /* Config */ = {
+			isa = PBXGroup;
+			children = (
+				7891C953223B3AE40010DD55 /* MTThirdSDKList.h */,
+				7891C949223B3A960010DD55 /* MTDefine.h */,
+			);
+			path = Config;
+			sourceTree = "<group>";
+		};
 		78D56B9D223A27CF00FB3871 /* Protocol */ = {
 			isa = PBXGroup;
 			children = (
@@ -85,6 +98,7 @@
 			isa = PBXGroup;
 			children = (
 				78D56932223A250D00FB3871 /* MTKit.h */,
+				7891C948223B3A960010DD55 /* Config */,
 				78D56B9D223A27CF00FB3871 /* Protocol */,
 			);
 			path = MagicThought;
@@ -114,12 +128,14 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7891C954223B3AE40010DD55 /* MTThirdSDKList.h in Headers */,
 				78D56BA4223A27CF00FB3871 /* MTApiProtocol.h in Headers */,
 				78D56BA5223A27CF00FB3871 /* MTRequestProtocol.h in Headers */,
 				78D56BA7223A27CF00FB3871 /* MTDelegateProtocol.h in Headers */,
 				78D56933223A250D00FB3871 /* MTKit.h in Headers */,
 				78D56BA6223A27CF00FB3871 /* MTStyleProtocol.h in Headers */,
 				78D56BA3223A27CF00FB3871 /* MTProtocol.h in Headers */,
+				7891C94E223B3A960010DD55 /* MTDefine.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
