@@ -7,20 +7,20 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		7891C94E223B3A960010DD55 /* MTDefine.h in Headers */ = {isa = PBXBuildFile; fileRef = 7891C949223B3A960010DD55 /* MTDefine.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		7891C954223B3AE40010DD55 /* MTThirdSDKList.h in Headers */ = {isa = PBXBuildFile; fileRef = 7891C953223B3AE40010DD55 /* MTThirdSDKList.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		7891C957223B3BAA0010DD55 /* MTConst.m in Sources */ = {isa = PBXBuildFile; fileRef = 7891C955223B3BA90010DD55 /* MTConst.m */; };
-		7891C958223B3BAA0010DD55 /* MTConst.h in Headers */ = {isa = PBXBuildFile; fileRef = 7891C956223B3BA90010DD55 /* MTConst.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		7891C95A223B3BDE0010DD55 /* MTCategory.h in Headers */ = {isa = PBXBuildFile; fileRef = 7891C959223B3BDE0010DD55 /* MTCategory.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		7891C974223B3C1F0010DD55 /* NSString+Exist.h in Headers */ = {isa = PBXBuildFile; fileRef = 7891C95E223B3C1F0010DD55 /* NSString+Exist.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		7891C97E223B3C1F0010DD55 /* NSString+Exist.m in Sources */ = {isa = PBXBuildFile; fileRef = 7891C968223B3C1F0010DD55 /* NSString+Exist.m */; };
-		7891C98A223B45660010DD55 /* MagicThought.pch in Headers */ = {isa = PBXBuildFile; fileRef = 7891C989223B45620010DD55 /* MagicThought.pch */; };
-		78D56933223A250D00FB3871 /* MTKit.h in Headers */ = {isa = PBXBuildFile; fileRef = 78D56932223A250D00FB3871 /* MTKit.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		78D56BA3223A27CF00FB3871 /* MTProtocol.h in Headers */ = {isa = PBXBuildFile; fileRef = 78D56B9E223A27CF00FB3871 /* MTProtocol.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		78D56BA4223A27CF00FB3871 /* MTApiProtocol.h in Headers */ = {isa = PBXBuildFile; fileRef = 78D56B9F223A27CF00FB3871 /* MTApiProtocol.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		78D56BA5223A27CF00FB3871 /* MTRequestProtocol.h in Headers */ = {isa = PBXBuildFile; fileRef = 78D56BA0223A27CF00FB3871 /* MTRequestProtocol.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		78D56BA6223A27CF00FB3871 /* MTStyleProtocol.h in Headers */ = {isa = PBXBuildFile; fileRef = 78D56BA1223A27CF00FB3871 /* MTStyleProtocol.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		78D56BA7223A27CF00FB3871 /* MTDelegateProtocol.h in Headers */ = {isa = PBXBuildFile; fileRef = 78D56BA2223A27CF00FB3871 /* MTDelegateProtocol.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		7891C997223B90630010DD55 /* MTDefine.h in Headers */ = {isa = PBXBuildFile; fileRef = 7891C98D223B90630010DD55 /* MTDefine.h */; };
+		7891C998223B90630010DD55 /* MTConst.m in Sources */ = {isa = PBXBuildFile; fileRef = 7891C98E223B90630010DD55 /* MTConst.m */; };
+		7891C999223B90630010DD55 /* MagicThought.pch in Headers */ = {isa = PBXBuildFile; fileRef = 7891C98F223B90630010DD55 /* MagicThought.pch */; };
+		7891C99A223B90630010DD55 /* MTCategory.h in Headers */ = {isa = PBXBuildFile; fileRef = 7891C990223B90630010DD55 /* MTCategory.h */; };
+		7891C99B223B90630010DD55 /* MTConst.h in Headers */ = {isa = PBXBuildFile; fileRef = 7891C991223B90630010DD55 /* MTConst.h */; };
+		7891C99C223B90630010DD55 /* MTThirdSDKList.h in Headers */ = {isa = PBXBuildFile; fileRef = 7891C992223B90630010DD55 /* MTThirdSDKList.h */; };
+		7891C99D223B90630010DD55 /* NSString+Exist.h in Headers */ = {isa = PBXBuildFile; fileRef = 7891C995223B90630010DD55 /* NSString+Exist.h */; };
+		7891C99E223B90630010DD55 /* NSString+Exist.m in Sources */ = {isa = PBXBuildFile; fileRef = 7891C996223B90630010DD55 /* NSString+Exist.m */; };
+		7891C9A6223B90690010DD55 /* MTProtocol.h in Headers */ = {isa = PBXBuildFile; fileRef = 7891C9A0223B90690010DD55 /* MTProtocol.h */; };
+		7891C9A7223B90690010DD55 /* MTApiProtocol.h in Headers */ = {isa = PBXBuildFile; fileRef = 7891C9A1223B90690010DD55 /* MTApiProtocol.h */; };
+		7891C9A8223B90690010DD55 /* MTRequestProtocol.h in Headers */ = {isa = PBXBuildFile; fileRef = 7891C9A2223B90690010DD55 /* MTRequestProtocol.h */; };
+		7891C9A9223B90690010DD55 /* MTStyleProtocol.h in Headers */ = {isa = PBXBuildFile; fileRef = 7891C9A3223B90690010DD55 /* MTStyleProtocol.h */; };
+		7891C9AA223B90690010DD55 /* MTDelegateProtocol.h in Headers */ = {isa = PBXBuildFile; fileRef = 7891C9A4223B90690010DD55 /* MTDelegateProtocol.h */; };
+		7891C9AB223B90690010DD55 /* MTKit.h in Headers */ = {isa = PBXBuildFile; fileRef = 7891C9A5223B90690010DD55 /* MTKit.h */; };
 		7D9CE3933B1BD4251D7E38C8 /* libPods-MagicThought.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 3E6954489A214AEC6611949C /* libPods-MagicThought.a */; };
 /* End PBXBuildFile section */
 
@@ -28,20 +28,20 @@
 		210510B7765DBA71AEBA6E98 /* Pods-MagicThought.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MagicThought.release.xcconfig"; path = "Pods/Target Support Files/Pods-MagicThought/Pods-MagicThought.release.xcconfig"; sourceTree = "<group>"; };
 		3E6954489A214AEC6611949C /* libPods-MagicThought.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-MagicThought.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		5C1BD1A3B7E4CF44B667CE97 /* Pods-MagicThought.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MagicThought.debug.xcconfig"; path = "Pods/Target Support Files/Pods-MagicThought/Pods-MagicThought.debug.xcconfig"; sourceTree = "<group>"; };
-		7891C949223B3A960010DD55 /* MTDefine.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MTDefine.h; sourceTree = "<group>"; };
-		7891C953223B3AE40010DD55 /* MTThirdSDKList.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MTThirdSDKList.h; sourceTree = "<group>"; };
-		7891C955223B3BA90010DD55 /* MTConst.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MTConst.m; sourceTree = "<group>"; };
-		7891C956223B3BA90010DD55 /* MTConst.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MTConst.h; sourceTree = "<group>"; };
-		7891C959223B3BDE0010DD55 /* MTCategory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MTCategory.h; sourceTree = "<group>"; };
-		7891C95E223B3C1F0010DD55 /* NSString+Exist.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+Exist.h"; sourceTree = "<group>"; };
-		7891C968223B3C1F0010DD55 /* NSString+Exist.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+Exist.m"; sourceTree = "<group>"; };
-		7891C989223B45620010DD55 /* MagicThought.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MagicThought.pch; sourceTree = "<group>"; };
-		78D56932223A250D00FB3871 /* MTKit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MTKit.h; sourceTree = "<group>"; };
-		78D56B9E223A27CF00FB3871 /* MTProtocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MTProtocol.h; sourceTree = "<group>"; };
-		78D56B9F223A27CF00FB3871 /* MTApiProtocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MTApiProtocol.h; sourceTree = "<group>"; };
-		78D56BA0223A27CF00FB3871 /* MTRequestProtocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MTRequestProtocol.h; sourceTree = "<group>"; };
-		78D56BA1223A27CF00FB3871 /* MTStyleProtocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MTStyleProtocol.h; sourceTree = "<group>"; };
-		78D56BA2223A27CF00FB3871 /* MTDelegateProtocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MTDelegateProtocol.h; sourceTree = "<group>"; };
+		7891C98D223B90630010DD55 /* MTDefine.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MTDefine.h; sourceTree = "<group>"; };
+		7891C98E223B90630010DD55 /* MTConst.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MTConst.m; sourceTree = "<group>"; };
+		7891C98F223B90630010DD55 /* MagicThought.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MagicThought.pch; sourceTree = "<group>"; };
+		7891C990223B90630010DD55 /* MTCategory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MTCategory.h; sourceTree = "<group>"; };
+		7891C991223B90630010DD55 /* MTConst.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MTConst.h; sourceTree = "<group>"; };
+		7891C992223B90630010DD55 /* MTThirdSDKList.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MTThirdSDKList.h; sourceTree = "<group>"; };
+		7891C995223B90630010DD55 /* NSString+Exist.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+Exist.h"; sourceTree = "<group>"; };
+		7891C996223B90630010DD55 /* NSString+Exist.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+Exist.m"; sourceTree = "<group>"; };
+		7891C9A0223B90690010DD55 /* MTProtocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MTProtocol.h; sourceTree = "<group>"; };
+		7891C9A1223B90690010DD55 /* MTApiProtocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MTApiProtocol.h; sourceTree = "<group>"; };
+		7891C9A2223B90690010DD55 /* MTRequestProtocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MTRequestProtocol.h; sourceTree = "<group>"; };
+		7891C9A3223B90690010DD55 /* MTStyleProtocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MTStyleProtocol.h; sourceTree = "<group>"; };
+		7891C9A4223B90690010DD55 /* MTDelegateProtocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MTDelegateProtocol.h; sourceTree = "<group>"; };
+		7891C9A5223B90690010DD55 /* MTKit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MTKit.h; sourceTree = "<group>"; };
 		78F3327C2239051C00DA02F6 /* MagicThought.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = MagicThought.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		78F332802239051C00DA02F6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -58,44 +58,44 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		7891C948223B3A960010DD55 /* Config */ = {
+		7891C98C223B90630010DD55 /* Config */ = {
 			isa = PBXGroup;
 			children = (
-				7891C989223B45620010DD55 /* MagicThought.pch */,
-				7891C953223B3AE40010DD55 /* MTThirdSDKList.h */,
-				7891C949223B3A960010DD55 /* MTDefine.h */,
-				7891C959223B3BDE0010DD55 /* MTCategory.h */,
-				7891C956223B3BA90010DD55 /* MTConst.h */,
-				7891C955223B3BA90010DD55 /* MTConst.m */,
+				7891C98D223B90630010DD55 /* MTDefine.h */,
+				7891C98E223B90630010DD55 /* MTConst.m */,
+				7891C98F223B90630010DD55 /* MagicThought.pch */,
+				7891C990223B90630010DD55 /* MTCategory.h */,
+				7891C991223B90630010DD55 /* MTConst.h */,
+				7891C992223B90630010DD55 /* MTThirdSDKList.h */,
 			);
 			path = Config;
 			sourceTree = "<group>";
 		};
-		7891C95B223B3C050010DD55 /* Category */ = {
+		7891C993223B90630010DD55 /* Category */ = {
 			isa = PBXGroup;
 			children = (
-				7891C95C223B3C1F0010DD55 /* NSString */,
+				7891C994223B90630010DD55 /* NSString */,
 			);
 			path = Category;
 			sourceTree = "<group>";
 		};
-		7891C95C223B3C1F0010DD55 /* NSString */ = {
+		7891C994223B90630010DD55 /* NSString */ = {
 			isa = PBXGroup;
 			children = (
-				7891C95E223B3C1F0010DD55 /* NSString+Exist.h */,
-				7891C968223B3C1F0010DD55 /* NSString+Exist.m */,
+				7891C995223B90630010DD55 /* NSString+Exist.h */,
+				7891C996223B90630010DD55 /* NSString+Exist.m */,
 			);
 			path = NSString;
 			sourceTree = "<group>";
 		};
-		78D56B9D223A27CF00FB3871 /* Protocol */ = {
+		7891C99F223B90690010DD55 /* Protocol */ = {
 			isa = PBXGroup;
 			children = (
-				78D56B9E223A27CF00FB3871 /* MTProtocol.h */,
-				78D56B9F223A27CF00FB3871 /* MTApiProtocol.h */,
-				78D56BA0223A27CF00FB3871 /* MTRequestProtocol.h */,
-				78D56BA1223A27CF00FB3871 /* MTStyleProtocol.h */,
-				78D56BA2223A27CF00FB3871 /* MTDelegateProtocol.h */,
+				7891C9A0223B90690010DD55 /* MTProtocol.h */,
+				7891C9A1223B90690010DD55 /* MTApiProtocol.h */,
+				7891C9A2223B90690010DD55 /* MTRequestProtocol.h */,
+				7891C9A3223B90690010DD55 /* MTStyleProtocol.h */,
+				7891C9A4223B90690010DD55 /* MTDelegateProtocol.h */,
 			);
 			path = Protocol;
 			sourceTree = "<group>";
@@ -121,19 +121,11 @@
 		78F3327E2239051C00DA02F6 /* MagicThought */ = {
 			isa = PBXGroup;
 			children = (
-				78F3328722390FAB00DA02F6 /* MagicThought */,
+				7891C9A5223B90690010DD55 /* MTKit.h */,
+				7891C99F223B90690010DD55 /* Protocol */,
+				7891C993223B90630010DD55 /* Category */,
+				7891C98C223B90630010DD55 /* Config */,
 				78F332802239051C00DA02F6 /* Info.plist */,
-			);
-			path = MagicThought;
-			sourceTree = "<group>";
-		};
-		78F3328722390FAB00DA02F6 /* MagicThought */ = {
-			isa = PBXGroup;
-			children = (
-				78D56932223A250D00FB3871 /* MTKit.h */,
-				7891C95B223B3C050010DD55 /* Category */,
-				7891C948223B3A960010DD55 /* Config */,
-				78D56B9D223A27CF00FB3871 /* Protocol */,
 			);
 			path = MagicThought;
 			sourceTree = "<group>";
@@ -162,18 +154,18 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				7891C954223B3AE40010DD55 /* MTThirdSDKList.h in Headers */,
-				7891C98A223B45660010DD55 /* MagicThought.pch in Headers */,
-				78D56BA4223A27CF00FB3871 /* MTApiProtocol.h in Headers */,
-				78D56BA5223A27CF00FB3871 /* MTRequestProtocol.h in Headers */,
-				78D56BA7223A27CF00FB3871 /* MTDelegateProtocol.h in Headers */,
-				78D56933223A250D00FB3871 /* MTKit.h in Headers */,
-				78D56BA6223A27CF00FB3871 /* MTStyleProtocol.h in Headers */,
-				78D56BA3223A27CF00FB3871 /* MTProtocol.h in Headers */,
-				7891C95A223B3BDE0010DD55 /* MTCategory.h in Headers */,
-				7891C958223B3BAA0010DD55 /* MTConst.h in Headers */,
-				7891C974223B3C1F0010DD55 /* NSString+Exist.h in Headers */,
-				7891C94E223B3A960010DD55 /* MTDefine.h in Headers */,
+				7891C99D223B90630010DD55 /* NSString+Exist.h in Headers */,
+				7891C997223B90630010DD55 /* MTDefine.h in Headers */,
+				7891C9A7223B90690010DD55 /* MTApiProtocol.h in Headers */,
+				7891C9A6223B90690010DD55 /* MTProtocol.h in Headers */,
+				7891C999223B90630010DD55 /* MagicThought.pch in Headers */,
+				7891C9AA223B90690010DD55 /* MTDelegateProtocol.h in Headers */,
+				7891C9AB223B90690010DD55 /* MTKit.h in Headers */,
+				7891C9A9223B90690010DD55 /* MTStyleProtocol.h in Headers */,
+				7891C9A8223B90690010DD55 /* MTRequestProtocol.h in Headers */,
+				7891C99A223B90630010DD55 /* MTCategory.h in Headers */,
+				7891C99C223B90630010DD55 /* MTThirdSDKList.h in Headers */,
+				7891C99B223B90630010DD55 /* MTConst.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -291,8 +283,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				7891C957223B3BAA0010DD55 /* MTConst.m in Sources */,
-				7891C97E223B3C1F0010DD55 /* NSString+Exist.m in Sources */,
+				7891C998223B90630010DD55 /* MTConst.m in Sources */,
+				7891C99E223B90630010DD55 /* NSString+Exist.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -432,7 +424,7 @@
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
 				GCC_C_LANGUAGE_STANDARD = gnu11;
-				GCC_PREFIX_HEADER = MagicThought/MagicThought/Config/MagicThought.pch;
+				GCC_PREFIX_HEADER = MagicThought/Config/MagicThought.pch;
 				INFOPLIST_FILE = MagicThought/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -462,7 +454,7 @@
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
 				GCC_C_LANGUAGE_STANDARD = gnu11;
-				GCC_PREFIX_HEADER = MagicThought/MagicThought/Config/MagicThought.pch;
+				GCC_PREFIX_HEADER = MagicThought/Config/MagicThought.pch;
 				INFOPLIST_FILE = MagicThought/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = (

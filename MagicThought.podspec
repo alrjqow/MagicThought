@@ -134,7 +134,7 @@ Pod::Spec.new do |s|
   # s.dependency "JSONKit", "~> 1.4"
 
 s.name = "MagicThought"
-s.version = "1.1.5"
+s.version = "1.1.7"
 s.summary = "MagicThought for ios."
 s.description = "the MagicThought for ios."
 s.homepage = "https://github.com/alrjqow/MagicThought"
@@ -153,7 +153,7 @@ s.framework = "UIKit"
 s.requires_arc = true
 # s.xcconfig = { “HEADER_SEARCH_PATHS” => “$(SDKROOT)/usr/include/libxml2” }
 
-#s.prefix_header_file = 'MagicThought/MagicThought/MagicThought/Config/MagicThought.pch'
+s.prefix_header_file = 'MagicThought/Config/MagicThought.pch'
 
 
 s.dependency "Masonry"
