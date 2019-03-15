@@ -9,6 +9,31 @@
 /* Begin PBXBuildFile section */
 		7891C94E223B3A960010DD55 /* MTDefine.h in Headers */ = {isa = PBXBuildFile; fileRef = 7891C949223B3A960010DD55 /* MTDefine.h */; };
 		7891C954223B3AE40010DD55 /* MTThirdSDKList.h in Headers */ = {isa = PBXBuildFile; fileRef = 7891C953223B3AE40010DD55 /* MTThirdSDKList.h */; };
+		7891C957223B3BAA0010DD55 /* MTConst.m in Sources */ = {isa = PBXBuildFile; fileRef = 7891C955223B3BA90010DD55 /* MTConst.m */; };
+		7891C958223B3BAA0010DD55 /* MTConst.h in Headers */ = {isa = PBXBuildFile; fileRef = 7891C956223B3BA90010DD55 /* MTConst.h */; };
+		7891C95A223B3BDE0010DD55 /* MTCategory.h in Headers */ = {isa = PBXBuildFile; fileRef = 7891C959223B3BDE0010DD55 /* MTCategory.h */; };
+		7891C973223B3C1F0010DD55 /* NSString+Hash.m in Sources */ = {isa = PBXBuildFile; fileRef = 7891C95D223B3C1F0010DD55 /* NSString+Hash.m */; };
+		7891C974223B3C1F0010DD55 /* NSString+Exist.h in Headers */ = {isa = PBXBuildFile; fileRef = 7891C95E223B3C1F0010DD55 /* NSString+Exist.h */; };
+		7891C975223B3C1F0010DD55 /* NSString+Base64.m in Sources */ = {isa = PBXBuildFile; fileRef = 7891C95F223B3C1F0010DD55 /* NSString+Base64.m */; };
+		7891C976223B3C1F0010DD55 /* NSString+TestString.m in Sources */ = {isa = PBXBuildFile; fileRef = 7891C960223B3C1F0010DD55 /* NSString+TestString.m */; };
+		7891C977223B3C1F0010DD55 /* NSString+WordHeight.m in Sources */ = {isa = PBXBuildFile; fileRef = 7891C961223B3C1F0010DD55 /* NSString+WordHeight.m */; };
+		7891C978223B3C1F0010DD55 /* NSString+Money.h in Headers */ = {isa = PBXBuildFile; fileRef = 7891C962223B3C1F0010DD55 /* NSString+Money.h */; };
+		7891C979223B3C1F0010DD55 /* NSString+Replace.h in Headers */ = {isa = PBXBuildFile; fileRef = 7891C963223B3C1F0010DD55 /* NSString+Replace.h */; };
+		7891C97A223B3C1F0010DD55 /* NSString+MD5.h in Headers */ = {isa = PBXBuildFile; fileRef = 7891C964223B3C1F0010DD55 /* NSString+MD5.h */; };
+		7891C97B223B3C1F0010DD55 /* NSString+Bundle.m in Sources */ = {isa = PBXBuildFile; fileRef = 7891C965223B3C1F0010DD55 /* NSString+Bundle.m */; };
+		7891C97C223B3C1F0010DD55 /* NSString+Unicode.m in Sources */ = {isa = PBXBuildFile; fileRef = 7891C966223B3C1F0010DD55 /* NSString+Unicode.m */; };
+		7891C97D223B3C1F0010DD55 /* NSString+Encode.h in Headers */ = {isa = PBXBuildFile; fileRef = 7891C967223B3C1F0010DD55 /* NSString+Encode.h */; };
+		7891C97E223B3C1F0010DD55 /* NSString+Exist.m in Sources */ = {isa = PBXBuildFile; fileRef = 7891C968223B3C1F0010DD55 /* NSString+Exist.m */; };
+		7891C97F223B3C1F0010DD55 /* NSString+Hash.h in Headers */ = {isa = PBXBuildFile; fileRef = 7891C969223B3C1F0010DD55 /* NSString+Hash.h */; };
+		7891C980223B3C1F0010DD55 /* NSString+Money.m in Sources */ = {isa = PBXBuildFile; fileRef = 7891C96A223B3C1F0010DD55 /* NSString+Money.m */; };
+		7891C981223B3C1F0010DD55 /* NSString+WordHeight.h in Headers */ = {isa = PBXBuildFile; fileRef = 7891C96B223B3C1F0010DD55 /* NSString+WordHeight.h */; };
+		7891C982223B3C1F0010DD55 /* NSString+TestString.h in Headers */ = {isa = PBXBuildFile; fileRef = 7891C96C223B3C1F0010DD55 /* NSString+TestString.h */; };
+		7891C983223B3C1F0010DD55 /* NSString+Base64.h in Headers */ = {isa = PBXBuildFile; fileRef = 7891C96D223B3C1F0010DD55 /* NSString+Base64.h */; };
+		7891C984223B3C1F0010DD55 /* NSString+Bundle.h in Headers */ = {isa = PBXBuildFile; fileRef = 7891C96E223B3C1F0010DD55 /* NSString+Bundle.h */; };
+		7891C985223B3C1F0010DD55 /* NSString+MD5.m in Sources */ = {isa = PBXBuildFile; fileRef = 7891C96F223B3C1F0010DD55 /* NSString+MD5.m */; };
+		7891C986223B3C1F0010DD55 /* NSString+Replace.m in Sources */ = {isa = PBXBuildFile; fileRef = 7891C970223B3C1F0010DD55 /* NSString+Replace.m */; };
+		7891C987223B3C1F0010DD55 /* NSString+Encode.m in Sources */ = {isa = PBXBuildFile; fileRef = 7891C971223B3C1F0010DD55 /* NSString+Encode.m */; };
+		7891C988223B3C1F0010DD55 /* NSString+Unicode.h in Headers */ = {isa = PBXBuildFile; fileRef = 7891C972223B3C1F0010DD55 /* NSString+Unicode.h */; };
 		78D56933223A250D00FB3871 /* MTKit.h in Headers */ = {isa = PBXBuildFile; fileRef = 78D56932223A250D00FB3871 /* MTKit.h */; };
 		78D56BA3223A27CF00FB3871 /* MTProtocol.h in Headers */ = {isa = PBXBuildFile; fileRef = 78D56B9E223A27CF00FB3871 /* MTProtocol.h */; };
 		78D56BA4223A27CF00FB3871 /* MTApiProtocol.h in Headers */ = {isa = PBXBuildFile; fileRef = 78D56B9F223A27CF00FB3871 /* MTApiProtocol.h */; };
@@ -24,6 +49,31 @@
 		5C1BD1A3B7E4CF44B667CE97 /* Pods-MagicThought.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MagicThought.debug.xcconfig"; path = "Pods/Target Support Files/Pods-MagicThought/Pods-MagicThought.debug.xcconfig"; sourceTree = "<group>"; };
 		7891C949223B3A960010DD55 /* MTDefine.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MTDefine.h; sourceTree = "<group>"; };
 		7891C953223B3AE40010DD55 /* MTThirdSDKList.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MTThirdSDKList.h; sourceTree = "<group>"; };
+		7891C955223B3BA90010DD55 /* MTConst.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MTConst.m; sourceTree = "<group>"; };
+		7891C956223B3BA90010DD55 /* MTConst.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MTConst.h; sourceTree = "<group>"; };
+		7891C959223B3BDE0010DD55 /* MTCategory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MTCategory.h; sourceTree = "<group>"; };
+		7891C95D223B3C1F0010DD55 /* NSString+Hash.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+Hash.m"; sourceTree = "<group>"; };
+		7891C95E223B3C1F0010DD55 /* NSString+Exist.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+Exist.h"; sourceTree = "<group>"; };
+		7891C95F223B3C1F0010DD55 /* NSString+Base64.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+Base64.m"; sourceTree = "<group>"; };
+		7891C960223B3C1F0010DD55 /* NSString+TestString.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+TestString.m"; sourceTree = "<group>"; };
+		7891C961223B3C1F0010DD55 /* NSString+WordHeight.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+WordHeight.m"; sourceTree = "<group>"; };
+		7891C962223B3C1F0010DD55 /* NSString+Money.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+Money.h"; sourceTree = "<group>"; };
+		7891C963223B3C1F0010DD55 /* NSString+Replace.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+Replace.h"; sourceTree = "<group>"; };
+		7891C964223B3C1F0010DD55 /* NSString+MD5.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+MD5.h"; sourceTree = "<group>"; };
+		7891C965223B3C1F0010DD55 /* NSString+Bundle.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+Bundle.m"; sourceTree = "<group>"; };
+		7891C966223B3C1F0010DD55 /* NSString+Unicode.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+Unicode.m"; sourceTree = "<group>"; };
+		7891C967223B3C1F0010DD55 /* NSString+Encode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+Encode.h"; sourceTree = "<group>"; };
+		7891C968223B3C1F0010DD55 /* NSString+Exist.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+Exist.m"; sourceTree = "<group>"; };
+		7891C969223B3C1F0010DD55 /* NSString+Hash.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+Hash.h"; sourceTree = "<group>"; };
+		7891C96A223B3C1F0010DD55 /* NSString+Money.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+Money.m"; sourceTree = "<group>"; };
+		7891C96B223B3C1F0010DD55 /* NSString+WordHeight.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+WordHeight.h"; sourceTree = "<group>"; };
+		7891C96C223B3C1F0010DD55 /* NSString+TestString.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+TestString.h"; sourceTree = "<group>"; };
+		7891C96D223B3C1F0010DD55 /* NSString+Base64.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+Base64.h"; sourceTree = "<group>"; };
+		7891C96E223B3C1F0010DD55 /* NSString+Bundle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+Bundle.h"; sourceTree = "<group>"; };
+		7891C96F223B3C1F0010DD55 /* NSString+MD5.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+MD5.m"; sourceTree = "<group>"; };
+		7891C970223B3C1F0010DD55 /* NSString+Replace.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+Replace.m"; sourceTree = "<group>"; };
+		7891C971223B3C1F0010DD55 /* NSString+Encode.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+Encode.m"; sourceTree = "<group>"; };
+		7891C972223B3C1F0010DD55 /* NSString+Unicode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+Unicode.h"; sourceTree = "<group>"; };
 		78D56932223A250D00FB3871 /* MTKit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MTKit.h; sourceTree = "<group>"; };
 		78D56B9E223A27CF00FB3871 /* MTProtocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MTProtocol.h; sourceTree = "<group>"; };
 		78D56B9F223A27CF00FB3871 /* MTApiProtocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MTApiProtocol.h; sourceTree = "<group>"; };
@@ -49,10 +99,50 @@
 		7891C948223B3A960010DD55 /* Config */ = {
 			isa = PBXGroup;
 			children = (
+				7891C959223B3BDE0010DD55 /* MTCategory.h */,
+				7891C956223B3BA90010DD55 /* MTConst.h */,
+				7891C955223B3BA90010DD55 /* MTConst.m */,
 				7891C953223B3AE40010DD55 /* MTThirdSDKList.h */,
 				7891C949223B3A960010DD55 /* MTDefine.h */,
 			);
 			path = Config;
+			sourceTree = "<group>";
+		};
+		7891C95B223B3C050010DD55 /* Category */ = {
+			isa = PBXGroup;
+			children = (
+				7891C95C223B3C1F0010DD55 /* NSString */,
+			);
+			path = Category;
+			sourceTree = "<group>";
+		};
+		7891C95C223B3C1F0010DD55 /* NSString */ = {
+			isa = PBXGroup;
+			children = (
+				7891C95D223B3C1F0010DD55 /* NSString+Hash.m */,
+				7891C95E223B3C1F0010DD55 /* NSString+Exist.h */,
+				7891C95F223B3C1F0010DD55 /* NSString+Base64.m */,
+				7891C960223B3C1F0010DD55 /* NSString+TestString.m */,
+				7891C961223B3C1F0010DD55 /* NSString+WordHeight.m */,
+				7891C962223B3C1F0010DD55 /* NSString+Money.h */,
+				7891C963223B3C1F0010DD55 /* NSString+Replace.h */,
+				7891C964223B3C1F0010DD55 /* NSString+MD5.h */,
+				7891C965223B3C1F0010DD55 /* NSString+Bundle.m */,
+				7891C966223B3C1F0010DD55 /* NSString+Unicode.m */,
+				7891C967223B3C1F0010DD55 /* NSString+Encode.h */,
+				7891C968223B3C1F0010DD55 /* NSString+Exist.m */,
+				7891C969223B3C1F0010DD55 /* NSString+Hash.h */,
+				7891C96A223B3C1F0010DD55 /* NSString+Money.m */,
+				7891C96B223B3C1F0010DD55 /* NSString+WordHeight.h */,
+				7891C96C223B3C1F0010DD55 /* NSString+TestString.h */,
+				7891C96D223B3C1F0010DD55 /* NSString+Base64.h */,
+				7891C96E223B3C1F0010DD55 /* NSString+Bundle.h */,
+				7891C96F223B3C1F0010DD55 /* NSString+MD5.m */,
+				7891C970223B3C1F0010DD55 /* NSString+Replace.m */,
+				7891C971223B3C1F0010DD55 /* NSString+Encode.m */,
+				7891C972223B3C1F0010DD55 /* NSString+Unicode.h */,
+			);
+			path = NSString;
 			sourceTree = "<group>";
 		};
 		78D56B9D223A27CF00FB3871 /* Protocol */ = {
@@ -98,6 +188,7 @@
 			isa = PBXGroup;
 			children = (
 				78D56932223A250D00FB3871 /* MTKit.h */,
+				7891C95B223B3C050010DD55 /* Category */,
 				7891C948223B3A960010DD55 /* Config */,
 				78D56B9D223A27CF00FB3871 /* Protocol */,
 			);
@@ -128,13 +219,26 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7891C984223B3C1F0010DD55 /* NSString+Bundle.h in Headers */,
 				7891C954223B3AE40010DD55 /* MTThirdSDKList.h in Headers */,
+				7891C988223B3C1F0010DD55 /* NSString+Unicode.h in Headers */,
 				78D56BA4223A27CF00FB3871 /* MTApiProtocol.h in Headers */,
+				7891C979223B3C1F0010DD55 /* NSString+Replace.h in Headers */,
 				78D56BA5223A27CF00FB3871 /* MTRequestProtocol.h in Headers */,
 				78D56BA7223A27CF00FB3871 /* MTDelegateProtocol.h in Headers */,
+				7891C982223B3C1F0010DD55 /* NSString+TestString.h in Headers */,
 				78D56933223A250D00FB3871 /* MTKit.h in Headers */,
+				7891C978223B3C1F0010DD55 /* NSString+Money.h in Headers */,
 				78D56BA6223A27CF00FB3871 /* MTStyleProtocol.h in Headers */,
 				78D56BA3223A27CF00FB3871 /* MTProtocol.h in Headers */,
+				7891C97A223B3C1F0010DD55 /* NSString+MD5.h in Headers */,
+				7891C95A223B3BDE0010DD55 /* MTCategory.h in Headers */,
+				7891C983223B3C1F0010DD55 /* NSString+Base64.h in Headers */,
+				7891C981223B3C1F0010DD55 /* NSString+WordHeight.h in Headers */,
+				7891C97D223B3C1F0010DD55 /* NSString+Encode.h in Headers */,
+				7891C97F223B3C1F0010DD55 /* NSString+Hash.h in Headers */,
+				7891C958223B3BAA0010DD55 /* MTConst.h in Headers */,
+				7891C974223B3C1F0010DD55 /* NSString+Exist.h in Headers */,
 				7891C94E223B3A960010DD55 /* MTDefine.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -253,6 +357,18 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7891C980223B3C1F0010DD55 /* NSString+Money.m in Sources */,
+				7891C975223B3C1F0010DD55 /* NSString+Base64.m in Sources */,
+				7891C985223B3C1F0010DD55 /* NSString+MD5.m in Sources */,
+				7891C957223B3BAA0010DD55 /* MTConst.m in Sources */,
+				7891C977223B3C1F0010DD55 /* NSString+WordHeight.m in Sources */,
+				7891C987223B3C1F0010DD55 /* NSString+Encode.m in Sources */,
+				7891C986223B3C1F0010DD55 /* NSString+Replace.m in Sources */,
+				7891C97E223B3C1F0010DD55 /* NSString+Exist.m in Sources */,
+				7891C97B223B3C1F0010DD55 /* NSString+Bundle.m in Sources */,
+				7891C976223B3C1F0010DD55 /* NSString+TestString.m in Sources */,
+				7891C97C223B3C1F0010DD55 /* NSString+Unicode.m in Sources */,
+				7891C973223B3C1F0010DD55 /* NSString+Hash.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

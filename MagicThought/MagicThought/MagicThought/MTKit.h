@@ -17,7 +17,7 @@
 
 #import "MTProtocol.h"
 
-//#import "MTCategory.h"
+#import "MTCategory.h"
 
 //#import "MTView.h"
 
