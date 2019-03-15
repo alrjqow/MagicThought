@@ -144,8 +144,8 @@ s.author = { "alrjqow" => "764032554@qq.com" }
 s.platform = :ios, "8.0"
 
 s.source = { :git => "https://github.com/alrjqow/MagicThought.git", :tag =>"#{s.version}", :branch => "master" }
-s.source_files = "MagicThought/MagicThought/MagicThought/**/*.{h,m}"
-s.resources = "MagicThought/MagicThought/MagicThought/*"
+s.source_files = "MagicThought/**/*.{h,m}"
+#s.resources = "MagicThought/MagicThought/MagicThought/*"
 s.framework = "UIKit"
 # s.frameworks = “SomeFramework”, “AnotherFramework”
 # s.library = “iconv”
@@ -153,7 +153,7 @@ s.framework = "UIKit"
 s.requires_arc = true
 # s.xcconfig = { “HEADER_SEARCH_PATHS” => “$(SDKROOT)/usr/include/libxml2” }
 
-s.prefix_header_file = 'MagicThought/MagicThought/MagicThought/Config/MagicThought.pch'
+#s.prefix_header_file = 'MagicThought/MagicThought/MagicThought/Config/MagicThought.pch'
 
 
 s.dependency "Masonry"
