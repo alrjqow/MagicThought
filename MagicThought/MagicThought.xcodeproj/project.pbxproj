@@ -421,6 +421,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 5C1BD1A3B7E4CF44B667CE97 /* Pods-MagicThought.debug.xcconfig */;
 			buildSettings = {
+				CLANG_ALLOW_NON_MODULAR_INCLUDES_IN_FRAMEWORK_MODULES = YES;
 				CODE_SIGN_IDENTITY = "";
 				CODE_SIGN_STYLE = Automatic;
 				DEFINES_MODULE = YES;
@@ -450,6 +451,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 210510B7765DBA71AEBA6E98 /* Pods-MagicThought.release.xcconfig */;
 			buildSettings = {
+				CLANG_ALLOW_NON_MODULAR_INCLUDES_IN_FRAMEWORK_MODULES = YES;
 				CODE_SIGN_IDENTITY = "";
 				CODE_SIGN_STYLE = Automatic;
 				DEFINES_MODULE = YES;
