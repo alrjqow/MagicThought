@@ -134,7 +134,7 @@ Pod::Spec.new do |s|
   # s.dependency "JSONKit", "~> 1.4"
 
 s.name = "MagicThought"
-s.version = "1.2.4"
+s.version = "1.2.5"
 s.summary = "MagicThought for ios."
 s.description = "the MagicThought for ios."
 s.homepage = "https://github.com/alrjqow/MagicThought"
@@ -185,11 +185,21 @@ end
 category.subspec 'UIDevice' do |device|
 device.source_files = 'MagicThought/Category/UIDevice/*.{m,h}'
 device.dependency 'MagicThought/Category/NSString'
+device.dependency 'MagicThought/Config'
 device.dependency "SSKeychain"
 end
 
-
+category.subspec 'UILabel' do |label|
+label.source_files = 'MagicThought/Category/UILabel/*.{m,h}'
+label.dependency 'MagicThought/Category/NSString'
 end
+
+category.subspec 'UINavigationBar' do |navigationBar|
+navigationBar.source_files = 'MagicThought/Category/UINavigationBar/*.{m,h}'
+navigationBar.dependency 'MagicThought/Category/UIDevice'
+navigationBar.dependency 'MagicThought/Config'
+end
+
 
 
 

@@ -63,6 +63,12 @@
 		78935245223F9BFB001D0C4B /* UIColor+ColorfulColor.h in Headers */ = {isa = PBXBuildFile; fileRef = 7893523F223F9BFB001D0C4B /* UIColor+ColorfulColor.h */; };
 		7893524E223F9EAC001D0C4B /* UIDevice+DeviceInfo.h in Headers */ = {isa = PBXBuildFile; fileRef = 7893524C223F9EAC001D0C4B /* UIDevice+DeviceInfo.h */; };
 		7893524F223F9EAC001D0C4B /* UIDevice+DeviceInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 7893524D223F9EAC001D0C4B /* UIDevice+DeviceInfo.m */; };
+		78935255223FA245001D0C4B /* UILabel +AttributeText.m in Sources */ = {isa = PBXBuildFile; fileRef = 78935251223FA245001D0C4B /* UILabel +AttributeText.m */; };
+		78935256223FA245001D0C4B /* UILabel+LineSpacing.h in Headers */ = {isa = PBXBuildFile; fileRef = 78935252223FA245001D0C4B /* UILabel+LineSpacing.h */; };
+		78935257223FA245001D0C4B /* UILabel +AttributeText.h in Headers */ = {isa = PBXBuildFile; fileRef = 78935253223FA245001D0C4B /* UILabel +AttributeText.h */; };
+		78935258223FA245001D0C4B /* UILabel+LineSpacing.m in Sources */ = {isa = PBXBuildFile; fileRef = 78935254223FA245001D0C4B /* UILabel+LineSpacing.m */; };
+		7893525C223FA27B001D0C4B /* UINavigationBar+Config.m in Sources */ = {isa = PBXBuildFile; fileRef = 7893525A223FA27B001D0C4B /* UINavigationBar+Config.m */; };
+		7893525D223FA27B001D0C4B /* UINavigationBar+Config.h in Headers */ = {isa = PBXBuildFile; fileRef = 7893525B223FA27B001D0C4B /* UINavigationBar+Config.h */; };
 		7D9CE3933B1BD4251D7E38C8 /* libPods-MagicThought.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 3E6954489A214AEC6611949C /* libPods-MagicThought.a */; };
 /* End PBXBuildFile section */
 
@@ -126,6 +132,12 @@
 		7893523F223F9BFB001D0C4B /* UIColor+ColorfulColor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIColor+ColorfulColor.h"; sourceTree = "<group>"; };
 		7893524C223F9EAC001D0C4B /* UIDevice+DeviceInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIDevice+DeviceInfo.h"; sourceTree = "<group>"; };
 		7893524D223F9EAC001D0C4B /* UIDevice+DeviceInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIDevice+DeviceInfo.m"; sourceTree = "<group>"; };
+		78935251223FA245001D0C4B /* UILabel +AttributeText.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UILabel +AttributeText.m"; sourceTree = "<group>"; };
+		78935252223FA245001D0C4B /* UILabel+LineSpacing.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UILabel+LineSpacing.h"; sourceTree = "<group>"; };
+		78935253223FA245001D0C4B /* UILabel +AttributeText.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UILabel +AttributeText.h"; sourceTree = "<group>"; };
+		78935254223FA245001D0C4B /* UILabel+LineSpacing.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UILabel+LineSpacing.m"; sourceTree = "<group>"; };
+		7893525A223FA27B001D0C4B /* UINavigationBar+Config.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UINavigationBar+Config.m"; sourceTree = "<group>"; };
+		7893525B223FA27B001D0C4B /* UINavigationBar+Config.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UINavigationBar+Config.h"; sourceTree = "<group>"; };
 		78F3327C2239051C00DA02F6 /* MagicThought.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = MagicThought.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		78F332802239051C00DA02F6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -158,6 +170,8 @@
 		7891C993223B90630010DD55 /* Category */ = {
 			isa = PBXGroup;
 			children = (
+				78935259223FA27B001D0C4B /* UINavigationBar */,
+				78935250223FA245001D0C4B /* UILabel */,
 				7893524B223F9EAC001D0C4B /* UIDevice */,
 				78935239223F9BFB001D0C4B /* UIColor */,
 				78935234223F9BF6001D0C4B /* UIButton */,
@@ -273,6 +287,26 @@
 			path = UIDevice;
 			sourceTree = "<group>";
 		};
+		78935250223FA245001D0C4B /* UILabel */ = {
+			isa = PBXGroup;
+			children = (
+				78935252223FA245001D0C4B /* UILabel+LineSpacing.h */,
+				78935251223FA245001D0C4B /* UILabel +AttributeText.m */,
+				78935253223FA245001D0C4B /* UILabel +AttributeText.h */,
+				78935254223FA245001D0C4B /* UILabel+LineSpacing.m */,
+			);
+			path = UILabel;
+			sourceTree = "<group>";
+		};
+		78935259223FA27B001D0C4B /* UINavigationBar */ = {
+			isa = PBXGroup;
+			children = (
+				7893525B223FA27B001D0C4B /* UINavigationBar+Config.h */,
+				7893525A223FA27B001D0C4B /* UINavigationBar+Config.m */,
+			);
+			path = UINavigationBar;
+			sourceTree = "<group>";
+		};
 		78F332722239051C00DA02F6 = {
 			isa = PBXGroup;
 			children = (
@@ -352,10 +386,13 @@
 				7891C9A7223B90690010DD55 /* MTApiProtocol.h in Headers */,
 				7891C9A6223B90690010DD55 /* MTProtocol.h in Headers */,
 				7891C9AA223B90690010DD55 /* MTDelegateProtocol.h in Headers */,
+				78935257223FA245001D0C4B /* UILabel +AttributeText.h in Headers */,
 				7891C9AB223B90690010DD55 /* MTKit.h in Headers */,
 				78935224223F6AD2001D0C4B /* MTStyle.h in Headers */,
 				7891C9A9223B90690010DD55 /* MTStyleProtocol.h in Headers */,
+				78935256223FA245001D0C4B /* UILabel+LineSpacing.h in Headers */,
 				78935226223F6AD2001D0C4B /* MTAlertStyle.h in Headers */,
+				7893525D223FA27B001D0C4B /* UINavigationBar+Config.h in Headers */,
 				7891C9A8223B90690010DD55 /* MTRequestProtocol.h in Headers */,
 				7891C99A223B90630010DD55 /* MTCategory.h in Headers */,
 				78935243223F9BFB001D0C4B /* UIColor+RGBValues.h in Headers */,
@@ -481,6 +518,7 @@
 			files = (
 				78935167223F492F001D0C4B /* NSString+Money.m in Sources */,
 				78935244223F9BFB001D0C4B /* UIColor+Image.m in Sources */,
+				7893525C223FA27B001D0C4B /* UINavigationBar+Config.m in Sources */,
 				78935227223F6AD2001D0C4B /* MTAlertStyle.m in Sources */,
 				7893515F223F492F001D0C4B /* NSString+Replace.m in Sources */,
 				78935242223F9BFB001D0C4B /* UIColor+ColorfulColor.m in Sources */,
@@ -490,8 +528,10 @@
 				78935150223F491B001D0C4B /* NSString+Base64.m in Sources */,
 				7893524F223F9EAC001D0C4B /* UIDevice+DeviceInfo.m in Sources */,
 				78935223223F6AD2001D0C4B /* MTWordStyle.m in Sources */,
+				78935255223FA245001D0C4B /* UILabel +AttributeText.m in Sources */,
 				78935151223F491B001D0C4B /* NSString+Encode.m in Sources */,
 				7893516F223F493E001D0C4B /* NSString+Unicode.m in Sources */,
+				78935258223FA245001D0C4B /* UILabel+LineSpacing.m in Sources */,
 				78935237223F9BF6001D0C4B /* UIButton+HighLight.m in Sources */,
 				78935240223F9BFB001D0C4B /* UIColor+RGBValues.m in Sources */,
 				7891C998223B90630010DD55 /* MTConst.m in Sources */,
