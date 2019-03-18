@@ -134,7 +134,7 @@ Pod::Spec.new do |s|
   # s.dependency "JSONKit", "~> 1.4"
 
 s.name = "MagicThought"
-s.version = "1.2.5"
+s.version = "1.2.6"
 s.summary = "MagicThought for ios."
 s.description = "the MagicThought for ios."
 s.homepage = "https://github.com/alrjqow/MagicThought"
@@ -200,7 +200,11 @@ navigationBar.dependency 'MagicThought/Category/UIDevice'
 navigationBar.dependency 'MagicThought/Config'
 end
 
-
+category.subspec 'UIView' do |view|
+view.source_files = 'MagicThought/Category/UIView/*.{m,h}'
+view.dependency 'MagicThought/Style'
+view.dependency 'MagicThought/Config'
+end
 
 
 end
