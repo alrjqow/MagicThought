@@ -134,7 +134,7 @@ Pod::Spec.new do |s|
   # s.dependency "JSONKit", "~> 1.4"
 
 s.name = "MagicThought"
-s.version = "1.1.7"
+s.version = "1.1.8"
 s.summary = "MagicThought for ios."
 s.description = "the MagicThought for ios."
 s.homepage = "https://github.com/alrjqow/MagicThought"
@@ -144,7 +144,24 @@ s.author = { "alrjqow" => "764032554@qq.com" }
 s.platform = :ios, "8.0"
 
 s.source = { :git => "https://github.com/alrjqow/MagicThought.git", :tag =>"#{s.version}", :branch => "master" }
-s.source_files = "MagicThought/**/*.{h,m}"
+
+s.prefix_header_file = 'MagicThought/Config/MagicThought.pch'
+s.source_files = "MagicThought/MTKit.h","MagicThought/**/*.{h,m}"
+
+
+s.subspec 'Protocol' do |protocol|
+protocol.source_files = 'MagicThought/Category/NSString/*.{h}', 'MagicThought/Protocol/*.{h,m}'
+end
+
+s.subspec 'Category' do |category|
+
+category.subspec 'NSString' do |string|
+string.source_files = 'MagicThought/Category/NSString/*.{m,h}'
+end
+
+end
+
+
 #s.resources = "MagicThought/MagicThought/MagicThought/*"
 s.framework = "UIKit"
 # s.frameworks = “SomeFramework”, “AnotherFramework”
@@ -152,8 +169,6 @@ s.framework = "UIKit"
 # s.libraries = “iconv”, “xml2”
 s.requires_arc = true
 # s.xcconfig = { “HEADER_SEARCH_PATHS” => “$(SDKROOT)/usr/include/libxml2” }
-
-s.prefix_header_file = 'MagicThought/Config/MagicThought.pch'
 
 
 s.dependency "Masonry"
