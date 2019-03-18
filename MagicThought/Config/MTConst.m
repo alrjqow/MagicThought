@@ -7,6 +7,7 @@
 //
 
 #import "MTConst.h"
+#import "NSString+Exist.h"
 
 /**一周的时间*/
 NSInteger MTWeekTime = 604800;
