@@ -134,7 +134,7 @@ Pod::Spec.new do |s|
   # s.dependency "JSONKit", "~> 1.4"
 
 s.name = "MagicThought"
-s.version = "1.1.9"
+s.version = "1.2.0"
 s.summary = "MagicThought for ios."
 s.description = "the MagicThought for ios."
 s.homepage = "https://github.com/alrjqow/MagicThought"
@@ -148,9 +148,17 @@ s.source = { :git => "https://github.com/alrjqow/MagicThought.git", :tag =>"#{s.
 #s.prefix_header_file = 'MagicThought/Config/MagicThought.pch'
 s.source_files = "MagicThought/MTKit.h","MagicThought/**/*.{h,m}"
 
+s.subspec 'Config' do |config|
+config.source_files = 'MagicThought/Config/*.{h,m}'
+config.dependency 'MagicThought/Category'
+end
 
 s.subspec 'Protocol' do |protocol|
 protocol.source_files = 'MagicThought/Category/NSString/*.{h}', 'MagicThought/Protocol/*.{h,m}'
+end
+
+s.subspec 'Style' do |style|
+style.source_files = 'MagicThought/Style/*.{h,m}'
 end
 
 s.subspec 'Category' do |category|
@@ -159,7 +167,42 @@ category.subspec 'NSString' do |string|
 string.source_files = 'MagicThought/Category/NSString/*.{m,h}'
 end
 
+category.subspec 'CLLocation' do |location|
+location.source_files = 'MagicThought/Category/CLLocation/*.{m,h}'
 end
+
+category.subspec 'NSObject' do |object|
+object.source_files = 'MagicThought/Category/NSObject/*.{m,h}'
+end
+
+category.subspec 'UIButton' do |button|
+button.source_files = 'MagicThought/Category/UIButton/*.{m,h}'
+end
+
+category.subspec 'UIColor' do |color|
+color.source_files = 'MagicThought/Category/UIColor/*.{m,h}'
+end
+
+category.subspec 'UIDevice' do |device|
+device.source_files = 'MagicThought/Category/UIDevice/*.{m,h}'
+end
+
+category.subspec 'UILabel' do |label|
+label.source_files = 'MagicThought/Category/UILabel/*.{m,h}'
+end
+
+category.subspec 'UINavigationBar' do |navigationBar|
+navigationBar.source_files = 'MagicThought/Category/UINavigationBar/*.{m,h}'
+end
+
+category.subspec 'UIView' do |view|
+view.source_files = 'MagicThought/Category/UIView/*.{m,h}'
+end
+
+category.dependency 'MagicThought/Style'
+
+end
+
 
 
 #s.resources = "MagicThought/MagicThought/MagicThought/*"

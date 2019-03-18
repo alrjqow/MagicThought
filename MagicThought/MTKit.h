@@ -8,12 +8,12 @@
 
 
 #import "MTThirdSDKList.h"
-//
-#import "MTDefine.h"
-//
-//#import "MTConst.h"
 
-//#import "MTStyle.h"
+#import "MTDefine.h"
+
+#import "MTConst.h"
+
+#import "MTStyle.h"
 
 #import "MTProtocol.h"
 
