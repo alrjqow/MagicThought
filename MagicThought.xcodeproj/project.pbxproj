@@ -61,6 +61,8 @@
 		78935243223F9BFB001D0C4B /* UIColor+RGBValues.h in Headers */ = {isa = PBXBuildFile; fileRef = 7893523D223F9BFB001D0C4B /* UIColor+RGBValues.h */; };
 		78935244223F9BFB001D0C4B /* UIColor+Image.m in Sources */ = {isa = PBXBuildFile; fileRef = 7893523E223F9BFB001D0C4B /* UIColor+Image.m */; };
 		78935245223F9BFB001D0C4B /* UIColor+ColorfulColor.h in Headers */ = {isa = PBXBuildFile; fileRef = 7893523F223F9BFB001D0C4B /* UIColor+ColorfulColor.h */; };
+		7893524E223F9EAC001D0C4B /* UIDevice+DeviceInfo.h in Headers */ = {isa = PBXBuildFile; fileRef = 7893524C223F9EAC001D0C4B /* UIDevice+DeviceInfo.h */; };
+		7893524F223F9EAC001D0C4B /* UIDevice+DeviceInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 7893524D223F9EAC001D0C4B /* UIDevice+DeviceInfo.m */; };
 		7D9CE3933B1BD4251D7E38C8 /* libPods-MagicThought.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 3E6954489A214AEC6611949C /* libPods-MagicThought.a */; };
 /* End PBXBuildFile section */
 
@@ -122,6 +124,8 @@
 		7893523D223F9BFB001D0C4B /* UIColor+RGBValues.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIColor+RGBValues.h"; sourceTree = "<group>"; };
 		7893523E223F9BFB001D0C4B /* UIColor+Image.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+Image.m"; sourceTree = "<group>"; };
 		7893523F223F9BFB001D0C4B /* UIColor+ColorfulColor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIColor+ColorfulColor.h"; sourceTree = "<group>"; };
+		7893524C223F9EAC001D0C4B /* UIDevice+DeviceInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIDevice+DeviceInfo.h"; sourceTree = "<group>"; };
+		7893524D223F9EAC001D0C4B /* UIDevice+DeviceInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIDevice+DeviceInfo.m"; sourceTree = "<group>"; };
 		78F3327C2239051C00DA02F6 /* MagicThought.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = MagicThought.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		78F332802239051C00DA02F6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -154,6 +158,7 @@
 		7891C993223B90630010DD55 /* Category */ = {
 			isa = PBXGroup;
 			children = (
+				7893524B223F9EAC001D0C4B /* UIDevice */,
 				78935239223F9BFB001D0C4B /* UIColor */,
 				78935234223F9BF6001D0C4B /* UIButton */,
 				7893522F223F9BEC001D0C4B /* NSObject */,
@@ -259,6 +264,15 @@
 			path = UIColor;
 			sourceTree = "<group>";
 		};
+		7893524B223F9EAC001D0C4B /* UIDevice */ = {
+			isa = PBXGroup;
+			children = (
+				7893524C223F9EAC001D0C4B /* UIDevice+DeviceInfo.h */,
+				7893524D223F9EAC001D0C4B /* UIDevice+DeviceInfo.m */,
+			);
+			path = UIDevice;
+			sourceTree = "<group>";
+		};
 		78F332722239051C00DA02F6 = {
 			isa = PBXGroup;
 			children = (
@@ -320,6 +334,7 @@
 				78935232223F9BEC001D0C4B /* NSObject+HideKey.h in Headers */,
 				7893516D223F493E001D0C4B /* NSString+Unicode.h in Headers */,
 				7893514F223F491B001D0C4B /* NSString+Bundle.h in Headers */,
+				7893524E223F9EAC001D0C4B /* UIDevice+DeviceInfo.h in Headers */,
 				78935148223F46D3001D0C4B /* MagicThought.pch in Headers */,
 				78935222223F6AD2001D0C4B /* MTGraphicType.h in Headers */,
 				78935164223F492F001D0C4B /* NSString+Hash.h in Headers */,
@@ -473,6 +488,7 @@
 				78935152223F491B001D0C4B /* NSString+Bundle.m in Sources */,
 				78935170223F493E001D0C4B /* NSString+WordHeight.m in Sources */,
 				78935150223F491B001D0C4B /* NSString+Base64.m in Sources */,
+				7893524F223F9EAC001D0C4B /* UIDevice+DeviceInfo.m in Sources */,
 				78935223223F6AD2001D0C4B /* MTWordStyle.m in Sources */,
 				78935151223F491B001D0C4B /* NSString+Encode.m in Sources */,
 				7893516F223F493E001D0C4B /* NSString+Unicode.m in Sources */,
