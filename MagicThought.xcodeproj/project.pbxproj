@@ -49,6 +49,18 @@
 		78935227223F6AD2001D0C4B /* MTAlertStyle.m in Sources */ = {isa = PBXBuildFile; fileRef = 7893521F223F6AD2001D0C4B /* MTAlertStyle.m */; };
 		78935228223F6AD2001D0C4B /* MTBorderStyle.m in Sources */ = {isa = PBXBuildFile; fileRef = 78935220223F6AD2001D0C4B /* MTBorderStyle.m */; };
 		78935229223F6AD2001D0C4B /* MTWordStyle.h in Headers */ = {isa = PBXBuildFile; fileRef = 78935221223F6AD2001D0C4B /* MTWordStyle.h */; };
+		7893522D223F9BE7001D0C4B /* CLLocation+Mar.m in Sources */ = {isa = PBXBuildFile; fileRef = 7893522B223F9BE7001D0C4B /* CLLocation+Mar.m */; };
+		7893522E223F9BE7001D0C4B /* CLLocation+Mar.h in Headers */ = {isa = PBXBuildFile; fileRef = 7893522C223F9BE7001D0C4B /* CLLocation+Mar.h */; };
+		78935232223F9BEC001D0C4B /* NSObject+HideKey.h in Headers */ = {isa = PBXBuildFile; fileRef = 78935230223F9BEC001D0C4B /* NSObject+HideKey.h */; };
+		78935233223F9BEC001D0C4B /* NSObject+HideKey.m in Sources */ = {isa = PBXBuildFile; fileRef = 78935231223F9BEC001D0C4B /* NSObject+HideKey.m */; };
+		78935237223F9BF6001D0C4B /* UIButton+HighLight.m in Sources */ = {isa = PBXBuildFile; fileRef = 78935235223F9BF6001D0C4B /* UIButton+HighLight.m */; };
+		78935238223F9BF6001D0C4B /* UIButton+HighLight.h in Headers */ = {isa = PBXBuildFile; fileRef = 78935236223F9BF6001D0C4B /* UIButton+HighLight.h */; };
+		78935240223F9BFB001D0C4B /* UIColor+RGBValues.m in Sources */ = {isa = PBXBuildFile; fileRef = 7893523A223F9BFB001D0C4B /* UIColor+RGBValues.m */; };
+		78935241223F9BFB001D0C4B /* UIColor+Image.h in Headers */ = {isa = PBXBuildFile; fileRef = 7893523B223F9BFB001D0C4B /* UIColor+Image.h */; };
+		78935242223F9BFB001D0C4B /* UIColor+ColorfulColor.m in Sources */ = {isa = PBXBuildFile; fileRef = 7893523C223F9BFB001D0C4B /* UIColor+ColorfulColor.m */; };
+		78935243223F9BFB001D0C4B /* UIColor+RGBValues.h in Headers */ = {isa = PBXBuildFile; fileRef = 7893523D223F9BFB001D0C4B /* UIColor+RGBValues.h */; };
+		78935244223F9BFB001D0C4B /* UIColor+Image.m in Sources */ = {isa = PBXBuildFile; fileRef = 7893523E223F9BFB001D0C4B /* UIColor+Image.m */; };
+		78935245223F9BFB001D0C4B /* UIColor+ColorfulColor.h in Headers */ = {isa = PBXBuildFile; fileRef = 7893523F223F9BFB001D0C4B /* UIColor+ColorfulColor.h */; };
 		7D9CE3933B1BD4251D7E38C8 /* libPods-MagicThought.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 3E6954489A214AEC6611949C /* libPods-MagicThought.a */; };
 /* End PBXBuildFile section */
 
@@ -98,6 +110,18 @@
 		7893521F223F6AD2001D0C4B /* MTAlertStyle.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MTAlertStyle.m; sourceTree = "<group>"; };
 		78935220223F6AD2001D0C4B /* MTBorderStyle.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MTBorderStyle.m; sourceTree = "<group>"; };
 		78935221223F6AD2001D0C4B /* MTWordStyle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MTWordStyle.h; sourceTree = "<group>"; };
+		7893522B223F9BE7001D0C4B /* CLLocation+Mar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "CLLocation+Mar.m"; sourceTree = "<group>"; };
+		7893522C223F9BE7001D0C4B /* CLLocation+Mar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "CLLocation+Mar.h"; sourceTree = "<group>"; };
+		78935230223F9BEC001D0C4B /* NSObject+HideKey.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+HideKey.h"; sourceTree = "<group>"; };
+		78935231223F9BEC001D0C4B /* NSObject+HideKey.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+HideKey.m"; sourceTree = "<group>"; };
+		78935235223F9BF6001D0C4B /* UIButton+HighLight.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIButton+HighLight.m"; sourceTree = "<group>"; };
+		78935236223F9BF6001D0C4B /* UIButton+HighLight.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIButton+HighLight.h"; sourceTree = "<group>"; };
+		7893523A223F9BFB001D0C4B /* UIColor+RGBValues.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+RGBValues.m"; sourceTree = "<group>"; };
+		7893523B223F9BFB001D0C4B /* UIColor+Image.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIColor+Image.h"; sourceTree = "<group>"; };
+		7893523C223F9BFB001D0C4B /* UIColor+ColorfulColor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+ColorfulColor.m"; sourceTree = "<group>"; };
+		7893523D223F9BFB001D0C4B /* UIColor+RGBValues.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIColor+RGBValues.h"; sourceTree = "<group>"; };
+		7893523E223F9BFB001D0C4B /* UIColor+Image.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+Image.m"; sourceTree = "<group>"; };
+		7893523F223F9BFB001D0C4B /* UIColor+ColorfulColor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIColor+ColorfulColor.h"; sourceTree = "<group>"; };
 		78F3327C2239051C00DA02F6 /* MagicThought.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = MagicThought.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		78F332802239051C00DA02F6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -130,6 +154,10 @@
 		7891C993223B90630010DD55 /* Category */ = {
 			isa = PBXGroup;
 			children = (
+				78935239223F9BFB001D0C4B /* UIColor */,
+				78935234223F9BF6001D0C4B /* UIButton */,
+				7893522F223F9BEC001D0C4B /* NSObject */,
+				7893522A223F9BE7001D0C4B /* CLLocation */,
 				7891C994223B90630010DD55 /* NSString */,
 			);
 			path = Category;
@@ -191,6 +219,46 @@
 			path = Style;
 			sourceTree = "<group>";
 		};
+		7893522A223F9BE7001D0C4B /* CLLocation */ = {
+			isa = PBXGroup;
+			children = (
+				7893522B223F9BE7001D0C4B /* CLLocation+Mar.m */,
+				7893522C223F9BE7001D0C4B /* CLLocation+Mar.h */,
+			);
+			path = CLLocation;
+			sourceTree = "<group>";
+		};
+		7893522F223F9BEC001D0C4B /* NSObject */ = {
+			isa = PBXGroup;
+			children = (
+				78935230223F9BEC001D0C4B /* NSObject+HideKey.h */,
+				78935231223F9BEC001D0C4B /* NSObject+HideKey.m */,
+			);
+			path = NSObject;
+			sourceTree = "<group>";
+		};
+		78935234223F9BF6001D0C4B /* UIButton */ = {
+			isa = PBXGroup;
+			children = (
+				78935235223F9BF6001D0C4B /* UIButton+HighLight.m */,
+				78935236223F9BF6001D0C4B /* UIButton+HighLight.h */,
+			);
+			path = UIButton;
+			sourceTree = "<group>";
+		};
+		78935239223F9BFB001D0C4B /* UIColor */ = {
+			isa = PBXGroup;
+			children = (
+				7893523A223F9BFB001D0C4B /* UIColor+RGBValues.m */,
+				7893523B223F9BFB001D0C4B /* UIColor+Image.h */,
+				7893523C223F9BFB001D0C4B /* UIColor+ColorfulColor.m */,
+				7893523D223F9BFB001D0C4B /* UIColor+RGBValues.h */,
+				7893523E223F9BFB001D0C4B /* UIColor+Image.m */,
+				7893523F223F9BFB001D0C4B /* UIColor+ColorfulColor.h */,
+			);
+			path = UIColor;
+			sourceTree = "<group>";
+		};
 		78F332722239051C00DA02F6 = {
 			isa = PBXGroup;
 			children = (
@@ -246,18 +314,22 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				78935241223F9BFB001D0C4B /* UIColor+Image.h in Headers */,
 				7891C99D223B90630010DD55 /* NSString+Exist.h in Headers */,
 				78935165223F492F001D0C4B /* NSString+Replace.h in Headers */,
+				78935232223F9BEC001D0C4B /* NSObject+HideKey.h in Headers */,
 				7893516D223F493E001D0C4B /* NSString+Unicode.h in Headers */,
 				7893514F223F491B001D0C4B /* NSString+Bundle.h in Headers */,
 				78935148223F46D3001D0C4B /* MagicThought.pch in Headers */,
 				78935222223F6AD2001D0C4B /* MTGraphicType.h in Headers */,
 				78935164223F492F001D0C4B /* NSString+Hash.h in Headers */,
 				78935225223F6AD2001D0C4B /* MTBorderStyle.h in Headers */,
+				78935238223F9BF6001D0C4B /* UIButton+HighLight.h in Headers */,
 				78935161223F492F001D0C4B /* NSString+TestString.h in Headers */,
 				7893516E223F493E001D0C4B /* NSString+WordHeight.h in Headers */,
 				78935163223F492F001D0C4B /* NSString+Money.h in Headers */,
 				78935153223F491B001D0C4B /* NSString+Base64.h in Headers */,
+				78935245223F9BFB001D0C4B /* UIColor+ColorfulColor.h in Headers */,
 				78935154223F491B001D0C4B /* NSString+Encode.h in Headers */,
 				78935166223F492F001D0C4B /* NSString+MD5.h in Headers */,
 				78935229223F6AD2001D0C4B /* MTWordStyle.h in Headers */,
@@ -271,6 +343,8 @@
 				78935226223F6AD2001D0C4B /* MTAlertStyle.h in Headers */,
 				7891C9A8223B90690010DD55 /* MTRequestProtocol.h in Headers */,
 				7891C99A223B90630010DD55 /* MTCategory.h in Headers */,
+				78935243223F9BFB001D0C4B /* UIColor+RGBValues.h in Headers */,
+				7893522E223F9BE7001D0C4B /* CLLocation+Mar.h in Headers */,
 				7891C99C223B90630010DD55 /* MTThirdSDKList.h in Headers */,
 				7891C99B223B90630010DD55 /* MTConst.h in Headers */,
 			);
@@ -391,8 +465,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				78935167223F492F001D0C4B /* NSString+Money.m in Sources */,
+				78935244223F9BFB001D0C4B /* UIColor+Image.m in Sources */,
 				78935227223F6AD2001D0C4B /* MTAlertStyle.m in Sources */,
 				7893515F223F492F001D0C4B /* NSString+Replace.m in Sources */,
+				78935242223F9BFB001D0C4B /* UIColor+ColorfulColor.m in Sources */,
 				78935162223F492F001D0C4B /* NSString+Hash.m in Sources */,
 				78935152223F491B001D0C4B /* NSString+Bundle.m in Sources */,
 				78935170223F493E001D0C4B /* NSString+WordHeight.m in Sources */,
@@ -400,10 +476,14 @@
 				78935223223F6AD2001D0C4B /* MTWordStyle.m in Sources */,
 				78935151223F491B001D0C4B /* NSString+Encode.m in Sources */,
 				7893516F223F493E001D0C4B /* NSString+Unicode.m in Sources */,
+				78935237223F9BF6001D0C4B /* UIButton+HighLight.m in Sources */,
+				78935240223F9BFB001D0C4B /* UIColor+RGBValues.m in Sources */,
 				7891C998223B90630010DD55 /* MTConst.m in Sources */,
+				78935233223F9BEC001D0C4B /* NSObject+HideKey.m in Sources */,
 				78935228223F6AD2001D0C4B /* MTBorderStyle.m in Sources */,
 				7891C99E223B90630010DD55 /* NSString+Exist.m in Sources */,
 				78935168223F492F001D0C4B /* NSString+TestString.m in Sources */,
+				7893522D223F9BE7001D0C4B /* CLLocation+Mar.m in Sources */,
 				78935160223F492F001D0C4B /* NSString+MD5.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

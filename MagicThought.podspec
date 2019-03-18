@@ -134,7 +134,7 @@ Pod::Spec.new do |s|
   # s.dependency "JSONKit", "~> 1.4"
 
 s.name = "MagicThought"
-s.version = "1.2.2"
+s.version = "1.2.3"
 s.summary = "MagicThought for ios."
 s.description = "the MagicThought for ios."
 s.homepage = "https://github.com/alrjqow/MagicThought"
@@ -164,6 +164,22 @@ s.subspec 'Category' do |category|
 
 category.subspec 'NSString' do |string|
 string.source_files = 'MagicThought/Category/NSString/*.{m,h}'
+end
+
+category.subspec 'CLLocation' do |location|
+location.source_files = 'MagicThought/Category/CLLocation/*.{m,h}'
+end
+
+category.subspec 'NSObject' do |object|
+object.source_files = 'MagicThought/Category/NSObject/*.{m,h}'
+end
+
+category.subspec 'UIButton' do |button|
+button.source_files = 'MagicThought/Category/UIButton/*.{m,h}'
+end
+
+category.subspec 'UIColor' do |color|
+color.source_files = 'MagicThought/Category/UIColor/*.{m,h}'
 end
 
 
