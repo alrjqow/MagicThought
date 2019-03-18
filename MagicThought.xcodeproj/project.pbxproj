@@ -315,8 +315,8 @@
 		789351CC223F6919001D0C4B /* UINavigationBar */ = {
 			isa = PBXGroup;
 			children = (
-				789351CD223F6919001D0C4B /* UINavigationBar+Config.m */,
 				789351CE223F6919001D0C4B /* UINavigationBar+Config.h */,
+				789351CD223F6919001D0C4B /* UINavigationBar+Config.m */,
 			);
 			path = UINavigationBar;
 			sourceTree = "<group>";

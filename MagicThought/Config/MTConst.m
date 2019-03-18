@@ -7,7 +7,6 @@
 //
 
 #import "MTConst.h"
-#import "NSString+Exist.h"
 
 /**一周的时间*/
 NSInteger MTWeekTime = 604800;
@@ -104,7 +103,7 @@ NSString* mt_BundleID()
 
 void mt_GoToAppStore()
 {
-        if(![mt_appleStoreID isExist])
+        if(mt_appleStoreID.length <= 0)
             return;
 //    已经上架的APP的URL
         NSString *trackViewUrl = [NSString stringWithFormat:@"https://itunes.apple.com/app/id%@", mt_appleStoreID];

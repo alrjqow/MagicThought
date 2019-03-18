@@ -134,7 +134,7 @@ Pod::Spec.new do |s|
   # s.dependency "JSONKit", "~> 1.4"
 
 s.name = "MagicThought"
-s.version = "1.2.0"
+s.version = "1.2.1"
 s.summary = "MagicThought for ios."
 s.description = "the MagicThought for ios."
 s.homepage = "https://github.com/alrjqow/MagicThought"
@@ -150,7 +150,6 @@ s.source_files = "MagicThought/MTKit.h","MagicThought/**/*.{h,m}"
 
 s.subspec 'Config' do |config|
 config.source_files = 'MagicThought/Config/*.{h,m}'
-config.dependency 'MagicThought/Category'
 end
 
 s.subspec 'Protocol' do |protocol|
@@ -193,13 +192,16 @@ end
 
 category.subspec 'UINavigationBar' do |navigationBar|
 navigationBar.source_files = 'MagicThought/Category/UINavigationBar/*.{m,h}'
+navigationBar.dependency 'MagicThought/Category/UIDevice'
+navigationBar.dependency 'MagicThought/Config'
 end
 
 category.subspec 'UIView' do |view|
 view.source_files = 'MagicThought/Category/UIView/*.{m,h}'
+view.dependency 'MagicThought/Style'
 end
 
-category.dependency 'MagicThought/Style'
+
 
 end
 
