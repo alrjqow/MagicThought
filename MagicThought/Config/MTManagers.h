@@ -8,10 +8,10 @@
 
 
 //#import "MTFileManager.h"
-//#import "MTLocationManager.h"
-//#import "MTPhotoManager.h"
-//#import "MTDeviceManager.h"
+#import "MTLocationManager.h"
+#import "MTPhotoManager.h"
+#import "MTDeviceManager.h"
 //#import "MTCacheManager.h"
 //#import "MTAuthorizationManager.h"
-//#import "MTTimer.h"
+#import "MTTimer.h"
 #import "MTCloud.h"

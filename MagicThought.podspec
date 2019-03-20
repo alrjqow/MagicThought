@@ -134,7 +134,7 @@ Pod::Spec.new do |s|
   # s.dependency "JSONKit", "~> 1.4"
 
 s.name = "MagicThought"
-s.version = "1.2.8"
+s.version = "1.2.9"
 s.summary = "MagicThought for ios."
 s.description = "the MagicThought for ios."
 s.homepage = "https://github.com/alrjqow/MagicThought"
@@ -161,7 +161,24 @@ style.source_files = 'MagicThought/Style/*.{h,m}'
 end
 
 s.subspec 'Manager' do |manager|
-manager.source_files = 'MagicThought/Manager/*.{h,m}'
+manager.source_files = 'MagicThought/Manager/*.{h,m}','MagicThought/Category/NSString/NSString+Exist.{m,h}', 'MagicThought/Category/CLLocation/CLLocation+Mar.{m,h}', 'MagicThought/Config/MTConst.{h,m}'
+end
+
+s.subspec '文件处理' do |fileHandle|
+fileHandle.source_files = 'MagicThought/文件处理/*.{h,m}','MagicThought/Category/NSString/NSString+Exist.{m,h}'
+end
+
+s.subspec 'Json转换' do |jsonEncode|
+jsonEncode.source_files = 'MagicThought/Json转换/*.{h,m}'
+end
+
+s.subspec '波纹效果' do |wave|
+wave.source_files = 'MagicThought/波纹效果/*.{h,m}'
+end
+
+s.subspec '图片处理' do |imageHandle|
+imageHandle.source_files = 'MagicThought/图片处理/*.{h,m}', 'MagicThought/Config/MTConst.{h,m}'
+imageHandle.dependency 'MagicThought/文件处理'
 end
 
 s.subspec 'Category' do |category|
@@ -210,11 +227,14 @@ view.dependency 'MagicThought/Style'
 view.dependency 'MagicThought/Config'
 
 view.subspec 'UIView+Shadow' do |view_shadow|
-view_shadow.source_files = 'MagicThought/Category/UIView/UIView+Shadow/*.{m,h}'
-view_shadow.dependency 'MagicThought/Config'
+
+view_shadow.source_files = 'MagicThought/Category/UIView/UIView+Shadow/*.{m,h}', 'MagicThought/Config/MTConst.{h,m}'
+
 end
 
 end
+
+
 
 
 category.subspec 'UIViewController' do |viewController|
@@ -227,7 +247,6 @@ viewController_modal.source_files = 'MagicThought/Category/UIViewController/UIVi
 end
 
 end
-
 
 
 
