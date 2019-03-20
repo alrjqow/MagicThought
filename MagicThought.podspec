@@ -134,7 +134,7 @@ Pod::Spec.new do |s|
   # s.dependency "JSONKit", "~> 1.4"
 
 s.name = "MagicThought"
-s.version = "1.2.7"
+s.version = "1.2.8"
 s.summary = "MagicThought for ios."
 s.description = "the MagicThought for ios."
 s.homepage = "https://github.com/alrjqow/MagicThought"
@@ -158,6 +158,10 @@ end
 
 s.subspec 'Style' do |style|
 style.source_files = 'MagicThought/Style/*.{h,m}'
+end
+
+s.subspec 'Manager' do |manager|
+manager.source_files = 'MagicThought/Manager/*.{h,m}'
 end
 
 s.subspec 'Category' do |category|
@@ -204,7 +208,28 @@ category.subspec 'UIView' do |view|
 view.source_files = 'MagicThought/Category/UIView/*.{m,h}'
 view.dependency 'MagicThought/Style'
 view.dependency 'MagicThought/Config'
+
+view.subspec 'UIView+Shadow' do |view_shadow|
+view_shadow.source_files = 'MagicThought/Category/UIView/UIView+Shadow/*.{m,h}'
+view_shadow.dependency 'MagicThought/Config'
 end
+
+end
+
+
+category.subspec 'UIViewController' do |viewController|
+viewController.source_files = 'MagicThought/Category/UIViewController/*.{m,h}'
+viewController.dependency 'MagicThought/Manager'
+
+viewController.subspec 'UIViewController+Modal' do |viewController_modal|
+viewController_modal.source_files = 'MagicThought/Category/UIViewController/UIViewController+Modal/*.{m,h}'
+
+end
+
+end
+
+
+
 
 
 end
