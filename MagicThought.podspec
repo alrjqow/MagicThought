@@ -134,7 +134,7 @@ Pod::Spec.new do |s|
   # s.dependency "JSONKit", "~> 1.4"
 
 s.name = "MagicThought"
-s.version = "1.3.0"
+s.version = "1.3.1"
 s.summary = "MagicThought for ios."
 s.description = "the MagicThought for ios."
 s.homepage = "https://github.com/alrjqow/MagicThought"
@@ -191,7 +191,7 @@ s.subspec '文本框验证' do |textVerify|
 
     textVerify.dependency 'MagicThought/Category'
     textVerify.dependency 'MagicThought/Protocol'
-    textVerify.dependency 'MagicThought/Style'
+    textVerify.dependency 'MagicThought/控件文字样式设置'
 end
 
 s.subspec '控件文字样式设置' do |wordStyle|
@@ -200,7 +200,7 @@ wordStyle.source_files = 'MagicThought/控件文字样式设置/*.{h,m}', 'Magic
 end
 
 s.subspec 'DelegateMode' do |delegateMode|
-delegateMode.source_files = 'MagicThought/DelegateMode/*.{h,m}'
+delegateMode.source_files = 'MagicThought/DelegateMode/*.{h,m}', 'MagicThought/拖拽排序/*.{h,m}'
 
 delegateMode.dependency 'MagicThought/Category'
 delegateMode.dependency 'MagicThought/Protocol'
@@ -211,6 +211,12 @@ end
 s.subspec '拖拽排序' do |drag|
 drag.source_files = 'MagicThought/拖拽排序/*.{h,m}'
 drag.dependency 'MagicThought/DelegateMode'
+end
+
+s.subspec '弹出加载框' do |hud|
+hud.source_files = 'MagicThought/弹出加载框/*.{h,m}', 'MagicThought/Config/MTConst.{h,m}', 'MagicThought/图片处理/UIImage+Size.{h,m}'
+hud.dependency 'MagicThought/Category'
+hud.resources = "MagicThought/弹出加载框/MTHUD.bundle"
 end
 
 s.subspec 'Category' do |category|

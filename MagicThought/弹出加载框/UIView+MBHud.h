@@ -1,0 +1,41 @@
+//
+//  UIView+MBHud.h
+//  ActivityIndicator
+//
+//  Created by 王奕聪 on 2018/2/11.
+//  Copyright © 2018年 王奕聪. All rights reserved.
+//
+
+#import <UIKit/UIKit.h>
+
+
+
+typedef NS_ENUM(NSInteger,MBHudStyle){
+    MBHudStyleDefault,//白色调
+    MBHudStyleBlack,//黑色调
+};
+
+@class MBProgressHUD;
+@interface UIView (MBHud)
+
+@property (nonatomic,assign) MBHudStyle mt_hudStyle;
+
+/**显示成功*/
+-(void)showSuccess:(NSString*)msg;
+
+/**显示错误*/
+-(void)showError:(NSString*)msg;
+
+/**显示提示*/
+-(void)showTips:(NSString*)msg;
+
+/**显示toast*/
+-(void)showToast:(NSString*)msg;
+
+/**显示圈圈*/
+-(void)showMsg:(NSString*)msg;
+
+/**隐藏提示*/
+-(void)dismissIndicator;
+
+@end
