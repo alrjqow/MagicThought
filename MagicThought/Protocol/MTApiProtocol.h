@@ -6,6 +6,8 @@
 //  Copyright © 2018 monda. All rights reserved.
 //
 
+#import "YTKNetwork.h"
+
 @class MTBaseDataModel;
 
 @protocol MTApiProtocol<YTKRequestDelegate, YTKBatchRequestDelegate>

@@ -134,7 +134,7 @@ Pod::Spec.new do |s|
   # s.dependency "JSONKit", "~> 1.4"
 
 s.name = "MagicThought"
-s.version = "1.2.9"
+s.version = "1.3.0"
 s.summary = "MagicThought for ios."
 s.description = "the MagicThought for ios."
 s.homepage = "https://github.com/alrjqow/MagicThought"
@@ -165,7 +165,7 @@ manager.source_files = 'MagicThought/Manager/*.{h,m}','MagicThought/Category/NSS
 end
 
 s.subspec '文件处理' do |fileHandle|
-fileHandle.source_files = 'MagicThought/文件处理/*.{h,m}','MagicThought/Category/NSString/NSString+Exist.{m,h}'
+fileHandle.source_files = 'MagicThought/文件处理/*.{h,m}','MagicThought/Category/NSString/NSString+Exist.{m,h}', 'MagicThought/Manager/MTManager.{m,h}'
 end
 
 s.subspec 'Json转换' do |jsonEncode|
@@ -179,6 +179,38 @@ end
 s.subspec '图片处理' do |imageHandle|
 imageHandle.source_files = 'MagicThought/图片处理/*.{h,m}', 'MagicThought/Config/MTConst.{h,m}'
 imageHandle.dependency 'MagicThought/文件处理'
+imageHandle.dependency 'MagicThought/Style'
+end
+
+s.subspec '网络请求' do |network|
+network.source_files = 'MagicThought/网络请求/*.{h,m}', 'MagicThought/Protocol/MTApiProtocol.{h}', 'MagicThought/Category/NSString/NSString+Exist.{m,h}', 'MagicThought/Manager/MTManager.{m,h}','MagicThought/Manager/MTCloud.{m,h}'
+end
+
+s.subspec '文本框验证' do |textVerify|
+    textVerify.source_files = 'MagicThought/文本框验证/*.{h,m}', 'MagicThought/Config/MTConst.{h,m}'
+
+    textVerify.dependency 'MagicThought/Category'
+    textVerify.dependency 'MagicThought/Protocol'
+    textVerify.dependency 'MagicThought/Style'
+end
+
+s.subspec '控件文字样式设置' do |wordStyle|
+wordStyle.source_files = 'MagicThought/控件文字样式设置/*.{h,m}', 'MagicThought/Config/MTDefine.{h}', 'MagicThought/Style/MTWordStyle.{h,m}'
+
+end
+
+s.subspec 'DelegateMode' do |delegateMode|
+delegateMode.source_files = 'MagicThought/DelegateMode/*.{h,m}'
+
+delegateMode.dependency 'MagicThought/Category'
+delegateMode.dependency 'MagicThought/Protocol'
+delegateMode.dependency 'MagicThought/Config'
+
+end
+
+s.subspec '拖拽排序' do |drag|
+drag.source_files = 'MagicThought/拖拽排序/*.{h,m}'
+drag.dependency 'MagicThought/DelegateMode'
 end
 
 s.subspec 'Category' do |category|
