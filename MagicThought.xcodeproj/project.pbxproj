@@ -56,6 +56,20 @@
 		7882A9FE22433AEA00A8D781 /* MTHUD.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 7882A9F922433AEA00A8D781 /* MTHUD.bundle */; };
 		7882A9FF22433AEA00A8D781 /* UIView+MBHud.h in Headers */ = {isa = PBXBuildFile; fileRef = 7882A9FA22433AEA00A8D781 /* UIView+MBHud.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		7882AA0022433AEA00A8D781 /* MTIndicatorView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7882A9FB22433AEA00A8D781 /* MTIndicatorView.m */; };
+		7882AA2F22437EA900A8D781 /* MTAlertViewConfig.h in Headers */ = {isa = PBXBuildFile; fileRef = 7882AA2122437EA800A8D781 /* MTAlertViewConfig.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		7882AA3022437EA900A8D781 /* UIView+MTBackground.h in Headers */ = {isa = PBXBuildFile; fileRef = 7882AA2222437EA800A8D781 /* UIView+MTBackground.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		7882AA3122437EA900A8D781 /* MTPopButtonItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 7882AA2322437EA800A8D781 /* MTPopButtonItem.m */; };
+		7882AA3222437EA900A8D781 /* UIView+MTBackground.m in Sources */ = {isa = PBXBuildFile; fileRef = 7882AA2422437EA800A8D781 /* UIView+MTBackground.m */; };
+		7882AA3322437EA900A8D781 /* MTAlertView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7882AA2522437EA800A8D781 /* MTAlertView.m */; };
+		7882AA3422437EA900A8D781 /* MTPopView.h in Headers */ = {isa = PBXBuildFile; fileRef = 7882AA2622437EA800A8D781 /* MTPopView.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		7882AA3522437EA900A8D781 /* MTAlertView.h in Headers */ = {isa = PBXBuildFile; fileRef = 7882AA2722437EA800A8D781 /* MTAlertView.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		7882AA3622437EA900A8D781 /* MTWindow.m in Sources */ = {isa = PBXBuildFile; fileRef = 7882AA2822437EA800A8D781 /* MTWindow.m */; };
+		7882AA3722437EA900A8D781 /* MTPopView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7882AA2922437EA800A8D781 /* MTPopView.m */; };
+		7882AA3822437EA900A8D781 /* MTAlertViewConfig.m in Sources */ = {isa = PBXBuildFile; fileRef = 7882AA2A22437EA800A8D781 /* MTAlertViewConfig.m */; };
+		7882AA3922437EA900A8D781 /* MTPopViewConfig.h in Headers */ = {isa = PBXBuildFile; fileRef = 7882AA2B22437EA800A8D781 /* MTPopViewConfig.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		7882AA3A22437EA900A8D781 /* MTPopButtonItem.h in Headers */ = {isa = PBXBuildFile; fileRef = 7882AA2C22437EA800A8D781 /* MTPopButtonItem.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		7882AA3B22437EA900A8D781 /* MTWindow.h in Headers */ = {isa = PBXBuildFile; fileRef = 7882AA2D22437EA800A8D781 /* MTWindow.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		7882AA3C22437EA900A8D781 /* MTPopViewConfig.m in Sources */ = {isa = PBXBuildFile; fileRef = 7882AA2E22437EA900A8D781 /* MTPopViewConfig.m */; };
 		7891C997223B90630010DD55 /* MTDefine.h in Headers */ = {isa = PBXBuildFile; fileRef = 7891C98D223B90630010DD55 /* MTDefine.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		7891C998223B90630010DD55 /* MTConst.m in Sources */ = {isa = PBXBuildFile; fileRef = 7891C98E223B90630010DD55 /* MTConst.m */; };
 		7891C99A223B90630010DD55 /* MTCategory.h in Headers */ = {isa = PBXBuildFile; fileRef = 7891C990223B90630010DD55 /* MTCategory.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -239,6 +253,20 @@
 		7882A9F922433AEA00A8D781 /* MTHUD.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = MTHUD.bundle; sourceTree = "<group>"; };
 		7882A9FA22433AEA00A8D781 /* UIView+MBHud.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+MBHud.h"; sourceTree = "<group>"; };
 		7882A9FB22433AEA00A8D781 /* MTIndicatorView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MTIndicatorView.m; sourceTree = "<group>"; };
+		7882AA2122437EA800A8D781 /* MTAlertViewConfig.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MTAlertViewConfig.h; sourceTree = "<group>"; };
+		7882AA2222437EA800A8D781 /* UIView+MTBackground.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+MTBackground.h"; sourceTree = "<group>"; };
+		7882AA2322437EA800A8D781 /* MTPopButtonItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MTPopButtonItem.m; sourceTree = "<group>"; };
+		7882AA2422437EA800A8D781 /* UIView+MTBackground.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+MTBackground.m"; sourceTree = "<group>"; };
+		7882AA2522437EA800A8D781 /* MTAlertView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MTAlertView.m; sourceTree = "<group>"; };
+		7882AA2622437EA800A8D781 /* MTPopView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MTPopView.h; sourceTree = "<group>"; };
+		7882AA2722437EA800A8D781 /* MTAlertView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MTAlertView.h; sourceTree = "<group>"; };
+		7882AA2822437EA800A8D781 /* MTWindow.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MTWindow.m; sourceTree = "<group>"; };
+		7882AA2922437EA800A8D781 /* MTPopView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MTPopView.m; sourceTree = "<group>"; };
+		7882AA2A22437EA800A8D781 /* MTAlertViewConfig.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MTAlertViewConfig.m; sourceTree = "<group>"; };
+		7882AA2B22437EA800A8D781 /* MTPopViewConfig.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MTPopViewConfig.h; sourceTree = "<group>"; };
+		7882AA2C22437EA800A8D781 /* MTPopButtonItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MTPopButtonItem.h; sourceTree = "<group>"; };
+		7882AA2D22437EA800A8D781 /* MTWindow.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MTWindow.h; sourceTree = "<group>"; };
+		7882AA2E22437EA900A8D781 /* MTPopViewConfig.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MTPopViewConfig.m; sourceTree = "<group>"; };
 		7891C98D223B90630010DD55 /* MTDefine.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MTDefine.h; sourceTree = "<group>"; };
 		7891C98E223B90630010DD55 /* MTConst.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MTConst.m; sourceTree = "<group>"; };
 		7891C990223B90630010DD55 /* MTCategory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MTCategory.h; sourceTree = "<group>"; };
@@ -461,7 +489,7 @@
 			path = "拖拽排序";
 			sourceTree = "<group>";
 		};
-		7882A9F522433AEA00A8D781 /* 弹出加载框 */ = {
+		7882A9F522433AEA00A8D781 /* 加载框 */ = {
 			isa = PBXGroup;
 			children = (
 				7882A9F922433AEA00A8D781 /* MTHUD.bundle */,
@@ -470,7 +498,28 @@
 				7882A9FA22433AEA00A8D781 /* UIView+MBHud.h */,
 				7882A9F722433AEA00A8D781 /* UIView+MBHud.m */,
 			);
-			path = "弹出加载框";
+			path = "加载框";
+			sourceTree = "<group>";
+		};
+		7882AA0322437E3F00A8D781 /* 弹框 */ = {
+			isa = PBXGroup;
+			children = (
+				7882AA2722437EA800A8D781 /* MTAlertView.h */,
+				7882AA2522437EA800A8D781 /* MTAlertView.m */,
+				7882AA2122437EA800A8D781 /* MTAlertViewConfig.h */,
+				7882AA2A22437EA800A8D781 /* MTAlertViewConfig.m */,
+				7882AA2C22437EA800A8D781 /* MTPopButtonItem.h */,
+				7882AA2322437EA800A8D781 /* MTPopButtonItem.m */,
+				7882AA2622437EA800A8D781 /* MTPopView.h */,
+				7882AA2922437EA800A8D781 /* MTPopView.m */,
+				7882AA2B22437EA800A8D781 /* MTPopViewConfig.h */,
+				7882AA2E22437EA900A8D781 /* MTPopViewConfig.m */,
+				7882AA2D22437EA800A8D781 /* MTWindow.h */,
+				7882AA2822437EA800A8D781 /* MTWindow.m */,
+				7882AA2222437EA800A8D781 /* UIView+MTBackground.h */,
+				7882AA2422437EA800A8D781 /* UIView+MTBackground.m */,
+			);
+			path = "弹框";
 			sourceTree = "<group>";
 		};
 		7891C98C223B90630010DD55 /* Config */ = {
@@ -780,7 +829,8 @@
 			isa = PBXGroup;
 			children = (
 				7891C9A5223B90690010DD55 /* MTKit.h */,
-				7882A9F522433AEA00A8D781 /* 弹出加载框 */,
+				7882AA0322437E3F00A8D781 /* 弹框 */,
+				7882A9F522433AEA00A8D781 /* 加载框 */,
 				7882A9EC224325EA00A8D781 /* 拖拽排序 */,
 				7882A9C32243244D00A8D781 /* DelegateMode */,
 				7882A9AE2243220100A8D781 /* 控件文字样式设置 */,
@@ -914,6 +964,13 @@
 				78935277223FA431001D0C4B /* UIView+Animate.h in Headers */,
 				7893522E223F9BE7001D0C4B /* CLLocation+Mar.h in Headers */,
 				78B8A20922421DC3000DBB9F /* MTFileManager.h in Headers */,
+				7882AA3B22437EA900A8D781 /* MTWindow.h in Headers */,
+				7882AA3522437EA900A8D781 /* MTAlertView.h in Headers */,
+				7882AA3922437EA900A8D781 /* MTPopViewConfig.h in Headers */,
+				7882AA3022437EA900A8D781 /* UIView+MTBackground.h in Headers */,
+				7882AA2F22437EA900A8D781 /* MTAlertViewConfig.h in Headers */,
+				7882AA3A22437EA900A8D781 /* MTPopButtonItem.h in Headers */,
+				7882AA3422437EA900A8D781 /* MTPopView.h in Headers */,
 				7891C9A8223B90690010DD55 /* MTRequestProtocol.h in Headers */,
 				7891C99A223B90630010DD55 /* MTCategory.h in Headers */,
 				7891C99C223B90630010DD55 /* MTThirdSDKList.h in Headers */,
@@ -1049,16 +1106,19 @@
 				7882A9E4224324CD00A8D781 /* MTDelegateHeaderFooterView.m in Sources */,
 				7882A99F224320F500A8D781 /* MTBaseDataModel.m in Sources */,
 				7893515F223F492F001D0C4B /* NSString+Replace.m in Sources */,
+				7882AA3C22437EA900A8D781 /* MTPopViewConfig.m in Sources */,
 				7882A9FC22433AEA00A8D781 /* UIView+MBHud.m in Sources */,
 				7882A9BB2243220100A8D781 /* UIButton+Word.m in Sources */,
 				7882A9EB224324E400A8D781 /* MTDataSource.m in Sources */,
 				78B8A2352242401A000DBB9F /* NSData+File.m in Sources */,
 				7882A9DB224324CD00A8D781 /* MTDelegateCollectionView.m in Sources */,
 				78B8A285224241AE000DBB9F /* UIImage+Draw.m in Sources */,
+				7882AA3622437EA900A8D781 /* MTWindow.m in Sources */,
 				78B8A23F2242407E000DBB9F /* NSArray+Json.m in Sources */,
 				7882A9F1224325EA00A8D781 /* MTDragCollectionView.m in Sources */,
 				78B8A27E224241AE000DBB9F /* UIImage+Cut.m in Sources */,
 				78B8A27A224241AE000DBB9F /* UIImage+MTCircleImage.m in Sources */,
+				7882AA3222437EA900A8D781 /* UIView+MTBackground.m in Sources */,
 				78935242223F9BFB001D0C4B /* UIColor+ColorfulColor.m in Sources */,
 				78935272223FA431001D0C4B /* MTViewModel.m in Sources */,
 				7882A9C12243225100A8D781 /* MTLabel.m in Sources */,
@@ -1075,6 +1135,7 @@
 				78935150223F491B001D0C4B /* NSString+Base64.m in Sources */,
 				78B8A278224241AE000DBB9F /* UIImage+Size.m in Sources */,
 				78B8A1E5224217EB000DBB9F /* MTShadowController.m in Sources */,
+				7882AA3322437EA900A8D781 /* MTAlertView.m in Sources */,
 				78B8A1EF22421B19000DBB9F /* MTCloud.m in Sources */,
 				78B8A287224241AE000DBB9F /* UIView+Image.m in Sources */,
 				7882A9F4224325EA00A8D781 /* MTDragCollectionViewCell.m in Sources */,
@@ -1091,6 +1152,7 @@
 				7882A9BC2243220100A8D781 /* UILabel+Word.m in Sources */,
 				78935258223FA245001D0C4B /* UILabel+LineSpacing.m in Sources */,
 				78935237223F9BF6001D0C4B /* UIButton+HighLight.m in Sources */,
+				7882AA3822437EA900A8D781 /* MTAlertViewConfig.m in Sources */,
 				78935240223F9BFB001D0C4B /* UIColor+RGBValues.m in Sources */,
 				7882A9A1224320F500A8D781 /* NSObject+API.m in Sources */,
 				78B8A1FD22421D90000DBB9F /* MTTimer.m in Sources */,
@@ -1099,12 +1161,14 @@
 				7882A9A0224320F500A8D781 /* MTBaseApi.m in Sources */,
 				7891C998223B90630010DD55 /* MTConst.m in Sources */,
 				7882A9B92243220100A8D781 /* UITextView+Word.m in Sources */,
+				7882AA3122437EA900A8D781 /* MTPopButtonItem.m in Sources */,
 				7882A9E0224324CD00A8D781 /* MTDelegateCollectionViewCell.m in Sources */,
 				7882A9DA224324CD00A8D781 /* MTDelegatePickerView.m in Sources */,
 				78935233223F9BEC001D0C4B /* NSObject+HideKey.m in Sources */,
 				7882A9CA2243244D00A8D781 /* MTDelegateView.m in Sources */,
 				78B8A23E2242407E000DBB9F /* NSDictionary+Json.m in Sources */,
 				78935228223F6AD2001D0C4B /* MTBorderStyle.m in Sources */,
+				7882AA3722437EA900A8D781 /* MTPopView.m in Sources */,
 				78B8A282224241AE000DBB9F /* UIImage+PropertyExtension.m in Sources */,
 				78B8A279224241AE000DBB9F /* UIImage+Base64.m in Sources */,
 				7891C99E223B90630010DD55 /* NSString+Exist.m in Sources */,

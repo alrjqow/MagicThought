@@ -134,7 +134,7 @@ Pod::Spec.new do |s|
   # s.dependency "JSONKit", "~> 1.4"
 
 s.name = "MagicThought"
-s.version = "1.3.1"
+s.version = "1.3.2"
 s.summary = "MagicThought for ios."
 s.description = "the MagicThought for ios."
 s.homepage = "https://github.com/alrjqow/MagicThought"
@@ -200,8 +200,9 @@ wordStyle.source_files = 'MagicThought/控件文字样式设置/*.{h,m}', 'Magic
 end
 
 s.subspec 'DelegateMode' do |delegateMode|
-delegateMode.source_files = 'MagicThought/DelegateMode/*.{h,m}', 'MagicThought/拖拽排序/*.{h,m}'
+delegateMode.source_files = 'MagicThought/DelegateMode/*.{h,m}'
 
+delegateMode.dependency 'MagicThought/拖拽排序'
 delegateMode.dependency 'MagicThought/Category'
 delegateMode.dependency 'MagicThought/Protocol'
 delegateMode.dependency 'MagicThought/Config'
@@ -209,14 +210,22 @@ delegateMode.dependency 'MagicThought/Config'
 end
 
 s.subspec '拖拽排序' do |drag|
-drag.source_files = 'MagicThought/拖拽排序/*.{h,m}'
-drag.dependency 'MagicThought/DelegateMode'
+drag.source_files = 'MagicThought/拖拽排序/*.{h,m}', 'MagicThought/DelegateMode/MTDelegateCollectionView.{h,m}', 'MagicThought/DelegateMode/MTDelegateCollectionViewCell.{h,m}'
+
+drag.dependency 'MagicThought/Config'
+drag.dependency 'MagicThought/Protocol'
+
 end
 
-s.subspec '弹出加载框' do |hud|
-hud.source_files = 'MagicThought/弹出加载框/*.{h,m}', 'MagicThought/Config/MTConst.{h,m}', 'MagicThought/图片处理/UIImage+Size.{h,m}'
+s.subspec '加载框' do |hud|
+hud.source_files = 'MagicThought/加载框/*.{h,m}', 'MagicThought/Config/MTConst.{h,m}', 'MagicThought/图片处理/UIImage+Size.{h,m}'
 hud.dependency 'MagicThought/Category'
-hud.resources = "MagicThought/弹出加载框/MTHUD.bundle"
+hud.resources = "MagicThought/加载框/MTHUD.bundle"
+end
+
+s.subspec '弹框' do |alert|
+alert.source_files = 'MagicThought/弹框/*.{h,m}'
+alert.dependency 'MagicThought/DelegateMode'
 end
 
 s.subspec 'Category' do |category|
@@ -266,7 +275,9 @@ view.dependency 'MagicThought/Config'
 
 view.subspec 'UIView+Shadow' do |view_shadow|
 
-view_shadow.source_files = 'MagicThought/Category/UIView/UIView+Shadow/*.{m,h}', 'MagicThought/Config/MTConst.{h,m}'
+view_shadow.source_files = 'MagicThought/Category/UIView/UIView+Shadow/*.{m,h}'
+
+view_shadow.dependency 'MagicThought/Config'
 
 end
 
