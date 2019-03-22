@@ -36,7 +36,7 @@
 #import "NSString+Base64.h"
 #import "NSString+Unicode.h"
 #import "NSString+Encode.h"
-#import "NSString+Request.h"
+//#import "NSString+Request.h"
 
 #import "UIButton+HighLight.h"
 #import "UIButton+Word.h"
@@ -51,7 +51,7 @@
 #import "UIImage+Size.h"
 #import "UIImage+Cut.h"
 #import "UIImage+Draw.h"
-#import "UIImage+MaoBoLi.h"
+//#import "UIImage+MaoBoLi.h"
 #import "UIImage+Base64.h"
 
 #import "UILabel+LineSpacing.h"

@@ -134,7 +134,7 @@ Pod::Spec.new do |s|
   # s.dependency "JSONKit", "~> 1.4"
 
 s.name = "MagicThought"
-s.version = "1.3.3"
+s.version = "1.3.4"
 s.summary = "MagicThought for ios."
 s.description = "the MagicThought for ios."
 s.homepage = "https://github.com/alrjqow/MagicThought"
@@ -200,7 +200,7 @@ wordStyle.source_files = 'MagicThought/控件文字样式设置/*.{h,m}', 'Magic
 end
 
 s.subspec 'DelegateMode' do |delegateMode|
-delegateMode.source_files = 'MagicThought/DelegateMode/*.{h,m}'
+delegateMode.source_files = 'MagicThought/DelegateMode/*.{h,m}', 'MagicThought/拖拽排序/MTDragCollectionView.{h,m}',  'MagicThought/拖拽排序/MTDragCollectionViewCell.{h,m}'
 
 delegateMode.dependency 'MagicThought/Category'
 delegateMode.dependency 'MagicThought/Protocol'
@@ -210,14 +210,9 @@ end
 
 s.subspec '拖拽排序' do |drag|
 drag.source_files = 'MagicThought/拖拽排序/*.{h,m}'
+
 drag.dependency 'MagicThought/DelegateMode'
-end
 
-s.subspec 'MTDataSource' do |dataSource|
-dataSource.source_files = 'MagicThought/MTDataSource/*.{h,m}'
-
-dataSource.dependency 'MagicThought/DelegateMode'
-dataSource.dependency 'MagicThought/拖拽排序'
 end
 
 s.subspec '加载框' do |hud|
@@ -230,6 +225,39 @@ s.subspec '弹框' do |alert|
 alert.source_files = 'MagicThought/弹框/*.{h,m}'
 alert.dependency 'MagicThought/DelegateMode'
 alert.dependency 'MagicThought/文本框验证'
+end
+
+s.subspec '刷新小圈圈' do |refreshRing|
+refreshRing.source_files = 'MagicThought/刷新小圈圈/*.{h,m}', 'MagicThought/Category/UIView+Frame.{h,m}'
+end
+
+s.subspec 'Other' do |other|
+other.source_files = 'MagicThought/Other/*.{h,m}'
+end
+
+s.subspec '倒计时圆环' do |count|
+count.source_files = 'MagicThought/倒计时圆环/*.{h,m}'
+count.dependency 'MagicThought/DelegateMode'
+end
+
+s.subspec '图片轮播' do |imagePlay|
+imagePlay.source_files = 'MagicThought/图片轮播/*.{h,m}'
+imagePlay.dependency 'MagicThought/DelegateMode'
+end
+
+s.subspec '手势解锁' do |lock|
+lock.source_files = 'MagicThought/手势解锁/*.{h,m}'
+lock.dependency 'MagicThought/DelegateMode'
+end
+
+s.subspec '视图左右分割' do |spilt|
+spilt.source_files = 'MagicThought/视图左右分割/*.{h,m}'
+spilt.dependency 'MagicThought/DelegateMode'
+end
+
+s.subspec 'MTSlideView' do |slide|
+slide.source_files = 'MagicThought/MTSlideView/*.{h,m}'
+slide.dependency 'MagicThought/DelegateMode'
 end
 
 s.subspec 'Category' do |category|
