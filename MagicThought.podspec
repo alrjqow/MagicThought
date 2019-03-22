@@ -134,7 +134,7 @@ Pod::Spec.new do |s|
   # s.dependency "JSONKit", "~> 1.4"
 
 s.name = "MagicThought"
-s.version = "1.3.2"
+s.version = "1.3.3"
 s.summary = "MagicThought for ios."
 s.description = "the MagicThought for ios."
 s.homepage = "https://github.com/alrjqow/MagicThought"
@@ -202,7 +202,6 @@ end
 s.subspec 'DelegateMode' do |delegateMode|
 delegateMode.source_files = 'MagicThought/DelegateMode/*.{h,m}'
 
-delegateMode.dependency 'MagicThought/拖拽排序'
 delegateMode.dependency 'MagicThought/Category'
 delegateMode.dependency 'MagicThought/Protocol'
 delegateMode.dependency 'MagicThought/Config'
@@ -210,11 +209,15 @@ delegateMode.dependency 'MagicThought/Config'
 end
 
 s.subspec '拖拽排序' do |drag|
-drag.source_files = 'MagicThought/拖拽排序/*.{h,m}', 'MagicThought/DelegateMode/MTDelegateCollectionView.{h,m}', 'MagicThought/DelegateMode/MTDelegateCollectionViewCell.{h,m}'
+drag.source_files = 'MagicThought/拖拽排序/*.{h,m}'
+drag.dependency 'MagicThought/DelegateMode'
+end
 
-drag.dependency 'MagicThought/Config'
-drag.dependency 'MagicThought/Protocol'
+s.subspec 'MTDataSource' do |dataSource|
+dataSource.source_files = 'MagicThought/MTDataSource/*.{h,m}'
 
+dataSource.dependency 'MagicThought/DelegateMode'
+dataSource.dependency 'MagicThought/拖拽排序'
 end
 
 s.subspec '加载框' do |hud|
@@ -226,6 +229,7 @@ end
 s.subspec '弹框' do |alert|
 alert.source_files = 'MagicThought/弹框/*.{h,m}'
 alert.dependency 'MagicThought/DelegateMode'
+alert.dependency 'MagicThought/文本框验证'
 end
 
 s.subspec 'Category' do |category|

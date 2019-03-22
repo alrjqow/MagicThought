@@ -454,8 +454,6 @@
 		7882A9C32243244D00A8D781 /* DelegateMode */ = {
 			isa = PBXGroup;
 			children = (
-				7882A9E8224324E400A8D781 /* MTDataSource.h */,
-				7882A9E9224324E400A8D781 /* MTDataSource.m */,
 				7882A9C42243244D00A8D781 /* MTDelegateView.h */,
 				7882A9C62243244D00A8D781 /* MTDelegateView.m */,
 				7882A9CF224324CB00A8D781 /* MTDelegateCollectionReusableView.h */,
@@ -472,8 +470,6 @@
 				7882A9D1224324CB00A8D781 /* MTDelegateTableView.m */,
 				7882A9D8224324CD00A8D781 /* MTDelegateTableViewCell.h */,
 				7882A9D0224324CB00A8D781 /* MTDelegateTableViewCell.m */,
-				7882A9C52243244D00A8D781 /* NSObject+ReuseIdentifier.h */,
-				7882A9C72243244D00A8D781 /* NSObject+ReuseIdentifier.m */,
 			);
 			path = DelegateMode;
 			sourceTree = "<group>";
@@ -707,6 +703,17 @@
 			path = "UIView+Shadow";
 			sourceTree = "<group>";
 		};
+		789F5670224475430093298C /* MTDataSource */ = {
+			isa = PBXGroup;
+			children = (
+				7882A9C52243244D00A8D781 /* NSObject+ReuseIdentifier.h */,
+				7882A9C72243244D00A8D781 /* NSObject+ReuseIdentifier.m */,
+				7882A9E8224324E400A8D781 /* MTDataSource.h */,
+				7882A9E9224324E400A8D781 /* MTDataSource.m */,
+			);
+			path = MTDataSource;
+			sourceTree = "<group>";
+		};
 		78B8A1D122421697000DBB9F /* UIViewController */ = {
 			isa = PBXGroup;
 			children = (
@@ -829,6 +836,7 @@
 			isa = PBXGroup;
 			children = (
 				7891C9A5223B90690010DD55 /* MTKit.h */,
+				789F5670224475430093298C /* MTDataSource */,
 				7882AA0322437E3F00A8D781 /* 弹框 */,
 				7882A9F522433AEA00A8D781 /* 加载框 */,
 				7882A9EC224325EA00A8D781 /* 拖拽排序 */,
