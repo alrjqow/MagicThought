@@ -6,6 +6,7 @@
 //  Copyright © 2018年 王奕聪. All rights reserved.
 //
 
+#import "UIDevice+DeviceInfo.h"
 
 #define rgba(r,g,b,a) [UIColor colorWithRed:r/255.0f green:g/255.0f blue:b/255.0f alpha:a]
 #define rgb(r,g,b) rgba(r,g,b,1)

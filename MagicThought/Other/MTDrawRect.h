@@ -7,7 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "MTStyle.h"
+#import "MTBorderStyle.h"
 #import "MTGraphicType.h"
 
 @interface MTDrawRect : NSObject

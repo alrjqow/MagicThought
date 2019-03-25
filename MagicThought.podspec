@@ -134,7 +134,7 @@ Pod::Spec.new do |s|
   # s.dependency "JSONKit", "~> 1.4"
 
 s.name = "MagicThought"
-s.version = "1.3.4"
+s.version = "1.3.5"
 s.summary = "MagicThought for ios."
 s.description = "the MagicThought for ios."
 s.homepage = "https://github.com/alrjqow/MagicThought"
@@ -199,6 +199,13 @@ wordStyle.source_files = 'MagicThought/控件文字样式设置/*.{h,m}', 'Magic
 
 end
 
+s.subspec '拖拽排序' do |drag|
+drag.source_files = 'MagicThought/拖拽排序/*.{h,m}'
+
+drag.dependency 'MagicThought/DelegateMode'
+
+end
+
 s.subspec 'DelegateMode' do |delegateMode|
 delegateMode.source_files = 'MagicThought/DelegateMode/*.{h,m}', 'MagicThought/拖拽排序/MTDragCollectionView.{h,m}',  'MagicThought/拖拽排序/MTDragCollectionViewCell.{h,m}'
 
@@ -208,12 +215,7 @@ delegateMode.dependency 'MagicThought/Config'
 
 end
 
-s.subspec '拖拽排序' do |drag|
-drag.source_files = 'MagicThought/拖拽排序/*.{h,m}'
 
-drag.dependency 'MagicThought/DelegateMode'
-
-end
 
 s.subspec '加载框' do |hud|
 hud.source_files = 'MagicThought/加载框/*.{h,m}', 'MagicThought/Config/MTConst.{h,m}', 'MagicThought/图片处理/UIImage+Size.{h,m}'
@@ -228,11 +230,13 @@ alert.dependency 'MagicThought/文本框验证'
 end
 
 s.subspec '刷新小圈圈' do |refreshRing|
-refreshRing.source_files = 'MagicThought/刷新小圈圈/*.{h,m}', 'MagicThought/Category/UIView+Frame.{h,m}'
+refreshRing.source_files = 'MagicThought/刷新小圈圈/*.{h,m}', 'MagicThought/Category/UIView/UIView+Frame.{h,m}'
 end
 
 s.subspec 'Other' do |other|
 other.source_files = 'MagicThought/Other/*.{h,m}'
+
+other.dependency 'MagicThought/Style'
 end
 
 s.subspec '倒计时圆环' do |count|
@@ -258,6 +262,54 @@ end
 s.subspec 'MTSlideView' do |slide|
 slide.source_files = 'MagicThought/MTSlideView/*.{h,m}'
 slide.dependency 'MagicThought/DelegateMode'
+end
+
+s.subspec 'SubClass' do |subClass|
+
+subClass.subspec 'WKWebView' do |webView|
+webView.source_files = 'MagicThought/SubClass/WKWebView/*.{m,h}' , 'MagicThought/Category/NSString/NSString+Exist.{m,h}'
+webView.dependency 'MagicThought/Config'
+end
+
+subClass.subspec 'UIButton' do |button|
+button.source_files = 'MagicThought/SubClass/UIButton/*.{m,h}' , 'MagicThought/Category/NSString/NSString+Exist.{m,h}'
+
+button.dependency 'MagicThought/Config'
+end
+
+subClass.subspec 'UITableViewCell' do |tableViewCell|
+tableViewCell.source_files = 'MagicThought/SubClass/UITableViewCell/*.{m,h}'
+tableViewCell.dependency 'MagicThought/DelegateMode'
+end
+
+subClass.subspec 'UIViewController' do |viewController|
+
+viewController.subspec 'UIViewController + Progress' do |progress|
+progress.source_files = 'MagicThought/SubClass/UIViewController/UIViewController + Progress/*.{m,h}'
+
+progress.dependency 'MagicThought/Style'
+progress.dependency 'MagicThought/控件文字样式设置'
+progress.dependency 'MagicThought/Category'
+
+end
+
+viewController.subspec 'UIViewController + Base' do |base|
+base.source_files = 'MagicThought/SubClass/UIViewController/UIViewController + Base/*.{m,h}'
+
+base.dependency 'MagicThought/加载框'
+base.dependency 'MagicThought/网络请求'
+base.dependency 'MagicThought/DelegateMode'
+base.dependency 'MagicThought/Manager'
+end
+
+
+end
+
+
+
+
+
+
 end
 
 s.subspec 'Category' do |category|
