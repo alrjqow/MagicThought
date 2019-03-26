@@ -195,8 +195,7 @@ s.subspec '文本框验证' do |textVerify|
 end
 
 s.subspec '控件文字样式设置' do |wordStyle|
-wordStyle.source_files = 'MagicThought/控件文字样式设置/*.{h,m}', 'MagicThought/Config/MTDefine.{h}', 'MagicThought/Style/MTWordStyle.{h,m}'
-
+wordStyle.source_files = 'MagicThought/控件文字样式设置/*.{h,m}', 'MagicThought/Style/MTWordStyle.{h,m}','MagicThought/Config/MTDefine.h'
 end
 
 s.subspec '拖拽排序' do |drag|
@@ -284,7 +283,7 @@ end
 
 subClass.subspec 'UIViewController' do |viewController|
 
-viewController.subspec 'UIViewController + Progress' do |progress|
+viewController.subspec 'UIViewController+Progress' do |progress|
 progress.source_files = 'MagicThought/SubClass/UIViewController/UIViewController + Progress/*.{m,h}'
 
 progress.dependency 'MagicThought/Style'
@@ -293,7 +292,7 @@ progress.dependency 'MagicThought/Category'
 
 end
 
-viewController.subspec 'UIViewController + Base' do |base|
+viewController.subspec 'UIViewController+Base' do |base|
 base.source_files = 'MagicThought/SubClass/UIViewController/UIViewController + Base/*.{m,h}'
 
 base.dependency 'MagicThought/加载框'
