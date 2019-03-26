@@ -8,10 +8,12 @@
 
 #import "MTProgressController.h"
 #import "LDProgressView.h"
-#import "MTCategory.h"
 #import "MTConst.h"
 #import "Masonry.h"
-#import "MTStyle.h"
+#import "MTBorderStyle.h"
+#import "UILabel+Word.h"
+#import "UIColor+ColorfulColor.h"
+#import "UIView+Circle.h"
 
 @interface MTProgressController ()
 

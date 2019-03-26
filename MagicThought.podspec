@@ -134,7 +134,7 @@ Pod::Spec.new do |s|
   # s.dependency "JSONKit", "~> 1.4"
 
 s.name = "MagicThought"
-s.version = "1.3.6"
+s.version = "1.3.7"
 s.summary = "MagicThought for ios."
 s.description = "the MagicThought for ios."
 s.homepage = "https://github.com/alrjqow/MagicThought"
@@ -274,6 +274,7 @@ subClass.subspec 'UIButton' do |button|
 button.source_files = 'MagicThought/SubClass/UIButton/*.{m,h}' , 'MagicThought/Category/NSString/NSString+Exist.{m,h}'
 
 button.dependency 'MagicThought/Config'
+button.dependency 'MagicThought/Protocol'
 end
 
 subClass.subspec 'UITableViewCell' do |tableViewCell|

@@ -9,7 +9,6 @@
 #import "UIView+Circle.h"
 #import "MTBorderStyle.h"
 #import "MTDefine.h"
-//#import "MTCategory.h"
 
 @implementation MTWeakLine
 
