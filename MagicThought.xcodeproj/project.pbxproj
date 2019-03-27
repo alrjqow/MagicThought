@@ -7,6 +7,18 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		7875AE77224B095E0072C2E7 /* MTSafariViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7875AE74224B095E0072C2E7 /* MTSafariViewController.m */; };
+		7875AE78224B095E0072C2E7 /* MTSafariViewController.h in Headers */ = {isa = PBXBuildFile; fileRef = 7875AE75224B095E0072C2E7 /* MTSafariViewController.h */; };
+		7875AE79224B095E0072C2E7 /* MTSafariViewController.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 7875AE76224B095E0072C2E7 /* MTSafariViewController.bundle */; };
+		7875AE7E224B0D790072C2E7 /* MTAlertController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7875AE7B224B0D790072C2E7 /* MTAlertController.m */; };
+		7875AE7F224B0D790072C2E7 /* MTAlertController.h in Headers */ = {isa = PBXBuildFile; fileRef = 7875AE7C224B0D790072C2E7 /* MTAlertController.h */; };
+		7875AE80224B0D790072C2E7 /* MTAlertController.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 7875AE7D224B0D790072C2E7 /* MTAlertController.bundle */; };
+		7875AE88224B0FB90072C2E7 /* MTDatePickerViewController.h in Headers */ = {isa = PBXBuildFile; fileRef = 7875AE82224B0FB90072C2E7 /* MTDatePickerViewController.h */; };
+		7875AE89224B0FB90072C2E7 /* MTDatePickerViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7875AE83224B0FB90072C2E7 /* MTDatePickerViewController.xib */; };
+		7875AE8A224B0FB90072C2E7 /* MTPickerViewController.h in Headers */ = {isa = PBXBuildFile; fileRef = 7875AE84224B0FB90072C2E7 /* MTPickerViewController.h */; };
+		7875AE8B224B0FB90072C2E7 /* MTPickerViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7875AE85224B0FB90072C2E7 /* MTPickerViewController.xib */; };
+		7875AE8C224B0FB90072C2E7 /* MTDatePickerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7875AE86224B0FB90072C2E7 /* MTDatePickerViewController.m */; };
+		7875AE8D224B0FB90072C2E7 /* MTPickerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7875AE87224B0FB90072C2E7 /* MTPickerViewController.m */; };
 		7882A99F224320F500A8D781 /* MTBaseDataModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 7882A999224320F500A8D781 /* MTBaseDataModel.m */; };
 		7882A9A0224320F500A8D781 /* MTBaseApi.m in Sources */ = {isa = PBXBuildFile; fileRef = 7882A99A224320F500A8D781 /* MTBaseApi.m */; };
 		7882A9A1224320F500A8D781 /* NSObject+API.m in Sources */ = {isa = PBXBuildFile; fileRef = 7882A99B224320F500A8D781 /* NSObject+API.m */; };
@@ -249,6 +261,18 @@
 		210510B7765DBA71AEBA6E98 /* Pods-MagicThought.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MagicThought.release.xcconfig"; path = "Pods/Target Support Files/Pods-MagicThought/Pods-MagicThought.release.xcconfig"; sourceTree = "<group>"; };
 		3E6954489A214AEC6611949C /* libPods-MagicThought.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-MagicThought.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		5C1BD1A3B7E4CF44B667CE97 /* Pods-MagicThought.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MagicThought.debug.xcconfig"; path = "Pods/Target Support Files/Pods-MagicThought/Pods-MagicThought.debug.xcconfig"; sourceTree = "<group>"; };
+		7875AE74224B095E0072C2E7 /* MTSafariViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MTSafariViewController.m; sourceTree = "<group>"; };
+		7875AE75224B095E0072C2E7 /* MTSafariViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MTSafariViewController.h; sourceTree = "<group>"; };
+		7875AE76224B095E0072C2E7 /* MTSafariViewController.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = MTSafariViewController.bundle; sourceTree = "<group>"; };
+		7875AE7B224B0D790072C2E7 /* MTAlertController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MTAlertController.m; sourceTree = "<group>"; };
+		7875AE7C224B0D790072C2E7 /* MTAlertController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MTAlertController.h; sourceTree = "<group>"; };
+		7875AE7D224B0D790072C2E7 /* MTAlertController.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = MTAlertController.bundle; sourceTree = "<group>"; };
+		7875AE82224B0FB90072C2E7 /* MTDatePickerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MTDatePickerViewController.h; sourceTree = "<group>"; };
+		7875AE83224B0FB90072C2E7 /* MTDatePickerViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MTDatePickerViewController.xib; sourceTree = "<group>"; };
+		7875AE84224B0FB90072C2E7 /* MTPickerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MTPickerViewController.h; sourceTree = "<group>"; };
+		7875AE85224B0FB90072C2E7 /* MTPickerViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MTPickerViewController.xib; sourceTree = "<group>"; };
+		7875AE86224B0FB90072C2E7 /* MTDatePickerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MTDatePickerViewController.m; sourceTree = "<group>"; };
+		7875AE87224B0FB90072C2E7 /* MTPickerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MTPickerViewController.m; sourceTree = "<group>"; };
 		7882A999224320F500A8D781 /* MTBaseDataModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MTBaseDataModel.m; sourceTree = "<group>"; };
 		7882A99A224320F500A8D781 /* MTBaseApi.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MTBaseApi.m; sourceTree = "<group>"; };
 		7882A99B224320F500A8D781 /* NSObject+API.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+API.m"; sourceTree = "<group>"; };
@@ -500,6 +524,39 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		7875AE73224B095E0072C2E7 /* UIViewController + MTSafariView */ = {
+			isa = PBXGroup;
+			children = (
+				7875AE75224B095E0072C2E7 /* MTSafariViewController.h */,
+				7875AE74224B095E0072C2E7 /* MTSafariViewController.m */,
+				7875AE76224B095E0072C2E7 /* MTSafariViewController.bundle */,
+			);
+			path = "UIViewController + MTSafariView";
+			sourceTree = "<group>";
+		};
+		7875AE7A224B0D790072C2E7 /* UIViewController + Alert */ = {
+			isa = PBXGroup;
+			children = (
+				7875AE7C224B0D790072C2E7 /* MTAlertController.h */,
+				7875AE7B224B0D790072C2E7 /* MTAlertController.m */,
+				7875AE7D224B0D790072C2E7 /* MTAlertController.bundle */,
+			);
+			path = "UIViewController + Alert";
+			sourceTree = "<group>";
+		};
+		7875AE81224B0FB90072C2E7 /* UIViewController + PickView */ = {
+			isa = PBXGroup;
+			children = (
+				7875AE82224B0FB90072C2E7 /* MTDatePickerViewController.h */,
+				7875AE86224B0FB90072C2E7 /* MTDatePickerViewController.m */,
+				7875AE83224B0FB90072C2E7 /* MTDatePickerViewController.xib */,
+				7875AE84224B0FB90072C2E7 /* MTPickerViewController.h */,
+				7875AE87224B0FB90072C2E7 /* MTPickerViewController.m */,
+				7875AE85224B0FB90072C2E7 /* MTPickerViewController.xib */,
+			);
+			path = "UIViewController + PickView";
+			sourceTree = "<group>";
+		};
 		7882A998224320F500A8D781 /* 网络请求 */ = {
 			isa = PBXGroup;
 			children = (
@@ -754,9 +811,9 @@
 			isa = PBXGroup;
 			children = (
 				78935252223FA245001D0C4B /* UILabel+LineSpacing.h */,
+				78935254223FA245001D0C4B /* UILabel+LineSpacing.m */,
 				78935251223FA245001D0C4B /* UILabel +AttributeText.m */,
 				78935253223FA245001D0C4B /* UILabel +AttributeText.h */,
-				78935254223FA245001D0C4B /* UILabel+LineSpacing.m */,
 			);
 			path = UILabel;
 			sourceTree = "<group>";
@@ -920,6 +977,9 @@
 		789F56DC2244D2BF0093298C /* UIViewController */ = {
 			isa = PBXGroup;
 			children = (
+				7875AE81224B0FB90072C2E7 /* UIViewController + PickView */,
+				7875AE7A224B0D790072C2E7 /* UIViewController + Alert */,
+				7875AE73224B095E0072C2E7 /* UIViewController + MTSafariView */,
 				789F56DD2244D2BF0093298C /* UIViewController + Progress */,
 				789F56E32244D2BF0093298C /* UIViewController + Base */,
 			);
@@ -1134,6 +1194,7 @@
 				78935241223F9BFB001D0C4B /* UIColor+Image.h in Headers */,
 				789F56B3224491D40093298C /* MTSpiltView.h in Headers */,
 				78B8A23D2242407E000DBB9F /* NSArray+Json.h in Headers */,
+				7875AE8A224B0FB90072C2E7 /* MTPickerViewController.h in Headers */,
 				78B8A1EE22421B19000DBB9F /* MTManager.h in Headers */,
 				78B8A20122421DAA000DBB9F /* MTPhotoManager.h in Headers */,
 				78935279223FA431001D0C4B /* UIView+Frame.h in Headers */,
@@ -1159,6 +1220,7 @@
 				7893527B223FA431001D0C4B /* UIView+Copy.h in Headers */,
 				78935229223F6AD2001D0C4B /* MTWordStyle.h in Headers */,
 				78B8A20D22421DCF000DBB9F /* MTDeviceManager.h in Headers */,
+				7875AE78224B095E0072C2E7 /* MTSafariViewController.h in Headers */,
 				78B8A23C2242407E000DBB9F /* NSDictionary+Json.h in Headers */,
 				78935257223FA245001D0C4B /* UILabel +AttributeText.h in Headers */,
 				7893516E223F493E001D0C4B /* NSString+WordHeight.h in Headers */,
@@ -1230,9 +1292,11 @@
 				789F56A922448FA80093298C /* MTLockNode.h in Headers */,
 				78B8A20522421DB6000DBB9F /* MTLocationManager.h in Headers */,
 				789F569F22448EDF0093298C /* MTImagePlayViewCell.h in Headers */,
+				7875AE88224B0FB90072C2E7 /* MTDatePickerViewController.h in Headers */,
 				78935243223F9BFB001D0C4B /* UIColor+RGBValues.h in Headers */,
 				78935277223FA431001D0C4B /* UIView+Animate.h in Headers */,
 				7893522E223F9BE7001D0C4B /* CLLocation+Mar.h in Headers */,
+				7875AE7F224B0D790072C2E7 /* MTAlertController.h in Headers */,
 				78B8A20922421DC3000DBB9F /* MTFileManager.h in Headers */,
 				7882AA3B22437EA900A8D781 /* MTWindow.h in Headers */,
 				7882AA3522437EA900A8D781 /* MTAlertView.h in Headers */,
@@ -1309,6 +1373,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				7882A9FE22433AEA00A8D781 /* MTHUD.bundle in Resources */,
+				7875AE8B224B0FB90072C2E7 /* MTPickerViewController.xib in Resources */,
+				7875AE80224B0D790072C2E7 /* MTAlertController.bundle in Resources */,
+				7875AE79224B095E0072C2E7 /* MTSafariViewController.bundle in Resources */,
+				7875AE89224B0FB90072C2E7 /* MTDatePickerViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1383,6 +1451,7 @@
 				7882A9BB2243220100A8D781 /* UIButton+Word.m in Sources */,
 				7882A9EB224324E400A8D781 /* MTDataSource.m in Sources */,
 				78B8A2352242401A000DBB9F /* NSData+File.m in Sources */,
+				7875AE8C224B0FB90072C2E7 /* MTDatePickerViewController.m in Sources */,
 				7882A9DB224324CD00A8D781 /* MTDelegateCollectionView.m in Sources */,
 				789F57042244D2BF0093298C /* MTCountButton.m in Sources */,
 				78B8A285224241AE000DBB9F /* UIImage+Draw.m in Sources */,
@@ -1393,6 +1462,7 @@
 				78B8A27A224241AE000DBB9F /* UIImage+MTCircleImage.m in Sources */,
 				7882AA3222437EA900A8D781 /* UIView+MTBackground.m in Sources */,
 				78935242223F9BFB001D0C4B /* UIColor+ColorfulColor.m in Sources */,
+				7875AE7E224B0D790072C2E7 /* MTAlertController.m in Sources */,
 				78935272223FA431001D0C4B /* MTViewModel.m in Sources */,
 				7882A9C12243225100A8D781 /* MTLabel.m in Sources */,
 				7882A9AD224321ED00A8D781 /* MTTextField.m in Sources */,
@@ -1423,6 +1493,7 @@
 				7882A9F4224325EA00A8D781 /* MTDragCollectionViewCell.m in Sources */,
 				7882A9DE224324CD00A8D781 /* MTDelegateTableViewCell.m in Sources */,
 				7893524F223F9EAC001D0C4B /* UIDevice+DeviceInfo.m in Sources */,
+				7875AE77224B095E0072C2E7 /* MTSafariViewController.m in Sources */,
 				78935223223F6AD2001D0C4B /* MTWordStyle.m in Sources */,
 				78935255223FA245001D0C4B /* UILabel +AttributeText.m in Sources */,
 				78935151223F491B001D0C4B /* NSString+Encode.m in Sources */,
@@ -1453,6 +1524,7 @@
 				7882A9E0224324CD00A8D781 /* MTDelegateCollectionViewCell.m in Sources */,
 				7882A9DA224324CD00A8D781 /* MTDelegatePickerView.m in Sources */,
 				78935233223F9BEC001D0C4B /* NSObject+HideKey.m in Sources */,
+				7875AE8D224B0FB90072C2E7 /* MTPickerViewController.m in Sources */,
 				7882A9CA2243244D00A8D781 /* MTDelegateView.m in Sources */,
 				789F57102244D2BF0093298C /* MTViewController.m in Sources */,
 				78B8A23E2242407E000DBB9F /* NSDictionary+Json.m in Sources */,

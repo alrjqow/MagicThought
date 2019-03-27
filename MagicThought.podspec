@@ -134,7 +134,7 @@ Pod::Spec.new do |s|
   # s.dependency "JSONKit", "~> 1.4"
 
 s.name = "MagicThought"
-s.version = "1.3.7"
+s.version = "1.3.8"
 s.summary = "MagicThought for ios."
 s.description = "the MagicThought for ios."
 s.homepage = "https://github.com/alrjqow/MagicThought"
@@ -300,6 +300,30 @@ base.dependency 'MagicThought/加载框'
 base.dependency 'MagicThought/网络请求'
 base.dependency 'MagicThought/DelegateMode'
 base.dependency 'MagicThought/Manager'
+end
+
+viewController.subspec 'UIViewController+MTSafariView' do |safariView|
+safariView.source_files = 'MagicThought/SubClass/UIViewController/UIViewController + MTSafariView/*.{m,h}'
+safariView.resources = "MagicThought/SubClass/UIViewController/UIViewController+MTSafariView/MTSafariViewController.bundle"
+
+safariView.dependency 'MagicThought/Manager'
+safariView.dependency 'MagicThought/Config'
+safariView.dependency 'MagicThought/Category'
+end
+
+viewController.subspec 'UIViewController+Alert' do |alert|
+alert.source_files = 'MagicThought/SubClass/UIViewController/UIViewController + Alert/*.{m,h}'
+alert.resources = "MagicThought/SubClass/UIViewController/UIViewController + Alert/MTAlertController.bundle"
+
+alert.dependency 'MagicThought/Style'
+alert.dependency 'MagicThought/控件文字样式设置'
+alert.dependency 'MagicThought/Config'
+alert.dependency 'MagicThought/Category'
+end
+
+viewController.subspec 'UIViewController+PickView' do |pickView|
+pickView.source_files = 'MagicThought/SubClass/UIViewController/UIViewController + PickView/*.{m,h,xib}','MagicThought/Category/NSString/NSString+Exist.{m,h}'
+
 end
 
 
