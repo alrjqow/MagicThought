@@ -134,7 +134,7 @@ Pod::Spec.new do |s|
   # s.dependency "JSONKit", "~> 1.4"
 
 s.name = "MagicThought"
-s.version = "1.3.8"
+s.version = "1.3.9"
 s.summary = "MagicThought for ios."
 s.description = "the MagicThought for ios."
 s.homepage = "https://github.com/alrjqow/MagicThought"
@@ -160,8 +160,30 @@ s.subspec 'Style' do |style|
 style.source_files = 'MagicThought/Style/*.{h,m}'
 end
 
+s.subspec 'Library' do |library|
+
+library.subspec 'TZImagePickerController' do |TZImagePickerController|
+TZImagePickerController.source_files = 'MagicThought/Library/TZImagePickerController/*.{m,h}','MagicThought/图片处理/UIImage+PropertyExtension.{m,h}'
+
+TZImagePickerController.resources = "MagicThought/Library/TZImagePickerController/TZImagePickerController.bundle"
+
+TZImagePickerController.dependency 'MagicThought/Category/UINavigationBar'
+TZImagePickerController.dependency 'MagicThought/Config'
+
+end
+
+end
+
 s.subspec 'Manager' do |manager|
 manager.source_files = 'MagicThought/Manager/*.{h,m}','MagicThought/Category/NSString/NSString+Exist.{m,h}', 'MagicThought/Category/CLLocation/CLLocation+Mar.{m,h}', 'MagicThought/Config/MTConst.{h,m}'
+
+manager.dependency 'MagicThought/SubClass/UIViewController/UIViewController+Alert'
+end
+
+s.subspec '控件样式处理(不好用)' do |styleManager|
+styleManager.source_files = 'MagicThought/控件样式处理(不好用)/*.{h,m}','MagicThought/Category/NSString/NSString+Exist.{m,h}','MagicThought/Manager/MTManager.{h,m}','MagicThought/Manager/MTCloud.{h,m}'
+
+styleManager.dependency 'MagicThought/Protocol'
 end
 
 s.subspec '文件处理' do |fileHandle|
@@ -205,6 +227,18 @@ drag.dependency 'MagicThought/DelegateMode'
 
 end
 
+s.subspec '自定义相机' do |camera|
+camera.source_files = 'MagicThought/自定义相机/*.{h,m}','MagicThought/Protocol/MTDelegateProtocol.h','MagicThought/Config/MTConst.{h,m}','MagicThought/Manager/MTManager.{m,h}','MagicThought/Manager/MTDeviceManager.{m,h}','MagicThought/Category/UIColor/UIColor+ColorfulColor.{m,h}'
+
+camera.resources = "MagicThought/自定义相机/MTVideoController.bundle"
+
+
+camera.dependency 'MagicThought/倒计时圆环'
+camera.dependency 'MagicThought/图片处理'
+camera.dependency 'MagicThought/加载框'
+
+end
+
 s.subspec 'DelegateMode' do |delegateMode|
 delegateMode.source_files = 'MagicThought/DelegateMode/*.{h,m}', 'MagicThought/拖拽排序/MTDragCollectionView.{h,m}',  'MagicThought/拖拽排序/MTDragCollectionViewCell.{h,m}'
 
@@ -226,6 +260,22 @@ s.subspec '弹框' do |alert|
 alert.source_files = 'MagicThought/弹框/*.{h,m}'
 alert.dependency 'MagicThought/DelegateMode'
 alert.dependency 'MagicThought/文本框验证'
+end
+
+s.subspec '弹框2' do |alert2|
+
+alert2.subspec 'Controller' do |controller|
+controller.source_files = 'MagicThought/弹框2/Controller/*.{h,m}','MagicThought/Manager/MTManager.{m,h}','MagicThought/Manager/MTCloud.{m,h}','MagicThought/Category/UIColor/UIColor+ColorfulColor.{m,h}','MagicThought/Category/UIView/UIView+Frame.{h,m}'
+
+controller.dependency 'MagicThought/Config'
+controller.dependency 'MagicThought/Style'
+
+end
+
+alert2.subspec 'Model' do |model|
+model.source_files = 'MagicThought/弹框2/Model/*.{h,m}'
+end
+
 end
 
 s.subspec '刷新小圈圈' do |refreshRing|
@@ -304,11 +354,13 @@ end
 
 viewController.subspec 'UIViewController+MTSafariView' do |safariView|
 safariView.source_files = 'MagicThought/SubClass/UIViewController/UIViewController + MTSafariView/*.{m,h}'
-safariView.resources = "MagicThought/SubClass/UIViewController/UIViewController+MTSafariView/MTSafariViewController.bundle"
+safariView.resources = "MagicThought/SubClass/UIViewController/UIViewController + MTSafariView/MTSafariViewController.bundle"
 
 safariView.dependency 'MagicThought/Manager'
 safariView.dependency 'MagicThought/Config'
 safariView.dependency 'MagicThought/Category'
+safariView.dependency 'MagicThought/SubClass/UIViewController/UIViewController+Base'
+safariView.dependency 'MagicThought/SubClass/WKWebView'
 end
 
 viewController.subspec 'UIViewController+Alert' do |alert|
@@ -322,7 +374,8 @@ alert.dependency 'MagicThought/Category'
 end
 
 viewController.subspec 'UIViewController+PickView' do |pickView|
-pickView.source_files = 'MagicThought/SubClass/UIViewController/UIViewController + PickView/*.{m,h,xib}','MagicThought/Category/NSString/NSString+Exist.{m,h}'
+pickView.source_files = 'MagicThought/SubClass/UIViewController/UIViewController + PickView/*.{m,h}','MagicThought/Category/NSString/NSString+Exist.{m,h}'
+pickView.resources = "MagicThought/SubClass/UIViewController/UIViewController + PickView/*.xib"
 
 end
 

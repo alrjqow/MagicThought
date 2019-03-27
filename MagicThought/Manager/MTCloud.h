@@ -7,7 +7,7 @@
 //
 
 #import "MTManager.h"
-//#import "MTStyleManager.h"
+#import "MTStyleManager.h"
 
 @protocol MTBaseDataModelProtocol;
 
@@ -32,7 +32,7 @@
 
 @property (nonatomic,strong) NSObject<MTBaseDataModelProtocol>* apiManager;
 
-//@property (nonatomic,strong) MTStyle* style;
+@property (nonatomic,strong) MTStyle* style;
 
 
 @property (nonatomic,weak) UIViewController* currentViewController;

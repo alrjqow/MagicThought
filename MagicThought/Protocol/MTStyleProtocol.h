@@ -7,6 +7,7 @@
 //
 
 #import "MTDelegateProtocol.h"
+#import <UIKit/UIKit.h>
 
 @class MTStyle;
 @protocol MTStyleProtocol <MTDelegateProtocol>
