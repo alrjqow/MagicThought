@@ -202,6 +202,20 @@
 		78935279223FA431001D0C4B /* UIView+Frame.h in Headers */ = {isa = PBXBuildFile; fileRef = 7893526B223FA430001D0C4B /* UIView+Frame.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		7893527A223FA431001D0C4B /* UIView+Circle.m in Sources */ = {isa = PBXBuildFile; fileRef = 7893526C223FA430001D0C4B /* UIView+Circle.m */; };
 		7893527B223FA431001D0C4B /* UIView+Copy.h in Headers */ = {isa = PBXBuildFile; fileRef = 7893526D223FA430001D0C4B /* UIView+Copy.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		789DBCA2224C6E870086B3AC /* TestController.m in Sources */ = {isa = PBXBuildFile; fileRef = 789DBC92224C6E870086B3AC /* TestController.m */; };
+		789DBCA3224C6E870086B3AC /* TestController.h in Headers */ = {isa = PBXBuildFile; fileRef = 789DBC93224C6E870086B3AC /* TestController.h */; };
+		789DBCA4224C6E870086B3AC /* MTTenScrollModel.h in Headers */ = {isa = PBXBuildFile; fileRef = 789DBC95224C6E870086B3AC /* MTTenScrollModel.h */; };
+		789DBCA5224C6E870086B3AC /* MTTenScrollTitleViewModel.h in Headers */ = {isa = PBXBuildFile; fileRef = 789DBC96224C6E870086B3AC /* MTTenScrollTitleViewModel.h */; };
+		789DBCA6224C6E870086B3AC /* MTTenScrollModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 789DBC97224C6E870086B3AC /* MTTenScrollModel.m */; };
+		789DBCA7224C6E870086B3AC /* MTTenScrollTitleViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 789DBC98224C6E870086B3AC /* MTTenScrollTitleViewModel.m */; };
+		789DBCA8224C6E870086B3AC /* MTTenScrollContentView.h in Headers */ = {isa = PBXBuildFile; fileRef = 789DBC9A224C6E870086B3AC /* MTTenScrollContentView.h */; };
+		789DBCA9224C6E870086B3AC /* MTTenScrollTitleView.h in Headers */ = {isa = PBXBuildFile; fileRef = 789DBC9B224C6E870086B3AC /* MTTenScrollTitleView.h */; };
+		789DBCAA224C6E870086B3AC /* MTTenScrollViewCell.h in Headers */ = {isa = PBXBuildFile; fileRef = 789DBC9C224C6E870086B3AC /* MTTenScrollViewCell.h */; };
+		789DBCAB224C6E870086B3AC /* MTTenScrollView.h in Headers */ = {isa = PBXBuildFile; fileRef = 789DBC9D224C6E870086B3AC /* MTTenScrollView.h */; };
+		789DBCAC224C6E870086B3AC /* MTTenScrollTitleView.m in Sources */ = {isa = PBXBuildFile; fileRef = 789DBC9E224C6E870086B3AC /* MTTenScrollTitleView.m */; };
+		789DBCAD224C6E870086B3AC /* MTTenScrollContentView.m in Sources */ = {isa = PBXBuildFile; fileRef = 789DBC9F224C6E870086B3AC /* MTTenScrollContentView.m */; };
+		789DBCAE224C6E870086B3AC /* MTTenScrollViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 789DBCA0224C6E870086B3AC /* MTTenScrollViewCell.m */; };
+		789DBCAF224C6E870086B3AC /* MTTenScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = 789DBCA1224C6E870086B3AC /* MTTenScrollView.m */; };
 		789F56742244868A0093298C /* MTRefreshRing.h in Headers */ = {isa = PBXBuildFile; fileRef = 789F56722244868A0093298C /* MTRefreshRing.h */; };
 		789F56752244868A0093298C /* MTRefreshRing.m in Sources */ = {isa = PBXBuildFile; fileRef = 789F56732244868A0093298C /* MTRefreshRing.m */; };
 		789F5688224489F10093298C /* Reachability.m in Sources */ = {isa = PBXBuildFile; fileRef = 789F5682224489F10093298C /* Reachability.m */; };
@@ -500,6 +514,20 @@
 		7893526B223FA430001D0C4B /* UIView+Frame.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+Frame.h"; sourceTree = "<group>"; };
 		7893526C223FA430001D0C4B /* UIView+Circle.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+Circle.m"; sourceTree = "<group>"; };
 		7893526D223FA430001D0C4B /* UIView+Copy.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+Copy.h"; sourceTree = "<group>"; };
+		789DBC92224C6E870086B3AC /* TestController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TestController.m; sourceTree = "<group>"; };
+		789DBC93224C6E870086B3AC /* TestController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TestController.h; sourceTree = "<group>"; };
+		789DBC95224C6E870086B3AC /* MTTenScrollModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MTTenScrollModel.h; sourceTree = "<group>"; };
+		789DBC96224C6E870086B3AC /* MTTenScrollTitleViewModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MTTenScrollTitleViewModel.h; sourceTree = "<group>"; };
+		789DBC97224C6E870086B3AC /* MTTenScrollModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MTTenScrollModel.m; sourceTree = "<group>"; };
+		789DBC98224C6E870086B3AC /* MTTenScrollTitleViewModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MTTenScrollTitleViewModel.m; sourceTree = "<group>"; };
+		789DBC9A224C6E870086B3AC /* MTTenScrollContentView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MTTenScrollContentView.h; sourceTree = "<group>"; };
+		789DBC9B224C6E870086B3AC /* MTTenScrollTitleView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MTTenScrollTitleView.h; sourceTree = "<group>"; };
+		789DBC9C224C6E870086B3AC /* MTTenScrollViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MTTenScrollViewCell.h; sourceTree = "<group>"; };
+		789DBC9D224C6E870086B3AC /* MTTenScrollView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MTTenScrollView.h; sourceTree = "<group>"; };
+		789DBC9E224C6E870086B3AC /* MTTenScrollTitleView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MTTenScrollTitleView.m; sourceTree = "<group>"; };
+		789DBC9F224C6E870086B3AC /* MTTenScrollContentView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MTTenScrollContentView.m; sourceTree = "<group>"; };
+		789DBCA0224C6E870086B3AC /* MTTenScrollViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MTTenScrollViewCell.m; sourceTree = "<group>"; };
+		789DBCA1224C6E870086B3AC /* MTTenScrollView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MTTenScrollView.m; sourceTree = "<group>"; };
 		789F56722244868A0093298C /* MTRefreshRing.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MTRefreshRing.h; sourceTree = "<group>"; };
 		789F56732244868A0093298C /* MTRefreshRing.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MTRefreshRing.m; sourceTree = "<group>"; };
 		789F5682224489F10093298C /* Reachability.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Reachability.m; sourceTree = "<group>"; };
@@ -1038,6 +1066,51 @@
 			path = "UIView+Shadow";
 			sourceTree = "<group>";
 		};
+		789DBC90224C6E870086B3AC /* 十字滚动 */ = {
+			isa = PBXGroup;
+			children = (
+				789DBC91224C6E870086B3AC /* Controller */,
+				789DBC94224C6E870086B3AC /* Model */,
+				789DBC99224C6E870086B3AC /* View */,
+			);
+			path = "十字滚动";
+			sourceTree = "<group>";
+		};
+		789DBC91224C6E870086B3AC /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				789DBC93224C6E870086B3AC /* TestController.h */,
+				789DBC92224C6E870086B3AC /* TestController.m */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		789DBC94224C6E870086B3AC /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				789DBC95224C6E870086B3AC /* MTTenScrollModel.h */,
+				789DBC97224C6E870086B3AC /* MTTenScrollModel.m */,
+				789DBC96224C6E870086B3AC /* MTTenScrollTitleViewModel.h */,
+				789DBC98224C6E870086B3AC /* MTTenScrollTitleViewModel.m */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		789DBC99224C6E870086B3AC /* View */ = {
+			isa = PBXGroup;
+			children = (
+				789DBC9A224C6E870086B3AC /* MTTenScrollContentView.h */,
+				789DBC9F224C6E870086B3AC /* MTTenScrollContentView.m */,
+				789DBC9B224C6E870086B3AC /* MTTenScrollTitleView.h */,
+				789DBC9E224C6E870086B3AC /* MTTenScrollTitleView.m */,
+				789DBC9C224C6E870086B3AC /* MTTenScrollViewCell.h */,
+				789DBCA0224C6E870086B3AC /* MTTenScrollViewCell.m */,
+				789DBC9D224C6E870086B3AC /* MTTenScrollView.h */,
+				789DBCA1224C6E870086B3AC /* MTTenScrollView.m */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
 		789F56712244868A0093298C /* 刷新小圈圈 */ = {
 			isa = PBXGroup;
 			children = (
@@ -1312,6 +1385,7 @@
 			isa = PBXGroup;
 			children = (
 				7891C9A5223B90690010DD55 /* MTKit.h */,
+				789DBC90224C6E870086B3AC /* 十字滚动 */,
 				7875AEEB224B61160072C2E7 /* 弹框2 */,
 				7875AEAF224B5D2C0072C2E7 /* Library */,
 				7875AEA4224B593D0072C2E7 /* 自定义相机 */,
@@ -1398,11 +1472,13 @@
 				78935225223F6AD2001D0C4B /* MTBorderStyle.h in Headers */,
 				78B8A1FE22421D90000DBB9F /* MTTimer.h in Headers */,
 				78B8A2322242401A000DBB9F /* NSData+File.h in Headers */,
+				789DBCAA224C6E870086B3AC /* MTTenScrollViewCell.h in Headers */,
 				789F568A224489F10093298C /* MTDrawRect.h in Headers */,
 				78935238223F9BF6001D0C4B /* UIButton+HighLight.h in Headers */,
 				78B8A2342242401A000DBB9F /* NSDictionary+File.h in Headers */,
 				789F56AA22448FA80093298C /* MTLockViewConfig.h in Headers */,
 				78935245223F9BFB001D0C4B /* UIColor+ColorfulColor.h in Headers */,
+				789DBCA5224C6E870086B3AC /* MTTenScrollTitleViewModel.h in Headers */,
 				78935278223FA431001D0C4B /* UIView+ViewController.h in Headers */,
 				78B8A2362242401A000DBB9F /* NSArray+File.h in Headers */,
 				7875AEE3224B5D2C0072C2E7 /* TZAssetModel.h in Headers */,
@@ -1429,7 +1505,9 @@
 				789F569522448BB20093298C /* MTRoundView.h in Headers */,
 				789F568F22448B690093298C /* MTMain.h in Headers */,
 				7891C9AA223B90690010DD55 /* MTDelegateProtocol.h in Headers */,
+				789DBCAB224C6E870086B3AC /* MTTenScrollView.h in Headers */,
 				7875AEE4224B5D2C0072C2E7 /* TZVideoPlayerController.h in Headers */,
+				789DBCA9224C6E870086B3AC /* MTTenScrollTitleView.h in Headers */,
 				7891C9AB223B90690010DD55 /* MTKit.h in Headers */,
 				7891C9A9223B90690010DD55 /* MTStyleProtocol.h in Headers */,
 				78B8A2482242410A000DBB9F /* UIView+Tap.h in Headers */,
@@ -1467,6 +1545,7 @@
 				7882A9A4224320F500A8D781 /* NSObject+API.h in Headers */,
 				7875AED6224B5D2C0072C2E7 /* TZLocationManager.h in Headers */,
 				7882A9F2224325EA00A8D781 /* MTDragCollectionViewCell.h in Headers */,
+				789DBCA8224C6E870086B3AC /* MTTenScrollContentView.h in Headers */,
 				789F570D2244D2BF0093298C /* MTProgressController.h in Headers */,
 				7882A9DC224324CD00A8D781 /* MTDelegateCollectionViewCell.h in Headers */,
 				7882A9F3224325EA00A8D781 /* MTDragCollectionView.h in Headers */,
@@ -1486,6 +1565,7 @@
 				78B8A27B224241AE000DBB9F /* UIImage+PropertyExtension.h in Headers */,
 				78B8A283224241AE000DBB9F /* UIImage+MTCircleImage.h in Headers */,
 				7875AED7224B5D2C0072C2E7 /* TZImagePickerController.h in Headers */,
+				789DBCA3224C6E870086B3AC /* TestController.h in Headers */,
 				78935256223FA245001D0C4B /* UILabel+LineSpacing.h in Headers */,
 				7875AEAA224B593D0072C2E7 /* MTVideoView.h in Headers */,
 				789F56C42244D2180093298C /* MTView.h in Headers */,
@@ -1504,6 +1584,7 @@
 				7875AEDD224B5D2C0072C2E7 /* TZAssetCell.h in Headers */,
 				78B8A20922421DC3000DBB9F /* MTFileManager.h in Headers */,
 				7875AEE2224B5D2C0072C2E7 /* NSBundle+TZImagePicker.h in Headers */,
+				789DBCA4224C6E870086B3AC /* MTTenScrollModel.h in Headers */,
 				7882AA3B22437EA900A8D781 /* MTWindow.h in Headers */,
 				7875AEDC224B5D2C0072C2E7 /* TZGifPhotoPreviewController.h in Headers */,
 				7882AA3522437EA900A8D781 /* MTAlertView.h in Headers */,
@@ -1655,6 +1736,7 @@
 				7875AEE7224B5D2C0072C2E7 /* TZImagePickerController.m in Sources */,
 				7893525C223FA27B001D0C4B /* UINavigationBar+Config.m in Sources */,
 				789F56B2224491D40093298C /* MTSpiltView.m in Sources */,
+				789DBCA7224C6E870086B3AC /* MTTenScrollTitleViewModel.m in Sources */,
 				78935227223F6AD2001D0C4B /* MTAlertStyle.m in Sources */,
 				7882A9E4224324CD00A8D781 /* MTDelegateHeaderFooterView.m in Sources */,
 				7875AED0224B5D2C0072C2E7 /* TZImageCropManager.m in Sources */,
@@ -1672,6 +1754,7 @@
 				78B8A285224241AE000DBB9F /* UIImage+Draw.m in Sources */,
 				7882AA3622437EA900A8D781 /* MTWindow.m in Sources */,
 				78B8A23F2242407E000DBB9F /* NSArray+Json.m in Sources */,
+				789DBCA6224C6E870086B3AC /* MTTenScrollModel.m in Sources */,
 				7882A9F1224325EA00A8D781 /* MTDragCollectionView.m in Sources */,
 				7875AED8224B5D2C0072C2E7 /* UIView+Layout.m in Sources */,
 				78B8A27E224241AE000DBB9F /* UIImage+Cut.m in Sources */,
@@ -1695,6 +1778,7 @@
 				789F56AD22448FA80093298C /* MTLockViewConfig.m in Sources */,
 				789F56752244868A0093298C /* MTRefreshRing.m in Sources */,
 				78935170223F493E001D0C4B /* NSString+WordHeight.m in Sources */,
+				789DBCAD224C6E870086B3AC /* MTTenScrollContentView.m in Sources */,
 				78935150223F491B001D0C4B /* NSString+Base64.m in Sources */,
 				7875AEA0224B52E80072C2E7 /* NSObject+Style.m in Sources */,
 				78B8A278224241AE000DBB9F /* UIImage+Size.m in Sources */,
@@ -1714,6 +1798,7 @@
 				789F569822448BB20093298C /* MTCountingView.m in Sources */,
 				789F56C12244B01C0093298C /* MTSlideViewManager.m in Sources */,
 				7875AEF4224B61160072C2E7 /* MTAlertItem.m in Sources */,
+				789DBCAE224C6E870086B3AC /* MTTenScrollViewCell.m in Sources */,
 				7875AEDB224B5D2C0072C2E7 /* TZProgressView.m in Sources */,
 				7882A9F4224325EA00A8D781 /* MTDragCollectionViewCell.m in Sources */,
 				7882A9DE224324CD00A8D781 /* MTDelegateTableViewCell.m in Sources */,
@@ -1752,6 +1837,7 @@
 				789F568D224489F10093298C /* MTDrawRect.m in Sources */,
 				7882A9E0224324CD00A8D781 /* MTDelegateCollectionViewCell.m in Sources */,
 				7882A9DA224324CD00A8D781 /* MTDelegatePickerView.m in Sources */,
+				789DBCAF224C6E870086B3AC /* MTTenScrollView.m in Sources */,
 				78935233223F9BEC001D0C4B /* NSObject+HideKey.m in Sources */,
 				7875AE8D224B0FB90072C2E7 /* MTPickerViewController.m in Sources */,
 				7882A9CA2243244D00A8D781 /* MTDelegateView.m in Sources */,
@@ -1766,7 +1852,9 @@
 				78B8A279224241AE000DBB9F /* UIImage+Base64.m in Sources */,
 				7891C99E223B90630010DD55 /* NSString+Exist.m in Sources */,
 				789F57052244D2BF0093298C /* MTDelegateButton.m in Sources */,
+				789DBCAC224C6E870086B3AC /* MTTenScrollTitleView.m in Sources */,
 				78B8A1F022421B19000DBB9F /* MTManager.m in Sources */,
+				789DBCA2224C6E870086B3AC /* TestController.m in Sources */,
 				78935270223FA431001D0C4B /* UIView+Frame.m in Sources */,
 				78B8A22F2242401A000DBB9F /* NSDictionary+File.m in Sources */,
 				7882A9BD2243220100A8D781 /* UITextField+Word.m in Sources */,

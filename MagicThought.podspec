@@ -134,7 +134,7 @@ Pod::Spec.new do |s|
   # s.dependency "JSONKit", "~> 1.4"
 
 s.name = "MagicThought"
-s.version = "1.3.9"
+s.version = "1.4.0"
 s.summary = "MagicThought for ios."
 s.description = "the MagicThought for ios."
 s.homepage = "https://github.com/alrjqow/MagicThought"
@@ -162,13 +162,13 @@ end
 
 s.subspec 'Library' do |library|
 
-library.subspec 'TZImagePickerController' do |TZImagePickerController|
-TZImagePickerController.source_files = 'MagicThought/Library/TZImagePickerController/*.{m,h}','MagicThought/图片处理/UIImage+PropertyExtension.{m,h}'
+library.subspec 'TZImagePickerController' do |imagePickerController|
+imagePickerController.source_files = 'MagicThought/Library/TZImagePickerController/*.{m,h}','MagicThought/图片处理/UIImage+PropertyExtension.{m,h}'
 
-TZImagePickerController.resources = "MagicThought/Library/TZImagePickerController/TZImagePickerController.bundle"
+imagePickerController.resources = "MagicThought/Library/TZImagePickerController/TZImagePickerController.bundle"
 
-TZImagePickerController.dependency 'MagicThought/Category/UINavigationBar'
-TZImagePickerController.dependency 'MagicThought/Config'
+imagePickerController.dependency 'MagicThought/Category/UINavigationBar'
+imagePickerController.dependency 'MagicThought/Config'
 
 end
 
@@ -178,6 +178,7 @@ s.subspec 'Manager' do |manager|
 manager.source_files = 'MagicThought/Manager/*.{h,m}','MagicThought/Category/NSString/NSString+Exist.{m,h}', 'MagicThought/Category/CLLocation/CLLocation+Mar.{m,h}', 'MagicThought/Config/MTConst.{h,m}'
 
 manager.dependency 'MagicThought/SubClass/UIViewController/UIViewController+Alert'
+manager.dependency 'MagicThought/控件样式处理(不好用)'
 end
 
 s.subspec '控件样式处理(不好用)' do |styleManager|
@@ -205,7 +206,10 @@ imageHandle.dependency 'MagicThought/Style'
 end
 
 s.subspec '网络请求' do |network|
-network.source_files = 'MagicThought/网络请求/*.{h,m}', 'MagicThought/Protocol/MTApiProtocol.{h}', 'MagicThought/Category/NSString/NSString+Exist.{m,h}', 'MagicThought/Manager/MTManager.{m,h}','MagicThought/Manager/MTCloud.{m,h}'
+network.source_files = 'MagicThought/网络请求/*.{h,m}', 'MagicThought/Protocol/MTApiProtocol.{h}', 'MagicThought/Category/NSString/NSString+Exist.{m,h}'
+
+network.dependency 'MagicThought/Manager'
+
 end
 
 s.subspec '文本框验证' do |textVerify|
@@ -265,10 +269,12 @@ end
 s.subspec '弹框2' do |alert2|
 
 alert2.subspec 'Controller' do |controller|
-controller.source_files = 'MagicThought/弹框2/Controller/*.{h,m}','MagicThought/Manager/MTManager.{m,h}','MagicThought/Manager/MTCloud.{m,h}','MagicThought/Category/UIColor/UIColor+ColorfulColor.{m,h}','MagicThought/Category/UIView/UIView+Frame.{h,m}'
+controller.source_files = 'MagicThought/弹框2/Controller/*.{h,m}','MagicThought/Category/UIColor/UIColor+ColorfulColor.{m,h}','MagicThought/Category/UIView/UIView+Frame.{h,m}'
 
+controller.dependency 'MagicThought/Manager'
 controller.dependency 'MagicThought/Config'
 controller.dependency 'MagicThought/Style'
+controller.dependency 'MagicThought/SubClass/UIViewController/UIViewController+Base'
 
 end
 
@@ -306,6 +312,36 @@ end
 s.subspec '视图左右分割' do |spilt|
 spilt.source_files = 'MagicThought/视图左右分割/*.{h,m}'
 spilt.dependency 'MagicThought/DelegateMode'
+end
+
+s.subspec '十字滚动' do |tenScroll|
+
+tenScroll.subspec 'Controller' do |controller|
+controller.source_files = 'MagicThought/十字滚动/Controller/*.{h,m}'
+
+controller.dependency 'MagicThought/Category'
+controller.dependency 'MagicThought/Config'
+controller.dependency 'MagicThought/DelegateMode'
+controller.dependency 'MagicThought/网络请求'
+end
+
+tenScroll.subspec 'Model' do |model|
+model.source_files = 'MagicThought/十字滚动/Model/*.{h,m}', 'MagicThought/Config/MTDefine.h'
+
+model.dependency 'MagicThought/十字滚动/View'
+model.dependency 'MagicThought/网络请求'
+end
+
+tenScroll.subspec 'View' do |view|
+view.source_files = 'MagicThought/十字滚动/View/*.{h,m}','MagicThought/十字滚动/Model/*.{h,m}'
+
+view.dependency 'MagicThought/Category'
+view.dependency 'MagicThought/DelegateMode'
+view.dependency 'MagicThought/Style'
+view.dependency 'MagicThought/控件文字样式设置'
+
+end
+
 end
 
 s.subspec 'MTSlideView' do |slide|
@@ -364,13 +400,12 @@ safariView.dependency 'MagicThought/SubClass/WKWebView'
 end
 
 viewController.subspec 'UIViewController+Alert' do |alert|
-alert.source_files = 'MagicThought/SubClass/UIViewController/UIViewController + Alert/*.{m,h}'
+alert.source_files = 'MagicThought/SubClass/UIViewController/UIViewController + Alert/*.{m,h}','MagicThought/Category/NSString/NSString+Exist.{m,h}','MagicThought/Category/UIView/UIView+Circle.{m,h}','MagicThought/Category/UIColor/UIColor+ColorfulColor.{m,h}','MagicThought/Category/UILabel/UILabel+LineSpacing.{m,h}'
 alert.resources = "MagicThought/SubClass/UIViewController/UIViewController + Alert/MTAlertController.bundle"
 
 alert.dependency 'MagicThought/Style'
 alert.dependency 'MagicThought/控件文字样式设置'
 alert.dependency 'MagicThought/Config'
-alert.dependency 'MagicThought/Category'
 end
 
 viewController.subspec 'UIViewController+PickView' do |pickView|
