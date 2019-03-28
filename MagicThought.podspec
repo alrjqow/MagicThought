@@ -134,7 +134,7 @@ Pod::Spec.new do |s|
   # s.dependency "JSONKit", "~> 1.4"
 
 s.name = "MagicThought"
-s.version = "1.4.0"
+s.version = "1.4.1"
 s.summary = "MagicThought for ios."
 s.description = "the MagicThought for ios."
 s.homepage = "https://github.com/alrjqow/MagicThought"
@@ -319,6 +319,9 @@ s.subspec '十字滚动' do |tenScroll|
 tenScroll.subspec 'Controller' do |controller|
 controller.source_files = 'MagicThought/十字滚动/Controller/*.{h,m}'
 
+controller.dependency 'MagicThought/十字滚动/Model'
+controller.dependency 'MagicThought/十字滚动/View'
+
 controller.dependency 'MagicThought/Category'
 controller.dependency 'MagicThought/Config'
 controller.dependency 'MagicThought/DelegateMode'
@@ -329,7 +332,6 @@ tenScroll.subspec 'Model' do |model|
 model.source_files = 'MagicThought/十字滚动/Model/*.{h,m}', 'MagicThought/Config/MTDefine.h'
 
 model.dependency 'MagicThought/十字滚动/View'
-model.dependency 'MagicThought/网络请求'
 end
 
 tenScroll.subspec 'View' do |view|
@@ -339,6 +341,7 @@ view.dependency 'MagicThought/Category'
 view.dependency 'MagicThought/DelegateMode'
 view.dependency 'MagicThought/Style'
 view.dependency 'MagicThought/控件文字样式设置'
+view.dependency 'MagicThought/网络请求'
 
 end
 

@@ -22,7 +22,7 @@ typedef NS_ENUM(NSInteger, MTBaseAlertType)
 
 @property (nonatomic,strong, readonly) UIView* blackView;
 
-@property (nonatomic,weak) UIViewController* modalController;
+@property (nonatomic,weak) UIViewController<MTDelegateProtocol>* modalController;
 
 @property (nonatomic,weak) id<MTDelegateProtocol> mt_delegate;
 
