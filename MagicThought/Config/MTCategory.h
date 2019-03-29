@@ -15,7 +15,7 @@
 #import "NSObject+HideKey.h"
 #import "NSObject+ReuseIdentifier.h"
 #import "NSObject+API.h"
-//#import "NSObject+Style.h"
+#import "NSObject+Style.h"
 //
 #import "NSArray+File.h"
 #import "NSArray+Json.h"

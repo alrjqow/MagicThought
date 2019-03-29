@@ -200,3 +200,26 @@
 }
 
 @end
+
+@implementation UIView (IsScrolling)
+
+- (BOOL)isRolling{
+    
+    if ([self isKindOfClass:[UIScrollView class]]) {
+        UIScrollView *scrollView = (UIScrollView *)self;
+        
+        if (scrollView.dragging || scrollView.decelerating) return YES;// 如果UIPickerView正在拖拽或者是正在减速，返回YES
+        
+    }
+    
+    for (UIView *subView in self.subviews) {
+        if ([subView isRolling]) {
+            return YES;
+        }
+    }
+    return NO;
+    
+}
+
+
+@end

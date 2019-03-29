@@ -8,61 +8,61 @@
 
 /* Begin PBXBuildFile section */
 		7875AE77224B095E0072C2E7 /* MTSafariViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7875AE74224B095E0072C2E7 /* MTSafariViewController.m */; };
-		7875AE78224B095E0072C2E7 /* MTSafariViewController.h in Headers */ = {isa = PBXBuildFile; fileRef = 7875AE75224B095E0072C2E7 /* MTSafariViewController.h */; };
+		7875AE78224B095E0072C2E7 /* MTSafariViewController.h in Headers */ = {isa = PBXBuildFile; fileRef = 7875AE75224B095E0072C2E7 /* MTSafariViewController.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		7875AE79224B095E0072C2E7 /* MTSafariViewController.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 7875AE76224B095E0072C2E7 /* MTSafariViewController.bundle */; };
 		7875AE7E224B0D790072C2E7 /* MTAlertController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7875AE7B224B0D790072C2E7 /* MTAlertController.m */; };
-		7875AE7F224B0D790072C2E7 /* MTAlertController.h in Headers */ = {isa = PBXBuildFile; fileRef = 7875AE7C224B0D790072C2E7 /* MTAlertController.h */; };
+		7875AE7F224B0D790072C2E7 /* MTAlertController.h in Headers */ = {isa = PBXBuildFile; fileRef = 7875AE7C224B0D790072C2E7 /* MTAlertController.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		7875AE80224B0D790072C2E7 /* MTAlertController.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 7875AE7D224B0D790072C2E7 /* MTAlertController.bundle */; };
-		7875AE88224B0FB90072C2E7 /* MTDatePickerViewController.h in Headers */ = {isa = PBXBuildFile; fileRef = 7875AE82224B0FB90072C2E7 /* MTDatePickerViewController.h */; };
+		7875AE88224B0FB90072C2E7 /* MTDatePickerViewController.h in Headers */ = {isa = PBXBuildFile; fileRef = 7875AE82224B0FB90072C2E7 /* MTDatePickerViewController.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		7875AE89224B0FB90072C2E7 /* MTDatePickerViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7875AE83224B0FB90072C2E7 /* MTDatePickerViewController.xib */; };
-		7875AE8A224B0FB90072C2E7 /* MTPickerViewController.h in Headers */ = {isa = PBXBuildFile; fileRef = 7875AE84224B0FB90072C2E7 /* MTPickerViewController.h */; };
+		7875AE8A224B0FB90072C2E7 /* MTPickerViewController.h in Headers */ = {isa = PBXBuildFile; fileRef = 7875AE84224B0FB90072C2E7 /* MTPickerViewController.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		7875AE8B224B0FB90072C2E7 /* MTPickerViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7875AE85224B0FB90072C2E7 /* MTPickerViewController.xib */; };
 		7875AE8C224B0FB90072C2E7 /* MTDatePickerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7875AE86224B0FB90072C2E7 /* MTDatePickerViewController.m */; };
 		7875AE8D224B0FB90072C2E7 /* MTPickerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7875AE87224B0FB90072C2E7 /* MTPickerViewController.m */; };
-		7875AE95224B50FD0072C2E7 /* MTAuthorizationManager.h in Headers */ = {isa = PBXBuildFile; fileRef = 7875AE93224B50FD0072C2E7 /* MTAuthorizationManager.h */; };
+		7875AE95224B50FD0072C2E7 /* MTAuthorizationManager.h in Headers */ = {isa = PBXBuildFile; fileRef = 7875AE93224B50FD0072C2E7 /* MTAuthorizationManager.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		7875AE96224B50FD0072C2E7 /* MTAuthorizationManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 7875AE94224B50FD0072C2E7 /* MTAuthorizationManager.m */; };
 		7875AEA0224B52E80072C2E7 /* NSObject+Style.m in Sources */ = {isa = PBXBuildFile; fileRef = 7875AE9C224B52E80072C2E7 /* NSObject+Style.m */; };
 		7875AEA1224B52E80072C2E7 /* MTStyleManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 7875AE9D224B52E80072C2E7 /* MTStyleManager.m */; };
-		7875AEA2224B52E80072C2E7 /* NSObject+Style.h in Headers */ = {isa = PBXBuildFile; fileRef = 7875AE9E224B52E80072C2E7 /* NSObject+Style.h */; };
-		7875AEA3224B52E80072C2E7 /* MTStyleManager.h in Headers */ = {isa = PBXBuildFile; fileRef = 7875AE9F224B52E80072C2E7 /* MTStyleManager.h */; };
-		7875AEAA224B593D0072C2E7 /* MTVideoView.h in Headers */ = {isa = PBXBuildFile; fileRef = 7875AEA5224B593D0072C2E7 /* MTVideoView.h */; };
+		7875AEA2224B52E80072C2E7 /* NSObject+Style.h in Headers */ = {isa = PBXBuildFile; fileRef = 7875AE9E224B52E80072C2E7 /* NSObject+Style.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		7875AEA3224B52E80072C2E7 /* MTStyleManager.h in Headers */ = {isa = PBXBuildFile; fileRef = 7875AE9F224B52E80072C2E7 /* MTStyleManager.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		7875AEAA224B593D0072C2E7 /* MTVideoView.h in Headers */ = {isa = PBXBuildFile; fileRef = 7875AEA5224B593D0072C2E7 /* MTVideoView.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		7875AEAB224B593D0072C2E7 /* MTVideoController.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 7875AEA6224B593D0072C2E7 /* MTVideoController.bundle */; };
 		7875AEAC224B593D0072C2E7 /* MTVideoController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7875AEA7224B593D0072C2E7 /* MTVideoController.m */; };
 		7875AEAD224B593D0072C2E7 /* MTVideoView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7875AEA8224B593D0072C2E7 /* MTVideoView.m */; };
-		7875AEAE224B593D0072C2E7 /* MTVideoController.h in Headers */ = {isa = PBXBuildFile; fileRef = 7875AEA9224B593D0072C2E7 /* MTVideoController.h */; };
-		7875AECE224B5D2C0072C2E7 /* TZPhotoPreviewCell.h in Headers */ = {isa = PBXBuildFile; fileRef = 7875AEB1224B5D2C0072C2E7 /* TZPhotoPreviewCell.h */; };
-		7875AECF224B5D2C0072C2E7 /* TZPhotoPickerController.h in Headers */ = {isa = PBXBuildFile; fileRef = 7875AEB2224B5D2C0072C2E7 /* TZPhotoPickerController.h */; };
+		7875AEAE224B593D0072C2E7 /* MTVideoController.h in Headers */ = {isa = PBXBuildFile; fileRef = 7875AEA9224B593D0072C2E7 /* MTVideoController.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		7875AECE224B5D2C0072C2E7 /* TZPhotoPreviewCell.h in Headers */ = {isa = PBXBuildFile; fileRef = 7875AEB1224B5D2C0072C2E7 /* TZPhotoPreviewCell.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		7875AECF224B5D2C0072C2E7 /* TZPhotoPickerController.h in Headers */ = {isa = PBXBuildFile; fileRef = 7875AEB2224B5D2C0072C2E7 /* TZPhotoPickerController.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		7875AED0224B5D2C0072C2E7 /* TZImageCropManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 7875AEB3224B5D2C0072C2E7 /* TZImageCropManager.m */; };
-		7875AED1224B5D2C0072C2E7 /* TZImageManager.h in Headers */ = {isa = PBXBuildFile; fileRef = 7875AEB4224B5D2C0072C2E7 /* TZImageManager.h */; };
+		7875AED1224B5D2C0072C2E7 /* TZImageManager.h in Headers */ = {isa = PBXBuildFile; fileRef = 7875AEB4224B5D2C0072C2E7 /* TZImageManager.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		7875AED2224B5D2C0072C2E7 /* TZAssetCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 7875AEB5224B5D2C0072C2E7 /* TZAssetCell.m */; };
 		7875AED3224B5D2C0072C2E7 /* TZVideoPlayerController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7875AEB6224B5D2C0072C2E7 /* TZVideoPlayerController.m */; };
 		7875AED4224B5D2C0072C2E7 /* TZAssetModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 7875AEB7224B5D2C0072C2E7 /* TZAssetModel.m */; };
 		7875AED5224B5D2C0072C2E7 /* NSBundle+TZImagePicker.m in Sources */ = {isa = PBXBuildFile; fileRef = 7875AEB8224B5D2C0072C2E7 /* NSBundle+TZImagePicker.m */; };
-		7875AED6224B5D2C0072C2E7 /* TZLocationManager.h in Headers */ = {isa = PBXBuildFile; fileRef = 7875AEB9224B5D2C0072C2E7 /* TZLocationManager.h */; };
-		7875AED7224B5D2C0072C2E7 /* TZImagePickerController.h in Headers */ = {isa = PBXBuildFile; fileRef = 7875AEBA224B5D2C0072C2E7 /* TZImagePickerController.h */; };
+		7875AED6224B5D2C0072C2E7 /* TZLocationManager.h in Headers */ = {isa = PBXBuildFile; fileRef = 7875AEB9224B5D2C0072C2E7 /* TZLocationManager.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		7875AED7224B5D2C0072C2E7 /* TZImagePickerController.h in Headers */ = {isa = PBXBuildFile; fileRef = 7875AEBA224B5D2C0072C2E7 /* TZImagePickerController.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		7875AED8224B5D2C0072C2E7 /* UIView+Layout.m in Sources */ = {isa = PBXBuildFile; fileRef = 7875AEBB224B5D2C0072C2E7 /* UIView+Layout.m */; };
 		7875AED9224B5D2C0072C2E7 /* TZPhotoPreviewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7875AEBC224B5D2C0072C2E7 /* TZPhotoPreviewController.m */; };
 		7875AEDA224B5D2C0072C2E7 /* TZImagePickerController.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 7875AEBD224B5D2C0072C2E7 /* TZImagePickerController.bundle */; };
 		7875AEDB224B5D2C0072C2E7 /* TZProgressView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7875AEBE224B5D2C0072C2E7 /* TZProgressView.m */; };
-		7875AEDC224B5D2C0072C2E7 /* TZGifPhotoPreviewController.h in Headers */ = {isa = PBXBuildFile; fileRef = 7875AEBF224B5D2C0072C2E7 /* TZGifPhotoPreviewController.h */; };
-		7875AEDD224B5D2C0072C2E7 /* TZAssetCell.h in Headers */ = {isa = PBXBuildFile; fileRef = 7875AEC0224B5D2C0072C2E7 /* TZAssetCell.h */; };
+		7875AEDC224B5D2C0072C2E7 /* TZGifPhotoPreviewController.h in Headers */ = {isa = PBXBuildFile; fileRef = 7875AEBF224B5D2C0072C2E7 /* TZGifPhotoPreviewController.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		7875AEDD224B5D2C0072C2E7 /* TZAssetCell.h in Headers */ = {isa = PBXBuildFile; fileRef = 7875AEC0224B5D2C0072C2E7 /* TZAssetCell.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		7875AEDE224B5D2C0072C2E7 /* TZImageManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 7875AEC1224B5D2C0072C2E7 /* TZImageManager.m */; };
-		7875AEDF224B5D2C0072C2E7 /* TZImageCropManager.h in Headers */ = {isa = PBXBuildFile; fileRef = 7875AEC2224B5D2C0072C2E7 /* TZImageCropManager.h */; };
+		7875AEDF224B5D2C0072C2E7 /* TZImageCropManager.h in Headers */ = {isa = PBXBuildFile; fileRef = 7875AEC2224B5D2C0072C2E7 /* TZImageCropManager.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		7875AEE0224B5D2C0072C2E7 /* TZPhotoPickerController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7875AEC3224B5D2C0072C2E7 /* TZPhotoPickerController.m */; };
 		7875AEE1224B5D2C0072C2E7 /* TZPhotoPreviewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 7875AEC4224B5D2C0072C2E7 /* TZPhotoPreviewCell.m */; };
-		7875AEE2224B5D2C0072C2E7 /* NSBundle+TZImagePicker.h in Headers */ = {isa = PBXBuildFile; fileRef = 7875AEC5224B5D2C0072C2E7 /* NSBundle+TZImagePicker.h */; };
-		7875AEE3224B5D2C0072C2E7 /* TZAssetModel.h in Headers */ = {isa = PBXBuildFile; fileRef = 7875AEC6224B5D2C0072C2E7 /* TZAssetModel.h */; };
-		7875AEE4224B5D2C0072C2E7 /* TZVideoPlayerController.h in Headers */ = {isa = PBXBuildFile; fileRef = 7875AEC7224B5D2C0072C2E7 /* TZVideoPlayerController.h */; };
-		7875AEE5224B5D2C0072C2E7 /* TZPhotoPreviewController.h in Headers */ = {isa = PBXBuildFile; fileRef = 7875AEC8224B5D2C0072C2E7 /* TZPhotoPreviewController.h */; };
-		7875AEE6224B5D2C0072C2E7 /* UIView+Layout.h in Headers */ = {isa = PBXBuildFile; fileRef = 7875AEC9224B5D2C0072C2E7 /* UIView+Layout.h */; };
+		7875AEE2224B5D2C0072C2E7 /* NSBundle+TZImagePicker.h in Headers */ = {isa = PBXBuildFile; fileRef = 7875AEC5224B5D2C0072C2E7 /* NSBundle+TZImagePicker.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		7875AEE3224B5D2C0072C2E7 /* TZAssetModel.h in Headers */ = {isa = PBXBuildFile; fileRef = 7875AEC6224B5D2C0072C2E7 /* TZAssetModel.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		7875AEE4224B5D2C0072C2E7 /* TZVideoPlayerController.h in Headers */ = {isa = PBXBuildFile; fileRef = 7875AEC7224B5D2C0072C2E7 /* TZVideoPlayerController.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		7875AEE5224B5D2C0072C2E7 /* TZPhotoPreviewController.h in Headers */ = {isa = PBXBuildFile; fileRef = 7875AEC8224B5D2C0072C2E7 /* TZPhotoPreviewController.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		7875AEE6224B5D2C0072C2E7 /* UIView+Layout.h in Headers */ = {isa = PBXBuildFile; fileRef = 7875AEC9224B5D2C0072C2E7 /* UIView+Layout.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		7875AEE7224B5D2C0072C2E7 /* TZImagePickerController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7875AECA224B5D2C0072C2E7 /* TZImagePickerController.m */; };
 		7875AEE8224B5D2C0072C2E7 /* TZLocationManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 7875AECB224B5D2C0072C2E7 /* TZLocationManager.m */; };
 		7875AEE9224B5D2C0072C2E7 /* TZGifPhotoPreviewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7875AECC224B5D2C0072C2E7 /* TZGifPhotoPreviewController.m */; };
-		7875AEEA224B5D2C0072C2E7 /* TZProgressView.h in Headers */ = {isa = PBXBuildFile; fileRef = 7875AECD224B5D2C0072C2E7 /* TZProgressView.h */; };
+		7875AEEA224B5D2C0072C2E7 /* TZProgressView.h in Headers */ = {isa = PBXBuildFile; fileRef = 7875AECD224B5D2C0072C2E7 /* TZProgressView.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		7875AEF2224B61160072C2E7 /* MTBaseAlertController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7875AEED224B61160072C2E7 /* MTBaseAlertController.m */; };
-		7875AEF3224B61160072C2E7 /* MTBaseAlertController.h in Headers */ = {isa = PBXBuildFile; fileRef = 7875AEEE224B61160072C2E7 /* MTBaseAlertController.h */; };
+		7875AEF3224B61160072C2E7 /* MTBaseAlertController.h in Headers */ = {isa = PBXBuildFile; fileRef = 7875AEEE224B61160072C2E7 /* MTBaseAlertController.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		7875AEF4224B61160072C2E7 /* MTAlertItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 7875AEF0224B61160072C2E7 /* MTAlertItem.m */; };
-		7875AEF5224B61160072C2E7 /* MTAlertItem.h in Headers */ = {isa = PBXBuildFile; fileRef = 7875AEF1224B61160072C2E7 /* MTAlertItem.h */; };
+		7875AEF5224B61160072C2E7 /* MTAlertItem.h in Headers */ = {isa = PBXBuildFile; fileRef = 7875AEF1224B61160072C2E7 /* MTAlertItem.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		7882A99F224320F500A8D781 /* MTBaseDataModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 7882A999224320F500A8D781 /* MTBaseDataModel.m */; };
 		7882A9A0224320F500A8D781 /* MTBaseApi.m in Sources */ = {isa = PBXBuildFile; fileRef = 7882A99A224320F500A8D781 /* MTBaseApi.m */; };
 		7882A9A1224320F500A8D781 /* NSObject+API.m in Sources */ = {isa = PBXBuildFile; fileRef = 7882A99B224320F500A8D781 /* NSObject+API.m */; };
@@ -203,98 +203,98 @@
 		7893527A223FA431001D0C4B /* UIView+Circle.m in Sources */ = {isa = PBXBuildFile; fileRef = 7893526C223FA430001D0C4B /* UIView+Circle.m */; };
 		7893527B223FA431001D0C4B /* UIView+Copy.h in Headers */ = {isa = PBXBuildFile; fileRef = 7893526D223FA430001D0C4B /* UIView+Copy.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		789DBCA2224C6E870086B3AC /* TestController.m in Sources */ = {isa = PBXBuildFile; fileRef = 789DBC92224C6E870086B3AC /* TestController.m */; };
-		789DBCA3224C6E870086B3AC /* TestController.h in Headers */ = {isa = PBXBuildFile; fileRef = 789DBC93224C6E870086B3AC /* TestController.h */; };
-		789DBCA4224C6E870086B3AC /* MTTenScrollModel.h in Headers */ = {isa = PBXBuildFile; fileRef = 789DBC95224C6E870086B3AC /* MTTenScrollModel.h */; };
-		789DBCA5224C6E870086B3AC /* MTTenScrollTitleViewModel.h in Headers */ = {isa = PBXBuildFile; fileRef = 789DBC96224C6E870086B3AC /* MTTenScrollTitleViewModel.h */; };
+		789DBCA3224C6E870086B3AC /* TestController.h in Headers */ = {isa = PBXBuildFile; fileRef = 789DBC93224C6E870086B3AC /* TestController.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		789DBCA4224C6E870086B3AC /* MTTenScrollModel.h in Headers */ = {isa = PBXBuildFile; fileRef = 789DBC95224C6E870086B3AC /* MTTenScrollModel.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		789DBCA5224C6E870086B3AC /* MTTenScrollTitleViewModel.h in Headers */ = {isa = PBXBuildFile; fileRef = 789DBC96224C6E870086B3AC /* MTTenScrollTitleViewModel.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		789DBCA6224C6E870086B3AC /* MTTenScrollModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 789DBC97224C6E870086B3AC /* MTTenScrollModel.m */; };
 		789DBCA7224C6E870086B3AC /* MTTenScrollTitleViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 789DBC98224C6E870086B3AC /* MTTenScrollTitleViewModel.m */; };
-		789DBCA8224C6E870086B3AC /* MTTenScrollContentView.h in Headers */ = {isa = PBXBuildFile; fileRef = 789DBC9A224C6E870086B3AC /* MTTenScrollContentView.h */; };
-		789DBCA9224C6E870086B3AC /* MTTenScrollTitleView.h in Headers */ = {isa = PBXBuildFile; fileRef = 789DBC9B224C6E870086B3AC /* MTTenScrollTitleView.h */; };
-		789DBCAA224C6E870086B3AC /* MTTenScrollViewCell.h in Headers */ = {isa = PBXBuildFile; fileRef = 789DBC9C224C6E870086B3AC /* MTTenScrollViewCell.h */; };
-		789DBCAB224C6E870086B3AC /* MTTenScrollView.h in Headers */ = {isa = PBXBuildFile; fileRef = 789DBC9D224C6E870086B3AC /* MTTenScrollView.h */; };
+		789DBCA8224C6E870086B3AC /* MTTenScrollContentView.h in Headers */ = {isa = PBXBuildFile; fileRef = 789DBC9A224C6E870086B3AC /* MTTenScrollContentView.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		789DBCA9224C6E870086B3AC /* MTTenScrollTitleView.h in Headers */ = {isa = PBXBuildFile; fileRef = 789DBC9B224C6E870086B3AC /* MTTenScrollTitleView.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		789DBCAA224C6E870086B3AC /* MTTenScrollViewCell.h in Headers */ = {isa = PBXBuildFile; fileRef = 789DBC9C224C6E870086B3AC /* MTTenScrollViewCell.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		789DBCAB224C6E870086B3AC /* MTTenScrollView.h in Headers */ = {isa = PBXBuildFile; fileRef = 789DBC9D224C6E870086B3AC /* MTTenScrollView.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		789DBCAC224C6E870086B3AC /* MTTenScrollTitleView.m in Sources */ = {isa = PBXBuildFile; fileRef = 789DBC9E224C6E870086B3AC /* MTTenScrollTitleView.m */; };
 		789DBCAD224C6E870086B3AC /* MTTenScrollContentView.m in Sources */ = {isa = PBXBuildFile; fileRef = 789DBC9F224C6E870086B3AC /* MTTenScrollContentView.m */; };
 		789DBCAE224C6E870086B3AC /* MTTenScrollViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 789DBCA0224C6E870086B3AC /* MTTenScrollViewCell.m */; };
 		789DBCAF224C6E870086B3AC /* MTTenScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = 789DBCA1224C6E870086B3AC /* MTTenScrollView.m */; };
 		789DBCCE224CB3340086B3AC /* MTTakePhotoPreseter.m in Sources */ = {isa = PBXBuildFile; fileRef = 789DBCB2224CB3330086B3AC /* MTTakePhotoPreseter.m */; };
 		789DBCCF224CB3340086B3AC /* MTTakePhotoPreseterModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 789DBCB3224CB3330086B3AC /* MTTakePhotoPreseterModel.m */; };
-		789DBCD0224CB3340086B3AC /* MTTakePhotoPreseter.h in Headers */ = {isa = PBXBuildFile; fileRef = 789DBCB4224CB3330086B3AC /* MTTakePhotoPreseter.h */; };
-		789DBCD1224CB3340086B3AC /* MTTakePhotoPreseterModel.h in Headers */ = {isa = PBXBuildFile; fileRef = 789DBCB5224CB3330086B3AC /* MTTakePhotoPreseterModel.h */; };
+		789DBCD0224CB3340086B3AC /* MTTakePhotoPreseter.h in Headers */ = {isa = PBXBuildFile; fileRef = 789DBCB4224CB3330086B3AC /* MTTakePhotoPreseter.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		789DBCD1224CB3340086B3AC /* MTTakePhotoPreseterModel.h in Headers */ = {isa = PBXBuildFile; fileRef = 789DBCB5224CB3330086B3AC /* MTTakePhotoPreseterModel.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		789DBCE2224CB3340086B3AC /* MTPhotoBrowser.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 789DBCCD224CB3340086B3AC /* MTPhotoBrowser.bundle */; };
 		789DBCEE224CB5940086B3AC /* MTPhotoPreviewViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 789DBCE5224CB5940086B3AC /* MTPhotoPreviewViewModel.m */; };
-		789DBCEF224CB5940086B3AC /* MTPhotoPreviewViewCellModel.h in Headers */ = {isa = PBXBuildFile; fileRef = 789DBCE6224CB5940086B3AC /* MTPhotoPreviewViewCellModel.h */; };
-		789DBCF0224CB5940086B3AC /* MTPhotoPreviewViewModel.h in Headers */ = {isa = PBXBuildFile; fileRef = 789DBCE7224CB5940086B3AC /* MTPhotoPreviewViewModel.h */; };
+		789DBCEF224CB5940086B3AC /* MTPhotoPreviewViewCellModel.h in Headers */ = {isa = PBXBuildFile; fileRef = 789DBCE6224CB5940086B3AC /* MTPhotoPreviewViewCellModel.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		789DBCF0224CB5940086B3AC /* MTPhotoPreviewViewModel.h in Headers */ = {isa = PBXBuildFile; fileRef = 789DBCE7224CB5940086B3AC /* MTPhotoPreviewViewModel.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		789DBCF1224CB5940086B3AC /* MTPhotoPreviewViewCellModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 789DBCE8224CB5940086B3AC /* MTPhotoPreviewViewCellModel.m */; };
 		789DBCF2224CB5940086B3AC /* MTPhotoPreviewView.m in Sources */ = {isa = PBXBuildFile; fileRef = 789DBCEA224CB5940086B3AC /* MTPhotoPreviewView.m */; };
-		789DBCF3224CB5940086B3AC /* MTPhotoPreviewViewCell.h in Headers */ = {isa = PBXBuildFile; fileRef = 789DBCEB224CB5940086B3AC /* MTPhotoPreviewViewCell.h */; };
-		789DBCF4224CB5940086B3AC /* MTPhotoPreviewView.h in Headers */ = {isa = PBXBuildFile; fileRef = 789DBCEC224CB5940086B3AC /* MTPhotoPreviewView.h */; };
+		789DBCF3224CB5940086B3AC /* MTPhotoPreviewViewCell.h in Headers */ = {isa = PBXBuildFile; fileRef = 789DBCEB224CB5940086B3AC /* MTPhotoPreviewViewCell.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		789DBCF4224CB5940086B3AC /* MTPhotoPreviewView.h in Headers */ = {isa = PBXBuildFile; fileRef = 789DBCEC224CB5940086B3AC /* MTPhotoPreviewView.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		789DBCF5224CB5940086B3AC /* MTPhotoPreviewViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 789DBCED224CB5940086B3AC /* MTPhotoPreviewViewCell.m */; };
-		789DBD02224CB5BF0086B3AC /* MTPhotoBrowserViewModel.h in Headers */ = {isa = PBXBuildFile; fileRef = 789DBCF8224CB5BF0086B3AC /* MTPhotoBrowserViewModel.h */; };
+		789DBD02224CB5BF0086B3AC /* MTPhotoBrowserViewModel.h in Headers */ = {isa = PBXBuildFile; fileRef = 789DBCF8224CB5BF0086B3AC /* MTPhotoBrowserViewModel.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		789DBD03224CB5BF0086B3AC /* MTPhotoBrowserViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 789DBCF9224CB5BF0086B3AC /* MTPhotoBrowserViewModel.m */; };
 		789DBD04224CB5BF0086B3AC /* MTPhotoBrowserController.m in Sources */ = {isa = PBXBuildFile; fileRef = 789DBCFB224CB5BF0086B3AC /* MTPhotoBrowserController.m */; };
-		789DBD05224CB5BF0086B3AC /* MTPhotoBrowserController.h in Headers */ = {isa = PBXBuildFile; fileRef = 789DBCFC224CB5BF0086B3AC /* MTPhotoBrowserController.h */; };
-		789DBD06224CB5BF0086B3AC /* MTPhotoLook.h in Headers */ = {isa = PBXBuildFile; fileRef = 789DBCFE224CB5BF0086B3AC /* MTPhotoLook.h */; };
+		789DBD05224CB5BF0086B3AC /* MTPhotoBrowserController.h in Headers */ = {isa = PBXBuildFile; fileRef = 789DBCFC224CB5BF0086B3AC /* MTPhotoBrowserController.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		789DBD06224CB5BF0086B3AC /* MTPhotoLook.h in Headers */ = {isa = PBXBuildFile; fileRef = 789DBCFE224CB5BF0086B3AC /* MTPhotoLook.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		789DBD07224CB5BF0086B3AC /* MTPhotoBrowser.m in Sources */ = {isa = PBXBuildFile; fileRef = 789DBCFF224CB5BF0086B3AC /* MTPhotoBrowser.m */; };
 		789DBD08224CB5BF0086B3AC /* MTPhotoLook.m in Sources */ = {isa = PBXBuildFile; fileRef = 789DBD00224CB5BF0086B3AC /* MTPhotoLook.m */; };
-		789DBD09224CB5BF0086B3AC /* MTPhotoBrowser.h in Headers */ = {isa = PBXBuildFile; fileRef = 789DBD01224CB5BF0086B3AC /* MTPhotoBrowser.h */; };
-		789DBD0D224CB83C0086B3AC /* MTNavigationController.h in Headers */ = {isa = PBXBuildFile; fileRef = 789DBD0B224CB83B0086B3AC /* MTNavigationController.h */; };
+		789DBD09224CB5BF0086B3AC /* MTPhotoBrowser.h in Headers */ = {isa = PBXBuildFile; fileRef = 789DBD01224CB5BF0086B3AC /* MTPhotoBrowser.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		789DBD0D224CB83C0086B3AC /* MTNavigationController.h in Headers */ = {isa = PBXBuildFile; fileRef = 789DBD0B224CB83B0086B3AC /* MTNavigationController.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		789DBD0E224CB83C0086B3AC /* MTNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 789DBD0C224CB83B0086B3AC /* MTNavigationController.m */; };
 		789DBD1F224CC0390086B3AC /* AnimateController.m in Sources */ = {isa = PBXBuildFile; fileRef = 789DBD11224CC0390086B3AC /* AnimateController.m */; };
-		789DBD20224CC0390086B3AC /* AnimateController.h in Headers */ = {isa = PBXBuildFile; fileRef = 789DBD12224CC0390086B3AC /* AnimateController.h */; };
+		789DBD20224CC0390086B3AC /* AnimateController.h in Headers */ = {isa = PBXBuildFile; fileRef = 789DBD12224CC0390086B3AC /* AnimateController.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		789DBD21224CC0390086B3AC /* MTAnimatedTransitioning.m in Sources */ = {isa = PBXBuildFile; fileRef = 789DBD14224CC0390086B3AC /* MTAnimatedTransitioning.m */; };
 		789DBD22224CC0390086B3AC /* MTCardStyle1Transitioning.m in Sources */ = {isa = PBXBuildFile; fileRef = 789DBD15224CC0390086B3AC /* MTCardStyle1Transitioning.m */; };
-		789DBD23224CC0390086B3AC /* MTCardStyle1Transitioning.h in Headers */ = {isa = PBXBuildFile; fileRef = 789DBD16224CC0390086B3AC /* MTCardStyle1Transitioning.h */; };
-		789DBD24224CC0390086B3AC /* MTAnimatedTransitioning.h in Headers */ = {isa = PBXBuildFile; fileRef = 789DBD17224CC0390086B3AC /* MTAnimatedTransitioning.h */; };
+		789DBD23224CC0390086B3AC /* MTCardStyle1Transitioning.h in Headers */ = {isa = PBXBuildFile; fileRef = 789DBD16224CC0390086B3AC /* MTCardStyle1Transitioning.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		789DBD24224CC0390086B3AC /* MTAnimatedTransitioning.h in Headers */ = {isa = PBXBuildFile; fileRef = 789DBD17224CC0390086B3AC /* MTAnimatedTransitioning.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		789DBD25224CC0390086B3AC /* UIViewControllerTransitionModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 789DBD19224CC0390086B3AC /* UIViewControllerTransitionModel.m */; };
-		789DBD26224CC0390086B3AC /* UIViewControllerTransitionModel.h in Headers */ = {isa = PBXBuildFile; fileRef = 789DBD1A224CC0390086B3AC /* UIViewControllerTransitionModel.h */; };
-		789DBD27224CC0390086B3AC /* MTInteractiveNavigationDelegate.h in Headers */ = {isa = PBXBuildFile; fileRef = 789DBD1C224CC0390086B3AC /* MTInteractiveNavigationDelegate.h */; };
-		789DBD28224CC0390086B3AC /* MTInteractiveGestureTransitioningProtocol.h in Headers */ = {isa = PBXBuildFile; fileRef = 789DBD1D224CC0390086B3AC /* MTInteractiveGestureTransitioningProtocol.h */; };
+		789DBD26224CC0390086B3AC /* UIViewControllerTransitionModel.h in Headers */ = {isa = PBXBuildFile; fileRef = 789DBD1A224CC0390086B3AC /* UIViewControllerTransitionModel.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		789DBD27224CC0390086B3AC /* MTInteractiveNavigationDelegate.h in Headers */ = {isa = PBXBuildFile; fileRef = 789DBD1C224CC0390086B3AC /* MTInteractiveNavigationDelegate.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		789DBD28224CC0390086B3AC /* MTInteractiveGestureTransitioningProtocol.h in Headers */ = {isa = PBXBuildFile; fileRef = 789DBD1D224CC0390086B3AC /* MTInteractiveGestureTransitioningProtocol.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		789DBD29224CC0390086B3AC /* MTInteractiveNavigationDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 789DBD1E224CC0390086B3AC /* MTInteractiveNavigationDelegate.m */; };
-		789F56742244868A0093298C /* MTRefreshRing.h in Headers */ = {isa = PBXBuildFile; fileRef = 789F56722244868A0093298C /* MTRefreshRing.h */; };
+		789F56742244868A0093298C /* MTRefreshRing.h in Headers */ = {isa = PBXBuildFile; fileRef = 789F56722244868A0093298C /* MTRefreshRing.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		789F56752244868A0093298C /* MTRefreshRing.m in Sources */ = {isa = PBXBuildFile; fileRef = 789F56732244868A0093298C /* MTRefreshRing.m */; };
 		789F5688224489F10093298C /* Reachability.m in Sources */ = {isa = PBXBuildFile; fileRef = 789F5682224489F10093298C /* Reachability.m */; };
-		789F568A224489F10093298C /* MTDrawRect.h in Headers */ = {isa = PBXBuildFile; fileRef = 789F5684224489F10093298C /* MTDrawRect.h */; };
-		789F568B224489F10093298C /* Reachability.h in Headers */ = {isa = PBXBuildFile; fileRef = 789F5685224489F10093298C /* Reachability.h */; };
+		789F568A224489F10093298C /* MTDrawRect.h in Headers */ = {isa = PBXBuildFile; fileRef = 789F5684224489F10093298C /* MTDrawRect.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		789F568B224489F10093298C /* Reachability.h in Headers */ = {isa = PBXBuildFile; fileRef = 789F5685224489F10093298C /* Reachability.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		789F568D224489F10093298C /* MTDrawRect.m in Sources */ = {isa = PBXBuildFile; fileRef = 789F5687224489F10093298C /* MTDrawRect.m */; };
-		789F568F22448B690093298C /* MTMain.h in Headers */ = {isa = PBXBuildFile; fileRef = 789F568E22448B690093298C /* MTMain.h */; };
-		789F569522448BB20093298C /* MTRoundView.h in Headers */ = {isa = PBXBuildFile; fileRef = 789F569122448BB20093298C /* MTRoundView.h */; };
-		789F569622448BB20093298C /* MTCountingView.h in Headers */ = {isa = PBXBuildFile; fileRef = 789F569222448BB20093298C /* MTCountingView.h */; };
+		789F568F22448B690093298C /* MTMain.h in Headers */ = {isa = PBXBuildFile; fileRef = 789F568E22448B690093298C /* MTMain.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		789F569522448BB20093298C /* MTRoundView.h in Headers */ = {isa = PBXBuildFile; fileRef = 789F569122448BB20093298C /* MTRoundView.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		789F569622448BB20093298C /* MTCountingView.h in Headers */ = {isa = PBXBuildFile; fileRef = 789F569222448BB20093298C /* MTCountingView.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		789F569722448BB20093298C /* MTRoundView.m in Sources */ = {isa = PBXBuildFile; fileRef = 789F569322448BB20093298C /* MTRoundView.m */; };
 		789F569822448BB20093298C /* MTCountingView.m in Sources */ = {isa = PBXBuildFile; fileRef = 789F569422448BB20093298C /* MTCountingView.m */; };
 		789F569E22448EDF0093298C /* MTImagePlayView.m in Sources */ = {isa = PBXBuildFile; fileRef = 789F569A22448EDF0093298C /* MTImagePlayView.m */; };
-		789F569F22448EDF0093298C /* MTImagePlayViewCell.h in Headers */ = {isa = PBXBuildFile; fileRef = 789F569B22448EDF0093298C /* MTImagePlayViewCell.h */; };
+		789F569F22448EDF0093298C /* MTImagePlayViewCell.h in Headers */ = {isa = PBXBuildFile; fileRef = 789F569B22448EDF0093298C /* MTImagePlayViewCell.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		789F56A022448EDF0093298C /* MTImagePlayViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 789F569C22448EDF0093298C /* MTImagePlayViewCell.m */; };
-		789F56A122448EDF0093298C /* MTImagePlayView.h in Headers */ = {isa = PBXBuildFile; fileRef = 789F569D22448EDF0093298C /* MTImagePlayView.h */; };
-		789F56A922448FA80093298C /* MTLockNode.h in Headers */ = {isa = PBXBuildFile; fileRef = 789F56A322448FA80093298C /* MTLockNode.h */; };
-		789F56AA22448FA80093298C /* MTLockViewConfig.h in Headers */ = {isa = PBXBuildFile; fileRef = 789F56A422448FA80093298C /* MTLockViewConfig.h */; };
-		789F56AB22448FA80093298C /* MTLockView.h in Headers */ = {isa = PBXBuildFile; fileRef = 789F56A522448FA80093298C /* MTLockView.h */; };
+		789F56A122448EDF0093298C /* MTImagePlayView.h in Headers */ = {isa = PBXBuildFile; fileRef = 789F569D22448EDF0093298C /* MTImagePlayView.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		789F56A922448FA80093298C /* MTLockNode.h in Headers */ = {isa = PBXBuildFile; fileRef = 789F56A322448FA80093298C /* MTLockNode.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		789F56AA22448FA80093298C /* MTLockViewConfig.h in Headers */ = {isa = PBXBuildFile; fileRef = 789F56A422448FA80093298C /* MTLockViewConfig.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		789F56AB22448FA80093298C /* MTLockView.h in Headers */ = {isa = PBXBuildFile; fileRef = 789F56A522448FA80093298C /* MTLockView.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		789F56AC22448FA80093298C /* MTLockView.m in Sources */ = {isa = PBXBuildFile; fileRef = 789F56A622448FA80093298C /* MTLockView.m */; };
 		789F56AD22448FA80093298C /* MTLockViewConfig.m in Sources */ = {isa = PBXBuildFile; fileRef = 789F56A722448FA80093298C /* MTLockViewConfig.m */; };
 		789F56AE22448FA80093298C /* MTLockNode.m in Sources */ = {isa = PBXBuildFile; fileRef = 789F56A822448FA80093298C /* MTLockNode.m */; };
 		789F56B2224491D40093298C /* MTSpiltView.m in Sources */ = {isa = PBXBuildFile; fileRef = 789F56B0224491D40093298C /* MTSpiltView.m */; };
-		789F56B3224491D40093298C /* MTSpiltView.h in Headers */ = {isa = PBXBuildFile; fileRef = 789F56B1224491D40093298C /* MTSpiltView.h */; };
+		789F56B3224491D40093298C /* MTSpiltView.h in Headers */ = {isa = PBXBuildFile; fileRef = 789F56B1224491D40093298C /* MTSpiltView.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		789F56BC2244B01C0093298C /* MTSlideView.m in Sources */ = {isa = PBXBuildFile; fileRef = 789F56B52244B01B0093298C /* MTSlideView.m */; };
 		789F56BD2244B01C0093298C /* MTSlideHeader.m in Sources */ = {isa = PBXBuildFile; fileRef = 789F56B62244B01B0093298C /* MTSlideHeader.m */; };
-		789F56BE2244B01C0093298C /* MTSlideViewManager.h in Headers */ = {isa = PBXBuildFile; fileRef = 789F56B72244B01B0093298C /* MTSlideViewManager.h */; };
-		789F56BF2244B01C0093298C /* MTSlideHeader.h in Headers */ = {isa = PBXBuildFile; fileRef = 789F56B82244B01B0093298C /* MTSlideHeader.h */; };
-		789F56C02244B01C0093298C /* MTSlideView.h in Headers */ = {isa = PBXBuildFile; fileRef = 789F56B92244B01B0093298C /* MTSlideView.h */; };
+		789F56BE2244B01C0093298C /* MTSlideViewManager.h in Headers */ = {isa = PBXBuildFile; fileRef = 789F56B72244B01B0093298C /* MTSlideViewManager.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		789F56BF2244B01C0093298C /* MTSlideHeader.h in Headers */ = {isa = PBXBuildFile; fileRef = 789F56B82244B01B0093298C /* MTSlideHeader.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		789F56C02244B01C0093298C /* MTSlideView.h in Headers */ = {isa = PBXBuildFile; fileRef = 789F56B92244B01B0093298C /* MTSlideView.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		789F56C12244B01C0093298C /* MTSlideViewManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 789F56BA2244B01B0093298C /* MTSlideViewManager.m */; };
-		789F56C22244B01C0093298C /* MTSlide.h in Headers */ = {isa = PBXBuildFile; fileRef = 789F56BB2244B01B0093298C /* MTSlide.h */; };
-		789F56C42244D2180093298C /* MTView.h in Headers */ = {isa = PBXBuildFile; fileRef = 789F56C32244D2180093298C /* MTView.h */; };
+		789F56C22244B01C0093298C /* MTSlide.h in Headers */ = {isa = PBXBuildFile; fileRef = 789F56BB2244B01B0093298C /* MTSlide.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		789F56C42244D2180093298C /* MTView.h in Headers */ = {isa = PBXBuildFile; fileRef = 789F56C32244D2180093298C /* MTView.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		789F57012244D2BF0093298C /* MTDelegateTableCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 789F56CD2244D2BF0093298C /* MTDelegateTableCollectionViewCell.m */; };
-		789F57022244D2BF0093298C /* MTDelegateTableCollectionViewCell.h in Headers */ = {isa = PBXBuildFile; fileRef = 789F56CE2244D2BF0093298C /* MTDelegateTableCollectionViewCell.h */; };
-		789F57032244D2BF0093298C /* MTDelegateButton.h in Headers */ = {isa = PBXBuildFile; fileRef = 789F56D02244D2BF0093298C /* MTDelegateButton.h */; };
+		789F57022244D2BF0093298C /* MTDelegateTableCollectionViewCell.h in Headers */ = {isa = PBXBuildFile; fileRef = 789F56CE2244D2BF0093298C /* MTDelegateTableCollectionViewCell.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		789F57032244D2BF0093298C /* MTDelegateButton.h in Headers */ = {isa = PBXBuildFile; fileRef = 789F56D02244D2BF0093298C /* MTDelegateButton.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		789F57042244D2BF0093298C /* MTCountButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 789F56D12244D2BF0093298C /* MTCountButton.m */; };
 		789F57052244D2BF0093298C /* MTDelegateButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 789F56D22244D2BF0093298C /* MTDelegateButton.m */; };
-		789F57062244D2BF0093298C /* MTCountButton.h in Headers */ = {isa = PBXBuildFile; fileRef = 789F56D32244D2BF0093298C /* MTCountButton.h */; };
+		789F57062244D2BF0093298C /* MTCountButton.h in Headers */ = {isa = PBXBuildFile; fileRef = 789F56D32244D2BF0093298C /* MTCountButton.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		789F57072244D2BF0093298C /* MTSafariView.m in Sources */ = {isa = PBXBuildFile; fileRef = 789F56D52244D2BF0093298C /* MTSafariView.m */; };
-		789F57082244D2BF0093298C /* MTSafariView.h in Headers */ = {isa = PBXBuildFile; fileRef = 789F56D62244D2BF0093298C /* MTSafariView.h */; };
+		789F57082244D2BF0093298C /* MTSafariView.h in Headers */ = {isa = PBXBuildFile; fileRef = 789F56D62244D2BF0093298C /* MTSafariView.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		789F570A2244D2BF0093298C /* MTImageView.m in Sources */ = {isa = PBXBuildFile; fileRef = 789F56DA2244D2BF0093298C /* MTImageView.m */; };
-		789F570B2244D2BF0093298C /* MTImageView.h in Headers */ = {isa = PBXBuildFile; fileRef = 789F56DB2244D2BF0093298C /* MTImageView.h */; };
+		789F570B2244D2BF0093298C /* MTImageView.h in Headers */ = {isa = PBXBuildFile; fileRef = 789F56DB2244D2BF0093298C /* MTImageView.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		789F570C2244D2BF0093298C /* MTProgressController.m in Sources */ = {isa = PBXBuildFile; fileRef = 789F56DE2244D2BF0093298C /* MTProgressController.m */; };
-		789F570D2244D2BF0093298C /* MTProgressController.h in Headers */ = {isa = PBXBuildFile; fileRef = 789F56DF2244D2BF0093298C /* MTProgressController.h */; };
+		789F570D2244D2BF0093298C /* MTProgressController.h in Headers */ = {isa = PBXBuildFile; fileRef = 789F56DF2244D2BF0093298C /* MTProgressController.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		789F57102244D2BF0093298C /* MTViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 789F56E42244D2BF0093298C /* MTViewController.m */; };
-		789F57112244D2BF0093298C /* MTViewController.h in Headers */ = {isa = PBXBuildFile; fileRef = 789F56E52244D2BF0093298C /* MTViewController.h */; };
+		789F57112244D2BF0093298C /* MTViewController.h in Headers */ = {isa = PBXBuildFile; fileRef = 789F56E52244D2BF0093298C /* MTViewController.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		78B8A1D722421697000DBB9F /* UIViewController+Dismiss.m in Sources */ = {isa = PBXBuildFile; fileRef = 78B8A1D322421697000DBB9F /* UIViewController+Dismiss.m */; };
 		78B8A1D922421697000DBB9F /* UIViewController+Dismiss.h in Headers */ = {isa = PBXBuildFile; fileRef = 78B8A1D522421697000DBB9F /* UIViewController+Dismiss.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		78B8A1E4224217EB000DBB9F /* UIViewController+Modal.m in Sources */ = {isa = PBXBuildFile; fileRef = 78B8A1E0224217EB000DBB9F /* UIViewController+Modal.m */; };
@@ -346,7 +346,18 @@
 		78B8A285224241AE000DBB9F /* UIImage+Draw.m in Sources */ = {isa = PBXBuildFile; fileRef = 78B8A275224241AD000DBB9F /* UIImage+Draw.m */; };
 		78B8A286224241AE000DBB9F /* UIImage+Cut.h in Headers */ = {isa = PBXBuildFile; fileRef = 78B8A276224241AD000DBB9F /* UIImage+Cut.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		78B8A287224241AE000DBB9F /* UIView+Image.m in Sources */ = {isa = PBXBuildFile; fileRef = 78B8A277224241AD000DBB9F /* UIView+Image.m */; };
-		7D9CE3933B1BD4251D7E38C8 /* libPods-MagicThought.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 3E6954489A214AEC6611949C /* libPods-MagicThought.a */; };
+		78C68918224E207D008E3B56 /* libAFNetworking.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 78C68917224E207D008E3B56 /* libAFNetworking.a */; };
+		78C6891A224E207D008E3B56 /* libIQKeyboardManager.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 78C68919224E207D008E3B56 /* libIQKeyboardManager.a */; };
+		78C6891C224E207D008E3B56 /* libLDProgressView.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 78C6891B224E207D008E3B56 /* libLDProgressView.a */; };
+		78C6891E224E207D008E3B56 /* libMasonry.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 78C6891D224E207D008E3B56 /* libMasonry.a */; };
+		78C68920224E207D008E3B56 /* libMBProgressHUD.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 78C6891F224E207D008E3B56 /* libMBProgressHUD.a */; };
+		78C68922224E207D008E3B56 /* libMJExtension.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 78C68921224E207D008E3B56 /* libMJExtension.a */; };
+		78C68924224E207D008E3B56 /* libMJRefresh.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 78C68923224E207D008E3B56 /* libMJRefresh.a */; };
+		78C68926224E207D008E3B56 /* libSDWebImage.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 78C68925224E207D008E3B56 /* libSDWebImage.a */; };
+		78C68928224E207D008E3B56 /* libSSKeychain.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 78C68927224E207D008E3B56 /* libSSKeychain.a */; };
+		78C6892A224E207D008E3B56 /* libSVProgressHUD.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 78C68929224E207D008E3B56 /* libSVProgressHUD.a */; };
+		78C6892C224E207D008E3B56 /* libYTKNetwork.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 78C6892B224E207D008E3B56 /* libYTKNetwork.a */; };
+		90CB7E82B9151C585717AECE /* libPods-MagicThought.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 3E6954489A214AEC6611949C /* libPods-MagicThought.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -692,6 +703,17 @@
 		78B8A275224241AD000DBB9F /* UIImage+Draw.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+Draw.m"; sourceTree = "<group>"; };
 		78B8A276224241AD000DBB9F /* UIImage+Cut.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+Cut.h"; sourceTree = "<group>"; };
 		78B8A277224241AD000DBB9F /* UIView+Image.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+Image.m"; sourceTree = "<group>"; };
+		78C68917224E207D008E3B56 /* libAFNetworking.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; path = libAFNetworking.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		78C68919224E207D008E3B56 /* libIQKeyboardManager.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; path = libIQKeyboardManager.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		78C6891B224E207D008E3B56 /* libLDProgressView.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; path = libLDProgressView.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		78C6891D224E207D008E3B56 /* libMasonry.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; path = libMasonry.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		78C6891F224E207D008E3B56 /* libMBProgressHUD.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; path = libMBProgressHUD.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		78C68921224E207D008E3B56 /* libMJExtension.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; path = libMJExtension.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		78C68923224E207D008E3B56 /* libMJRefresh.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; path = libMJRefresh.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		78C68925224E207D008E3B56 /* libSDWebImage.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; path = libSDWebImage.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		78C68927224E207D008E3B56 /* libSSKeychain.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; path = libSSKeychain.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		78C68929224E207D008E3B56 /* libSVProgressHUD.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; path = libSVProgressHUD.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		78C6892B224E207D008E3B56 /* libYTKNetwork.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; path = libYTKNetwork.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		78F3327C2239051C00DA02F6 /* MagicThought.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = MagicThought.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		78F332802239051C00DA02F6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -701,7 +723,18 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				7D9CE3933B1BD4251D7E38C8 /* libPods-MagicThought.a in Frameworks */,
+				78C68918224E207D008E3B56 /* libAFNetworking.a in Frameworks */,
+				78C6891A224E207D008E3B56 /* libIQKeyboardManager.a in Frameworks */,
+				78C6891C224E207D008E3B56 /* libLDProgressView.a in Frameworks */,
+				78C6891E224E207D008E3B56 /* libMasonry.a in Frameworks */,
+				78C68920224E207D008E3B56 /* libMBProgressHUD.a in Frameworks */,
+				78C68922224E207D008E3B56 /* libMJExtension.a in Frameworks */,
+				78C68924224E207D008E3B56 /* libMJRefresh.a in Frameworks */,
+				78C68926224E207D008E3B56 /* libSDWebImage.a in Frameworks */,
+				78C68928224E207D008E3B56 /* libSSKeychain.a in Frameworks */,
+				78C6892A224E207D008E3B56 /* libSVProgressHUD.a in Frameworks */,
+				78C6892C224E207D008E3B56 /* libYTKNetwork.a in Frameworks */,
+				90CB7E82B9151C585717AECE /* libPods-MagicThought.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1644,6 +1677,17 @@
 		D559A87529C6794F0A7F249A /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				78C68917224E207D008E3B56 /* libAFNetworking.a */,
+				78C68919224E207D008E3B56 /* libIQKeyboardManager.a */,
+				78C6891B224E207D008E3B56 /* libLDProgressView.a */,
+				78C6891D224E207D008E3B56 /* libMasonry.a */,
+				78C6891F224E207D008E3B56 /* libMBProgressHUD.a */,
+				78C68921224E207D008E3B56 /* libMJExtension.a */,
+				78C68923224E207D008E3B56 /* libMJRefresh.a */,
+				78C68925224E207D008E3B56 /* libSDWebImage.a */,
+				78C68927224E207D008E3B56 /* libSSKeychain.a */,
+				78C68929224E207D008E3B56 /* libSVProgressHUD.a */,
+				78C6892B224E207D008E3B56 /* libYTKNetwork.a */,
 				3E6954489A214AEC6611949C /* libPods-MagicThought.a */,
 			);
 			name = Frameworks;
@@ -1670,175 +1714,175 @@
 				7893516D223F493E001D0C4B /* NSString+Unicode.h in Headers */,
 				7893514F223F491B001D0C4B /* NSString+Bundle.h in Headers */,
 				78935148223F46D3001D0C4B /* MagicThought.pch in Headers */,
-				789F56BF2244B01C0093298C /* MTSlideHeader.h in Headers */,
 				78935164223F492F001D0C4B /* NSString+Hash.h in Headers */,
-				789F57112244D2BF0093298C /* MTViewController.h in Headers */,
 				78935161223F492F001D0C4B /* NSString+TestString.h in Headers */,
-				789F56AB22448FA80093298C /* MTLockView.h in Headers */,
 				78935241223F9BFB001D0C4B /* UIColor+Image.h in Headers */,
-				789F56B3224491D40093298C /* MTSpiltView.h in Headers */,
 				78B8A23D2242407E000DBB9F /* NSArray+Json.h in Headers */,
-				7875AEF5224B61160072C2E7 /* MTAlertItem.h in Headers */,
-				7875AE8A224B0FB90072C2E7 /* MTPickerViewController.h in Headers */,
 				78B8A1EE22421B19000DBB9F /* MTManager.h in Headers */,
 				78B8A20122421DAA000DBB9F /* MTPhotoManager.h in Headers */,
 				78935279223FA431001D0C4B /* UIView+Frame.h in Headers */,
 				78935276223FA431001D0C4B /* UIView+Circle.h in Headers */,
-				789DBD0D224CB83C0086B3AC /* MTNavigationController.h in Headers */,
 				78935232223F9BEC001D0C4B /* NSObject+HideKey.h in Headers */,
-				789F57082244D2BF0093298C /* MTSafariView.h in Headers */,
 				78B8A1ED22421B19000DBB9F /* MTCloud.h in Headers */,
 				7893524E223F9EAC001D0C4B /* UIDevice+DeviceInfo.h in Headers */,
 				78B8A1E7224217EB000DBB9F /* MTShadowController.h in Headers */,
-				7875AECE224B5D2C0072C2E7 /* TZPhotoPreviewCell.h in Headers */,
 				78935222223F6AD2001D0C4B /* MTGraphicType.h in Headers */,
 				78935225223F6AD2001D0C4B /* MTBorderStyle.h in Headers */,
 				78B8A1FE22421D90000DBB9F /* MTTimer.h in Headers */,
 				78B8A2322242401A000DBB9F /* NSData+File.h in Headers */,
-				789DBD06224CB5BF0086B3AC /* MTPhotoLook.h in Headers */,
-				789DBD23224CC0390086B3AC /* MTCardStyle1Transitioning.h in Headers */,
-				789DBCAA224C6E870086B3AC /* MTTenScrollViewCell.h in Headers */,
-				789F568A224489F10093298C /* MTDrawRect.h in Headers */,
 				78935238223F9BF6001D0C4B /* UIButton+HighLight.h in Headers */,
 				78B8A2342242401A000DBB9F /* NSDictionary+File.h in Headers */,
-				789F56AA22448FA80093298C /* MTLockViewConfig.h in Headers */,
 				78935245223F9BFB001D0C4B /* UIColor+ColorfulColor.h in Headers */,
-				789DBCA5224C6E870086B3AC /* MTTenScrollTitleViewModel.h in Headers */,
 				78935278223FA431001D0C4B /* UIView+ViewController.h in Headers */,
 				78B8A2362242401A000DBB9F /* NSArray+File.h in Headers */,
-				7875AEE3224B5D2C0072C2E7 /* TZAssetModel.h in Headers */,
 				78B8A1F222421B85000DBB9F /* MTManagers.h in Headers */,
-				789F56C02244B01C0093298C /* MTSlideView.h in Headers */,
 				7893527B223FA431001D0C4B /* UIView+Copy.h in Headers */,
 				78935229223F6AD2001D0C4B /* MTWordStyle.h in Headers */,
-				789DBCD0224CB3340086B3AC /* MTTakePhotoPreseter.h in Headers */,
 				78B8A20D22421DCF000DBB9F /* MTDeviceManager.h in Headers */,
-				7875AE78224B095E0072C2E7 /* MTSafariViewController.h in Headers */,
 				78B8A23C2242407E000DBB9F /* NSDictionary+Json.h in Headers */,
 				78935257223FA245001D0C4B /* UILabel +AttributeText.h in Headers */,
 				7893516E223F493E001D0C4B /* NSString+WordHeight.h in Headers */,
-				789F570B2244D2BF0093298C /* MTImageView.h in Headers */,
 				78935163223F492F001D0C4B /* NSString+Money.h in Headers */,
 				78935153223F491B001D0C4B /* NSString+Base64.h in Headers */,
 				78935154223F491B001D0C4B /* NSString+Encode.h in Headers */,
-				789F56BE2244B01C0093298C /* MTSlideViewManager.h in Headers */,
-				789F56C22244B01C0093298C /* MTSlide.h in Headers */,
 				78935166223F492F001D0C4B /* NSString+MD5.h in Headers */,
 				7891C997223B90630010DD55 /* MTDefine.h in Headers */,
 				7891C9A7223B90690010DD55 /* MTApiProtocol.h in Headers */,
 				7891C9A6223B90690010DD55 /* MTProtocol.h in Headers */,
-				789F57062244D2BF0093298C /* MTCountButton.h in Headers */,
-				789F569522448BB20093298C /* MTRoundView.h in Headers */,
-				789F568F22448B690093298C /* MTMain.h in Headers */,
 				7891C9AA223B90690010DD55 /* MTDelegateProtocol.h in Headers */,
-				789DBCAB224C6E870086B3AC /* MTTenScrollView.h in Headers */,
-				7875AEE4224B5D2C0072C2E7 /* TZVideoPlayerController.h in Headers */,
-				789DBCA9224C6E870086B3AC /* MTTenScrollTitleView.h in Headers */,
 				7891C9AB223B90690010DD55 /* MTKit.h in Headers */,
 				7891C9A9223B90690010DD55 /* MTStyleProtocol.h in Headers */,
 				78B8A2482242410A000DBB9F /* UIView+Tap.h in Headers */,
 				78935224223F6AD2001D0C4B /* MTStyle.h in Headers */,
-				7875AEAE224B593D0072C2E7 /* MTVideoController.h in Headers */,
 				78935273223FA431001D0C4B /* MTViewModel.h in Headers */,
-				789DBD09224CB5BF0086B3AC /* MTPhotoBrowser.h in Headers */,
 				78B8A1E6224217EB000DBB9F /* UIViewController+Modal.h in Headers */,
 				78935274223FA431001D0C4B /* UIView+Shadow.h in Headers */,
 				78B8A2472242410A000DBB9F /* MTFingerWaveView.h in Headers */,
-				789DBD24224CC0390086B3AC /* MTAnimatedTransitioning.h in Headers */,
 				78B8A280224241AE000DBB9F /* UIImage+Size.h in Headers */,
 				78B8A27F224241AE000DBB9F /* UIImage+Draw.h in Headers */,
-				7875AEE6224B5D2C0072C2E7 /* UIView+Layout.h in Headers */,
 				78B8A286224241AE000DBB9F /* UIImage+Cut.h in Headers */,
-				789F568B224489F10093298C /* Reachability.h in Headers */,
-				789F57022244D2BF0093298C /* MTDelegateTableCollectionViewCell.h in Headers */,
-				7875AEE5224B5D2C0072C2E7 /* TZPhotoPreviewController.h in Headers */,
 				7882A9AC224321ED00A8D781 /* MTTextView.h in Headers */,
-				789F56A122448EDF0093298C /* MTImagePlayView.h in Headers */,
 				7882A9EA224324E400A8D781 /* MTDataSource.h in Headers */,
-				7875AE95224B50FD0072C2E7 /* MTAuthorizationManager.h in Headers */,
 				7882A9E7224324CD00A8D781 /* MTDelegateHeaderFooterView.h in Headers */,
 				7882A9C82243244D00A8D781 /* MTDelegateView.h in Headers */,
 				7882A9AB224321ED00A8D781 /* MTTextField.h in Headers */,
 				7882A9FF22433AEA00A8D781 /* UIView+MBHud.h in Headers */,
 				7882A9B72243220100A8D781 /* UILabel+Word.h in Headers */,
 				7882A9C22243225100A8D781 /* MTLabel.h in Headers */,
-				7875AEA3224B52E80072C2E7 /* MTStyleManager.h in Headers */,
 				7882A9DD224324CD00A8D781 /* MTDelegateCollectionReusableView.h in Headers */,
+				789F56BF2244B01C0093298C /* MTSlideHeader.h in Headers */,
+				789F57112244D2BF0093298C /* MTViewController.h in Headers */,
+				789F56AB22448FA80093298C /* MTLockView.h in Headers */,
+				789F56B3224491D40093298C /* MTSpiltView.h in Headers */,
+				7875AEF5224B61160072C2E7 /* MTAlertItem.h in Headers */,
+				7875AE8A224B0FB90072C2E7 /* MTPickerViewController.h in Headers */,
+				789DBD0D224CB83C0086B3AC /* MTNavigationController.h in Headers */,
+				789F57082244D2BF0093298C /* MTSafariView.h in Headers */,
+				7875AECE224B5D2C0072C2E7 /* TZPhotoPreviewCell.h in Headers */,
+				789DBD06224CB5BF0086B3AC /* MTPhotoLook.h in Headers */,
+				789DBD23224CC0390086B3AC /* MTCardStyle1Transitioning.h in Headers */,
+				789DBCAA224C6E870086B3AC /* MTTenScrollViewCell.h in Headers */,
+				789F568A224489F10093298C /* MTDrawRect.h in Headers */,
+				789F56AA22448FA80093298C /* MTLockViewConfig.h in Headers */,
+				789DBCA5224C6E870086B3AC /* MTTenScrollTitleViewModel.h in Headers */,
+				7875AEE3224B5D2C0072C2E7 /* TZAssetModel.h in Headers */,
+				789F56C02244B01C0093298C /* MTSlideView.h in Headers */,
+				789DBCD0224CB3340086B3AC /* MTTakePhotoPreseter.h in Headers */,
+				7875AE78224B095E0072C2E7 /* MTSafariViewController.h in Headers */,
+				789F570B2244D2BF0093298C /* MTImageView.h in Headers */,
+				789F56BE2244B01C0093298C /* MTSlideViewManager.h in Headers */,
+				789F56C22244B01C0093298C /* MTSlide.h in Headers */,
+				789F57062244D2BF0093298C /* MTCountButton.h in Headers */,
+				789F569522448BB20093298C /* MTRoundView.h in Headers */,
+				789F568F22448B690093298C /* MTMain.h in Headers */,
+				789DBCAB224C6E870086B3AC /* MTTenScrollView.h in Headers */,
+				7875AEE4224B5D2C0072C2E7 /* TZVideoPlayerController.h in Headers */,
+				789DBCA9224C6E870086B3AC /* MTTenScrollTitleView.h in Headers */,
+				7875AEAE224B593D0072C2E7 /* MTVideoController.h in Headers */,
+				789DBD09224CB5BF0086B3AC /* MTPhotoBrowser.h in Headers */,
+				789DBD24224CC0390086B3AC /* MTAnimatedTransitioning.h in Headers */,
+				7875AEE6224B5D2C0072C2E7 /* UIView+Layout.h in Headers */,
+				789F568B224489F10093298C /* Reachability.h in Headers */,
+				789F57022244D2BF0093298C /* MTDelegateTableCollectionViewCell.h in Headers */,
+				7875AEE5224B5D2C0072C2E7 /* TZPhotoPreviewController.h in Headers */,
+				789F56A122448EDF0093298C /* MTImagePlayView.h in Headers */,
+				7875AE95224B50FD0072C2E7 /* MTAuthorizationManager.h in Headers */,
+				7875AEA3224B52E80072C2E7 /* MTStyleManager.h in Headers */,
 				789DBD05224CB5BF0086B3AC /* MTPhotoBrowserController.h in Headers */,
 				7875AEEA224B5D2C0072C2E7 /* TZProgressView.h in Headers */,
 				7875AEA2224B52E80072C2E7 /* NSObject+Style.h in Headers */,
-				7882A9BE2243220100A8D781 /* UITextView+Word.h in Headers */,
-				7882A9E5224324CD00A8D781 /* MTDelegateTableView.h in Headers */,
-				7882A9BA2243220100A8D781 /* UITextField+Word.h in Headers */,
 				7875AEF3224B61160072C2E7 /* MTBaseAlertController.h in Headers */,
-				7882A9A4224320F500A8D781 /* NSObject+API.h in Headers */,
 				7875AED6224B5D2C0072C2E7 /* TZLocationManager.h in Headers */,
-				7882A9F2224325EA00A8D781 /* MTDragCollectionViewCell.h in Headers */,
 				789DBCA8224C6E870086B3AC /* MTTenScrollContentView.h in Headers */,
 				789F570D2244D2BF0093298C /* MTProgressController.h in Headers */,
-				7882A9DC224324CD00A8D781 /* MTDelegateCollectionViewCell.h in Headers */,
-				7882A9F3224325EA00A8D781 /* MTDragCollectionView.h in Headers */,
-				7882A9FD22433AEA00A8D781 /* MTIndicatorView.h in Headers */,
 				789DBCEF224CB5940086B3AC /* MTPhotoPreviewViewCellModel.h in Headers */,
-				7882A9B82243220100A8D781 /* UIButton+Word.h in Headers */,
 				789DBCF4224CB5940086B3AC /* MTPhotoPreviewView.h in Headers */,
-				7882A9E1224324CD00A8D781 /* MTDelegateCollectionView.h in Headers */,
-				7882A9E6224324CD00A8D781 /* MTDelegateTableViewCell.h in Headers */,
 				789DBCF0224CB5940086B3AC /* MTPhotoPreviewViewModel.h in Headers */,
-				7882A9A2224320F500A8D781 /* MTBaseDataModel.h in Headers */,
-				7882A9C92243244D00A8D781 /* NSObject+ReuseIdentifier.h in Headers */,
-				7882A9E3224324CD00A8D781 /* MTDelegatePickerView.h in Headers */,
 				789F569622448BB20093298C /* MTCountingView.h in Headers */,
-				7882A9A3224320F500A8D781 /* MTBaseApi.h in Headers */,
 				789DBCF3224CB5940086B3AC /* MTPhotoPreviewViewCell.h in Headers */,
-				78B8A284224241AE000DBB9F /* UIImage+Base64.h in Headers */,
 				789F56742244868A0093298C /* MTRefreshRing.h in Headers */,
-				78B8A281224241AE000DBB9F /* UIImage+Save.h in Headers */,
-				78B8A27D224241AE000DBB9F /* UIView+Image.h in Headers */,
-				78B8A27B224241AE000DBB9F /* UIImage+PropertyExtension.h in Headers */,
-				78B8A283224241AE000DBB9F /* UIImage+MTCircleImage.h in Headers */,
 				7875AED7224B5D2C0072C2E7 /* TZImagePickerController.h in Headers */,
 				789DBCA3224C6E870086B3AC /* TestController.h in Headers */,
-				78935256223FA245001D0C4B /* UILabel+LineSpacing.h in Headers */,
 				7875AEAA224B593D0072C2E7 /* MTVideoView.h in Headers */,
 				789DBD26224CC0390086B3AC /* UIViewControllerTransitionModel.h in Headers */,
 				789F56C42244D2180093298C /* MTView.h in Headers */,
 				7875AED1224B5D2C0072C2E7 /* TZImageManager.h in Headers */,
+				789DBD28224CC0390086B3AC /* MTInteractiveGestureTransitioningProtocol.h in Headers */,
+				789F56A922448FA80093298C /* MTLockNode.h in Headers */,
+				789F569F22448EDF0093298C /* MTImagePlayViewCell.h in Headers */,
+				7875AE88224B0FB90072C2E7 /* MTDatePickerViewController.h in Headers */,
+				789DBCD1224CB3340086B3AC /* MTTakePhotoPreseterModel.h in Headers */,
+				7875AE7F224B0D790072C2E7 /* MTAlertController.h in Headers */,
+				7875AEDD224B5D2C0072C2E7 /* TZAssetCell.h in Headers */,
+				7875AEE2224B5D2C0072C2E7 /* NSBundle+TZImagePicker.h in Headers */,
+				789DBCA4224C6E870086B3AC /* MTTenScrollModel.h in Headers */,
+				7875AEDC224B5D2C0072C2E7 /* TZGifPhotoPreviewController.h in Headers */,
+				789DBD02224CB5BF0086B3AC /* MTPhotoBrowserViewModel.h in Headers */,
+				7875AEDF224B5D2C0072C2E7 /* TZImageCropManager.h in Headers */,
+				789DBD27224CC0390086B3AC /* MTInteractiveNavigationDelegate.h in Headers */,
+				7875AECF224B5D2C0072C2E7 /* TZPhotoPickerController.h in Headers */,
+				789F57032244D2BF0093298C /* MTDelegateButton.h in Headers */,
+				789DBD20224CC0390086B3AC /* AnimateController.h in Headers */,
+				7882A9BE2243220100A8D781 /* UITextView+Word.h in Headers */,
+				7882A9E5224324CD00A8D781 /* MTDelegateTableView.h in Headers */,
+				7882A9BA2243220100A8D781 /* UITextField+Word.h in Headers */,
+				7882A9A4224320F500A8D781 /* NSObject+API.h in Headers */,
+				7882A9F2224325EA00A8D781 /* MTDragCollectionViewCell.h in Headers */,
+				7882A9DC224324CD00A8D781 /* MTDelegateCollectionViewCell.h in Headers */,
+				7882A9F3224325EA00A8D781 /* MTDragCollectionView.h in Headers */,
+				7882A9FD22433AEA00A8D781 /* MTIndicatorView.h in Headers */,
+				7882A9B82243220100A8D781 /* UIButton+Word.h in Headers */,
+				7882A9E1224324CD00A8D781 /* MTDelegateCollectionView.h in Headers */,
+				7882A9E6224324CD00A8D781 /* MTDelegateTableViewCell.h in Headers */,
+				7882A9A2224320F500A8D781 /* MTBaseDataModel.h in Headers */,
+				7882A9C92243244D00A8D781 /* NSObject+ReuseIdentifier.h in Headers */,
+				7882A9E3224324CD00A8D781 /* MTDelegatePickerView.h in Headers */,
+				7882A9A3224320F500A8D781 /* MTBaseApi.h in Headers */,
+				78B8A284224241AE000DBB9F /* UIImage+Base64.h in Headers */,
+				78B8A281224241AE000DBB9F /* UIImage+Save.h in Headers */,
+				78B8A27D224241AE000DBB9F /* UIView+Image.h in Headers */,
+				78B8A27B224241AE000DBB9F /* UIImage+PropertyExtension.h in Headers */,
+				78B8A283224241AE000DBB9F /* UIImage+MTCircleImage.h in Headers */,
+				78935256223FA245001D0C4B /* UILabel+LineSpacing.h in Headers */,
 				78935226223F6AD2001D0C4B /* MTAlertStyle.h in Headers */,
 				7893525D223FA27B001D0C4B /* UINavigationBar+Config.h in Headers */,
 				78B8A1D922421697000DBB9F /* UIViewController+Dismiss.h in Headers */,
-				789DBD28224CC0390086B3AC /* MTInteractiveGestureTransitioningProtocol.h in Headers */,
-				789F56A922448FA80093298C /* MTLockNode.h in Headers */,
 				78B8A20522421DB6000DBB9F /* MTLocationManager.h in Headers */,
-				789F569F22448EDF0093298C /* MTImagePlayViewCell.h in Headers */,
-				7875AE88224B0FB90072C2E7 /* MTDatePickerViewController.h in Headers */,
 				78935243223F9BFB001D0C4B /* UIColor+RGBValues.h in Headers */,
 				78935277223FA431001D0C4B /* UIView+Animate.h in Headers */,
-				789DBCD1224CB3340086B3AC /* MTTakePhotoPreseterModel.h in Headers */,
 				7893522E223F9BE7001D0C4B /* CLLocation+Mar.h in Headers */,
-				7875AE7F224B0D790072C2E7 /* MTAlertController.h in Headers */,
-				7875AEDD224B5D2C0072C2E7 /* TZAssetCell.h in Headers */,
 				78B8A20922421DC3000DBB9F /* MTFileManager.h in Headers */,
-				7875AEE2224B5D2C0072C2E7 /* NSBundle+TZImagePicker.h in Headers */,
-				789DBCA4224C6E870086B3AC /* MTTenScrollModel.h in Headers */,
 				7882AA3B22437EA900A8D781 /* MTWindow.h in Headers */,
-				7875AEDC224B5D2C0072C2E7 /* TZGifPhotoPreviewController.h in Headers */,
 				7882AA3522437EA900A8D781 /* MTAlertView.h in Headers */,
 				7882AA3922437EA900A8D781 /* MTPopViewConfig.h in Headers */,
 				7882AA3022437EA900A8D781 /* UIView+MTBackground.h in Headers */,
 				7882AA2F22437EA900A8D781 /* MTAlertViewConfig.h in Headers */,
-				789DBD02224CB5BF0086B3AC /* MTPhotoBrowserViewModel.h in Headers */,
 				7882AA3A22437EA900A8D781 /* MTPopButtonItem.h in Headers */,
-				7875AEDF224B5D2C0072C2E7 /* TZImageCropManager.h in Headers */,
-				789DBD27224CC0390086B3AC /* MTInteractiveNavigationDelegate.h in Headers */,
-				7875AECF224B5D2C0072C2E7 /* TZPhotoPickerController.h in Headers */,
 				7882AA3422437EA900A8D781 /* MTPopView.h in Headers */,
 				7891C9A8223B90690010DD55 /* MTRequestProtocol.h in Headers */,
 				7891C99A223B90630010DD55 /* MTCategory.h in Headers */,
 				7891C99C223B90630010DD55 /* MTThirdSDKList.h in Headers */,
-				789F57032244D2BF0093298C /* MTDelegateButton.h in Headers */,
 				7891C99B223B90630010DD55 /* MTConst.h in Headers */,
-				789DBD20224CC0390086B3AC /* AnimateController.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -2263,11 +2307,7 @@
 				GCC_PREFIX_HEADER = "";
 				INFOPLIST_FILE = MagicThought/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				ONLY_ACTIVE_ARCH = YES;
 				PRODUCT_BUNDLE_IDENTIFIER = com.dayi.www.MagicThought;
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
@@ -2293,11 +2333,7 @@
 				GCC_PREFIX_HEADER = "";
 				INFOPLIST_FILE = MagicThought/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				ONLY_ACTIVE_ARCH = NO;
 				PRODUCT_BUNDLE_IDENTIFIER = com.dayi.www.MagicThought;
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";

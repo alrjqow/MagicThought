@@ -42,3 +42,10 @@
 @property CGFloat offsetY;
 
 @end
+
+
+@interface UIView (IsScrolling)
+
+- (BOOL)isRolling;
+
+@end
