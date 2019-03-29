@@ -17,7 +17,7 @@
 #import "MTTakePhotoPreseter.h"
 #import "MTPhotoBrowser.h"
 #import "MTConst.h"
-#import "MTView.h"
+#import "MTAlertController.h"
 #import "NSString+Bundle.h"
 #import "MTAlertView.h"
 

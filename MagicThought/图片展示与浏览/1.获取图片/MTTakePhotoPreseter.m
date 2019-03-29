@@ -11,11 +11,13 @@
 #import "MTPhotoPreviewViewCellModel.h"
 #import "MTPhotoPreviewViewModel.h"
 
+#import "UIImage+Size.h"
+#import "UIImage+Cut.h"
+
 #import "MTBaseAlertController.h"
 
-#import "MTManagers.h"
 #import "MTConst.h"
-#import "MTCategory.h"
+
 #import "MTVideoController.h"
 #import "MTDelegateProtocol.h"
 

@@ -134,7 +134,7 @@ Pod::Spec.new do |s|
   # s.dependency "JSONKit", "~> 1.4"
 
 s.name = "MagicThought"
-s.version = "1.4.1"
+s.version = "1.4.2"
 s.summary = "MagicThought for ios."
 s.description = "the MagicThought for ios."
 s.homepage = "https://github.com/alrjqow/MagicThought"
@@ -354,6 +354,13 @@ end
 
 s.subspec 'SubClass' do |subClass|
 
+subClass.subspec 'UINavigationController' do |navigationController|
+navigationController.source_files = 'MagicThought/SubClass/UINavigationController/*.{m,h}','MagicThought/Protocol/MTDelegateProtocol.h'
+
+navigationController.dependency 'MagicThought/导航转场'
+navigationController.dependency 'MagicThought/Category'
+end
+
 subClass.subspec 'WKWebView' do |webView|
 webView.source_files = 'MagicThought/SubClass/WKWebView/*.{m,h}' , 'MagicThought/Category/NSString/NSString+Exist.{m,h}'
 webView.dependency 'MagicThought/Config'
@@ -417,12 +424,68 @@ pickView.resources = "MagicThought/SubClass/UIViewController/UIViewController + 
 
 end
 
+end
+
+end
+
+
+s.subspec '导航转场' do |transition|
+
+transition.subspec 'Demo' do |demo|
+
+demo.source_files = 'MagicThought/导航转场/Demo/*.{m,h}'
+
+demo.dependency 'MagicThought/控件文字样式设置'
+
+demo.dependency 'MagicThought/导航转场/Transitioning'
+
+demo.dependency 'MagicThought/导航转场/Model'
+
+end
+
+transition.subspec 'Transitioning' do |transitioning|
+
+transitioning.source_files = 'MagicThought/导航转场/Transitioning/*.{m,h}'
+
+transitioning.dependency 'MagicThought/导航转场/NavigationDelegate'
+
+end
+
+transition.subspec 'Model' do |model|
+
+model.source_files = 'MagicThought/导航转场/Model/*.{m,h}'
+
+model.dependency 'MagicThought/导航转场/NavigationDelegate'
+
+end
+
+transition.subspec 'NavigationDelegate' do |navigationDelegate|
+
+navigationDelegate.source_files = 'MagicThought/导航转场/NavigationDelegate/*.{m,h}', 'MagicThought/SubClass/UINavigationController/*.{m,h}', 'MagicThought/导航转场/Transitioning/MTAnimatedTransitioning.{m,h}','MagicThought/导航转场/Model/UIViewControllerTransitionModel.{m,h}','MagicThought/Protocol/MTDelegateProtocol.h'
+
+navigationDelegate.dependency 'MagicThought/Category'
 
 end
 
 
 
+end
 
+s.subspec '图片展示与浏览' do |imageBrowser|
+
+imageBrowser.source_files = 'MagicThought/图片展示与浏览/**/*.{m,h}'
+
+imageBrowser.resources = "MagicThought/图片展示与浏览/MTPhotoBrowser.bundle"
+
+imageBrowser.dependency 'MagicThought/Library/TZImagePickerController'
+imageBrowser.dependency 'MagicThought/自定义相机'
+imageBrowser.dependency 'MagicThought/弹框2'
+imageBrowser.dependency 'MagicThought/弹框'
+imageBrowser.dependency 'MagicThought/图片处理'
+imageBrowser.dependency 'MagicThought/控件文字样式设置'
+imageBrowser.dependency 'MagicThought/DelegateMode'
+imageBrowser.dependency 'MagicThought/Manager'
+imageBrowser.dependency 'MagicThought/SubClass'
 
 
 end

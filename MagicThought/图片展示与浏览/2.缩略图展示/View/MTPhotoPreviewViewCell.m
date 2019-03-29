@@ -8,7 +8,9 @@
 
 #import "MTPhotoPreviewViewCell.h"
 #import "NSString+Bundle.h"
-#import "MTCategory.h"
+#import "UIView+Frame.h"
+#import "NSString+Exist.h"
+#import "UIImage+Size.h"
 #import "MTConst.h"
 
 /*此处有依赖*/
