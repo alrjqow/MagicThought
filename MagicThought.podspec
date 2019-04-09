@@ -134,7 +134,7 @@ Pod::Spec.new do |s|
   # s.dependency "JSONKit", "~> 1.4"
 
 s.name = "MagicThought"
-s.version = "1.4.2"
+s.version = "1.4.3"
 s.summary = "MagicThought for ios."
 s.description = "the MagicThought for ios."
 s.homepage = "https://github.com/alrjqow/MagicThought"
@@ -146,7 +146,7 @@ s.platform = :ios, "8.0"
 s.source = { :git => "https://github.com/alrjqow/MagicThought.git", :tag =>"#{s.version}", :branch => "master" }
 
 #s.prefix_header_file = 'MagicThought/Config/MagicThought.pch'
-s.source_files = "MagicThought/MTKit.h"
+s.source_files = "MagicThought/MTKit.h", 'MagicThought/README.md'
 
 s.subspec 'Config' do |config|
 config.source_files = 'MagicThought/Config/*.{h,m}'
