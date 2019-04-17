@@ -171,4 +171,46 @@
 }
 
 
+-(void)startWithApi:(NSString*)api postParameter:(NSDictionary*)parameter
+{
+    [[self createApi:api postParameter:parameter] start];
+}
+
+
+-(void)startWithApi:(NSString*)api Identifier:(NSString*)identifier UpLoadBlock:(AFConstructingBlock)block
+{
+    [[self createApi:api Identifier:identifier UpLoadBlock:block] start];
+}
+
+#pragma mark - 创建API
+-(MTBaseApi*)createApi:(NSString*)api postParameter:(NSDictionary*)parameter
+{
+    MTBaseApi* baseApi;
+    if([[MTCloud shareCloud].apiManager respondsToSelector:@selector(createApiWithUrl:)])
+        baseApi = [[MTCloud shareCloud].apiManager createApiWithUrl:api];
+    if(!baseApi)
+        baseApi = [MTBaseApi new];
+    baseApi.url = api;
+    if(parameter)
+        [baseApi.postParameter setValuesForKeysWithDictionary:parameter];
+    baseApi.delegate = self;
+    
+    return baseApi;
+}
+
+-(MTBaseApi*)createApi:(NSString*)api Identifier:(NSString*)identifier UpLoadBlock:(AFConstructingBlock)block
+{
+    MTBaseApi* baseApi;
+    if([[MTCloud shareCloud].apiManager respondsToSelector:@selector(createApiWithUrl:)])
+        baseApi = [[MTCloud shareCloud].apiManager createApiWithUrl:api];
+    if(!baseApi)
+        baseApi = [MTBaseApi new];
+    
+    baseApi.identifier = identifier;
+    baseApi.url = api;
+    baseApi.constructingBodyBlock = block;
+    baseApi.delegate = self;
+    
+    return baseApi;
+}
 @end

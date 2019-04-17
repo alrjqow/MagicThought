@@ -14,7 +14,10 @@
 
 @interface NSObject (API)<MTApiProtocol>
 
-
+/**发起请求*/
+-(void)startWithApi:(NSString*)api postParameter:(NSDictionary*)parameter;
+/**发起上传数据请求*/
+-(void)startWithApi:(NSString*)api Identifier:(NSString*)identifier UpLoadBlock:(AFConstructingBlock)block;
 
 @end
 
