@@ -171,6 +171,8 @@
 }
 
 
+#pragma mark - 创建API
+
 -(void)startWithApi:(NSString*)api postParameter:(NSDictionary*)parameter
 {
     [[self createApi:api postParameter:parameter] start];
@@ -182,7 +184,6 @@
     [[self createApi:api Identifier:identifier UpLoadBlock:block] start];
 }
 
-#pragma mark - 创建API
 -(MTBaseApi*)createApi:(NSString*)api postParameter:(NSDictionary*)parameter
 {
     MTBaseApi* baseApi;

@@ -7,16 +7,11 @@
 //
 
 #import "YTKNetwork.h"
-
 @class MTBaseDataModel;
 @class MTBaseApi;
 
 @protocol MTApiProtocol<YTKRequestDelegate, YTKBatchRequestDelegate>
 
-/**创建请求*/
--(MTBaseApi*)createApi:(NSString*)api postParameter:(NSDictionary*)parameter;
-/**创建上传数据请求*/
--(MTBaseApi*)createApi:(NSString*)api Identifier:(NSString*)identifier UpLoadBlock:(AFConstructingBlock)block;
 
 /**当接收到数据*/
 -(void)whenGetBaseModel:(MTBaseDataModel*)model;
