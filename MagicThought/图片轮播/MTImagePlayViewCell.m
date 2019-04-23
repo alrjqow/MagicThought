@@ -12,8 +12,6 @@
 
 @interface MTImagePlayViewCell ()
 
-@property(nonatomic,weak) UIImageView* imgView;
-
 
 @end
 
@@ -50,8 +48,12 @@
         return;
     }
     
+    
     UIImage* img = [UIImage imageNamed:imgURL];
     [self.imgView sd_setImageWithURL:[NSURL URLWithString:imgURL] placeholderImage: img ? img : placeholderImage completed:^(UIImage *image, NSError *error, SDImageCacheType cacheType, NSURL *imageURL) {
+        
+        if(!image)
+            image = [UIImage imageNamed:imgURL];
         
         self.imgView.contentMode = image ? UIViewContentModeScaleToFill : UIViewContentModeScaleAspectFill;
     }];

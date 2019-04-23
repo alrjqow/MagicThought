@@ -12,10 +12,9 @@
 #import "MTDelegateProtocol.h"
 #import "UIView+Frame.h"
 #import "UIColor+ColorfulColor.h"
+#import "NSString+Exist.h"
 
 @interface MTImagePlayView()<UICollectionViewDelegate,UICollectionViewDataSource,MTDelegateProtocol>
-
-@property (nonatomic, strong) UICollectionViewFlowLayout *flowLayout;
 
 @property(nonatomic,strong) NSTimer* timer;
 
@@ -63,12 +62,21 @@
 -(void)setupSubView
 {
     self.scrollTime = 3.0;
-    UICollectionViewFlowLayout* layout = [UICollectionViewFlowLayout new];
-    layout.scrollDirection = UICollectionViewScrollDirectionHorizontal;
-    layout.minimumInteritemSpacing = 0;
-    layout.minimumLineSpacing = 0;
-    UICollectionView* collectionView = [[UICollectionView alloc] initWithFrame:self.bounds collectionViewLayout:layout];
-    [collectionView registerClass:[MTImagePlayViewCell class] forCellWithReuseIdentifier:ImagePlayViewCell];
+  
+    UICollectionView* collectionView = [[UICollectionView alloc] initWithFrame:self.bounds collectionViewLayout:self.flowLayout];
+    
+    
+    if([self.imagePlayCellClass isExist])
+    {
+        Class class = NSClassFromString(self.imagePlayCellClass);
+        if([class.new isKindOfClass:[MTImagePlayViewCell class]])
+            [collectionView registerClass:class forCellWithReuseIdentifier:ImagePlayViewCell];
+        else
+            [collectionView registerClass:[MTImagePlayViewCell class] forCellWithReuseIdentifier:ImagePlayViewCell];
+    }
+    else
+        [collectionView registerClass:[MTImagePlayViewCell class] forCellWithReuseIdentifier:ImagePlayViewCell];
+    
     collectionView.delegate = self;
     collectionView.dataSource = self;
     collectionView.pagingEnabled = YES;
@@ -78,16 +86,9 @@
     
     [self addSubview:collectionView];
     _collectionView = collectionView;
-    self.flowLayout = layout;
     
-    UIPageControl *pagePoint = [UIPageControl new];
-    pagePoint.hidden = YES;
-    [self addSubview:pagePoint];
-    self.pagePoint = pagePoint;
-    
-    CGPoint center = self.center;
-    center.y = self.height * 0.85;
-    self.pagePoint.center = center;
+    self.pagePoint.hidden = YES;
+    [self addSubview:self.pagePoint];
 }
 
 -(void)setupTimer
@@ -130,8 +131,37 @@
     
     self.flowLayout.itemSize = self.frame.size;
     self.collectionView.frame = self.bounds;
+    
+    CGPoint center = self.center;
+    center.y = self.height * 0.85;
+    self.pagePoint.center = center;
 }
 
+
+-(UIPageControl *)pagePoint
+{
+    if(!_pagePoint)
+    {
+        _pagePoint = [UIPageControl new];
+    }
+    
+    return _pagePoint;
+}
+
+-(UICollectionViewFlowLayout *)flowLayout
+{
+    if(!_flowLayout)
+    {
+        UICollectionViewFlowLayout* layout = [UICollectionViewFlowLayout new];
+        layout.scrollDirection = UICollectionViewScrollDirectionHorizontal;
+        layout.minimumInteritemSpacing = 0;
+        layout.minimumLineSpacing = 0;
+        
+        _flowLayout = layout;
+    }
+    
+    return _flowLayout;
+}
 
 static NSInteger itemTimes = 100;
 #pragma mark - collectionView数据源
@@ -148,10 +178,7 @@ static NSInteger itemTimes = 100;
 }
 
 -(UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath
-{
-    if([self.playViewDelegate respondsToSelector:@selector(collectionView:cellForItemAtIndexPath:)])
-        return [self.playViewDelegate collectionView:collectionView cellForItemAtIndexPath:indexPath];
-    
+{        
     MTImagePlayViewCell* cell = [collectionView dequeueReusableCellWithReuseIdentifier:ImagePlayViewCell forIndexPath:indexPath];
     cell.delegate = self;
     

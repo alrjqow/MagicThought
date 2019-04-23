@@ -168,6 +168,7 @@
         return;
     NSLog(@"请求链接：%@",model.ipAddress ? [model.ipAddress stringByAppendingString:model.url] : model.url);
     NSLog(@"请求成功");
+    NSLog(@"%@",model.data);
 }
 
 

@@ -241,7 +241,10 @@
     
     NSObject* data = list[indexPath.row];
     if([data.mt_reuseIdentifier isEqualToString:@"none"] && [data isKindOfClass:[NSString class]])
-    data.mt_reuseIdentifier = (NSString*)data;
+        data.mt_reuseIdentifier = (NSString*)data;
+    
+    if([data.mt_reuseIdentifier isEqualToString:@"none"] && [data isKindOfClass:[NSReuseObject class]] && [((NSReuseObject*)data).data isKindOfClass:[NSString class]])        
+        data.mt_reuseIdentifier = (NSString*)((NSReuseObject*)data).data;
     
     return data;
 }

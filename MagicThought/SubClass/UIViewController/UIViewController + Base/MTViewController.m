@@ -9,7 +9,7 @@
 #import "MTViewController.h"
 #import "MBProgressHUD.h"
 #import "MTCloud.h"
-
+#import "MJRefresh.h"
 
 @interface MTViewController ()
 
@@ -173,6 +173,34 @@
 }
 
 #pragma mark - 懒加载
+
+-(void (^)(void))mj_Block
+{
+    if(!_mj_Block)
+    {
+            __weak __typeof(self) weakSelf = self;
+        _mj_Block = ^{
+            
+            [weakSelf.mtBase_tableView.mj_header endRefreshing];
+        };
+    }
+    
+    return _mj_Block;
+}
+
+-(void (^)(void))mj_footer_Block
+{
+    if(!_mj_footer_Block)
+    {
+         __weak __typeof(self) weakSelf = self;
+        _mj_footer_Block = ^{
+                      
+            [weakSelf.mtBase_tableView.mj_footer endRefreshing];
+        };
+    }
+    
+    return _mj_footer_Block;
+}
 
 - (MTDelegateTableView *)mtBase_tableView
 {

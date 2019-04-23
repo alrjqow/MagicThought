@@ -10,6 +10,8 @@
 
 @interface MTImagePlayViewCell : MTDelegateCollectionViewCell
 
+@property(nonatomic,weak) UIImageView* imgView;
+
 @property(nonatomic,strong) NSString* imgURL;
 
 

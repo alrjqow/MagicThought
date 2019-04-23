@@ -10,11 +10,13 @@
 
 @interface MTImagePlayView : MTDelegateView
 
-@property (weak, nonatomic)  UIPageControl *pagePoint;
+@property (nonatomic, strong) UICollectionViewFlowLayout *flowLayout;
+
+@property (strong, nonatomic)  UIPageControl *pagePoint;
 
 @property (weak, nonatomic, readonly)  UICollectionView *collectionView;
 
-@property (nonatomic,weak) id<UICollectionViewDelegate,UICollectionViewDataSource> playViewDelegate;
+@property (nonatomic,strong) NSString* imagePlayCellClass;
 
 @property (nonatomic, strong) NSArray<NSString*>* imageURLs;
 
