@@ -12,7 +12,11 @@
 
 +(BOOL) isEmpty:(NSString*)str
 {
-    if (!str) {
+    if ([str isEqual:[NSNull null]]) {
+        return true;
+    }else if ([str isKindOfClass:[NSNull class]]){
+        return true;
+    }else if (str == nil) {
         return true;
     } else {
         NSCharacterSet *set = [NSCharacterSet whitespaceAndNewlineCharacterSet];
