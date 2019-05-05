@@ -55,7 +55,10 @@
     MBProgressHUD* hud = [self createHud];
     
     if(self.mt_hudStyle == MBHudStyleDefault)
+    {
         hud.customView = [self createTipsView];
+        hud.mode = MBProgressHUDModeCustomView;
+    }    
     else
         hud.mode = MBProgressHUDModeIndeterminate;
     
@@ -164,6 +167,7 @@
     UIImage *image = [[UIImage imageNamed:imageName] imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate];
     hud.customView = [[UIImageView alloc] initWithImage:image];
     hud.label.text = msg;
+    hud.mode = MBProgressHUDModeCustomView;
     
     [hud showAnimated:YES];
     [hud hideAnimated:YES afterDelay:2.f];

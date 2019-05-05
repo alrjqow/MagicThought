@@ -390,7 +390,7 @@ static int mtPushDisplayCount = 0;
 
 - (void)mt_pushViewController:(UIViewController *)viewController animated:(BOOL)animated {
     
-    if([NSStringFromClass([self class]) containsString:@"TZ"])
+    if(![self isKindOfClass:NSClassFromString(@"MTNavigationController")] || [NSStringFromClass([self class]) containsString:@"TZ"])
     {
         [self mt_pushViewController:viewController animated:animated];
         return;
@@ -413,6 +413,9 @@ static int mtPushDisplayCount = 0;
 
 
 - (NSArray<UIViewController *> *)mt_popToViewController:(UIViewController *)viewController animated:(BOOL)animated {
+    
+    if(![self isKindOfClass:NSClassFromString(@"MTNavigationController")])
+        return [self mt_popToViewController:viewController animated:animated];
     
     self.enableSlideBack = viewController.enableSlideBack;
     // pop 的时候直接改变 barTintColor、tintColor
@@ -438,6 +441,10 @@ static int mtPushDisplayCount = 0;
 }
 
 - (NSArray<UIViewController *> *)mt_popToRootViewControllerAnimated:(BOOL)animated {
+    
+    if(![self isKindOfClass:NSClassFromString(@"MTNavigationController")])
+        return [self mt_popToRootViewControllerAnimated:animated];
+    
     __block CADisplayLink *displayLink = [CADisplayLink displayLinkWithTarget:self selector:@selector(transitionNeedDisplay:)];
     [displayLink addToRunLoop:[NSRunLoop mainRunLoop] forMode:NSRunLoopCommonModes];
     [CATransaction setCompletionBlock:^{

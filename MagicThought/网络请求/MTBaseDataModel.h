@@ -25,6 +25,8 @@
 
 @property (nonatomic, strong) NSError *error;
 
+@property (nonatomic, assign) YTKResponseSerializerType responseSerializerType;
+
 @property (nonatomic,strong) id data;
 
 @property (nonatomic,strong) id failData;

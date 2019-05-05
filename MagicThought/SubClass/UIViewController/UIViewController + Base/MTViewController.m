@@ -213,6 +213,10 @@
         _mtBase_tableView.tableFooterView = [UIView new];
         _mtBase_tableView.showsVerticalScrollIndicator = false;
         _mtBase_tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
+        //防止分页漂移
+        _mtBase_tableView.estimatedRowHeight = 0;
+        _mtBase_tableView.estimatedSectionHeaderHeight = 0;
+        _mtBase_tableView.estimatedSectionFooterHeight = 0;        
     }
     return _mtBase_tableView;
 }

@@ -46,44 +46,44 @@
 {
     if(self = [super init])
     {
-        [self setupDefault];
+//        [self setupDefault];
         
-//        self.width = kScreenWidth_mt - 4 * outterMargin25;
-//        self.buttonHeight = 50;
-//        self.cornerRadius = 4;
-//
-//        self.logoMargin = UIEdgeInsetsMake(0, 0, 12, 6);
-//        self.splitWidth = 1;
-//
-//        self.innerMargin = 20;
-//        self.innerTopMargin = self.innerMargin;
-//
-//        self.detailInnerMargin = 15;
-//        self.detailLineSpacing = 1;
-//
-//        self.detailAlignment = NSTextAlignmentCenter;
-//
-//        self.titleFont  = [UIFont boldSystemFontOfSize:18];
-//        self.detailFont = [UIFont systemFontOfSize:12];
-//        self.buttonFont = [UIFont systemFontOfSize:15];
-//
-//        self.backgroundColor = [UIColor colorWithHex:0xFFFFFF];
-//        self.titleColor = kColor_Text_Title;
-//        self.detailColor = kColor_Text_Normal;
-//        self.splitColor = kColor_D0D0D0;
-//
-//        self.itemNormalColor = kColor_Text_Tips;
-//        self.itemHighlightColor = kColor_Blue;
-//        self.itemPressedColor = [UIColor colorWithHex:0xEFEDE7];
-//
-//        self.defaultTextOK = @"好";
-//        self.defaultTextCancel = @"取消";
-//        self.defaultTextConfirm = @"确定";
-//
-//
-//        self.items =@[
-//                      MTPopButtonItemMake(self.defaultTextOK,  MTPopButtonItemTypeHighlight, nil)
-//                      ];
+        self.width = kScreenWidth_mt - 4 * outterMargin25;
+        self.buttonHeight = 50;
+        self.cornerRadius = 4;
+
+        self.logoMargin = UIEdgeInsetsMake(0, 0, 12, 6);
+        self.splitWidth = 1;
+
+        self.innerMargin = 20;
+        self.innerTopMargin = self.innerMargin;
+
+        self.detailInnerMargin = 15;
+        self.detailLineSpacing = 1;
+
+        self.detailAlignment = NSTextAlignmentCenter;
+
+        self.titleFont  = [UIFont boldSystemFontOfSize:18];
+        self.detailFont = [UIFont systemFontOfSize:12];
+        self.buttonFont = [UIFont systemFontOfSize:15];
+
+        self.backgroundColor = [UIColor colorWithHex:0xFFFFFF];
+        self.titleColor = kColor_Text_Title;
+        self.detailColor = kColor_Text_Normal;
+        self.splitColor = kColor_D0D0D0;
+
+        self.itemNormalColor = kColor_Text_Tips;
+        self.itemHighlightColor = kColor_Blue;
+        self.itemPressedColor = [UIColor colorWithHex:0xEFEDE7];
+
+        self.defaultTextOK = @"好";
+        self.defaultTextCancel = @"取消";
+        self.defaultTextConfirm = @"确定";
+
+
+        self.items =@[
+                      MTPopButtonItemMake(self.defaultTextOK,  MTPopButtonItemTypeHighlight, nil)
+                      ];
     }
     
     return self;

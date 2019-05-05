@@ -140,7 +140,7 @@
 
 -(void)setDelegate:(id<UINavigationControllerDelegate>)delegate
 {
-    self.interactivePopGestureRecognizer.enabled = (delegate == self && !self.isFullScreenPop);
+    self.interactivePopGestureRecognizer.enabled = (delegate == self && !self.isFullScreenPop && self.enableSlideBack);
     self.fullScreenPopGestureRecognizer.enabled = (delegate == self && self.isFullScreenPop);
     [super setDelegate:delegate];
 }

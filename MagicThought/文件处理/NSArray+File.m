@@ -22,3 +22,16 @@
 }
 
 @end
+
+
+@implementation NSArray (GetObject)
+
+-(id)getItemByIndex:(NSInteger)index
+{
+    if(index >= self.count)
+        return nil;
+    
+    return self[index];
+}
+
+@end

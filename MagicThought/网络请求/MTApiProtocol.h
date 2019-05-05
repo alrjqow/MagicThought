@@ -28,6 +28,9 @@
 /**生成一个ytkrequest请求*/
 -(MTBaseApi*)createApiWithUrl:(NSString*)url;
 
+/**过滤打印*/
+-(NSDictionary*)logApiBlackList;
+
 /**数据过滤1*/
 -(BOOL)filterIsResponseFailBy:(NSDictionary*)responseObject;
 

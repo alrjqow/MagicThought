@@ -13,3 +13,10 @@
 - (BOOL)writeToDirectory:(NSString *)directory File:(NSString*)file atomically:(BOOL)useAuxiliaryFile;
 
 @end
+
+
+@interface NSArray (GetObject)
+
+-(id)getItemByIndex:(NSInteger)index;
+
+@end

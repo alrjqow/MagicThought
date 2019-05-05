@@ -426,6 +426,11 @@
     [self makeCookiesForeverAfterFinishNavigation:webView];
 }
 
+- (void)webView:(WKWebView *)webView didFailProvisionalNavigation:(null_unspecified WKNavigation *)navigation withError:(NSError *)error
+{
+    [self.view showError:@"加载出错啦"];
+//    [self webView:webView didFailNavigation:navigation withError:error];
+}
 
 -(void)webView:(WKWebView *)webView didFailNavigation:(WKNavigation *)navigation withError:(NSError *)error
 {

@@ -14,20 +14,15 @@
 
 @implementation NSObject (API)
 
-
-/**可在这个代理方法对需要的数据做过滤*/
--(MTBaseDataModel*)createBaseModelAfterSuccessFilterBy:(YTKBaseRequest *)request
+/**当接收的为Json数据时*/
+-(void)adjustJsonModel:(MTBaseDataModel*)model AfterSuccessFilterBy:(YTKBaseRequest *)request
 {
-    MTBaseDataModel* model = [MTBaseDataModel new];
-    model.ipAddress = request.baseUrl;
-    model.url = request.requestUrl;
-    
     if(![request.responseObject isKindOfClass:[NSDictionary class]])
     {
         model.isResponseFail = YES;
         model.msg = @"未能识别的数据";
         model.failData = request.responseObject;
-        return model;
+        return;
     }
     
     if([[MTCloud shareCloud].apiManager respondsToSelector:@selector(filterIsResponseFailBy:)])
@@ -45,7 +40,51 @@
         model.failData = request.responseObject;
     else
         model.data = request.responseObject;
+}
+
+/**当接收的为HTTP数据时*/
+-(void)adjustHttpModel:(MTBaseDataModel*)model AfterSuccessFilterBy:(YTKBaseRequest *)request
+{
+    model.msg = @"请求成功";
+    model.data = request.responseObject;
+}
+
+/**当接收的为XML数据时*/
+-(void)adjustXmlModel:(MTBaseDataModel*)model AfterSuccessFilterBy:(YTKBaseRequest *)request
+{
+    model.msg = @"请求成功";
+    model.data = request.responseObject;
+}
+
+/**可在这个代理方法对需要的数据做过滤*/
+-(MTBaseDataModel*)createBaseModelAfterSuccessFilterBy:(YTKBaseRequest *)request
+{
+    MTBaseDataModel* model = [MTBaseDataModel new];
+    model.ipAddress = request.baseUrl;
+    model.url = request.requestUrl;
+    model.responseSerializerType = request.responseSerializerType;
     
+    switch (request.responseSerializerType) {
+        case YTKResponseSerializerTypeHTTP:
+        {
+            [self adjustHttpModel:model AfterSuccessFilterBy:request];
+                break;
+        }
+        case YTKResponseSerializerTypeJSON:
+        {
+            [self adjustJsonModel:model AfterSuccessFilterBy:request];
+            break;
+        }
+        case YTKResponseSerializerTypeXMLParser:
+        {
+            [self adjustXmlModel:model AfterSuccessFilterBy:request];
+            break;
+        }
+            
+        default:
+            break;
+    }
+     
     return model;
 }
 
@@ -168,7 +207,13 @@
         return;
     NSLog(@"请求链接：%@",model.ipAddress ? [model.ipAddress stringByAppendingString:model.url] : model.url);
     NSLog(@"请求成功");
-    NSLog(@"%@",model.data);
+    
+    NSDictionary* blackList = @{};
+    if([[MTCloud shareCloud].apiManager respondsToSelector:@selector(logApiBlackList)])
+        blackList = [MTCloud shareCloud].apiManager.logApiBlackList;
+
+    if(![blackList objectForKey:model.url])
+        NSLog(@"%@",model.data);
 }
 
 
