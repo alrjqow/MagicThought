@@ -7,7 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
-
+#import "YTKNetwork.h"
 
 @interface MTBaseDataModel : NSObject
 

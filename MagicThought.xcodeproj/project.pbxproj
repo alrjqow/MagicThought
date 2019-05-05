@@ -63,6 +63,7 @@
 		7875AEF3224B61160072C2E7 /* MTBaseAlertController.h in Headers */ = {isa = PBXBuildFile; fileRef = 7875AEEE224B61160072C2E7 /* MTBaseAlertController.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		7875AEF4224B61160072C2E7 /* MTAlertItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 7875AEF0224B61160072C2E7 /* MTAlertItem.m */; };
 		7875AEF5224B61160072C2E7 /* MTAlertItem.h in Headers */ = {isa = PBXBuildFile; fileRef = 7875AEF1224B61160072C2E7 /* MTAlertItem.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		787640F2227ED8800053C575 /* MTApiProtocol.h in Headers */ = {isa = PBXBuildFile; fileRef = 787640F1227ED8800053C575 /* MTApiProtocol.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		7882A99F224320F500A8D781 /* MTBaseDataModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 7882A999224320F500A8D781 /* MTBaseDataModel.m */; };
 		7882A9A0224320F500A8D781 /* MTBaseApi.m in Sources */ = {isa = PBXBuildFile; fileRef = 7882A99A224320F500A8D781 /* MTBaseApi.m */; };
 		7882A9A1224320F500A8D781 /* NSObject+API.m in Sources */ = {isa = PBXBuildFile; fileRef = 7882A99B224320F500A8D781 /* NSObject+API.m */; };
@@ -130,11 +131,9 @@
 		7891C998223B90630010DD55 /* MTConst.m in Sources */ = {isa = PBXBuildFile; fileRef = 7891C98E223B90630010DD55 /* MTConst.m */; };
 		7891C99A223B90630010DD55 /* MTCategory.h in Headers */ = {isa = PBXBuildFile; fileRef = 7891C990223B90630010DD55 /* MTCategory.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		7891C99B223B90630010DD55 /* MTConst.h in Headers */ = {isa = PBXBuildFile; fileRef = 7891C991223B90630010DD55 /* MTConst.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		7891C99C223B90630010DD55 /* MTThirdSDKList.h in Headers */ = {isa = PBXBuildFile; fileRef = 7891C992223B90630010DD55 /* MTThirdSDKList.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		7891C99D223B90630010DD55 /* NSString+Exist.h in Headers */ = {isa = PBXBuildFile; fileRef = 7891C995223B90630010DD55 /* NSString+Exist.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		7891C99E223B90630010DD55 /* NSString+Exist.m in Sources */ = {isa = PBXBuildFile; fileRef = 7891C996223B90630010DD55 /* NSString+Exist.m */; };
 		7891C9A6223B90690010DD55 /* MTProtocol.h in Headers */ = {isa = PBXBuildFile; fileRef = 7891C9A0223B90690010DD55 /* MTProtocol.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		7891C9A7223B90690010DD55 /* MTApiProtocol.h in Headers */ = {isa = PBXBuildFile; fileRef = 7891C9A1223B90690010DD55 /* MTApiProtocol.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		7891C9A8223B90690010DD55 /* MTRequestProtocol.h in Headers */ = {isa = PBXBuildFile; fileRef = 7891C9A2223B90690010DD55 /* MTRequestProtocol.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		7891C9A9223B90690010DD55 /* MTStyleProtocol.h in Headers */ = {isa = PBXBuildFile; fileRef = 7891C9A3223B90690010DD55 /* MTStyleProtocol.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		7891C9AA223B90690010DD55 /* MTDelegateProtocol.h in Headers */ = {isa = PBXBuildFile; fileRef = 7891C9A4223B90690010DD55 /* MTDelegateProtocol.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -420,6 +419,7 @@
 		7875AEEE224B61160072C2E7 /* MTBaseAlertController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MTBaseAlertController.h; sourceTree = "<group>"; };
 		7875AEF0224B61160072C2E7 /* MTAlertItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MTAlertItem.m; sourceTree = "<group>"; };
 		7875AEF1224B61160072C2E7 /* MTAlertItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MTAlertItem.h; sourceTree = "<group>"; };
+		787640F1227ED8800053C575 /* MTApiProtocol.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = MTApiProtocol.h; path = "MagicThought/网络请求/MTApiProtocol.h"; sourceTree = "<group>"; };
 		7882A999224320F500A8D781 /* MTBaseDataModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MTBaseDataModel.m; sourceTree = "<group>"; };
 		7882A99A224320F500A8D781 /* MTBaseApi.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MTBaseApi.m; sourceTree = "<group>"; };
 		7882A99B224320F500A8D781 /* NSObject+API.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+API.m"; sourceTree = "<group>"; };
@@ -491,7 +491,7 @@
 		7891C995223B90630010DD55 /* NSString+Exist.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+Exist.h"; sourceTree = "<group>"; };
 		7891C996223B90630010DD55 /* NSString+Exist.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+Exist.m"; sourceTree = "<group>"; };
 		7891C9A0223B90690010DD55 /* MTProtocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MTProtocol.h; sourceTree = "<group>"; };
-		7891C9A1223B90690010DD55 /* MTApiProtocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MTApiProtocol.h; sourceTree = "<group>"; };
+		7891C9A1223B90690010DD55 /* MTApiProtocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MTApiProtocol.h; path = ../Protocol/MTApiProtocol.h; sourceTree = "<group>"; };
 		7891C9A2223B90690010DD55 /* MTRequestProtocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MTRequestProtocol.h; sourceTree = "<group>"; };
 		7891C9A3223B90690010DD55 /* MTStyleProtocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MTStyleProtocol.h; sourceTree = "<group>"; };
 		7891C9A4223B90690010DD55 /* MTDelegateProtocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MTDelegateProtocol.h; sourceTree = "<group>"; };
@@ -871,6 +871,7 @@
 		7882A998224320F500A8D781 /* 网络请求 */ = {
 			isa = PBXGroup;
 			children = (
+				7891C9A1223B90690010DD55 /* MTApiProtocol.h */,
 				7882A99C224320F500A8D781 /* MTBaseDataModel.h */,
 				7882A999224320F500A8D781 /* MTBaseDataModel.m */,
 				7882A99D224320F500A8D781 /* MTBaseApi.h */,
@@ -1046,7 +1047,6 @@
 			isa = PBXGroup;
 			children = (
 				7891C9A0223B90690010DD55 /* MTProtocol.h */,
-				7891C9A1223B90690010DD55 /* MTApiProtocol.h */,
 				7891C9A2223B90690010DD55 /* MTRequestProtocol.h */,
 				7891C9A3223B90690010DD55 /* MTStyleProtocol.h */,
 				7891C9A4223B90690010DD55 /* MTDelegateProtocol.h */,
@@ -1619,6 +1619,7 @@
 		78F332722239051C00DA02F6 = {
 			isa = PBXGroup;
 			children = (
+				787640F1227ED8800053C575 /* MTApiProtocol.h */,
 				78F3327E2239051C00DA02F6 /* MagicThought */,
 				78F3327D2239051C00DA02F6 /* Products */,
 				F87FCD8DD13800263C4EB349 /* Pods */,
@@ -1747,7 +1748,6 @@
 				78935154223F491B001D0C4B /* NSString+Encode.h in Headers */,
 				78935166223F492F001D0C4B /* NSString+MD5.h in Headers */,
 				7891C997223B90630010DD55 /* MTDefine.h in Headers */,
-				7891C9A7223B90690010DD55 /* MTApiProtocol.h in Headers */,
 				7891C9A6223B90690010DD55 /* MTProtocol.h in Headers */,
 				7891C9AA223B90690010DD55 /* MTDelegateProtocol.h in Headers */,
 				7891C9AB223B90690010DD55 /* MTKit.h in Headers */,
@@ -1880,8 +1880,8 @@
 				7882AA3A22437EA900A8D781 /* MTPopButtonItem.h in Headers */,
 				7882AA3422437EA900A8D781 /* MTPopView.h in Headers */,
 				7891C9A8223B90690010DD55 /* MTRequestProtocol.h in Headers */,
+				787640F2227ED8800053C575 /* MTApiProtocol.h in Headers */,
 				7891C99A223B90630010DD55 /* MTCategory.h in Headers */,
-				7891C99C223B90630010DD55 /* MTThirdSDKList.h in Headers */,
 				7891C99B223B90630010DD55 /* MTConst.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -2307,7 +2307,11 @@
 				GCC_PREFIX_HEADER = "";
 				INFOPLIST_FILE = MagicThought/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
 				ONLY_ACTIVE_ARCH = YES;
 				PRODUCT_BUNDLE_IDENTIFIER = com.dayi.www.MagicThought;
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
@@ -2333,7 +2337,11 @@
 				GCC_PREFIX_HEADER = "";
 				INFOPLIST_FILE = MagicThought/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
 				ONLY_ACTIVE_ARCH = NO;
 				PRODUCT_BUNDLE_IDENTIFIER = com.dayi.www.MagicThought;
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
