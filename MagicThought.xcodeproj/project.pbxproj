@@ -98,10 +98,6 @@
 		789F3FFE22DC2B1A00586487 /* UIView+ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 789F3E3822DC2B1A00586487 /* UIView+ViewController.m */; };
 		789F3FFF22DC2B1A00586487 /* UIView+Animate.m in Sources */ = {isa = PBXBuildFile; fileRef = 789F3E3922DC2B1A00586487 /* UIView+Animate.m */; };
 		789F400022DC2B1A00586487 /* UIView+Frame.m in Sources */ = {isa = PBXBuildFile; fileRef = 789F3E3A22DC2B1A00586487 /* UIView+Frame.m */; };
-		789F400122DC2B1A00586487 /* UIView+Shadow.m in Sources */ = {isa = PBXBuildFile; fileRef = 789F3E3C22DC2B1A00586487 /* UIView+Shadow.m */; };
-		789F400222DC2B1A00586487 /* MTViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 789F3E3D22DC2B1A00586487 /* MTViewModel.m */; };
-		789F400322DC2B1A00586487 /* MTViewModel.h in Headers */ = {isa = PBXBuildFile; fileRef = 789F3E3E22DC2B1A00586487 /* MTViewModel.h */; };
-		789F400422DC2B1A00586487 /* UIView+Shadow.h in Headers */ = {isa = PBXBuildFile; fileRef = 789F3E3F22DC2B1A00586487 /* UIView+Shadow.h */; };
 		789F400522DC2B1A00586487 /* UIView+Copy.m in Sources */ = {isa = PBXBuildFile; fileRef = 789F3E4022DC2B1A00586487 /* UIView+Copy.m */; };
 		789F400622DC2B1A00586487 /* UIView+Circle.h in Headers */ = {isa = PBXBuildFile; fileRef = 789F3E4122DC2B1A00586487 /* UIView+Circle.h */; };
 		789F400722DC2B1A00586487 /* UIView+Animate.h in Headers */ = {isa = PBXBuildFile; fileRef = 789F3E4222DC2B1A00586487 /* UIView+Animate.h */; };
@@ -138,10 +134,6 @@
 		789F402622DC2B1A00586487 /* NSString+Encode.m in Sources */ = {isa = PBXBuildFile; fileRef = 789F3E6522DC2B1A00586487 /* NSString+Encode.m */; };
 		789F402722DC2B1A00586487 /* NSString+Unicode.h in Headers */ = {isa = PBXBuildFile; fileRef = 789F3E6622DC2B1A00586487 /* NSString+Unicode.h */; };
 		789F402822DC2B1A00586487 /* UIViewController+Navigation.m in Sources */ = {isa = PBXBuildFile; fileRef = 789F3E6822DC2B1A00586487 /* UIViewController+Navigation.m */; };
-		789F402922DC2B1A00586487 /* UIViewController+Modal.m in Sources */ = {isa = PBXBuildFile; fileRef = 789F3E6A22DC2B1A00586487 /* UIViewController+Modal.m */; };
-		789F402A22DC2B1A00586487 /* MTShadowController.m in Sources */ = {isa = PBXBuildFile; fileRef = 789F3E6B22DC2B1A00586487 /* MTShadowController.m */; };
-		789F402B22DC2B1A00586487 /* UIViewController+Modal.h in Headers */ = {isa = PBXBuildFile; fileRef = 789F3E6C22DC2B1A00586487 /* UIViewController+Modal.h */; };
-		789F402C22DC2B1A00586487 /* MTShadowController.h in Headers */ = {isa = PBXBuildFile; fileRef = 789F3E6D22DC2B1A00586487 /* MTShadowController.h */; };
 		789F402D22DC2B1A00586487 /* UIViewController+Navigation.h in Headers */ = {isa = PBXBuildFile; fileRef = 789F3E6E22DC2B1A00586487 /* UIViewController+Navigation.h */; };
 		789F402E22DC2B1A00586487 /* NSObject+HideKey.h in Headers */ = {isa = PBXBuildFile; fileRef = 789F3E7022DC2B1A00586487 /* NSObject+HideKey.h */; };
 		789F402F22DC2B1A00586487 /* NSObject+CommonProtocol.m in Sources */ = {isa = PBXBuildFile; fileRef = 789F3E7122DC2B1A00586487 /* NSObject+CommonProtocol.m */; };
@@ -521,10 +513,6 @@
 		789F3E3822DC2B1A00586487 /* UIView+ViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+ViewController.m"; sourceTree = "<group>"; };
 		789F3E3922DC2B1A00586487 /* UIView+Animate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+Animate.m"; sourceTree = "<group>"; };
 		789F3E3A22DC2B1A00586487 /* UIView+Frame.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+Frame.m"; sourceTree = "<group>"; };
-		789F3E3C22DC2B1A00586487 /* UIView+Shadow.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+Shadow.m"; sourceTree = "<group>"; };
-		789F3E3D22DC2B1A00586487 /* MTViewModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MTViewModel.m; sourceTree = "<group>"; };
-		789F3E3E22DC2B1A00586487 /* MTViewModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MTViewModel.h; sourceTree = "<group>"; };
-		789F3E3F22DC2B1A00586487 /* UIView+Shadow.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+Shadow.h"; sourceTree = "<group>"; };
 		789F3E4022DC2B1A00586487 /* UIView+Copy.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+Copy.m"; sourceTree = "<group>"; };
 		789F3E4122DC2B1A00586487 /* UIView+Circle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+Circle.h"; sourceTree = "<group>"; };
 		789F3E4222DC2B1A00586487 /* UIView+Animate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+Animate.h"; sourceTree = "<group>"; };
@@ -561,10 +549,6 @@
 		789F3E6522DC2B1A00586487 /* NSString+Encode.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+Encode.m"; sourceTree = "<group>"; };
 		789F3E6622DC2B1A00586487 /* NSString+Unicode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+Unicode.h"; sourceTree = "<group>"; };
 		789F3E6822DC2B1A00586487 /* UIViewController+Navigation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+Navigation.m"; sourceTree = "<group>"; };
-		789F3E6A22DC2B1A00586487 /* UIViewController+Modal.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+Modal.m"; sourceTree = "<group>"; };
-		789F3E6B22DC2B1A00586487 /* MTShadowController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MTShadowController.m; sourceTree = "<group>"; };
-		789F3E6C22DC2B1A00586487 /* UIViewController+Modal.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIViewController+Modal.h"; sourceTree = "<group>"; };
-		789F3E6D22DC2B1A00586487 /* MTShadowController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MTShadowController.h; sourceTree = "<group>"; };
 		789F3E6E22DC2B1A00586487 /* UIViewController+Navigation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIViewController+Navigation.h"; sourceTree = "<group>"; };
 		789F3E7022DC2B1A00586487 /* NSObject+HideKey.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+HideKey.h"; sourceTree = "<group>"; };
 		789F3E7122DC2B1A00586487 /* NSObject+CommonProtocol.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+CommonProtocol.m"; sourceTree = "<group>"; };
@@ -873,6 +857,23 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		780C2FDA22E94C05005FA4DB /* Dependency */ = {
+			isa = PBXGroup;
+			children = (
+				789F3E7A22DC2B1A00586487 /* MTConst.h */,
+				789F3E7522DC2B1A00586487 /* MTConst.m */,
+				789F3E5222DC2B1A00586487 /* NSString+Exist.h */,
+				789F3E5C22DC2B1A00586487 /* NSString+Exist.m */,
+				789F3E4B22DC2B1A00586487 /* UIDevice+DeviceInfo.h */,
+				789F3E4C22DC2B1A00586487 /* UIDevice+DeviceInfo.m */,
+				789F3F2B22DC2B1A00586487 /* MTManager.h */,
+				789F3F3322DC2B1A00586487 /* MTManager.m */,
+				789F3F2A22DC2B1A00586487 /* MTCloud.h */,
+				789F3F3022DC2B1A00586487 /* MTCloud.m */,
+			);
+			path = Dependency;
+			sourceTree = "<group>";
+		};
 		789F3DCA22DC2B1A00586487 /* MTSlideView */ = {
 			isa = PBXGroup;
 			children = (
@@ -1082,16 +1083,15 @@
 		789F3E2722DC2B1A00586487 /* Category */ = {
 			isa = PBXGroup;
 			children = (
-				789F3E2822DC2B1A00586487 /* UILabel */,
-				789F3E2D22DC2B1A00586487 /* UIButton */,
-				789F3E3022DC2B1A00586487 /* UIColor */,
-				789F3E3722DC2B1A00586487 /* UIView */,
-				789F3E4722DC2B1A00586487 /* CLLocation */,
-				789F3E4A22DC2B1A00586487 /* UIDevice */,
 				789F3E4D22DC2B1A00586487 /* UINavigationBar */,
-				789F3E5022DC2B1A00586487 /* NSString */,
-				789F3E6722DC2B1A00586487 /* UIViewController */,
+				789F3E2822DC2B1A00586487 /* UILabel */,
+				789F3E3022DC2B1A00586487 /* UIColor */,
 				789F3E6F22DC2B1A00586487 /* NSObject */,
+				789F3E2D22DC2B1A00586487 /* UIButton */,
+				789F3E4722DC2B1A00586487 /* CLLocation */,
+				789F3E5022DC2B1A00586487 /* NSString */,
+				789F3E3722DC2B1A00586487 /* UIView */,
+				789F3E6722DC2B1A00586487 /* UIViewController */,
 			);
 			path = Category;
 			sourceTree = "<group>";
@@ -1099,9 +1099,9 @@
 		789F3E2822DC2B1A00586487 /* UILabel */ = {
 			isa = PBXGroup;
 			children = (
+				789F3E2B22DC2B1A00586487 /* UILabel +AttributeText.h */,
 				789F3E2922DC2B1A00586487 /* UILabel +AttributeText.m */,
 				789F3E2A22DC2B1A00586487 /* UILabel+LineSpacing.h */,
-				789F3E2B22DC2B1A00586487 /* UILabel +AttributeText.h */,
 				789F3E2C22DC2B1A00586487 /* UILabel+LineSpacing.m */,
 			);
 			path = UILabel;
@@ -1132,30 +1132,18 @@
 		789F3E3722DC2B1A00586487 /* UIView */ = {
 			isa = PBXGroup;
 			children = (
-				789F3E3822DC2B1A00586487 /* UIView+ViewController.m */,
-				789F3E3922DC2B1A00586487 /* UIView+Animate.m */,
-				789F3E3A22DC2B1A00586487 /* UIView+Frame.m */,
-				789F3E3B22DC2B1A00586487 /* UIView+Shadow */,
+				789F3E4622DC2B1A00586487 /* UIView+Copy.h */,
 				789F3E4022DC2B1A00586487 /* UIView+Copy.m */,
 				789F3E4122DC2B1A00586487 /* UIView+Circle.h */,
-				789F3E4222DC2B1A00586487 /* UIView+Animate.h */,
-				789F3E4322DC2B1A00586487 /* UIView+ViewController.h */,
-				789F3E4422DC2B1A00586487 /* UIView+Frame.h */,
 				789F3E4522DC2B1A00586487 /* UIView+Circle.m */,
-				789F3E4622DC2B1A00586487 /* UIView+Copy.h */,
+				789F3E4222DC2B1A00586487 /* UIView+Animate.h */,
+				789F3E3922DC2B1A00586487 /* UIView+Animate.m */,
+				789F3E4322DC2B1A00586487 /* UIView+ViewController.h */,
+				789F3E3822DC2B1A00586487 /* UIView+ViewController.m */,
+				789F3E4422DC2B1A00586487 /* UIView+Frame.h */,
+				789F3E3A22DC2B1A00586487 /* UIView+Frame.m */,
 			);
 			path = UIView;
-			sourceTree = "<group>";
-		};
-		789F3E3B22DC2B1A00586487 /* UIView+Shadow */ = {
-			isa = PBXGroup;
-			children = (
-				789F3E3C22DC2B1A00586487 /* UIView+Shadow.m */,
-				789F3E3D22DC2B1A00586487 /* MTViewModel.m */,
-				789F3E3E22DC2B1A00586487 /* MTViewModel.h */,
-				789F3E3F22DC2B1A00586487 /* UIView+Shadow.h */,
-			);
-			path = "UIView+Shadow";
 			sourceTree = "<group>";
 		};
 		789F3E4722DC2B1A00586487 /* CLLocation */ = {
@@ -1165,15 +1153,6 @@
 				789F3E4922DC2B1A00586487 /* CLLocation+Mar.h */,
 			);
 			path = CLLocation;
-			sourceTree = "<group>";
-		};
-		789F3E4A22DC2B1A00586487 /* UIDevice */ = {
-			isa = PBXGroup;
-			children = (
-				789F3E4B22DC2B1A00586487 /* UIDevice+DeviceInfo.h */,
-				789F3E4C22DC2B1A00586487 /* UIDevice+DeviceInfo.m */,
-			);
-			path = UIDevice;
 			sourceTree = "<group>";
 		};
 		789F3E4D22DC2B1A00586487 /* UINavigationBar */ = {
@@ -1189,7 +1168,6 @@
 			isa = PBXGroup;
 			children = (
 				789F3E5122DC2B1A00586487 /* NSString+Hash.m */,
-				789F3E5222DC2B1A00586487 /* NSString+Exist.h */,
 				789F3E5322DC2B1A00586487 /* NSString+Base64.m */,
 				789F3E5422DC2B1A00586487 /* NSString+TestString.m */,
 				789F3E5522DC2B1A00586487 /* NSString+WordHeight.m */,
@@ -1199,7 +1177,6 @@
 				789F3E5922DC2B1A00586487 /* NSString+Bundle.m */,
 				789F3E5A22DC2B1A00586487 /* NSString+Unicode.m */,
 				789F3E5B22DC2B1A00586487 /* NSString+Encode.h */,
-				789F3E5C22DC2B1A00586487 /* NSString+Exist.m */,
 				789F3E5D22DC2B1A00586487 /* NSString+Hash.h */,
 				789F3E5E22DC2B1A00586487 /* NSString+Money.m */,
 				789F3E5F22DC2B1A00586487 /* NSString+WordHeight.h */,
@@ -1217,22 +1194,10 @@
 		789F3E6722DC2B1A00586487 /* UIViewController */ = {
 			isa = PBXGroup;
 			children = (
-				789F3E6822DC2B1A00586487 /* UIViewController+Navigation.m */,
-				789F3E6922DC2B1A00586487 /* UIViewController+Modal */,
 				789F3E6E22DC2B1A00586487 /* UIViewController+Navigation.h */,
+				789F3E6822DC2B1A00586487 /* UIViewController+Navigation.m */,
 			);
 			path = UIViewController;
-			sourceTree = "<group>";
-		};
-		789F3E6922DC2B1A00586487 /* UIViewController+Modal */ = {
-			isa = PBXGroup;
-			children = (
-				789F3E6A22DC2B1A00586487 /* UIViewController+Modal.m */,
-				789F3E6B22DC2B1A00586487 /* MTShadowController.m */,
-				789F3E6C22DC2B1A00586487 /* UIViewController+Modal.h */,
-				789F3E6D22DC2B1A00586487 /* MTShadowController.h */,
-			);
-			path = "UIViewController+Modal";
 			sourceTree = "<group>";
 		};
 		789F3E6F22DC2B1A00586487 /* NSObject */ = {
@@ -1249,8 +1214,6 @@
 		789F3E7422DC2B1A00586487 /* Config */ = {
 			isa = PBXGroup;
 			children = (
-				789F3E7A22DC2B1A00586487 /* MTConst.h */,
-				789F3E7522DC2B1A00586487 /* MTConst.m */,
 				789F3E7622DC2B1A00586487 /* MagicThought.pch */,
 				789F3E7722DC2B1A00586487 /* MTManagers.h */,
 				789F3E7822DC2B1A00586487 /* MTMain.h */,
@@ -1315,21 +1278,21 @@
 		789F3E9522DC2B1A00586487 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				789F3EA022DC2B1A00586487 /* MTAlertCollectionController.h */,
 				789F3E9622DC2B1A00586487 /* MTAlertCollectionController.m */,
+				789F3E9F22DC2B1A00586487 /* MTBaseAlertPickerController.h */,
 				789F3E9722DC2B1A00586487 /* MTBaseAlertPickerController.m */,
 				789F3E9822DC2B1A00586487 /* MTAlertPickerController.h */,
+				789F3E9E22DC2B1A00586487 /* MTAlertPickerController.m */,
 				789F3E9922DC2B1A00586487 /* MTBaseAlertCollectionController.h */,
+				789F3EA422DC2B1A00586487 /* MTBaseAlertCollectionController.m */,
+				789F3EA322DC2B1A00586487 /* MTAlertDatePickerController.h */,
 				789F3E9A22DC2B1A00586487 /* MTAlertDatePickerController.m */,
 				789F3E9B22DC2B1A00586487 /* MTAlertSheetController.h */,
+				789F3EA222DC2B1A00586487 /* MTAlertSheetController.m */,
+				789F3EA122DC2B1A00586487 /* MTBaseAlertController.h */,
 				789F3E9C22DC2B1A00586487 /* MTBaseAlertController.m */,
 				789F3E9D22DC2B1A00586487 /* MTBaseAlertGroupController.h */,
-				789F3E9E22DC2B1A00586487 /* MTAlertPickerController.m */,
-				789F3E9F22DC2B1A00586487 /* MTBaseAlertPickerController.h */,
-				789F3EA022DC2B1A00586487 /* MTAlertCollectionController.h */,
-				789F3EA122DC2B1A00586487 /* MTBaseAlertController.h */,
-				789F3EA222DC2B1A00586487 /* MTAlertSheetController.m */,
-				789F3EA322DC2B1A00586487 /* MTAlertDatePickerController.h */,
-				789F3EA422DC2B1A00586487 /* MTBaseAlertCollectionController.m */,
 				789F3EA522DC2B1A00586487 /* MTBaseAlertGroupController.m */,
 			);
 			path = Controller;
@@ -1574,19 +1537,15 @@
 			isa = PBXGroup;
 			children = (
 				789F3F2822DC2B1A00586487 /* MTAuthorizationManager.h */,
-				789F3F2922DC2B1A00586487 /* MTPhotoManager.h */,
-				789F3F2A22DC2B1A00586487 /* MTCloud.h */,
-				789F3F2B22DC2B1A00586487 /* MTManager.h */,
-				789F3F2C22DC2B1A00586487 /* MTTimer.m */,
-				789F3F2D22DC2B1A00586487 /* MTDeviceManager.h */,
-				789F3F2E22DC2B1A00586487 /* MTLocationManager.h */,
 				789F3F2F22DC2B1A00586487 /* MTAuthorizationManager.m */,
-				789F3F3022DC2B1A00586487 /* MTCloud.m */,
+				789F3F2922DC2B1A00586487 /* MTPhotoManager.h */,
 				789F3F3122DC2B1A00586487 /* MTPhotoManager.m */,
 				789F3F3222DC2B1A00586487 /* MTTimer.h */,
-				789F3F3322DC2B1A00586487 /* MTManager.m */,
-				789F3F3422DC2B1A00586487 /* MTLocationManager.m */,
+				789F3F2C22DC2B1A00586487 /* MTTimer.m */,
+				789F3F2D22DC2B1A00586487 /* MTDeviceManager.h */,
 				789F3F3522DC2B1A00586487 /* MTDeviceManager.m */,
+				789F3F2E22DC2B1A00586487 /* MTLocationManager.h */,
+				789F3F3422DC2B1A00586487 /* MTLocationManager.m */,
 			);
 			path = Manager;
 			sourceTree = "<group>";
@@ -1874,6 +1833,7 @@
 			children = (
 				789F3E2622DC2B1A00586487 /* MTKit.h */,
 				789F3F1822DC2B1A00586487 /* README.md */,
+				780C2FDA22E94C05005FA4DB /* Dependency */,
 				789F413E22DC2B9100586487 /* Refresh */,
 				789F3DCA22DC2B1A00586487 /* MTSlideView */,
 				789F3DD222DC2B1A00586487 /* 手势解锁 */,
@@ -2040,18 +2000,15 @@
 				789F409622DC2B1B00586487 /* TZGifPhotoPreviewController.h in Headers */,
 				789F40F522DC2B1B00586487 /* TestController.h in Headers */,
 				789F40B222DC2B1B00586487 /* MTDelegateProtocol.h in Headers */,
-				789F402B22DC2B1A00586487 /* UIViewController+Modal.h in Headers */,
 				789F402122DC2B1A00586487 /* NSString+TestString.h in Headers */,
 				789F411F22DC2B1B00586487 /* MTCountingView.h in Headers */,
 				789F40DD22DC2B1B00586487 /* MTDelegateCollectionViewCell.h in Headers */,
-				789F402C22DC2B1A00586487 /* MTShadowController.h in Headers */,
 				789F3FE322DC2B1A00586487 /* MTDatePickerViewController.h in Headers */,
 				789F407822DC2B1B00586487 /* MTAnimatedTransitioning.h in Headers */,
 				789F3FCD22DC2B1A00586487 /* MTHeaderRefreshTableViewController.h in Headers */,
 				789F3FEF22DC2B1A00586487 /* MTNavigationController.h in Headers */,
 				789F402322DC2B1A00586487 /* NSString+Bundle.h in Headers */,
 				789F403622DC2B1A00586487 /* MTCategory.h in Headers */,
-				789F400322DC2B1A00586487 /* MTViewModel.h in Headers */,
 				789F40FA22DC2B1B00586487 /* MTTenScrollContentView.h in Headers */,
 				789F40CD22DC2B1B00586487 /* UIView+Tap.h in Headers */,
 				789F413322DC2B1B00586487 /* MTPhotoPreviewViewCell.h in Headers */,
@@ -2091,7 +2048,6 @@
 				789F40CF22DC2B1B00586487 /* MTPhotoManager.h in Headers */,
 				789F409022DC2B1B00586487 /* TZLocationManager.h in Headers */,
 				789F403A22DC2B1A00586487 /* UIView+MTBackground.h in Headers */,
-				789F400422DC2B1A00586487 /* UIView+Shadow.h in Headers */,
 				789F40A422DC2B1B00586487 /* TZProgressView.h in Headers */,
 				789F405522DC2B1B00586487 /* MTBaseAlertGroupController.h in Headers */,
 				789F406E22DC2B1B00586487 /* NSObject+API.h in Headers */,
@@ -2292,7 +2248,6 @@
 				789F3FD822DC2B1A00586487 /* MTCountButton.m in Sources */,
 				789F40DA22DC2B1B00586487 /* MTLocationManager.m in Sources */,
 				789F402522DC2B1A00586487 /* NSString+Replace.m in Sources */,
-				789F400222DC2B1A00586487 /* MTViewModel.m in Sources */,
 				789F3FB222DC2B1A00586487 /* MTLockNode.m in Sources */,
 				789F413522DC2B1B00586487 /* MTPhotoPreviewViewCell.m in Sources */,
 				789F405C22DC2B1B00586487 /* MTBaseAlertCollectionController.m in Sources */,
@@ -2320,7 +2275,6 @@
 				789F3FB022DC2B1A00586487 /* MTLockView.m in Sources */,
 				789F3FBD22DC2B1A00586487 /* UIImage+PropertyExtension.m in Sources */,
 				789F408522DC2B1B00586487 /* UITextField+Word.m in Sources */,
-				789F402A22DC2B1A00586487 /* MTShadowController.m in Sources */,
 				789F40D722DC2B1B00586487 /* MTPhotoManager.m in Sources */,
 				789F40E322DC2B1B00586487 /* MTDelegateTableViewCell.m in Sources */,
 				789F3FC622DC2B1A00586487 /* FileType.m in Sources */,
@@ -2382,7 +2336,6 @@
 				789F3FB422DC2B1A00586487 /* UIImage+Base64.m in Sources */,
 				789F408D22DC2B1B00586487 /* TZVideoPlayerController.m in Sources */,
 				789F409222DC2B1B00586487 /* UIView+Layout.m in Sources */,
-				789F402922DC2B1A00586487 /* UIViewController+Modal.m in Sources */,
 				789F40B822DC2B1B00586487 /* MTBaseCollectionReusableView.m in Sources */,
 				789F413222DC2B1B00586487 /* MTPhotoPreviewView.m in Sources */,
 				789F40D622DC2B1B00586487 /* MTCloud.m in Sources */,
@@ -2422,7 +2375,6 @@
 				789F400522DC2B1A00586487 /* UIView+Copy.m in Sources */,
 				789F410B22DC2B1B00586487 /* NSDictionary+File.m in Sources */,
 				789F40A322DC2B1B00586487 /* TZGifPhotoPreviewController.m in Sources */,
-				789F400122DC2B1A00586487 /* UIView+Shadow.m in Sources */,
 				789F40A222DC2B1B00586487 /* TZLocationManager.m in Sources */,
 				789F400022DC2B1A00586487 /* UIView+Frame.m in Sources */,
 				789F40AA22DC2B1B00586487 /* MTAlertStyle.m in Sources */,

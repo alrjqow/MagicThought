@@ -134,7 +134,7 @@ Pod::Spec.new do |s|
   # s.dependency "JSONKit", "~> 1.4"
 
 s.name = "MagicThought"
-s.version = "1.6.6"
+s.version = "1.6.8"
 s.summary = "MagicThought for ios."
 s.description = "the MagicThought for ios."
 s.homepage = "https://github.com/alrjqow/MagicThought"
@@ -146,54 +146,74 @@ s.platform = :ios, "8.0"
 s.source = { :git => "https://github.com/alrjqow/MagicThought.git", :tag =>"#{s.version}", :branch => "master" }
 
 #s.prefix_header_file = 'MagicThought/Config/MagicThought.pch'
-s.source_files = "MagicThought/MagicThought/MTKit.h", 'MagicThought/MagicThought/README.md'
+s.source_files = "MagicThought/MTKit.h", 'MagicThought/README.md'
+
+s.subspec 'Dependency' do |dependency|
+dependency.source_files = 'MagicThought/Dependency/*.{h,m}'
+dependency.dependency "SSKeychain"
+end
 
 s.subspec 'Config' do |config|
-config.source_files = 'MagicThought/MagicThought/Config/*.{h,m}', 'MagicThought/MagicThought/Category/UIDevice/UIDevice+DeviceInfo.{h,m}', 'MagicThought/MagicThought/Category/NSString/NSString+Exist.{h,m}'
+config.source_files = 'MagicThought/Config/*.{h,m}'
+config.dependency 'MagicThought/Dependency'
 end
 
 s.subspec 'Protocol' do |protocol|
-protocol.source_files = 'MagicThought/MagicThought/Protocol/*.{h,m}'
+protocol.source_files = 'MagicThought/Protocol/*.{h,m}'
 end
 
 s.subspec 'Style' do |style|
-style.source_files = 'MagicThought/MagicThought/Style/*.{h,m}'
+style.source_files = 'MagicThought/Style/*.{h,m}'
 end
 
 
 s.subspec 'Category' do |category|
 
 category.subspec 'NSString' do |string|
-string.source_files = 'MagicThought/MagicThought/Category/NSString/*.{m,h}'
+string.source_files = 'MagicThought/Category/NSString/*.{m,h}'
 end
 
 category.subspec 'CLLocation' do |location|
-location.source_files = 'MagicThought/MagicThought/Category/CLLocation/*.{m,h}'
+location.source_files = 'MagicThought/Category/CLLocation/*.{m,h}'
 end
 
 category.subspec 'NSObject' do |object|
-object.source_files = 'MagicThought/MagicThought/Category/NSObject/*.{m,h}','MagicThought/MagicThought/Protocol/MTInitProtocol.h'
+object.source_files = 'MagicThought/Category/NSObject/*.{m,h}'
+object.dependency 'MagicThought/Protocol'
 end
 
 category.subspec 'UIButton' do |button|
-button.source_files = 'MagicThought/MagicThought/Category/UIButton/*.{m,h}'
+button.source_files = 'MagicThought/Category/UIButton/*.{m,h}'
 end
 
 category.subspec 'UIColor' do |color|
-color.source_files = 'MagicThought/MagicThought/Category/UIColor/*.{m,h}'
+color.source_files = 'MagicThought/Category/UIColor/*.{m,h}'
 end
 
-category.subspec 'UIDevice' do |device|
-device.source_files = 'MagicThought/MagicThought/Category/UIDevice/*.{m,h}'
-device.dependency 'MagicThought/MagicThought/Category/NSString'
-device.dependency 'MagicThought/MagicThought/Config'
-device.dependency "SSKeychain"
-end
 
 category.subspec 'UILabel' do |label|
-label.source_files = 'MagicThought/MagicThought/Category/UILabel/*.{m,h}'
-label.dependency 'MagicThought/MagicThought/Category/NSString'
+label.source_files = 'MagicThought/Category/UILabel/*.{m,h}'
+label.dependency 'MagicThought/Dependency'
 end
+
+category.subspec 'UINavigationBar' do |navigationBar|
+navigationBar.source_files = 'MagicThought/Category/UINavigationBar/*.{m,h}'
+navigationBar.dependency 'MagicThought/Dependency'
+end
+
+
+category.subspec 'UIView' do |view|
+view.source_files = 'MagicThought/Category/UIView/*.{m,h}'
+view.dependency 'MagicThought/Style'
+view.dependency 'MagicThought/Dependency'
+end
+
+
+category.subspec 'UIViewController' do |viewController|
+viewController.source_files = 'MagicThought/Category/UIViewController/*.{m,h}'
+viewController.dependency 'MagicThought/Dependency'
+end
+
 
 end
 
