@@ -1205,8 +1205,6 @@
 			children = (
 				789F3E7022DC2B1A00586487 /* NSObject+HideKey.h */,
 				789F3E7222DC2B1A00586487 /* NSObject+HideKey.m */,
-				789F3E7322DC2B1A00586487 /* NSObject+CommonProtocol.h */,
-				789F3E7122DC2B1A00586487 /* NSObject+CommonProtocol.m */,
 			);
 			path = NSObject;
 			sourceTree = "<group>";
@@ -1484,6 +1482,8 @@
 				789F3F0822DC2B1A00586487 /* MTDelegateProtocol.h */,
 				789F3F4122DC2B1A00586487 /* UIView+Delegate.h */,
 				789F3F4E22DC2B1A00586487 /* UIView+Delegate.m */,
+				789F3E7322DC2B1A00586487 /* NSObject+CommonProtocol.h */,
+				789F3E7122DC2B1A00586487 /* NSObject+CommonProtocol.m */,
 			);
 			path = Protocol;
 			sourceTree = "<group>";
