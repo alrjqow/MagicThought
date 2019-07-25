@@ -134,7 +134,7 @@ Pod::Spec.new do |s|
   # s.dependency "JSONKit", "~> 1.4"
 
 s.name = "MagicThought"
-s.version = "1.7.0"
+s.version = "1.7.1"
 s.summary = "MagicThought for ios."
 s.description = "the MagicThought for ios."
 s.homepage = "https://github.com/alrjqow/MagicThought"
@@ -150,7 +150,6 @@ s.source_files = "MagicThought/MTKit.h", 'MagicThought/README.md'
 
 s.subspec 'Dependency' do |dependency|
 dependency.source_files = 'MagicThought/Dependency/*.{h,m}'
-dependency.dependency "SSKeychain"
 end
 
 s.subspec 'Config' do |config|
@@ -171,6 +170,11 @@ wordStyle.source_files = 'MagicThought/控件文字样式设置/*.{h,m}'
 
 wordStyle.dependency 'MagicThought/Dependency'
 wordStyle.dependency 'MagicThought/Style'
+end
+
+s.subspec 'Network' do |network|
+network.source_files = 'MagicThought/网络请求/*.{h,m}'
+network.dependency 'MagicThought/Dependency'
 end
 
 s.subspec 'Category' do |category|
@@ -215,7 +219,6 @@ view.dependency 'MagicThought/Style'
 view.dependency 'MagicThought/Dependency'
 end
 
-
 category.subspec 'UIViewController' do |viewController|
 viewController.source_files = 'MagicThought/Category/UIViewController/*.{m,h}'
 viewController.dependency 'MagicThought/Dependency'
@@ -224,17 +227,73 @@ end
 
 end
 
+
+
 s.subspec 'DelegateMode' do |delegateMode|
-delegateMode.source_files = 'MagicThought/DelegateMode/*.{h,m}', 'MagicThought/拖拽排序/MTDragCollectionView.{h,m}',  'MagicThought/拖拽排序/MTDragCollectionViewCell.{h,m}'
+delegateMode.source_files = 'MagicThought/DelegateMode/*.{h,m}'
 
-
-delegateMode.dependency 'MagicThought/Category'
+delegateMode.dependency 'MagicThought/Dependency'
 delegateMode.dependency 'MagicThought/Protocol'
 delegateMode.dependency 'MagicThought/ViewContentStyle'
+end
+
+
+s.subspec 'SubClass' do |subClass|
+
+subClass.subspec 'WKWebView' do |webView|
+webView.source_files = 'MagicThought/SubClass/WKWebView/*.{m,h}'
+webView.dependency 'MagicThought/Dependency'
+end
+
+subClass.subspec 'UIButton' do |button|
+button.source_files = 'MagicThought/SubClass/UIButton/*.{m,h}'
+button.dependency 'MagicThought/Dependency'
+button.dependency 'MagicThought/Protocol'
+end
+
+subClass.subspec 'UITableViewCell' do |tableViewCell|
+tableViewCell.source_files = 'MagicThought/SubClass/UITableViewCell/*.{m,h}'
+tableViewCell.dependency 'MagicThought/DelegateMode'
+end
 
 end
 
 
+s.subspec 'MTRefresh' do |mtRefresh|
+mtRefresh.source_files = 'MagicThought/MTRefresh/*.{m,h}'
+mtRefresh.dependency 'MagicThought/Dependency'
+mtRefresh.dependency 'MagicThought/Protocol'
+end
+
+
+s.subspec 'FileHandle' do |fileHandle|
+fileHandle.source_files = 'MagicThought/文件处理/*.{h,m}'
+fileHandle.dependency 'MagicThought/Dependency'
+end
+
+s.subspec 'ImageHandle' do |imageHandle|
+imageHandle.source_files = 'MagicThought/图片处理/*.{h,m}'
+imageHandle.dependency 'MagicThought/FileHandle'
+imageHandle.dependency 'MagicThought/Style'
+imageHandle.dependency 'MagicThought/Dependency'
+end
+
+s.subspec 'JsonTransform' do |jsonEncode|
+jsonEncode.source_files = 'MagicThought/Json转换/*.{h,m}'
+end
+
+s.subspec 'TapFlowMarkEffect' do |wave|
+wave.source_files = 'MagicThought/波纹效果/*.{h,m}'
+end
+
+s.subspec 'TextFieldVerify' do |textVerify|
+textVerify.source_files = 'MagicThought/文本框验证/*.{h,m}'
+
+textVerify.dependency 'MagicThought/Category'
+textVerify.dependency 'MagicThought/Dependency'
+textVerify.dependency 'MagicThought/Protocol'
+textVerify.dependency 'MagicThought/ViewContentStyle'
+end
 
 #s.resources = "MagicThought/MagicThought/MagicThought/*"
 s.framework = "UIKit"

@@ -8,10 +8,10 @@
 
 #import <UIKit/UIKit.h>
 
-@protocol MTDelegateProtocol;
 
-@class MTWordStyle;
-@class MTTextFieldVerifyModel;
+#import "MTDelegateProtocol.h"
+#import "MTTextFieldVerifyModel.h"
+#import "MTWordStyle.h"
 
 @interface MTTextView : UITextView
 

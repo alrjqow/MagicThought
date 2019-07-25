@@ -10,7 +10,6 @@
 #import "MTDelegateProtocol.h"
 #import "UILabel+Word.h"
 #import "UIColor+ColorfulColor.h"
-#import "MTWordStyle.h"
 #import "UIView+Frame.h"
 #import "MTTextField.h"
 #import "MTConst.h"
