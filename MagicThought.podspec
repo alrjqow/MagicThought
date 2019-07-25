@@ -134,7 +134,7 @@ Pod::Spec.new do |s|
   # s.dependency "JSONKit", "~> 1.4"
 
 s.name = "MagicThought"
-s.version = "1.6.5"
+s.version = "1.6.6"
 s.summary = "MagicThought for ios."
 s.description = "the MagicThought for ios."
 s.homepage = "https://github.com/alrjqow/MagicThought"
@@ -146,423 +146,57 @@ s.platform = :ios, "8.0"
 s.source = { :git => "https://github.com/alrjqow/MagicThought.git", :tag =>"#{s.version}", :branch => "master" }
 
 #s.prefix_header_file = 'MagicThought/Config/MagicThought.pch'
-s.source_files = "MagicThought/MTKit.h", 'MagicThought/README.md'
+s.source_files = "MagicThought/MagicThought/MTKit.h", 'MagicThought/MagicThought/README.md'
 
 s.subspec 'Config' do |config|
-config.source_files = 'MagicThought/Config/*.{h,m}'
+config.source_files = 'MagicThought/MagicThought/Config/*.{h,m}', 'MagicThought/MagicThought/Category/UIDevice/UIDevice+DeviceInfo.{h,m}', 'MagicThought/MagicThought/Category/NSString/NSString+Exist.{h,m}'
 end
 
 s.subspec 'Protocol' do |protocol|
-protocol.source_files = 'MagicThought/Category/NSString/*.{h}', 'MagicThought/Protocol/*.{h,m}'
+protocol.source_files = 'MagicThought/MagicThought/Protocol/*.{h,m}'
 end
 
 s.subspec 'Style' do |style|
-style.source_files = 'MagicThought/Style/*.{h,m}'
+style.source_files = 'MagicThought/MagicThought/Style/*.{h,m}'
 end
 
-s.subspec 'Library' do |library|
-
-library.subspec 'TZImagePickerController' do |imagePickerController|
-imagePickerController.source_files = 'MagicThought/Library/TZImagePickerController/*.{m,h}','MagicThought/图片处理/UIImage+PropertyExtension.{m,h}'
-
-imagePickerController.resources = "MagicThought/Library/TZImagePickerController/TZImagePickerController.bundle"
-
-imagePickerController.dependency 'MagicThought/Category/UINavigationBar'
-imagePickerController.dependency 'MagicThought/Config'
-
-end
-
-end
-
-s.subspec 'Manager' do |manager|
-manager.source_files = 'MagicThought/Manager/*.{h,m}','MagicThought/Category/NSString/NSString+Exist.{m,h}', 'MagicThought/Category/CLLocation/CLLocation+Mar.{m,h}', 'MagicThought/Config/MTConst.{h,m}'
-
-manager.dependency 'MagicThought/SubClass/UIViewController/UIViewController+Alert'
-manager.dependency 'MagicThought/ViewStyle(expired)'
-end
-
-s.subspec 'ViewStyle(expired)' do |styleManager|
-styleManager.source_files = 'MagicThought/控件样式处理(不好用)/*.{h,m}','MagicThought/Category/NSString/NSString+Exist.{m,h}','MagicThought/Manager/MTManager.{h,m}','MagicThought/Manager/MTCloud.{h,m}'
-
-styleManager.dependency 'MagicThought/Protocol'
-end
-
-s.subspec 'FileHandle' do |fileHandle|
-fileHandle.source_files = 'MagicThought/文件处理/*.{h,m}','MagicThought/Category/NSString/NSString+Exist.{m,h}', 'MagicThought/Manager/MTManager.{m,h}'
-end
-
-s.subspec 'JsonTransform' do |jsonEncode|
-jsonEncode.source_files = 'MagicThought/Json转换/*.{h,m}'
-end
-
-s.subspec 'TapFlowMarkEffect' do |wave|
-wave.source_files = 'MagicThought/波纹效果/*.{h,m}'
-end
-
-s.subspec 'ImageHandle' do |imageHandle|
-imageHandle.source_files = 'MagicThought/图片处理/*.{h,m}', 'MagicThought/Config/MTConst.{h,m}'
-imageHandle.dependency 'MagicThought/FileHandle'
-imageHandle.dependency 'MagicThought/Style'
-end
-
-s.subspec 'Network' do |network|
-network.source_files = 'MagicThought/网络请求/*.{h,m}', 'MagicThought/Protocol/MTApiProtocol.{h}', 'MagicThought/Category/NSString/NSString+Exist.{m,h}'
-
-network.dependency 'MagicThought/Manager'
-
-end
-
-s.subspec 'TextFieldVerify' do |textVerify|
-    textVerify.source_files = 'MagicThought/文本框验证/*.{h,m}', 'MagicThought/Config/MTConst.{h,m}'
-
-    textVerify.dependency 'MagicThought/Category'
-    textVerify.dependency 'MagicThought/Protocol'
-    textVerify.dependency 'MagicThought/ViewContentStyle'
-end
-
-s.subspec 'ViewContentStyle' do |wordStyle|
-wordStyle.source_files = 'MagicThought/控件文字样式设置/*.{h,m}', 'MagicThought/Style/MTWordStyle.{h,m}','MagicThought/Config/MTDefine.h'
-end
-
-s.subspec 'DragSort' do |drag|
-drag.source_files = 'MagicThought/拖拽排序/*.{h,m}'
-
-drag.dependency 'MagicThought/DelegateMode'
-
-end
-
-s.subspec 'CustomCamera' do |camera|
-camera.source_files = 'MagicThought/自定义相机/*.{h,m}','MagicThought/Protocol/MTDelegateProtocol.h','MagicThought/Config/MTConst.{h,m}','MagicThought/Manager/MTManager.{m,h}','MagicThought/Manager/MTDeviceManager.{m,h}','MagicThought/Category/UIColor/UIColor+ColorfulColor.{m,h}'
-
-camera.resources = "MagicThought/自定义相机/MTVideoController.bundle"
-
-
-camera.dependency 'MagicThought/CountdownRing'
-camera.dependency 'MagicThought/ImageHandle'
-camera.dependency 'MagicThought/Hud'
-
-end
-
-s.subspec 'DelegateMode' do |delegateMode|
-delegateMode.source_files = 'MagicThought/DelegateMode/*.{h,m}', 'MagicThought/拖拽排序/MTDragCollectionView.{h,m}',  'MagicThought/拖拽排序/MTDragCollectionViewCell.{h,m}'
-
-delegateMode.dependency 'MagicThought/Category'
-delegateMode.dependency 'MagicThought/Protocol'
-delegateMode.dependency 'MagicThought/Config'
-
-end
-
-
-
-s.subspec 'Hud' do |hud|
-hud.source_files = 'MagicThought/加载框/*.{h,m}', 'MagicThought/Config/MTConst.{h,m}', 'MagicThought/图片处理/UIImage+Size.{h,m}'
-hud.dependency 'MagicThought/Category'
-hud.resources = "MagicThought/加载框/MTHUD.bundle"
-end
-
-s.subspec 'AlertView' do |alert|
-alert.source_files = 'MagicThought/弹框/*.{h,m}'
-alert.dependency 'MagicThought/DelegateMode'
-alert.dependency 'MagicThought/TextFieldVerify'
-end
-
-s.subspec 'AlertView2' do |alert2|
-
-alert2.subspec 'Controller' do |controller|
-controller.source_files = 'MagicThought/弹框2/Controller/*.{h,m}','MagicThought/Category/UIColor/UIColor+ColorfulColor.{m,h}','MagicThought/Category/UIView/UIView+Frame.{h,m}'
-
-controller.dependency 'MagicThought/Manager'
-controller.dependency 'MagicThought/Config'
-controller.dependency 'MagicThought/Style'
-controller.dependency 'MagicThought/SubClass/UIViewController/UIViewController+Base'
-
-end
-
-alert2.subspec 'Model' do |model|
-model.source_files = 'MagicThought/弹框2/Model/*.{h,m}'
-end
-
-end
-
-s.subspec 'RefreshRing' do |refreshRing|
-refreshRing.source_files = 'MagicThought/刷新小圈圈/*.{h,m}', 'MagicThought/Category/UIView/UIView+Frame.{h,m}'
-end
-
-s.subspec 'Other' do |other|
-other.source_files = 'MagicThought/Other/*.{h,m}'
-
-other.dependency 'MagicThought/Style'
-end
-
-s.subspec 'CountdownRing' do |count|
-count.source_files = 'MagicThought/倒计时圆环/*.{h,m}'
-count.dependency 'MagicThought/DelegateMode'
-end
-
-s.subspec 'ImagePlay' do |imagePlay|
-imagePlay.source_files = 'MagicThought/图片轮播/*.{h,m}'
-imagePlay.dependency 'MagicThought/DelegateMode'
-end
-
-s.subspec 'GestureLock' do |lock|
-lock.source_files = 'MagicThought/手势解锁/*.{h,m}'
-lock.dependency 'MagicThought/DelegateMode'
-end
-
-s.subspec 'ViewSpilt' do |spilt|
-spilt.source_files = 'MagicThought/视图左右分割/*.{h,m}'
-spilt.dependency 'MagicThought/DelegateMode'
-end
-
-s.subspec 'TenScroll' do |tenScroll|
-
-tenScroll.subspec 'Controller' do |controller|
-controller.source_files = 'MagicThought/十字滚动/Controller/*.{h,m}'
-
-controller.dependency 'MagicThought/TenScroll/Model'
-controller.dependency 'MagicThought/TenScroll/View'
-
-controller.dependency 'MagicThought/Category'
-controller.dependency 'MagicThought/Config'
-controller.dependency 'MagicThought/DelegateMode'
-controller.dependency 'MagicThought/Network'
-end
-
-tenScroll.subspec 'Model' do |model|
-model.source_files = 'MagicThought/十字滚动/Model/*.{h,m}', 'MagicThought/Config/MTDefine.h'
-
-model.dependency 'MagicThought/TenScroll/View'
-end
-
-tenScroll.subspec 'View' do |view|
-view.source_files = 'MagicThought/十字滚动/View/*.{h,m}','MagicThought/十字滚动/Model/*.{h,m}'
-
-view.dependency 'MagicThought/Category'
-view.dependency 'MagicThought/DelegateMode'
-view.dependency 'MagicThought/Style'
-view.dependency 'MagicThought/ViewContentStyle'
-view.dependency 'MagicThought/Network'
-
-end
-
-end
-
-s.subspec 'MTSlideView' do |slide|
-slide.source_files = 'MagicThought/MTSlideView/*.{h,m}'
-slide.dependency 'MagicThought/DelegateMode'
-end
-
-s.subspec 'SubClass' do |subClass|
-
-subClass.subspec 'UINavigationController' do |navigationController|
-navigationController.source_files = 'MagicThought/SubClass/UINavigationController/*.{m,h}','MagicThought/Protocol/MTDelegateProtocol.h'
-
-navigationController.dependency 'MagicThought/NavigationTransition'
-navigationController.dependency 'MagicThought/Category'
-end
-
-subClass.subspec 'WKWebView' do |webView|
-webView.source_files = 'MagicThought/SubClass/WKWebView/*.{m,h}' , 'MagicThought/Category/NSString/NSString+Exist.{m,h}'
-webView.dependency 'MagicThought/Config'
-end
-
-subClass.subspec 'UIButton' do |button|
-button.source_files = 'MagicThought/SubClass/UIButton/*.{m,h}' , 'MagicThought/Category/NSString/NSString+Exist.{m,h}'
-
-button.dependency 'MagicThought/Config'
-button.dependency 'MagicThought/Protocol'
-end
-
-subClass.subspec 'UITableViewCell' do |tableViewCell|
-tableViewCell.source_files = 'MagicThought/SubClass/UITableViewCell/*.{m,h}'
-tableViewCell.dependency 'MagicThought/DelegateMode'
-end
-
-subClass.subspec 'UIViewController' do |viewController|
-
-viewController.subspec 'UIViewController+Progress' do |progress|
-progress.source_files = 'MagicThought/SubClass/UIViewController/UIViewController + Progress/*.{m,h}'
-
-progress.dependency 'MagicThought/Style'
-progress.dependency 'MagicThought/ViewContentStyle'
-progress.dependency 'MagicThought/Category'
-
-end
-
-viewController.subspec 'UIViewController+Base' do |base|
-base.source_files = 'MagicThought/SubClass/UIViewController/UIViewController + Base/*.{m,h}'
-
-base.dependency 'MagicThought/Hud'
-base.dependency 'MagicThought/Network'
-base.dependency 'MagicThought/DelegateMode'
-base.dependency 'MagicThought/Manager'
-end
-
-viewController.subspec 'UIViewController+MTSafariView' do |safariView|
-safariView.source_files = 'MagicThought/SubClass/UIViewController/UIViewController + MTSafariView/*.{m,h}'
-safariView.resources = "MagicThought/SubClass/UIViewController/UIViewController + MTSafariView/MTSafariViewController.bundle"
-
-safariView.dependency 'MagicThought/Manager'
-safariView.dependency 'MagicThought/Config'
-safariView.dependency 'MagicThought/Category'
-safariView.dependency 'MagicThought/SubClass/UIViewController/UIViewController+Base'
-safariView.dependency 'MagicThought/SubClass/WKWebView'
-end
-
-viewController.subspec 'UIViewController+Alert' do |alert|
-alert.source_files = 'MagicThought/SubClass/UIViewController/UIViewController + Alert/*.{m,h}','MagicThought/Category/NSString/NSString+Exist.{m,h}','MagicThought/Category/UIView/UIView+Circle.{m,h}','MagicThought/Category/UIColor/UIColor+ColorfulColor.{m,h}','MagicThought/Category/UILabel/UILabel+LineSpacing.{m,h}'
-alert.resources = "MagicThought/SubClass/UIViewController/UIViewController + Alert/MTAlertController.bundle"
-
-alert.dependency 'MagicThought/Style'
-alert.dependency 'MagicThought/ViewContentStyle'
-alert.dependency 'MagicThought/Config'
-end
-
-viewController.subspec 'UIViewController+PickView' do |pickView|
-pickView.source_files = 'MagicThought/SubClass/UIViewController/UIViewController + PickView/*.{m,h}','MagicThought/Category/NSString/NSString+Exist.{m,h}'
-pickView.resources = "MagicThought/SubClass/UIViewController/UIViewController + PickView/*.xib"
-
-end
-
-end
-
-end
-
-
-s.subspec 'NavigationTransition' do |transition|
-
-transition.subspec 'Demo' do |demo|
-
-demo.source_files = 'MagicThought/导航转场/Demo/*.{m,h}'
-
-demo.dependency 'MagicThought/ViewContentStyle'
-
-demo.dependency 'MagicThought/NavigationTransition/Transitioning'
-
-demo.dependency 'MagicThought/NavigationTransition/Model'
-
-end
-
-transition.subspec 'Transitioning' do |transitioning|
-
-transitioning.source_files = 'MagicThought/导航转场/Transitioning/*.{m,h}'
-
-transitioning.dependency 'MagicThought/NavigationTransition/NavigationDelegate'
-
-end
-
-transition.subspec 'Model' do |model|
-
-model.source_files = 'MagicThought/导航转场/Model/*.{m,h}'
-
-model.dependency 'MagicThought/NavigationTransition/NavigationDelegate'
-
-end
-
-transition.subspec 'NavigationDelegate' do |navigationDelegate|
-
-navigationDelegate.source_files = 'MagicThought/导航转场/NavigationDelegate/*.{m,h}', 'MagicThought/SubClass/UINavigationController/*.{m,h}', 'MagicThought/导航转场/Transitioning/MTAnimatedTransitioning.{m,h}','MagicThought/导航转场/Model/UIViewControllerTransitionModel.{m,h}','MagicThought/Protocol/MTDelegateProtocol.h'
-
-navigationDelegate.dependency 'MagicThought/Category'
-
-end
-
-
-
-end
-
-s.subspec 'ImageShowAndBrowser' do |imageBrowser|
-
-imageBrowser.source_files = 'MagicThought/图片展示与浏览/**/*.{m,h}'
-
-imageBrowser.resources = "MagicThought/图片展示与浏览/MTPhotoBrowser.bundle"
-
-imageBrowser.dependency 'MagicThought/Library/TZImagePickerController'
-imageBrowser.dependency 'MagicThought/CustomCamera'
-imageBrowser.dependency 'MagicThought/AlertView2'
-imageBrowser.dependency 'MagicThought/AlertView'
-imageBrowser.dependency 'MagicThought/ImageHandle'
-imageBrowser.dependency 'MagicThought/ViewContentStyle'
-imageBrowser.dependency 'MagicThought/DelegateMode'
-imageBrowser.dependency 'MagicThought/Manager'
-imageBrowser.dependency 'MagicThought/SubClass'
-
-
-end
 
 s.subspec 'Category' do |category|
 
 category.subspec 'NSString' do |string|
-string.source_files = 'MagicThought/Category/NSString/*.{m,h}'
+string.source_files = 'MagicThought/MagicThought/Category/NSString/*.{m,h}'
 end
 
 category.subspec 'CLLocation' do |location|
-location.source_files = 'MagicThought/Category/CLLocation/*.{m,h}'
+location.source_files = 'MagicThought/MagicThought/Category/CLLocation/*.{m,h}'
 end
 
 category.subspec 'NSObject' do |object|
-object.source_files = 'MagicThought/Category/NSObject/*.{m,h}'
+object.source_files = 'MagicThought/MagicThought/Category/NSObject/*.{m,h}','MagicThought/MagicThought/Protocol/MTInitProtocol.h'
 end
 
 category.subspec 'UIButton' do |button|
-button.source_files = 'MagicThought/Category/UIButton/*.{m,h}'
+button.source_files = 'MagicThought/MagicThought/Category/UIButton/*.{m,h}'
 end
 
 category.subspec 'UIColor' do |color|
-color.source_files = 'MagicThought/Category/UIColor/*.{m,h}'
+color.source_files = 'MagicThought/MagicThought/Category/UIColor/*.{m,h}'
 end
 
 category.subspec 'UIDevice' do |device|
-device.source_files = 'MagicThought/Category/UIDevice/*.{m,h}'
-device.dependency 'MagicThought/Category/NSString'
-device.dependency 'MagicThought/Config'
+device.source_files = 'MagicThought/MagicThought/Category/UIDevice/*.{m,h}'
+device.dependency 'MagicThought/MagicThought/Category/NSString'
+device.dependency 'MagicThought/MagicThought/Config'
 device.dependency "SSKeychain"
 end
 
 category.subspec 'UILabel' do |label|
-label.source_files = 'MagicThought/Category/UILabel/*.{m,h}'
-label.dependency 'MagicThought/Category/NSString'
-end
-
-category.subspec 'UINavigationBar' do |navigationBar|
-navigationBar.source_files = 'MagicThought/Category/UINavigationBar/*.{m,h}'
-navigationBar.dependency 'MagicThought/Category/UIDevice'
-navigationBar.dependency 'MagicThought/Config'
-end
-
-category.subspec 'UIView' do |view|
-view.source_files = 'MagicThought/Category/UIView/*.{m,h}'
-view.dependency 'MagicThought/Style'
-view.dependency 'MagicThought/Config'
-
-view.subspec 'UIView+Shadow' do |view_shadow|
-
-view_shadow.source_files = 'MagicThought/Category/UIView/UIView+Shadow/*.{m,h}'
-
-view_shadow.dependency 'MagicThought/Config'
-
+label.source_files = 'MagicThought/MagicThought/Category/UILabel/*.{m,h}'
+label.dependency 'MagicThought/MagicThought/Category/NSString'
 end
 
 end
 
-
-
-
-category.subspec 'UIViewController' do |viewController|
-viewController.source_files = 'MagicThought/Category/UIViewController/*.{m,h}'
-viewController.dependency 'MagicThought/Manager'
-
-viewController.subspec 'UIViewController+Modal' do |viewController_modal|
-viewController_modal.source_files = 'MagicThought/Category/UIViewController/UIViewController+Modal/*.{m,h}'
-
-end
-
-end
-
-
-
-
-end
 
 
 
