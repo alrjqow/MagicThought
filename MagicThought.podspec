@@ -134,7 +134,7 @@ Pod::Spec.new do |s|
   # s.dependency "JSONKit", "~> 1.4"
 
 s.name = "MagicThought"
-s.version = "1.6.8"
+s.version = "1.6.9"
 s.summary = "MagicThought for ios."
 s.description = "the MagicThought for ios."
 s.homepage = "https://github.com/alrjqow/MagicThought"
@@ -166,11 +166,18 @@ s.subspec 'Style' do |style|
 style.source_files = 'MagicThought/Style/*.{h,m}'
 end
 
+s.subspec 'ViewContentStyle' do |wordStyle|
+wordStyle.source_files = 'MagicThought/控件文字样式设置/*.{h,m}'
+
+wordStyle.dependency 'MagicThought/Dependency'
+wordStyle.dependency 'MagicThought/Style'
+end
 
 s.subspec 'Category' do |category|
 
 category.subspec 'NSString' do |string|
 string.source_files = 'MagicThought/Category/NSString/*.{m,h}'
+string.dependency 'MagicThought/Dependency'
 end
 
 category.subspec 'CLLocation' do |location|
@@ -217,6 +224,15 @@ end
 
 end
 
+s.subspec 'DelegateMode' do |delegateMode|
+delegateMode.source_files = 'MagicThought/DelegateMode/*.{h,m}', 'MagicThought/拖拽排序/MTDragCollectionView.{h,m}',  'MagicThought/拖拽排序/MTDragCollectionViewCell.{h,m}'
+
+
+delegateMode.dependency 'MagicThought/Category'
+delegateMode.dependency 'MagicThought/Protocol'
+delegateMode.dependency 'MagicThought/ViewContentStyle'
+
+end
 
 
 
