@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -349,7 +349,7 @@
 		789F410122DC2B1B00586487 /* MTTenScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = 789F3F6022DC2B1A00586487 /* MTTenScrollView.m */; };
 		789F410222DC2B1B00586487 /* UIView+MBHud.m in Sources */ = {isa = PBXBuildFile; fileRef = 789F3F6222DC2B1A00586487 /* UIView+MBHud.m */; };
 		789F410322DC2B1B00586487 /* MTIndicatorView.h in Headers */ = {isa = PBXBuildFile; fileRef = 789F3F6322DC2B1A00586487 /* MTIndicatorView.h */; };
-		789F410422DC2B1B00586487 /* MTHUD.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 789F3F6422DC2B1A00586487 /* MTHUD.bundle */; };
+		789F410422DC2B1B00586487 /* MTHud.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 789F3F6422DC2B1A00586487 /* MTHud.bundle */; };
 		789F410522DC2B1B00586487 /* UIView+MBHud.h in Headers */ = {isa = PBXBuildFile; fileRef = 789F3F6522DC2B1A00586487 /* UIView+MBHud.h */; };
 		789F410622DC2B1B00586487 /* MTIndicatorView.m in Sources */ = {isa = PBXBuildFile; fileRef = 789F3F6622DC2B1A00586487 /* MTIndicatorView.m */; };
 		789F410722DC2B1B00586487 /* MTTextView.m in Sources */ = {isa = PBXBuildFile; fileRef = 789F3F6822DC2B1A00586487 /* MTTextView.m */; };
@@ -764,7 +764,7 @@
 		789F3F6022DC2B1A00586487 /* MTTenScrollView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MTTenScrollView.m; sourceTree = "<group>"; };
 		789F3F6222DC2B1A00586487 /* UIView+MBHud.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+MBHud.m"; sourceTree = "<group>"; };
 		789F3F6322DC2B1A00586487 /* MTIndicatorView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MTIndicatorView.h; sourceTree = "<group>"; };
-		789F3F6422DC2B1A00586487 /* MTHUD.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = MTHUD.bundle; sourceTree = "<group>"; };
+		789F3F6422DC2B1A00586487 /* MTHud.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = MTHud.bundle; sourceTree = "<group>"; };
 		789F3F6522DC2B1A00586487 /* UIView+MBHud.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+MBHud.h"; sourceTree = "<group>"; };
 		789F3F6622DC2B1A00586487 /* MTIndicatorView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MTIndicatorView.m; sourceTree = "<group>"; };
 		789F3F6822DC2B1A00586487 /* MTTextView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MTTextView.m; sourceTree = "<group>"; };
@@ -1587,16 +1587,16 @@
 			path = View;
 			sourceTree = "<group>";
 		};
-		789F3F6122DC2B1A00586487 /* 加载框 */ = {
+		789F3F6122DC2B1A00586487 /* MTHud */ = {
 			isa = PBXGroup;
 			children = (
 				789F3F6522DC2B1A00586487 /* UIView+MBHud.h */,
 				789F3F6222DC2B1A00586487 /* UIView+MBHud.m */,
 				789F3F6322DC2B1A00586487 /* MTIndicatorView.h */,
 				789F3F6622DC2B1A00586487 /* MTIndicatorView.m */,
-				789F3F6422DC2B1A00586487 /* MTHUD.bundle */,
+				789F3F6422DC2B1A00586487 /* MTHud.bundle */,
 			);
-			path = "加载框";
+			path = MTHud;
 			sourceTree = "<group>";
 		};
 		789F3F6722DC2B1A00586487 /* 文本框验证 */ = {
@@ -1789,7 +1789,7 @@
 				789F3E8C22DC2B1A00586487 /* 刷新小圈圈 */,
 				789F3F7522DC2B1A00586487 /* 视图左右分割 */,
 				789F3DD222DC2B1A00586487 /* 手势解锁 */,
-				789F3F6122DC2B1A00586487 /* 加载框 */,
+				789F3F6122DC2B1A00586487 /* MTHud */,
 				789F3F6722DC2B1A00586487 /* 文本框验证 */,
 				789F3F2022DC2B1A00586487 /* 波纹效果 */,
 				789F3E8F22DC2B1A00586487 /* Json转换 */,
@@ -2130,7 +2130,7 @@
 				789F413622DC2B1B00586487 /* MTPhotoBrowser.bundle in Resources */,
 				789F409422DC2B1B00586487 /* TZImagePickerController.bundle in Resources */,
 				789F411622DC2B1B00586487 /* MTVideoController.bundle in Resources */,
-				789F410422DC2B1B00586487 /* MTHUD.bundle in Resources */,
+				789F410422DC2B1B00586487 /* MTHud.bundle in Resources */,
 				789F3FEB22DC2B1A00586487 /* MTSafariViewController.bundle in Resources */,
 				789F3FE622DC2B1A00586487 /* MTPickerViewController.xib in Resources */,
 			);
@@ -2144,23 +2144,16 @@
 			buildActionMask = 2147483647;
 			files = (
 			);
-			inputPaths = (
-				"${SRCROOT}/Pods/Target Support Files/Pods-MagicThought/Pods-MagicThought-resources.sh",
-				"${PODS_ROOT}/IQKeyboardManager/IQKeyboardManager/Resources/IQKeyboardManager.bundle",
-				"${PODS_ROOT}/MJRefresh/MJRefresh/MJRefresh.bundle",
-				"${PODS_ROOT}/SSKeychain/Support/SSKeychain.bundle",
-				"${PODS_ROOT}/SVProgressHUD/SVProgressHUD/SVProgressHUD.bundle",
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-MagicThought/Pods-MagicThought-resources-${CONFIGURATION}-input-files.xcfilelist",
 			);
 			name = "[CP] Copy Pods Resources";
-			outputPaths = (
-				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/IQKeyboardManager.bundle",
-				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/MJRefresh.bundle",
-				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/SSKeychain.bundle",
-				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/SVProgressHUD.bundle",
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-MagicThought/Pods-MagicThought-resources-${CONFIGURATION}-output-files.xcfilelist",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-MagicThought/Pods-MagicThought-resources.sh\"\n";
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-MagicThought/Pods-MagicThought-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		A6300BC003CF5E2206E76CAD /* [CP] Check Pods Manifest.lock */ = {

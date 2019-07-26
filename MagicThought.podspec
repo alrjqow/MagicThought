@@ -134,7 +134,7 @@ Pod::Spec.new do |s|
   # s.dependency "JSONKit", "~> 1.4"
 
 s.name = "MagicThought"
-s.version = "1.7.2"
+s.version = "1.7.3"
 s.summary = "MagicThought for ios."
 s.description = "the MagicThought for ios."
 s.homepage = "https://github.com/alrjqow/MagicThought"
@@ -295,9 +295,9 @@ textVerify.dependency 'MagicThought/Protocol'
 textVerify.dependency 'MagicThought/ViewContentStyle'
 end
 
-s.subspec 'Hud' do |hud|
-hud.source_files = 'MagicThought/加载框/*.{h,m}'
-hud.resources = "MagicThought/加载框/MTHUD.bundle"
+s.subspec 'MTHud' do |hud|
+hud.source_files = 'MagicThought/MTHud/*.{h,m}'
+hud.resources = "MagicThought/MTHud/MTHud.bundle"
 hud.dependency 'MagicThought/ImageHandle'
 hud.dependency 'MagicThought/Dependency'
 hud.dependency 'MagicThought/Category'
