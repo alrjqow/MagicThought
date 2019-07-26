@@ -134,7 +134,7 @@ Pod::Spec.new do |s|
   # s.dependency "JSONKit", "~> 1.4"
 
 s.name = "MagicThought"
-s.version = "1.7.1"
+s.version = "1.7.2"
 s.summary = "MagicThought for ios."
 s.description = "the MagicThought for ios."
 s.homepage = "https://github.com/alrjqow/MagicThought"
@@ -267,7 +267,7 @@ end
 
 
 s.subspec 'FileHandle' do |fileHandle|
-fileHandle.source_files = 'MagicThought/文件处理/*.{h,m}'
+fileHandle.source_files = 'MagicThought/文件存取处理/*.{h,m}'
 fileHandle.dependency 'MagicThought/Dependency'
 end
 
@@ -293,6 +293,38 @@ textVerify.dependency 'MagicThought/Category'
 textVerify.dependency 'MagicThought/Dependency'
 textVerify.dependency 'MagicThought/Protocol'
 textVerify.dependency 'MagicThought/ViewContentStyle'
+end
+
+s.subspec 'Hud' do |hud|
+hud.source_files = 'MagicThought/加载框/*.{h,m}'
+hud.resources = "MagicThought/加载框/MTHUD.bundle"
+hud.dependency 'MagicThought/ImageHandle'
+hud.dependency 'MagicThought/Dependency'
+hud.dependency 'MagicThought/Category'
+end
+
+s.subspec 'GestureLock' do |lock|
+lock.source_files = 'MagicThought/手势解锁/*.{h,m}'
+lock.dependency 'MagicThought/DelegateMode'
+lock.dependency 'MagicThought/Dependency'
+end
+
+s.subspec 'ViewSpilt' do |spilt|
+spilt.source_files = 'MagicThought/视图左右分割/*.{h,m}'
+spilt.dependency 'MagicThought/DelegateMode'
+spilt.dependency 'MagicThought/Dependency'
+spilt.dependency 'MagicThought/Category'
+end
+
+s.subspec 'RefreshRing' do |refreshRing|
+refreshRing.source_files = 'MagicThought/刷新小圈圈/*.{h,m}'
+refreshRing.dependency 'MagicThought/Dependency'
+end
+
+s.subspec 'CountdownRing' do |count|
+count.source_files = 'MagicThought/倒计时圆环/*.{h,m}'
+count.dependency 'MagicThought/DelegateMode'
+count.dependency 'MagicThought/Dependency'
 end
 
 #s.resources = "MagicThought/MagicThought/MagicThought/*"

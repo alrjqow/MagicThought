@@ -7,7 +7,6 @@
 //
 
 #import "MTLockViewConfig.h"
-#import "UIColor+ColorfulColor.h"
 #import "MTConst.h"
 
 @implementation MTLockViewConfig

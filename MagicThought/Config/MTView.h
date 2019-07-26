@@ -7,7 +7,6 @@
 //
 
 #import "MTStyle.h"
-#import "MTDrawRect.h"
 
 #import "MTLabel.h"
 

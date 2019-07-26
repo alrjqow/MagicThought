@@ -10,7 +10,6 @@
 
 #import "MTConst.h"
 #import "Masonry.h"
-#import "UIColor+ColorfulColor.h"
 
 
 
@@ -162,9 +161,10 @@
     self.isAnimate = YES;
     self.isPositiveDirection = YES;
     
-    self.ringColor = [UIColor colorWithR:200 G:200 B:200 A:0.6];
+    
+    self.ringColor = rgba(200, 200, 200, 0.6);
     self.ringBackgroundColor = [UIColor whiteColor];
-    self.progressDefaultColor = [UIColor colorWithHex:0xfb035];
+    self.progressDefaultColor = hex(0xfb035);
     
     _targetProgress = -1;
     

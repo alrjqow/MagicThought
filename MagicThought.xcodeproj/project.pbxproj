@@ -203,9 +203,7 @@
 		789F406D22DC2B1B00586487 /* MTBaseApi.h in Headers */ = {isa = PBXBuildFile; fileRef = 789F3EB822DC2B1A00586487 /* MTBaseApi.h */; };
 		789F406E22DC2B1B00586487 /* NSObject+API.h in Headers */ = {isa = PBXBuildFile; fileRef = 789F3EB922DC2B1A00586487 /* NSObject+API.h */; };
 		789F406F22DC2B1B00586487 /* Reachability.m in Sources */ = {isa = PBXBuildFile; fileRef = 789F3EBB22DC2B1A00586487 /* Reachability.m */; };
-		789F407022DC2B1B00586487 /* MTDrawRect.h in Headers */ = {isa = PBXBuildFile; fileRef = 789F3EBC22DC2B1A00586487 /* MTDrawRect.h */; };
 		789F407122DC2B1B00586487 /* Reachability.h in Headers */ = {isa = PBXBuildFile; fileRef = 789F3EBD22DC2B1A00586487 /* Reachability.h */; };
-		789F407222DC2B1B00586487 /* MTDrawRect.m in Sources */ = {isa = PBXBuildFile; fileRef = 789F3EBE22DC2B1A00586487 /* MTDrawRect.m */; };
 		789F407322DC2B1B00586487 /* AnimateController.m in Sources */ = {isa = PBXBuildFile; fileRef = 789F3EC122DC2B1A00586487 /* AnimateController.m */; };
 		789F407422DC2B1B00586487 /* AnimateController.h in Headers */ = {isa = PBXBuildFile; fileRef = 789F3EC222DC2B1A00586487 /* AnimateController.h */; };
 		789F407522DC2B1B00586487 /* MTAnimatedTransitioning.m in Sources */ = {isa = PBXBuildFile; fileRef = 789F3EC422DC2B1A00586487 /* MTAnimatedTransitioning.m */; };
@@ -620,9 +618,7 @@
 		789F3EB822DC2B1A00586487 /* MTBaseApi.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MTBaseApi.h; sourceTree = "<group>"; };
 		789F3EB922DC2B1A00586487 /* NSObject+API.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+API.h"; sourceTree = "<group>"; };
 		789F3EBB22DC2B1A00586487 /* Reachability.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Reachability.m; sourceTree = "<group>"; };
-		789F3EBC22DC2B1A00586487 /* MTDrawRect.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MTDrawRect.h; sourceTree = "<group>"; };
 		789F3EBD22DC2B1A00586487 /* Reachability.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Reachability.h; sourceTree = "<group>"; };
-		789F3EBE22DC2B1A00586487 /* MTDrawRect.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MTDrawRect.m; sourceTree = "<group>"; };
 		789F3EC122DC2B1A00586487 /* AnimateController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AnimateController.m; sourceTree = "<group>"; };
 		789F3EC222DC2B1A00586487 /* AnimateController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AnimateController.h; sourceTree = "<group>"; };
 		789F3EC422DC2B1A00586487 /* MTAnimatedTransitioning.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MTAnimatedTransitioning.m; sourceTree = "<group>"; };
@@ -864,6 +860,8 @@
 		780C2FDA22E94C05005FA4DB /* Dependency */ = {
 			isa = PBXGroup;
 			children = (
+				789F3EBD22DC2B1A00586487 /* Reachability.h */,
+				789F3EBB22DC2B1A00586487 /* Reachability.m */,
 				789F3E7A22DC2B1A00586487 /* MTConst.h */,
 				789F3E7522DC2B1A00586487 /* MTConst.m */,
 				789F3E5222DC2B1A00586487 /* NSString+Exist.h */,
@@ -898,11 +896,11 @@
 			isa = PBXGroup;
 			children = (
 				789F3DD322DC2B1A00586487 /* MTLockNode.h */,
+				789F3DD822DC2B1A00586487 /* MTLockNode.m */,
 				789F3DD422DC2B1A00586487 /* MTLockViewConfig.h */,
+				789F3DD722DC2B1A00586487 /* MTLockViewConfig.m */,
 				789F3DD522DC2B1A00586487 /* MTLockView.h */,
 				789F3DD622DC2B1A00586487 /* MTLockView.m */,
-				789F3DD722DC2B1A00586487 /* MTLockViewConfig.m */,
-				789F3DD822DC2B1A00586487 /* MTLockNode.m */,
 			);
 			path = "手势解锁";
 			sourceTree = "<group>";
@@ -1132,12 +1130,12 @@
 		789F3E3022DC2B1A00586487 /* UIColor */ = {
 			isa = PBXGroup;
 			children = (
+				789F3E3422DC2B1A00586487 /* UIColor+RGBValues.h */,
 				789F3E3122DC2B1A00586487 /* UIColor+RGBValues.m */,
 				789F3E3222DC2B1A00586487 /* UIColor+Image.h */,
-				789F3E3322DC2B1A00586487 /* UIColor+ColorfulColor.m */,
-				789F3E3422DC2B1A00586487 /* UIColor+RGBValues.h */,
 				789F3E3522DC2B1A00586487 /* UIColor+Image.m */,
 				789F3E3622DC2B1A00586487 /* UIColor+ColorfulColor.h */,
+				789F3E3322DC2B1A00586487 /* UIColor+ColorfulColor.m */,
 			);
 			path = UIColor;
 			sourceTree = "<group>";
@@ -1343,17 +1341,6 @@
 				789F3EB622DC2B1A00586487 /* NSObject+API.m */,
 			);
 			path = "网络请求";
-			sourceTree = "<group>";
-		};
-		789F3EBA22DC2B1A00586487 /* Other */ = {
-			isa = PBXGroup;
-			children = (
-				789F3EBB22DC2B1A00586487 /* Reachability.m */,
-				789F3EBC22DC2B1A00586487 /* MTDrawRect.h */,
-				789F3EBD22DC2B1A00586487 /* Reachability.h */,
-				789F3EBE22DC2B1A00586487 /* MTDrawRect.m */,
-			);
-			path = Other;
 			sourceTree = "<group>";
 		};
 		789F3EC022DC2B1A00586487 /* Demo */ = {
@@ -1603,11 +1590,11 @@
 		789F3F6122DC2B1A00586487 /* 加载框 */ = {
 			isa = PBXGroup;
 			children = (
+				789F3F6522DC2B1A00586487 /* UIView+MBHud.h */,
 				789F3F6222DC2B1A00586487 /* UIView+MBHud.m */,
 				789F3F6322DC2B1A00586487 /* MTIndicatorView.h */,
-				789F3F6422DC2B1A00586487 /* MTHUD.bundle */,
-				789F3F6522DC2B1A00586487 /* UIView+MBHud.h */,
 				789F3F6622DC2B1A00586487 /* MTIndicatorView.m */,
+				789F3F6422DC2B1A00586487 /* MTHUD.bundle */,
 			);
 			path = "加载框";
 			sourceTree = "<group>";
@@ -1628,14 +1615,14 @@
 		789F3F6C22DC2B1A00586487 /* 文件存取处理 */ = {
 			isa = PBXGroup;
 			children = (
+				789F3F7222DC2B1A00586487 /* NSDictionary+File.h */,
 				789F3F6D22DC2B1A00586487 /* NSDictionary+File.m */,
 				789F3F6E22DC2B1A00586487 /* MTFileManager.h */,
+				789F3F7122DC2B1A00586487 /* MTFileManager.m */,
+				789F3F7422DC2B1A00586487 /* NSArray+File.h */,
 				789F3F6F22DC2B1A00586487 /* NSArray+File.m */,
 				789F3F7022DC2B1A00586487 /* NSData+File.h */,
-				789F3F7122DC2B1A00586487 /* MTFileManager.m */,
-				789F3F7222DC2B1A00586487 /* NSDictionary+File.h */,
 				789F3F7322DC2B1A00586487 /* NSData+File.m */,
-				789F3F7422DC2B1A00586487 /* NSArray+File.h */,
 			);
 			path = "文件存取处理";
 			sourceTree = "<group>";
@@ -1643,8 +1630,8 @@
 		789F3F7522DC2B1A00586487 /* 视图左右分割 */ = {
 			isa = PBXGroup;
 			children = (
-				789F3F7622DC2B1A00586487 /* MTSpiltView.m */,
 				789F3F7722DC2B1A00586487 /* MTSpiltView.h */,
+				789F3F7622DC2B1A00586487 /* MTSpiltView.m */,
 			);
 			path = "视图左右分割";
 			sourceTree = "<group>";
@@ -1652,11 +1639,11 @@
 		789F3F7822DC2B1A00586487 /* 自定义相机 */ = {
 			isa = PBXGroup;
 			children = (
-				789F3F7922DC2B1A00586487 /* MTVideoView.h */,
 				789F3F7A22DC2B1A00586487 /* MTVideoController.bundle */,
-				789F3F7B22DC2B1A00586487 /* MTVideoController.m */,
+				789F3F7922DC2B1A00586487 /* MTVideoView.h */,
 				789F3F7C22DC2B1A00586487 /* MTVideoView.m */,
 				789F3F7D22DC2B1A00586487 /* MTVideoController.h */,
+				789F3F7B22DC2B1A00586487 /* MTVideoController.m */,
 			);
 			path = "自定义相机";
 			sourceTree = "<group>";
@@ -1665,8 +1652,8 @@
 			isa = PBXGroup;
 			children = (
 				789F3F8422DC2B1A00586487 /* MTRoundView.h */,
-				789F3F8522DC2B1A00586487 /* MTCountingView.h */,
 				789F3F8622DC2B1A00586487 /* MTRoundView.m */,
+				789F3F8522DC2B1A00586487 /* MTCountingView.h */,
 				789F3F8722DC2B1A00586487 /* MTCountingView.m */,
 			);
 			path = "倒计时圆环";
@@ -1798,40 +1785,39 @@
 			children = (
 				789F3E2622DC2B1A00586487 /* MTKit.h */,
 				789F3F1822DC2B1A00586487 /* README.md */,
+				789F3F8322DC2B1A00586487 /* 倒计时圆环 */,
+				789F3E8C22DC2B1A00586487 /* 刷新小圈圈 */,
+				789F3F7522DC2B1A00586487 /* 视图左右分割 */,
+				789F3DD222DC2B1A00586487 /* 手势解锁 */,
+				789F3F6122DC2B1A00586487 /* 加载框 */,
+				789F3F6722DC2B1A00586487 /* 文本框验证 */,
+				789F3F2022DC2B1A00586487 /* 波纹效果 */,
+				789F3E8F22DC2B1A00586487 /* Json转换 */,
+				789F3DD922DC2B1A00586487 /* 图片处理 */,
+				789F3F6C22DC2B1A00586487 /* 文件存取处理 */,
+				789F413E22DC2B9100586487 /* MTRefresh */,
+				789F3DF322DC2B1A00586487 /* SubClass */,
+				789F3F3622DC2B1A00586487 /* DelegateMode */,
+				789F3E2722DC2B1A00586487 /* Category */,
+				789F3EB222DC2B1A00586487 /* 网络请求 */,
+				789F3ECF22DC2B1A00586487 /* 控件文字样式设置 */,
+				789F3EF922DC2B1A00586487 /* Style */,
+				789F3F0222DC2B1A00586487 /* Protocol */,
+				789F3E7422DC2B1A00586487 /* Config */,
+				780C2FDA22E94C05005FA4DB /* Dependency */,
 				789F3E2322DC2B1A00586487 /* UINavigationController */,
 				789F3E0A22DC2B1A00586487 /* UIViewController */,
 				789F3DF422DC2B1A00586487 /* UITableViewController */,
-				780C2FDA22E94C05005FA4DB /* Dependency */,
-				789F413E22DC2B9100586487 /* MTRefresh */,
 				789F3DCA22DC2B1A00586487 /* MTSlideView */,
-				789F3DD222DC2B1A00586487 /* 手势解锁 */,
-				789F3DD922DC2B1A00586487 /* 图片处理 */,
 				789F3DEA22DC2B1A00586487 /* 文件选择 */,
-				789F3DF322DC2B1A00586487 /* SubClass */,
-				789F3E2722DC2B1A00586487 /* Category */,
-				789F3E7422DC2B1A00586487 /* Config */,
 				789F3E7D22DC2B1A00586487 /* 弹框 */,
-				789F3E8C22DC2B1A00586487 /* 刷新小圈圈 */,
-				789F3E8F22DC2B1A00586487 /* Json转换 */,
 				789F3E9422DC2B1A00586487 /* 弹框2 */,
-				789F3EB222DC2B1A00586487 /* 网络请求 */,
-				789F3EBA22DC2B1A00586487 /* Other */,
-				789F3ECF22DC2B1A00586487 /* 控件文字样式设置 */,
 				789F3EDA22DC2B1A00586487 /* Library */,
-				789F3EF922DC2B1A00586487 /* Style */,
-				789F3F0222DC2B1A00586487 /* Protocol */,
 				789F3F0922DC2B1A00586487 /* BaseCell */,
 				789F3F1922DC2B1A00586487 /* 图片轮播 */,
-				789F3F2022DC2B1A00586487 /* 波纹效果 */,
 				789F3F2722DC2B1A00586487 /* Manager */,
-				789F3F3622DC2B1A00586487 /* DelegateMode */,
 				789F3F4F22DC2B1A00586487 /* 十字滚动 */,
-				789F3F6122DC2B1A00586487 /* 加载框 */,
-				789F3F6722DC2B1A00586487 /* 文本框验证 */,
-				789F3F6C22DC2B1A00586487 /* 文件存取处理 */,
-				789F3F7522DC2B1A00586487 /* 视图左右分割 */,
 				789F3F7822DC2B1A00586487 /* 自定义相机 */,
-				789F3F8322DC2B1A00586487 /* 倒计时圆环 */,
 				789F3F8822DC2B1A00586487 /* 图片展示与浏览 */,
 				78F332802239051C00DA02F6 /* Info.plist */,
 			);
@@ -2028,7 +2014,6 @@
 				789F3FA822DC2B1A00586487 /* MTSlideViewManager.h in Headers */,
 				789F3FDE22DC2B1A00586487 /* MTProgressController.h in Headers */,
 				789F403922DC2B1A00586487 /* MTThirdSDKList.h in Headers */,
-				789F407022DC2B1B00586487 /* MTDrawRect.h in Headers */,
 				789F40A522DC2B1B00586487 /* MTGraphicType.h in Headers */,
 				789F3FD722DC2B1A00586487 /* MTDelegateButton.h in Headers */,
 				789F406022DC2B1B00586487 /* MTAlertWordItem.h in Headers */,
@@ -2274,7 +2259,6 @@
 				789F40C522DC2B1B00586487 /* MTImagePlayViewCell.m in Sources */,
 				789F411322DC2B1B00586487 /* MTSpiltView.m in Sources */,
 				789F3FFE22DC2B1A00586487 /* UIView+ViewController.m in Sources */,
-				789F407222DC2B1B00586487 /* MTDrawRect.m in Sources */,
 				789F412822DC2B1B00586487 /* MTPhotoBrowserController.m in Sources */,
 				789F404222DC2B1B00586487 /* MTAlertViewConfig.m in Sources */,
 				789F40EA22DC2B1B00586487 /* MTDelegateCollectionReusableView.m in Sources */,

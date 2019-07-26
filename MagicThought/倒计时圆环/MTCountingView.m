@@ -9,7 +9,6 @@
 #import "MTCountingView.h"
 #import "MTConst.h"
 #import "Masonry.h"
-#import "UIColor+ColorfulColor.h"
 
 #define kDefaultStartAngle                      -M_PI_2
 #define kDefaultEndAngle                        2 * M_PI - M_PI_2
@@ -19,7 +18,7 @@
 
 #define kDefaultRingThickness                   3
 #define kDefaultRingBackgroundColor             [UIColor colorWithWhite:0.9 alpha:1]         
-#define kDefaultRingCenterBackgroundColor             [UIColor colorWithR:0 G:0 B:0 A:0.7]
+#define kDefaultRingCenterBackgroundColor             rgba(0, 0, 0, 0.7)
 
 #define kDefaultRingColor                       [UIColor colorWithRed:76.0/255 green:217.0/255 blue:100.0/255 alpha:1]
 
@@ -97,7 +96,8 @@
     
     self.isAnimate = YES;
     
-    self.defaultColor = [UIColor colorWithHex:0xffb035];//[UIColor colorWithRed:11.0/255 green:150.0/255 blue:246.0/255 alpha:1];
+    
+    self.defaultColor = hex(0xffb035);//[UIColor colorWithRed:11.0/255 green:150.0/255 blue:246.0/255 alpha:1];
     self.limitColor = [UIColor colorWithRed:255.0/255 green:59.0/255 blue:48.0/255 alpha:1];
     
     // Set default values
