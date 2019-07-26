@@ -7,8 +7,8 @@
 //
 
 #import "MTAlertViewConfig.h"
-#import "UIColor+ColorfulColor.h"
 #import "MTPopButtonItem.h"
+#import "MTConst.h"
 #import "NSString+WordHeight.h"
 
 @implementation MTAlertViewConfig
@@ -111,14 +111,15 @@
     self.detailFont = [UIFont systemFontOfSize:14.0f];
     self.buttonFont = [UIFont systemFontOfSize:17.0f];
     
-    self.backgroundColor = [UIColor colorWithHex:0xFFFFFF];
-    self.titleColor = [UIColor colorWithHex:0x333333];
-    self.detailColor = [UIColor colorWithHex:0x333333];
-    self.splitColor = [UIColor colorWithHex:0xCCCCCC];
     
-    self.itemNormalColor = [UIColor colorWithHex:0x333333];
-    self.itemHighlightColor = [UIColor colorWithHex:0xE76153];
-    self.itemPressedColor = [UIColor colorWithHex:0xEFEDE7];
+    self.backgroundColor = hex(0xffffff);
+    self.titleColor = hex(0x333333);
+    self.detailColor = hex(0x333333);
+    self.splitColor = hex(0xCCCCCC);
+    
+    self.itemNormalColor = hex(0x333333);
+    self.itemHighlightColor = hex(0xE76153);
+    self.itemPressedColor = hex(0xEFEDE7);
     
     self.defaultTextOK = @"好";
     self.defaultTextCancel = @"取消";

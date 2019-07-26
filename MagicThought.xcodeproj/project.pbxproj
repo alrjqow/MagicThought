@@ -881,13 +881,13 @@
 		789F3DCA22DC2B1A00586487 /* MTSlideView */ = {
 			isa = PBXGroup;
 			children = (
+				789F3DD122DC2B1A00586487 /* MTSlide.h */,
+				789F3DCF22DC2B1A00586487 /* MTSlideView.h */,
 				789F3DCB22DC2B1A00586487 /* MTSlideView.m */,
+				789F3DCE22DC2B1A00586487 /* MTSlideHeader.h */,
 				789F3DCC22DC2B1A00586487 /* MTSlideHeader.m */,
 				789F3DCD22DC2B1A00586487 /* MTSlideViewManager.h */,
-				789F3DCE22DC2B1A00586487 /* MTSlideHeader.h */,
-				789F3DCF22DC2B1A00586487 /* MTSlideView.h */,
 				789F3DD022DC2B1A00586487 /* MTSlideViewManager.m */,
-				789F3DD122DC2B1A00586487 /* MTSlide.h */,
 			);
 			path = MTSlideView;
 			sourceTree = "<group>";
@@ -931,14 +931,14 @@
 		789F3DEA22DC2B1A00586487 /* 文件选择 */ = {
 			isa = PBXGroup;
 			children = (
+				789F3DEF22DC2B1A00586487 /* MTDocument.h */,
 				789F3DEB22DC2B1A00586487 /* MTDocument.m */,
+				789F3DF122DC2B1A00586487 /* MTDocumentPreseter.h */,
 				789F3DEC22DC2B1A00586487 /* MTDocumentPreseter.m */,
 				789F3DED22DC2B1A00586487 /* MTFileModel.h */,
-				789F3DEE22DC2B1A00586487 /* FileType.m */,
-				789F3DEF22DC2B1A00586487 /* MTDocument.h */,
 				789F3DF022DC2B1A00586487 /* MTFileModel.m */,
-				789F3DF122DC2B1A00586487 /* MTDocumentPreseter.h */,
 				789F3DF222DC2B1A00586487 /* FileType.h */,
+				789F3DEE22DC2B1A00586487 /* FileType.m */,
 			);
 			path = "文件选择";
 			sourceTree = "<group>";
@@ -1065,8 +1065,8 @@
 		789F3E1F22DC2B1A00586487 /* UIViewController + Alert */ = {
 			isa = PBXGroup;
 			children = (
-				789F3E2022DC2B1A00586487 /* MTAlertController.m */,
 				789F3E2122DC2B1A00586487 /* MTAlertController.h */,
+				789F3E2022DC2B1A00586487 /* MTAlertController.m */,
 				789F3E2222DC2B1A00586487 /* MTAlertController.bundle */,
 			);
 			path = "UIViewController + Alert";
@@ -1231,25 +1231,25 @@
 			path = Config;
 			sourceTree = "<group>";
 		};
-		789F3E7D22DC2B1A00586487 /* 弹框 */ = {
+		789F3E7D22DC2B1A00586487 /* Alert */ = {
 			isa = PBXGroup;
 			children = (
-				789F3E7E22DC2B1A00586487 /* UIView+MTBackground.h */,
-				789F3E7F22DC2B1A00586487 /* MTPopViewConfig.m */,
 				789F3E8022DC2B1A00586487 /* MTAlertViewConfig.h */,
-				789F3E8122DC2B1A00586487 /* MTPopButtonItem.h */,
-				789F3E8222DC2B1A00586487 /* MTPopView.m */,
-				789F3E8322DC2B1A00586487 /* MTAlertView.m */,
-				789F3E8422DC2B1A00586487 /* MTWindow.h */,
-				789F3E8522DC2B1A00586487 /* UIView+MTBackground.m */,
 				789F3E8622DC2B1A00586487 /* MTAlertViewConfig.m */,
 				789F3E8722DC2B1A00586487 /* MTPopViewConfig.h */,
-				789F3E8822DC2B1A00586487 /* MTPopView.h */,
-				789F3E8922DC2B1A00586487 /* MTAlertView.h */,
+				789F3E7F22DC2B1A00586487 /* MTPopViewConfig.m */,
+				789F3E8122DC2B1A00586487 /* MTPopButtonItem.h */,
 				789F3E8A22DC2B1A00586487 /* MTPopButtonItem.m */,
+				789F3E8822DC2B1A00586487 /* MTPopView.h */,
+				789F3E8222DC2B1A00586487 /* MTPopView.m */,
+				789F3E8922DC2B1A00586487 /* MTAlertView.h */,
+				789F3E8322DC2B1A00586487 /* MTAlertView.m */,
+				789F3E8422DC2B1A00586487 /* MTWindow.h */,
 				789F3E8B22DC2B1A00586487 /* MTWindow.m */,
+				789F3E7E22DC2B1A00586487 /* UIView+MTBackground.h */,
+				789F3E8522DC2B1A00586487 /* UIView+MTBackground.m */,
 			);
-			path = "弹框";
+			path = Alert;
 			sourceTree = "<group>";
 		};
 		789F3E8C22DC2B1A00586487 /* 刷新小圈圈 */ = {
@@ -1466,17 +1466,17 @@
 			path = BaseCell;
 			sourceTree = "<group>";
 		};
-		789F3F1922DC2B1A00586487 /* 图片轮播 */ = {
+		789F3F1922DC2B1A00586487 /* MTImagePlay */ = {
 			isa = PBXGroup;
 			children = (
+				789F3F1E22DC2B1A00586487 /* MTImagePlayView.h */,
 				789F3F1A22DC2B1A00586487 /* MTImagePlayView.m */,
 				789F3F1B22DC2B1A00586487 /* MTImagePlayViewCell.h */,
-				789F3F1C22DC2B1A00586487 /* MTCollectionViewScaleLayout.m */,
 				789F3F1D22DC2B1A00586487 /* MTImagePlayViewCell.m */,
-				789F3F1E22DC2B1A00586487 /* MTImagePlayView.h */,
 				789F3F1F22DC2B1A00586487 /* MTCollectionViewScaleLayout.h */,
+				789F3F1C22DC2B1A00586487 /* MTCollectionViewScaleLayout.m */,
 			);
-			path = "图片轮播";
+			path = MTImagePlay;
 			sourceTree = "<group>";
 		};
 		789F3F2022DC2B1A00586487 /* 波纹效果 */ = {
@@ -1785,6 +1785,9 @@
 			children = (
 				789F3E2622DC2B1A00586487 /* MTKit.h */,
 				789F3F1822DC2B1A00586487 /* README.md */,
+				789F3E7D22DC2B1A00586487 /* Alert */,
+				789F3DCA22DC2B1A00586487 /* MTSlideView */,
+				789F3F1922DC2B1A00586487 /* MTImagePlay */,
 				789F3F8322DC2B1A00586487 /* 倒计时圆环 */,
 				789F3E8C22DC2B1A00586487 /* 刷新小圈圈 */,
 				789F3F7522DC2B1A00586487 /* 视图左右分割 */,
@@ -1808,13 +1811,10 @@
 				789F3E2322DC2B1A00586487 /* UINavigationController */,
 				789F3E0A22DC2B1A00586487 /* UIViewController */,
 				789F3DF422DC2B1A00586487 /* UITableViewController */,
-				789F3DCA22DC2B1A00586487 /* MTSlideView */,
 				789F3DEA22DC2B1A00586487 /* 文件选择 */,
-				789F3E7D22DC2B1A00586487 /* 弹框 */,
 				789F3E9422DC2B1A00586487 /* 弹框2 */,
 				789F3EDA22DC2B1A00586487 /* Library */,
 				789F3F0922DC2B1A00586487 /* BaseCell */,
-				789F3F1922DC2B1A00586487 /* 图片轮播 */,
 				789F3F2722DC2B1A00586487 /* Manager */,
 				789F3F4F22DC2B1A00586487 /* 十字滚动 */,
 				789F3F7822DC2B1A00586487 /* 自定义相机 */,

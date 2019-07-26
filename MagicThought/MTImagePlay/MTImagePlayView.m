@@ -7,11 +7,10 @@
 //
 
 #import "MTImagePlayView.h"
-#import "MTConst.h"
 #import "MTImagePlayViewCell.h"
 #import "MTDelegateProtocol.h"
+#import "MTConst.h"
 #import "UIView+Frame.h"
-#import "UIColor+ColorfulColor.h"
 #import "NSString+Exist.h"
 
 @interface MTImagePlayView()<UICollectionViewDelegate,UICollectionViewDataSource,MTDelegateProtocol>

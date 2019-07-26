@@ -134,7 +134,7 @@ Pod::Spec.new do |s|
   # s.dependency "JSONKit", "~> 1.4"
 
 s.name = "MagicThought"
-s.version = "1.7.3"
+s.version = "1.7.4"
 s.summary = "MagicThought for ios."
 s.description = "the MagicThought for ios."
 s.homepage = "https://github.com/alrjqow/MagicThought"
@@ -278,6 +278,14 @@ imageHandle.dependency 'MagicThought/Style'
 imageHandle.dependency 'MagicThought/Dependency'
 end
 
+s.subspec 'MTHud' do |hud|
+hud.source_files = 'MagicThought/MTHud/*.{h,m}'
+hud.resources = "MagicThought/MTHud/MTHud.bundle"
+hud.dependency 'MagicThought/ImageHandle'
+hud.dependency 'MagicThought/Dependency'
+hud.dependency 'MagicThought/Category'
+end
+
 s.subspec 'JsonTransform' do |jsonEncode|
 jsonEncode.source_files = 'MagicThought/Json转换/*.{h,m}'
 end
@@ -293,14 +301,6 @@ textVerify.dependency 'MagicThought/Category'
 textVerify.dependency 'MagicThought/Dependency'
 textVerify.dependency 'MagicThought/Protocol'
 textVerify.dependency 'MagicThought/ViewContentStyle'
-end
-
-s.subspec 'MTHud' do |hud|
-hud.source_files = 'MagicThought/MTHud/*.{h,m}'
-hud.resources = "MagicThought/MTHud/MTHud.bundle"
-hud.dependency 'MagicThought/ImageHandle'
-hud.dependency 'MagicThought/Dependency'
-hud.dependency 'MagicThought/Category'
 end
 
 s.subspec 'GestureLock' do |lock|
@@ -326,6 +326,28 @@ count.source_files = 'MagicThought/倒计时圆环/*.{h,m}'
 count.dependency 'MagicThought/DelegateMode'
 count.dependency 'MagicThought/Dependency'
 end
+
+s.subspec 'MTImagePlay' do |imagePlay|
+imagePlay.source_files = 'MagicThought/MTImagePlay/*.{h,m}'
+imagePlay.dependency 'MagicThought/DelegateMode'
+imagePlay.dependency 'MagicThought/Dependency'
+imagePlay.dependency 'MagicThought/Protocol'
+end
+
+s.subspec 'MTSlideView' do |slide|
+slide.source_files = 'MagicThought/MTSlideView/*.{h,m}'
+slide.dependency 'MagicThought/Dependency'
+slide.dependency 'MagicThought/Category'
+end
+
+s.subspec 'Alert' do |alert|
+alert.source_files = 'MagicThought/Alert/*.{h,m}'
+alert.dependency 'MagicThought/DelegateMode'
+alert.dependency 'MagicThought/TextFieldVerify'
+alert.dependency 'MagicThought/Category'
+alert.dependency 'MagicThought/Style'
+end
+
 
 #s.resources = "MagicThought/MagicThought/MagicThought/*"
 s.framework = "UIKit"

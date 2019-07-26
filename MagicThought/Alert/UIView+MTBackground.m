@@ -9,7 +9,7 @@
 #import "UIView+MTBackground.h"
 #import <objc/runtime.h>
 #import "Masonry.h"
-#import "UIColor+ColorfulColor.h"
+#import "MTConst.h"
 #import "MTWindow.h"
 
 static const void *mt_BackgroundViewKey = @"mt_BackgroundViewKey";
@@ -125,8 +125,8 @@ static const void *mt_dimReferenceCountKey = @"mt_dimReferenceCountKey";
         [dimView mas_makeConstraints:^(MASConstraintMaker *make) {
             make.edges.equalTo(self);
         }];
-        dimView.alpha = 0.0f;        
-        dimView.backgroundColor = [UIColor colorWithR:0 G:0 B:0 A:0.48];
+        dimView.alpha = 0.0f;
+        dimView.backgroundColor = rgba(0, 0, 0, 0.48);
         dimView.layer.zPosition = FLT_MAX;
         
         self.mt_AnimationDuration = 0.3f;
