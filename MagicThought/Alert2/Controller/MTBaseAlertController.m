@@ -12,9 +12,6 @@
 
 #import "MTCloud.h"
 
-#import "MTGraphicType.h"
-
-#import "UIColor+ColorfulColor.h"
 #import "UIView+Frame.h"
 #import "NSString+Exist.h"
 
@@ -42,7 +39,7 @@
     
     self.blackView.frame = self.view.bounds;
     self.blackView.backgroundColor = rgba(0, 0, 0, 0.3);
-    self.blackView.alpha = self.type == MTGraphicTypeDefault;
+    self.blackView.alpha = self.type == MTBaseAlertTypeDefault;
     
     self.animateTime = 0.25;
     self.isDismiss = YES;

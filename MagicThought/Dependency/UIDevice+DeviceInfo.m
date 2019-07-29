@@ -9,7 +9,7 @@
 #import "UIDevice+DeviceInfo.h"
 #import "NSString+Exist.h"
 #import "MTConst.h"
-#import "SSKeychain.h"
+#import "SAMKeychain.h"
 
 #import <sys/utsname.h>
 
@@ -18,11 +18,11 @@
 +(NSString*)UUID
 {
     
-    NSString *UUID = [SSKeychain passwordForService:mt_BundleID() account:@"uuid"];
+    NSString *UUID = [SAMKeychain passwordForService:mt_BundleID() account:@"uuid"];
     if(!UUID)
     {
         UUID = [[UIDevice currentDevice].identifierForVendor UUIDString];
-        [SSKeychain setPassword: UUID forService:mt_BundleID() account:@"uuid"];
+        [SAMKeychain setPassword: UUID forService:mt_BundleID() account:@"uuid"];
     }
     
     return UUID;

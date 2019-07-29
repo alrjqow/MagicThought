@@ -12,7 +12,6 @@
 #import "UIViewControllerTransitionModel.h"
 #import "MTInteractiveNavigationDelegate.h"
 
-#import "MTDelegateProtocol.h"
 #import "UINavigationBar+Config.h"
 #import "UIDevice+DeviceInfo.h"
 #import "UIView+Frame.h"
@@ -88,38 +87,6 @@
     
     self.statusBar.y = [UIDevice isHairScreen] ? -44 : -20;
     [self.navigationBar addSubview:self.statusBar];
-}
-
-
--(void)pushViewController:(UIViewController *)viewController animated:(BOOL)animated
-{
-    if(self.childViewControllers.count > 0)
-    {
-        self.isShow = YES;
-        self.interactivePopGestureRecognizer.delegate = (id<UIGestureRecognizerDelegate>)self;
-    }
-    
-    [self configPushTransitionWithViewController:viewController];
-    
-    [super pushViewController:viewController animated:animated];
-}
-
-
-#pragma mark - 配置转场
-
--(void)configPushTransitionWithViewController:(UIViewController*)viewController
-{
-    if(!viewController.mt_transitionModel.pushTransition && !viewController.mt_transitionModel.popTransition)
-    {
-        self.delegate = self;
-        if(viewController.mt_transitionModel)
-            self.isFullScreenPop = viewController.mt_transitionModel.edges == UIRectEdgeNone;
-    }
-    else
-    {
-        self.delegate = (!viewController.mt_transitionModel.pushTransition && viewController.mt_transitionModel.popTransition) ? self : self.interactiveDelegate;
-        [self.interactiveDelegate addPanGestureRecognizerWithController:viewController];
-    }
 }
 
 
@@ -205,8 +172,36 @@
 }
 
 
-#pragma mark - 代理
+#pragma mark - 配置转场
 
+-(void)configPushTransitionWithViewController:(UIViewController*)viewController
+{
+    if(!viewController.mt_transitionModel.pushTransition && !viewController.mt_transitionModel.popTransition)
+    {
+        self.delegate = self;
+        if(viewController.mt_transitionModel)
+            self.isFullScreenPop = viewController.mt_transitionModel.edges == UIRectEdgeNone;
+    }
+    else
+    {
+        self.delegate = (!viewController.mt_transitionModel.pushTransition && viewController.mt_transitionModel.popTransition) ? self : self.interactiveDelegate;
+        [self.interactiveDelegate addPanGestureRecognizerWithController:viewController];
+    }
+}
+
+
+-(void)pushViewController:(UIViewController *)viewController animated:(BOOL)animated
+{
+    if(self.childViewControllers.count > 0)
+    {
+        self.isShow = YES;
+        self.interactivePopGestureRecognizer.delegate = (id<UIGestureRecognizerDelegate>)self;
+    }
+    
+    [self configPushTransitionWithViewController:viewController];
+    
+    [super pushViewController:viewController animated:animated];
+}
 
 -(void)navigationController:(UINavigationController *)navigationController didShowViewController:(UIViewController *)viewController animated:(BOOL)animated
 {

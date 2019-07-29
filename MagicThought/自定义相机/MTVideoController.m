@@ -18,7 +18,6 @@
 #import "MTDeviceManager.h"
 #import "UIImage+Size.h"
 #import "UIView+MBHud.h"
-#import "UIColor+ColorfulColor.h"
 #import "UIImage+Cut.h"
 
 @interface MTVideoController ()<CAAnimationDelegate, UIAlertViewDelegate, AVCaptureFileOutputRecordingDelegate>
@@ -257,7 +256,7 @@
     {
         MTCountingView* countView = [MTCountingView new];
         countView.translatesAutoresizingMaskIntoConstraints = false;
-        countView.defaultColor = [UIColor colorWithHex:0x2976f4];
+        countView.defaultColor = hex(0x2976f4);
         countView.mt_delegate = self;
         countView.totalTime = self.recordSeconds - 1;
         countView.ringCenterBackgroundColor = [UIColor clearColor];

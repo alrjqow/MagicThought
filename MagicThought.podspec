@@ -134,7 +134,7 @@ Pod::Spec.new do |s|
   # s.dependency "JSONKit", "~> 1.4"
 
 s.name = "MagicThought"
-s.version = "1.7.5"
+s.version = "1.7.6"
 s.summary = "MagicThought for ios."
 s.description = "the MagicThought for ios."
 s.homepage = "https://github.com/alrjqow/MagicThought"
@@ -398,6 +398,132 @@ baseCell.dependency 'MagicThought/Dependency'
 end
 
 
+s.subspec 'UIViewController' do |viewController|
+
+viewController.subspec 'UIViewController+Progress' do |progress|
+progress.source_files = 'MagicThought/UIViewController/UIViewController + Progress/*.{m,h}'
+progress.dependency 'MagicThought/Style'
+progress.dependency 'MagicThought/ViewContentStyle'
+progress.dependency 'MagicThought/Category'
+progress.dependency 'MagicThought/Dependency'
+end
+
+viewController.subspec 'UIViewController+PickView' do |pickView|
+pickView.source_files = 'MagicThought/UIViewController/UIViewController + PickView/*.{m,h}'
+pickView.resources = "MagicThought/SubClass/UIViewController/UIViewController + PickView/*.xib"
+pickView.dependency 'MagicThought/Dependency'
+end
+
+viewController.subspec 'UIViewController+Base' do |base|
+base.source_files = 'MagicThought/UIViewController/UIViewController + Base/*.{m,h}'
+base.dependency 'MagicThought/MTHud'
+base.dependency 'MagicThought/Network'
+base.dependency 'MagicThought/DelegateMode'
+base.dependency 'MagicThought/Protocol'
+base.dependency 'MagicThought/Category/UIViewController'
+base.dependency 'MagicThought/Dependency'
+end
+
+viewController.subspec 'UIViewController+FeedBackInfo' do |feedBackInfo|
+feedBackInfo.source_files = 'MagicThought/UIViewController/UIViewController + FeedBackInfo/*.{m,h}'
+feedBackInfo.dependency 'MagicThought/ViewContentStyle'
+feedBackInfo.dependency 'MagicThought/Dependency'
+feedBackInfo.dependency 'MagicThought/Category'
+feedBackInfo.dependency 'MagicThought/UIViewController/UIViewController+Base'
+end
+
+viewController.subspec 'UIViewController+MTSafariView' do |safariView|
+safariView.source_files = 'MagicThought/UIViewController/UIViewController + MTSafariView/*.{m,h}'
+safariView.resources = "MagicThought/UIViewController/UIViewController + MTSafariView/MTSafariViewController.bundle"
+safariView.dependency 'MagicThought/SubClass/WKWebView'
+safariView.dependency 'MagicThought/Category/UINavigationBar'
+safariView.dependency 'MagicThought/Dependency'
+safariView.dependency 'MagicThought/UIViewController/UIViewController+Base'
+end
+
+
+end
+
+
+s.subspec 'UITableViewController' do |tableViewController|
+tableViewController.source_files = 'MagicThought/UITableViewController/*.{h,m}'
+tableViewController.dependency 'MagicThought/MTRefresh'
+tableViewController.dependency 'MagicThought/Network'
+tableViewController.dependency 'MagicThought/UIViewController/UIViewController+Base'
+tableViewController.dependency 'MagicThought/DelegateMode'
+tableViewController.dependency 'MagicThought/Dependency'
+end
+
+s.subspec 'CustomCamera' do |camera|
+camera.source_files = 'MagicThought/自定义相机/*.{h,m}'
+camera.resources = "MagicThought/自定义相机/MTVideoController.bundle"
+camera.dependency 'MagicThought/ImageHandle'
+camera.dependency 'MagicThought/MTHud'
+camera.dependency 'MagicThought/CountdownRing'
+camera.dependency 'MagicThought/Manager'
+camera.dependency 'MagicThought/Protocol'
+camera.dependency 'MagicThought/Dependency'
+end
+
+
+
+s.subspec 'UINavigationController' do |navigationController|
+navigationController.source_files = 'MagicThought/UINavigationController/Controller/*.{h,m}', 'MagicThought/UINavigationController/Delegate/*.{h,m}', 'MagicThought/UINavigationController/Demo/*.{h,m}', 'MagicThought/UINavigationController/Model/*.{h,m}', 'MagicThought/UINavigationController/Transition/*.{h,m}'
+
+navigationController.dependency 'MagicThought/Style'
+navigationController.dependency 'MagicThought/ViewContentStyle'
+navigationController.dependency 'MagicThought/Category/UINavigationBar'
+navigationController.dependency 'MagicThought/Protocol'
+navigationController.dependency 'MagicThought/Dependency'
+end
+
+
+s.subspec 'Alert2' do |alert2|
+
+alert2.subspec 'Model' do |model|
+model.source_files = 'MagicThought/Alert2/Model/*.{m,h}'
+model.dependency 'MagicThought/DelegateMode'
+model.dependency 'MagicThought/Style'
+model.dependency 'MagicThought/Dependency'
+end
+
+alert2.subspec 'Controller' do |controller|
+controller.source_files = 'MagicThought/Alert2/Controller/*.{m,h}', 'MagicThought/Alert2/Service/*.{m,h}'
+controller.dependency 'MagicThought/Style'
+controller.dependency 'MagicThought/ViewContentStyle'
+controller.dependency 'MagicThought/Category'
+controller.dependency 'MagicThought/DelegateMode'
+controller.dependency 'MagicThought/Alert2/Model'
+controller.dependency 'MagicThought/Dependency'
+end
+
+end
+
+
+
+s.subspec 'ImageShowAndBrowser' do |imageBrowser|
+
+imageBrowser.source_files = 'MagicThought/图片展示与浏览/**/*.{m,h}'
+imageBrowser.resources = "MagicThought/图片展示与浏览/MTPhotoBrowser.bundle"
+
+imageBrowser.dependency 'MagicThought/Library/TZImagePickerController'
+imageBrowser.dependency 'MagicThought/UINavigationController'
+imageBrowser.dependency 'MagicThought/CustomCamera'
+imageBrowser.dependency 'MagicThought/ImageHandle'
+imageBrowser.dependency 'MagicThought/Alert2'
+imageBrowser.dependency 'MagicThought/Alert'
+imageBrowser.dependency 'MagicThought/ViewContentStyle'
+imageBrowser.dependency 'MagicThought/Style'
+imageBrowser.dependency 'MagicThought/Category'
+imageBrowser.dependency 'MagicThought/Manager'
+imageBrowser.dependency 'MagicThought/Protocol'
+imageBrowser.dependency 'MagicThought/DelegateMode'
+imageBrowser.dependency 'MagicThought/Dependency'
+
+end
+
+
+
 #s.resources = "MagicThought/MagicThought/MagicThought/*"
 s.framework = "UIKit"
 # s.frameworks = “SomeFramework”, “AnotherFramework”
@@ -427,7 +553,7 @@ s.dependency "SDWebImage"
 
 s.dependency "TTTAttributedLabel"
 
-s.dependency "SSKeychain"
+s.dependency "SAMKeychain"
 
 s.dependency "LDProgressView"
 

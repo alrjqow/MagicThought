@@ -12,7 +12,6 @@
 #import "Masonry.h"
 #import "MTBorderStyle.h"
 #import "UILabel+Word.h"
-#import "UIColor+ColorfulColor.h"
 #import "UIView+Circle.h"
 
 @interface MTProgressController ()
@@ -77,7 +76,7 @@
 -(void)setupProgressView
 {
     UIView* view = [UIView new];
-    view.backgroundColor = [UIColor colorWithR:240 G:240 B:240 A:0.7];
+    view.backgroundColor = rgba(240, 240, 240, 0.7);
     [view becomeCircleWithBorder:mt_BorderStyleMake(0, 10, nil)];
     
     [view addSubview:self.progressTitle];

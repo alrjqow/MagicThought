@@ -9,7 +9,7 @@
 #import <UIKit/UIKit.h>
 
 
-@protocol MTDelegateProtocol;
+#import "MTDelegateProtocol.h"
 
 @interface MTNavigationController : UINavigationController<UINavigationControllerDelegate>
 

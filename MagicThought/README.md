@@ -12,7 +12,7 @@ pod 'IQKeyboardManager'
 pod 'SDWebImage'
 pod 'TZImagePickerController'
 pod 'TTTAttributedLabel'
-pod 'SSKeychain'
+pod 'SAMKeychain'
 pod 'JJException'
 pod 'LDProgressView'
 

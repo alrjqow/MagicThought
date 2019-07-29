@@ -31,6 +31,6 @@
 
 #import "TZImagePickerController.h"
 
-#import "SSKeychain.h"
+#import "SAMKeychain.h"
 
 #import "JJException.h"
