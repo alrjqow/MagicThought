@@ -11,6 +11,4 @@
 
 #import "MTWordStyle.h"
 
-#import "MTAlertStyle.h"
-
 #import "MTGraphicType.h"

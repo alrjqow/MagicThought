@@ -10,7 +10,6 @@
 
 #import "MTConst.h"
 #import "MTWordStyle.h"
-#import "UIColor+ColorfulColor.h"
 
 @implementation MTTenScrollTitleViewModel
 

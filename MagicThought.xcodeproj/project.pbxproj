@@ -79,9 +79,6 @@
 		789F3FE922DC2B1A00586487 /* MTSafariViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 789F3E1C22DC2B1A00586487 /* MTSafariViewController.m */; };
 		789F3FEA22DC2B1A00586487 /* MTSafariViewController.h in Headers */ = {isa = PBXBuildFile; fileRef = 789F3E1D22DC2B1A00586487 /* MTSafariViewController.h */; };
 		789F3FEB22DC2B1A00586487 /* MTSafariViewController.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 789F3E1E22DC2B1A00586487 /* MTSafariViewController.bundle */; };
-		789F3FEC22DC2B1A00586487 /* MTAlertController.m in Sources */ = {isa = PBXBuildFile; fileRef = 789F3E2022DC2B1A00586487 /* MTAlertController.m */; };
-		789F3FED22DC2B1A00586487 /* MTAlertController.h in Headers */ = {isa = PBXBuildFile; fileRef = 789F3E2122DC2B1A00586487 /* MTAlertController.h */; };
-		789F3FEE22DC2B1A00586487 /* MTAlertController.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 789F3E2222DC2B1A00586487 /* MTAlertController.bundle */; };
 		789F3FEF22DC2B1A00586487 /* MTNavigationController.h in Headers */ = {isa = PBXBuildFile; fileRef = 789F3E2422DC2B1A00586487 /* MTNavigationController.h */; };
 		789F3FF022DC2B1A00586487 /* MTNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 789F3E2522DC2B1A00586487 /* MTNavigationController.m */; };
 		789F3FF122DC2B1A00586487 /* MTKit.h in Headers */ = {isa = PBXBuildFile; fileRef = 789F3E2622DC2B1A00586487 /* MTKit.h */; };
@@ -258,8 +255,6 @@
 		789F40A622DC2B1B00586487 /* MTWordStyle.m in Sources */ = {isa = PBXBuildFile; fileRef = 789F3EFB22DC2B1A00586487 /* MTWordStyle.m */; };
 		789F40A722DC2B1B00586487 /* MTStyle.h in Headers */ = {isa = PBXBuildFile; fileRef = 789F3EFC22DC2B1A00586487 /* MTStyle.h */; };
 		789F40A822DC2B1B00586487 /* MTBorderStyle.h in Headers */ = {isa = PBXBuildFile; fileRef = 789F3EFD22DC2B1A00586487 /* MTBorderStyle.h */; };
-		789F40A922DC2B1B00586487 /* MTAlertStyle.h in Headers */ = {isa = PBXBuildFile; fileRef = 789F3EFE22DC2B1A00586487 /* MTAlertStyle.h */; };
-		789F40AA22DC2B1B00586487 /* MTAlertStyle.m in Sources */ = {isa = PBXBuildFile; fileRef = 789F3EFF22DC2B1A00586487 /* MTAlertStyle.m */; };
 		789F40AB22DC2B1B00586487 /* MTBorderStyle.m in Sources */ = {isa = PBXBuildFile; fileRef = 789F3F0022DC2B1A00586487 /* MTBorderStyle.m */; };
 		789F40AC22DC2B1B00586487 /* MTWordStyle.h in Headers */ = {isa = PBXBuildFile; fileRef = 789F3F0122DC2B1A00586487 /* MTWordStyle.h */; };
 		789F40AD22DC2B1B00586487 /* MTProtocol.h in Headers */ = {isa = PBXBuildFile; fileRef = 789F3F0322DC2B1A00586487 /* MTProtocol.h */; };
@@ -494,9 +489,6 @@
 		789F3E1C22DC2B1A00586487 /* MTSafariViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MTSafariViewController.m; sourceTree = "<group>"; };
 		789F3E1D22DC2B1A00586487 /* MTSafariViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MTSafariViewController.h; sourceTree = "<group>"; };
 		789F3E1E22DC2B1A00586487 /* MTSafariViewController.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = MTSafariViewController.bundle; sourceTree = "<group>"; };
-		789F3E2022DC2B1A00586487 /* MTAlertController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MTAlertController.m; sourceTree = "<group>"; };
-		789F3E2122DC2B1A00586487 /* MTAlertController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MTAlertController.h; sourceTree = "<group>"; };
-		789F3E2222DC2B1A00586487 /* MTAlertController.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = MTAlertController.bundle; sourceTree = "<group>"; };
 		789F3E2422DC2B1A00586487 /* MTNavigationController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MTNavigationController.h; sourceTree = "<group>"; };
 		789F3E2522DC2B1A00586487 /* MTNavigationController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MTNavigationController.m; sourceTree = "<group>"; };
 		789F3E2622DC2B1A00586487 /* MTKit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MTKit.h; sourceTree = "<group>"; };
@@ -673,8 +665,6 @@
 		789F3EFB22DC2B1A00586487 /* MTWordStyle.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MTWordStyle.m; sourceTree = "<group>"; };
 		789F3EFC22DC2B1A00586487 /* MTStyle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MTStyle.h; sourceTree = "<group>"; };
 		789F3EFD22DC2B1A00586487 /* MTBorderStyle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MTBorderStyle.h; sourceTree = "<group>"; };
-		789F3EFE22DC2B1A00586487 /* MTAlertStyle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MTAlertStyle.h; sourceTree = "<group>"; };
-		789F3EFF22DC2B1A00586487 /* MTAlertStyle.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MTAlertStyle.m; sourceTree = "<group>"; };
 		789F3F0022DC2B1A00586487 /* MTBorderStyle.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MTBorderStyle.m; sourceTree = "<group>"; };
 		789F3F0122DC2B1A00586487 /* MTWordStyle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MTWordStyle.h; sourceTree = "<group>"; };
 		789F3F0322DC2B1A00586487 /* MTProtocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MTProtocol.h; sourceTree = "<group>"; };
@@ -874,6 +864,8 @@
 				789F3F3322DC2B1A00586487 /* MTManager.m */,
 				789F3F2A22DC2B1A00586487 /* MTCloud.h */,
 				789F3F3022DC2B1A00586487 /* MTCloud.m */,
+				789F3F3222DC2B1A00586487 /* MTTimer.h */,
+				789F3F2C22DC2B1A00586487 /* MTTimer.m */,
 			);
 			path = Dependency;
 			sourceTree = "<group>";
@@ -1007,7 +999,6 @@
 				789F3E1122DC2B1A00586487 /* UIViewController + FeedBackInfo */,
 				789F3E1422DC2B1A00586487 /* UIViewController + PickView */,
 				789F3E1B22DC2B1A00586487 /* UIViewController + MTSafariView */,
-				789F3E1F22DC2B1A00586487 /* UIViewController + Alert */,
 			);
 			path = UIViewController;
 			sourceTree = "<group>";
@@ -1015,8 +1006,8 @@
 		789F3E0B22DC2B1A00586487 /* UIViewController + Progress */ = {
 			isa = PBXGroup;
 			children = (
-				789F3E0C22DC2B1A00586487 /* MTProgressController.m */,
 				789F3E0D22DC2B1A00586487 /* MTProgressController.h */,
+				789F3E0C22DC2B1A00586487 /* MTProgressController.m */,
 			);
 			path = "UIViewController + Progress";
 			sourceTree = "<group>";
@@ -1060,16 +1051,6 @@
 				789F3E1E22DC2B1A00586487 /* MTSafariViewController.bundle */,
 			);
 			path = "UIViewController + MTSafariView";
-			sourceTree = "<group>";
-		};
-		789F3E1F22DC2B1A00586487 /* UIViewController + Alert */ = {
-			isa = PBXGroup;
-			children = (
-				789F3E2122DC2B1A00586487 /* MTAlertController.h */,
-				789F3E2022DC2B1A00586487 /* MTAlertController.m */,
-				789F3E2222DC2B1A00586487 /* MTAlertController.bundle */,
-			);
-			path = "UIViewController + Alert";
 			sourceTree = "<group>";
 		};
 		789F3E2322DC2B1A00586487 /* UINavigationController */ = {
@@ -1167,8 +1148,8 @@
 		789F3E4D22DC2B1A00586487 /* UINavigationBar */ = {
 			isa = PBXGroup;
 			children = (
-				789F3E4E22DC2B1A00586487 /* UINavigationBar+Config.m */,
 				789F3E4F22DC2B1A00586487 /* UINavigationBar+Config.h */,
+				789F3E4E22DC2B1A00586487 /* UINavigationBar+Config.m */,
 			);
 			path = UINavigationBar;
 			sourceTree = "<group>";
@@ -1422,8 +1403,6 @@
 				789F3EFB22DC2B1A00586487 /* MTWordStyle.m */,
 				789F3EFD22DC2B1A00586487 /* MTBorderStyle.h */,
 				789F3F0022DC2B1A00586487 /* MTBorderStyle.m */,
-				789F3EFE22DC2B1A00586487 /* MTAlertStyle.h */,
-				789F3EFF22DC2B1A00586487 /* MTAlertStyle.m */,
 			);
 			path = Style;
 			sourceTree = "<group>";
@@ -1448,20 +1427,20 @@
 		789F3F0922DC2B1A00586487 /* BaseCell */ = {
 			isa = PBXGroup;
 			children = (
-				789F3F0A22DC2B1A00586487 /* MTCollectionBaseCell.m */,
-				789F3F0B22DC2B1A00586487 /* MTEmptyBaseCell.m */,
-				789F3F0C22DC2B1A00586487 /* MTTextFieldCell.m */,
-				789F3F0D22DC2B1A00586487 /* MTBaseCell.m */,
-				789F3F0E22DC2B1A00586487 /* MTLoadingView.m */,
-				789F3F0F22DC2B1A00586487 /* MTBaseCollectionReusableView.m */,
-				789F3F1022DC2B1A00586487 /* MTBaseHeaderFooterView.m */,
 				789F3F1122DC2B1A00586487 /* MTBaseCell.h */,
-				789F3F1222DC2B1A00586487 /* MTTextFieldCell.h */,
+				789F3F0D22DC2B1A00586487 /* MTBaseCell.m */,
 				789F3F1322DC2B1A00586487 /* MTEmptyBaseCell.h */,
+				789F3F0B22DC2B1A00586487 /* MTEmptyBaseCell.m */,
 				789F3F1422DC2B1A00586487 /* MTCollectionBaseCell.h */,
-				789F3F1522DC2B1A00586487 /* MTBaseHeaderFooterView.h */,
-				789F3F1622DC2B1A00586487 /* MTBaseCollectionReusableView.h */,
+				789F3F0A22DC2B1A00586487 /* MTCollectionBaseCell.m */,
+				789F3F1222DC2B1A00586487 /* MTTextFieldCell.h */,
+				789F3F0C22DC2B1A00586487 /* MTTextFieldCell.m */,
 				789F3F1722DC2B1A00586487 /* MTLoadingView.h */,
+				789F3F0E22DC2B1A00586487 /* MTLoadingView.m */,
+				789F3F1522DC2B1A00586487 /* MTBaseHeaderFooterView.h */,
+				789F3F1022DC2B1A00586487 /* MTBaseHeaderFooterView.m */,
+				789F3F1622DC2B1A00586487 /* MTBaseCollectionReusableView.h */,
+				789F3F0F22DC2B1A00586487 /* MTBaseCollectionReusableView.m */,
 			);
 			path = BaseCell;
 			sourceTree = "<group>";
@@ -1499,8 +1478,6 @@
 				789F3F2F22DC2B1A00586487 /* MTAuthorizationManager.m */,
 				789F3F2922DC2B1A00586487 /* MTPhotoManager.h */,
 				789F3F3122DC2B1A00586487 /* MTPhotoManager.m */,
-				789F3F3222DC2B1A00586487 /* MTTimer.h */,
-				789F3F2C22DC2B1A00586487 /* MTTimer.m */,
 				789F3F2D22DC2B1A00586487 /* MTDeviceManager.h */,
 				789F3F3522DC2B1A00586487 /* MTDeviceManager.m */,
 				789F3F2E22DC2B1A00586487 /* MTLocationManager.h */,
@@ -1555,8 +1532,8 @@
 		789F3F5022DC2B1A00586487 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
-				789F3F5122DC2B1A00586487 /* TestController.m */,
 				789F3F5222DC2B1A00586487 /* TestController.h */,
+				789F3F5122DC2B1A00586487 /* TestController.m */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -1565,8 +1542,8 @@
 			isa = PBXGroup;
 			children = (
 				789F3F5422DC2B1A00586487 /* MTTenScrollModel.h */,
-				789F3F5522DC2B1A00586487 /* MTTenScrollTitleViewModel.h */,
 				789F3F5622DC2B1A00586487 /* MTTenScrollModel.m */,
+				789F3F5522DC2B1A00586487 /* MTTenScrollTitleViewModel.h */,
 				789F3F5722DC2B1A00586487 /* MTTenScrollTitleViewModel.m */,
 			);
 			path = Model;
@@ -1576,12 +1553,12 @@
 			isa = PBXGroup;
 			children = (
 				789F3F5922DC2B1A00586487 /* MTTenScrollContentView.h */,
-				789F3F5A22DC2B1A00586487 /* MTTenScrollTitleView.h */,
-				789F3F5B22DC2B1A00586487 /* MTTenScrollViewCell.h */,
-				789F3F5C22DC2B1A00586487 /* MTTenScrollView.h */,
-				789F3F5D22DC2B1A00586487 /* MTTenScrollTitleView.m */,
 				789F3F5E22DC2B1A00586487 /* MTTenScrollContentView.m */,
+				789F3F5A22DC2B1A00586487 /* MTTenScrollTitleView.h */,
+				789F3F5D22DC2B1A00586487 /* MTTenScrollTitleView.m */,
+				789F3F5B22DC2B1A00586487 /* MTTenScrollViewCell.h */,
 				789F3F5F22DC2B1A00586487 /* MTTenScrollViewCell.m */,
+				789F3F5C22DC2B1A00586487 /* MTTenScrollView.h */,
 				789F3F6022DC2B1A00586487 /* MTTenScrollView.m */,
 			);
 			path = View;
@@ -1663,8 +1640,8 @@
 			isa = PBXGroup;
 			children = (
 				789F3F8922DC2B1A00586487 /* 1.获取图片 */,
-				789F3F8E22DC2B1A00586487 /* 3.浏览大图 */,
 				789F3F9A22DC2B1A00586487 /* 2.缩略图展示 */,
+				789F3F8E22DC2B1A00586487 /* 3.浏览大图 */,
 				789F3FA522DC2B1A00586487 /* MTPhotoBrowser.bundle */,
 			);
 			path = "图片展示与浏览";
@@ -1673,10 +1650,10 @@
 		789F3F8922DC2B1A00586487 /* 1.获取图片 */ = {
 			isa = PBXGroup;
 			children = (
-				789F3F8A22DC2B1A00586487 /* MTTakePhotoPreseter.m */,
-				789F3F8B22DC2B1A00586487 /* MTTakePhotoPreseterModel.m */,
 				789F3F8C22DC2B1A00586487 /* MTTakePhotoPreseter.h */,
+				789F3F8A22DC2B1A00586487 /* MTTakePhotoPreseter.m */,
 				789F3F8D22DC2B1A00586487 /* MTTakePhotoPreseterModel.h */,
+				789F3F8B22DC2B1A00586487 /* MTTakePhotoPreseterModel.m */,
 			);
 			path = "1.获取图片";
 			sourceTree = "<group>";
@@ -1785,6 +1762,11 @@
 			children = (
 				789F3E2622DC2B1A00586487 /* MTKit.h */,
 				789F3F1822DC2B1A00586487 /* README.md */,
+				789F3F0922DC2B1A00586487 /* BaseCell */,
+				789F3F4F22DC2B1A00586487 /* 十字滚动 */,
+				789F3EDA22DC2B1A00586487 /* Library */,
+				789F3F2722DC2B1A00586487 /* Manager */,
+				789F3DEA22DC2B1A00586487 /* 文件选择 */,
 				789F3E7D22DC2B1A00586487 /* Alert */,
 				789F3DCA22DC2B1A00586487 /* MTSlideView */,
 				789F3F1922DC2B1A00586487 /* MTImagePlay */,
@@ -1811,12 +1793,7 @@
 				789F3E2322DC2B1A00586487 /* UINavigationController */,
 				789F3E0A22DC2B1A00586487 /* UIViewController */,
 				789F3DF422DC2B1A00586487 /* UITableViewController */,
-				789F3DEA22DC2B1A00586487 /* 文件选择 */,
 				789F3E9422DC2B1A00586487 /* 弹框2 */,
-				789F3EDA22DC2B1A00586487 /* Library */,
-				789F3F0922DC2B1A00586487 /* BaseCell */,
-				789F3F2722DC2B1A00586487 /* Manager */,
-				789F3F4F22DC2B1A00586487 /* 十字滚动 */,
 				789F3F7822DC2B1A00586487 /* 自定义相机 */,
 				789F3F8822DC2B1A00586487 /* 图片展示与浏览 */,
 				78F332802239051C00DA02F6 /* Info.plist */,
@@ -1865,7 +1842,6 @@
 				789F40CE22DC2B1B00586487 /* MTAuthorizationManager.h in Headers */,
 				789F401322DC2B1A00586487 /* NSString+Exist.h in Headers */,
 				789F400822DC2B1A00586487 /* UIView+ViewController.h in Headers */,
-				789F40A922DC2B1B00586487 /* MTAlertStyle.h in Headers */,
 				789F3FF422DC2B1A00586487 /* UILabel +AttributeText.h in Headers */,
 				789F3FE122DC2B1A00586487 /* MTFeedBackInfoController.h in Headers */,
 				789F3FE022DC2B1A00586487 /* MTViewController.h in Headers */,
@@ -1929,7 +1905,6 @@
 				789F406422DC2B1B00586487 /* MTAlertSheetItem.h in Headers */,
 				789F3FFD22DC2B1A00586487 /* UIColor+ColorfulColor.h in Headers */,
 				789F40FC22DC2B1B00586487 /* MTTenScrollViewCell.h in Headers */,
-				789F3FED22DC2B1A00586487 /* MTAlertController.h in Headers */,
 				789F412522DC2B1B00586487 /* MTTakePhotoPreseterModel.h in Headers */,
 				789F3FB822DC2B1A00586487 /* UIView+Image.h in Headers */,
 				789F405922DC2B1B00586487 /* MTBaseAlertController.h in Headers */,
@@ -2126,7 +2101,6 @@
 			files = (
 				789F40C122DC2B1B00586487 /* README.md in Resources */,
 				789F3FE422DC2B1A00586487 /* MTDatePickerViewController.xib in Resources */,
-				789F3FEE22DC2B1A00586487 /* MTAlertController.bundle in Resources */,
 				789F413622DC2B1B00586487 /* MTPhotoBrowser.bundle in Resources */,
 				789F409422DC2B1B00586487 /* TZImagePickerController.bundle in Resources */,
 				789F411622DC2B1B00586487 /* MTVideoController.bundle in Resources */,
@@ -2312,7 +2286,6 @@
 				789F405F22DC2B1B00586487 /* MTAlertSheetItem.m in Sources */,
 				789F411D22DC2B1B00586487 /* MTDragCollectionViewCell.m in Sources */,
 				789F405D22DC2B1B00586487 /* MTBaseAlertGroupController.m in Sources */,
-				789F3FEC22DC2B1A00586487 /* MTAlertController.m in Sources */,
 				789F40A122DC2B1B00586487 /* TZImagePickerController.m in Sources */,
 				789F408322DC2B1B00586487 /* UIButton+Word.m in Sources */,
 				789F403F22DC2B1A00586487 /* MTAlertView.m in Sources */,
@@ -2322,7 +2295,6 @@
 				789F40A322DC2B1B00586487 /* TZGifPhotoPreviewController.m in Sources */,
 				789F40A222DC2B1B00586487 /* TZLocationManager.m in Sources */,
 				789F400022DC2B1A00586487 /* UIView+Frame.m in Sources */,
-				789F40AA22DC2B1B00586487 /* MTAlertStyle.m in Sources */,
 				789F3FC822DC2B1A00586487 /* MTFileModel.m in Sources */,
 				789F3FF022DC2B1A00586487 /* MTNavigationController.m in Sources */,
 				789F40EB22DC2B1B00586487 /* MTDelegateCollectionViewCell.m in Sources */,

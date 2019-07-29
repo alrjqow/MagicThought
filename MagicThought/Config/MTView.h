@@ -54,8 +54,6 @@
 
 #import "MTViewController.h"
 
-#import "MTAlertController.h"
-
 #import "MTBaseAlertController.h"
 
 #import "MTVideoController.h"

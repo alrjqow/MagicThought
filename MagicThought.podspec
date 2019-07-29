@@ -134,7 +134,7 @@ Pod::Spec.new do |s|
   # s.dependency "JSONKit", "~> 1.4"
 
 s.name = "MagicThought"
-s.version = "1.7.4"
+s.version = "1.7.5"
 s.summary = "MagicThought for ios."
 s.description = "the MagicThought for ios."
 s.homepage = "https://github.com/alrjqow/MagicThought"
@@ -346,6 +346,55 @@ alert.dependency 'MagicThought/DelegateMode'
 alert.dependency 'MagicThought/TextFieldVerify'
 alert.dependency 'MagicThought/Category'
 alert.dependency 'MagicThought/Style'
+end
+
+s.subspec 'FileSelect' do |fileSelect|
+fileSelect.source_files = 'MagicThought/文件选择/*.{h,m}'
+fileSelect.dependency 'MagicThought/Dependency'
+end
+
+s.subspec 'Manager' do |manager|
+manager.source_files = 'MagicThought/Manager/*.{h,m}'
+
+manager.dependency 'MagicThought/Alert'
+manager.dependency 'MagicThought/Dependency'
+manager.dependency 'MagicThought/Category'
+end
+
+s.subspec 'Library' do |library|
+
+library.subspec 'TZImagePickerController' do |imagePickerController|
+imagePickerController.source_files = 'MagicThought/Library/TZImagePickerController/*.{m,h}'
+imagePickerController.resources = "MagicThought/Library/TZImagePickerController/TZImagePickerController.bundle"
+
+imagePickerController.dependency 'MagicThought/Category/UINavigationBar'
+imagePickerController.dependency 'MagicThought/Dependency'
+imagePickerController.dependency 'MagicThought/ImageHandle'
+end
+
+end
+
+s.subspec 'TenScroll' do |tenScroll|
+tenScroll.source_files = 'MagicThought/十字滚动/Controller/*.{h,m}', 'MagicThought/十字滚动/Model/*.{h,m}', 'MagicThought/十字滚动/View/*.{h,m}'
+
+
+tenScroll.dependency 'MagicThought/ViewContentStyle'
+tenScroll.dependency 'MagicThought/Style'
+tenScroll.dependency 'MagicThought/Network'
+tenScroll.dependency 'MagicThought/DelegateMode'
+tenScroll.dependency 'MagicThought/Dependency'
+
+end
+
+s.subspec 'BaseCell' do |baseCell|
+baseCell.source_files = 'MagicThought/BaseCell/*.{h,m}'
+
+baseCell.dependency 'MagicThought/TextFieldVerify'
+baseCell.dependency 'MagicThought/ViewContentStyle'
+baseCell.dependency 'MagicThought/Style'
+baseCell.dependency 'MagicThought/DelegateMode'
+baseCell.dependency 'MagicThought/Dependency'
+
 end
 
 

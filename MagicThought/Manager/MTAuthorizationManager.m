@@ -7,7 +7,8 @@
 //
 
 #import "MTAuthorizationManager.h"
-#import "MTAlertController.h"
+#import "MTAlertView.h"
+#import "MTPopButtonItem.h"
 #import "MTConst.h"
 
 #import <AVFoundation/AVFoundation.h>
@@ -97,13 +98,13 @@
     
     if(!haveAuthorization)
     {
-        MTAlertController* alert = [[MTAlertController alloc]initWithAlertStyle:mt_AlertStyleMake(mt_AppName() , message, @"不开启", @"去开启", 0)];
-        
-        __weak typeof (self) weakSelf = self;
-        alert.doSomethingTapRight = ^{
+        MTPopButtonItem* item = MTPopButtonItemMake(@"去开启", YES, @"MTAuthorizationManagerOpenAuthorizationOrder");
+            __weak __typeof(self) weakSelf = self;
+        item.handler = ^(NSInteger index) {
             [weakSelf openSettingWithURL:url];
         };
-        [alert alert];
+        
+        [self alertWithTitle:mt_AppName() Content:message Buttons:@[MTPopButtonItemMake(@"不开启", false, nil), item]];
     }
     
     return haveAuthorization;

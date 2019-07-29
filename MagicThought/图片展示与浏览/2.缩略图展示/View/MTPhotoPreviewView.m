@@ -9,7 +9,6 @@
 #import "MTPhotoPreviewViewModel.h"
 #import "MTPhotoPreviewViewCellModel.h"
 #import "MTPhotoBrowserViewModel.h"
-#import "MTPopButtonItem.h"
 
 #import "MTPhotoPreviewView.h"
 #import "MTPhotoPreviewViewCell.h"
@@ -17,13 +16,12 @@
 #import "MTTakePhotoPreseter.h"
 #import "MTPhotoBrowser.h"
 #import "MTConst.h"
-#import "MTAlertController.h"
 #import "NSString+Bundle.h"
 #import "MTAlertView.h"
+#import "MTPopButtonItem.h"
+
 
 @interface MTPhotoPreviewView()
-
-@property(nonatomic,strong) MTAlertController* alert;
 
 @end
 
@@ -65,8 +63,6 @@
 
 
 
-
-
 #pragma mark - 自定义代理
 
 -(void)doSomeThingForMe:(id)obj withOrder:(NSString*)order
@@ -101,23 +97,7 @@
 }
 
 
-
-
-
 #pragma mark - 懒加载
-
-
--(MTAlertController *)alert
-{    //1.弹出提示，询问是否删除
-    if(!_alert)
-    {
-        MTAlertController* alert = [[MTAlertController alloc]initWithAlertStyle:mt_AlertStyleMake(mt_AppName() , @"确定要删除？", @"我按错了", @"是的", 0)];
-        alert.alertViewSize = CGSizeMake(alert.alertViewSize.width, alert.alertViewSize.height - 20);
-        _alert = alert;
-    }
-    
-    return _alert;
-}
 
 
 #pragma mark - 初始化
