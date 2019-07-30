@@ -9,6 +9,18 @@
 /* Begin PBXBuildFile section */
 		780C2FDD22E9B37F005FA4DB /* MTTextFieldVerifyModel.h in Headers */ = {isa = PBXBuildFile; fileRef = 780C2FDB22E9B37F005FA4DB /* MTTextFieldVerifyModel.h */; };
 		780C2FDE22E9B37F005FA4DB /* MTTextFieldVerifyModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 780C2FDC22E9B37F005FA4DB /* MTTextFieldVerifyModel.m */; };
+		781B0F7622F0270200B56434 /* MTLineChartContentView.m in Sources */ = {isa = PBXBuildFile; fileRef = 781B0F6A22F026F900B56434 /* MTLineChartContentView.m */; };
+		781B0F7722F0270200B56434 /* MTVernierView.h in Headers */ = {isa = PBXBuildFile; fileRef = 781B0F6B22F026FB00B56434 /* MTVernierView.h */; };
+		781B0F7822F0270200B56434 /* MTLineChartView.m in Sources */ = {isa = PBXBuildFile; fileRef = 781B0F6C22F026FB00B56434 /* MTLineChartView.m */; };
+		781B0F7922F0270200B56434 /* MTLineChartViewConfig.h in Headers */ = {isa = PBXBuildFile; fileRef = 781B0F6D22F026FB00B56434 /* MTLineChartViewConfig.h */; };
+		781B0F7A22F0270200B56434 /* MTVernierView.m in Sources */ = {isa = PBXBuildFile; fileRef = 781B0F6E22F026FC00B56434 /* MTVernierView.m */; };
+		781B0F7B22F0270200B56434 /* MTLineChartViewConfig.m in Sources */ = {isa = PBXBuildFile; fileRef = 781B0F6F22F026FC00B56434 /* MTLineChartViewConfig.m */; };
+		781B0F7C22F0270200B56434 /* MTLineChartView.h in Headers */ = {isa = PBXBuildFile; fileRef = 781B0F7022F026FD00B56434 /* MTLineChartView.h */; };
+		781B0F7D22F0270200B56434 /* MTXAxisView.m in Sources */ = {isa = PBXBuildFile; fileRef = 781B0F7122F026FD00B56434 /* MTXAxisView.m */; };
+		781B0F7E22F0270200B56434 /* MTLineChartContentView.h in Headers */ = {isa = PBXBuildFile; fileRef = 781B0F7222F026FE00B56434 /* MTLineChartContentView.h */; };
+		781B0F7F22F0270200B56434 /* MTYAxisView.m in Sources */ = {isa = PBXBuildFile; fileRef = 781B0F7322F026FF00B56434 /* MTYAxisView.m */; };
+		781B0F8022F0270200B56434 /* MTXAxisView.h in Headers */ = {isa = PBXBuildFile; fileRef = 781B0F7422F0270000B56434 /* MTXAxisView.h */; };
+		781B0F8122F0270200B56434 /* MTYAxisView.h in Headers */ = {isa = PBXBuildFile; fileRef = 781B0F7522F0270200B56434 /* MTYAxisView.h */; };
 		7820500D22EEEBFD0004C96C /* MTInteractiveNavigationDelegate.h in Headers */ = {isa = PBXBuildFile; fileRef = 78204FFC22EEEBFD0004C96C /* MTInteractiveNavigationDelegate.h */; };
 		7820500E22EEEBFD0004C96C /* MTInteractiveNavigationDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 78204FFD22EEEBFD0004C96C /* MTInteractiveNavigationDelegate.m */; };
 		7820500F22EEEBFD0004C96C /* AnimateController.m in Sources */ = {isa = PBXBuildFile; fileRef = 78204FFF22EEEBFD0004C96C /* AnimateController.m */; };
@@ -437,6 +449,19 @@
 		781B0F6622EFFA1D00B56434 /* MTNetwork.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MTNetwork.h; sourceTree = "<group>"; };
 		781B0F6722EFFB8600B56434 /* Category.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Category.h; sourceTree = "<group>"; };
 		781B0F6822EFFCEB00B56434 /* Dependency.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Dependency.h; sourceTree = "<group>"; };
+		781B0F6A22F026F900B56434 /* MTLineChartContentView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MTLineChartContentView.m; sourceTree = "<group>"; };
+		781B0F6B22F026FB00B56434 /* MTVernierView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MTVernierView.h; sourceTree = "<group>"; };
+		781B0F6C22F026FB00B56434 /* MTLineChartView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MTLineChartView.m; sourceTree = "<group>"; };
+		781B0F6D22F026FB00B56434 /* MTLineChartViewConfig.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MTLineChartViewConfig.h; sourceTree = "<group>"; };
+		781B0F6E22F026FC00B56434 /* MTVernierView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MTVernierView.m; sourceTree = "<group>"; };
+		781B0F6F22F026FC00B56434 /* MTLineChartViewConfig.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MTLineChartViewConfig.m; sourceTree = "<group>"; };
+		781B0F7022F026FD00B56434 /* MTLineChartView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MTLineChartView.h; sourceTree = "<group>"; };
+		781B0F7122F026FD00B56434 /* MTXAxisView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MTXAxisView.m; sourceTree = "<group>"; };
+		781B0F7222F026FE00B56434 /* MTLineChartContentView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MTLineChartContentView.h; sourceTree = "<group>"; };
+		781B0F7322F026FF00B56434 /* MTYAxisView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MTYAxisView.m; sourceTree = "<group>"; };
+		781B0F7422F0270000B56434 /* MTXAxisView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MTXAxisView.h; sourceTree = "<group>"; };
+		781B0F7522F0270200B56434 /* MTYAxisView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MTYAxisView.h; sourceTree = "<group>"; };
+		781B0F8222F029F300B56434 /* MTChart.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MTChart.h; sourceTree = "<group>"; };
 		78204FFC22EEEBFD0004C96C /* MTInteractiveNavigationDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MTInteractiveNavigationDelegate.h; sourceTree = "<group>"; };
 		78204FFD22EEEBFD0004C96C /* MTInteractiveNavigationDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MTInteractiveNavigationDelegate.m; sourceTree = "<group>"; };
 		78204FFF22EEEBFD0004C96C /* AnimateController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AnimateController.m; sourceTree = "<group>"; };
@@ -882,6 +907,26 @@
 				789F3E4E22DC2B1A00586487 /* UINavigationBar+Config.m */,
 			);
 			path = Dependency;
+			sourceTree = "<group>";
+		};
+		781B0F6922F026EB00B56434 /* MTChart */ = {
+			isa = PBXGroup;
+			children = (
+				781B0F8222F029F300B56434 /* MTChart.h */,
+				781B0F7222F026FE00B56434 /* MTLineChartContentView.h */,
+				781B0F6A22F026F900B56434 /* MTLineChartContentView.m */,
+				781B0F6B22F026FB00B56434 /* MTVernierView.h */,
+				781B0F6E22F026FC00B56434 /* MTVernierView.m */,
+				781B0F7022F026FD00B56434 /* MTLineChartView.h */,
+				781B0F6C22F026FB00B56434 /* MTLineChartView.m */,
+				781B0F6D22F026FB00B56434 /* MTLineChartViewConfig.h */,
+				781B0F6F22F026FC00B56434 /* MTLineChartViewConfig.m */,
+				781B0F7422F0270000B56434 /* MTXAxisView.h */,
+				781B0F7122F026FD00B56434 /* MTXAxisView.m */,
+				781B0F7522F0270200B56434 /* MTYAxisView.h */,
+				781B0F7322F026FF00B56434 /* MTYAxisView.m */,
+			);
+			path = MTChart;
 			sourceTree = "<group>";
 		};
 		78204FFB22EEEBFD0004C96C /* Delegate */ = {
@@ -1793,6 +1838,7 @@
 			children = (
 				789F3E2622DC2B1A00586487 /* MTKit.h */,
 				789F3F1822DC2B1A00586487 /* README.md */,
+				781B0F6922F026EB00B56434 /* MTChart */,
 				789F3F8822DC2B1A00586487 /* MTImageShowAndBrowser */,
 				789F3E9422DC2B1A00586487 /* MTAlert2 */,
 				789F3E2322DC2B1A00586487 /* MTNavigationController */,
@@ -1909,6 +1955,7 @@
 				789F405B22DC2B1B00586487 /* MTAlertDatePickerController.h in Headers */,
 				789F412F22DC2B1B00586487 /* MTPhotoPreviewViewCellModel.h in Headers */,
 				789F40BE22DC2B1B00586487 /* MTBaseHeaderFooterView.h in Headers */,
+				781B0F7922F0270200B56434 /* MTLineChartViewConfig.h in Headers */,
 				789F408122DC2B1B00586487 /* MTLabel.h in Headers */,
 				789F404A22DC2B1B00586487 /* NSDictionary+Json.h in Headers */,
 				789F3FDA22DC2B1A00586487 /* MTCountButton.h in Headers */,
@@ -1928,9 +1975,11 @@
 				789F40AC22DC2B1B00586487 /* MTWordStyle.h in Headers */,
 				789F406422DC2B1B00586487 /* MTAlertSheetItem.h in Headers */,
 				789F3FFD22DC2B1A00586487 /* UIColor+ColorfulColor.h in Headers */,
+				781B0F7E22F0270200B56434 /* MTLineChartContentView.h in Headers */,
 				789F40FC22DC2B1B00586487 /* MTTenScrollViewCell.h in Headers */,
 				789F412522DC2B1B00586487 /* MTTakePhotoPreseterModel.h in Headers */,
 				789F3FB822DC2B1A00586487 /* UIView+Image.h in Headers */,
+				781B0F7722F0270200B56434 /* MTVernierView.h in Headers */,
 				789F405922DC2B1B00586487 /* MTBaseAlertController.h in Headers */,
 				789F40E022DC2B1B00586487 /* MTDelegateView.h in Headers */,
 				7820501422EEEBFD0004C96C /* MTAnimatedTransitioning.h in Headers */,
@@ -1952,6 +2001,7 @@
 				789F40BF22DC2B1B00586487 /* MTBaseCollectionReusableView.h in Headers */,
 				789F409622DC2B1B00586487 /* TZGifPhotoPreviewController.h in Headers */,
 				789F40F522DC2B1B00586487 /* TestController.h in Headers */,
+				781B0F8122F0270200B56434 /* MTYAxisView.h in Headers */,
 				789F40B222DC2B1B00586487 /* MTDelegateProtocol.h in Headers */,
 				789F402122DC2B1A00586487 /* NSString+TestString.h in Headers */,
 				789F411F22DC2B1B00586487 /* MTCountingView.h in Headers */,
@@ -1970,6 +2020,7 @@
 				789F400922DC2B1A00586487 /* UIView+Frame.h in Headers */,
 				789F401822DC2B1A00586487 /* NSString+Replace.h in Headers */,
 				789F3FBB22DC2B1A00586487 /* UIImage+Size.h in Headers */,
+				781B0F8022F0270200B56434 /* MTXAxisView.h in Headers */,
 				789F40A022DC2B1B00586487 /* UIView+Layout.h in Headers */,
 				789F40DE22DC2B1B00586487 /* MTDelegateCollectionReusableView.h in Headers */,
 				789F3FA922DC2B1A00586487 /* MTSlideHeader.h in Headers */,
@@ -2016,6 +2067,7 @@
 				789F406022DC2B1B00586487 /* MTAlertWordItem.h in Headers */,
 				789F401C22DC2B1A00586487 /* NSString+Encode.h in Headers */,
 				789F404822DC2B1B00586487 /* MTRefreshRing.h in Headers */,
+				781B0F7C22F0270200B56434 /* MTLineChartView.h in Headers */,
 				789F40E222DC2B1B00586487 /* MTDataSource.h in Headers */,
 				789F411022DC2B1B00586487 /* NSDictionary+File.h in Headers */,
 				789F402722DC2B1A00586487 /* NSString+Unicode.h in Headers */,
@@ -2246,6 +2298,7 @@
 				789F411722DC2B1B00586487 /* MTVideoController.m in Sources */,
 				789F40C522DC2B1B00586487 /* MTImagePlayViewCell.m in Sources */,
 				789F411322DC2B1B00586487 /* MTSpiltView.m in Sources */,
+				781B0F7622F0270200B56434 /* MTLineChartContentView.m in Sources */,
 				789F3FFE22DC2B1A00586487 /* UIView+ViewController.m in Sources */,
 				789F412822DC2B1B00586487 /* MTPhotoBrowserController.m in Sources */,
 				789F404222DC2B1B00586487 /* MTAlertViewConfig.m in Sources */,
@@ -2255,6 +2308,7 @@
 				789F409322DC2B1B00586487 /* TZPhotoPreviewController.m in Sources */,
 				789F3FFC22DC2B1A00586487 /* UIColor+Image.m in Sources */,
 				789F3FE922DC2B1A00586487 /* MTSafariViewController.m in Sources */,
+				781B0F7822F0270200B56434 /* MTLineChartView.m in Sources */,
 				789F3FB922DC2B1A00586487 /* UIImage+Cut.m in Sources */,
 				789F3FDD22DC2B1A00586487 /* MTProgressController.m in Sources */,
 				789F411822DC2B1B00586487 /* MTVideoView.m in Sources */,
@@ -2301,6 +2355,7 @@
 				789F409822DC2B1B00586487 /* TZImageManager.m in Sources */,
 				789F408A22DC2B1B00586487 /* TZImageCropManager.m in Sources */,
 				789F40D922DC2B1B00586487 /* MTManager.m in Sources */,
+				781B0F7A22F0270200B56434 /* MTVernierView.m in Sources */,
 				789F40B622DC2B1B00586487 /* MTBaseCell.m in Sources */,
 				789F402422DC2B1A00586487 /* NSString+MD5.m in Sources */,
 				789F3FA722DC2B1A00586487 /* MTSlideHeader.m in Sources */,
@@ -2322,12 +2377,14 @@
 				789F40FF22DC2B1B00586487 /* MTTenScrollContentView.m in Sources */,
 				789F40FE22DC2B1B00586487 /* MTTenScrollTitleView.m in Sources */,
 				789F408C22DC2B1B00586487 /* TZAssetCell.m in Sources */,
+				781B0F7D22F0270200B56434 /* MTXAxisView.m in Sources */,
 				789F412C22DC2B1B00586487 /* MTPhotoLook.m in Sources */,
 				789F406122DC2B1B00586487 /* MTAlertItem.m in Sources */,
 				789F414322DC2B9100586487 /* MTRefreshAutoNormalFooter.m in Sources */,
 				789F40B522DC2B1B00586487 /* MTTextFieldCell.m in Sources */,
 				789F404922DC2B1B00586487 /* MTRefreshRing.m in Sources */,
 				789F3FB522DC2B1A00586487 /* UIImage+MTCircleImage.m in Sources */,
+				781B0F7B22F0270200B56434 /* MTLineChartViewConfig.m in Sources */,
 				789F40D522DC2B1B00586487 /* MTAuthorizationManager.m in Sources */,
 				789F412E22DC2B1B00586487 /* MTPhotoPreviewViewModel.m in Sources */,
 				789F414622DC2B9100586487 /* MTRefreshGifHeader.m in Sources */,
@@ -2342,6 +2399,7 @@
 				789F40E822DC2B1B00586487 /* MTDelegateView.m in Sources */,
 				789F3FFF22DC2B1A00586487 /* UIView+Animate.m in Sources */,
 				789F3FF822DC2B1A00586487 /* UIColor+RGBValues.m in Sources */,
+				781B0F7F22F0270200B56434 /* MTYAxisView.m in Sources */,
 				789F412222DC2B1B00586487 /* MTTakePhotoPreseter.m in Sources */,
 				7820501222EEEBFD0004C96C /* MTCardStyle1Transitioning.m in Sources */,
 				789F408422DC2B1B00586487 /* UILabel+Word.m in Sources */,

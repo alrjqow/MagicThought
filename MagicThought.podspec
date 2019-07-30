@@ -134,7 +134,7 @@ Pod::Spec.new do |s|
   # s.dependency "JSONKit", "~> 1.4"
 
 s.name = "MagicThought"
-s.version = "1.7.7"
+s.version = "1.7.8"
 s.summary = "MagicThought for ios."
 s.description = "the MagicThought for ios."
 s.homepage = "https://github.com/alrjqow/MagicThought"
@@ -498,6 +498,10 @@ imageBrowser.dependency 'MagicThought/Dependency'
 
 end
 
+s.subspec 'MTChart' do |chart|
+chart.source_files = 'MagicThought/MTChart/*.{m,h}'
+chart.dependency 'MagicThought/Dependency'
+end
 
 
 #s.resources = "MagicThought/MagicThought/MagicThought/*"
