@@ -11,6 +11,9 @@
 
 #import "MTConst.h"
 
+#import "MTBorderStyle.h"
+#import "MTWordStyle.h"
+
 #import "MTManager.h"
 #import "MTCloud.h"
 #import "MTTimer.h"

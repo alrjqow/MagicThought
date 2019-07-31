@@ -134,7 +134,7 @@ Pod::Spec.new do |s|
   # s.dependency "JSONKit", "~> 1.4"
 
 s.name = "MagicThought"
-s.version = "1.7.8"
+s.version = "1.8.0"
 s.summary = "MagicThought for ios."
 s.description = "the MagicThought for ios."
 s.homepage = "https://github.com/alrjqow/MagicThought"
@@ -203,15 +203,12 @@ end
 
 category.subspec 'UIView' do |view|
 view.source_files = 'MagicThought/Category/UIView/*.{m,h}'
-view.dependency 'MagicThought/MTStyle'
-view.dependency 'MagicThought/Dependency'
 end
 
 category.subspec 'UIViewController' do |viewController|
 viewController.source_files = 'MagicThought/Category/UIViewController/*.{m,h}'
 viewController.dependency 'MagicThought/Dependency'
 end
-
 
 end
 
@@ -264,7 +261,6 @@ end
 s.subspec 'MTImageHandle' do |imageHandle|
 imageHandle.source_files = 'MagicThought/MTImageHandle/*.{h,m}'
 imageHandle.dependency 'MagicThought/MTFileHandle'
-imageHandle.dependency 'MagicThought/MTStyle'
 imageHandle.dependency 'MagicThought/Dependency'
 end
 
@@ -329,7 +325,6 @@ alert.source_files = 'MagicThought/MTAlert/*.{h,m}'
 alert.dependency 'MagicThought/MTDelegateMode'
 alert.dependency 'MagicThought/MTTextFieldVerify'
 alert.dependency 'MagicThought/Category'
-alert.dependency 'MagicThought/MTStyle'
 end
 
 s.subspec 'MTFileSelect' do |fileSelect|
@@ -461,7 +456,6 @@ alert2.source_files = 'MagicThought/MTImageShowAndBrowser/**/*.{m,h}'
 alert2.subspec 'Model' do |model|
 model.source_files = 'MagicThought/MTAlert2/Model/*.{m,h}'
 model.dependency 'MagicThought/MTDelegateMode'
-model.dependency 'MagicThought/MTStyle'
 model.dependency 'MagicThought/Dependency'
 end
 
@@ -489,7 +483,7 @@ imageBrowser.dependency 'MagicThought/MTCustomCamera'
 imageBrowser.dependency 'MagicThought/MTImageHandle'
 imageBrowser.dependency 'MagicThought/MTAlert2'
 imageBrowser.dependency 'MagicThought/MTAlert'
-imageBrowser.dependency 'MagicThought/MTStyle'
+imageBrowser
 imageBrowser.dependency 'MagicThought/Category'
 imageBrowser.dependency 'MagicThought/MTManager'
 imageBrowser.dependency 'MagicThought/MTProtocol'
