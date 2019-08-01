@@ -44,5 +44,5 @@
 #import "MTSpiltView.h"
 #import "MTGestureLock.h"
 #import "MTTapWaveEffect.h"
-
+#import "MTChart.h"
 

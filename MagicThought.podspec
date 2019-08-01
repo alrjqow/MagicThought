@@ -134,7 +134,7 @@ Pod::Spec.new do |s|
 # s.dependency "JSONKit", "~> 1.4"
 
 s.name = "MagicThought"
-s.version = "1.8.1"
+s.version = "1.8.2"
 s.summary = "MagicThought for ios."
 s.description = "the MagicThought for ios."
 s.homepage = "https://github.com/alrjqow/MagicThought"
@@ -443,6 +443,56 @@ navigationController.dependency 'MagicThought/MTStyle'
 navigationController.dependency 'MagicThought/MTProtocol'
 navigationController.dependency 'MagicThought/Dependency'
 end
+
+
+s.subspec 'MTAlert2' do |alert2|
+
+alert2.source_files = 'MagicThought/MTAlert2/**/*.{m,h}'
+
+alert2.subspec 'Model' do |model|
+model.source_files = 'MagicThought/MTAlert2/Model/*.{m,h}'
+model.dependency 'MagicThought/MTDelegateMode'
+model.dependency 'MagicThought/Dependency'
+end
+
+alert2.subspec 'Controller' do |controller|
+controller.source_files = 'MagicThought/MTAlert2/Controller/*.{m,h}', 'MagicThought/MTAlert2/Service/*.{m,h}'
+controller.dependency 'MagicThought/MTAlert2/Model'
+controller.dependency 'MagicThought/MTStyle'
+controller.dependency 'MagicThought/MTDelegateMode'
+controller.dependency 'MagicThought/MTViewController/UIViewController+Base'
+controller.dependency 'MagicThought/Dependency'
+end
+
+end
+
+
+s.subspec 'MTImageShowAndBrowser' do |imageBrowser|
+
+imageBrowser.source_files = 'MagicThought/MTImageShowAndBrowser/**/*.{m,h}'
+imageBrowser.resources = "MagicThought/MTImageShowAndBrowser/MTPhotoBrowser.bundle"
+
+imageBrowser.dependency 'MagicThought/Library/TZImagePickerController'
+imageBrowser.dependency 'MagicThought/MTNavigationController'
+imageBrowser.dependency 'MagicThought/MTCustomCamera'
+imageBrowser.dependency 'MagicThought/MTImageHandle'
+imageBrowser.dependency 'MagicThought/MTAlert2'
+imageBrowser.dependency 'MagicThought/MTAlert'
+imageBrowser.dependency 'MagicThought/Category'
+imageBrowser.dependency 'MagicThought/MTManager'
+imageBrowser.dependency 'MagicThought/MTProtocol'
+imageBrowser.dependency 'MagicThought/MTDelegateMode'
+imageBrowser.dependency 'MagicThought/Dependency'
+
+end
+
+
+s.subspec 'MTChart' do |chart|
+chart.source_files = 'MagicThought/MTChart/*.{m,h}'
+chart.dependency 'MagicThought/Dependency'
+end
+
+
 
 #s.resources = "MagicThought/MagicThought/MagicThought/*"
 s.framework = "UIKit"
