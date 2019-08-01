@@ -1,5 +1,5 @@
 //
-//  MTLineChartViewConfig.h
+//  WSLineChartViewConfig.h
 //  WSLineChart
 //
 //  Created by monda on 2019/7/3.
@@ -32,6 +32,8 @@
 /**仅显示某几个刻度*/
 @property (nonatomic,strong) NSArray<NSNumber*>* xAxisMarkShowIndexArray;
 
+/**折线为虚线的点索引*/
+@property (nonatomic,strong) NSArray<NSNumber*>* weakLinePointIndexArray;
 
 
 
@@ -136,7 +138,7 @@
 /**y轴scrollView*/
 @property (nonatomic,weak) UIScrollView* yAxisScrollView;
 /**y轴View的高度*/
-@property (nonatomic,assign) CGFloat MTYAxisViewHeight;
+@property (nonatomic,assign) CGFloat yAxisViewHeight;
 /**y轴的分段*/
 @property (nonatomic,assign) CGFloat numberOfYAxisElements;
 /**y轴原点*/
@@ -155,7 +157,7 @@
 /**x轴scrollView*/
 @property (nonatomic,weak) UIScrollView* xAxisScrollView;
 /**x轴View的宽度*/
-@property (nonatomic,assign) CGFloat MTXAxisViewWidth;
+@property (nonatomic,assign) CGFloat xAxisViewWidth;
 
 /**x轴右间距*/
 @property (nonatomic,assign) CGFloat xAxisRightSpace;

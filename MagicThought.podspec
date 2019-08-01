@@ -8,133 +8,133 @@
 
 Pod::Spec.new do |s|
 
-  # ―――  Spec Metadata  ―――――――――――――――――――――――――――――――――――――――――――――――――――――――――― #
-  #
-  #  These will help people to find your library, and whilst it
-  #  can feel like a chore to fill in it"s definitely to your advantage. The
-  #  summary should be tweet-length, and the description more in depth.
-  #
+# ―――  Spec Metadata  ―――――――――――――――――――――――――――――――――――――――――――――――――――――――――― #
+#
+#  These will help people to find your library, and whilst it
+#  can feel like a chore to fill in it"s definitely to your advantage. The
+#  summary should be tweet-length, and the description more in depth.
+#
 
 # s.name         = "MagicThought"
 #s.version      = "0.0.1"
 # s.summary      = "A short description of MagicThought."
 
-  # This description is used to generate tags and improve search results.
-  #   * Think: What does it do? Why did you write it? What is the focus?
-  #   * Try to keep it short, snappy and to the point.
-  #   * Write the description between the DESC delimiters below.
-  #   * Finally, don"t worry about the indent, CocoaPods strips it!
+# This description is used to generate tags and improve search results.
+#   * Think: What does it do? Why did you write it? What is the focus?
+#   * Try to keep it short, snappy and to the point.
+#   * Write the description between the DESC delimiters below.
+#   * Finally, don"t worry about the indent, CocoaPods strips it!
 # s.description  = <<-DESC
 
 #s.homepage     = "http://EXAMPLE/MagicThought"
-  # s.screenshots  = "www.example.com/screenshots_1.gif", "www.example.com/screenshots_2.gif"
+# s.screenshots  = "www.example.com/screenshots_1.gif", "www.example.com/screenshots_2.gif"
 
 
-  # ―――  Spec License  ――――――――――――――――――――――――――――――――――――――――――――――――――――――――――― #
-  #
-  #  Licensing your code is important. See http://choosealicense.com for more info.
-  #  CocoaPods will detect a license file if there is a named LICENSE*
-  #  Popular ones are "MIT", "BSD" and "Apache License, Version 2.0".
-  #
+# ―――  Spec License  ――――――――――――――――――――――――――――――――――――――――――――――――――――――――――― #
+#
+#  Licensing your code is important. See http://choosealicense.com for more info.
+#  CocoaPods will detect a license file if there is a named LICENSE*
+#  Popular ones are "MIT", "BSD" and "Apache License, Version 2.0".
+#
 
 #s.license      = "MIT (example)"
-  # s.license      = { :type => "MIT", :file => "FILE_LICENSE" }
+# s.license      = { :type => "MIT", :file => "FILE_LICENSE" }
 
 
-  # ――― Author Metadata  ――――――――――――――――――――――――――――――――――――――――――――――――――――――――― #
-  #
-  #  Specify the authors of the library, with email addresses. Email addresses
-  #  of the authors are extracted from the SCM log. E.g. $ git log. CocoaPods also
-  #  accepts just a name if you"d rather not provide an email address.
-  #
-  #  Specify a social_media_url where others can refer to, for example a twitter
-  #  profile URL.
-  #
+# ――― Author Metadata  ――――――――――――――――――――――――――――――――――――――――――――――――――――――――― #
+#
+#  Specify the authors of the library, with email addresses. Email addresses
+#  of the authors are extracted from the SCM log. E.g. $ git log. CocoaPods also
+#  accepts just a name if you"d rather not provide an email address.
+#
+#  Specify a social_media_url where others can refer to, for example a twitter
+#  profile URL.
+#
 
 #s.author             = { "monda" => "" }
-  # Or just: s.author    = "monda"
-  # s.authors            = { "monda" => "" }
-  # s.social_media_url   = "http://twitter.com/monda"
+# Or just: s.author    = "monda"
+# s.authors            = { "monda" => "" }
+# s.social_media_url   = "http://twitter.com/monda"
 
-  # ――― Platform Specifics ――――――――――――――――――――――――――――――――――――――――――――――――――――――― #
-  #
-  #  If this Pod runs only on iOS or OS X, then specify the platform and
-  #  the deployment target. You can optionally include the target after the platform.
-  #
+# ――― Platform Specifics ――――――――――――――――――――――――――――――――――――――――――――――――――――――― #
+#
+#  If this Pod runs only on iOS or OS X, then specify the platform and
+#  the deployment target. You can optionally include the target after the platform.
+#
 
-  # s.platform     = :ios
-  # s.platform     = :ios, "5.0"
+# s.platform     = :ios
+# s.platform     = :ios, "5.0"
 
-  #  When using multiple platforms
-  # s.ios.deployment_target = "5.0"
-  # s.osx.deployment_target = "10.7"
-  # s.watchos.deployment_target = "2.0"
-  # s.tvos.deployment_target = "9.0"
+#  When using multiple platforms
+# s.ios.deployment_target = "5.0"
+# s.osx.deployment_target = "10.7"
+# s.watchos.deployment_target = "2.0"
+# s.tvos.deployment_target = "9.0"
 
 
-  # ――― Source Location ―――――――――――――――――――――――――――――――――――――――――――――――――――――――――― #
-  #
-  #  Specify the location from where the source should be retrieved.
-  #  Supports git, hg, bzr, svn and HTTP.
-  #
+# ――― Source Location ―――――――――――――――――――――――――――――――――――――――――――――――――――――――――― #
+#
+#  Specify the location from where the source should be retrieved.
+#  Supports git, hg, bzr, svn and HTTP.
+#
 
 #s.source       = { :git => "http://EXAMPLE/MagicThought.git", :tag => "#{s.version}" }
 
 
-  # ――― Source Code ―――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――― #
-  #
-  #  CocoaPods is smart about how it includes source code. For source files
-  #  giving a folder will include any swift, h, m, mm, c & cpp files.
-  #  For header files it will include any header in the folder.
-  #  Not including the public_header_files will make all headers public.
-  #
+# ――― Source Code ―――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――― #
+#
+#  CocoaPods is smart about how it includes source code. For source files
+#  giving a folder will include any swift, h, m, mm, c & cpp files.
+#  For header files it will include any header in the folder.
+#  Not including the public_header_files will make all headers public.
+#
 
 #s.source_files  = "Classes", "Classes/**/*.{h,m}"
 #s.exclude_files = "Classes/Exclude"
 
-  # s.public_header_files = "Classes/**/*.h"
+# s.public_header_files = "Classes/**/*.h"
 
 
-  # ――― Resources ―――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――― #
-  #
-  #  A list of resources included with the Pod. These are copied into the
-  #  target bundle with a build phase script. Anything else will be cleaned.
-  #  You can preserve files from being cleaned, please don"t preserve
-  #  non-essential files like tests, examples and documentation.
-  #
+# ――― Resources ―――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――― #
+#
+#  A list of resources included with the Pod. These are copied into the
+#  target bundle with a build phase script. Anything else will be cleaned.
+#  You can preserve files from being cleaned, please don"t preserve
+#  non-essential files like tests, examples and documentation.
+#
 
-  # s.resource  = "icon.png"
-  # s.resources = "Resources/*.png"
+# s.resource  = "icon.png"
+# s.resources = "Resources/*.png"
 
-  # s.preserve_paths = "FilesToSave", "MoreFilesToSave"
-
-
-  # ――― Project Linking ―――――――――――――――――――――――――――――――――――――――――――――――――――――――――― #
-  #
-  #  Link your library with frameworks, or libraries. Libraries do not include
-  #  the lib prefix of their name.
-  #
-
-  # s.framework  = "SomeFramework"
-  # s.frameworks = "SomeFramework", "AnotherFramework"
-
-  # s.library   = "iconv"
-  # s.libraries = "iconv", "xml2"
+# s.preserve_paths = "FilesToSave", "MoreFilesToSave"
 
 
-  # ――― Project Settings ――――――――――――――――――――――――――――――――――――――――――――――――――――――――― #
-  #
-  #  If your library depends on compiler flags you can set them in the xcconfig hash
-  #  where they will only apply to your library. If you depend on other Podspecs
-  #  you can include multiple dependencies to ensure it works.
+# ――― Project Linking ―――――――――――――――――――――――――――――――――――――――――――――――――――――――――― #
+#
+#  Link your library with frameworks, or libraries. Libraries do not include
+#  the lib prefix of their name.
+#
 
-  # s.requires_arc = true
+# s.framework  = "SomeFramework"
+# s.frameworks = "SomeFramework", "AnotherFramework"
 
-  # s.xcconfig = { "HEADER_SEARCH_PATHS" => "$(SDKROOT)/usr/include/libxml2" }
-  # s.dependency "JSONKit", "~> 1.4"
+# s.library   = "iconv"
+# s.libraries = "iconv", "xml2"
+
+
+# ――― Project Settings ――――――――――――――――――――――――――――――――――――――――――――――――――――――――― #
+#
+#  If your library depends on compiler flags you can set them in the xcconfig hash
+#  where they will only apply to your library. If you depend on other Podspecs
+#  you can include multiple dependencies to ensure it works.
+
+# s.requires_arc = true
+
+# s.xcconfig = { "HEADER_SEARCH_PATHS" => "$(SDKROOT)/usr/include/libxml2" }
+# s.dependency "JSONKit", "~> 1.4"
 
 s.name = "MagicThought"
-s.version = "1.8.0"
+s.version = "1.8.1"
 s.summary = "MagicThought for ios."
 s.description = "the MagicThought for ios."
 s.homepage = "https://github.com/alrjqow/MagicThought"
@@ -167,6 +167,7 @@ s.subspec 'MTNetwork' do |network|
 network.source_files = 'MagicThought/MTNetwork/*.{h,m}'
 network.dependency 'MagicThought/Dependency'
 end
+
 
 s.subspec 'Category' do |category|
 
@@ -213,7 +214,6 @@ end
 end
 
 
-
 s.subspec 'MTDelegateMode' do |delegateMode|
 delegateMode.source_files = 'MagicThought/MTDelegateMode/*.{h,m}'
 
@@ -244,7 +244,6 @@ tableViewCell.dependency 'MagicThought/MTDelegateMode'
 end
 
 end
-
 
 s.subspec 'MTRefresh' do |mtRefresh|
 mtRefresh.source_files = 'MagicThought/MTRefresh/*.{m,h}'
@@ -370,7 +369,6 @@ baseCell.dependency 'MagicThought/MTDelegateMode'
 baseCell.dependency 'MagicThought/Dependency'
 end
 
-
 s.subspec 'MTViewController' do |viewController|
 
 viewController.source_files = 'MagicThought/MTViewController/*.{m,h}'
@@ -437,8 +435,6 @@ camera.dependency 'MagicThought/MTProtocol'
 camera.dependency 'MagicThought/Dependency'
 end
 
-
-
 s.subspec 'MTNavigationController' do |navigationController|
 
 navigationController.source_files = 'MagicThought/MTNavigationController/**/*.{m,h}'
@@ -447,56 +443,6 @@ navigationController.dependency 'MagicThought/MTStyle'
 navigationController.dependency 'MagicThought/MTProtocol'
 navigationController.dependency 'MagicThought/Dependency'
 end
-
-
-s.subspec 'MTAlert2' do |alert2|
-
-alert2.source_files = 'MagicThought/MTImageShowAndBrowser/**/*.{m,h}'
-
-alert2.subspec 'Model' do |model|
-model.source_files = 'MagicThought/MTAlert2/Model/*.{m,h}'
-model.dependency 'MagicThought/MTDelegateMode'
-model.dependency 'MagicThought/Dependency'
-end
-
-alert2.subspec 'Controller' do |controller|
-controller.source_files = 'MagicThought/MTAlert2/Controller/*.{m,h}', 'MagicThought/MTAlert2/Service/*.{m,h}'
-controller.dependency 'MagicThought/MTStyle'
-controller.dependency 'MagicThought/Category'
-controller.dependency 'MagicThought/MTDelegateMode'
-controller.dependency 'MagicThought/MTAlert2/Model'
-controller.dependency 'MagicThought/Dependency'
-end
-
-end
-
-
-
-s.subspec 'MTImageShowAndBrowser' do |imageBrowser|
-
-imageBrowser.source_files = 'MagicThought/MTImageShowAndBrowser/**/*.{m,h}'
-imageBrowser.resources = "MagicThought/MTImageShowAndBrowser/MTPhotoBrowser.bundle"
-
-imageBrowser.dependency 'MagicThought/Library/TZImagePickerController'
-imageBrowser.dependency 'MagicThought/MTNavigationController'
-imageBrowser.dependency 'MagicThought/MTCustomCamera'
-imageBrowser.dependency 'MagicThought/MTImageHandle'
-imageBrowser.dependency 'MagicThought/MTAlert2'
-imageBrowser.dependency 'MagicThought/MTAlert'
-imageBrowser
-imageBrowser.dependency 'MagicThought/Category'
-imageBrowser.dependency 'MagicThought/MTManager'
-imageBrowser.dependency 'MagicThought/MTProtocol'
-imageBrowser.dependency 'MagicThought/MTDelegateMode'
-imageBrowser.dependency 'MagicThought/Dependency'
-
-end
-
-s.subspec 'MTChart' do |chart|
-chart.source_files = 'MagicThought/MTChart/*.{m,h}'
-chart.dependency 'MagicThought/Dependency'
-end
-
 
 #s.resources = "MagicThought/MagicThought/MagicThought/*"
 s.framework = "UIKit"

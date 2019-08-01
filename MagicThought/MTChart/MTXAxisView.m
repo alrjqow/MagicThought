@@ -33,14 +33,14 @@
 {
     [super setFrame: frame];
     
-    self.config.MTXAxisViewWidth = frame.size.width;
+    self.config.xAxisViewWidth = frame.size.width;
 }
 
 -(void)setConfig:(MTLineChartViewConfig *)config
 {
     _config = config;
     
-    config.MTXAxisViewWidth = self.frame.size.width;
+    config.xAxisViewWidth = self.frame.size.width;
 }
 
 

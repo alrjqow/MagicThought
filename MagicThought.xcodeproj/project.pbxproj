@@ -1711,11 +1711,11 @@
 		789F3F8822DC2B1A00586487 /* MTImageShowAndBrowser */ = {
 			isa = PBXGroup;
 			children = (
+				781B0F4D22EFE02D00B56434 /* MTImageShowAndBrowser.h */,
 				789F3F8922DC2B1A00586487 /* 1.获取图片 */,
 				789F3F9A22DC2B1A00586487 /* 2.缩略图展示 */,
 				789F3F8E22DC2B1A00586487 /* 3.浏览大图 */,
 				789F3FA522DC2B1A00586487 /* MTPhotoBrowser.bundle */,
-				781B0F4D22EFE02D00B56434 /* MTImageShowAndBrowser.h */,
 			);
 			path = MTImageShowAndBrowser;
 			sourceTree = "<group>";

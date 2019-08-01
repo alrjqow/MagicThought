@@ -29,14 +29,14 @@
 {
     [super setFrame: frame];
     
-    self.config.MTYAxisViewHeight = frame.size.height;
+    self.config.yAxisViewHeight = frame.size.height;
 }
 
 -(void)setConfig:(MTLineChartViewConfig *)config
 {
     _config = config;
     
-    config.MTYAxisViewHeight = self.frame.size.height;
+    config.yAxisViewHeight = self.frame.size.height;
 }
 
 

@@ -1,5 +1,5 @@
 //
-//  LineChartView.m
+//  MTLineChartContentView.m
 //  WSLineChart
 //
 //  Created by monda on 2019/7/5.
@@ -31,7 +31,7 @@
 {
     [super setFrame: frame];
     
-    self.config.MTXAxisViewWidth = frame.size.width;
+    self.config.xAxisViewWidth = frame.size.width;
 }
 
 -(void)setConfig:(MTLineChartViewConfig *)config
@@ -53,23 +53,23 @@
 
 - (void)drawRect:(CGRect)rect {
     [super drawRect:rect];
- 
+    
     CGContextRef context = UIGraphicsGetCurrentContext();
     
     ////////////// 画横向分割线 ///////////////////////
     CGFloat maxSepLineY = 0;
     for (int i = 1; i < self.config.numberOfYAxisElements + 1; i++) {
         
-         CGFloat pointY = self.config.yAxisOrigin - self.config.yAxisMargin * i;
+        CGFloat pointY = self.config.yAxisOrigin - self.config.yAxisMargin * i;
         if(i == self.config.numberOfYAxisElements)
             maxSepLineY = pointY;
         
         
         [self.config drawLine:context
-            startPoint:CGPointMake(self.config.isXAxisOriginLeftSpace ? 0 : self.config.xAxisLeftSpace, pointY)
-              endPoint:CGPointMake(self.frame.size.width - self.config.xAxisRightSpace, pointY)
-             lineColor:self.config.separatorColor
-             lineWidth:1];
+                   startPoint:CGPointMake(self.config.isXAxisOriginLeftSpace ? 0 : self.config.xAxisLeftSpace, pointY)
+                     endPoint:CGPointMake(self.frame.size.width - self.config.xAxisRightSpace, pointY)
+                    lineColor:self.config.separatorColor
+                    lineWidth:1];
     }
     
     //////////////// 大背景 ///////////////////////
@@ -96,7 +96,7 @@
         else
         {
             CGContextSetFillColorWithColor(context, self.config.lineBgStartColor.CGColor);//填充颜色
-            CGContextAddPath(context, bgPath);            
+            CGContextAddPath(context, bgPath);
             CGContextDrawPath(context, kCGPathFillStroke);//绘制填充
             CGPathRelease(bgPath);
         }
@@ -104,10 +104,10 @@
     
     //////////////// 画折线 ///////////////////////
     for (int i = 0; i < self.config.xTitleArray.count; i++) {
-                
+        
         CGFloat shuXianX = i * self.config.xAxisMargin + self.config.xAxisLeftSpace;
         CGFloat startY = self.config.yAxisOrigin - (((NSNumber *)self.config.yValueArray[i]).floatValue - self.config.yMin)/(self.config.yMax - self.config.yMin)  * self.config.yAxisHeight;
-     
+        
         CGPoint startPoint = CGPointMake(shuXianX, startY);
         
         CGPoint endPoint;
@@ -120,36 +120,40 @@
         else
             endPoint = startPoint;
         
-        CGFloat normal[1]={1};
-        CGContextSetLineDash(context,0,normal,0); //画实线
-        [self.config drawLine:context startPoint:startPoint endPoint:endPoint lineColor:self.config.lineColor lineWidth:2];
+        BOOL isWeakLine = false;
+        if(self.config.weakLinePointIndexArray.count)
+        {
+            NSInteger index = [self.config.weakLinePointIndexArray indexOfObject:@(i)];
+            
+            if(index < self.config.weakLinePointIndexArray.count && index >= 0)
+                isWeakLine = YES;
+        }
         
-//        BOOL isCurrentIndex = i == self.config.currentIndex;
+        if(isWeakLine)
+            [self.config drawWeakLine:context startPoint:startPoint endPoint:endPoint lineColor:self.config.lineColor lineWidth:1];
+        else
+            [self.config drawLine:context startPoint:startPoint endPoint:endPoint lineColor:self.config.lineColor lineWidth:1];
         
         //画点
+        CGFloat normal[1]={1};
+        CGContextSetLineDash(context,0,normal,0); //画实线
         CGContextSetShouldAntialias(context, YES ); //抗锯齿
-//        if(isCurrentIndex)
-//            currentPoint = startPoint;
-//        else
-//        {
+        CGContextSetStrokeColorWithColor(context, self.config.lineColor.CGColor);
         CGContextSetFillColorWithColor(context, self.config.pointColor.CGColor);//填充颜色
         CGContextAddArc(context, startPoint.x, startPoint.y, self.config.pointRadius, 0, 2*M_PI, 0); //添加一个圆
         CGContextDrawPath(context, kCGPathFillStroke);//绘制填充
-//        }
     }
+    
     
     
     //////////////// 选中点的详情文字 ///////////////////////
     
-    if(!self.config.detailMsg)
-        return;
-    
     CGFloat selectedPointX = self.config.currentIndex * self.config.xAxisMargin + self.config.xAxisLeftSpace;
     
     NSMutableParagraphStyle* style = [[NSMutableParagraphStyle alloc] init];
-//    style.lineSpacing = 6;
+    //    style.lineSpacing = 6;
     NSDictionary *detailAttr = @{NSParagraphStyleAttributeName: style, NSFontAttributeName : [UIFont systemFontOfSize:self.config.detailFontSize], NSForegroundColorAttributeName : self.config.detailFontColor};
-//    NSString* detail = [NSString stringWithFormat:@"(%@,%.0lf)", self.config.xTitleArray[self.config.currentIndex], ((NSNumber*)self.config.yValueArray[self.config.currentIndex]).floatValue];
+    //    NSString* detail = [NSString stringWithFormat:@"(%@,%.0lf)", self.config.xTitleArray[self.config.currentIndex], ((NSNumber*)self.config.yValueArray[self.config.currentIndex]).floatValue];
     NSString* detail = self.config.detailMsg(self.config.currentIndex);
     CGSize detailSize = [detail sizeWithAttributes:detailAttr];
     
@@ -171,7 +175,7 @@
     
     drawPoint.y = self.config.yAxisOrigin - (drawPointYValue.floatValue - self.config.yMin)/(self.config.yMax - self.config.yMin)  * self.config.yAxisHeight - detailSize.height - self.config.detailFontVMargin - youBiaoMargin - self.config.pointSelectedRadius / 2;
     
-
+    
     CGFloat minDrawPointY = maxSepLineY + self.config.detailFontVMargin;
     //证明点比较靠上，移至下方
     if(drawPoint.y < minDrawPointY)

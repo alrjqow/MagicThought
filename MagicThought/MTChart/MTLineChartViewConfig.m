@@ -58,6 +58,7 @@
         
         self.isLabelScaleAutoHide = YES;
         self.xAxisMarkShowIndexArray = @[];
+        self.weakLinePointIndexArray = @[];
         
         __weak __typeof(self) weakSelf = self;
         self.detailMsg = ^(NSInteger currentIndex){
@@ -83,18 +84,18 @@
     self.yAxisMargin = yAxisDefaultMargin;
 }
 
--(void)setMTYAxisViewHeight:(CGFloat)MTYAxisViewHeight
+-(void)setYAxisViewHeight:(CGFloat)yAxisViewHeight
 {
-    _MTYAxisViewHeight = MTYAxisViewHeight;
+    _yAxisViewHeight = yAxisViewHeight;
     
-    self.yAxisOrigin = MTYAxisViewHeight - self.xAxisMarkWidth - self.xAxisMarkAndLabelMargin - self.axisLabelFontSize;
+    self.yAxisOrigin = yAxisViewHeight - self.xAxisMarkWidth - self.xAxisMarkAndLabelMargin - self.axisLabelFontSize;
 }
 
--(void)setMTXAxisViewWidth:(CGFloat)MTXAxisViewWidth
+-(void)setXAxisViewWidth:(CGFloat)xAxisViewWidth
 {
-    _MTXAxisViewWidth = MTXAxisViewWidth;
+    _xAxisViewWidth = xAxisViewWidth;
     
-    self.xAxisWidth = MTXAxisViewWidth - self.xAxisRightSpace;
+    self.xAxisWidth = xAxisViewWidth - self.xAxisRightSpace;
 }
 
 -(CGFloat)yAxisHeight
@@ -170,7 +171,7 @@
     CGContextSetStrokeColorSpace(context, Linecolorspace1);
     CGContextSetLineWidth(context, width);
     CGContextSetStrokeColorWithColor(context, lineColor.CGColor);
-    CGFloat  lengths[] = {10, 2};
+    CGFloat  lengths[] = {5, 2};
     CGContextSetLineDash(context, 0, lengths, 2);
     CGContextMoveToPoint(context, startPoint.x, startPoint.y);
     CGContextAddLineToPoint(context, endPoint.x, endPoint.y);
