@@ -19,7 +19,16 @@
 
 
 @implementation MTDelegateCollectionView
+
+-(instancetype)initWithFrame:(CGRect)frame collectionViewLayout:(UICollectionViewLayout *)layout
+{
+    if (self = [super initWithFrame:frame collectionViewLayout:layout]) {
+        [self setupDefault];
+    }
     
+    return self;
+}
+
 - (void)reloadDataWithDataList:(NSArray*)dataList
     {
         [self reloadDataWithDataList:dataList EmptyData:nil];

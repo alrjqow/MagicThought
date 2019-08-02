@@ -106,6 +106,7 @@ NSString* MTTenScrollIdentifier = @"MTTenScrollIdentifier";
         [self.titleView collectionView:self.titleView didSelectItemAtIndexPath:[NSIndexPath indexPathForRow:self.currentIndex inSection:0]];
     
     _isContentViewScrollEnd = false;
+    self.tenScrollView.scrollEnabled = YES;
 }
 
 #pragma mark - 文字颜色渐变

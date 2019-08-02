@@ -8,6 +8,8 @@
 
 #import "MTTenScrollView.h"
 #import "MTTenScrollModel.h"
+#import "MTTenScrollContentView.h"
+#import "MTTenScrollTitleView.h"
 
 #import "UIView+Frame.h"
 
@@ -83,6 +85,15 @@
 
 #pragma mark - 代理
 
+-(void)scrollViewWillBeginDragging:(UIScrollView *)scrollView
+{
+    [self.animator removeAllBehaviors];
+    
+    self.model.contentView.scrollEnabled = self.model.titleView.scrollEnabled = false;
+    
+    [super scrollViewWillBeginDragging:scrollView];
+}
+
 -(void)scrollViewDidScroll:(UIScrollView *)scrollView
 {
     NSInteger maxOffsetY = scrollView.contentSize.height - (self.model.tenScrollHeight ? self.model.tenScrollHeight : scrollView.height);
@@ -103,13 +114,6 @@
     [super scrollViewDidScroll:scrollView];
 }
 
--(void)scrollViewWillBeginDragging:(UIScrollView *)scrollView
-{
-    [self.animator removeAllBehaviors];
-    
-    [super scrollViewWillBeginDragging:scrollView];
-}
-
 -(void)scrollViewDidEndDragging:(UIScrollView *)scrollView willDecelerate:(BOOL)decelerate
 {
     [self simulateDecelerate];
@@ -121,7 +125,11 @@
 -(void)simulateDecelerate
 {
     if(!self.isScrollTop || self.model.currentView.contentOffset.y > 0)
+    {
+        self.model.contentView.scrollEnabled = self.model.titleView.scrollEnabled = YES;
         return;
+    }
+    
     
     [self.animator removeAllBehaviors];
     self.item.center = CGPointZero;
@@ -150,6 +158,7 @@
         }
         
         lastCenter = weakSelf.item.center;
+        weakSelf.model.contentView.scrollEnabled = weakSelf.model.titleView.scrollEnabled = YES;
     };
     [self.animator addBehavior:behavior];
 }
@@ -222,6 +231,14 @@
 @end
 
 @implementation MTDelegateTenScrollTableView
+
+-(void)setupDefault
+{
+    [super setupDefault];
+    
+    self.showsVerticalScrollIndicator = false;
+    self.showsHorizontalScrollIndicator = false;
+}
 
 -(void)scrollViewWillBeginDragging:(UIScrollView *)scrollView
 {

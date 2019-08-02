@@ -26,6 +26,16 @@
 
 @implementation MTDelegateTableView
 
+-(instancetype)initWithFrame:(CGRect)frame style:(UITableViewStyle)style
+{
+    if(self = [super initWithFrame:frame style:style])
+    {
+        [self setupDefault];
+    }
+    
+    return self;
+}
+
 - (void)reloadDataWithDataList:(NSArray*)dataList
 {
     [self reloadDataWithDataList:dataList EmptyData:nil];

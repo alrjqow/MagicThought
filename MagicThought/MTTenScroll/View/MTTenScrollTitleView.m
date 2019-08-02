@@ -8,11 +8,13 @@
 
 #import "MTTenScrollTitleView.h"
 #import "MTTenScrollModel.h"
+#import "MTTenScrollView.h"
 
 #import "UIView+Frame.h"
 #import "MTWordStyle.h"
 #import "UILabel+Word.h"
 #import "NSObject+ReuseIdentifier.h"
+
 
 @interface MTTenScrollTitleView ()
 
@@ -27,21 +29,24 @@
     UICollectionViewFlowLayout* layout0 = [UICollectionViewFlowLayout new];
     layout0.scrollDirection = UICollectionViewScrollDirectionHorizontal;
     
-    if(self = [super initWithFrame:frame collectionViewLayout:layout0])
-    {
-        if (@available(iOS 11.0, *)) {
-            self.contentInsetAdjustmentBehavior = UIScrollViewContentInsetAdjustmentNever;
-        }
-        
-                
-        self.showsVerticalScrollIndicator = false;
-        self.showsHorizontalScrollIndicator = false;
-        self.clipsToBounds = false;
-        [self addSubview:self.bottomLine];
-        [self addTarget:self EmptyData:nil DataList:nil SectionList:nil];
+    self = [super initWithFrame:frame collectionViewLayout:layout0];
+    return self;
+}
+
+-(void)setupDefault
+{
+    [super setupDefault];
+    
+    if (@available(iOS 11.0, *)) {
+        self.contentInsetAdjustmentBehavior = UIScrollViewContentInsetAdjustmentNever;
     }
     
-    return self;
+    
+    self.showsVerticalScrollIndicator = false;
+    self.showsHorizontalScrollIndicator = false;
+    self.clipsToBounds = false;
+    [self addSubview:self.bottomLine];
+    [self addTarget:self EmptyData:nil DataList:nil SectionList:nil];
 }
 
 -(void)layoutSubviews
@@ -97,6 +102,26 @@
     
     [self.model didTitleViewSelectedItem];
 }
+
+-(void)scrollViewWillBeginDragging:(UIScrollView *)scrollView
+{
+    self.model.tenScrollView.scrollEnabled = false;
+}
+
+-(void)scrollViewDidEndDragging:(UIScrollView *)scrollView willDecelerate:(BOOL)decelerate
+{
+    if(decelerate)
+        return;
+    
+    self.model.tenScrollView.scrollEnabled = YES;
+}
+
+-(void)scrollViewDidEndDecelerating:(UIScrollView *)scrollView
+{
+    self.model.tenScrollView.scrollEnabled = YES;    
+}
+
+
 
 #pragma mark - 懒加载
 

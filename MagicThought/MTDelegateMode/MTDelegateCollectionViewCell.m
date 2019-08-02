@@ -11,6 +11,16 @@
 
 @implementation MTDelegateCollectionViewCell
 
+-(instancetype)initWithFrame:(CGRect)frame
+{
+    if(self = [super initWithFrame:frame])
+    {
+        [self setupDefault];
+    }
+    
+    return self;
+}
+
 /**设置父类数据*/
 -(void)setSuperResponseObject:(NSObject*)object
 {
