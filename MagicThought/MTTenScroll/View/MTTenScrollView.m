@@ -80,6 +80,10 @@
  * 是否允许多个手势识别器共同识别，一个控件的手势识别后是否阻断手势识别继续向下传播，默认返回NO；如果为YES，响应者链上层对象触发手势识别后，如果下层对象也添加了手势并成功识别也会继续执行，否则上层对象识别后则不再继续传播
  */
 - (BOOL)gestureRecognizer:(UIGestureRecognizer *)gestureRecognizer shouldRecognizeSimultaneouslyWithGestureRecognizer:(UIGestureRecognizer *)otherGestureRecognizer{
+        
+    if([otherGestureRecognizer isKindOfClass:[UIScreenEdgePanGestureRecognizer class]])
+        return false;
+    
     return YES;
 }
 
@@ -89,26 +93,83 @@
 {
     [self.animator removeAllBehaviors];
     
-    self.model.contentView.scrollEnabled = self.model.titleView.scrollEnabled = false;
+    self.model.superTenScrollView.model.contentView.scrollEnabled = self.model.contentView.scrollEnabled = self.model.titleView.scrollEnabled = false;
     
     [super scrollViewWillBeginDragging:scrollView];
 }
 
 -(void)scrollViewDidScroll:(UIScrollView *)scrollView
 {
-    NSInteger maxOffsetY = scrollView.contentSize.height - (self.model.tenScrollHeight ? self.model.tenScrollHeight : scrollView.height);
+    static CGFloat preY;
+    NSInteger maxOffsetY = scrollView.contentSize.height - scrollView.height;
+//    NSLog(@"%zd ===== %lf",maxOffsetY, self.offsetY);
+    
+//    NSLog(@"%@",NSStringFromClass(self.model.currentView.class));
+    
+    MTTenScrollView* superTenScrollView = self.model.superTenScrollView;
+    if(superTenScrollView)
+    {        
+        NSInteger superMaxOffsetY = superTenScrollView.contentSize.height - superTenScrollView.height;
+     
+//        NSLog(@"%lf ====== %lf",preY, self.offsetY);
+        
+//        NSLog(@"%lf ====== %lf",preY, superTenScrollView.offsetY);
+        
+        
+        if(self.offsetY > 0)
+        {
+            if(preY <= 0 && superTenScrollView.offsetY < (superTenScrollView.contentSize.height - superTenScrollView.model.tenScrollHeight - 1))
+            {
+//                NSLog(@"1111111 ======= %lf", (superTenScrollView.contentSize.height - superTenScrollView.model.tenScrollHeight));
+                self.offsetY = 0;
+            }
+            else
+            {
+//                NSLog(@"2222222 ======= %lf",superTenScrollView.offsetY);
+                superTenScrollView.offsetY = superMaxOffsetY;
+                preY = 0;
+            }
+        }
+        if(self.offsetY < 0)
+        {
+//            NSLog(@"3333333");
+//            NSLog(@"%lf",superTenScrollView.offsetY);
+            preY = self.offsetY;
+            self.offsetY = 0;
+            return;
+        }
+    }
+    else
+    {
+//        NSLog(@"%@",NSStringFromClass(self.model.currentView.class));
+        if(self.model.currentView.offsetY > 0)
+        {
+            self.offsetY = maxOffsetY;
+        }
+        else
+        {            
+            //            NSLog(@"444444");
+        }
+    }
+    
+    
     
     if(self.isScrollTop)
     {
         if(self.offsetY >= maxOffsetY)
+        {
             scrollView.offsetY = maxOffsetY;
+        }
         
+
         self.isSelfSimulateDecelerate = self.offsetY < maxOffsetY;
     }
     else
     {
-        if(self.model.isTenScrollViewScrollDownFix)
+        if(self.model.currentView.offsetY > 0)
+        {
             scrollView.offsetY = maxOffsetY;
+        }
     }
     
     [super scrollViewDidScroll:scrollView];
@@ -126,7 +187,7 @@
 {
     if(!self.isScrollTop || self.model.currentView.contentOffset.y > 0)
     {
-        self.model.contentView.scrollEnabled = self.model.titleView.scrollEnabled = YES;
+        self.model.superTenScrollView.model.contentView.scrollEnabled = self.model.contentView.scrollEnabled = self.model.titleView.scrollEnabled = YES;
         return;
     }
     
@@ -158,7 +219,7 @@
         }
         
         lastCenter = weakSelf.item.center;
-        weakSelf.model.contentView.scrollEnabled = weakSelf.model.titleView.scrollEnabled = YES;
+        self.model.superTenScrollView.model.contentView.scrollEnabled = self.model.contentView.scrollEnabled = self.model.titleView.scrollEnabled = YES;
     };
     [self.animator addBehavior:behavior];
 }
@@ -189,6 +250,12 @@
 
 
 #pragma mark - 懒加载
+
+-(void)setScrollEnabled:(BOOL)scrollEnabled
+{
+    self.model.superTenScrollView.scrollEnabled = scrollEnabled;
+    [super setScrollEnabled:scrollEnabled];
+}
 
 -(void)setModel:(MTTenScrollModel *)model
 {
@@ -251,8 +318,19 @@
 {
     CGFloat tenScrollOffsetY = self.model.tenScrollView.offsetY;
     
-    NSInteger maxOffsetY = self.model.tenScrollView.contentSize.height - (self.model.tenScrollHeight ? self.model.tenScrollHeight : self.model.tenScrollView.height);
+    NSInteger maxOffsetY = self.model.tenScrollView.contentSize.height - self.model.tenScrollView.height;
 
+//    MTTenScrollView* superTenScrollView = self.model.superTenScrollView;
+//    if(superTenScrollView)
+//    {
+//        NSInteger superMaxOffsetY = superTenScrollView.contentSize.height - superTenScrollView.height;
+//
+//
+//        superTenScrollView.offsetY = superMaxOffsetY;
+//        NSLog(@"sadasd");
+//    }
+    
+    
     if(self.isScrollTop)
     {
         if(tenScrollOffsetY < maxOffsetY)
@@ -262,8 +340,9 @@
     {
         if(self.offsetY <= 0)
             scrollView.contentOffset = CGPointZero;
-
-        self.model.isTenScrollViewScrollDownFix = self.offsetY > 0;
+        
+        if(self.offsetY > 0)
+            self.model.tenScrollView.offsetY = maxOffsetY;                
     }
     
     

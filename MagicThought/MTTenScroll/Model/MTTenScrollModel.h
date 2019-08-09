@@ -25,6 +25,8 @@ extern NSString* MTTenScrollIdentifier;
 
 @property (nonatomic,weak) MTTenScrollView* tenScrollView;
 
+@property (nonatomic,weak) MTTenScrollView* superTenScrollView;
+
 @property (nonatomic,weak) MTTenScrollContentView* contentView;
 
 @property (nonatomic,weak) MTTenScrollTitleView* titleView;
@@ -33,13 +35,9 @@ extern NSString* MTTenScrollIdentifier;
 
 @property (nonatomic,assign,readonly) BOOL isContentViewScrollEnd;
 
-@property (nonatomic,assign) BOOL isTenScrollViewScrollDownFix;
-
 @property (nonatomic,weak) UIScrollView* currentView;
 
 @property (nonatomic,assign) CGFloat tenScrollHeight;
-
-@property (nonatomic,assign) CGFloat tenScrollLimitOffsetY;
 
 @property (nonatomic,strong, readonly) NSObject* tenScrollData;
 

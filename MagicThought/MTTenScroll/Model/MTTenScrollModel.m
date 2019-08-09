@@ -25,8 +25,7 @@ NSString* MTTenScrollIdentifier = @"MTTenScrollIdentifier";
 
 @property (nonatomic,assign) BOOL isTitleViewTap;
 
-// 定义缓存池
-@property (nonatomic, strong) NSCache *cache;
+@property (nonatomic, strong) NSMutableArray *objectArr;
 
 @end
 
@@ -37,7 +36,8 @@ NSString* MTTenScrollIdentifier = @"MTTenScrollIdentifier";
 {
     if(self = [super init])
     {
-        self.cache = [NSCache new];
+        _currentIndex = -1;
+        self.objectArr = [NSMutableArray array];
     }
     
     return self;
@@ -105,8 +105,7 @@ NSString* MTTenScrollIdentifier = @"MTTenScrollIdentifier";
     if([self.titleView respondsToSelector:@selector(collectionView:didSelectItemAtIndexPath:)])
         [self.titleView collectionView:self.titleView didSelectItemAtIndexPath:[NSIndexPath indexPathForRow:self.currentIndex inSection:0]];
     
-    _isContentViewScrollEnd = false;
-    self.tenScrollView.scrollEnabled = YES;
+    _isContentViewScrollEnd = false;    
 }
 
 #pragma mark - 文字颜色渐变
@@ -194,48 +193,76 @@ NSString* MTTenScrollIdentifier = @"MTTenScrollIdentifier";
 #pragma mark - 缓存
 -(UIView*)getViewByIndex:(NSInteger)index
 {
-    NSObject* data = [self getDataByIndex:index];
-    NSString* identifier = data.mt_reuseIdentifier;
+    return [self getViewtByIndex:index isBandData:YES];
+}
+
+/**获取view*/
+-(UIView*)getViewtByIndex:(NSInteger)index isBandData:(BOOL)isBand
+{
+    NSObject* object;
+    if(index < self.objectArr.count)
+        object = self.objectArr[index];
+    else
+        _currentIndex = -1;
     
-    if([identifier isEqualToString:@"none"])
-        return nil;
+    if(![object isKindOfClass:[UIView class]] && ![object isKindOfClass:[UIViewController class]])
+        object = nil;
     
-    NSObject* object = [self getObjectByIdentifier:identifier];
+    if(isBand)
+    {
+        /**绑定数据*/
+        MTBaseDataModel* model = [MTBaseDataModel new];
+        NSObject* data = [self getDataByIndex:index];
+        model.data = [data isKindOfClass:[NSReuseObject class]] ? ((NSReuseObject*)data).data : data;
+        model.identifier = MTTenScrollIdentifier;
+        [object whenGetBaseModel:model];
+    }
     
-    if(!object)
-        object = [self createObjectByIdentifier:identifier];
-    
-    [self bandData:data WithObject:object];
+    if(object && self.currentIndex < 0)
+    {
+        self.currentIndex = index;
+        NSIndexPath* indexPath = [NSIndexPath indexPathForRow:index inSection:0];
+        [self.titleView collectionView:self.titleView willDisplayCell:[self.titleView cellForItemAtIndexPath:indexPath] forItemAtIndexPath:indexPath];
+    }
     
     
     UIView* view;
-    
     if([object isKindOfClass:[UIView class]])
         view = (UIView*)object;
     else
         view = ((UIViewController*)object).view;
     
-    [self bandModelWithParentView:view Index:index];
-    
     return view;
 }
 
--(void)bandModelWithParentView:(UIView*)view Index:(NSInteger)index
+-(void)setUpCurrentViewByIndex:(NSInteger)index
 {
-    for(UIView* subView in view.subviews)
+    UIView* superView = [self getViewtByIndex:index isBandData:false];
+    self.currentView = nil;
+    for(UIView* subView in superView.subviews)
     {
-        if([subView isKindOfClass:[MTDelegateTenScrollTableView class]])
+        if([subView isKindOfClass:[MTDelegateTenScrollTableView class]] || [subView isKindOfClass:[MTTenScrollView class]])
         {
-            ((MTDelegateTenScrollTableView*)subView).model = self;
+            if([subView isKindOfClass:[MTTenScrollView class]])
+            {
+                ((MTTenScrollView*)subView).model.superTenScrollView = self.tenScrollView;
+            }
+            else
+                ((MTDelegateTenScrollTableView*)subView).model = self;
             
-            self.currentView = (MTDelegateTenScrollTableView*)subView;
+            self.currentView = (UIScrollView*)subView;
+            self.currentView.height = self.tenScrollHeight - self.titleViewModel.titleViewHeight;
+            
+            NSInteger offsetY = self.tenScrollView.contentOffset.y;
+            NSInteger maxOffsetY = self.tenScrollView.contentSize.height - self.tenScrollHeight;
+            
+            if(offsetY < maxOffsetY)
+                self.currentView.offsetY = 0;
         }
     }
-    
-    if(index != self.currentIndex)
-        self.currentView = nil;
-    self.isTenScrollViewScrollDownFix = false;
+//    NSLog(@"===== %@",NSStringFromClass(self.currentView.class));
 }
+
 
 -(NSObject*)getDataByIndex:(NSInteger)index
 {
@@ -253,64 +280,37 @@ NSString* MTTenScrollIdentifier = @"MTTenScrollIdentifier";
     return data;
 }
 
-/**获取view*/
--(NSObject*)getObjectByIdentifier:(NSString*)identifier
-{
-    NSMutableArray* objArr = [self.cache objectForKey:identifier];
-    
-    for(NSObject* obj in objArr)
-    {
-        if(![obj isKindOfClass:[UIView class]] && ![obj isKindOfClass:[UIViewController class]])
-            continue;
-        
-        if([obj isKindOfClass:[UIView class]] && (((UIView*)obj).tag == 0))
-            return obj;
-        else if([obj isKindOfClass:[UIViewController class]] && (((UIViewController*)obj).view.tag == 0))
-            return obj;
-    }
-    
-    return nil;
-}
-
-/**创建view*/
--(NSObject*)createObjectByIdentifier:(NSString*)identifier
-{
-    Class c = NSClassFromString(identifier);
-    NSObject* object = c.new;
-    
-    if(![object isKindOfClass:[UIView class]] && ![object isKindOfClass:[UIViewController class]])
-        return nil;
-    
-    NSMutableArray* objArr = [self.cache objectForKey:identifier];
-    if(!objArr)
-    {
-        objArr = [NSMutableArray array];
-        [self.cache setObject:objArr forKey:identifier];
-    }
-    
-    [objArr addObject:object];
-    return object;
-}
-
-/**绑定数据*/
--(void)bandData:(NSObject*)data WithObject:(NSObject*)object
-{
-    MTBaseDataModel* model = [MTBaseDataModel new];
-    model.data = [data isKindOfClass:[NSReuseObject class]] ? ((NSReuseObject*)data).data : data;
-    model.identifier = MTTenScrollIdentifier;
-    [object whenGetBaseModel:model];
-}
 
 #pragma mark - 懒加载
 -(void)setDataList:(NSArray *)dataList
 {
     _dataList = dataList;
+    [self.objectArr removeAllObjects];
     NSMutableArray* arr = [NSMutableArray array];
     
     for(NSObject* obj in dataList)
+    {
         [arr addObject:obj.mt_tagIdentifier];
+        
+        Class c = NSClassFromString(obj.mt_reuseIdentifier);
+        NSObject* object = c.new;
+        
+        if([object isKindOfClass:[UIView class]] || [object isKindOfClass:[UIViewController class]])
+            [self.objectArr addObject:object];
+        else
+            [self.objectArr addObject:@""];
+    }
     
     _titleList = [arr copy];
+}
+
+-(void)setCurrentIndex:(NSInteger)currentIndex
+{
+    if(_currentIndex == currentIndex)
+        return;
+    
+    _currentIndex = currentIndex;
+    [self setUpCurrentViewByIndex:currentIndex];
 }
 
 -(MTTenScrollTitleViewModel *)titleViewModel
@@ -326,6 +326,11 @@ NSString* MTTenScrollIdentifier = @"MTTenScrollIdentifier";
 -(NSObject *)tenScrollData
 {
     return mt_reuse(self).band(@"MTTenScrollViewCell").bandHeight(self.tenScrollHeight);
+}
+
+-(CGFloat)tenScrollHeight
+{
+    return (_tenScrollHeight && _tenScrollHeight < self.tenScrollView.height) ? _tenScrollHeight : self.tenScrollView.height;
 }
 
 @end

@@ -15,6 +15,4 @@
 @end
 
 
-@interface TestTableViewController : UIViewController
 
-@end

@@ -11,6 +11,7 @@
 #import "MTTenScrollView.h"
 
 #import "UIView+Frame.h"
+#import "MTCloud.h"
 #import "MTWordStyle.h"
 #import "UILabel+Word.h"
 #import "NSObject+ReuseIdentifier.h"
@@ -45,6 +46,8 @@
     self.showsVerticalScrollIndicator = false;
     self.showsHorizontalScrollIndicator = false;
     self.clipsToBounds = false;
+    self.bounces = false;
+    [self.panGestureRecognizer requireGestureRecognizerToFail:[MTCloud shareCloud].currentViewController.navigationController.interactivePopGestureRecognizer];
     [self addSubview:self.bottomLine];
     [self addTarget:self EmptyData:nil DataList:nil SectionList:nil];
 }
@@ -105,7 +108,7 @@
 
 -(void)scrollViewWillBeginDragging:(UIScrollView *)scrollView
 {
-    self.model.tenScrollView.scrollEnabled = false;
+    self.model.tenScrollView.scrollEnabled = false;    
 }
 
 -(void)scrollViewDidEndDragging:(UIScrollView *)scrollView willDecelerate:(BOOL)decelerate
