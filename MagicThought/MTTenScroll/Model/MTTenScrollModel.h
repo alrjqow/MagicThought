@@ -41,13 +41,13 @@ extern NSString* MTTenScrollIdentifier;
 
 @property (nonatomic,strong, readonly) NSObject* tenScrollData;
 
-
-
 -(UIView*)getViewByIndex:(NSInteger)index;
 
 -(void)didTitleViewSelectedItem;
 
 -(void)didContentViewEndScroll;
+
+-(void)contentViewWillBeginDragging;
 
 -(void)contentViewDidScroll;
 

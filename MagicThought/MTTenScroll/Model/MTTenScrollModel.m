@@ -27,6 +27,12 @@ NSString* MTTenScrollIdentifier = @"MTTenScrollIdentifier";
 
 @property (nonatomic, strong) NSMutableArray *objectArr;
 
+/**即时索引*/
+@property (nonatomic,assign) NSInteger immediateIndex;
+
+/**上次拖拽的索引*/
+@property (nonatomic,assign) CGFloat preIndexOffset;
+
 @end
 
 @implementation MTTenScrollModel
@@ -45,14 +51,99 @@ NSString* MTTenScrollIdentifier = @"MTTenScrollIdentifier";
 
 #pragma mark - 横向滚动contentView
 
+-(void)contentViewWillBeginDragging
+{
+    self.tenScrollView.scrollEnabled = false;
+    self.currentView.scrollEnabled = false;
+    
+    CGFloat currentOffsetX = self.contentView.offsetX / self.contentView.width;
+    CGFloat subValue = fabs(currentOffsetX - self.preIndexOffset);
+    
+    //证明上次滚动是有效的
+    if(subValue > 0.5)
+    {
+        if(self.immediateIndex == self.currentIndex)
+            self.immediateIndex = self.currentIndex + ([self.contentView.panGestureRecognizer velocityInView:self.contentView].x < 0 ? 1 : -1);
+        else
+            self.immediateIndex += ([self.contentView.panGestureRecognizer velocityInView:self.contentView].x < 0 ? 1 : -1);
+        
+        if(fabs(self.immediateIndex - currentOffsetX) > 1)
+            self.immediateIndex = currentOffsetX += ([self.contentView.panGestureRecognizer velocityInView:self.contentView].x < 0 ? 1 : -1);
+    }
+    
+    self.preIndexOffset = currentOffsetX;
+}
+
+/**固定滚动时必要的offset*/
+-(void)fixContentViewScrollingOffset
+{
+    if(self.contentView.offsetX < 0)
+        self.contentView.offsetX = 0;
+    if(self.contentView.offsetX > ((self.dataList.count - 1) * self.contentView.width))
+        self.contentView.offsetX = (self.dataList.count - 1) * self.contentView.width;
+    
+    if([self.currentView isKindOfClass:[MTTenScrollView class]])
+    {
+        MTTenScrollModel* subModel = ((MTTenScrollView*)self.currentView).model;
+        MTTenScrollContentView* subContentView = subModel.contentView;
+        
+        if(subContentView.isRolling && ([self.contentView.panGestureRecognizer locationInView:self.contentView].x == [subContentView.panGestureRecognizer locationInView:self.contentView].x))
+        {
+            if((subModel.immediateIndex < (subModel.dataList.count - 1)))
+                self.contentView.offsetX = self.currentIndex * self.contentView.width;
+        }
+    }
+    
+    if(self.superTenScrollView)
+    {
+        MTTenScrollModel* superModel = self.superTenScrollView.model;
+        MTTenScrollContentView* superContentView = superModel.contentView;
+        
+        CGFloat velX = [self.contentView.panGestureRecognizer velocityInView:self.contentView].x;
+        
+        if(((self.immediateIndex <= 0) && (velX >= 0)) || (self.immediateIndex >= (self.dataList.count - 1) && (velX <= 0))){}
+        else if(!self.contentView.isRolling)
+            superContentView.offsetX = superModel.currentIndex * superContentView.width;
+    }
+}
+
+-(BOOL)canContentViewDidScroll
+{
+    if(![self.currentView isKindOfClass:[MTTenScrollView class]])
+        return YES;
+    
+    MTTenScrollModel* subModel = ((MTTenScrollView*)self.currentView).model;
+    
+    if(!(self.currentView.isRolling && ([self.contentView.panGestureRecognizer locationInView:self.contentView].x == [subModel.contentView.panGestureRecognizer locationInView:self.contentView].x)))
+        return YES;
+    
+    if((subModel.immediateIndex <= 0) && (self.currentIndex > 0))
+        return YES;
+    
+    if((subModel.immediateIndex >= (subModel.dataList.count - 1)) && (self.currentIndex < (self.dataList.count - 1)))
+        return YES;
+    
+    return false;
+}
+
 -(void)contentViewDidScroll
 {
+    [self fixContentViewScrollingOffset];
+    
+    if(![self canContentViewDidScroll])
+        return;
+
+    static BOOL isLeft;
     if(self.isTitleViewTap)
         return;
-    CGFloat closeingIndex = self.contentView.contentOffset.x / self.contentView.width;
     
     //判断左右
-    BOOL isLeft = closeingIndex < self.currentIndex;
+    CGFloat closeingIndex = self.contentView.contentOffset.x / self.contentView.width;
+    if(closeingIndex == self.currentIndex)
+        return;
+    
+    isLeft = closeingIndex < self.currentIndex;
+    
     
     NSInteger index = self.currentIndex;
     if(isLeft)
@@ -61,7 +152,6 @@ NSString* MTTenScrollIdentifier = @"MTTenScrollIdentifier";
         if(index < 0)
             index = 0;
     }
-    
     
     CGFloat scale = closeingIndex - index;
     if(isLeft)
@@ -72,11 +162,14 @@ NSString* MTTenScrollIdentifier = @"MTTenScrollIdentifier";
         nextIndex = 0;
     if(nextIndex >= self.titleList.count)
         nextIndex = (self.titleList.count - 1);
+  
     
     MTTenScrollTitleCell* currentCell = (MTTenScrollTitleCell*)[self.titleView cellForItemAtIndexPath:[NSIndexPath indexPathForRow:self.currentIndex inSection:0]];
     
     MTTenScrollTitleCell* nextCell = (MTTenScrollTitleCell*)[self.titleView cellForItemAtIndexPath:[NSIndexPath indexPathForRow:nextIndex inSection:0]];
     
+//    NSLog(@"%zd === %zd === %@ === %lf",self.currentIndex, nextIndex, isLeft ? @"左" :@"右", closeingIndex);
+
     [self colorChangeCurrentTitleCell:currentCell nextCell:nextCell changeScale:scale];
     [self fontSizeChangeCurrentTitleCell:currentCell nextCell:nextCell changeScale:scale];
 
@@ -91,21 +184,26 @@ NSString* MTTenScrollIdentifier = @"MTTenScrollIdentifier";
     self.titleView.bottomLine.width = beginWidth + widthOffset;
     
     if(fabs(self.currentIndex - closeingIndex) >= 1)
-    {
-        self.currentIndex = isLeft ? ceil(closeingIndex) : closeingIndex;
-        
-        [self didContentViewEndScroll];
-    }
+        [self didContentViewEndScroll:(isLeft ? ceil(closeingIndex) : closeingIndex)];    
 }
 
 -(void)didContentViewEndScroll
 {
+    [self didContentViewEndScroll:(self.contentView.contentOffset.x / self.contentView.width)];
+}
+
+-(void)didContentViewEndScroll:(NSInteger)currentIndex
+{
     _isContentViewScrollEnd = YES;
+    self.tenScrollView.scrollEnabled = YES;
+    self.currentView.scrollEnabled = YES;
+    
+    self.currentIndex = currentIndex;
     
     if([self.titleView respondsToSelector:@selector(collectionView:didSelectItemAtIndexPath:)])
         [self.titleView collectionView:self.titleView didSelectItemAtIndexPath:[NSIndexPath indexPathForRow:self.currentIndex inSection:0]];
     
-    _isContentViewScrollEnd = false;    
+    _isContentViewScrollEnd = false;
 }
 
 #pragma mark - 文字颜色渐变
@@ -310,6 +408,7 @@ NSString* MTTenScrollIdentifier = @"MTTenScrollIdentifier";
         return;
     
     _currentIndex = currentIndex;
+    self.preIndexOffset = self.immediateIndex = currentIndex;
     [self setUpCurrentViewByIndex:currentIndex];
 }
 
