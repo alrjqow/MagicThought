@@ -33,6 +33,10 @@ NSString* MTTenScrollIdentifier = @"MTTenScrollIdentifier";
 /**上次拖拽的索引*/
 @property (nonatomic,assign) CGFloat preIndexOffset;
 
+/**开始的父级索引*/
+@property (nonatomic,assign) NSInteger preSuperIndex;
+
+
 @end
 
 @implementation MTTenScrollModel
@@ -56,9 +60,12 @@ NSString* MTTenScrollIdentifier = @"MTTenScrollIdentifier";
     self.tenScrollView.scrollEnabled = false;
     self.currentView.scrollEnabled = false;
     
-//    if(self.superTenScrollView)
-//        NSLog(@"%zd",self.superTenScrollView.model.currentIndex);
-    
+    if(self.superTenScrollView)
+    {
+        self.preSuperIndex = self.superTenScrollView.model.currentIndex;
+        
+//        NSLog(@"%lf === %zd",self.contentView.offsetX / self.contentView.width, self.currentIndex);
+    }
     
     CGFloat currentOffsetX = self.contentView.offsetX / self.contentView.width;
     CGFloat subValue = fabs(currentOffsetX - self.preIndexOffset);
@@ -105,28 +112,61 @@ NSString* MTTenScrollIdentifier = @"MTTenScrollIdentifier";
         
         CGFloat velX = [self.contentView.panGestureRecognizer velocityInView:self.contentView].x;
         
-        if(((self.immediateIndex <= 0) && (velX >= 0)) || (self.immediateIndex >= (self.dataList.count - 1) && (velX <= 0))){}
-        else if(!self.contentView.isRolling)
+        if(((self.immediateIndex <= 0) && (velX >= 0)) || (self.immediateIndex >= (self.dataList.count - 1) && (velX <= 0)))
+        {}
+        else if(!self.contentView.isRolling && (superModel.currentView == self.tenScrollView))
             superContentView.offsetX = superModel.currentIndex * superContentView.width;
+        
+  
+//        NSLog(@"%lf === %zd",self.contentView.offsetX / self.contentView.width, self.currentIndex);
+//            if(fabs((self.contentView.offsetX / self.contentView.width) - self.currentIndex) > 1)
     }
 }
 
 -(BOOL)canContentViewDidScroll
 {
     if(![self.currentView isKindOfClass:[MTTenScrollView class]])
+    {
+        if(self.superTenScrollView)
+            return self.superTenScrollView.model.currentView == self.tenScrollView;
+        
         return YES;
+    }
+    
+    
     
     MTTenScrollModel* subModel = ((MTTenScrollView*)self.currentView).model;
     
     if(!(self.currentView.isRolling && (([self.contentView.panGestureRecognizer locationInView:self.contentView].x == [subModel.contentView.panGestureRecognizer locationInView:self.contentView].x) || ([self.contentView.panGestureRecognizer locationInView:self.contentView].x == [subModel.titleView.panGestureRecognizer locationInView:self.contentView].x))))
+    {
+//        if(self.superTenScrollView)
+//        {
+//            NSLog(@"11111");
+//        }
         return YES;
+    }
+    
     
     if((subModel.immediateIndex <= 0) && (self.currentIndex > 0))
+    {
+//        if(self.superTenScrollView)
+//        {
+//            NSLog(@"22222");
+//        }
         return YES;
+    }
+    
     
     if((subModel.immediateIndex >= (subModel.dataList.count - 1)) && (self.currentIndex < (self.dataList.count - 1)))
+    {
+//        if(self.superTenScrollView)
+//        {
+//            NSLog(@"33333");
+//        }
         return YES;
+    }
     
+//    NSLog(@"44444");
     return false;
 }
 
@@ -202,15 +242,45 @@ NSString* MTTenScrollIdentifier = @"MTTenScrollIdentifier";
     self.tenScrollView.scrollEnabled = YES;
     self.currentView.scrollEnabled = YES;
     
-//    if(self.superTenScrollView)
-//        NSLog(@"===%lf",self.superTenScrollView.model.contentView.offsetX / self.superTenScrollView.model.contentView.width);
-    
+    NSInteger preIndex = self.currentIndex;
+    UIScrollView* preCurrentView = self.currentView;
     self.currentIndex = currentIndex;
     
-    if([self.titleView respondsToSelector:@selector(collectionView:didSelectItemAtIndexPath:)])
-        [self.titleView collectionView:self.titleView didSelectItemAtIndexPath:[NSIndexPath indexPathForRow:self.currentIndex inSection:0]];
+    if(preCurrentView != self.currentView)
+    {
+        
+    }
+    
+//    if(self.superTenScrollView)
+//    {
+//        MTTenScrollModel* superModel = self.superTenScrollView.model;
+//
+//        if(self.preSuperIndex != superModel.immediateIndex)
+//        {
+//            NSInteger row = superModel.immediateIndex > self.preSuperIndex ? (self.dataList.count -1) : 0;
+//
+////            NSLog(@"%zd === %zd === %zd === %lf",self.preSuperIndex, superModel.immediateIndex, row, superModel.contentView.offsetX / superModel.contentView.width);
+//
+//
+////            self.currentIndex = row;
+//
+//            NSLog(@"1111 === %zd === %zd", row, self.preSuperIndex, superModel.immediateIndex);
+////            self.contentView.offsetX = row * self.contentView.width;
+//        }
+//    }
+    
+    
+//    if(!self.superTenScrollView)
+//        NSLog(@"%zd ==== %zd",self.currentIndex, currentIndex);
+    
+    
+    NSIndexPath* indexPath = [NSIndexPath indexPathForRow:self.currentIndex inSection:0];
+    
+//    [self.contentView scrollToItemAtIndexPath: indexPath atScrollPosition:UICollectionViewScrollPositionCenteredHorizontally animated:false];
+    [self.titleView collectionView:self.titleView didSelectItemAtIndexPath:indexPath];
     
     _isContentViewScrollEnd = false;
+    
 }
 
 #pragma mark - 文字颜色渐变
