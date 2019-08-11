@@ -9,6 +9,8 @@
 #import "MTTenScrollTitleView.h"
 #import "MTTenScrollModel.h"
 #import "MTTenScrollView.h"
+#import "MTTenScrollContentView.h"
+
 
 #import "UIView+Frame.h"
 #import "MTCloud.h"
@@ -46,7 +48,6 @@
     self.showsVerticalScrollIndicator = false;
     self.showsHorizontalScrollIndicator = false;
     self.clipsToBounds = false;
-    self.bounces = false;
     [self.panGestureRecognizer requireGestureRecognizerToFail:[MTCloud shareCloud].currentViewController.navigationController.interactivePopGestureRecognizer];
     [self addSubview:self.bottomLine];
     [self addTarget:self EmptyData:nil DataList:nil SectionList:nil];
@@ -85,7 +86,6 @@
         return CGSizeMake(self.model.titleViewModel.cellWidth, collectionView.height);
     
     return CGSizeMake([[[UILabel new] setWordWithStyle:mt_WordStyleMake(self.model.titleViewModel.normalStyle.wordSize, self.model.titleList[indexPath.row], nil)] sizeThatFits:CGSizeMake(MAXFLOAT, collectionView.height)].width, collectionView.height);
-//    return CGSizeMake([[[UILabel new] setWordWithStyle:mt_WordStyleMake((self.model.currentIndex == indexPath.row ? self.model.titleViewModel.selectedStyle.wordSize : self.model.titleViewModel.normalStyle.wordSize), self.model.titleList[indexPath.row], nil)] sizeThatFits:CGSizeMake(MAXFLOAT, collectionView.height)].width, collectionView.height);
 }
 
 -(void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath
@@ -108,7 +108,7 @@
 
 -(void)scrollViewWillBeginDragging:(UIScrollView *)scrollView
 {
-    self.model.tenScrollView.scrollEnabled = false;    
+    [self.model titleViewWillBeginDragging];    
 }
 
 -(void)scrollViewDidEndDragging:(UIScrollView *)scrollView willDecelerate:(BOOL)decelerate
@@ -116,14 +116,18 @@
     if(decelerate)
         return;
     
-    self.model.tenScrollView.scrollEnabled = YES;
+    [self.model didTitleViewEndScroll];
 }
 
 -(void)scrollViewDidEndDecelerating:(UIScrollView *)scrollView
 {
-    self.model.tenScrollView.scrollEnabled = YES;    
+    [self.model didTitleViewEndScroll];
 }
 
+-(void)scrollViewDidScroll:(UIScrollView *)scrollView
+{
+    [self.model titleViewDidScroll];    
+}
 
 
 #pragma mark - 懒加载

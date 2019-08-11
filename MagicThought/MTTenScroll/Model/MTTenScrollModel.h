@@ -43,6 +43,12 @@ extern NSString* MTTenScrollIdentifier;
 
 -(UIView*)getViewByIndex:(NSInteger)index;
 
+-(void)titleViewWillBeginDragging;
+
+-(void)titleViewDidScroll;
+
+-(void)didTitleViewEndScroll;
+
 -(void)didTitleViewSelectedItem;
 
 -(void)didContentViewEndScroll;

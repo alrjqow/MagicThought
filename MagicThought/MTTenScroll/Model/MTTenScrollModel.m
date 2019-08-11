@@ -49,12 +49,16 @@ NSString* MTTenScrollIdentifier = @"MTTenScrollIdentifier";
     return self;
 }
 
-#pragma mark - 横向滚动contentView
+#pragma mark - ContentView
 
 -(void)contentViewWillBeginDragging
 {
     self.tenScrollView.scrollEnabled = false;
     self.currentView.scrollEnabled = false;
+    
+//    if(self.superTenScrollView)
+//        NSLog(@"%zd",self.superTenScrollView.model.currentIndex);
+    
     
     CGFloat currentOffsetX = self.contentView.offsetX / self.contentView.width;
     CGFloat subValue = fabs(currentOffsetX - self.preIndexOffset);
@@ -114,7 +118,7 @@ NSString* MTTenScrollIdentifier = @"MTTenScrollIdentifier";
     
     MTTenScrollModel* subModel = ((MTTenScrollView*)self.currentView).model;
     
-    if(!(self.currentView.isRolling && ([self.contentView.panGestureRecognizer locationInView:self.contentView].x == [subModel.contentView.panGestureRecognizer locationInView:self.contentView].x)))
+    if(!(self.currentView.isRolling && (([self.contentView.panGestureRecognizer locationInView:self.contentView].x == [subModel.contentView.panGestureRecognizer locationInView:self.contentView].x) || ([self.contentView.panGestureRecognizer locationInView:self.contentView].x == [subModel.titleView.panGestureRecognizer locationInView:self.contentView].x))))
         return YES;
     
     if((subModel.immediateIndex <= 0) && (self.currentIndex > 0))
@@ -198,6 +202,9 @@ NSString* MTTenScrollIdentifier = @"MTTenScrollIdentifier";
     self.tenScrollView.scrollEnabled = YES;
     self.currentView.scrollEnabled = YES;
     
+//    if(self.superTenScrollView)
+//        NSLog(@"===%lf",self.superTenScrollView.model.contentView.offsetX / self.superTenScrollView.model.contentView.width);
+    
     self.currentIndex = currentIndex;
     
     if([self.titleView respondsToSelector:@selector(collectionView:didSelectItemAtIndexPath:)])
@@ -277,7 +284,38 @@ NSString* MTTenScrollIdentifier = @"MTTenScrollIdentifier";
 }
 
 
-#pragma mark - 标题栏点击后
+#pragma mark - TitleView
+
+-(void)titleViewWillBeginDragging
+{
+    self.tenScrollView.scrollEnabled = false;
+    
+    if(!self.superTenScrollView)
+        return;
+    
+    MTTenScrollContentView* superContentView = self.superTenScrollView.model.contentView;
+    
+    CGFloat velX = [self.titleView.panGestureRecognizer velocityInView:self.titleView].x;
+    
+    superContentView.scrollEnabled = ((velX <= 0) && (self.immediateIndex >= (self.dataList.count - 1))) || ((velX > 0) && (self.immediateIndex <= 0));
+}
+
+-(void)titleViewDidScroll
+{
+    if(self.titleView.offsetX < -self.titleViewModel.margin)
+        self.titleView.offsetX = -self.titleViewModel.margin;
+    
+    CGFloat maxOffsetX = self.titleView.contentSize.width + self.titleViewModel.margin - self.titleView.width;
+    if(self.titleView.contentSize.width != 0 && self.titleView.offsetX > maxOffsetX)
+        self.titleView.offsetX = maxOffsetX;
+}
+
+-(void)didTitleViewEndScroll
+{
+    self.tenScrollView.scrollEnabled = YES;
+    self.superTenScrollView.model.contentView.scrollEnabled = YES;
+}
+
 -(void)didTitleViewSelectedItem
 {
     if(self.isContentViewScrollEnd)

@@ -76,6 +76,12 @@
     [self reloadDataWithDataList:(NSArray*)model.bandCount(model.dataList.count).band(@"MTTenScrollContentCell")];
 }
 
+-(void)setScrollEnabled:(BOOL)scrollEnabled
+{
+    self.model.superTenScrollView.model.contentView.scrollEnabled = scrollEnabled;
+    [super setScrollEnabled:scrollEnabled];
+}
+
 #pragma mark - 代理
 - (void)collectionView:(UICollectionView *)collectionView willDisplayCell:(UICollectionViewCell *)cell forItemAtIndexPath:(NSIndexPath *)indexPath{}
 

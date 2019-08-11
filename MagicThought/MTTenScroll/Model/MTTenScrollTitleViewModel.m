@@ -21,7 +21,7 @@
     {
         self.margin = 20;
         self.padding = 25;
-        self.titleViewHeight = 44;
+        self.titleViewHeight = 80;
     }
     
     return self;
