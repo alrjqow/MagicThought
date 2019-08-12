@@ -41,6 +41,9 @@ extern NSString* MTTenScrollIdentifier;
 
 @property (nonatomic,strong, readonly) NSObject* tenScrollData;
 
+/**最大索引*/
+@property (nonatomic,assign, readonly) NSInteger maxIndex;
+
 -(UIView*)getViewByIndex:(NSInteger)index;
 
 -(void)titleViewWillBeginDragging;
