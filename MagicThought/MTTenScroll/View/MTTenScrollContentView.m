@@ -92,25 +92,22 @@
 
 -(void)scrollViewDidEndDragging:(UIScrollView *)scrollView willDecelerate:(BOOL)decelerate
 {
-    if(decelerate)
-        return;
-    
-    [self.model didContentViewEndScroll];
+    [self.model didContentViewEndScrollWithDecelerate:decelerate];
 }
 
 -(void)scrollViewDidEndDecelerating:(UIScrollView *)scrollView
 {
-    [self.model didContentViewEndScroll];
+    [self.model didContentViewEndScrollWithDecelerate:false];
 }
 
 -(void)scrollViewWillBeginDragging:(UIScrollView *)scrollView
-{
+{    
     [self.model contentViewWillBeginDragging];
 }
 
 -(void)scrollViewDidScroll:(UIScrollView *)scrollView
 {
-  [self.model contentViewDidScroll];
+    [self.model contentViewDidScroll];
 }
 
 #pragma mark - 手势代理

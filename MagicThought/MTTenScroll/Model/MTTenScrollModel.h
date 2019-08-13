@@ -44,6 +44,17 @@ extern NSString* MTTenScrollIdentifier;
 /**最大索引*/
 @property (nonatomic,assign, readonly) NSInteger maxIndex;
 
+/**即时索引*/
+@property (nonatomic,assign) NSInteger immediateIndex;
+
+/**之前的index*/
+@property (nonatomic,assign) NSInteger preIndex;
+
+/**是否减速*/
+@property (nonatomic,assign) BOOL isDecelerate;
+
+
+
 -(UIView*)getViewByIndex:(NSInteger)index;
 
 -(void)titleViewWillBeginDragging;
@@ -54,7 +65,7 @@ extern NSString* MTTenScrollIdentifier;
 
 -(void)didTitleViewSelectedItem;
 
--(void)didContentViewEndScroll;
+-(void)didContentViewEndScrollWithDecelerate:(BOOL)decelerate;
 
 -(void)contentViewWillBeginDragging;
 

@@ -19,7 +19,7 @@
 #import "NSObject+ReuseIdentifier.h"
 
 
-@interface MTTenScrollTitleView ()
+@interface MTTenScrollTitleView ()<UIGestureRecognizerDelegate>
 
 @property (nonatomic,weak) UICollectionViewCell* selectedCell;
 
@@ -129,6 +129,12 @@
     [self.model titleViewDidScroll];    
 }
 
+#pragma mark - 手势代理
+
+- (BOOL)gestureRecognizer:(UIGestureRecognizer *)gestureRecognizer shouldRecognizeSimultaneouslyWithGestureRecognizer:(UIGestureRecognizer *)otherGestureRecognizer
+{
+    return otherGestureRecognizer == self.model.superTenScrollView.model.contentView.panGestureRecognizer;    
+}
 
 #pragma mark - 懒加载
 
