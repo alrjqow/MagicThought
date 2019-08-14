@@ -59,6 +59,9 @@ NSString* MTTenScrollIdentifier = @"MTTenScrollIdentifier";
 /**是否向左*/
 @property (nonatomic,assign) BOOL isLeft;
 
+@property (nonatomic,assign) CGFloat limitoffsetX;
+
+
 @end
 
 @implementation MTTenScrollModel
@@ -101,8 +104,8 @@ NSString* MTTenScrollIdentifier = @"MTTenScrollIdentifier";
             self.immediateIndex = currentOffsetX += ([self.contentView.panGestureRecognizer velocityInView:self.contentView].x < 0 ? 1 : -1);
     }
     
-//    if(self.superTenScrollView)
-//        NSLog(@"开始的索引：==== %zd", self.immediateIndex);
+    if(!self.superTenScrollView)
+        NSLog(@"开始的索引：==== %zd", self.immediateIndex);
     
     self.preIndexOffset = currentOffsetX;
     self.preIndex = self.immediateIndex;
@@ -114,23 +117,41 @@ NSString* MTTenScrollIdentifier = @"MTTenScrollIdentifier";
 {
     CGFloat minOffsetX = 0;
     CGFloat maxOffsetX = self.contentView.width * self.maxIndex;
-    CGFloat offsetX = self.contentView.offsetX;
+    __block CGFloat offsetX = self.contentView.offsetX;
+    CGFloat index = self.contentView.offsetX / self.contentView.width;
     
     if(offsetX == self.preOffsetX)
         return;
     
     self.isLeft = self.contentView.offsetX < self.preOffsetX;
     
-//    if(self.isDecelerate)
-//    {
-//        CGFloat limitoffsetX = self.contentView.width * self.currentIndex;
-//        if(self.decelerateLock)
-//            self.
-//
-//
-//        if(!self.superTenScrollView)
-//            NSLog(@"%lf",offsetX);
-//    }
+    if(self.isDecelerate)
+    {
+        if(self.decelerateLock)
+        {
+            if(self.isLeft)
+            {
+                [UIView animateWithDuration:0.25 animations:^{
+                    self.contentView.bounds = CGRectMake(0, 0, self.contentView.width, self.contentView.height);
+                    if(offsetX < self.limitoffsetX)
+                        offsetX = self.limitoffsetX;
+                }];
+            }
+            else
+            {
+                [UIView animateWithDuration:0.25 animations:^{
+                    self.contentView.bounds = CGRectMake(0, 0, self.contentView.width, self.contentView.height);
+                    if(offsetX > self.limitoffsetX)
+                        offsetX = self.limitoffsetX;
+                                                         }];
+                
+            }
+        }
+        
+        
+        if(!self.superTenScrollView)
+            NSLog(@"%lf",offsetX);
+    }
     
     
     if([self.currentView isKindOfClass:[MTTenScrollView class]])
@@ -146,20 +167,20 @@ NSString* MTTenScrollIdentifier = @"MTTenScrollIdentifier";
                 self.contentView.offsetX = limitoffsetX;
             else
             {
-                if(self.isDecelerate)
-                {
-                    if(subContentView.offsetX >= subMaxOffsetX && (offsetX > limitoffsetX))
-                    {
-                        offsetX = limitoffsetX;
-//                        self.contentView.offsetX = offsetX;
-                    }
-                    
-                    if(subContentView.offsetX <= subMinOffsetX && (offsetX < limitoffsetX))
-                    {
-                        offsetX = limitoffsetX;
-//                        self.contentView.offsetX = offsetX;
-                    }
-                }
+//                if(self.isDecelerate)
+//                {
+//                    if(subContentView.offsetX >= subMaxOffsetX && (offsetX > limitoffsetX))
+//                    {
+//                        offsetX = limitoffsetX;
+////                        self.contentView.offsetX = offsetX;
+//                    }
+//
+//                    if(subContentView.offsetX <= subMinOffsetX && (offsetX < limitoffsetX))
+//                    {
+//                        offsetX = limitoffsetX;
+////                        self.contentView.offsetX = offsetX;
+//                    }
+//                }
             }
     }
     
@@ -185,7 +206,16 @@ NSString* MTTenScrollIdentifier = @"MTTenScrollIdentifier";
         superContentView.offsetX = superContentView.width * self.superIndex;
 //        NSLog(@"=========================================");
     }
-    
+    else
+    {
+        if(superModel.immediateIndex == self.superIndex)
+        {
+            superModel.decelerateLock = YES;
+            superModel.limitoffsetX = superContentView.width * self.superIndex;
+            superModel.isLeft = offsetX <= minOffsetX;
+//            superContentView.bounds = CGRectMake(0, 0, superContentView.width, superContentView.height);
+        }
+    }
     
     self.preOffsetX = offsetX;
 
@@ -582,7 +612,7 @@ NSString* MTTenScrollIdentifier = @"MTTenScrollIdentifier";
     self.titleView.bottomLine.width = beginWidth + widthOffset;
     
     if(fabs(self.currentIndex - closeingIndex) >= 1)
-        [self didContentViewEndScroll:(isLeft ? ceil(closeingIndex) : closeingIndex)];    
+        [self didContentViewEndScroll:(isLeft ? ceil(closeingIndex) : closeingIndex)];
 }
 
 -(void)didContentViewEndScrollWithDecelerate:(BOOL)decelerate
