@@ -556,7 +556,7 @@ NSString* MTTenScrollIdentifier = @"MTTenScrollIdentifier";
 
 -(void)contentViewDidScroll
 {
-    [self fixContentViewScrollingOffset];
+//    [self fixContentViewScrollingOffset];
     
     if(![self canContentViewDidScroll])
         return;
