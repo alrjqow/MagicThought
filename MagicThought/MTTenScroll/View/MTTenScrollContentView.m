@@ -57,6 +57,8 @@
     self.showsVerticalScrollIndicator = false;
     self.showsHorizontalScrollIndicator = false;
     
+    self.bounces = false;
+    
     self.pagingEnabled = YES;
     
     [self.panGestureRecognizer requireGestureRecognizerToFail:[MTCloud shareCloud].currentViewController.navigationController.interactivePopGestureRecognizer];
