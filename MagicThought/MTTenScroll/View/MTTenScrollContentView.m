@@ -94,12 +94,12 @@
 
 -(void)scrollViewDidEndDragging:(UIScrollView *)scrollView willDecelerate:(BOOL)decelerate
 {
-//    [self.model didContentViewEndScrollWithDecelerate:decelerate];
+    [self.model didContentViewEndScrollWithDecelerate:decelerate];
 }
 
 -(void)scrollViewDidEndDecelerating:(UIScrollView *)scrollView
 {
-//    [self.model didContentViewEndScrollWithDecelerate:false];
+    [self.model didContentViewEndScrollWithDecelerate:false];
 }
 
 -(void)scrollViewWillBeginDragging:(UIScrollView *)scrollView
@@ -109,41 +109,42 @@
 
 -(void)scrollViewDidScroll:(UIScrollView *)scrollView
 {
-//    [self.model contentViewDidScroll];
+    [self.model contentViewDidScroll];
 }
 
 #pragma mark - 手势代理
 
 -(BOOL)gestureRecognizerShouldBegin:(UIGestureRecognizer *)gestureRecognizer
 {
-    if(![gestureRecognizer isKindOfClass:[UIPanGestureRecognizer class]])
-        return YES;
+//    if(![gestureRecognizer isKindOfClass:[UIPanGestureRecognizer class]])
+//        return YES;
+//
+//    if(![self.model.currentView isKindOfClass:[MTTenScrollView class]])
+//        return YES;
+//
+//    MTTenScrollModel* subModel = ((MTTenScrollView*)self.model.currentView).model;
+//    MTTenScrollContentView* subContentView = subModel.contentView;
+//
+//    CGFloat minOffsetX = 0;
+//    CGFloat maxOffsetX = subContentView.width * subModel.maxIndex;
+//    CGFloat offsetX = subContentView.offsetX;
+//    CGFloat velX = [subContentView.panGestureRecognizer velocityInView:subContentView].x;
+//
+//
+//
+//    NSLog(@"%lf === %lf === %lf === %lf",velX, offsetX, minOffsetX, maxOffsetX);
+//
+//    if((offsetX > minOffsetX) && (offsetX < maxOffsetX))
+//        return false;
+//
+//    if((offsetX <= minOffsetX) && velX < 0)
+//        return false;
+//
+//    if((offsetX >= maxOffsetX) && velX > 0)
+//        return false;
     
-    if(![self.model.currentView isKindOfClass:[MTTenScrollView class]])
-        return YES;
     
-    MTTenScrollModel* subModel = ((MTTenScrollView*)self.model.currentView).model;
-    MTTenScrollContentView* subContentView = subModel.contentView;
-    
-    CGFloat minOffsetX = 0;
-    CGFloat maxOffsetX = subContentView.width * subModel.maxIndex;
-    CGFloat offsetX = subContentView.offsetX;
-    CGFloat velX = [subContentView.panGestureRecognizer velocityInView:subContentView].x;
-    
-    
-    
-    NSLog(@"%lf === %lf === %lf === %lf === %lf",self.bounds.origin.x,velX, offsetX, minOffsetX, maxOffsetX);
-    
-    if((offsetX > minOffsetX) && (offsetX < maxOffsetX))
-        return false;
-    
-    if((offsetX <= minOffsetX) && velX < 0)
-        return false;
-    
-    if((offsetX >= maxOffsetX) && velX > 0)
-        return false;
-    
-    return YES;
+    return !self.model.isTitleViewTap;
 }
 
 -(BOOL)gestureRecognizer:(UIGestureRecognizer *)gestureRecognizer shouldRecognizeSimultaneouslyWithGestureRecognizer:(UIGestureRecognizer *)otherGestureRecognizer

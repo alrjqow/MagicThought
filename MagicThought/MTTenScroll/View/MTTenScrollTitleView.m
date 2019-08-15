@@ -48,6 +48,7 @@
     self.showsVerticalScrollIndicator = false;
     self.showsHorizontalScrollIndicator = false;
     self.clipsToBounds = false;
+//    self.bounces = false;
     [self.panGestureRecognizer requireGestureRecognizerToFail:[MTCloud shareCloud].currentViewController.navigationController.interactivePopGestureRecognizer];
     [self addSubview:self.bottomLine];
     [self addTarget:self EmptyData:nil DataList:nil SectionList:nil];
@@ -90,16 +91,19 @@
 
 -(void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath
 {
-    if(!self.model.isContentViewScrollEnd && self.model.currentIndex == indexPath.row)
+    if(self.model.currentIndex == indexPath.row)
         return;
-     
+    
+    if(self.model.contentView.isRolling)
+        return;
+            
     UICollectionViewCell* cell = [collectionView cellForItemAtIndexPath:indexPath];
     
     self.model.currentIndex = indexPath.row;
     self.selectedCell.selected = false;
     self.selectedCell = cell;
     self.selectedCell.selected = YES;
-    
+
     [self reloadData];
     [collectionView scrollToItemAtIndexPath:indexPath atScrollPosition:UICollectionViewScrollPositionCenteredHorizontally animated:YES];
     
@@ -126,7 +130,7 @@
 
 -(void)scrollViewDidScroll:(UIScrollView *)scrollView
 {
-    [self.model titleViewDidScroll];    
+    [self.model titleViewDidScroll];
 }
 
 #pragma mark - 手势代理

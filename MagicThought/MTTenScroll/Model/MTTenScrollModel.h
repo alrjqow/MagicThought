@@ -53,7 +53,9 @@ extern NSString* MTTenScrollIdentifier;
 /**是否减速*/
 @property (nonatomic,assign) BOOL isDecelerate;
 
+@property (nonatomic,assign) BOOL isContentViewScrolling;
 
+@property (nonatomic,assign) BOOL isTitleViewTap;
 
 -(UIView*)getViewByIndex:(NSInteger)index;
 
