@@ -57,6 +57,8 @@ extern NSString* MTTenScrollIdentifier;
 
 @property (nonatomic,assign) BOOL isTitleViewTap;
 
+@property (nonatomic,assign) BOOL isDragging;
+
 -(UIView*)getViewByIndex:(NSInteger)index;
 
 -(void)titleViewWillBeginDragging;

@@ -144,7 +144,7 @@
 //        return false;
     
     
-    return !self.model.isTitleViewTap;
+    return YES;
 }
 
 -(BOOL)gestureRecognizer:(UIGestureRecognizer *)gestureRecognizer shouldRecognizeSimultaneouslyWithGestureRecognizer:(UIGestureRecognizer *)otherGestureRecognizer

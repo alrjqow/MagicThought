@@ -86,7 +86,7 @@ NSString* MTTenScrollIdentifier = @"MTTenScrollIdentifier";
 {
     self.tenScrollView.scrollEnabled = false;
     self.currentView.scrollEnabled = false;
-
+    self.isDragging = YES;
 //    return;
     
     
@@ -612,8 +612,8 @@ NSString* MTTenScrollIdentifier = @"MTTenScrollIdentifier";
     MTTenScrollTitleCell* nextCell = (MTTenScrollTitleCell*)[self.titleView cellForItemAtIndexPath:[NSIndexPath indexPathForRow:endIndex  inSection:0]];
     
     
-    if(self.superTenScrollView)
-        NSLog(@"前后索引：==== %zd ==== %zd", startIndex, endIndex);    
+//    if(self.superTenScrollView)
+//        NSLog(@"前后索引：==== %zd ==== %zd", startIndex, endIndex);
     
     [self colorChangeCurrentTitleCell:currentCell nextCell:nextCell changeScale:scale];
     [self fontSizeChangeCurrentTitleCell:currentCell nextCell:nextCell changeScale:scale];
@@ -707,6 +707,8 @@ NSString* MTTenScrollIdentifier = @"MTTenScrollIdentifier";
         return;
     }
     
+    
+    self.isDragging = false;
     CGFloat index = self.contentView.contentOffset.x / self.contentView.width;
     NSInteger currentIndex = index;
     
@@ -839,9 +841,6 @@ NSString* MTTenScrollIdentifier = @"MTTenScrollIdentifier";
 
 -(void)titleViewDidScroll
 {
-    if(!self.superTenScrollView)
-        return;
- 
     if(self.isContentViewScrolling)
         return;
     
@@ -856,6 +855,17 @@ NSString* MTTenScrollIdentifier = @"MTTenScrollIdentifier";
     if(minOffsetX > 0)
         maxOffsetX += 0.1;
     
+    if(!self.superTenScrollView)
+    {
+        if(self.titleView.offsetX < minOffsetX)
+            self.titleView.offsetX = minOffsetX;
+        
+        if(self.titleView.offsetX > maxOffsetX)
+            self.titleView.offsetX = maxOffsetX;
+        return;
+    }
+    
+
     if(self.titleViewFixScroll)
         self.titleView.offsetX = preOffsetX;
     else

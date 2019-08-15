@@ -18,10 +18,15 @@
 #import "UILabel+Word.h"
 #import "NSObject+ReuseIdentifier.h"
 
+@interface MTTenScrollTitleCell ()
+
+@property (nonatomic,assign) BOOL isSelected;
+
+@end
 
 @interface MTTenScrollTitleView ()<UIGestureRecognizerDelegate>
 
-@property (nonatomic,weak) UICollectionViewCell* selectedCell;
+@property (nonatomic,weak) MTTenScrollTitleCell* selectedCell;
 
 @end
 
@@ -69,7 +74,9 @@
     {
         if(!self.selectedCell)
         {
-            self.selectedCell = cell;
+            self.selectedCell = (MTTenScrollTitleCell*)cell;
+//            NSLog(@"willDisplayCell");
+            ((MTTenScrollTitleCell*)cell).isSelected = YES;
             cell.selected = YES;
         }
         
@@ -91,22 +98,32 @@
 
 -(void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath
 {
-    if(self.model.currentIndex == indexPath.row)
+//    if(self.model.currentIndex == indexPath.row)
+//        return;
+
+    if(self.model.contentView.isRolling && self.model.isDragging)
+    {
+        NSLog(@"%d === %d === %d",self.model.contentView.tracking, self.model.contentView.dragging, self.model.contentView.decelerating);
+        
         return;
+    }
     
-    if(self.model.contentView.isRolling)
-        return;
-            
-    UICollectionViewCell* cell = [collectionView cellForItemAtIndexPath:indexPath];
-    
+//    NSLog(@"%lf == %lf",[self.model.contentView.panGestureRecognizer locationInView:self.model.contentView].x, [self.model.tenScrollView.panGestureRecognizer locationInView:self.model.contentView].x);
+
+//    NSLog(@"%zd === %zd",self.model.currentIndex, indexPath.row);
+//    NSLog(@"didSelectItemAtIndexPath");
+    MTTenScrollTitleCell* cell = (MTTenScrollTitleCell*)[collectionView cellForItemAtIndexPath:indexPath];
+
     self.model.currentIndex = indexPath.row;
+    self.selectedCell.isSelected = YES;
     self.selectedCell.selected = false;
     self.selectedCell = cell;
+    self.selectedCell.isSelected = YES;
     self.selectedCell.selected = YES;
 
     [self reloadData];
     [collectionView scrollToItemAtIndexPath:indexPath atScrollPosition:UICollectionViewScrollPositionCenteredHorizontally animated:YES];
-    
+
     [self.model didTitleViewSelectedItem];
 }
 
@@ -171,7 +188,6 @@
 
 
 
-
 @implementation MTTenScrollTitleCell
 
 
@@ -190,7 +206,7 @@
     
     self.title = [UILabel new];
     self.title.textAlignment = NSTextAlignmentCenter;
-    [self addSubview:self.title];        
+    [self addSubview:self.title];
 }
 
 -(void)layoutSubviews
@@ -216,6 +232,13 @@
 -(void)setSelected:(BOOL)selected
 {
     [super setSelected:selected];
+    
+    if(!self.isSelected)
+        return;
+    
+//    NSLog(@"%@ === %zd === %zd",selected ? @"Yes" : @"No", self.model.currentIndex, self.indexPath.row);
+    
+    self.isSelected = false;
     
     NSString* text = self.title.text;
     
