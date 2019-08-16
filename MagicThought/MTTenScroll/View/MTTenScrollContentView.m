@@ -78,11 +78,6 @@
     [self reloadDataWithDataList:(NSArray*)model.bandCount(model.dataList.count).band(@"MTTenScrollContentCell")];
 }
 
--(void)setScrollEnabled:(BOOL)scrollEnabled
-{
-    self.model.superTenScrollView.model.contentView.scrollEnabled = scrollEnabled;
-    [super setScrollEnabled:scrollEnabled];
-}
 
 #pragma mark - 代理
 - (void)collectionView:(UICollectionView *)collectionView willDisplayCell:(UICollectionViewCell *)cell forItemAtIndexPath:(NSIndexPath *)indexPath{}
@@ -114,38 +109,6 @@
 
 #pragma mark - 手势代理
 
--(BOOL)gestureRecognizerShouldBegin:(UIGestureRecognizer *)gestureRecognizer
-{
-//    if(![gestureRecognizer isKindOfClass:[UIPanGestureRecognizer class]])
-//        return YES;
-//
-//    if(![self.model.currentView isKindOfClass:[MTTenScrollView class]])
-//        return YES;
-//
-//    MTTenScrollModel* subModel = ((MTTenScrollView*)self.model.currentView).model;
-//    MTTenScrollContentView* subContentView = subModel.contentView;
-//
-//    CGFloat minOffsetX = 0;
-//    CGFloat maxOffsetX = subContentView.width * subModel.maxIndex;
-//    CGFloat offsetX = subContentView.offsetX;
-//    CGFloat velX = [subContentView.panGestureRecognizer velocityInView:subContentView].x;
-//
-//
-//
-//    NSLog(@"%lf === %lf === %lf === %lf",velX, offsetX, minOffsetX, maxOffsetX);
-//
-//    if((offsetX > minOffsetX) && (offsetX < maxOffsetX))
-//        return false;
-//
-//    if((offsetX <= minOffsetX) && velX < 0)
-//        return false;
-//
-//    if((offsetX >= maxOffsetX) && velX > 0)
-//        return false;
-    
-    
-    return YES;
-}
 
 -(BOOL)gestureRecognizer:(UIGestureRecognizer *)gestureRecognizer shouldRecognizeSimultaneouslyWithGestureRecognizer:(UIGestureRecognizer *)otherGestureRecognizer
 {

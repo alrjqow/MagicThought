@@ -93,7 +93,7 @@
 {
     [self.animator removeAllBehaviors];
     
-    self.model.superTenScrollView.model.contentView.scrollEnabled = self.model.contentView.scrollEnabled = self.model.titleView.scrollEnabled = false;
+    self.model.contentView.scrollEnabled = self.model.titleView.scrollEnabled = false;
     
     [super scrollViewWillBeginDragging:scrollView];
 }
@@ -187,10 +187,9 @@
 {
     if(!self.isScrollTop || self.model.currentView.contentOffset.y > 0)
     {
-        self.model.superTenScrollView.model.contentView.scrollEnabled = self.model.contentView.scrollEnabled = self.model.titleView.scrollEnabled = YES;
+        self.model.contentView.scrollEnabled = self.model.titleView.scrollEnabled = YES;
         return;
     }
-    
     
     [self.animator removeAllBehaviors];
     self.item.center = CGPointZero;
@@ -201,8 +200,10 @@
     [behavior addLinearVelocity:CGPointMake(0, -vPoint.y) forItem:self.item];
     behavior.resistance = 2.0;
     
+    UIScrollView* currentView = self.model.currentView;
     __block CGPoint lastCenter = CGPointZero;
     __weak __typeof(self) weakSelf = self;
+    
     behavior.action = ^{
         
         CGFloat currentY = weakSelf.item.center.y - lastCenter.y;
@@ -211,28 +212,28 @@
             weakSelf.offsetY += currentY;
         else
         {
-            CGFloat maxCurrentViewOffsetY = weakSelf.model.currentView.contentSize.height - weakSelf.model.currentView.height;
-            if(weakSelf.model.currentView.offsetY > (maxCurrentViewOffsetY + 100))
-               [self simulateCurrentViewSpring];
+            CGFloat maxCurrentViewOffsetY = currentView.contentSize.height - currentView.height;
+            if(currentView.offsetY > (maxCurrentViewOffsetY + 100))
+                [self simulateCurrentViewSpring:currentView];
             else
-                weakSelf.model.currentView.offsetY += currentY;
+                currentView.offsetY += currentY;
         }
         
         lastCenter = weakSelf.item.center;
-        self.model.superTenScrollView.model.contentView.scrollEnabled = self.model.contentView.scrollEnabled = self.model.titleView.scrollEnabled = YES;
+        self.model.contentView.scrollEnabled = self.model.titleView.scrollEnabled = YES;
     };
     [self.animator addBehavior:behavior];
 }
 
 #pragma mark - 模拟回弹
--(void)simulateCurrentViewSpring
+-(void)simulateCurrentViewSpring:(UIScrollView*)currentView
 {
-    CGFloat maxCurrentViewOffsetY = self.model.currentView.contentSize.height - self.model.currentView.height;
+    CGFloat maxCurrentViewOffsetY = currentView.contentSize.height - currentView.height;
     if(maxCurrentViewOffsetY < 0)
         maxCurrentViewOffsetY = 0;
     
     [self.animator removeAllBehaviors];
-    self.item.center = self.model.currentView.contentOffset;
+    self.item.center = currentView.contentOffset;
     
     UIAttachmentBehavior* behavior = [[UIAttachmentBehavior alloc] initWithItem:self.item attachedToAnchor:CGPointMake(0, maxCurrentViewOffsetY)];
     behavior.length = 0;
@@ -242,7 +243,7 @@
         __weak __typeof(self) weakSelf = self;
     behavior.action = ^{
         
-        weakSelf.model.currentView.contentOffset = weakSelf.item.center;
+        currentView.contentOffset = weakSelf.item.center;
     };
     
     [self.animator addBehavior:behavior];
@@ -250,12 +251,6 @@
 
 
 #pragma mark - 懒加载
-
--(void)setScrollEnabled:(BOOL)scrollEnabled
-{
-    self.model.superTenScrollView.scrollEnabled = scrollEnabled;
-    [super setScrollEnabled:scrollEnabled];
-}
 
 -(void)setModel:(MTTenScrollModel *)model
 {

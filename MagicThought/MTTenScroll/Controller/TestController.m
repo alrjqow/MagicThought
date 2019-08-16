@@ -114,7 +114,7 @@
     [super viewDidLoad];
 
     
-    [self.tableView addTarget:self EmptyData:nil DataList:@"UITableViewCell".bandCount(0).bandHeight(44) SectionList:nil];
+    [self.tableView addTarget:self EmptyData:nil DataList:@"UITableViewCell".bandCount(6).bandHeight(44) SectionList:nil];
     [self.view addSubview:self.tableView];
 }
 
@@ -188,7 +188,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    [self.tableView addTarget:self EmptyData:nil DataList:@"UITableViewCell".bandCount(0).bandHeight(44) SectionList:nil];
+    [self.tableView addTarget:self EmptyData:nil DataList:@"UITableViewCell".bandCount(6).bandHeight(44) SectionList:nil];
     [self.view addSubview:self.tableView];
 }
 

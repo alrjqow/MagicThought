@@ -33,8 +33,6 @@ extern NSString* MTTenScrollIdentifier;
 
 @property (nonatomic,strong) MTTenScrollTitleViewModel* titleViewModel;
 
-@property (nonatomic,assign,readonly) BOOL isContentViewScrollEnd;
-
 @property (nonatomic,weak) UIScrollView* currentView;
 
 @property (nonatomic,assign) CGFloat tenScrollHeight;
@@ -44,22 +42,16 @@ extern NSString* MTTenScrollIdentifier;
 /**最大索引*/
 @property (nonatomic,assign, readonly) NSInteger maxIndex;
 
-/**即时索引*/
-@property (nonatomic,assign) NSInteger immediateIndex;
-
-/**之前的index*/
-@property (nonatomic,assign) NSInteger preIndex;
-
-/**是否减速*/
-@property (nonatomic,assign) BOOL isDecelerate;
-
-@property (nonatomic,assign) BOOL isContentViewScrolling;
-
-@property (nonatomic,assign) BOOL isTitleViewTap;
-
+/**contentView是否有被拖拽*/
 @property (nonatomic,assign) BOOL isDragging;
 
+/**contentView固定的偏移值*/
+@property (nonatomic,assign) CGFloat fixOffset;
+
+
 -(UIView*)getViewByIndex:(NSInteger)index;
+
+-(void)tenScrollViewWillBeginDragging;
 
 -(void)titleViewWillBeginDragging;
 

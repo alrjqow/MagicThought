@@ -75,7 +75,6 @@
         if(!self.selectedCell)
         {
             self.selectedCell = (MTTenScrollTitleCell*)cell;
-//            NSLog(@"willDisplayCell");
             ((MTTenScrollTitleCell*)cell).isSelected = YES;
             cell.selected = YES;
         }
@@ -98,20 +97,14 @@
 
 -(void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath
 {
-//    if(self.model.currentIndex == indexPath.row)
-//        return;
+    if(self.model.currentIndex == indexPath.row)
+        return;
 
     if(self.model.contentView.isRolling && self.model.isDragging)
     {
-        NSLog(@"%d === %d === %d",self.model.contentView.tracking, self.model.contentView.dragging, self.model.contentView.decelerating);
-        
         return;
     }
     
-//    NSLog(@"%lf == %lf",[self.model.contentView.panGestureRecognizer locationInView:self.model.contentView].x, [self.model.tenScrollView.panGestureRecognizer locationInView:self.model.contentView].x);
-
-//    NSLog(@"%zd === %zd",self.model.currentIndex, indexPath.row);
-//    NSLog(@"didSelectItemAtIndexPath");
     MTTenScrollTitleCell* cell = (MTTenScrollTitleCell*)[collectionView cellForItemAtIndexPath:indexPath];
 
     self.model.currentIndex = indexPath.row;
