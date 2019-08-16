@@ -100,7 +100,7 @@
     if(self.model.currentIndex == indexPath.row)
         return;
 
-    if(self.model.contentView.isRolling && self.model.isDragging)
+    if(self.model.contentView.isRolling && self.model.isContentViewDragging)
     {
         return;
     }

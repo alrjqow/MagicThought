@@ -25,6 +25,9 @@ NSString* MTTenScrollIdentifier = @"MTTenScrollIdentifier";
 
 @property (nonatomic, strong) NSMutableArray *objectArr;
 
+/**需要固定的 tenScrollView 集合*/
+@property (nonatomic,strong) NSMutableArray<MTTenScrollView*>* fixSubTenScrollViewArr;
+
 /**相对于父控件它的索引*/
 @property (nonatomic,assign) NSInteger superIndex;
 
@@ -53,7 +56,6 @@ NSString* MTTenScrollIdentifier = @"MTTenScrollIdentifier";
 @property (nonatomic,assign) BOOL lock;
 
 
-@property (nonatomic,assign) NSInteger nextIndex;
 
 @end
 
@@ -65,21 +67,28 @@ NSString* MTTenScrollIdentifier = @"MTTenScrollIdentifier";
     if(self = [super init])
     {
         _currentIndex = -1;
-        self.fixOffset = 100;
+        self.contentViewFixOffset = 100;
         self.objectArr = [NSMutableArray array];
+        self.fixSubTenScrollViewArr = [NSMutableArray array];
     }
     
     return self;
 }
 
 #pragma mark - tenScrollView
--(void)tenScrollViewWillBeginDragging
+-(void)tenScrollViewDidScroll
 {
-    //    if(self.currentView)
-    //    {
-    //        NSLog(@"%zd === %zd",((MTTenScrollView*)self.currentView).model.superIndex, self.currentIndex);
-    //
-    //    }
+    if(self.tenScrollView.offsetY >= self.tenScrollViewMaxOffsetY)
+        return;
+    
+    if(!self.fixSubTenScrollViewArr.count)
+        return;
+    
+    for (MTTenScrollView* tenScrollView in self.fixSubTenScrollViewArr) {        
+        tenScrollView.offsetY = 0;
+    }
+    
+    [self.fixSubTenScrollViewArr removeAllObjects];
 }
 
 
@@ -90,7 +99,7 @@ NSString* MTTenScrollIdentifier = @"MTTenScrollIdentifier";
     self.superTenScrollView.model.currentView = self.tenScrollView;
     self.tenScrollView.scrollEnabled = false;
     self.currentView.scrollEnabled = false;
-    self.isDragging = YES;
+    self.isContentViewDragging = YES;
 }
 
 /**固定滚动时必要的offset*/
@@ -99,11 +108,11 @@ NSString* MTTenScrollIdentifier = @"MTTenScrollIdentifier";
     if([self.currentView isKindOfClass:[MTTenScrollView class]])
     {
         MTTenScrollModel* subModel = ((MTTenScrollView*)self.currentView).model;
-        if(subModel.isDragging)
+        if(subModel.isContentViewDragging)
         {
             MTTenScrollContentView* subContentView = subModel.contentView;
-            CGFloat subMinOffsetX = subModel.fixOffset;
-            CGFloat subMaxOffsetX = subContentView.width * subModel.maxIndex - subModel.fixOffset;
+            CGFloat subMinOffsetX = subModel.contentViewFixOffset;
+            CGFloat subMaxOffsetX = subContentView.width * subModel.maxIndex - subModel.contentViewFixOffset;
             
             
             CGFloat limitoffsetX = self.contentView.width * subModel.superIndex;
@@ -142,8 +151,8 @@ NSString* MTTenScrollIdentifier = @"MTTenScrollIdentifier";
     
     
     
-    CGFloat minOffsetX = self.fixOffset;
-    CGFloat maxOffsetX = self.contentView.width * self.maxIndex - self.fixOffset;
+    CGFloat minOffsetX = self.contentViewFixOffset;
+    CGFloat maxOffsetX = self.contentView.width * self.maxIndex - self.contentViewFixOffset;
     CGFloat velX = [self.contentView.panGestureRecognizer velocityInView:self.contentView].x;
     
     MTTenScrollModel* superModel = self.superTenScrollView.model;
@@ -248,7 +257,7 @@ NSString* MTTenScrollIdentifier = @"MTTenScrollIdentifier";
     
     self.tenScrollView.scrollEnabled = YES;
     self.currentView.scrollEnabled = YES;
-    self.isDragging = false;
+    self.isContentViewDragging = false;
     self.currentIndex = currentIndex;
     //        if(!self.superTenScrollView)
     //            NSLog(@"拖拽结束索引：%lf", currentIndex);
@@ -456,6 +465,12 @@ NSString* MTTenScrollIdentifier = @"MTTenScrollIdentifier";
 -(void)setUpCurrentViewByIndex:(NSInteger)index
 {
     UIView* superView = [self getViewtByIndex:index isBandData:false];
+    
+    if([self.currentView isKindOfClass:[MTTenScrollView class]] && (self.currentView.offsetY > 0))
+    {
+        [self.fixSubTenScrollViewArr addObject:(MTTenScrollView*)self.currentView];
+    }
+    
     self.currentView = nil;
     for(UIView* subView in superView.subviews)
     {
@@ -505,6 +520,11 @@ NSString* MTTenScrollIdentifier = @"MTTenScrollIdentifier";
 
 
 #pragma mark - 懒加载
+
+-(NSInteger)tenScrollViewMaxOffsetY
+{
+    return self.tenScrollView.contentSize.height - self.tenScrollHeight;
+}
 
 -(NSInteger)maxIndex
 {

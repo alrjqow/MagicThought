@@ -43,15 +43,18 @@ extern NSString* MTTenScrollIdentifier;
 @property (nonatomic,assign, readonly) NSInteger maxIndex;
 
 /**contentView是否有被拖拽*/
-@property (nonatomic,assign) BOOL isDragging;
+@property (nonatomic,assign) BOOL isContentViewDragging;
 
 /**contentView固定的偏移值*/
-@property (nonatomic,assign) CGFloat fixOffset;
+@property (nonatomic,assign) CGFloat contentViewFixOffset;
+
+/**tenScrollView固定的偏移值*/
+@property (nonatomic,assign, readonly) NSInteger tenScrollViewMaxOffsetY;
 
 
 -(UIView*)getViewByIndex:(NSInteger)index;
 
--(void)tenScrollViewWillBeginDragging;
+-(void)tenScrollViewDidScroll;
 
 -(void)titleViewWillBeginDragging;
 

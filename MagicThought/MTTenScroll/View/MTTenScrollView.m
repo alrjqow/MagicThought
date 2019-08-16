@@ -93,47 +93,36 @@
 {
     [self.animator removeAllBehaviors];
     
-    self.model.contentView.scrollEnabled = self.model.titleView.scrollEnabled = false;
+    self.model.superTenScrollView.model.contentView.scrollEnabled = self.model.contentView.scrollEnabled = self.model.titleView.scrollEnabled = false;
     
     [super scrollViewWillBeginDragging:scrollView];
 }
 
 -(void)scrollViewDidScroll:(UIScrollView *)scrollView
 {
+    [self.model tenScrollViewDidScroll];
     static CGFloat preY;
     NSInteger maxOffsetY = scrollView.contentSize.height - scrollView.height;
-//    NSLog(@"%zd ===== %lf",maxOffsetY, self.offsetY);
-    
-//    NSLog(@"%@",NSStringFromClass(self.model.currentView.class));
     
     MTTenScrollView* superTenScrollView = self.model.superTenScrollView;
     if(superTenScrollView)
     {        
         NSInteger superMaxOffsetY = superTenScrollView.contentSize.height - superTenScrollView.height;
      
-//        NSLog(@"%lf ====== %lf",preY, self.offsetY);
-        
-//        NSLog(@"%lf ====== %lf",preY, superTenScrollView.offsetY);
-        
-        
         if(self.offsetY > 0)
         {
             if(preY <= 0 && superTenScrollView.offsetY < (superTenScrollView.contentSize.height - superTenScrollView.model.tenScrollHeight - 1))
             {
-//                NSLog(@"1111111 ======= %lf", (superTenScrollView.contentSize.height - superTenScrollView.model.tenScrollHeight));
                 self.offsetY = 0;
             }
             else
             {
-//                NSLog(@"2222222 ======= %lf",superTenScrollView.offsetY);
                 superTenScrollView.offsetY = superMaxOffsetY;
                 preY = 0;
             }
         }
         if(self.offsetY < 0)
         {
-//            NSLog(@"3333333");
-//            NSLog(@"%lf",superTenScrollView.offsetY);
             preY = self.offsetY;
             self.offsetY = 0;
             return;
@@ -141,17 +130,15 @@
     }
     else
     {
-//        NSLog(@"%@",NSStringFromClass(self.model.currentView.class));
         if(self.model.currentView.offsetY > 0)
         {
             self.offsetY = maxOffsetY;
         }
         else
         {            
-            //            NSLog(@"444444");
+            
         }
     }
-    
     
     
     if(self.isScrollTop)
@@ -161,7 +148,6 @@
             scrollView.offsetY = maxOffsetY;
         }
         
-
         self.isSelfSimulateDecelerate = self.offsetY < maxOffsetY;
     }
     else
@@ -187,7 +173,7 @@
 {
     if(!self.isScrollTop || self.model.currentView.contentOffset.y > 0)
     {
-        self.model.contentView.scrollEnabled = self.model.titleView.scrollEnabled = YES;
+       self.model.superTenScrollView.model.contentView.scrollEnabled =  self.model.contentView.scrollEnabled = self.model.titleView.scrollEnabled = YES;
         return;
     }
     
@@ -220,7 +206,7 @@
         }
         
         lastCenter = weakSelf.item.center;
-        self.model.contentView.scrollEnabled = self.model.titleView.scrollEnabled = YES;
+        self.model.superTenScrollView.model.contentView.scrollEnabled =  self.model.contentView.scrollEnabled = self.model.titleView.scrollEnabled = YES;
     };
     [self.animator addBehavior:behavior];
 }
