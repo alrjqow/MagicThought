@@ -105,7 +105,9 @@ NSString* MTTenScrollIdentifier = @"MTTenScrollIdentifier";
             CGFloat subMinOffsetX = subModel.fixOffset;
             CGFloat subMaxOffsetX = subContentView.width * subModel.maxIndex - subModel.fixOffset;
             
+            
             CGFloat limitoffsetX = self.contentView.width * subModel.superIndex;
+            CGFloat subVelX = [subContentView.panGestureRecognizer velocityInView:subContentView].x;
             
             if(subContentView.offsetX > subMinOffsetX && subContentView.offsetX< subMaxOffsetX)
             {
@@ -113,12 +115,15 @@ NSString* MTTenScrollIdentifier = @"MTTenScrollIdentifier";
             }
             else
             {
-                if((subContentView.offsetX <= subMinOffsetX) && !subModel.isLeft)
+                if((subContentView.offsetX <= subMinOffsetX) && (subVelX < 0))
                     self.contentView.offsetX = limitoffsetX;
-                else if((subContentView.offsetX >= subMaxOffsetX) && subModel.isLeft)
+                else if((subContentView.offsetX >= subMaxOffsetX) && ((subVelX > 0)))
                     self.contentView.offsetX = limitoffsetX;
                 else
-                    NSLog(@"++++ %d === %d === %lf === %lf === %lf",subModel.isLeft2, subModel.isLeft, subContentView.offsetX, subMinOffsetX, subMaxOffsetX);
+                {
+//                    NSLog(@"+++ %lf",subVelX);
+                }
+//                    NSLog(@"++++ %d === %d === %lf === %lf === %lf",subModel.isLeft2, subModel.isLeft, subContentView.offsetX, subMinOffsetX, subMaxOffsetX);
 //                    NSLog(@"================1111111=========================");
             }
         }
@@ -139,6 +144,7 @@ NSString* MTTenScrollIdentifier = @"MTTenScrollIdentifier";
     
     CGFloat minOffsetX = self.fixOffset;
     CGFloat maxOffsetX = self.contentView.width * self.maxIndex - self.fixOffset;
+    CGFloat velX = [self.contentView.panGestureRecognizer velocityInView:self.contentView].x;
     
     MTTenScrollModel* superModel = self.superTenScrollView.model;
     MTTenScrollContentView* superContentView = superModel.contentView;
@@ -149,12 +155,17 @@ NSString* MTTenScrollIdentifier = @"MTTenScrollIdentifier";
     }
     else
     {
-        if((self.contentView.offsetX <= minOffsetX) && !self.isLeft)
+        if((self.contentView.offsetX <= minOffsetX) && (velX < 0))
             superContentView.offsetX = superContentView.width * self.superIndex;
-        else if((self.contentView.offsetX >= maxOffsetX) && self.isLeft)
+        else if((self.contentView.offsetX >= maxOffsetX) && (velX > 0))
             superContentView.offsetX = superContentView.width * self.superIndex;
         else
-            NSLog(@"%d === %d === %lf === %lf === %lf", self.isLeft2, self.isLeft, self.contentView.offsetX, minOffsetX, maxOffsetX);
+        {
+//            NSLog(@"%lf",velX);
+        }
+        
+//            NSLog(@"%d === %d === %lf === %lf === %lf", self.isLeft2, self.isLeft, self.contentView.offsetX, minOffsetX, maxOffsetX);
+        
 //            NSLog(@"=========================================");
     }
     
