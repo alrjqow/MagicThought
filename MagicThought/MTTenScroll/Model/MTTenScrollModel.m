@@ -22,6 +22,9 @@
 NSString* MTTenScrollIdentifier = @"MTTenScrollIdentifier";
 
 @interface MTTenScrollModel ()
+{
+    NSArray* _dataList;
+}
 
 @property (nonatomic, strong) NSMutableArray *objectArr;
 
@@ -432,6 +435,20 @@ NSString* MTTenScrollIdentifier = @"MTTenScrollIdentifier";
     else
         _currentIndex = -1;
     
+    if([object isKindOfClass:[NSString class]] && ([((NSString*)object) isEqualToString:@""]) && (index < self.objectArr.count))
+    {
+        NSObject* obj = self.dataList[index];
+        Class c = NSClassFromString(obj.mt_reuseIdentifier);
+        obj = c.new;
+        
+        if([obj isKindOfClass:[UIView class]] || [obj isKindOfClass:[UIViewController class]])
+            self.objectArr[index] = obj;
+        else
+            self.objectArr[index] = @"1";
+        
+        object = obj;
+    }
+        
     if(![object isKindOfClass:[UIView class]] && ![object isKindOfClass:[UIViewController class]])
         object = nil;
     
@@ -439,10 +456,11 @@ NSString* MTTenScrollIdentifier = @"MTTenScrollIdentifier";
     {
         /**绑定数据*/
         MTBaseDataModel* model = [MTBaseDataModel new];
-        NSObject* data = [self getDataByIndex:index];
+        NSObject* data = [self.dataList getDataByIndex:index];
         model.data = [data isKindOfClass:[NSReuseObject class]] ? ((NSReuseObject*)data).data : data;
         model.identifier = MTTenScrollIdentifier;
-        [object whenGetBaseModel:model];
+        if([object respondsToSelector:@selector(whenGetTenScrollDataModel:)])
+            [object whenGetTenScrollDataModel:model];        
     }
     
     if(object && self.currentIndex < 0)
@@ -502,23 +520,6 @@ NSString* MTTenScrollIdentifier = @"MTTenScrollIdentifier";
 }
 
 
--(NSObject*)getDataByIndex:(NSInteger)index
-{
-    if(index >= self.dataList.count)
-        return nil;
-    
-    NSObject* data = self.dataList[index];
-    
-    if(![data isKindOfClass:[NSObject class]])
-        return nil;
-    
-    if([data.mt_reuseIdentifier isEqualToString:@"none"] && [data isKindOfClass:[NSString class]])
-        data.mt_reuseIdentifier = (NSString*)data;
-    
-    return data;
-}
-
-
 #pragma mark - 懒加载
 
 -(NSInteger)tenScrollViewMaxOffsetY
@@ -544,17 +545,20 @@ NSString* MTTenScrollIdentifier = @"MTTenScrollIdentifier";
     for(NSObject* obj in dataList)
     {
         [arr addObject:obj.mt_tagIdentifier];
-        
-        Class c = NSClassFromString(obj.mt_reuseIdentifier);
-        NSObject* object = c.new;
-        
-        if([object isKindOfClass:[UIView class]] || [object isKindOfClass:[UIViewController class]])
-            [self.objectArr addObject:object];
-        else
-            [self.objectArr addObject:@""];
+        [self.objectArr addObject:@""];
     }
     
     _titleList = [arr copy];
+}
+
+-(NSArray *)dataList
+{
+    if(!_dataList && [self.delegate respondsToSelector:@selector(tenScrollDataList)] && (self.delegate.tenScrollDataList.count > 0))
+    {
+        self.dataList = self.delegate.tenScrollDataList;
+    }
+    
+    return _dataList;
 }
 
 -(void)setCurrentIndex:(NSInteger)currentIndex

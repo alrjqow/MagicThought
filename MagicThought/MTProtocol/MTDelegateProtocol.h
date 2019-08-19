@@ -23,6 +23,8 @@
 @optional
 -(NSArray*)dataList;
 
+-(NSArray*)tenScrollDataList;
+
 -(NSArray*)sectionList;
 
 -(NSObject*)emptyData;

@@ -6,11 +6,10 @@
 //  Copyright © 2018 monda. All rights reserved.
 //
 
-#import <UIKit/UIKit.h>
+#import "MTTenScrollController.h"
 
 
-
-@interface TestController : UIViewController
+@interface TestController : MTTenScrollController
 
 @end
 

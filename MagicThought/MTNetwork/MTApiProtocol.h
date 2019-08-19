@@ -12,9 +12,11 @@
 
 @protocol MTApiProtocol<YTKRequestDelegate, YTKBatchRequestDelegate>
 
-
 /**当接收到数据*/
 -(void)whenGetBaseModel:(MTBaseDataModel*)model;
+
+/**当接收到十字滚动数据时*/
+-(void)whenGetTenScrollDataModel:(MTBaseDataModel *)model;
 
 /**当请求失败*/
 -(void)whenRequestFail:(MTBaseDataModel*)model;

@@ -24,10 +24,6 @@
 
 @property (nonatomic,copy) BOOL (^gobackBlock)(void);
 
-//@property (nonatomic,copy) void (^mj_Block)(void);
-//
-//@property (nonatomic,copy) void (^mj_footer_Block)(void);
-
 @property (nonatomic,strong) NSString* order;
 
 /**判断视图的可见性*/

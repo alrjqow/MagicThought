@@ -233,20 +233,7 @@
     
     NSArray* list = [self getSectionDataListForSection:indexPath.section];
     
-    if(indexPath.row >= list.count)
-    return nil;
-    
-    if(![list[indexPath.row] isKindOfClass:[NSObject class]])
-    return nil;
-    
-    NSObject* data = list[indexPath.row];
-    if([data.mt_reuseIdentifier isEqualToString:@"none"] && [data isKindOfClass:[NSString class]])
-        data.mt_reuseIdentifier = (NSString*)data;
-    
-    if([data.mt_reuseIdentifier isEqualToString:@"none"] && [data isKindOfClass:[NSReuseObject class]] && [((NSReuseObject*)data).data isKindOfClass:[NSString class]])        
-        data.mt_reuseIdentifier = (NSString*)((NSReuseObject*)data).data;
-    
-    return data;
+    return [list getDataByIndex:indexPath.row];
 }
 
 -(void)setup3dTouch:(UIView*)view

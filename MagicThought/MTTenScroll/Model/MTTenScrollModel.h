@@ -8,6 +8,8 @@
 
 #import <Foundation/Foundation.h>
 #import "MTTenScrollTitleViewModel.h"
+#import "MTDelegateProtocol.h"
+
 
 extern NSString* MTTenScrollIdentifier;
 
@@ -16,6 +18,8 @@ extern NSString* MTTenScrollIdentifier;
 @class MTTenScrollView;
 
 @interface MTTenScrollModel : NSObject
+
+@property (nonatomic,weak) NSObject<MTDelegateViewDataProtocol>* delegate;
 
 @property (nonatomic,assign) NSInteger currentIndex;
 

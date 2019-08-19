@@ -440,3 +440,30 @@ obj.data = data;
 
 return obj;
 }
+
+
+
+
+@implementation NSArray(ReuseIdentifier)
+
+-(NSObject*)getDataByIndex:(NSInteger)index
+{
+    if(index >= self.count)
+        return nil;
+    
+    NSObject* data = self[index];
+    
+    if(![data isKindOfClass:[NSObject class]])
+        return nil;
+    
+    if([data.mt_reuseIdentifier isEqualToString:@"none"] && [data isKindOfClass:[NSString class]])
+        data.mt_reuseIdentifier = (NSString*)data;
+    
+    if([data.mt_reuseIdentifier isEqualToString:@"none"] && [data isKindOfClass:[NSReuseObject class]] && [((NSReuseObject*)data).data isKindOfClass:[NSString class]])
+        data.mt_reuseIdentifier = (NSString*)((NSReuseObject*)data).data;
+    
+    return data;
+}
+
+
+@end

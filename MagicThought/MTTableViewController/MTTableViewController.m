@@ -62,18 +62,12 @@
     
     if([self respondsToSelector:@selector(dataList)])
         dataList = self.dataList;
-    else
-        dataList = self.dataModel.dataList;
     
     if([self respondsToSelector:@selector(sectionList)])
         sectionList = self.sectionList;
-    else
-        sectionList = self.dataModel.sectionList;
     
     if([self respondsToSelector:@selector(emptyData)])
         emptyData = self.emptyData;
-    else
-        emptyData = self.dataModel.emptyData;
     
     if(!dataList)
         dataList = self.dataModel.dataList;

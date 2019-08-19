@@ -33,8 +33,6 @@
     return self;
 }
 
--(void)initProperty{}
-
 -(void)dealloc
 {
     [self whenDealloc];
@@ -68,8 +66,7 @@
     [self setupDefault];
     [self setupTabBarItem];
     [self setupNavigationItem];
-    [self initSubview];
-    [self layoutSubView];
+    [self setupSubview];
 }
 
 
@@ -82,6 +79,8 @@
 }
 
 #pragma mark - 重载方法
+
+-(void)initProperty{}
 
 /**初始化属性*/
 -(void)setupDefault
@@ -96,10 +95,6 @@
 /**初始化导航栏item*/
 -(void)setupNavigationItem{}
 
-- (void)initSubview{}
-
-- (void)layoutSubView{}
-
 - (void)setupSubview{}
 
 /**加载数据*/
@@ -109,7 +104,7 @@
 -(void)startRequest{}
 
 /**接收到通知后*/
--(void)afterReceiveNotification:(NSNotification *)info{}
+-(void)whenReceiveNotification:(NSNotification *)info{}
 
 -(void)whenEndRefreshing:(BOOL)isSuccess Model:(MTBaseDataModel *)model
 {

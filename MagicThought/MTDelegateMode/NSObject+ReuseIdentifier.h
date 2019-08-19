@@ -100,3 +100,8 @@ typedef NSObject* (^BandHeaderEmptyShow) (void);
 
 
 
+@interface NSArray (ReuseIdentifier)
+
+-(NSObject*)getDataByIndex:(NSInteger)index;
+
+@end
