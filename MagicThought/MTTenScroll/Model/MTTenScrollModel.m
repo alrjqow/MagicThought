@@ -79,6 +79,33 @@ NSString* MTTenScrollIdentifier = @"MTTenScrollIdentifier";
 }
 
 #pragma mark - tenScrollView
+
+-(void)tenScrollViewWillBeginDragging
+{
+    [self contentViewScrollEnabled:false];
+}
+
+-(void)tenScrollViewEndScroll
+{
+    [self contentViewScrollEnabled:YES];
+}
+
+-(void)contentViewScrollEnabled:(BOOL)scrollEnabled
+{
+    MTTenScrollModel* currentModel = self;
+    currentModel.contentView.scrollEnabled = scrollEnabled;
+    currentModel.titleView.scrollEnabled = scrollEnabled;
+    
+    while (currentModel) {
+        
+        MTTenScrollModel* superModel = [self getSuperModel:currentModel];
+        superModel.contentView.scrollEnabled = scrollEnabled;
+        superModel.titleView.scrollEnabled = scrollEnabled;
+        
+        currentModel = superModel;
+    }
+}
+
 -(void)tenScrollViewDidScroll
 {
     if(self.tenScrollView.offsetY >= self.tenScrollViewMaxOffsetY)
@@ -109,93 +136,115 @@ NSString* MTTenScrollIdentifier = @"MTTenScrollIdentifier";
 /**固定滚动时必要的offset*/
 -(void)fixContentViewScrollingOffset
 {
-    if([self.currentView isKindOfClass:[MTTenScrollView class]])
-    {
-        MTTenScrollModel* subModel = ((MTTenScrollView*)self.currentView).model;
-        if(subModel.isContentViewDragging)
+    [self fixSubContentViewScroll];
+    
+    if(!self.superTenScrollView)
+        return;
+    
+    [self fixSuperContentViewScroll];
+}
+
+-(MTTenScrollModel*)getSuperModel:(MTTenScrollModel*)model
+{
+    return model.superTenScrollView.model;
+}
+
+-(MTTenScrollModel*)getSubModel:(MTTenScrollModel*)model
+{
+    if([model.currentView isKindOfClass:[MTTenScrollView class]])
+        return ((MTTenScrollView*)model.currentView).model;
+    
+    return nil;
+}
+-(void)fixSubContentViewScroll
+{
+    MTTenScrollModel* subModel = [self getSubModel:self];
+    MTTenScrollContentView* subContentView0 = subModel.contentView;
+    CGFloat limitoffsetX = self.contentView.width * subModel.superIndex;
+    NSInteger superIndex = subModel.superIndex;
+    CGFloat subVelX = [subContentView0.panGestureRecognizer velocityInView:subContentView0].x;
+    
+    while (subModel) {
+        
+        if(!subModel.isContentViewDragging)
         {
-            MTTenScrollContentView* subContentView = subModel.contentView;
-            CGFloat subMinOffsetX = subModel.contentViewFixOffset;
-            CGFloat subMaxOffsetX = subContentView.width * subModel.maxIndex - subModel.contentViewFixOffset;
-            
-            
-            CGFloat limitoffsetX = self.contentView.width * subModel.superIndex;
-            CGFloat subVelX = [subContentView.panGestureRecognizer velocityInView:subContentView].x;
-            
-            if(subContentView.offsetX > subMinOffsetX && subContentView.offsetX< subMaxOffsetX)
+            subModel = [self getSubModel:subModel];
+            continue;
+        }
+        
+        MTTenScrollContentView* subContentView = subModel.contentView;
+        CGFloat subMinOffsetX = subModel.contentViewFixOffset;
+        CGFloat subMaxOffsetX = subContentView.width * subModel.maxIndex - subModel.contentViewFixOffset;
+        
+        
+        if(subContentView.offsetX > subMinOffsetX && subContentView.offsetX< subMaxOffsetX)
+        {
+            //                NSLog(@"====================111111111=====================");
+            self.contentView.offsetX = limitoffsetX;
+        }
+        else
+        {
+            if((subContentView.offsetX <= subMinOffsetX) && (subVelX < 0) && (superIndex < 1))
             {
-                NSLog(@"====================111111111=====================");
+//                if(!self.superTenScrollView)
+//                        NSLog(@"%zd === %lf === %lf === %lf", subModel.superIndex, subContentView.offsetX, subMinOffsetX, subVelX);
+                self.contentView.offsetX = limitoffsetX;
+            }
+            else if((subContentView.offsetX >= subMaxOffsetX) && (subVelX > 0) && (superIndex > (subModel.maxIndex - 1)))
+            {
+                //                    NSLog(@"====================3333333=====================");
                 self.contentView.offsetX = limitoffsetX;
             }
             else
             {
-                if((subContentView.offsetX <= subMinOffsetX) && (subVelX < 0))
-                {
-                    NSLog(@"%zd === %lf === %lf === %lf", subModel.superIndex, subContentView.offsetX, subMinOffsetX, subVelX);
-                    self.contentView.offsetX = limitoffsetX;
-                }
-                else if((subContentView.offsetX >= subMaxOffsetX) && ((subVelX > 0)))
-                {
-                    NSLog(@"====================3333333=====================");
-                    self.contentView.offsetX = limitoffsetX;
-                }
-                else
-                {
-
-                }
                 
             }
         }
-    }
-    else
-    {
         
+        subModel = [self getSubModel:subModel];
     }
-    
-    if(!self.superTenScrollView)
-    {
-        return;
-    }
-    
+}
 
-    
-    
-    
+-(void)fixSuperContentViewScroll
+{
     CGFloat minOffsetX = self.contentViewFixOffset;
     CGFloat maxOffsetX = self.contentView.width * self.maxIndex - self.contentViewFixOffset;
     CGFloat velX = [self.contentView.panGestureRecognizer velocityInView:self.contentView].x;
     
-    MTTenScrollModel* superModel = self.superTenScrollView.model;
-    MTTenScrollContentView* superContentView = superModel.contentView;
+    MTTenScrollModel* currentModel = self;
     
-    if((self.contentView.offsetX > minOffsetX) && (self.contentView.offsetX < maxOffsetX))
-    {
-        NSLog(@"====================4444444=====================");
-        superContentView.offsetX = superContentView.width * self.superIndex;
-    }
-    else
-    {
-        if((self.contentView.offsetX <= minOffsetX) && (velX < 0))
+    while (currentModel) {
+    
+        MTTenScrollModel* superModel = currentModel.superTenScrollView.model;
+        MTTenScrollContentView* superContentView = superModel.contentView;
+        
+        if((self.contentView.offsetX > minOffsetX) && (self.contentView.offsetX < maxOffsetX))
         {
-            NSLog(@"====================5555555=====================");
-            superContentView.offsetX = superContentView.width * self.superIndex;
-        }
-        else if((self.contentView.offsetX >= maxOffsetX) && (velX > 0))
-        {
-            NSLog(@"====================6666666=====================");
-            superContentView.offsetX = superContentView.width * self.superIndex;
+            //        NSLog(@"====================4444444=====================");
+            superContentView.offsetX = superContentView.width * currentModel.superIndex;
         }
         else
         {
-
+            if((self.contentView.offsetX <= minOffsetX) && (velX < 0))
+            {
+                //            NSLog(@"====================5555555=====================");
+                superContentView.offsetX = superContentView.width * currentModel.superIndex;
+            }
+            else if((self.contentView.offsetX >= maxOffsetX) && (velX > 0))
+            {
+                //            NSLog(@"====================6666666=====================");
+                superContentView.offsetX = superContentView.width * currentModel.superIndex;
+            }
+            else
+            {
+                
+            }
         }
         
         
+        currentModel = superModel;
     }
-    
-    self.preOffsetX2 = self.contentView.offsetX;
 }
-
 
 -(void)contentViewDidScroll
 {
@@ -509,13 +558,11 @@ NSString* MTTenScrollIdentifier = @"MTTenScrollIdentifier";
         {
             if([subView isKindOfClass:[MTTenScrollView class]])
             {
-                ((MTTenScrollView*)subView).model.superTenScrollView = self.tenScrollView;
-                ((MTTenScrollView*)subView).model.superIndex = self.tenScrollView.tag;
+                ((MTTenScrollView*)subView).model.superTenScrollView = self.tenScrollView;                
             }
             else
             {
                 ((MTDelegateTenScrollTableView*)subView).model = self;
-                ((MTDelegateTenScrollTableView*)subView).model.superIndex = self.tenScrollView.tag;
             }
             
             
@@ -528,9 +575,6 @@ NSString* MTTenScrollIdentifier = @"MTTenScrollIdentifier";
             
             if(offsetY < maxOffsetY)
                 self.currentView.offsetY = 0;
-            
-            subView.tag = index;
-            NSLog(@"%zd",index);
         }
     }
 }

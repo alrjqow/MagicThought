@@ -9,12 +9,13 @@
 #import "MTTenScrollContentView.h"
 #import "MTTenScrollModel.h"
 #import "MTTenScrollView.h"
-
+#import "MTTenScrollController.h"
 
 #import "MTDelegateCollectionViewCell.h"
 #import "UIView+Frame.h"
 #import "MTCloud.h"
 #import "NSObject+ReuseIdentifier.h"
+#import "UIView+ViewController.h"
 
 @interface MTTenScrollContentCell : MTDelegateCollectionViewCell
 
@@ -61,7 +62,8 @@
     
     self.pagingEnabled = YES;
     
-    [self.panGestureRecognizer requireGestureRecognizerToFail:[MTCloud shareCloud].currentViewController.navigationController.interactivePopGestureRecognizer];
+    if([MTCloud shareCloud].currentViewController.navigationController)
+        [self.panGestureRecognizer requireGestureRecognizerToFail:[MTCloud shareCloud].currentViewController.navigationController.interactivePopGestureRecognizer];
     
     [self addTarget:self EmptyData:nil DataList:nil SectionList:nil];
 }
@@ -141,6 +143,12 @@
     
     UIView* preView = [model getViewByIndex:self.indexPath.row];        
     preView.frame = self.contentView.bounds;
+    
+    UIViewController* vc = preView.viewController;
+    
+    if([vc isKindOfClass:[MTTenScrollController class]])
+       [((MTTenScrollController*)vc).tenScrollModel setValue:@(self.indexPath.row) forKey:@"superIndex"];
+    
     [self addSubview:preView];
 }
 

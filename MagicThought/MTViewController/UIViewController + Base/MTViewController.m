@@ -57,7 +57,9 @@
 -(void)viewDidAppear:(BOOL)animated
 {
     [super viewDidAppear:animated];
-    [MTCloud shareCloud].currentViewController = self;
+        
+    if(![NSStringFromClass([self.view.superview class]) isEqualToString:@"MTTenScrollContentCell"])
+        [MTCloud shareCloud].currentViewController = self;
 }
 
 - (void)viewDidLoad {
