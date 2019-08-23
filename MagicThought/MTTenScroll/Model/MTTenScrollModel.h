@@ -53,8 +53,14 @@ extern NSString* MTTenScrollIdentifier;
 @property (nonatomic,assign) CGFloat contentViewFixOffset;
 
 /**tenScrollView固定的偏移值*/
+@property (nonatomic,assign) BOOL isChangeTenScrollViewMaxOffsetY;
 @property (nonatomic,assign, readonly) NSInteger tenScrollViewMaxOffsetY;
+@property (nonatomic,assign, readonly) NSInteger tenScrollViewMaxOffsetY2;
 
+
+-(void)fixTenScrollViewScroll;
+
+-(void)fixTenScrollTableViewScroll;
 
 -(UIView*)getViewByIndex:(NSInteger)index;
 

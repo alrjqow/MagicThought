@@ -101,68 +101,121 @@
 -(void)scrollViewDidScroll:(UIScrollView *)scrollView
 {
     [self.model tenScrollViewDidScroll];
+    [self.model fixTenScrollViewScroll];    
     
+    NSInteger maxOffsetY = self.model.tenScrollViewMaxOffsetY;
+    self.isSelfSimulateDecelerate = self.isScrollTop && (self.offsetY < maxOffsetY);
+    
+    
+    
+    return;
     CGFloat offsetY = scrollView.offsetY;
-    
     UIScrollView* currentView = self.model.currentView;
     
-    static CGFloat preY;
-    NSInteger maxOffsetY = scrollView.contentSize.height - scrollView.height;
     
-    MTTenScrollView* superTenScrollView = self.model.superTenScrollView;
-    if(superTenScrollView)
-    {        
-        NSInteger superMaxOffsetY = superTenScrollView.contentSize.height - superTenScrollView.height;
-     
-        if(self.offsetY > 0)
+    if(self.model.isChangeTenScrollViewMaxOffsetY)
+     maxOffsetY = self.model.tenScrollViewMaxOffsetY2;
+    
+    if(maxOffsetY <= self.model.tenScrollViewMaxOffsetY)
+    {
+        if(self.isScrollTop)
         {
-            if(preY <= 0 && superTenScrollView.offsetY < (superTenScrollView.contentSize.height - superTenScrollView.model.tenScrollHeight - 1))
+            if(offsetY >= maxOffsetY)
             {
-                offsetY = 0;
+                offsetY = maxOffsetY;
             }
-            else
-            {
-                superTenScrollView.offsetY = superMaxOffsetY;
-                preY = 0;
-            }
+            
+            self.isSelfSimulateDecelerate = self.offsetY < maxOffsetY;
         }
-        if(self.offsetY < 0)
+        else
         {
-            preY = self.offsetY;
-            self.offsetY = 0;
-            return;
+            if(currentView.offsetY > 0)
+            {
+                offsetY = maxOffsetY;
+            }
         }
     }
     else
     {
-        if(currentView.offsetY > 0)
+        if(self.isScrollTop)
         {
-            offsetY = maxOffsetY;
+            if(offsetY >= self.model.tenScrollViewMaxOffsetY2)
+                offsetY = self.model.tenScrollViewMaxOffsetY2;
         }
-        else
-        {            
-            
-        }
+
     }
+
+    
+    MTTenScrollView* superTenScrollView = self.model.superTenScrollView;
+    if(!superTenScrollView)
+    {
+//        if(currentView.offsetY > 0)
+//            offsetY = maxOffsetY;
+        scrollView.offsetY = offsetY;
+        [super scrollViewDidScroll:scrollView];
+        return;
+    }
+//    return;
+    
+    CGFloat superOffsetY = superTenScrollView.offsetY;
+    NSInteger superMaxOffsetY = superTenScrollView.model.tenScrollViewMaxOffsetY;
+    NSInteger superMaxOffsetY2 = superTenScrollView.model.tenScrollViewMaxOffsetY2;
+    
     
     if(self.isScrollTop)
     {
-        if(self.offsetY >= maxOffsetY)
+        if(superOffsetY < superMaxOffsetY)
         {
-            offsetY = maxOffsetY;            
+                offsetY = 0;
         }
-        
-        self.isSelfSimulateDecelerate = self.offsetY < maxOffsetY;
+        else
+        {
+            if(offsetY >= maxOffsetY)
+            {
+                superTenScrollView.model.isChangeTenScrollViewMaxOffsetY = YES;
+            }
+        }
     }
     else
     {
-        if(currentView.offsetY > 0)
+        if(!superTenScrollView.model.isChangeTenScrollViewMaxOffsetY)
         {
-            offsetY = maxOffsetY;
+            if(superOffsetY < superMaxOffsetY)
+            {
+                offsetY = 0;
+            }
+        }
+        else
+        {
+            if(superOffsetY < superMaxOffsetY)
+                superTenScrollView.model.isChangeTenScrollViewMaxOffsetY = false;
+            else
+                offsetY = maxOffsetY;
         }
     }
     
     
+  
+    
+    
+//    if(self.offsetY > 0)
+//    {
+//        if(preY <= 0 && superTenScrollView.offsetY < (superMaxOffsetY - 1))
+//        {
+//            offsetY = 0;
+//        }
+//        else
+//        {
+//            superTenScrollView.offsetY = superMaxOffsetY;
+//            preY = 0;
+//        }
+//    }
+//    if(self.offsetY < 0)//回弹情况
+//    {
+//        preY = self.offsetY;
+//        offsetY = 0;
+//    }
+
     scrollView.offsetY = offsetY;
     
     [super scrollViewDidScroll:scrollView];
@@ -304,23 +357,28 @@
 
 -(void)scrollViewDidScroll:(UIScrollView *)scrollView
 {
-    CGFloat tenScrollOffsetY = self.model.tenScrollView.offsetY;
-    
-    NSInteger maxOffsetY = self.model.tenScrollView.contentSize.height - self.model.tenScrollView.height;
-
-    if(self.isScrollTop)
-    {
-        if(tenScrollOffsetY < maxOffsetY)
-            scrollView.contentOffset = CGPointZero;
-    }
-    else
-    {
-        if(self.offsetY <= 0)
-            scrollView.contentOffset = CGPointZero;
-        
-        if(self.offsetY > 0)
-            self.model.tenScrollView.offsetY = maxOffsetY;                
-    }
+    [self.model fixTenScrollTableViewScroll];
+//    CGFloat tenScrollOffsetY = self.model.tenScrollView.offsetY;
+//    
+//    
+//    NSInteger maxOffsetY = self.model.tenScrollViewMaxOffsetY;
+//    NSInteger maxOffsetY2 = self.model.tenScrollViewMaxOffsetY2;
+//    
+//    if(self.isScrollTop)
+//    {
+//        if(tenScrollOffsetY < maxOffsetY)
+//            scrollView.contentOffset = CGPointZero;
+//    }
+//    else
+//    {
+//        if(self.offsetY <= 0)
+//            scrollView.contentOffset = CGPointZero;
+//        
+//        
+//        
+//        if(self.offsetY > 0)
+//            self.model.tenScrollView.offsetY = maxOffsetY;
+//    }
     
     
     [super scrollViewDidScroll:scrollView];

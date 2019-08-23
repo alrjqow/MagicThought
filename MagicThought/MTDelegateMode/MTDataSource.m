@@ -76,8 +76,6 @@
 
 @property (nonatomic,assign) UIEdgeInsets contentInset;
 
-@property (nonatomic,assign) CGFloat preOffsetY;
-
 @end
 
 
@@ -609,17 +607,14 @@
 {
     if([scrollView isKindOfClass:[MTDelegateTableView class]])
     {
-        if(!self.preOffsetY)
-            self.preOffsetY = scrollView.contentOffset.y;
-        
+        CGFloat velY = [scrollView.panGestureRecognizer velocityInView:scrollView].y;
         //向上滑
-        [scrollView setValue:@(scrollView.contentOffset.y >= self.preOffsetY) forKey:@"isScrollTop"];
-        
-        self.preOffsetY = scrollView.contentOffset.y;
+        if(velY != 0)
+            [scrollView setValue:@(velY < 0) forKey:@"isScrollTop"];
     }
     
     if([self.delegate respondsToSelector:@selector(scrollViewDidScroll:)])
-    [self.delegate scrollViewDidScroll:scrollView];
+        [self.delegate scrollViewDidScroll:scrollView];
 }
 
 -(void)scrollViewWillBeginDragging:(UIScrollView *)scrollView

@@ -127,7 +127,7 @@
 {
     [super setupDefault];
     
-    self.tenScrollModel.tenScrollHeight = kScreenHeight_mt() - self.tenScrollModel.titleViewModel.titleViewHeight;
+    self.tenScrollModel.tenScrollHeight = kScreenHeight_mt() - self.tenScrollModel.titleViewModel.titleViewHeight * 0;
 }
 
 
@@ -142,7 +142,7 @@
 -(NSArray *)tenScrollDataList
 {
     return        @[
-                    mt_reuse([UIColor yellowColor]).band(@"TestSubController").bandTag(@"头号"),
+                    mt_reuse([UIColor redColor]).band(@"TestSubController").bandTag(@"头号"),
                     mt_reuse([UIColor purpleColor]).band(@"TestTableViewController").bandTag(@"掌经号"),
                     mt_reuse([UIColor redColor]).band(@"TestSubController").bandTag(@"精选视频"),
                     mt_reuse([UIColor blueColor]).band(@"TestSubController").bandTag(@"生活"),
