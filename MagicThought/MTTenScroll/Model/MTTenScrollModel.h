@@ -57,6 +57,7 @@ extern NSString* MTTenScrollIdentifier;
 @property (nonatomic,assign, readonly) NSInteger tenScrollViewMaxOffsetY;
 @property (nonatomic,assign, readonly) NSInteger tenScrollViewMaxOffsetY2;
 
+-(MTTenScrollModel*)getSubModel:(MTTenScrollModel*)model;
 
 -(void)fixTenScrollViewScroll;
 

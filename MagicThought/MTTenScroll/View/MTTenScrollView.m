@@ -103,6 +103,7 @@
     [self.model tenScrollViewDidScroll];
     [self.model fixTenScrollViewScroll];    
     
+//    NSInteger maxOffsetY = self.model.isChangeTenScrollViewMaxOffsetY ? self.model.tenScrollViewMaxOffsetY2 : self.model.tenScrollViewMaxOffsetY;
     NSInteger maxOffsetY = self.model.tenScrollViewMaxOffsetY;
     self.isSelfSimulateDecelerate = self.isScrollTop && (self.offsetY < maxOffsetY);
     
@@ -223,7 +224,10 @@
 
 -(void)scrollViewDidEndDragging:(UIScrollView *)scrollView willDecelerate:(BOOL)decelerate
 {
-    [self simulateDecelerate];
+    if([self.model getSubModel:self.model])
+        [self.model tenScrollViewEndScroll];
+    else
+        [self simulateDecelerate];
     
     [super scrollViewDidEndDragging:scrollView willDecelerate:decelerate];
 }
@@ -254,15 +258,43 @@
         
         CGFloat currentY = weakSelf.item.center.y - lastCenter.y;
         
-        if(self.isSelfSimulateDecelerate)
-            weakSelf.offsetY += currentY;
+        
+        if(weakSelf.isSelfSimulateDecelerate)
+        {
+            CGFloat offsetY = weakSelf.offsetY;
+            CGFloat maxOffsetY = weakSelf.model.isChangeTenScrollViewMaxOffsetY ? weakSelf.model.tenScrollViewMaxOffsetY2 : weakSelf.model.tenScrollViewMaxOffsetY;
+            offsetY += currentY;
+            if(offsetY > maxOffsetY)
+                offsetY = maxOffsetY;
+            
+            NSLog(@"%d === %lf === %zd === %zd",self.model.isChangeTenScrollViewMaxOffsetY, offsetY, weakSelf.model.tenScrollViewMaxOffsetY, weakSelf.model.tenScrollViewMaxOffsetY2);
+            
+            weakSelf.offsetY = offsetY;
+        }
         else
         {
             CGFloat maxCurrentViewOffsetY = currentView.contentSize.height - currentView.height;
+            CGFloat currentViewOffsetY = currentView.offsetY;
             if(currentView.offsetY > (maxCurrentViewOffsetY + 100))
                 [self simulateCurrentViewSpring:currentView];
             else
-                currentView.offsetY += currentY;
+            {
+                currentViewOffsetY += currentY;
+                if([currentView isKindOfClass:[MTTenScrollView class]])
+                {
+                    maxCurrentViewOffsetY = ((MTTenScrollView*)currentView).model.tenScrollViewMaxOffsetY;
+                    if(currentViewOffsetY > maxCurrentViewOffsetY)
+                    {
+                        currentViewOffsetY = maxCurrentViewOffsetY;
+                        self.model.isChangeTenScrollViewMaxOffsetY = YES;
+//                        NSLog(@"%@",NSStringFromClass(self.model.delegate.class));
+                    }
+                }
+                
+           
+                currentView.offsetY = currentViewOffsetY;
+            }
+            
         }
         
         lastCenter = weakSelf.item.center;
