@@ -59,11 +59,9 @@ extern NSString* MTTenScrollIdentifier;
 
 -(MTTenScrollModel*)getSubModel:(MTTenScrollModel*)model;
 
--(void)fixTenScrollViewScroll;
-
--(void)fixTenScrollTableViewScroll;
-
 -(UIView*)getViewByIndex:(NSInteger)index;
+
+-(void)tenScrollTableViewScrollDidScroll;
 
 -(void)tenScrollViewWillBeginDragging;
 

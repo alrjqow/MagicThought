@@ -108,6 +108,12 @@ NSString* MTTenScrollIdentifier = @"MTTenScrollIdentifier";
 
 -(void)tenScrollViewDidScroll
 {
+    [self resetTenscrollViewOffset];
+    [self fixTenScrollViewScroll];
+}
+
+-(void)resetTenscrollViewOffset
+{
     if(self.tenScrollView.offsetY >= self.tenScrollViewMaxOffsetY)
         return;
     
@@ -129,20 +135,18 @@ NSString* MTTenScrollIdentifier = @"MTTenScrollIdentifier";
     
     if(tenScrollView.isScrollTop)
     {
-//        offsetY = [self fixTenScrollViewScrollTop];
-        offsetY = [self fixTenScrollViewScrollTop2];
+        offsetY = [self fixTenScrollViewScrollTop];
     }
     else
     {
-//        offsetY = [self fixTenScrollViewScrollDown];
-        offsetY = [self fixTenScrollViewScrollDown2];
+        offsetY = [self fixTenScrollViewScrollDown];
     }
     
     tenScrollView.offsetY = offsetY;
 }
 
 
--(CGFloat)fixTenScrollViewScrollTop2
+-(CGFloat)fixTenScrollViewScrollTop
 {
     MTTenScrollView* tenScrollView = self.tenScrollView;
     CGFloat offsetY = tenScrollView.offsetY;
@@ -201,65 +205,11 @@ NSString* MTTenScrollIdentifier = @"MTTenScrollIdentifier";
             offsetY = self.tenScrollViewMaxOffsetY2;
         
     }
-    
-    
-    
-    return offsetY;
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    if(superTenScrollView.offsetY < superModel.tenScrollViewMaxOffsetY)
-        offsetY = 0;
-    else
-    {
-        if(superModel.isChangeTenScrollViewMaxOffsetY)
-        {
-            if(!self.isChangeTenScrollViewMaxOffsetY)
-                offsetY = self.tenScrollViewMaxOffsetY;
-        }
-        else
-        {
-            if(offsetY >= self.tenScrollViewMaxOffsetY)
-            {
-                if(!self.isChangeTenScrollViewMaxOffsetY)
-                    offsetY = self.tenScrollViewMaxOffsetY;
-           
-                superModel.isChangeTenScrollViewMaxOffsetY = YES;
-            }
-            else
-            {
-                MTTenScrollModel* superModel2 = [self getSuperModel:superModel];
-                while (superModel2) {
-                    
-                    if(superModel2.isChangeTenScrollViewMaxOffsetY && (superModel2.tenScrollView.offsetY < superModel2.tenScrollViewMaxOffsetY2))
-                    {
-                        offsetY = 0;
-                        break;
-                    }
-                    
-                    superModel2 = [self getSuperModel:superModel2];
-                }
-            }
-        }
-    }
-    
-    if(offsetY > self.tenScrollViewMaxOffsetY2)
-        offsetY = self.tenScrollViewMaxOffsetY2;
-    
+
     return offsetY;
 }
 
--(CGFloat)fixTenScrollViewScrollDown2
+-(CGFloat)fixTenScrollViewScrollDown
 {
     MTTenScrollView* tenScrollView = self.tenScrollView;
     CGFloat offsetY = tenScrollView.offsetY;
@@ -267,8 +217,8 @@ NSString* MTTenScrollIdentifier = @"MTTenScrollIdentifier";
     MTTenScrollModel* superModel = [self getSuperModel:self];
     MTTenScrollView* superTenScrollView = self.superTenScrollView;
     
-    MTTenScrollModel* superModel2 = [self getSuperModel:superModel];
-    MTTenScrollView* superTenScrollView2 = superModel2.tenScrollView;
+//    MTTenScrollModel* superModel2 = [self getSuperModel:superModel];
+//    MTTenScrollView* superTenScrollView2 = superModel2.tenScrollView;
     
     MTTenScrollModel* subModel = [self getSubModel:self];
     MTTenScrollView* subTenScrollView = subModel.tenScrollView;
@@ -281,7 +231,6 @@ NSString* MTTenScrollIdentifier = @"MTTenScrollIdentifier";
         if(self.currentView.offsetY > 0) ///
         {
             offsetY = self.tenScrollViewMaxOffsetY;
-//            return offsetY;
         }
         
         if(superTenScrollView.offsetY > superModel.tenScrollViewMaxOffsetY)
@@ -298,13 +247,6 @@ NSString* MTTenScrollIdentifier = @"MTTenScrollIdentifier";
         
         if(offsetY <= self.tenScrollViewMaxOffsetY)
             self.isChangeTenScrollViewMaxOffsetY = false;
-        
-        
-        if([NSStringFromClass(self.delegate.class) isEqualToString:@"TestController"])
-        {
-            NSLog(@"%lf",offsetY);
-        }
-        
     }
     
     if(!tenScrollView.bounces && offsetY < 0)
@@ -313,99 +255,6 @@ NSString* MTTenScrollIdentifier = @"MTTenScrollIdentifier";
     }
     
     return offsetY;
-    
-    
-    
-    
-    
-    
-//
-    
-    
-    
-    if(offsetY < self.tenScrollViewMaxOffsetY)
-    {
-        if(!superTenScrollView)
-        {
-            if(self.currentView.offsetY > 0)
-                return self.tenScrollViewMaxOffsetY;
-        }
-        else
-        {
-            if(self.currentView.offsetY > 0)
-                return self.tenScrollViewMaxOffsetY;
-        }
-    }
-    
-    if(superTenScrollView.offsetY < superModel.tenScrollViewMaxOffsetY)
-        offsetY = 0;
-    else
-    {
-        if(superModel.isChangeTenScrollViewMaxOffsetY)
-        {
-            if(superTenScrollView.offsetY <= superModel.tenScrollViewMaxOffsetY)
-            {
-                superModel.isChangeTenScrollViewMaxOffsetY = false;
-            }
-            else
-            {
-                if(!self.isChangeTenScrollViewMaxOffsetY)
-                    offsetY = self.tenScrollViewMaxOffsetY;
-            }
-            
-            MTTenScrollModel* superModel2 = [self getSuperModel:superModel];
-            while (superModel2) {
-                
-                if(superModel2.isChangeTenScrollViewMaxOffsetY)
-                    superModel2.tenScrollView.offsetY = superModel2.tenScrollViewMaxOffsetY2;
-                
-                superModel2 = [self getSuperModel:superModel2];
-            }
-        }
-        else
-        {
-            if(superTenScrollView.offsetY >= 0)
-            {
-                MTTenScrollModel* superModel2 = [self getSuperModel:superModel];
-                while (superModel2) {
-                    
-                    if(superModel2.isChangeTenScrollViewMaxOffsetY)
-                        superModel2.tenScrollView.offsetY = superModel2.tenScrollViewMaxOffsetY2;
-                    
-                    superModel2 = [self getSuperModel:superModel2];
-                }
-            }
-//            if([NSStringFromClass(self.delegate.class) isEqualToString:@"TestController3"])
-//                NSLog(@"11111");
-        }
-    }
-    
-    return offsetY;
-}
-
--(void)fixSubTenScrollViewScrollTop
-{
-    MTTenScrollView* tenScrollView = self.tenScrollView;
-    CGFloat offsetY = tenScrollView.offsetY;
-    
-    
-    MTTenScrollModel* subModel = [self getSubModel:self];
-    MTTenScrollView* subTenScrollView = subModel.tenScrollView;
-    
-    if(offsetY < self.tenScrollViewMaxOffsetY)
-        subTenScrollView.offsetY = 0;
-    else
-    {
-        if(self.isChangeTenScrollViewMaxOffsetY)
-        {
-            if(subTenScrollView.offsetY > subModel.tenScrollViewMaxOffsetY)
-                subTenScrollView.offsetY = subModel.tenScrollViewMaxOffsetY;
-        }
-        else
-        {
-
-        }
-    }
 }
 
 -(void)fixSuperTenScrollViewScrollTop
@@ -437,140 +286,11 @@ NSString* MTTenScrollIdentifier = @"MTTenScrollIdentifier";
     }
 }
 
+#pragma mark - tenScrollTableView
 
--(CGFloat)fixTenScrollViewScrollTop
+-(void)tenScrollTableViewScrollDidScroll
 {
-    MTTenScrollView* tenScrollView = self.tenScrollView;
-    CGFloat offsetY = tenScrollView.offsetY;
-    
-    NSInteger maxOffsetY = self.isChangeTenScrollViewMaxOffsetY ? self.tenScrollViewMaxOffsetY2 : self.tenScrollViewMaxOffsetY;
-    
-    
-    
-//    NSLog(@"+++ %@ === %d",NSStringFromClass(self.delegate.class), self.isChangeTenScrollViewMaxOffsetY);
-//    if([self.delegate isKindOfClass:NSClassFromString(@"TestController2")])
-//        NSLog(@"%lf +++ %d",offsetY, self.isChangeTenScrollViewMaxOffsetY);
-//
-//    if([self.delegate isKindOfClass:NSClassFromString(@"TestController3")])
-//        NSLog(@"%lf === %zd",offsetY, self.tenScrollViewMaxOffsetY);
-    
-    if(maxOffsetY == self.tenScrollViewMaxOffsetY)
-    {
-//        NSLog(@"%@",NSStringFromClass(self.delegate.class));
-        if(offsetY > maxOffsetY)
-            offsetY = maxOffsetY;
-        
-        if(self.currentView.offsetY > 0)
-        {
-            offsetY = maxOffsetY;
-        }
-        
-        if(self.superTenScrollView)
-        {
-            MTTenScrollView* superTenScrollView = self.superTenScrollView;
-            if(superTenScrollView.offsetY < superTenScrollView.model.tenScrollViewMaxOffsetY)
-            {
-                    offsetY = 0;
-            }
-            else
-            {
-                MTTenScrollView* superTenScrollView2 = [self getSuperModel:superTenScrollView.model].tenScrollView;
-                if(superTenScrollView2)
-                {
-                    if(superTenScrollView2.offsetY < superTenScrollView2.model.tenScrollViewMaxOffsetY2)
-                    {
-                        if(superTenScrollView.offsetY < superTenScrollView.model.tenScrollViewMaxOffsetY)
-                            offsetY = 0;
-                    }
-                    
-                    
-//                    while (superTenScrollView2) {
-//                        superTenScrollView2.offsetY = superTenScrollView2.model.tenScrollViewMaxOffsetY2;
-//
-//                        MTTenScrollModel* superModel2 = [self getSuperModel:superTenScrollView2.model];
-//                        superTenScrollView2 = superModel2.tenScrollView;
-//                    }
-                }
-                
-                
-                
-                
-                if(tenScrollView.offsetY >= self.tenScrollViewMaxOffsetY)
-                {
-//                    if([self.delegate isKindOfClass:NSClassFromString(@"TestController3")])
-                    
-                    superTenScrollView.model.isChangeTenScrollViewMaxOffsetY = YES;
-                }
-            }
-        }
-    }
-    else
-    {
-        if(offsetY > maxOffsetY)
-            offsetY = maxOffsetY;
-    }
-    
-    return offsetY;
-}
-
--(CGFloat)fixTenScrollViewScrollDown
-{
-    MTTenScrollView* tenScrollView = self.tenScrollView;
-    CGFloat offsetY = tenScrollView.offsetY;
-    NSInteger maxOffsetY = self.isChangeTenScrollViewMaxOffsetY ? self.tenScrollViewMaxOffsetY2 : self.tenScrollViewMaxOffsetY;
-    
-    if(offsetY <= self.tenScrollViewMaxOffsetY)
-    {
-        self.isChangeTenScrollViewMaxOffsetY = false;
-        
-        MTTenScrollModel* subModel = [self getSubModel:self];
-        if(subModel)
-        {
-            if(subModel.tenScrollView.offsetY >= subModel.tenScrollViewMaxOffsetY)
-                offsetY = self.tenScrollViewMaxOffsetY;
-        }
-    }
-    else
-    {
-        MTTenScrollModel* subModel = [self getSubModel:self];
-        if(subModel.tenScrollView.offsetY >= subModel.tenScrollViewMaxOffsetY)
-        {
-            if(subModel.currentView.offsetY > 0)
-            {
-                offsetY = self.tenScrollViewMaxOffsetY2;
-            }
-            
-        }        
-    }
-    
-    
-    if(self.superTenScrollView)
-    {
-        MTTenScrollView* superTenScrollView = self.superTenScrollView;
-        MTTenScrollModel* superModel = superTenScrollView.model;
-        NSInteger superMaxOffsetY = superModel.isChangeTenScrollViewMaxOffsetY ? superModel.tenScrollViewMaxOffsetY2 : superModel.tenScrollViewMaxOffsetY;
-        if(superMaxOffsetY == superModel.tenScrollViewMaxOffsetY)
-        {
-            if(offsetY > 0)
-            {
-                superTenScrollView.offsetY = superTenScrollView.model.tenScrollViewMaxOffsetY;
-            }
-        }
-        else
-        {
-            if(superTenScrollView.offsetY > superModel.tenScrollViewMaxOffsetY)
-            {
-                if(tenScrollView.offsetY <= self.tenScrollViewMaxOffsetY)
-                {
-                    offsetY = self.tenScrollViewMaxOffsetY;
-                }
-            }
-            else
-                superModel.isChangeTenScrollViewMaxOffsetY = false;
-        }
-    }
-    
-    return offsetY;
+    [self fixTenScrollTableViewScroll];
 }
 
 -(void)fixTenScrollTableViewScroll
@@ -954,10 +674,8 @@ NSString* MTTenScrollIdentifier = @"MTTenScrollIdentifier";
     
     CGFloat minOffsetX = -self.titleViewModel.margin;
     CGFloat maxOffsetX = self.titleView.contentSize.width + self.titleViewModel.margin - self.titleView.width;
-    if(maxOffsetX < 0)
-        maxOffsetX -= 0.1;
-    if(minOffsetX > 0)
-        maxOffsetX += 0.1;
+    maxOffsetX = floor(maxOffsetX);
+
     
     if(!self.superTenScrollView)
     {
@@ -981,7 +699,7 @@ NSString* MTTenScrollIdentifier = @"MTTenScrollIdentifier";
             self.titleView.offsetX = maxOffsetX;
     }
     
-    //    NSLog(@"ccccc === %lf === %lf === %lf", self.titleView.offsetX, minOffsetX, maxOffsetX);
+        NSLog(@"ccccc === %lf === %lf === %lf", self.titleView.offsetX, minOffsetX, maxOffsetX);
     
     if(self.titleView.offsetX > minOffsetX && self.titleView.offsetX< maxOffsetX)
     {
@@ -990,6 +708,7 @@ NSString* MTTenScrollIdentifier = @"MTTenScrollIdentifier";
     }
     else
     {
+//        NSLog(@"0000");
         if(((self.superTenScrollView.model.contentView.offsetX / self.superTenScrollView.model.contentView.width) - self.superTenScrollView.model.currentIndex) != 0)
         {
             if(self.titleView.offsetX >= maxOffsetX)
