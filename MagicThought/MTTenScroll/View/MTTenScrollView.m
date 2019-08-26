@@ -224,10 +224,10 @@
 
 -(void)scrollViewDidEndDragging:(UIScrollView *)scrollView willDecelerate:(BOOL)decelerate
 {
-    if([self.model getSubModel:self.model])
+//    if([self.model getSubModel:self.model])
         [self.model tenScrollViewEndScroll];
-    else
-        [self simulateDecelerate];
+//    else
+//        [self simulateDecelerate];
     
     [super scrollViewDidEndDragging:scrollView willDecelerate:decelerate];
 }
@@ -267,7 +267,7 @@
             if(offsetY > maxOffsetY)
                 offsetY = maxOffsetY;
             
-            NSLog(@"%d === %lf === %zd === %zd",self.model.isChangeTenScrollViewMaxOffsetY, offsetY, weakSelf.model.tenScrollViewMaxOffsetY, weakSelf.model.tenScrollViewMaxOffsetY2);
+//            NSLog(@"%d === %lf === %zd === %zd",self.model.isChangeTenScrollViewMaxOffsetY, offsetY, weakSelf.model.tenScrollViewMaxOffsetY, weakSelf.model.tenScrollViewMaxOffsetY2);
             
             weakSelf.offsetY = offsetY;
         }

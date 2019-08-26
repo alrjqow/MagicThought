@@ -136,7 +136,7 @@
 
 -(NSArray *)dataList
 {
-    return (NSArray*)@"UITableViewCell".bandCount(6).bandHeight(44);
+    return (NSArray*)@"UITableViewCell".bandCount(3).bandHeight(44);
 }
 
 -(NSArray *)tenScrollDataList
@@ -190,7 +190,7 @@
 
 -(NSArray *)dataList
 {
-    return (NSArray*)@"UITableViewCell".bandCount(6).bandHeight(44);
+    return (NSArray*)@"UITableViewCell".bandCount(4).bandHeight(44);
 }
 
 -(NSArray *)tenScrollDataList
@@ -235,7 +235,7 @@
 {
     [super setupDefault];
     
-//    self.tenScrollModel.tenScrollHeight = kScreenHeight_mt() - self.tenScrollModel.titleViewModel.titleViewHeight * 0;
+    self.tenScrollModel.tenScrollHeight = kScreenHeight_mt() - self.tenScrollModel.titleViewModel.titleViewHeight * 0;
 //    self.tenScrollModel.tenScrollHeight = kScreenHeight_mt() - self.tenScrollModel.titleViewModel.titleViewHeight * 3;
 }
 
@@ -268,7 +268,7 @@
 //                  ];
     
    return @[
-      mt_reuse([UIColor redColor]).band(@"TestController5").bandTag(@"头号2"),
+      mt_reuse([UIColor redColor]).band(@"TestSubController").bandTag(@"头号2"),
       mt_reuse([UIColor purpleColor]).band(@"TestTableViewController").bandTag(@"掌经号"),
       mt_reuse([UIColor redColor]).band(@"TestSubController").bandTag(@"精选视频"),
       mt_reuse([UIColor blueColor]).band(@"TestSubController").bandTag(@"生活"),

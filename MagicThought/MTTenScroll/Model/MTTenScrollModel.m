@@ -129,15 +129,314 @@ NSString* MTTenScrollIdentifier = @"MTTenScrollIdentifier";
     
     if(tenScrollView.isScrollTop)
     {
-        offsetY = [self fixTenScrollViewScrollTop];
+//        offsetY = [self fixTenScrollViewScrollTop];
+        offsetY = [self fixTenScrollViewScrollTop2];
     }
     else
     {
-        offsetY = [self fixTenScrollViewScrollDown];
+//        offsetY = [self fixTenScrollViewScrollDown];
+        offsetY = [self fixTenScrollViewScrollDown2];
     }
     
     tenScrollView.offsetY = offsetY;
 }
+
+
+-(CGFloat)fixTenScrollViewScrollTop2
+{
+    MTTenScrollView* tenScrollView = self.tenScrollView;
+    CGFloat offsetY = tenScrollView.offsetY;
+    
+    MTTenScrollModel* superModel = [self getSuperModel:self];
+    MTTenScrollView* superTenScrollView = superModel.tenScrollView;
+    
+    MTTenScrollModel* superModel2 = [self getSuperModel:superModel];
+    MTTenScrollView* superTenScrollView2 = superModel2.tenScrollView;
+    
+    MTTenScrollModel* subModel = [self getSubModel:self];
+    MTTenScrollView* subTenScrollView = subModel.tenScrollView;
+    
+    MTTenScrollModel* subModel2 = [self getSubModel:subModel];
+    MTTenScrollView* subTenScrollView2 = subModel2.tenScrollView;
+    
+    if(!self.isChangeTenScrollViewMaxOffsetY)
+    {
+        if(self.currentView.offsetY > 0) ////
+        {
+            offsetY = self.tenScrollViewMaxOffsetY;
+            return offsetY;
+        }
+        
+        //不能滚
+        if(superTenScrollView.offsetY < superModel.tenScrollViewMaxOffsetY) ////
+        {
+            offsetY = 0;
+        }
+        else
+        {
+            //不能滚
+            if(superModel2.isChangeTenScrollViewMaxOffsetY && (superTenScrollView2.offsetY < superModel2.tenScrollViewMaxOffsetY2))
+            {                
+                offsetY = 0;
+            }
+        }
+        
+        if(offsetY >= self.tenScrollViewMaxOffsetY) ////
+        {
+            offsetY = self.tenScrollViewMaxOffsetY;
+            superModel.isChangeTenScrollViewMaxOffsetY = YES;
+        }
+    }
+    else
+    {
+        if(offsetY > self.tenScrollViewMaxOffsetY2)
+        {
+            offsetY = self.tenScrollViewMaxOffsetY2;            
+        }
+        
+        if(subTenScrollView.offsetY > subModel.tenScrollViewMaxOffsetY)
+            offsetY = self.tenScrollViewMaxOffsetY2;
+        
+        if(subTenScrollView2.offsetY > 0)
+            offsetY = self.tenScrollViewMaxOffsetY2;
+        
+    }
+    
+    
+    
+    return offsetY;
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    if(superTenScrollView.offsetY < superModel.tenScrollViewMaxOffsetY)
+        offsetY = 0;
+    else
+    {
+        if(superModel.isChangeTenScrollViewMaxOffsetY)
+        {
+            if(!self.isChangeTenScrollViewMaxOffsetY)
+                offsetY = self.tenScrollViewMaxOffsetY;
+        }
+        else
+        {
+            if(offsetY >= self.tenScrollViewMaxOffsetY)
+            {
+                if(!self.isChangeTenScrollViewMaxOffsetY)
+                    offsetY = self.tenScrollViewMaxOffsetY;
+           
+                superModel.isChangeTenScrollViewMaxOffsetY = YES;
+            }
+            else
+            {
+                MTTenScrollModel* superModel2 = [self getSuperModel:superModel];
+                while (superModel2) {
+                    
+                    if(superModel2.isChangeTenScrollViewMaxOffsetY && (superModel2.tenScrollView.offsetY < superModel2.tenScrollViewMaxOffsetY2))
+                    {
+                        offsetY = 0;
+                        break;
+                    }
+                    
+                    superModel2 = [self getSuperModel:superModel2];
+                }
+            }
+        }
+    }
+    
+    if(offsetY > self.tenScrollViewMaxOffsetY2)
+        offsetY = self.tenScrollViewMaxOffsetY2;
+    
+    return offsetY;
+}
+
+-(CGFloat)fixTenScrollViewScrollDown2
+{
+    MTTenScrollView* tenScrollView = self.tenScrollView;
+    CGFloat offsetY = tenScrollView.offsetY;
+    
+    MTTenScrollModel* superModel = [self getSuperModel:self];
+    MTTenScrollView* superTenScrollView = self.superTenScrollView;
+    
+    MTTenScrollModel* superModel2 = [self getSuperModel:superModel];
+    MTTenScrollView* superTenScrollView2 = superModel2.tenScrollView;
+    
+    MTTenScrollModel* subModel = [self getSubModel:self];
+    MTTenScrollView* subTenScrollView = subModel.tenScrollView;
+    
+    MTTenScrollModel* subModel2 = [self getSubModel:subModel];
+    MTTenScrollView* subTenScrollView2 = subModel2.tenScrollView;
+    
+    if(!self.isChangeTenScrollViewMaxOffsetY)
+    {
+        if(self.currentView.offsetY > 0) ///
+        {
+            offsetY = self.tenScrollViewMaxOffsetY;
+//            return offsetY;
+        }
+        
+        if(superTenScrollView.offsetY > superModel.tenScrollViewMaxOffsetY)
+            offsetY = self.tenScrollViewMaxOffsetY;
+    }
+    else
+    {
+        if(subTenScrollView.offsetY > subModel.tenScrollViewMaxOffsetY)
+            offsetY = self.tenScrollViewMaxOffsetY2;
+        
+        if(subTenScrollView2.offsetY > 0)
+            offsetY = self.tenScrollViewMaxOffsetY2;
+        
+        
+        if(offsetY <= self.tenScrollViewMaxOffsetY)
+            self.isChangeTenScrollViewMaxOffsetY = false;
+        
+        
+        if([NSStringFromClass(self.delegate.class) isEqualToString:@"TestController"])
+        {
+            NSLog(@"%lf",offsetY);
+        }
+        
+    }
+    
+    if(!tenScrollView.bounces && offsetY < 0)
+    {
+        offsetY = 0;
+    }
+    
+    return offsetY;
+    
+    
+    
+    
+    
+    
+//
+    
+    
+    
+    if(offsetY < self.tenScrollViewMaxOffsetY)
+    {
+        if(!superTenScrollView)
+        {
+            if(self.currentView.offsetY > 0)
+                return self.tenScrollViewMaxOffsetY;
+        }
+        else
+        {
+            if(self.currentView.offsetY > 0)
+                return self.tenScrollViewMaxOffsetY;
+        }
+    }
+    
+    if(superTenScrollView.offsetY < superModel.tenScrollViewMaxOffsetY)
+        offsetY = 0;
+    else
+    {
+        if(superModel.isChangeTenScrollViewMaxOffsetY)
+        {
+            if(superTenScrollView.offsetY <= superModel.tenScrollViewMaxOffsetY)
+            {
+                superModel.isChangeTenScrollViewMaxOffsetY = false;
+            }
+            else
+            {
+                if(!self.isChangeTenScrollViewMaxOffsetY)
+                    offsetY = self.tenScrollViewMaxOffsetY;
+            }
+            
+            MTTenScrollModel* superModel2 = [self getSuperModel:superModel];
+            while (superModel2) {
+                
+                if(superModel2.isChangeTenScrollViewMaxOffsetY)
+                    superModel2.tenScrollView.offsetY = superModel2.tenScrollViewMaxOffsetY2;
+                
+                superModel2 = [self getSuperModel:superModel2];
+            }
+        }
+        else
+        {
+            if(superTenScrollView.offsetY >= 0)
+            {
+                MTTenScrollModel* superModel2 = [self getSuperModel:superModel];
+                while (superModel2) {
+                    
+                    if(superModel2.isChangeTenScrollViewMaxOffsetY)
+                        superModel2.tenScrollView.offsetY = superModel2.tenScrollViewMaxOffsetY2;
+                    
+                    superModel2 = [self getSuperModel:superModel2];
+                }
+            }
+//            if([NSStringFromClass(self.delegate.class) isEqualToString:@"TestController3"])
+//                NSLog(@"11111");
+        }
+    }
+    
+    return offsetY;
+}
+
+-(void)fixSubTenScrollViewScrollTop
+{
+    MTTenScrollView* tenScrollView = self.tenScrollView;
+    CGFloat offsetY = tenScrollView.offsetY;
+    
+    
+    MTTenScrollModel* subModel = [self getSubModel:self];
+    MTTenScrollView* subTenScrollView = subModel.tenScrollView;
+    
+    if(offsetY < self.tenScrollViewMaxOffsetY)
+        subTenScrollView.offsetY = 0;
+    else
+    {
+        if(self.isChangeTenScrollViewMaxOffsetY)
+        {
+            if(subTenScrollView.offsetY > subModel.tenScrollViewMaxOffsetY)
+                subTenScrollView.offsetY = subModel.tenScrollViewMaxOffsetY;
+        }
+        else
+        {
+
+        }
+    }
+}
+
+-(void)fixSuperTenScrollViewScrollTop
+{
+    MTTenScrollView* tenScrollView = self.tenScrollView;
+    CGFloat offsetY = tenScrollView.offsetY;
+    
+    
+    MTTenScrollModel* superModel = [self getSuperModel:self];
+    MTTenScrollView* superTenScrollView = self.superTenScrollView;
+    
+    if(offsetY < self.tenScrollViewMaxOffsetY)
+    {
+        if(superTenScrollView.offsetY > superModel.tenScrollViewMaxOffsetY)
+            superTenScrollView.offsetY = superModel.tenScrollViewMaxOffsetY;
+    }
+    else
+    {
+        if(self.isChangeTenScrollViewMaxOffsetY)
+        {
+            if(offsetY > self.tenScrollViewMaxOffsetY2)
+                offsetY = self.tenScrollViewMaxOffsetY2;
+        }
+        else
+        {
+            superModel.isChangeTenScrollViewMaxOffsetY = YES;
+            tenScrollView.offsetY = self.tenScrollViewMaxOffsetY;
+        }
+    }
+}
+
 
 -(CGFloat)fixTenScrollViewScrollTop
 {
