@@ -56,7 +56,7 @@
         
     self.titleView.frame = CGRectMake(0, 0, self.contentView.width, self.model.titleViewModel.titleViewHeight);
     
-    self.collectionView.frame = CGRectMake(0, self.titleView.maxY, self.contentView.width, self.contentView.height - self.titleView.maxY);
+    self.collectionView.frame = CGRectMake(0, self.titleView.maxY, self.contentView.width, self.height - self.titleView.maxY);
 }
 
 #pragma mark - 懒加载

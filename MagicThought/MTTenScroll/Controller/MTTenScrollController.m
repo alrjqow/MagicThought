@@ -105,7 +105,6 @@
     if(!_tenScrollTableView)
     {
         _tenScrollTableView = [MTDelegateTenScrollTableView new];
-        _tenScrollTableView.bounces = false;
     }
     
     return _tenScrollTableView;
