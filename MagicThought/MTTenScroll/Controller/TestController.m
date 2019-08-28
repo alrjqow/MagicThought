@@ -131,14 +131,6 @@
 
 @implementation TestController2
 
--(void)setupDefault
-{
-    [super setupDefault];
-    
-//    self.tenScrollModel.tenScrollHeight = kScreenHeight_mt() - self.tenScrollModel.titleViewModel.titleViewHeight * 0;
-}
-
-
 
 #pragma mark - 懒加载
 
@@ -183,16 +175,6 @@
 @end
 
 @implementation TestController3
-
--(void)setupDefault
-{
-    [super setupDefault];
-    
-//    self.tenScrollModel.tenScrollHeight = kScreenHeight_mt() - self.tenScrollModel.titleViewModel.titleViewHeight * 0;
-//    self.tenScrollModel.tenScrollHeight = kScreenHeight_mt() - self.tenScrollModel.titleViewModel.titleViewHeight * 2;
-}
-
-
 
 #pragma mark - 懒加载
 
@@ -239,16 +221,6 @@
 
 @implementation TestController4
 
--(void)setupDefault
-{
-    [super setupDefault];
-    
-//    self.tenScrollModel.tenScrollHeight = kScreenHeight_mt() - self.tenScrollModel.titleViewModel.titleViewHeight * 0;
-//    self.tenScrollModel.tenScrollHeight = kScreenHeight_mt() - self.tenScrollModel.titleViewModel.titleViewHeight * 3;
-}
-
-
-
 #pragma mark - 懒加载
 
 -(NSArray *)dataList
@@ -294,16 +266,6 @@
 @end
 
 @implementation TestController5
-
--(void)setupDefault
-{
-    [super setupDefault];
-    
-    self.tenScrollModel.tenScrollHeight = kScreenHeight_mt() - self.tenScrollModel.titleViewModel.titleViewHeight * 0;
-//    self.tenScrollModel.tenScrollHeight = kScreenHeight_mt() - self.tenScrollModel.titleViewModel.titleViewHeight * 4;
-}
-
-
 
 #pragma mark - 懒加载
 

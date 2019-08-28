@@ -38,6 +38,7 @@
 {
     [super setupDefault];
     
+    self.mtBase_tableView.frame = self.view.bounds;
     [self.mtBase_tableView addTarget:self];
 }
 
@@ -45,7 +46,6 @@
 {
     [super setupSubview];
     
-    self.mtBase_tableView.frame = self.view.bounds;
     [self.view addSubview:self.mtBase_tableView];
 }
 

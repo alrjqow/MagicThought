@@ -802,10 +802,17 @@ NSString* MTTenScrollIdentifier = @"MTTenScrollIdentifier";
     {
         if([subView isKindOfClass:[MTDelegateTenScrollTableView class]] || [subView isKindOfClass:[MTTenScrollView class]])
         {
+            NSInteger offsetY = self.tenScrollView.offsetY;
             if([subView isKindOfClass:[MTTenScrollView class]])
             {
-                ((MTTenScrollView*)subView).model.superTenScrollView = self.tenScrollView;
-                ((MTTenScrollView*)subView).bounces = false;
+                MTTenScrollView* subTenScrollView = (MTTenScrollView*)subView;
+                subTenScrollView.model.superTenScrollView = self.tenScrollView;
+                subTenScrollView.bounces = false;
+                
+                if(offsetY > self.tenScrollViewMaxOffsetY)
+                    [UIView animateWithDuration:0.1 animations:^{
+                        subTenScrollView.offsetY = subTenScrollView.model.tenScrollViewMaxOffsetY;
+                    }];
             }
             else
             {
@@ -813,21 +820,48 @@ NSString* MTTenScrollIdentifier = @"MTTenScrollIdentifier";
                 subView.height = self.tenScrollHeight - self.titleViewModel.titleViewHeight;
             }
             
-            
             self.currentView = (UIScrollView*)subView;
             self.currentView.showsVerticalScrollIndicator = false;
             self.currentView.showsHorizontalScrollIndicator = false;
-//            self.currentView.bounces = false;
             
-            NSInteger offsetY = self.tenScrollView.contentOffset.y;
-            NSInteger maxOffsetY = self.tenScrollView.contentSize.height - self.tenScrollHeight;
-            
-            if(offsetY < maxOffsetY)
-                self.currentView.offsetY = 0;
+            if(offsetY < self.tenScrollViewMaxOffsetY)
+                [UIView animateWithDuration:0.1 animations:^{
+                    self.currentView.offsetY = 0;
+                }];
         }
     }
 }
 
+-(void)fixCurrentViewOffsetByIndex:(NSInteger)index
+{
+    UIView* superView = [self getViewtByIndex:index isBandData:false];
+    for(UIView* subView in superView.subviews)
+    {
+        if([subView isKindOfClass:[MTDelegateTenScrollTableView class]] || [subView isKindOfClass:[MTTenScrollView class]])
+        {
+            NSInteger offsetY = self.tenScrollView.offsetY;
+            if([subView isKindOfClass:[MTTenScrollView class]])
+            {
+                MTTenScrollView* subTenScrollView = (MTTenScrollView*)subView;
+                if(offsetY > self.tenScrollViewMaxOffsetY)
+                    subTenScrollView.offsetY = subTenScrollView.model.tenScrollViewMaxOffsetY;
+            }
+        
+            if(offsetY < self.tenScrollViewMaxOffsetY)
+                ((UIScrollView*)subView).offsetY = 0;
+        }
+    }
+}
+
+-(void)fixBrotherViewOffset
+{
+//    NSInteger index = self.currentIndex;
+//
+//    [self fixCurrentViewOffsetByIndex:(index - 1)];
+//
+//    NSLog(@"%zd",index);
+//    [self fixCurrentViewOffsetByIndex:(index + 1)];
+}
 
 #pragma mark - 懒加载
 
@@ -856,12 +890,25 @@ NSString* MTTenScrollIdentifier = @"MTTenScrollIdentifier";
     [self.objectArr removeAllObjects];
     NSMutableArray* arr = [NSMutableArray array];
     
+    Class c1, c2;
     for(NSObject* obj in dataList)
     {
         [arr addObject:obj.mt_tagIdentifier];
         [self.objectArr addObject:@""];
+        
+        if(!_tenScrollHeight)
+        {
+            if(!c1)
+                c1 = NSClassFromString(@"MTTenScrollController");
+            if(!c2)
+                c2 = [MTTenScrollView class];
+            Class c = NSClassFromString(obj.mt_reuseIdentifier);
+            
+            if(![c.new isKindOfClass:c1] && ![c.new isKindOfClass:c2])
+                _tenScrollHeight = self.tenScrollView.height;
+        }
     }
-    
+
     _titleList = [arr copy];
 }
 
@@ -897,13 +944,14 @@ NSString* MTTenScrollIdentifier = @"MTTenScrollIdentifier";
 
 -(NSObject *)tenScrollData
 {
+    if(!self.dataList)
+        self.dataList = self.dataList;
     return mt_reuse(self).band(@"MTTenScrollViewCell").bandHeight(self.tenScrollHeight);
 }
 
 -(CGFloat)tenScrollHeight
 {
     return _tenScrollHeight ? _tenScrollHeight : (self.tenScrollView.height + self.titleViewModel.titleViewHeight);
-//    return (_tenScrollHeight && _tenScrollHeight < self.tenScrollView.height) ? _tenScrollHeight : self.tenScrollView.height;
 }
 
 @end
