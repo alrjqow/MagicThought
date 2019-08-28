@@ -88,7 +88,10 @@
      MTTenScrollView* subTenScrollView = subModel.tenScrollView;
     
     if(self.model.tenScrollView.offsetY > self.model.tenScrollViewMaxOffsetY && (subModel.tenScrollView.contentSize.height >= subModel.tenScrollHeight))
-        subTenScrollView.offsetY = subModel.tenScrollViewMaxOffsetY;
+            subTenScrollView.offsetY = subModel.tenScrollViewMaxOffsetY;
+    
+    MTTenScrollModel* subModel2 = [subModel getSubModel:subModel];
+    subModel2.tenScrollView.offsetY = 0;
 }
 
 -(CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath
