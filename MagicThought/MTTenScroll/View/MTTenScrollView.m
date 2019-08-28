@@ -110,7 +110,7 @@
 
 -(void)scrollViewDidEndDragging:(UIScrollView *)scrollView willDecelerate:(BOOL)decelerate
 {
-    if([self.model getSubModel:self.model])
+    if([self.model.currentView isKindOfClass:[MTTenScrollView class]])        
         [self.model tenScrollViewEndScroll];
     else
         [self simulateDecelerate];
