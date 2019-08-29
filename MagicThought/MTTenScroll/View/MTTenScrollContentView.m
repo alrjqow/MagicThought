@@ -23,6 +23,7 @@
 
 @property (nonatomic,weak) MTTenScrollModel* subModel;
 
+@property (nonatomic,weak) UIView* preView;
 
 @end
 
@@ -83,15 +84,15 @@
 #pragma mark - 代理
 - (void)collectionView:(UICollectionView *)collectionView willDisplayCell:(UICollectionViewCell *)cell forItemAtIndexPath:(NSIndexPath *)indexPath
 {
-    MTTenScrollContentCell* cell0 = (MTTenScrollContentCell*)cell;
-    MTTenScrollModel* subModel = cell0.subModel;
-     MTTenScrollView* subTenScrollView = subModel.tenScrollView;
-    
-    if(self.model.tenScrollView.offsetY > self.model.tenScrollViewMaxOffsetY && (subModel.tenScrollView.contentSize.height >= subModel.tenScrollHeight))
-            subTenScrollView.offsetY = subModel.tenScrollViewMaxOffsetY;
-    
-    MTTenScrollModel* subModel2 = [subModel getSubModel:subModel];
-    subModel2.tenScrollView.offsetY = 0;
+//    MTTenScrollContentCell* cell0 = (MTTenScrollContentCell*)cell;
+//    MTTenScrollModel* subModel = cell0.subModel;
+//     MTTenScrollView* subTenScrollView = subModel.tenScrollView;
+//    
+//    if(self.model.tenScrollView.offsetY > self.model.tenScrollViewMaxOffsetY && (subModel.tenScrollView.contentSize.height >= subModel.tenScrollHeight))
+//            subTenScrollView.offsetY = subModel.tenScrollViewMaxOffsetY;
+//    
+//    MTTenScrollModel* subModel2 = [subModel getSubModel:subModel];
+//    subModel2.tenScrollView.offsetY = 0;
 }
 
 -(CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath
@@ -153,6 +154,7 @@
     
     UIView* preView = [model getViewByIndex:self.indexPath.row];        
     preView.frame = self.contentView.bounds;
+    preView.hidden = false;
     
     UIViewController* vc = preView.viewController;
     
@@ -160,6 +162,12 @@
     {
        [((MTTenScrollController*)vc).tenScrollModel setValue:@(self.indexPath.row) forKey:@"superIndex"];
         self.subModel = ((MTTenScrollController*)vc).tenScrollModel;
+    }
+    
+    if(self.preView != preView)
+    {
+        self.preView.hidden = YES;
+        self.preView = preView;
     }
     
     [self addSubview:preView];

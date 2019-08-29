@@ -896,17 +896,17 @@ NSString* MTTenScrollIdentifier = @"MTTenScrollIdentifier";
         [arr addObject:obj.mt_tagIdentifier];
         [self.objectArr addObject:@""];
         
-        if(!_tenScrollHeight)
-        {
-            if(!c1)
-                c1 = NSClassFromString(@"MTTenScrollController");
-            if(!c2)
-                c2 = [MTTenScrollView class];
-            Class c = NSClassFromString(obj.mt_reuseIdentifier);
-            
-            if(![c.new isKindOfClass:c1] && ![c.new isKindOfClass:c2])
-                _tenScrollHeight = self.tenScrollView.height;
-        }
+//        if(!_tenScrollHeight)
+//        {
+//            if(!c1)
+//                c1 = NSClassFromString(@"MTTenScrollController");
+//            if(!c2)
+//                c2 = [MTTenScrollView class];
+//            Class c = NSClassFromString(obj.mt_reuseIdentifier);
+//
+//            if(![c.new isKindOfClass:c1] && ![c.new isKindOfClass:c2])
+//                _tenScrollHeight = self.tenScrollView.height;
+//        }
     }
 
     _titleList = [arr copy];
@@ -944,8 +944,8 @@ NSString* MTTenScrollIdentifier = @"MTTenScrollIdentifier";
 
 -(NSObject *)tenScrollData
 {
-    if(!self.dataList)
-        self.dataList = self.dataList;
+//    if(!self.dataList)
+//        self.dataList = self.dataList;
     return mt_reuse(self).band(@"MTTenScrollViewCell").bandHeight(self.tenScrollHeight);
 }
 

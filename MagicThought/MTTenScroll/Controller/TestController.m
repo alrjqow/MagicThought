@@ -81,7 +81,7 @@
 
 -(NSArray *)dataList
 {
-    return (NSArray*)@"UITableViewCell".bandCount(6).bandHeight(44);
+    return (NSArray*)@"UITableViewCell".bandCount(3).bandHeight(44);
 }
 
 -(NSArray *)tenScrollDataList
@@ -136,7 +136,7 @@
 
 -(NSArray *)dataList
 {
-    return (NSArray*)@"UITableViewCell".bandCount(6).bandHeight(44);
+    return (NSArray*)@"UITableViewCell".bandCount(3).bandHeight(44);
 }
 
 -(NSArray *)tenScrollDataList
@@ -180,7 +180,7 @@
 
 -(NSArray *)dataList
 {
-    return (NSArray*)@"UITableViewCell".bandCount(6).bandHeight(44);
+    return (NSArray*)@"UITableViewCell".bandCount(3).bandHeight(44);
 }
 
 -(NSArray *)tenScrollDataList
@@ -225,7 +225,7 @@
 
 -(NSArray *)dataList
 {
-    return (NSArray*)@"UITableViewCell".bandCount(6).bandHeight(44);
+    return (NSArray*)@"UITableViewCell".bandCount(3).bandHeight(44);
 }
 
 -(NSArray *)tenScrollDataList
@@ -267,11 +267,18 @@
 
 @implementation TestController5
 
+-(void)setupDefault
+{
+    [super setupDefault];
+    
+    self.tenScrollModel.tenScrollHeight = kScreenHeight_mt();
+}
+
 #pragma mark - 懒加载
 
 -(NSArray *)dataList
 {
-    return (NSArray*)@"UITableViewCell".bandCount(6).bandHeight(44);
+    return (NSArray*)@"UITableViewCell".bandCount(3).bandHeight(44);
 }
 
 -(NSArray *)tenScrollDataList
