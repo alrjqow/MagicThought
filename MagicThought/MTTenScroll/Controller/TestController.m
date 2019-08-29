@@ -81,7 +81,7 @@
 
 -(NSArray *)dataList
 {
-    return (NSArray*)@"UITableViewCell".bandCount(0).bandHeight(44);
+    return (NSArray*)@"UITableViewCell".bandCount(2).bandHeight(44);
 }
 
 -(NSArray *)tenScrollDataList
