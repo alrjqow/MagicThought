@@ -43,7 +43,6 @@ NSString* MTTenScrollIdentifier = @"MTTenScrollIdentifier";
 
 /**ccontentView 是否向左滚动*/
 @property (nonatomic,assign) BOOL isLeft;
-@property (nonatomic,assign) BOOL isLeft2;
 
 
 /**ccontentView 是否正在滚动*/
@@ -162,8 +161,9 @@ NSString* MTTenScrollIdentifier = @"MTTenScrollIdentifier";
     
     MTTenScrollModel* subModel2 = [self getSubModel:subModel];
     MTTenScrollView* subTenScrollView2 = subModel2.tenScrollView;
-    
-//    if([NSStringFromClass(self.delegate.class) isEqualToString:@"TestController2"])
+
+//    NSLog(@"%@",NSStringFromClass(self.delegate.class));
+//    if([NSStringFromClass(self.delegate.class) isEqualToString:@"TestController3"])
 //        NSLog(@"%lf === %zd",offsetY, self.tenScrollViewMaxOffsetY);
 
     
@@ -193,8 +193,16 @@ NSString* MTTenScrollIdentifier = @"MTTenScrollIdentifier";
         {
                 offsetY = self.tenScrollViewMaxOffsetY;
                 superModel.isChangeTenScrollViewMaxOffsetY = YES;
-                if((subModel.tenScrollViewMaxOffsetY < 1) && superTenScrollView && (superTenScrollView.offsetY >= superModel.tenScrollViewMaxOffsetY2))
+            if(superTenScrollView)
+            {
+                if((subModel.tenScrollViewMaxOffsetY < 1) && (superTenScrollView.offsetY >= superModel.tenScrollViewMaxOffsetY2))
                     self.isChangeTenScrollViewMaxOffsetY = YES;
+            }
+            else
+            {
+                if(subModel.tenScrollViewMaxOffsetY < 1)
+                   self.isChangeTenScrollViewMaxOffsetY = YES;
+            }
         }
     }
     else
@@ -212,6 +220,11 @@ NSString* MTTenScrollIdentifier = @"MTTenScrollIdentifier";
         
     }
 
+    if(!tenScrollView.bounces && offsetY < 0)
+    {
+        offsetY = 0;
+    }
+    
     return offsetY;
 }
 
@@ -507,7 +520,8 @@ NSString* MTTenScrollIdentifier = @"MTTenScrollIdentifier";
         return;
     
     CGFloat currentOffsetX = self.contentView.offsetX;
-    
+//    if(!self.superTenScrollView)
+//        NSLog(@"%lf",currentOffsetX);
     if(currentOffsetX == self.preOffsetX)
         return;
     
@@ -516,11 +530,7 @@ NSString* MTTenScrollIdentifier = @"MTTenScrollIdentifier";
     CGFloat currentIndex = currentOffsetX / self.contentView.width;
     
     CGFloat scale = currentIndex - ((NSInteger)currentIndex);
-    
-    if(scale < 5)
-    {
-        self.immediateIndex = currentIndex;
-    }
+    self.immediateIndex = currentIndex;
     
     NSInteger nextIndex = floor(currentIndex);
     if(nextIndex == self.immediateIndex)
@@ -532,15 +542,24 @@ NSString* MTTenScrollIdentifier = @"MTTenScrollIdentifier";
     if(self.isLeft)
         scale = 1 - scale;
     
+    if(startIndex < 0)
+        startIndex = 0;
+    if(endIndex < 0)
+        endIndex = 0;
+    
+    if(startIndex > self.maxIndex)
+        startIndex = self.maxIndex;
+    if(endIndex > self.maxIndex)
+        endIndex = self.maxIndex;
+    
     //    return;
     MTTenScrollTitleCell* currentCell = (MTTenScrollTitleCell*)[self.titleView cellForItemAtIndexPath:[NSIndexPath indexPathForRow: startIndex inSection:0]];
     
     NSIndexPath* nextIndexPath = [NSIndexPath indexPathForRow:endIndex inSection:0];
     MTTenScrollTitleCell* nextCell = (MTTenScrollTitleCell*)[self.titleView cellForItemAtIndexPath:[NSIndexPath indexPathForRow:endIndex  inSection:0]];
     
-    
-//        if(self.superTenScrollView)
-//            NSLog(@"前后索引：==== %zd ==== %zd", startIndex, endIndex);
+//    if(!self.superTenScrollView)
+//        NSLog(@"前后索引：==== %zd ==== %zd", startIndex, endIndex);
     
     [self colorChangeCurrentTitleCell:currentCell nextCell:nextCell changeScale:scale];
     [self fontSizeChangeCurrentTitleCell:currentCell nextCell:nextCell changeScale:scale];
@@ -559,9 +578,6 @@ NSString* MTTenScrollIdentifier = @"MTTenScrollIdentifier";
     [self.titleView scrollToItemAtIndexPath:nextIndexPath atScrollPosition:UICollectionViewScrollPositionCenteredHorizontally animated:YES];
     
     self.preOffsetX = currentOffsetX;
-    
-    if(startIndex != endIndex)
-        self.isLeft2 = startIndex > endIndex;
 }
 
 -(void)didContentViewEndScrollWithDecelerate:(BOOL)decelerate

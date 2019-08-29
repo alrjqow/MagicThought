@@ -100,7 +100,7 @@
     //                            ];
     
 //    return @[
-//             mt_reuse([UIColor yellowColor]).band(@"TestController2").bandTag(@"头号0"),
+//             mt_reuse([UIColor yellowColor]).band(@"TestTableViewController").bandTag(@"头号0"),
 //             mt_reuse([UIColor purpleColor]).band(@"TestSubController").bandTag(@"掌经号"),
 //             mt_reuse([UIColor redColor]).band(@"TestTableViewController").bandTag(@"精选视频"),
 //             mt_reuse([UIColor blueColor]).band(@"TestSubController").bandTag(@"生活"),
@@ -149,22 +149,22 @@
 //                    mt_reuse([UIColor greenColor]).band(@"TestSubController").bandTag(@"好物"),
 //                    mt_reuse([UIColor yellowColor]).band(@"TestSubController").bandTag(@"大头鱼")
 //                    ];
-              return      @[
-                                mt_reuse([UIColor yellowColor]).band(@"TestController3").bandTag(@"头号"),
-                                mt_reuse([UIColor purpleColor]).band(@"TestController3").bandTag(@"掌经号"),
-                                mt_reuse([UIColor redColor]).band(@"TestController3").bandTag(@"精选视频"),
-                                mt_reuse([UIColor blueColor]).band(@"TestController3").bandTag(@"生活"),
-                                mt_reuse([UIColor greenColor]).band(@"TestController3").bandTag(@"好物"),
-                                mt_reuse([UIColor yellowColor]).band(@"TestController3").bandTag(@"大头鱼")
-                                ];
-//    return        @[
-//                    mt_reuse([UIColor yellowColor]).band(@"TestSubController").bandTag(@"头号"),
-//                    mt_reuse([UIColor purpleColor]).band(@"TestSubController").bandTag(@"掌经号"),
-//                    mt_reuse([UIColor redColor]).band(@"TestSubController").bandTag(@"精选视频"),
-//                    mt_reuse([UIColor blueColor]).band(@"TestSubController").bandTag(@"生活"),
-//                    mt_reuse([UIColor greenColor]).band(@"TestSubController").bandTag(@"好物"),
-//                    mt_reuse([UIColor yellowColor]).band(@"TestSubController").bandTag(@"大头鱼")
-//                    ];
+//              return      @[
+//                                mt_reuse([UIColor yellowColor]).band(@"TestController3").bandTag(@"头号"),
+//                                mt_reuse([UIColor purpleColor]).band(@"TestController3").bandTag(@"掌经号"),
+//                                mt_reuse([UIColor redColor]).band(@"TestController3").bandTag(@"精选视频"),
+//                                mt_reuse([UIColor blueColor]).band(@"TestController3").bandTag(@"生活"),
+//                                mt_reuse([UIColor greenColor]).band(@"TestController3").bandTag(@"好物"),
+//                                mt_reuse([UIColor yellowColor]).band(@"TestController3").bandTag(@"大头鱼")
+//                                ];
+    return        @[
+                    mt_reuse([UIColor yellowColor]).band(@"TestSubController").bandTag(@"头号"),
+                    mt_reuse([UIColor purpleColor]).band(@"TestSubController").bandTag(@"掌经号"),
+                    mt_reuse([UIColor redColor]).band(@"TestSubController").bandTag(@"精选视频"),
+                    mt_reuse([UIColor blueColor]).band(@"TestSubController").bandTag(@"生活"),
+                    mt_reuse([UIColor greenColor]).band(@"TestSubController").bandTag(@"好物"),
+                    mt_reuse([UIColor yellowColor]).band(@"TestSubController").bandTag(@"大头鱼")
+                    ];
 }
 
 @end
@@ -180,7 +180,7 @@
 
 -(NSArray *)dataList
 {
-    return (NSArray*)@"UITableViewCell".bandCount(0).bandHeight(44);
+    return (NSArray*)@"UITableViewCell".bandCount(1).bandHeight(44);
 }
 
 -(NSArray *)tenScrollDataList
