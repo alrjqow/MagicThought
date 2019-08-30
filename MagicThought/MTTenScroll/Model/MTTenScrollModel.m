@@ -48,9 +48,12 @@ NSString* MTTenScrollIdentifier = @"MTTenScrollIdentifier";
 /**ccontentView 是否正在滚动*/
 @property (nonatomic,assign) BOOL isContentViewScrolling;
 
+@property (nonatomic,weak) MTTenScrollModel* subModel;
 
 /**标题固定滚动*/
 @property (nonatomic,assign) BOOL titleViewFixScroll;
+/**标题是否正在滚动*/
+@property (nonatomic,assign) BOOL isTitleViewScrolling;
 /**标题是否点击*/
 @property (nonatomic,assign) BOOL isTitleViewTap;
 
@@ -400,6 +403,7 @@ NSString* MTTenScrollIdentifier = @"MTTenScrollIdentifier";
 /**固定滚动时必要的offset*/
 -(void)fixContentViewScrollingOffset
 {
+//
     [self fixSubContentViewScroll];
     
     if(!self.superTenScrollView)
@@ -469,6 +473,41 @@ NSString* MTTenScrollIdentifier = @"MTTenScrollIdentifier";
     }
 }
 
+-(BOOL)fixSuperContentViewScroll2
+{
+//    if([NSStringFromClass(self.delegate.class) isEqualToString:@"TestController2"])
+//        NSLog(@"%@ === %zd === %d",NSStringFromClass(self.delegate.class), self.superIndex, self.subModel.isTitleViewScrolling);
+    if(!self.subModel.isTitleViewScrolling)
+    {
+        self.isTitleViewScrolling = false;
+        return false;
+    }
+    
+    MTTenScrollTitleView* subTitleView0 = self.subModel.titleView;
+    CGFloat minOffsetX = -self.subModel.titleViewModel.margin;
+    CGFloat maxOffsetX = floor(subTitleView0.contentSize.width + self.subModel.titleViewModel.margin - subTitleView0.width);
+    
+    if((subTitleView0.offsetX <= minOffsetX) || (subTitleView0.offsetX >= maxOffsetX))
+    {
+        self.isTitleViewScrolling = false;
+        return false;
+    }
+    
+    self.contentView.offsetX = self.subModel.superIndex * self.contentView.width;
+    [self getSuperModel:self].subModel = self;
+    self.isTitleViewScrolling = YES;
+    
+//    MTTenScrollModel* currentModel = self;
+//    while (currentModel) {
+//        MTTenScrollModel* superModel = currentModel.superTenScrollView.model;
+////        if([NSStringFromClass(superModel.delegate.class) isEqualToString:@"TestController"])
+////            NSLog(@"%zd",currentModel.superIndex);
+//        superModel.contentView.offsetX = currentModel.superIndex * superModel.contentView.width;
+//        currentModel = superModel;
+//    }
+    return YES;
+}
+
 -(void)fixSuperContentViewScroll
 {
     CGFloat minOffsetX = self.contentViewFixOffset;
@@ -512,7 +551,11 @@ NSString* MTTenScrollIdentifier = @"MTTenScrollIdentifier";
 
 -(void)contentViewDidScroll
 {
+//    NSLog(@"%@ === %zd === %d",NSStringFromClass(self.delegate.class), self.superIndex, self.subModel.isTitleViewScrolling);
 //    return;
+//    if([self fixSuperContentViewScroll2])
+//        return;
+    
     [self fixContentViewScrollingOffset];
     //    return;
     
@@ -670,6 +713,8 @@ NSString* MTTenScrollIdentifier = @"MTTenScrollIdentifier";
 
 -(void)titleViewWillBeginDragging
 {
+    [self getSuperModel:self].subModel = self;
+    self.isTitleViewScrolling = YES;
     self.tenScrollView.scrollEnabled = false;
     self.titleViewFixScroll = false;
     self.isContentViewScrolling = false;
@@ -716,29 +761,76 @@ NSString* MTTenScrollIdentifier = @"MTTenScrollIdentifier";
     
     if(self.titleView.offsetX > minOffsetX && self.titleView.offsetX< maxOffsetX)
     {
-        
-        self.superTenScrollView.model.contentView.offsetX = self.superTenScrollView.model.contentView.width * self.superTenScrollView.model.currentIndex;
+        self.superTenScrollView.model.contentView.offsetX = self.superTenScrollView.model.contentView.width * self.superIndex;
+        MTTenScrollModel* currentModel = self.superTenScrollView.model;
+        while (currentModel) {
+            MTTenScrollModel* superModel = currentModel.superTenScrollView.model;
+            superModel.contentView.offsetX = currentModel.superIndex * superModel.contentView.width;
+            currentModel = superModel;
+        }
     }
     else
     {
-//        NSLog(@"0000");
-        if(((self.superTenScrollView.model.contentView.offsetX / self.superTenScrollView.model.contentView.width) - self.superTenScrollView.model.currentIndex) != 0)
+//        CGFloat superOffsetX = self.superTenScrollView.model.contentView.offsetX / self.superTenScrollView.model.contentView.width;
+//
+//        NSLog(@"%lf === %zd", superOffsetX, (NSInteger)superOffsetX);
+//
+//        if((superOffsetX - (NSInteger)superOffsetX) != 0)
+//        {
+//            if(self.titleView.offsetX >= maxOffsetX)
+//                preOffsetX = maxOffsetX;
+//            if(self.titleView.offsetX <= minOffsetX)
+//                preOffsetX = minOffsetX;
+//            self.titleViewFixScroll = YES;
+//        }
+//        else
         {
-            if(self.titleView.offsetX >= maxOffsetX)
-                preOffsetX = maxOffsetX;
-            if(self.titleView.offsetX <= minOffsetX)
-                preOffsetX = minOffsetX;
-            self.titleViewFixScroll = YES;
-        }
-        else
+            MTTenScrollModel* currentModel = self;
+            
+            while (currentModel) {
+                MTTenScrollModel* superModel = currentModel.superTenScrollView.model;
+                if(!superModel)
+                    break;
+                
+                CGFloat superOffsetX = superModel.contentView.offsetX / superModel.contentView.width;
+                if((superOffsetX - (NSInteger)superOffsetX) != 0)
+                {
+//                    if(superModel == self.superTenScrollView.model)
+//                       break;
+                    if(self.lock && (superModel == self.superTenScrollView.model))
+                    {
+                        self.lock = false;
+                        break;
+                    }
+                    
+//                    NSLog(@"%@ === %d",NSStringFromClass(superModel.delegate.class), self.lock);
+
+                    if(self.titleView.offsetX >= maxOffsetX)
+                        preOffsetX = maxOffsetX;
+                    if(self.titleView.offsetX <= minOffsetX)
+                        preOffsetX = minOffsetX;
+                    self.titleViewFixScroll = YES;
+                    return;
+                }
+                else
+                {
+                    currentModel = superModel;
+                    self.lock = YES;
+                }
+                
+            }
+            
             self.titleViewFixScroll = false;
+        }
+        
     }
 }
 
 -(void)didTitleViewEndScroll
 {
+    self.isTitleViewScrolling = false;
     self.tenScrollView.scrollEnabled = YES;
-    self.titleViewFixScroll = false;
+    self.titleViewFixScroll = false;    
 }
 
 -(void)didTitleViewSelectedItem
