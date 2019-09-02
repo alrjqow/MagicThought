@@ -39,19 +39,22 @@ NSString* MTTenScrollIdentifier = @"MTTenScrollIdentifier";
 
 /**ccontentView 上次的偏移值*/
 @property (nonatomic,assign) CGFloat preOffsetX;
-@property (nonatomic,assign) CGFloat preOffsetX2;
+@property (nonatomic,assign) CGFloat preTitleOffsetX;
 
 /**ccontentView 是否向左滚动*/
 @property (nonatomic,assign) BOOL isLeft;
 
-
 /**ccontentView 是否正在滚动*/
 @property (nonatomic,assign) BOOL isContentViewScrolling;
+
+/**titleView 是否向左滚动*/
+@property (nonatomic,assign) BOOL isTitleLeft;
 
 @property (nonatomic,weak) MTTenScrollModel* subModel;
 
 /**标题固定滚动*/
 @property (nonatomic,assign) BOOL titleViewFixScroll;
+@property (nonatomic,assign) NSInteger titleViewFixScrollCount;
 /**标题是否正在滚动*/
 @property (nonatomic,assign) BOOL isTitleViewScrolling;
 /**标题是否点击*/
@@ -479,7 +482,6 @@ NSString* MTTenScrollIdentifier = @"MTTenScrollIdentifier";
 //        NSLog(@"%@ === %zd === %d",NSStringFromClass(self.delegate.class), self.superIndex, self.subModel.isTitleViewScrolling);
     if(!self.subModel.isTitleViewScrolling)
     {
-        self.isTitleViewScrolling = false;
         return false;
     }
     
@@ -489,13 +491,20 @@ NSString* MTTenScrollIdentifier = @"MTTenScrollIdentifier";
     
     if((subTitleView0.offsetX <= minOffsetX) || (subTitleView0.offsetX >= maxOffsetX))
     {
-        self.isTitleViewScrolling = false;
         return false;
     }
     
-    self.contentView.offsetX = self.subModel.superIndex * self.contentView.width;
-    [self getSuperModel:self].subModel = self;
-    self.isTitleViewScrolling = YES;
+
+    CGFloat offsetX = self.contentView.offsetX / self.contentView.width;
+    
+    if((offsetX - (NSInteger)offsetX) != 0)
+    {
+        self.subModel.titleViewFixScrollCount += 1;
+    }
+    
+//    self.contentView.offsetX = self.subModel.superIndex * self.contentView.width;
+//    [self getSuperModel:self].subModel = self;
+//    self.isTitleViewScrolling = YES;
     
 //    MTTenScrollModel* currentModel = self;
 //    while (currentModel) {
@@ -557,7 +566,7 @@ NSString* MTTenScrollIdentifier = @"MTTenScrollIdentifier";
 //        return;
     
     [self fixContentViewScrollingOffset];
-    //    return;
+//        return;
     
     if(self.isTitleViewTap)
         return;
@@ -638,82 +647,18 @@ NSString* MTTenScrollIdentifier = @"MTTenScrollIdentifier";
     //            NSLog(@"拖拽结束索引：%lf", currentIndex);
 }
 
-#pragma mark - 文字颜色渐变
-
-- (void)colorChangeCurrentTitleCell:(MTTenScrollTitleCell *)currentCell nextCell:(MTTenScrollTitleCell *)nextCell changeScale:(CGFloat)scale {
-    
-    if(currentCell == nextCell)
-        return;
-    
-    //选中颜色
-    CGFloat sel_red;
-    CGFloat sel_green;
-    CGFloat sel_blue;
-    CGFloat sel_alpha;
-    
-    //未选中的颜色
-    CGFloat de_sel_red = 0.0;
-    CGFloat de_sel_green = 0.0;
-    CGFloat de_sel_blue = 0.0;
-    CGFloat de_sel_alpha = 0.0;
-    
-    
-    if ([self.titleViewModel.selectedStyle.wordColor getRed:&sel_red green:&sel_green blue:&sel_blue alpha:&sel_alpha] && [self.titleViewModel.normalStyle.wordColor getRed:&de_sel_red green:&de_sel_green blue:&de_sel_blue alpha:&de_sel_alpha]) {
-        //颜色的变化的大小
-        CGFloat red_changge = sel_red - de_sel_red;
-        CGFloat green_changge = sel_green - de_sel_green;
-        CGFloat blue_changge = sel_blue - de_sel_blue;
-        CGFloat alpha_changge = sel_alpha - de_sel_alpha;
-        //颜色变化
-        
-        
-        nextCell.title.textColor = [UIColor colorWithRed:(de_sel_red + red_changge * scale) green: (de_sel_green + green_changge * scale) blue:(de_sel_blue + blue_changge * scale) alpha: (de_sel_alpha + alpha_changge * scale)];
-        
-        currentCell.title.textColor = [UIColor colorWithRed:sel_red - red_changge * scale
-                                                      green:sel_green - green_changge * scale
-                                                       blue:sel_blue - blue_changge * scale
-                                                      alpha:sel_alpha - alpha_changge * scale];
-    }
-}
-
-#pragma mark - 文字大小变化
-- (void)fontSizeChangeCurrentTitleCell:(MTTenScrollTitleCell *)currentCell nextCell:(MTTenScrollTitleCell *)nextCell changeScale:(CGFloat)scale
-{
-    if(currentCell == nextCell)
-        return;
-    
-    CGFloat fontSizeOffset = self.titleViewModel.selectedStyle.wordSize - self.titleViewModel.normalStyle.wordSize;
-    
-    CGFloat currentFontSize = self.titleViewModel.selectedStyle.wordSize - fontSizeOffset * scale;
-    CGFloat nextFontSize = self.titleViewModel.normalStyle.wordSize + fontSizeOffset * scale;
-    
-    
-    if (@available(iOS 8.2, *)) {
-        
-        CGFloat currentFontWeight = self.titleViewModel.selectedStyle.wordBold ? UIFontWeightBold : (self.titleViewModel.selectedStyle.wordThin ? UIFontWeightThin : UIFontWeightRegular);
-        
-        CGFloat nextFontWeight = self.titleViewModel.normalStyle.wordBold ? UIFontWeightBold : (self.titleViewModel.selectedStyle.wordThin ? UIFontWeightThin : UIFontWeightRegular);
-        
-        CGFloat fontWeightOffset = currentFontWeight - nextFontWeight;
-        
-        currentCell.title.font = [UIFont systemFontOfSize:currentFontSize weight:(currentFontWeight - fontWeightOffset * scale)];
-        nextCell.title.font = [UIFont systemFontOfSize:nextFontSize weight:(nextFontWeight + fontWeightOffset * scale)];
-    } else {
-        
-        currentCell.title.font = mt_font(currentFontSize);
-        nextCell.title.font = mt_font(nextFontSize);
-    }
-    
-    [currentCell.title sizeToFit];
-    [nextCell.title sizeToFit];
-}
-
 
 #pragma mark - TitleView
 
 -(void)titleViewWillBeginDragging
 {
-    [self getSuperModel:self].subModel = self;
+//    MTTenScrollModel* currentModel = self;
+//    while (currentModel) {
+//        MTTenScrollModel* superModel = currentModel.superTenScrollView.model;
+//        superModel.subModel = self;
+//        currentModel = superModel;
+//    }
+    
     self.isTitleViewScrolling = YES;
     self.tenScrollView.scrollEnabled = false;
     self.titleViewFixScroll = false;
@@ -761,68 +706,33 @@ NSString* MTTenScrollIdentifier = @"MTTenScrollIdentifier";
     
     if(self.titleView.offsetX > minOffsetX && self.titleView.offsetX< maxOffsetX)
     {
-        self.superTenScrollView.model.contentView.offsetX = self.superTenScrollView.model.contentView.width * self.superIndex;
-        MTTenScrollModel* currentModel = self.superTenScrollView.model;
-        while (currentModel) {
-            MTTenScrollModel* superModel = currentModel.superTenScrollView.model;
-            superModel.contentView.offsetX = currentModel.superIndex * superModel.contentView.width;
-            currentModel = superModel;
-        }
+        self.superTenScrollView.model.contentView.offsetX = self.superTenScrollView.model.contentView.offsetX;
+        
+//        self.superTenScrollView.model.contentView.width * self.superIndex;
+//        MTTenScrollModel* currentModel = self.superTenScrollView.model;
+//        while (currentModel) {
+//            MTTenScrollModel* superModel = currentModel.superTenScrollView.model;
+//            superModel.contentView.offsetX = currentModel.superIndex * superModel.contentView.width;
+//            currentModel = superModel;
+//        }
     }
     else
     {
-//        CGFloat superOffsetX = self.superTenScrollView.model.contentView.offsetX / self.superTenScrollView.model.contentView.width;
-//
-//        NSLog(@"%lf === %zd", superOffsetX, (NSInteger)superOffsetX);
-//
-//        if((superOffsetX - (NSInteger)superOffsetX) != 0)
-//        {
-//            if(self.titleView.offsetX >= maxOffsetX)
-//                preOffsetX = maxOffsetX;
-//            if(self.titleView.offsetX <= minOffsetX)
-//                preOffsetX = minOffsetX;
-//            self.titleViewFixScroll = YES;
-//        }
-//        else
-        {
-            MTTenScrollModel* currentModel = self;
-            
-            while (currentModel) {
-                MTTenScrollModel* superModel = currentModel.superTenScrollView.model;
-                if(!superModel)
-                    break;
-                
-                CGFloat superOffsetX = superModel.contentView.offsetX / superModel.contentView.width;
-                if((superOffsetX - (NSInteger)superOffsetX) != 0)
-                {
-//                    if(superModel == self.superTenScrollView.model)
-//                       break;
-                    if(self.lock && (superModel == self.superTenScrollView.model))
-                    {
-                        self.lock = false;
-                        break;
-                    }
-                    
-//                    NSLog(@"%@ === %d",NSStringFromClass(superModel.delegate.class), self.lock);
+        NSInteger offsetX = [self.tenScrollView convertPoint:CGPointZero toView:mt_Window().rootViewController.view].x;
+        
+//        NSLog(@"%zd", offsetX);
 
-                    if(self.titleView.offsetX >= maxOffsetX)
-                        preOffsetX = maxOffsetX;
-                    if(self.titleView.offsetX <= minOffsetX)
-                        preOffsetX = minOffsetX;
-                    self.titleViewFixScroll = YES;
-                    return;
-                }
-                else
-                {
-                    currentModel = superModel;
-                    self.lock = YES;
-                }
-                
-            }
-            
-            self.titleViewFixScroll = false;
+        if(self.titleView.offsetX <= minOffsetX)
+        {
+            preOffsetX = minOffsetX;
+            self.titleViewFixScroll = offsetX > 0;
         }
         
+        if(self.titleView.offsetX >= maxOffsetX)
+        {
+            preOffsetX = maxOffsetX;
+            self.titleViewFixScroll = offsetX < 0;
+        }
     }
 }
 
@@ -974,6 +884,77 @@ NSString* MTTenScrollIdentifier = @"MTTenScrollIdentifier";
 //    NSLog(@"%zd",index);
 //    [self fixCurrentViewOffsetByIndex:(index + 1)];
 }
+
+#pragma mark - 文字颜色渐变
+
+- (void)colorChangeCurrentTitleCell:(MTTenScrollTitleCell *)currentCell nextCell:(MTTenScrollTitleCell *)nextCell changeScale:(CGFloat)scale {
+    
+    if(currentCell == nextCell)
+        return;
+    
+    //选中颜色
+    CGFloat sel_red;
+    CGFloat sel_green;
+    CGFloat sel_blue;
+    CGFloat sel_alpha;
+    
+    //未选中的颜色
+    CGFloat de_sel_red = 0.0;
+    CGFloat de_sel_green = 0.0;
+    CGFloat de_sel_blue = 0.0;
+    CGFloat de_sel_alpha = 0.0;
+    
+    
+    if ([self.titleViewModel.selectedStyle.wordColor getRed:&sel_red green:&sel_green blue:&sel_blue alpha:&sel_alpha] && [self.titleViewModel.normalStyle.wordColor getRed:&de_sel_red green:&de_sel_green blue:&de_sel_blue alpha:&de_sel_alpha]) {
+        //颜色的变化的大小
+        CGFloat red_changge = sel_red - de_sel_red;
+        CGFloat green_changge = sel_green - de_sel_green;
+        CGFloat blue_changge = sel_blue - de_sel_blue;
+        CGFloat alpha_changge = sel_alpha - de_sel_alpha;
+        //颜色变化
+        
+        
+        nextCell.title.textColor = [UIColor colorWithRed:(de_sel_red + red_changge * scale) green: (de_sel_green + green_changge * scale) blue:(de_sel_blue + blue_changge * scale) alpha: (de_sel_alpha + alpha_changge * scale)];
+        
+        currentCell.title.textColor = [UIColor colorWithRed:sel_red - red_changge * scale
+                                                      green:sel_green - green_changge * scale
+                                                       blue:sel_blue - blue_changge * scale
+                                                      alpha:sel_alpha - alpha_changge * scale];
+    }
+}
+
+#pragma mark - 文字大小变化
+- (void)fontSizeChangeCurrentTitleCell:(MTTenScrollTitleCell *)currentCell nextCell:(MTTenScrollTitleCell *)nextCell changeScale:(CGFloat)scale
+{
+    if(currentCell == nextCell)
+        return;
+    
+    CGFloat fontSizeOffset = self.titleViewModel.selectedStyle.wordSize - self.titleViewModel.normalStyle.wordSize;
+    
+    CGFloat currentFontSize = self.titleViewModel.selectedStyle.wordSize - fontSizeOffset * scale;
+    CGFloat nextFontSize = self.titleViewModel.normalStyle.wordSize + fontSizeOffset * scale;
+    
+    
+    if (@available(iOS 8.2, *)) {
+        
+        CGFloat currentFontWeight = self.titleViewModel.selectedStyle.wordBold ? UIFontWeightBold : (self.titleViewModel.selectedStyle.wordThin ? UIFontWeightThin : UIFontWeightRegular);
+        
+        CGFloat nextFontWeight = self.titleViewModel.normalStyle.wordBold ? UIFontWeightBold : (self.titleViewModel.selectedStyle.wordThin ? UIFontWeightThin : UIFontWeightRegular);
+        
+        CGFloat fontWeightOffset = currentFontWeight - nextFontWeight;
+        
+        currentCell.title.font = [UIFont systemFontOfSize:currentFontSize weight:(currentFontWeight - fontWeightOffset * scale)];
+        nextCell.title.font = [UIFont systemFontOfSize:nextFontSize weight:(nextFontWeight + fontWeightOffset * scale)];
+    } else {
+        
+        currentCell.title.font = mt_font(currentFontSize);
+        nextCell.title.font = mt_font(nextFontSize);
+    }
+    
+    [currentCell.title sizeToFit];
+    [nextCell.title sizeToFit];
+}
+
 
 #pragma mark - 懒加载
 
