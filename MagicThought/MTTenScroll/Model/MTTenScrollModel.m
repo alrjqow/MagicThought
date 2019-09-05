@@ -40,6 +40,7 @@ NSString* MTTenScrollIdentifier = @"MTTenScrollIdentifier";
 /**ccontentView 上次的偏移值*/
 @property (nonatomic,assign) CGFloat preOffsetX;
 @property (nonatomic,assign) CGFloat preTitleOffsetX;
+@property (nonatomic,assign) CGFloat preContentViewOffsetX;
 
 /**ccontentView 是否向左滚动*/
 @property (nonatomic,assign) BOOL isLeft;
@@ -51,6 +52,9 @@ NSString* MTTenScrollIdentifier = @"MTTenScrollIdentifier";
 @property (nonatomic,assign) BOOL isTitleLeft;
 
 @property (nonatomic,weak) MTTenScrollModel* subModel;
+
+
+@property (nonatomic,assign) BOOL contentViewFixScroll;
 
 /**标题固定滚动*/
 @property (nonatomic,assign) BOOL titleViewFixScroll;
@@ -397,6 +401,13 @@ NSString* MTTenScrollIdentifier = @"MTTenScrollIdentifier";
 
 -(void)contentViewWillBeginDragging
 {
+    NSLog(@"%@",NSStringFromClass(self.delegate.class));
+    MTTenScrollModel* currentModel = self;
+    while (currentModel) {
+        MTTenScrollModel* superModel = currentModel.superTenScrollView.model;
+        superModel.subModel = self;
+        currentModel = superModel;
+    }
     self.superTenScrollView.model.currentView = self.tenScrollView;
     self.tenScrollView.scrollEnabled = false;
     self.currentView.scrollEnabled = false;
@@ -404,6 +415,61 @@ NSString* MTTenScrollIdentifier = @"MTTenScrollIdentifier";
 }
 
 /**固定滚动时必要的offset*/
+-(void)fixContentViewScrollingOffset2
+{
+    MTTenScrollModel* subModel = self.subModel;
+    
+    if(!subModel)
+        return;
+    
+    MTTenScrollContentView* subContentView = subModel.contentView;
+    CGFloat subMinOffsetX = subModel.contentViewFixOffset;
+    CGFloat subMaxOffsetX = subContentView.width * subModel.maxIndex - subModel.contentViewFixOffset;
+    
+    if(subContentView.offsetX > subMinOffsetX && subContentView.offsetX< subMaxOffsetX)
+    {
+        self.contentView.offsetX = self.contentView.width * subModel.superIndex;
+    }
+    else
+    {
+
+    }
+    
+}
+
+-(void)fixContentViewScrollingOffset3
+{
+    if(self.contentViewFixScroll)
+        self.contentView.offsetX = self.preContentViewOffsetX;
+    
+    CGFloat minOffsetX = self.contentViewFixOffset;
+    CGFloat maxOffsetX = self.contentView.width * self.maxIndex - self.contentViewFixOffset;
+    
+    if(self.contentView.offsetX > minOffsetX && self.contentView.offsetX< maxOffsetX)
+    {
+        
+    }
+    else
+    {
+        NSInteger offsetX = [self.tenScrollView convertPoint:CGPointZero toView:mt_Window().rootViewController.view].x;
+        
+        //        NSLog(@"%zd", offsetX);
+        
+        if(self.contentView.offsetX <= minOffsetX)
+        {
+            self.preContentViewOffsetX = minOffsetX;
+            self.contentViewFixScroll = offsetX > 0;
+        }
+        
+        if(self.contentView.offsetX >= maxOffsetX)
+        {
+            self.preContentViewOffsetX = maxOffsetX;
+            self.contentViewFixScroll = offsetX < 0;
+        }
+    }
+    
+}
+
 -(void)fixContentViewScrollingOffset
 {
 //
@@ -706,15 +772,7 @@ NSString* MTTenScrollIdentifier = @"MTTenScrollIdentifier";
     
     if(self.titleView.offsetX > minOffsetX && self.titleView.offsetX< maxOffsetX)
     {
-        self.superTenScrollView.model.contentView.offsetX = self.superTenScrollView.model.contentView.offsetX;
         
-//        self.superTenScrollView.model.contentView.width * self.superIndex;
-//        MTTenScrollModel* currentModel = self.superTenScrollView.model;
-//        while (currentModel) {
-//            MTTenScrollModel* superModel = currentModel.superTenScrollView.model;
-//            superModel.contentView.offsetX = currentModel.superIndex * superModel.contentView.width;
-//            currentModel = superModel;
-//        }
     }
     else
     {
