@@ -528,6 +528,8 @@ NSString* MTTenScrollIdentifier = @"MTTenScrollIdentifier";
     while (currentModel) {
     
         MTTenScrollModel* superModel = currentModel.superTenScrollView.model;
+        if(!superModel)
+            break;
         MTTenScrollContentView* superContentView = superModel.contentView;
         
         if((self.contentView.offsetX > minOffsetX) && (self.contentView.offsetX < maxOffsetX))
