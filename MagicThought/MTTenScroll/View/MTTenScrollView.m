@@ -110,20 +110,37 @@
 
 -(void)scrollViewDidEndDragging:(UIScrollView *)scrollView willDecelerate:(BOOL)decelerate
 {
-    if([self.model.currentView isKindOfClass:[MTTenScrollView class]])        
-        [self.model tenScrollViewEndScroll];
+    if([self.model.currentView isKindOfClass:[MTTenScrollView class]])
+    {
+        if(!decelerate)
+        {
+            NSLog(@"%@ === %d",NSStringFromClass(self.model.delegate.class), decelerate);
+            [self.model tenScrollViewEndScroll];
+        }
+    }
     else
         [self simulateDecelerate];
     
     [super scrollViewDidEndDragging:scrollView willDecelerate:decelerate];
 }
 
+//-(void)scrollViewDidEndDecelerating:(UIScrollView *)scrollView
+//{
+//    if(![self.model.currentView isKindOfClass:[MTTenScrollView class]])
+//        return;
+//    
+//    NSLog(@"%@",NSStringFromClass(self.model.delegate.class));
+//    
+//    
+//    [self.model tenScrollViewEndScroll];
+//}
+
 #pragma mark - 模拟减速
 -(void)simulateDecelerate
 {
     if(!self.isScrollTop || self.model.currentView.contentOffset.y > 0)
     {
-        [self.model tenScrollViewEndScroll];
+//        [self.model tenScrollViewEndScroll];
         return;
     }
     
@@ -184,7 +201,7 @@
         }
         
         lastCenter = weakSelf.item.center;
-        [self.model tenScrollViewEndScroll];
+//        [self.model tenScrollViewEndScroll];
     };
     [self.animator addBehavior:behavior];
 }
