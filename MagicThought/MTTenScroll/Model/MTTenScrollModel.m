@@ -96,23 +96,24 @@ NSString* MTTenScrollIdentifier = @"MTTenScrollIdentifier";
 
 -(void)tenScrollViewEndScroll
 {
-    [self contentViewScrollEnabled:YES];
+    MTTenScrollModel* model = self;
+    do {
+        if(model.tenScrollView.dragging || model.tenScrollView.decelerating)
+        {
+//            NSLog(@"%@ === %d === %d === %d",NSStringFromClass(self.delegate.class), model.tenScrollView.tracking, model.tenScrollView.dragging,  model.tenScrollView.decelerating);
+            return;
+        }
+        
+        
+        model = model.superTenScrollView.model;
+    } while (model);
+    
+    [self contentViewScrollEnabled:YES];    
 }
 
 -(void)contentViewScrollEnabled:(BOOL)scrollEnabled
 {
-    MTTenScrollModel* currentModel = self;
-    currentModel.contentView.scrollEnabled = scrollEnabled;
-    currentModel.titleView.scrollEnabled = scrollEnabled;
-    
-    while (currentModel) {
-        
-        MTTenScrollModel* superModel = [self getSuperModel:currentModel];
-        superModel.contentView.scrollEnabled = scrollEnabled;
-        superModel.titleView.scrollEnabled = scrollEnabled;
-        
-        currentModel = superModel;
-    }
+    [[NSNotificationCenter defaultCenter] postNotificationName:@"NotificationTenScrollViewScroll" object:nil userInfo:@{@"canScroll" : @(scrollEnabled)}];    
 }
 
 -(void)tenScrollViewDidScroll

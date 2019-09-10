@@ -109,12 +109,11 @@
 }
 
 -(void)scrollViewDidEndDragging:(UIScrollView *)scrollView willDecelerate:(BOOL)decelerate
-{
+{    
     if([self.model.currentView isKindOfClass:[MTTenScrollView class]])
     {
         if(!decelerate)
         {
-            NSLog(@"%@ === %d",NSStringFromClass(self.model.delegate.class), decelerate);
             [self.model tenScrollViewEndScroll];
         }
     }
@@ -124,16 +123,13 @@
     [super scrollViewDidEndDragging:scrollView willDecelerate:decelerate];
 }
 
-//-(void)scrollViewDidEndDecelerating:(UIScrollView *)scrollView
-//{
-//    if(![self.model.currentView isKindOfClass:[MTTenScrollView class]])
-//        return;
-//    
-//    NSLog(@"%@",NSStringFromClass(self.model.delegate.class));
-//    
-//    
-//    [self.model tenScrollViewEndScroll];
-//}
+-(void)scrollViewDidEndDecelerating:(UIScrollView *)scrollView
+{
+    if(![self.model.currentView isKindOfClass:[MTTenScrollView class]])
+        return;
+    
+    [self.model tenScrollViewEndScroll];
+}
 
 #pragma mark - 模拟减速
 -(void)simulateDecelerate

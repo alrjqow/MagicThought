@@ -13,4 +13,6 @@
 
 - (void)setupDefault {}
 
+-(void)whenDealloc{}
+
 @end

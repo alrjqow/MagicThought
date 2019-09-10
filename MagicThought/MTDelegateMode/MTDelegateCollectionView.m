@@ -20,6 +20,11 @@
 
 @implementation MTDelegateCollectionView
 
+-(void)dealloc
+{
+    [self whenDealloc];
+}
+
 -(instancetype)initWithFrame:(CGRect)frame collectionViewLayout:(UICollectionViewLayout *)layout
 {
     if (self = [super initWithFrame:frame collectionViewLayout:layout]) {

@@ -57,6 +57,18 @@
     [self.panGestureRecognizer requireGestureRecognizerToFail:[MTCloud shareCloud].currentViewController.navigationController.interactivePopGestureRecognizer];
     [self addSubview:self.bottomLine];
     [self addTarget:self EmptyData:nil DataList:nil SectionList:nil];
+    
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(whenReceiveNotification:) name:@"NotificationTenScrollViewScroll" object:nil];
+}
+
+-(void)whenDealloc
+{
+    [[NSNotificationCenter defaultCenter] removeObserver:self name:@"NotificationTenScrollViewScroll" object:nil];
+}
+
+- (void)whenReceiveNotification:(NSNotification *)info
+{
+    self.scrollEnabled = [info.userInfo[@"canScroll"] boolValue];
 }
 
 -(void)layoutSubviews
