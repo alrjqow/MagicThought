@@ -402,8 +402,9 @@ NSString* MTTenScrollIdentifier = @"MTTenScrollIdentifier";
 
 -(void)contentViewWillBeginDragging
 {
-//    NSLog(@"q === %@ === %zd === %@",NSStringFromClass(self.delegate.class), self.superIndex, NSStringFromClass(self.superTenScrollView.model.delegate.class));
-//    self.subModel = nil;
+//    NSLog(@"%@ === %@ === %d === %d === %d",NSStringFromClass(self.delegate.class), NSStringFromClass(self.subModel.delegate.class), self.subModel.contentView.dragging, self.subModel.contentView.decelerating, );
+    if(!self.subModel.contentView.tracking)
+        self.subModel = nil;
     self.superTenScrollView.model.subModel = self;
     
     self.superTenScrollView.model.currentView = self.tenScrollView;
