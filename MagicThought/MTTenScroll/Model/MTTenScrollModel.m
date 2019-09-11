@@ -45,6 +45,8 @@ NSString* MTTenScrollIdentifier = @"MTTenScrollIdentifier";
 /**ccontentView 是否向左滚动*/
 @property (nonatomic,assign) BOOL isLeft;
 
+@property (nonatomic,assign) BOOL isTitleViewDragging;
+
 /**ccontentView 是否正在滚动*/
 @property (nonatomic,assign) BOOL isContentViewScrolling;
 
@@ -402,9 +404,10 @@ NSString* MTTenScrollIdentifier = @"MTTenScrollIdentifier";
 
 -(void)contentViewWillBeginDragging
 {
-//    NSLog(@"%@ === %@ === %d === %d === %d",NSStringFromClass(self.delegate.class), NSStringFromClass(self.subModel.delegate.class), self.subModel.contentView.dragging, self.subModel.contentView.decelerating, );
-    if(!self.subModel.contentView.tracking)
+//    NSLog(@"%@ === %@ === %d === %d === %d",NSStringFromClass(self.delegate.class), NSStringFromClass(self.subModel.delegate.class), self.subModel.contentView.dragging, self.subModel.contentView.decelerating, self.subModel.contentView.tracking);
+    if(!self.subModel.contentView.tracking && !self.subModel.titleView.tracking)
         self.subModel = nil;
+    self.isTitleViewDragging = false;
     self.superTenScrollView.model.subModel = self;
     
     self.superTenScrollView.model.currentView = self.tenScrollView;
@@ -422,20 +425,18 @@ NSString* MTTenScrollIdentifier = @"MTTenScrollIdentifier";
         return;
     
     NSInteger currentIndex = subModel.superIndex;
-    MTTenScrollContentView* subContentView;
+    UIScrollView* subScrollView;
     CGFloat subMinOffsetX;
     CGFloat subMaxOffsetX;
     
     
     do {
-        subContentView = subModel.contentView;
-        subMinOffsetX = subModel.contentViewFixOffset;
-        subMaxOffsetX = subContentView.width * subModel.maxIndex - subModel.contentViewFixOffset;
+        subScrollView = subModel.isTitleViewDragging ? subModel.titleView : subModel.contentView;
+        subMinOffsetX = subModel.isTitleViewDragging ? -subModel.titleViewModel.margin : subModel.contentViewFixOffset;
+        subMaxOffsetX = subModel.isTitleViewDragging ? floor(subModel.titleView.contentSize.width + subModel.titleViewModel.margin - subModel.titleView.width) : subScrollView.width * subModel.maxIndex - subModel.contentViewFixOffset;
 
-//        NSLog(@"%@ === %lf === %zd",NSStringFromClass(subModel.delegate.class), self.contentView.offsetX, subModel.superIndex);
-        
 //        NSLog(@"%@ === %lf === %lf === %lf",NSStringFromClass(subModel.delegate.class), subMinOffsetX, subMaxOffsetX, subContentView.offsetX);
-        if(subContentView.offsetX > subMinOffsetX && subContentView.offsetX< subMaxOffsetX)
+        if(subScrollView.offsetX > subMinOffsetX && subScrollView.offsetX< subMaxOffsetX)
         {
             self.contentView.offsetX = self.contentView.width * currentIndex;
             return;
@@ -444,19 +445,22 @@ NSString* MTTenScrollIdentifier = @"MTTenScrollIdentifier";
         {
             NSInteger offsetX = [subModel.tenScrollView convertPoint:CGPointZero toView:mt_Window().rootViewController.view].x;
             
-            if(subContentView.offsetX <= subMinOffsetX && offsetX <= 0)
+            NSLog(@"q%@ === %@ === %lf === %lf === %lf === %zd === %d",NSStringFromClass(self.delegate.class), NSStringFromClass(subModel.delegate.class), subScrollView.offsetX, subMinOffsetX, subMaxOffsetX, offsetX, subModel.isTitleViewDragging);
+            
+            if(subScrollView.offsetX <= subMinOffsetX && offsetX <= 0)
             {
                 self.contentView.offsetX = self.contentView.width * currentIndex;
                 return;
             }
             
-            if(subContentView.offsetX >= subMaxOffsetX && offsetX >= 0)
+            if(subScrollView.offsetX >= subMaxOffsetX && offsetX >= 0)
             {
                 self.contentView.offsetX = self.contentView.width * currentIndex;
                 return;
             }
         }
         
+                
         subModel = subModel.subModel;
         
     } while (subModel);
@@ -464,6 +468,7 @@ NSString* MTTenScrollIdentifier = @"MTTenScrollIdentifier";
 
 -(void)fixContentViewScrollingOffset3
 {
+    
     if(self.contentViewFixScroll)
         self.contentView.offsetX = self.preContentViewOffsetX;
     
@@ -652,18 +657,20 @@ NSString* MTTenScrollIdentifier = @"MTTenScrollIdentifier";
 
 -(void)contentViewDidScroll
 {
-//    NSLog(@"%@ === %zd === %d",NSStringFromClass(self.delegate.class), self.superIndex, self.subModel.isTitleViewScrolling);
+//    NSLog(@"%@",NSStringFromClass(self.delegate.class));
 //    return;
 //    if([self fixSuperContentViewScroll2])
 //        return;
     
 //    [self fixContentViewScrollingOffset];
-    [self fixContentViewScrollingOffset3];
-    [self fixContentViewScrollingOffset2];
+    
 //        return;
     
     if(self.isTitleViewTap)
         return;
+    
+    [self fixContentViewScrollingOffset3];
+    [self fixContentViewScrollingOffset2];
     
     CGFloat currentOffsetX = self.contentView.offsetX;
 //    if(!self.superTenScrollView)
@@ -746,12 +753,10 @@ NSString* MTTenScrollIdentifier = @"MTTenScrollIdentifier";
 
 -(void)titleViewWillBeginDragging
 {
-//    MTTenScrollModel* currentModel = self;
-//    while (currentModel) {
-//        MTTenScrollModel* superModel = currentModel.superTenScrollView.model;
-//        superModel.subModel = self;
-//        currentModel = superModel;
-//    }
+    if(!self.subModel.contentView.tracking && !self.subModel.titleView.tracking)
+        self.subModel = nil;
+    self.isTitleViewDragging = YES;
+    self.superTenScrollView.model.subModel = self;
     
     self.isTitleViewScrolling = YES;
     self.tenScrollView.scrollEnabled = false;
@@ -833,6 +838,7 @@ NSString* MTTenScrollIdentifier = @"MTTenScrollIdentifier";
 {
     self.isTitleViewTap = YES;
     [self.contentView scrollToItemAtIndexPath:[NSIndexPath indexPathForRow:self.currentIndex inSection:0] atScrollPosition:UICollectionViewScrollPositionCenteredHorizontally animated:false];
+    self.contentViewFixScroll = false;
     self.isTitleViewTap = false;
 }
 
