@@ -445,18 +445,42 @@ NSString* MTTenScrollIdentifier = @"MTTenScrollIdentifier";
         {
             NSInteger offsetX = [subModel.tenScrollView convertPoint:CGPointZero toView:mt_Window().rootViewController.view].x;
             
-            NSLog(@"q%@ === %@ === %lf === %lf === %lf === %zd === %d",NSStringFromClass(self.delegate.class), NSStringFromClass(subModel.delegate.class), subScrollView.offsetX, subMinOffsetX, subMaxOffsetX, offsetX, subModel.isTitleViewDragging);
+//            NSLog(@"%@ === %@ === %lf === %lf === %lf === %zd === %d",NSStringFromClass(self.delegate.class), NSStringFromClass(subModel.delegate.class), subScrollView.offsetX, subMinOffsetX, subMaxOffsetX, offsetX, (subScrollView.offsetX <= subMinOffsetX && offsetX <= 0));
             
-            if(subScrollView.offsetX <= subMinOffsetX && offsetX <= 0)
+//            NSLog(@"%@ === %@",NSStringFromClass(self.delegate.class), NSStringFromClass(subModel.delegate.class));
+            
+            if(subScrollView.offsetX <= subMinOffsetX)
             {
-                self.contentView.offsetX = self.contentView.width * currentIndex;
-                return;
+                if(offsetX <= 0)
+                {
+                    self.contentView.offsetX = self.contentView.width * currentIndex;
+                    return;
+                }
+                else
+                {
+//                    if(subScrollView.offsetX > 0)
+//                    {
+//                        self.contentView.offsetX = self.contentView.width * currentIndex;
+//                        return;
+//                    }
+                }
             }
             
-            if(subScrollView.offsetX >= subMaxOffsetX && offsetX >= 0)
+            if(subScrollView.offsetX >= subMaxOffsetX)
             {
-                self.contentView.offsetX = self.contentView.width * currentIndex;
-                return;
+                if(offsetX >= 0)
+                {
+                    self.contentView.offsetX = self.contentView.width * currentIndex;
+                    return;
+                }
+                else
+                {
+//                    if(subScrollView.offsetX < (subModel.isTitleViewDragging ? subMaxOffsetX : (subScrollView.width * subModel.maxIndex)))
+//                    {
+//                        self.contentView.offsetX = self.contentView.width * currentIndex;
+//                        return;
+//                    }
+                }
             }
         }
         
@@ -712,7 +736,7 @@ NSString* MTTenScrollIdentifier = @"MTTenScrollIdentifier";
     MTTenScrollTitleCell* nextCell = (MTTenScrollTitleCell*)[self.titleView cellForItemAtIndexPath:[NSIndexPath indexPathForRow:endIndex  inSection:0]];
     
 //    if(!self.superTenScrollView)
-//        NSLog(@"前后索引：==== %zd ==== %zd", startIndex, endIndex);
+    NSLog(@"%@ === 前后索引：==== %zd ==== %zd", NSStringFromClass(self.delegate.class), startIndex, endIndex);
     
     [self colorChangeCurrentTitleCell:currentCell nextCell:nextCell changeScale:scale];
     [self fontSizeChangeCurrentTitleCell:currentCell nextCell:nextCell changeScale:scale];
