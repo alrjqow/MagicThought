@@ -56,6 +56,7 @@
             self.contentInsetAdjustmentBehavior = UIScrollViewContentInsetAdjustmentNever;
         
         self.animator = [[UIDynamicAnimator alloc] initWithReferenceView:self];
+        self.backgroundColor = [UIColor whiteColor];
     }
     
     return self;

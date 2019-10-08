@@ -196,7 +196,7 @@ static NSInteger itemTimes = 100;
         return;
     
     NSInteger row = self.itemCount > 1 ? self.itemCount * itemTimes * 0.5 +num : 0;
-    [self.collectionView scrollToItemAtIndexPath:[NSIndexPath indexPathForRow:row inSection:0] atScrollPosition:UICollectionViewScrollPositionNone animated:NO];
+    [self.collectionView scrollToItemAtIndexPath:[NSIndexPath indexPathForRow:row inSection:0] atScrollPosition:UICollectionViewScrollPositionCenteredHorizontally animated:NO];
 }
 
 
