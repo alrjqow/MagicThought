@@ -52,6 +52,14 @@ extern NSString* MTTenScrollIdentifier;
 /**contentView固定的偏移值*/
 @property (nonatomic,assign) CGFloat contentViewFixOffset;
 
+/**titleView固定的偏移值*/
+@property (nonatomic,assign) CGFloat titleViewFixOffset;
+
+/**相对于父控件它的索引*/
+@property (nonatomic,assign) NSInteger superIndex;
+
+@property (nonatomic,strong) NSMutableDictionary* subModelList;
+
 /**tenScrollView固定的偏移值*/
 @property (nonatomic,assign) BOOL isChangeTenScrollViewMaxOffsetY;
 @property (nonatomic,assign, readonly) NSInteger tenScrollViewMaxOffsetY;

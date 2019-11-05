@@ -28,6 +28,8 @@
 
 @property (nonatomic,weak) MTTenScrollTitleCell* selectedCell;
 
+@property (nonatomic,strong) UILabel* fitLabel;
+
 @end
 
 @implementation MTTenScrollTitleView
@@ -45,6 +47,8 @@
 {
     [super setupDefault];
     
+    self.fitLabel = [UILabel new];
+    
     if (@available(iOS 11.0, *)) {
         self.contentInsetAdjustmentBehavior = UIScrollViewContentInsetAdjustmentNever;
     }
@@ -53,7 +57,7 @@
     self.showsVerticalScrollIndicator = false;
     self.showsHorizontalScrollIndicator = false;
     self.clipsToBounds = false;
-//    self.bounces = false;
+    self.bounces = false;
     [self.panGestureRecognizer requireGestureRecognizerToFail:[MTCloud shareCloud].currentViewController.navigationController.interactivePopGestureRecognizer];
     [self addSubview:self.bottomLine];
     [self addTarget:self EmptyData:nil DataList:nil SectionList:nil];
@@ -227,7 +231,8 @@
 {
     _model = model;
     
-    [self.title setWordWithStyle:model.currentIndex == self.indexPath.row ? model.titleViewModel.selectedStyle : model.titleViewModel.normalStyle];
+//    [self.title setWordWithStyle:model.currentIndex == self.indexPath.row ? model.titleViewModel.selectedStyle : model.titleViewModel.normalStyle];
+    [self.title setWordWithStyle:self.model.titleViewModel.normalStyle];
     if(self.indexPath.row < model.titleList.count)
         self.title.text = model.titleList[self.indexPath.row];
     
@@ -247,7 +252,8 @@
     
     NSString* text = self.title.text;
     
-    [self.title setWordWithStyle:selected ? self.model.titleViewModel.selectedStyle : self.model.titleViewModel.normalStyle];
+    [self.title setWordWithStyle:self.model.titleViewModel.normalStyle];
+//    [self.title setWordWithStyle:selected ? self.model.titleViewModel.selectedStyle : self.model.titleViewModel.normalStyle];
     
     self.title.text = text;
     [self.title sizeToFit];

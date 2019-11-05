@@ -174,6 +174,7 @@
     if([vc isKindOfClass:[MTTenScrollController class]])
     {
        [((MTTenScrollController*)vc).tenScrollModel setValue:@(self.indexPath.row) forKey:@"superIndex"];
+        model.subModelList[[NSString stringWithFormat:@"%zd", self.indexPath.row]] = ((MTTenScrollController*)vc).tenScrollModel;
         self.subModel = ((MTTenScrollController*)vc).tenScrollModel;
     }
     
