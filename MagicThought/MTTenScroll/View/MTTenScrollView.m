@@ -85,7 +85,7 @@
     if([otherGestureRecognizer isKindOfClass:[UIScreenEdgePanGestureRecognizer class]])
         return false;
     
-    return YES;
+    return YES ;
 }
 
 #pragma mark - 代理
@@ -137,7 +137,7 @@
 {
     if(!self.isScrollTop || self.model.currentView.contentOffset.y > 0)
     {
-//        [self.model tenScrollViewEndScroll];
+        [self.model tenScrollViewEndScroll];
         return;
     }
     
@@ -161,15 +161,7 @@
         
         if(weakSelf.isSelfSimulateDecelerate)
         {
-            CGFloat offsetY = weakSelf.offsetY;
-            CGFloat maxOffsetY = weakSelf.model.isChangeTenScrollViewMaxOffsetY ? weakSelf.model.tenScrollViewMaxOffsetY2 : weakSelf.model.tenScrollViewMaxOffsetY;
-            offsetY += currentY;
-            if(offsetY > maxOffsetY)
-                offsetY = maxOffsetY;
-            
-//            NSLog(@"%d === %lf === %zd === %zd",self.model.isChangeTenScrollViewMaxOffsetY, offsetY, weakSelf.model.tenScrollViewMaxOffsetY, weakSelf.model.tenScrollViewMaxOffsetY2);
-            
-            weakSelf.offsetY = offsetY;
+           
         }
         else
         {
@@ -186,8 +178,6 @@
                     if(currentViewOffsetY > maxCurrentViewOffsetY)
                     {
                         currentViewOffsetY = maxCurrentViewOffsetY;
-                        self.model.isChangeTenScrollViewMaxOffsetY = YES;
-//                        NSLog(@"%@",NSStringFromClass(self.model.delegate.class));
                     }
                 }
                 
@@ -198,7 +188,7 @@
         }
         
         lastCenter = weakSelf.item.center;
-//        [self.model tenScrollViewEndScroll];
+        [self.model tenScrollViewEndScroll];
     };
     [self.animator addBehavior:behavior];
 }

@@ -133,6 +133,9 @@
     [self.model contentViewDidScroll];
 }
 
+-(void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath
+{}
+
 #pragma mark - 手势代理
 
 

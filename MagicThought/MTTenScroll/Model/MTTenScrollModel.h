@@ -35,19 +35,16 @@ extern NSString* MTTenScrollIdentifier;
 
 @property (nonatomic,weak) MTTenScrollTitleView* titleView;
 
-@property (nonatomic,strong) MTTenScrollTitleViewModel* titleViewModel;
+@property (nonatomic,strong,readonly) NSObject* tenScrollData;
+
+/**contentView是否有被拖拽*/
+@property (nonatomic,assign,readonly) BOOL isContentViewDragging;
 
 @property (nonatomic,weak) UIScrollView* currentView;
 
+@property (nonatomic,strong) MTTenScrollTitleViewModel* titleViewModel;
+
 @property (nonatomic,assign) CGFloat tenScrollHeight;
-
-@property (nonatomic,strong, readonly) NSObject* tenScrollData;
-
-/**最大索引*/
-@property (nonatomic,assign, readonly) NSInteger maxIndex;
-
-/**contentView是否有被拖拽*/
-@property (nonatomic,assign) BOOL isContentViewDragging;
 
 /**contentView固定的偏移值*/
 @property (nonatomic,assign) CGFloat contentViewFixOffset;
@@ -55,13 +52,12 @@ extern NSString* MTTenScrollIdentifier;
 /**titleView固定的偏移值*/
 @property (nonatomic,assign) CGFloat titleViewFixOffset;
 
-/**相对于父控件它的索引*/
-@property (nonatomic,assign) NSInteger superIndex;
-
 @property (nonatomic,strong) NSMutableDictionary* subModelList;
 
+/**固定样式*/
+@property (nonatomic,assign) BOOL wordStyleChange;
+
 /**tenScrollView固定的偏移值*/
-@property (nonatomic,assign) BOOL isChangeTenScrollViewMaxOffsetY;
 @property (nonatomic,assign, readonly) NSInteger tenScrollViewMaxOffsetY;
 @property (nonatomic,assign, readonly) NSInteger tenScrollViewMaxOffsetY2;
 

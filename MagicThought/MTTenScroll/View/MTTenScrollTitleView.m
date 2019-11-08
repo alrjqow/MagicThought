@@ -86,20 +86,33 @@
 
 -(void)collectionView:(UICollectionView *)collectionView willDisplayCell:(UICollectionViewCell *)cell forItemAtIndexPath:(NSIndexPath *)indexPath
 {
+    NSInteger unknownCellIndex = [[self.model valueForKey:@"unknownCellIndex"] integerValue];
+    
+    if(indexPath.row == unknownCellIndex)
+    {
+        CGFloat currentIndex = self.model.contentView.offsetX / self.model.contentView.width;
+        if((currentIndex - (NSInteger)currentIndex) != 0)
+        {
+            ((MTTenScrollTitleCell*)cell).isSelected = YES;
+            cell.selected = false;
+        }
+        else if(unknownCellIndex != (NSInteger)currentIndex)
+        {
+            ((MTTenScrollTitleCell*)cell).isSelected = YES;
+            cell.selected = false;
+        }
+    }
+    
     if(indexPath.row == self.model.currentIndex)
     {
-        if(!self.selectedCell)
-        {
-            self.selectedCell = (MTTenScrollTitleCell*)cell;
-            ((MTTenScrollTitleCell*)cell).isSelected = YES;
-            cell.selected = YES;
-        }
+        if(self.model.contentView.isRolling || self.model.isContentViewDragging)
+            return;
+        self.selectedCell = (MTTenScrollTitleCell*)cell;
+        ((MTTenScrollTitleCell*)cell).isSelected = YES;
+        cell.selected = YES;
         
-        [UIView animateWithDuration:0.25 animations:^{
-            
-            self.bottomLine.width = self.model.titleViewModel.isEqualBottomLineWidth ? self.model.titleViewModel.bottomLineWidth : ((MTTenScrollTitleCell*)cell).title.width;
-            self.bottomLine.centerX = cell.centerX;
-        }];
+        self.bottomLine.width = self.model.titleViewModel.isEqualBottomLineWidth ? self.model.titleViewModel.bottomLineWidth : ((MTTenScrollTitleCell*)cell).title.width;
+        self.bottomLine.centerX = cell.centerX;
     }
 }
 
@@ -108,7 +121,7 @@
     if(self.model.titleViewModel.isEqualCellWidth)
         return CGSizeMake(self.model.titleViewModel.cellWidth, collectionView.height);
     
-    return CGSizeMake([[[UILabel new] setWordWithStyle:mt_WordStyleMake(self.model.titleViewModel.normalStyle.wordSize, self.model.titleList[indexPath.row], nil)] sizeThatFits:CGSizeMake(MAXFLOAT, collectionView.height)].width, collectionView.height);
+    return CGSizeMake([[self.fitLabel setWordWithStyle:mt_WordStyleMake(self.model.titleViewModel.normalStyle.wordSize, self.model.titleList[indexPath.row], nil)] sizeThatFits:CGSizeMake(MAXFLOAT, collectionView.height)].width, collectionView.height);
 }
 
 -(void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath
@@ -116,23 +129,28 @@
     if(self.model.currentIndex == indexPath.row)
         return;
 
-    if(self.model.contentView.isRolling && self.model.isContentViewDragging)
-    {
+    if(self.model.contentView.isRolling || self.model.isContentViewDragging)
         return;
-    }
-    
+
     MTTenScrollTitleCell* cell = (MTTenScrollTitleCell*)[collectionView cellForItemAtIndexPath:indexPath];
 
     self.model.currentIndex = indexPath.row;
     self.selectedCell.isSelected = YES;
     self.selectedCell.selected = false;
     self.selectedCell = cell;
-    self.selectedCell.isSelected = YES;
-    self.selectedCell.selected = YES;
+   self.selectedCell.isSelected = YES;
+   self.selectedCell.selected = YES;
+    if(cell)
+    {
+           [UIView animateWithDuration:0.25 animations:^{
 
-    [self reloadData];
+               self.bottomLine.width = self.model.titleViewModel.isEqualBottomLineWidth ? self.model.titleViewModel.bottomLineWidth : ((MTTenScrollTitleCell*)cell).title.width;
+               self.bottomLine.centerX = cell.centerX;
+           }];
+    }
+   
     [collectionView scrollToItemAtIndexPath:indexPath atScrollPosition:UICollectionViewScrollPositionCenteredHorizontally animated:YES];
-
+    
     [self.model didTitleViewSelectedItem];
 }
 
@@ -230,9 +248,13 @@
 -(void)setModel:(MTTenScrollModel *)model
 {
     _model = model;
-    
-//    [self.title setWordWithStyle:model.currentIndex == self.indexPath.row ? model.titleViewModel.selectedStyle : model.titleViewModel.normalStyle];
-    [self.title setWordWithStyle:self.model.titleViewModel.normalStyle];
+        
+    self.isSelected = YES;
+    if(model.contentView.isRolling || model.isContentViewDragging)
+        self.selected = false;
+    else
+        self.selected = model.currentIndex == self.indexPath.row;
+
     if(self.indexPath.row < model.titleList.count)
         self.title.text = model.titleList[self.indexPath.row];
     
@@ -245,15 +267,12 @@
     
     if(!self.isSelected)
         return;
-    
-//    NSLog(@"%@ === %zd === %zd",selected ? @"Yes" : @"No", self.model.currentIndex, self.indexPath.row);
-    
+        
     self.isSelected = false;
     
     NSString* text = self.title.text;
     
-    [self.title setWordWithStyle:self.model.titleViewModel.normalStyle];
-//    [self.title setWordWithStyle:selected ? self.model.titleViewModel.selectedStyle : self.model.titleViewModel.normalStyle];
+    [self.title setWordWithStyle: (selected && self.model.wordStyleChange) ? self.model.titleViewModel.selectedStyle : self.model.titleViewModel.normalStyle];
     
     self.title.text = text;
     [self.title sizeToFit];
