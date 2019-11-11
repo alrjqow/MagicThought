@@ -37,9 +37,6 @@ extern NSString* MTTenScrollIdentifier;
 
 @property (nonatomic,strong,readonly) NSObject* tenScrollData;
 
-/**contentView是否有被拖拽*/
-@property (nonatomic,assign,readonly) BOOL isContentViewDragging;
-
 @property (nonatomic,weak) UIScrollView* currentView;
 
 @property (nonatomic,strong) MTTenScrollTitleViewModel* titleViewModel;

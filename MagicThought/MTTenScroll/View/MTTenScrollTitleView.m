@@ -105,8 +105,19 @@
     
     if(indexPath.row == self.model.currentIndex)
     {
-        if(self.model.contentView.isRolling || self.model.isContentViewDragging)
+        BOOL isContentViewDragging = [[self.model valueForKey:@"isContentViewDragging"] boolValue];
+        if(self.model.contentView.isRolling || isContentViewDragging)
+        {
+            BOOL isUnknownCell = [[self.model valueForKey:@"isUnknownCell"] boolValue];
+            if(isUnknownCell)
+            {
+                ((MTTenScrollTitleCell*)cell).isSelected = YES;
+                cell.selected = false;
+                [self.model setValue:@(false) forKey:@"isUnknownCell"];
+            }
             return;
+        }
+            
         self.selectedCell = (MTTenScrollTitleCell*)cell;
         ((MTTenScrollTitleCell*)cell).isSelected = YES;
         cell.selected = YES;
@@ -129,7 +140,8 @@
     if(self.model.currentIndex == indexPath.row)
         return;
 
-    if(self.model.contentView.isRolling || self.model.isContentViewDragging)
+    BOOL isContentViewDragging = [[self.model valueForKey:@"isContentViewDragging"] boolValue];
+    if(self.model.contentView.isRolling || isContentViewDragging)
         return;
 
     MTTenScrollTitleCell* cell = (MTTenScrollTitleCell*)[collectionView cellForItemAtIndexPath:indexPath];
@@ -250,7 +262,8 @@
     _model = model;
         
     self.isSelected = YES;
-    if(model.contentView.isRolling || model.isContentViewDragging)
+    BOOL isContentViewDragging = [[model valueForKey:@"isContentViewDragging"] boolValue];
+    if(model.contentView.isRolling || isContentViewDragging)
         self.selected = false;
     else
         self.selected = model.currentIndex == self.indexPath.row;

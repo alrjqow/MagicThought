@@ -85,18 +85,18 @@
 
 -(NSArray *)tenScrollDataList
 {
-//            return @[
-//                                mt_reuse([UIColor yellowColor]).band(@"TestTableViewController").bandTag(@"头号"),
-//                                mt_reuse([UIColor purpleColor]).band(@"TestSubController").bandTag(@"掌经号"),
-//                                mt_reuse([UIColor redColor]).band(@"TestSubController").bandTag(@"精选视频"),
-//                                mt_reuse([UIColor blueColor]).band(@"TestSubController").bandTag(@"生活"),
-//                                mt_reuse([UIColor greenColor]).band(@"TestSubController").bandTag(@"好物"),
-//                                mt_reuse([UIColor yellowColor]).band(@"TestSubController").bandTag(@"大头鱼"),
-//                                mt_reuse([UIColor purpleColor]).band(@"TestSubController").bandTag(@"大易有塑7"),
-//                                mt_reuse([UIColor redColor]).band(@"TestSubController").bandTag(@"大易有塑18"),
-//                                mt_reuse([UIColor blueColor]).band(@"TestSubController").bandTag(@"手机号"),
-//                                mt_reuse([UIColor greenColor]).band(@"TestSubController").bandTag(@"尾号"),
-//                                ];
+            return @[
+                                mt_reuse([UIColor yellowColor]).band(@"TestTableViewController").bandTag(@"头号"),
+                                mt_reuse([UIColor purpleColor]).band(@"TestSubController").bandTag(@"掌经号"),
+                                mt_reuse([UIColor redColor]).band(@"TestSubController").bandTag(@"精选视频"),
+                                mt_reuse([UIColor blueColor]).band(@"TestSubController").bandTag(@"生活"),
+                                mt_reuse([UIColor greenColor]).band(@"TestSubController").bandTag(@"好物"),
+                                mt_reuse([UIColor yellowColor]).band(@"TestSubController").bandTag(@"大头鱼"),
+                                mt_reuse([UIColor purpleColor]).band(@"TestSubController").bandTag(@"大易有塑7"),
+                                mt_reuse([UIColor redColor]).band(@"TestSubController").bandTag(@"大易有塑18"),
+                                mt_reuse([UIColor blueColor]).band(@"TestSubController").bandTag(@"手机号"),
+                                mt_reuse([UIColor greenColor]).band(@"TestSubController").bandTag(@"尾号"),
+                                ];
     
     return @[
         mt_reuse([UIColor yellowColor]).band(@"TestController2").bandTag(@"头号0"),

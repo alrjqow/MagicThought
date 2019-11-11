@@ -50,9 +50,11 @@ NSString* MTTenScrollIdentifier = @"MTTenScrollIdentifier";
 @property (nonatomic,assign) NSInteger minIndex;
 @property (nonatomic,assign) NSInteger maxIndex1;
 
-
 @property (nonatomic,assign) NSInteger status;
 @property (nonatomic,assign) NSInteger lastStatus;
+
+/**contentView是否有被拖拽*/
+@property (nonatomic,assign,readonly) BOOL isContentViewDragging;
 
 @property (nonatomic,assign) BOOL isDraging;
 
@@ -60,12 +62,12 @@ NSString* MTTenScrollIdentifier = @"MTTenScrollIdentifier";
 
 @property (nonatomic,assign) CGFloat preCurrentIndex;
 
-@property (nonatomic,assign) CGFloat preBottomLineWidth;
-
-@property (nonatomic,assign) CGFloat preBottomLineCenterX;
-
 @property (nonatomic,assign) NSInteger unknownCellIndex;
 
+@property (nonatomic,assign) BOOL isUnknownCell;
+
+@property (nonatomic,strong) NSMutableDictionary* cellWidthList;
+@property (nonatomic,strong) NSMutableDictionary* cellCenterXList;
 
 
 @end
@@ -79,11 +81,13 @@ NSString* MTTenScrollIdentifier = @"MTTenScrollIdentifier";
     {
         _currentIndex = -1;
         self.contentViewFixOffset = 80;
-//        self.wordStyleChange = YES;
+        self.wordStyleChange = YES;
 //        self.titleViewFixOffset = 40;
         self.objectArr = [NSMutableArray array];
         self.fixSubTenScrollViewArr = [NSMutableArray array];
         self.subModelList = [NSMutableDictionary dictionary];
+        self.cellWidthList = [NSMutableDictionary dictionary];
+        self.cellCenterXList = [NSMutableDictionary dictionary];
     }
     
     return self;
@@ -599,49 +603,64 @@ NSString* MTTenScrollIdentifier = @"MTTenScrollIdentifier";
     if(nextIndex > self.maxIndex)
         nextIndex = self.maxIndex;
     
+    NSString* currentIndexStr = [NSString stringWithFormat:@"%zd", currentIndex];
+    NSString* nextIndexStr = [NSString stringWithFormat:@"%zd", nextIndex];
+    
     MTTenScrollTitleCell* currentCell = (MTTenScrollTitleCell*)[self.titleView cellForItemAtIndexPath:[NSIndexPath indexPathForRow: currentIndex inSection:0]];
-        
+    if(currentCell)
+    {
+        self.cellWidthList[currentIndexStr] = @(currentCell.title.width);
+        if(!self.cellCenterXList[currentIndexStr])
+            self.cellCenterXList[currentIndexStr] = @(currentCell.centerX);
+    }
+    
     MTTenScrollTitleCell* nextCell = (MTTenScrollTitleCell*)[self.titleView cellForItemAtIndexPath:[NSIndexPath indexPathForRow:nextIndex  inSection:0]];
+    if(nextCell)
+    {
+        self.cellWidthList[nextIndexStr] = @(nextCell.title.width);
+        if(!self.cellCenterXList[nextIndexStr])
+            self.cellCenterXList[nextIndexStr] = @(nextCell.centerX);
+    }
+    
+    CGFloat beginCenterX = 0;
+    CGFloat beginWidth = 0;
+    
+    CGFloat nextCenterX = 0;
+    CGFloat nextWidth = 0;
+    
+    BOOL isScroll = YES;
     
     if(currentCell || nextCell)
     {
-        CGFloat beginCenterX = currentCell.centerX;
-        CGFloat beginWidth = currentCell.title.width;
-        
-        if(!currentCell)
+        if(!currentCell || !nextCell)
         {
-            if(self.preBottomLineWidth == 0)
+            if(!currentCell)
             {
-                self.preBottomLineWidth = self.titleView.bottomLine.width;
-                self.preBottomLineCenterX = self.titleView.bottomLine.centerX;
+                nextWidth = nextCell.title.width;
+                nextCenterX = nextCell.centerX;
+                                
+                beginWidth = [self.titleView collectionView:self.titleView layout:nil sizeForItemAtIndexPath:[NSIndexPath indexPathForRow: nextIndex inSection:0]].width;
+                beginCenterX = nextCell.x - self.titleViewModel.padding - beginWidth * 0.5;
+                
+                self.unknownCellIndex = currentIndex;
             }
-            else
+            
+            if(!nextCell)
             {
-                beginCenterX = self.preBottomLineCenterX;
-                beginWidth = self.preBottomLineWidth;
+                beginWidth = currentCell.title.width;
+                beginCenterX = currentCell.centerX;
+                
+                nextWidth = [self.titleView collectionView:self.titleView layout:nil sizeForItemAtIndexPath:[NSIndexPath indexPathForRow: nextIndex inSection:0]].width;
+                nextCenterX = currentCell.maxX + self.titleViewModel.padding + nextWidth * 0.5;
+                
+                self.unknownCellIndex = nextIndex;
             }
         }
         else
         {
-            self.preBottomLineWidth = 0;
-            self.preBottomLineCenterX = 0;
-        }
-        
-        if(!currentCell)
-            self.unknownCellIndex = currentIndex;
-        if(!nextCell)
-            self.unknownCellIndex = nextIndex;
-        
-        CGFloat nextCenterX;
-        CGFloat nextWidth;
-        
-        if(!nextCell || (nextIndex != nextCell.indexPath.row))
-        {
-            nextWidth = [self.titleView collectionView:self.titleView layout:nil sizeForItemAtIndexPath:[NSIndexPath indexPathForRow: nextIndex inSection:0]].width;
-            nextCenterX = currentCell.maxX + self.titleViewModel.padding + nextWidth * 0.5;
-        }
-        else
-        {
+            beginWidth = currentCell.title.width;
+            beginCenterX = currentCell.centerX;
+            
             nextWidth = nextCell.title.width;
             nextCenterX = nextCell.centerX;
         }
@@ -651,12 +670,59 @@ NSString* MTTenScrollIdentifier = @"MTTenScrollIdentifier";
             [self colorChangeCurrentTitleCell:currentCell nextCell:nextCell changeScale:rate];
             [self fontSizeChangeCurrentTitleCell:currentCell nextCell:nextCell changeScale:rate];
         }
-        
-        
+    }
+    else
+    {
+        self.isUnknownCell = YES;
+
+        if(self.cellCenterXList[currentIndexStr] && self.cellCenterXList[nextIndexStr])
+        {
+            beginWidth = [self.cellWidthList[currentIndexStr] floatValue];
+            beginCenterX = [self.cellCenterXList[currentIndexStr] floatValue];
+            
+            nextWidth = [self.cellWidthList[nextIndexStr] floatValue];
+            nextCenterX = [self.cellCenterXList[nextIndexStr] floatValue];
+        }
+        else
+        {
+            if(self.cellCenterXList[currentIndexStr] || self.cellCenterXList[nextIndexStr])
+            {
+                if(!self.cellCenterXList[currentIndexStr])
+                {
+                    nextWidth = [self.cellWidthList[nextIndexStr] floatValue];
+                    nextCenterX = [self.cellCenterXList[nextIndexStr] floatValue];
+                    
+                    beginWidth = [self.titleView collectionView:self.titleView layout:nil sizeForItemAtIndexPath:[NSIndexPath indexPathForRow: currentIndex inSection:0]].width;
+                    beginCenterX = nextCenterX - nextWidth * 0.5 - self.titleViewModel.padding - beginWidth * 0.5;
+                    
+                    self.cellCenterXList[currentIndexStr] = @(beginCenterX);
+                    self.cellWidthList[currentIndexStr] = @(beginWidth);
+                }
+                
+                if(!self.cellCenterXList[nextIndexStr])
+                {
+                    beginWidth = [self.cellWidthList[currentIndexStr] floatValue];
+                    beginCenterX = [self.cellCenterXList[currentIndexStr] floatValue];
+                    
+                    nextWidth = [self.titleView collectionView:self.titleView layout:nil sizeForItemAtIndexPath:[NSIndexPath indexPathForRow: nextIndex inSection:0]].width;
+                    nextCenterX = beginCenterX + beginWidth * 0.5 + self.titleViewModel.padding + nextWidth * 0.5;
+                    
+                    self.cellCenterXList[nextIndexStr] = @(nextCenterX);
+                    self.cellWidthList[nextIndexStr] = @(nextWidth);
+                }
+            }
+            else
+                isScroll = false;
+        }
+    }
+    
+    if(isScroll)
+    {
         self.titleView.bottomLine.centerX = beginCenterX + (nextCenterX - beginCenterX) * rate;
         self.titleView.bottomLine.width = beginWidth + (nextWidth - beginWidth)*rate;
     }
-    
+        
+    /*-----------------------------------自动滚动-----------------------------------*/
     
     if(self.directionTag < 0)
     {
@@ -684,6 +750,7 @@ NSString* MTTenScrollIdentifier = @"MTTenScrollIdentifier";
     self.currentView.scrollEnabled = YES;
     self.titleView.scrollEnabled = YES;
     _isContentViewDragging = false;
+    self.isUnknownCell = false;
 //    self.currentIndex = currentIndex;
         
     [self.titleView collectionView:self.titleView didSelectItemAtIndexPath:[NSIndexPath indexPathForRow:currentIndex inSection:0]];
