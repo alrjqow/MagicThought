@@ -65,7 +65,7 @@
 -(void)addTarget:(id<MTDelegateProtocol,UITableViewDelegate>)target EmptyData:(NSObject *)emptyData DataList:(NSArray *)dataList SectionList:(NSArray *)sectionList
 {
     NSMutableArray* arr = [NSMutableArray arrayWithArray:dataList];
-    [arr addObject:self.model.tenScrollData];
+    [arr addObject:[self.model valueForKey:@"tenScrollData"]];
   
     [super addTarget:self EmptyData:emptyData DataList:[arr copy] SectionList:sectionList];
 }
@@ -73,7 +73,7 @@
 -(void)reloadDataWithDataList:(NSArray *)dataList SectionList:(NSArray *)sectionList EmptyData:(NSObject *)emptyData
 {
     NSMutableArray* arr = [NSMutableArray arrayWithArray:dataList];
-    [arr addObject:self.model.tenScrollData];
+    [arr addObject:[self.model valueForKey:@"tenScrollData"]];
     [super reloadDataWithDataList:[arr copy] SectionList:sectionList EmptyData:emptyData];
 }
 
@@ -94,28 +94,26 @@
 {
     [self.animator removeAllBehaviors];
     
-    [self.model tenScrollViewWillBeginDragging];
+    [self.model performSelector:@selector(tenScrollViewWillBeginDragging)];    
     
     [super scrollViewWillBeginDragging:scrollView];
 }
 
 -(void)scrollViewDidScroll:(UIScrollView *)scrollView
 {
-    [self.model tenScrollViewDidScroll];
-        
-    NSInteger maxOffsetY = self.model.tenScrollViewMaxOffsetY;
-    self.isSelfSimulateDecelerate = self.isScrollTop && (self.offsetY < maxOffsetY);
+    [self.model performSelector:@selector(tenScrollViewDidScroll)];
     
     [super scrollViewDidScroll:scrollView];
 }
 
 -(void)scrollViewDidEndDragging:(UIScrollView *)scrollView willDecelerate:(BOOL)decelerate
-{    
-    if([self.model.currentView isKindOfClass:[MTTenScrollView class]])
+{
+    UIScrollView* currentView = [self.model valueForKey:@"currentView"];
+    if([currentView isKindOfClass:[MTTenScrollView class]])
     {
         if(!decelerate)
         {
-            [self.model tenScrollViewEndScroll];
+            [self.model performSelector:@selector(tenScrollViewEndScroll)];
         }
     }
     else
@@ -126,18 +124,20 @@
 
 -(void)scrollViewDidEndDecelerating:(UIScrollView *)scrollView
 {
-    if(![self.model.currentView isKindOfClass:[MTTenScrollView class]])
+    UIScrollView* currentView = [self.model valueForKey:@"currentView"];
+    if(![currentView isKindOfClass:[MTTenScrollView class]])
         return;
     
-    [self.model tenScrollViewEndScroll];
+    [self.model performSelector:@selector(tenScrollViewEndScroll)];
 }
 
 #pragma mark - 模拟减速
 -(void)simulateDecelerate
 {
-    if(!self.isScrollTop || self.model.currentView.contentOffset.y > 0)
+    UIScrollView* currentView = [self.model valueForKey:@"currentView"];
+    if(!self.isScrollTop || currentView.contentOffset.y > 0)
     {
-        [self.model tenScrollViewEndScroll];
+        [self.model performSelector:@selector(tenScrollViewEndScroll)];
         return;
     }
     
@@ -149,8 +149,7 @@
     UIDynamicItemBehavior* behavior = [[UIDynamicItemBehavior alloc] initWithItems:@[self.item]];
     [behavior addLinearVelocity:CGPointMake(0, -vPoint.y) forItem:self.item];
     behavior.resistance = 2.0;
-    
-    UIScrollView* currentView = self.model.currentView;
+        
     __block CGPoint lastCenter = CGPointZero;
     __weak __typeof(self) weakSelf = self;
     
@@ -158,37 +157,28 @@
         
         CGFloat currentY = weakSelf.item.center.y - lastCenter.y;
         
-        
-        if(weakSelf.isSelfSimulateDecelerate)
-        {
-           
-        }
+        CGFloat maxCurrentViewOffsetY = currentView.contentSize.height - currentView.height;
+        CGFloat currentViewOffsetY = currentView.offsetY;
+        if(currentView.offsetY > (maxCurrentViewOffsetY + 100))
+            [self simulateCurrentViewSpring:currentView];
         else
         {
-            CGFloat maxCurrentViewOffsetY = currentView.contentSize.height - currentView.height;
-            CGFloat currentViewOffsetY = currentView.offsetY;
-            if(currentView.offsetY > (maxCurrentViewOffsetY + 100))
-                [self simulateCurrentViewSpring:currentView];
-            else
+            currentViewOffsetY += currentY;
+            if([currentView isKindOfClass:[MTTenScrollView class]])
             {
-                currentViewOffsetY += currentY;
-                if([currentView isKindOfClass:[MTTenScrollView class]])
+                maxCurrentViewOffsetY = [[((MTTenScrollView*)currentView).model valueForKey:@"tenScrollViewMaxOffsetY"] integerValue];
+                if(currentViewOffsetY > maxCurrentViewOffsetY)
                 {
-                    maxCurrentViewOffsetY = ((MTTenScrollView*)currentView).model.tenScrollViewMaxOffsetY;
-                    if(currentViewOffsetY > maxCurrentViewOffsetY)
-                    {
-                        currentViewOffsetY = maxCurrentViewOffsetY;
-                    }
+                    currentViewOffsetY = maxCurrentViewOffsetY;
                 }
-                
-           
-                currentView.offsetY = currentViewOffsetY;
             }
             
+            
+            currentView.offsetY = currentViewOffsetY;
         }
         
         lastCenter = weakSelf.item.center;
-        [self.model tenScrollViewEndScroll];
+        [self.model performSelector:@selector(tenScrollViewEndScroll)];        
     };
     [self.animator addBehavior:behavior];
 }
@@ -224,7 +214,7 @@
 {
     _model = model;
     
-    model.tenScrollView = self;
+    [model setValue:self forKey:@"tenScrollView"];
 }
 
 -(MTTenScrollModel *)model
@@ -232,7 +222,7 @@
     if(!_model)
     {
         _model = [MTTenScrollModel new];
-        _model.tenScrollView = self;
+        [_model setValue:self forKey:@"tenScrollView"];
     }
     
     return _model;
@@ -272,15 +262,15 @@
 
 -(void)scrollViewWillBeginDragging:(UIScrollView *)scrollView
 {
-    self.model.currentView = scrollView;
+    [self.model setValue:scrollView forKey:@"currentView"];
     
     [super scrollViewWillBeginDragging:scrollView];
 }
 
 -(void)scrollViewDidScroll:(UIScrollView *)scrollView
 {
-    [self.model tenScrollTableViewScrollDidScroll];
-    
+    [self.model performSelector:@selector(tenScrollTableViewScrollDidScroll)];
+        
     [super scrollViewDidScroll:scrollView];
 }
 

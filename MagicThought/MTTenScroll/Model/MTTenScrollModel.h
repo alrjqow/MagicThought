@@ -21,23 +21,7 @@ extern NSString* MTTenScrollIdentifier;
 
 @property (nonatomic,weak) NSObject<MTDelegateViewDataProtocol>* delegate;
 
-@property (nonatomic,assign) NSInteger currentIndex;
-
 @property (nonatomic,strong) NSArray* dataList;
-
-@property (nonatomic,strong,readonly) NSArray* titleList;
-
-@property (nonatomic,weak) MTTenScrollView* tenScrollView;
-
-@property (nonatomic,weak) MTTenScrollView* superTenScrollView;
-
-@property (nonatomic,weak) MTTenScrollContentView* contentView;
-
-@property (nonatomic,weak) MTTenScrollTitleView* titleView;
-
-@property (nonatomic,strong,readonly) NSObject* tenScrollData;
-
-@property (nonatomic,weak) UIScrollView* currentView;
 
 @property (nonatomic,strong) MTTenScrollTitleViewModel* titleViewModel;
 
@@ -45,44 +29,6 @@ extern NSString* MTTenScrollIdentifier;
 
 /**contentView固定的偏移值*/
 @property (nonatomic,assign) CGFloat contentViewFixOffset;
-
-/**titleView固定的偏移值*/
-@property (nonatomic,assign) CGFloat titleViewFixOffset;
-
-@property (nonatomic,strong) NSMutableDictionary* subModelList;
-
-/**固定样式*/
-@property (nonatomic,assign) BOOL wordStyleChange;
-
-/**tenScrollView固定的偏移值*/
-@property (nonatomic,assign, readonly) NSInteger tenScrollViewMaxOffsetY;
-@property (nonatomic,assign, readonly) NSInteger tenScrollViewMaxOffsetY2;
-
--(MTTenScrollModel*)getSubModel:(MTTenScrollModel*)model;
-
--(UIView*)getViewByIndex:(NSInteger)index;
-
--(void)tenScrollTableViewScrollDidScroll;
-
--(void)tenScrollViewWillBeginDragging;
-
--(void)tenScrollViewDidScroll;
-
--(void)tenScrollViewEndScroll;
-
--(void)titleViewWillBeginDragging;
-
--(void)titleViewDidScroll;
-
--(void)didTitleViewEndScroll;
-
--(void)didTitleViewSelectedItem;
-
--(void)didContentViewEndScrollWithDecelerate:(BOOL)decelerate;
-
--(void)contentViewWillBeginDragging;
-
--(void)contentViewDidScroll;
 
 @end
 

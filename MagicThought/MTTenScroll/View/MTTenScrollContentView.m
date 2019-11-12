@@ -89,24 +89,14 @@
 {
     _model = model;
     
-    model.contentView = self;
+    [model setValue:self forKey:@"contentView"];
     [self reloadDataWithDataList:(NSArray*)model.bandCount(model.dataList.count).band(@"MTTenScrollContentCell")];
 }
 
 
 #pragma mark - 代理
 - (void)collectionView:(UICollectionView *)collectionView willDisplayCell:(UICollectionViewCell *)cell forItemAtIndexPath:(NSIndexPath *)indexPath
-{
-//    MTTenScrollContentCell* cell0 = (MTTenScrollContentCell*)cell;
-//    MTTenScrollModel* subModel = cell0.subModel;
-//     MTTenScrollView* subTenScrollView = subModel.tenScrollView;
-//
-//    if(self.model.tenScrollView.offsetY > self.model.tenScrollViewMaxOffsetY && (subModel.tenScrollView.contentSize.height >= subModel.tenScrollHeight))
-//            subTenScrollView.offsetY = subModel.tenScrollViewMaxOffsetY;
-//
-//    MTTenScrollModel* subModel2 = [subModel getSubModel:subModel];
-//    subModel2.tenScrollView.offsetY = 0;
-}
+{}
 
 -(CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath
 {
@@ -115,22 +105,22 @@
 
 -(void)scrollViewDidEndDragging:(UIScrollView *)scrollView willDecelerate:(BOOL)decelerate
 {
-    [self.model didContentViewEndScrollWithDecelerate:decelerate];
+    [self.model performSelector:@selector(didContentViewEndScrollWithDecelerate:) withObject:@(decelerate)];
 }
 
 -(void)scrollViewDidEndDecelerating:(UIScrollView *)scrollView
 {
-    [self.model didContentViewEndScrollWithDecelerate:false];
+    [self.model performSelector:@selector(didContentViewEndScrollWithDecelerate:) withObject:@(false)];    
 }
 
 -(void)scrollViewWillBeginDragging:(UIScrollView *)scrollView
-{    
-    [self.model contentViewWillBeginDragging];
+{
+    [self.model performSelector:@selector(contentViewWillBeginDragging)];
 }
 
 -(void)scrollViewDidScroll:(UIScrollView *)scrollView
 {
-    [self.model contentViewDidScroll];
+    [self.model performSelector:@selector(contentViewDidScroll)];
 }
 
 -(void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath
@@ -168,7 +158,7 @@
 {
     _model = model;
     
-    UIView* preView = [model getViewByIndex:self.indexPath.row];        
+    UIView* preView = [model performSelector:@selector(getViewByIndex:) withObject:@(self.indexPath.row)];
     preView.frame = self.contentView.bounds;
     preView.hidden = false;
     
@@ -177,7 +167,8 @@
     if([vc isKindOfClass:[MTTenScrollController class]])
     {
        [((MTTenScrollController*)vc).tenScrollModel setValue:@(self.indexPath.row) forKey:@"superIndex"];
-        model.subModelList[[NSString stringWithFormat:@"%zd", self.indexPath.row]] = ((MTTenScrollController*)vc).tenScrollModel;
+        NSMutableDictionary* subModelList = [model valueForKey:@"subModelList"];
+        subModelList[[NSString stringWithFormat:@"%zd", self.indexPath.row]] = ((MTTenScrollController*)vc).tenScrollModel;
         self.subModel = ((MTTenScrollController*)vc).tenScrollModel;
     }
     

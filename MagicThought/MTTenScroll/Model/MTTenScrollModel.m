@@ -26,7 +26,33 @@ NSString* MTTenScrollIdentifier = @"MTTenScrollIdentifier";
     NSArray* _dataList;
 }
 
+@property (nonatomic,weak) MTTenScrollView* tenScrollView;
+
+@property (nonatomic,weak) MTTenScrollView* superTenScrollView;
+
+@property (nonatomic,weak) MTTenScrollContentView* contentView;
+
+@property (nonatomic,weak) MTTenScrollTitleView* titleView;
+
+@property (nonatomic,weak) UIScrollView* currentView;
+
 @property (nonatomic, strong) NSMutableArray *objectArr;
+
+@property (nonatomic,assign) NSInteger currentIndex;
+
+@property (nonatomic,strong,readonly) NSObject* tenScrollData;
+
+@property (nonatomic,strong) NSMutableDictionary* subModelList;
+
+/**tenScrollView固定的偏移值*/
+@property (nonatomic,assign, readonly) NSInteger tenScrollViewMaxOffsetY;
+@property (nonatomic,assign, readonly) NSInteger tenScrollViewMaxOffsetY2;
+
+/**固定样式*/
+@property (nonatomic,assign) BOOL wordStyleChange;
+
+/**titleView固定的偏移值*/
+@property (nonatomic,assign) CGFloat titleViewFixOffset;
 
 /**需要固定的 tenScrollView 集合*/
 @property (nonatomic,strong) NSMutableArray<MTTenScrollView*>* fixSubTenScrollViewArr;
@@ -45,7 +71,6 @@ NSString* MTTenScrollIdentifier = @"MTTenScrollIdentifier";
 @property (nonatomic,assign) BOOL titleViewFixScroll;
 /**标题是否点击*/
 @property (nonatomic,assign) BOOL isTitleViewTap;
-
 
 @property (nonatomic,assign) NSInteger minIndex;
 @property (nonatomic,assign) NSInteger maxIndex1;
@@ -69,6 +94,7 @@ NSString* MTTenScrollIdentifier = @"MTTenScrollIdentifier";
 @property (nonatomic,strong) NSMutableDictionary* cellWidthList;
 @property (nonatomic,strong) NSMutableDictionary* cellCenterXList;
 
+@property (nonatomic,strong,readonly) NSArray* titleList;
 
 @end
 
@@ -328,7 +354,7 @@ NSString* MTTenScrollIdentifier = @"MTTenScrollIdentifier";
     if(tenScrollOffsetY < self.tenScrollViewMaxOffsetY)
         offsetY = 0;
         
-    if(self.superTenScrollView.model.lastStatus < 3)
+    if(self.superTenScrollView && self.superTenScrollView.model.lastStatus < 3)
         offsetY = 0;
     
     if(offsetY < 0)
@@ -567,16 +593,6 @@ NSString* MTTenScrollIdentifier = @"MTTenScrollIdentifier";
     return false;
 }
 
-
--(MTTenScrollModel*)getSubModel:(MTTenScrollModel*)model
-{
-    if([model.currentView isKindOfClass:[MTTenScrollView class]])
-        return ((MTTenScrollView*)model.currentView).model;
-    
-    return nil;
-}
-
-
 -(void)contentViewDidScroll
 {
     if(self.isTitleViewTap)
@@ -738,8 +754,9 @@ NSString* MTTenScrollIdentifier = @"MTTenScrollIdentifier";
     self.preCurrentIndex = floatCurrentIndex;
 }
 
--(void)didContentViewEndScrollWithDecelerate:(BOOL)decelerate
+-(void)didContentViewEndScrollWithDecelerate:(NSNumber*)decelerate1
 {
+    BOOL decelerate = decelerate1.boolValue;    
     if(!decelerate)
         self.isDraging = false;
     CGFloat currentIndex = self.contentView.offsetX / self.contentView.width;
@@ -833,9 +850,9 @@ NSString* MTTenScrollIdentifier = @"MTTenScrollIdentifier";
 }
 
 #pragma mark - 缓存
--(UIView*)getViewByIndex:(NSInteger)index
-{
-    return [self getViewtByIndex:index isBandData:YES];
+-(UIView*)getViewByIndex:(NSNumber*)index
+{    
+    return [self getViewtByIndex:index.integerValue isBandData:YES];
 }
 
 /**获取view*/
@@ -1099,9 +1116,8 @@ NSString* MTTenScrollIdentifier = @"MTTenScrollIdentifier";
 
 -(NSObject *)tenScrollData
 {
-    if(!self.dataList)
-        self.dataList = self.dataList;
-    return mt_reuse(self).band(@"MTTenScrollViewCell").bandHeight(self.tenScrollHeight);
+    NSObject* tenScrollData = mt_reuse(self).band(@"MTTenScrollViewCell").bandHeight(self.tenScrollHeight);    
+    return self.dataList ? tenScrollData : tenScrollData;
 }
 
 -(CGFloat)tenScrollHeight

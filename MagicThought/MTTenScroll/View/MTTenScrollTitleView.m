@@ -87,10 +87,12 @@
 -(void)collectionView:(UICollectionView *)collectionView willDisplayCell:(UICollectionViewCell *)cell forItemAtIndexPath:(NSIndexPath *)indexPath
 {
     NSInteger unknownCellIndex = [[self.model valueForKey:@"unknownCellIndex"] integerValue];
+    NSInteger currentIndex = [[self.model valueForKey:@"currentIndex"] integerValue];    
     
+    MTTenScrollContentView* contentView = [self.model valueForKey:@"contentView"];
     if(indexPath.row == unknownCellIndex)
     {
-        CGFloat currentIndex = self.model.contentView.offsetX / self.model.contentView.width;
+        CGFloat currentIndex = contentView.offsetX / contentView.width;
         if((currentIndex - (NSInteger)currentIndex) != 0)
         {
             ((MTTenScrollTitleCell*)cell).isSelected = YES;
@@ -103,10 +105,10 @@
         }
     }
     
-    if(indexPath.row == self.model.currentIndex)
+    if(indexPath.row == currentIndex)
     {
         BOOL isContentViewDragging = [[self.model valueForKey:@"isContentViewDragging"] boolValue];
-        if(self.model.contentView.isRolling || isContentViewDragging)
+        if(contentView.isRolling || isContentViewDragging)
         {
             BOOL isUnknownCell = [[self.model valueForKey:@"isUnknownCell"] boolValue];
             if(isUnknownCell)
@@ -132,21 +134,24 @@
     if(self.model.titleViewModel.isEqualCellWidth)
         return CGSizeMake(self.model.titleViewModel.cellWidth, collectionView.height);
     
-    return CGSizeMake([[self.fitLabel setWordWithStyle:mt_WordStyleMake(self.model.titleViewModel.normalStyle.wordSize, self.model.titleList[indexPath.row], nil)] sizeThatFits:CGSizeMake(MAXFLOAT, collectionView.height)].width, collectionView.height);
+    NSArray* titleList = [self.model valueForKey:@"titleList"];
+    return CGSizeMake([[self.fitLabel setWordWithStyle:mt_WordStyleMake(self.model.titleViewModel.normalStyle.wordSize, titleList[indexPath.row], nil)] sizeThatFits:CGSizeMake(MAXFLOAT, collectionView.height)].width, collectionView.height);
 }
 
 -(void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath
 {
-    if(self.model.currentIndex == indexPath.row)
+    NSInteger currentIndex = [[self.model valueForKey:@"currentIndex"] integerValue];
+    if(currentIndex == indexPath.row)
         return;
 
     BOOL isContentViewDragging = [[self.model valueForKey:@"isContentViewDragging"] boolValue];
-    if(self.model.contentView.isRolling || isContentViewDragging)
+    MTTenScrollContentView* contentView = [self.model valueForKey:@"contentView"];
+    if(contentView.isRolling || isContentViewDragging)
         return;
 
     MTTenScrollTitleCell* cell = (MTTenScrollTitleCell*)[collectionView cellForItemAtIndexPath:indexPath];
 
-    self.model.currentIndex = indexPath.row;
+    [self.model setValue:@(indexPath.row) forKey:@"currentIndex"];
     self.selectedCell.isSelected = YES;
     self.selectedCell.selected = false;
     self.selectedCell = cell;
@@ -163,12 +168,12 @@
    
     [collectionView scrollToItemAtIndexPath:indexPath atScrollPosition:UICollectionViewScrollPositionCenteredHorizontally animated:YES];
     
-    [self.model didTitleViewSelectedItem];
+    [self.model performSelector:@selector(didTitleViewSelectedItem)];    
 }
 
 -(void)scrollViewWillBeginDragging:(UIScrollView *)scrollView
 {
-    [self.model titleViewWillBeginDragging];    
+    [self.model performSelector:@selector(titleViewWillBeginDragging)];
 }
 
 -(void)scrollViewDidEndDragging:(UIScrollView *)scrollView willDecelerate:(BOOL)decelerate
@@ -176,24 +181,26 @@
     if(decelerate)
         return;
     
-    [self.model didTitleViewEndScroll];
+    [self.model performSelector:@selector(didTitleViewEndScroll)];
 }
 
 -(void)scrollViewDidEndDecelerating:(UIScrollView *)scrollView
 {
-    [self.model didTitleViewEndScroll];
+    [self.model performSelector:@selector(didTitleViewEndScroll)];
 }
 
 -(void)scrollViewDidScroll:(UIScrollView *)scrollView
 {
-    [self.model titleViewDidScroll];
+    [self.model performSelector:@selector(titleViewDidScroll)];
 }
 
 #pragma mark - 手势代理
 
 - (BOOL)gestureRecognizer:(UIGestureRecognizer *)gestureRecognizer shouldRecognizeSimultaneouslyWithGestureRecognizer:(UIGestureRecognizer *)otherGestureRecognizer
 {
-    return otherGestureRecognizer == self.model.superTenScrollView.model.contentView.panGestureRecognizer;    
+    MTTenScrollView* superTenScrollView = [self.model valueForKey:@"superTenScrollView"];
+    MTTenScrollContentView* contentView = [superTenScrollView.model valueForKey:@"contentView"];
+    return otherGestureRecognizer == contentView.panGestureRecognizer;
 }
 
 #pragma mark - 懒加载
@@ -202,13 +209,14 @@
 {
     _model = model;
     
-    model.titleView = self;
+    [model setValue:self forKey:@"titleView"];
     
     self.backgroundColor = model.titleViewModel.titleViewBgColor;
     self.bottomLine.backgroundColor = model.titleViewModel.bottomLineColor;
     
     self.contentInset = UIEdgeInsetsMake(0, model.titleViewModel.margin, 0, model.titleViewModel.margin);
-    [self reloadDataWithDataList:(NSArray*)model.bandCount(model.titleList.count).band(@"MTTenScrollTitleCell") SectionList:@[@"".bandSpacing(mt_collectionViewSpacingMake(model.titleViewModel.padding, model.titleViewModel.padding, UIEdgeInsetsZero))]];
+    NSArray* titleList = [model valueForKey:@"titleList"];
+    [self reloadDataWithDataList:(NSArray*)model.bandCount(titleList.count).band(@"MTTenScrollTitleCell") SectionList:@[@"".bandSpacing(mt_collectionViewSpacingMake(model.titleViewModel.padding, model.titleViewModel.padding, UIEdgeInsetsZero))]];
 }
 
 -(UIView *)bottomLine
@@ -263,13 +271,16 @@
         
     self.isSelected = YES;
     BOOL isContentViewDragging = [[model valueForKey:@"isContentViewDragging"] boolValue];
-    if(model.contentView.isRolling || isContentViewDragging)
+    NSInteger currentIndex = [[model valueForKey:@"currentIndex"] integerValue];
+    MTTenScrollContentView* contentView = [model valueForKey:@"contentView"];
+    if(contentView.isRolling || isContentViewDragging)
         self.selected = false;
     else
-        self.selected = model.currentIndex == self.indexPath.row;
+        self.selected = currentIndex == self.indexPath.row;
 
-    if(self.indexPath.row < model.titleList.count)
-        self.title.text = model.titleList[self.indexPath.row];
+    NSArray* titleList = [model valueForKey:@"titleList"];
+    if(self.indexPath.row < titleList.count)
+        self.title.text = titleList[self.indexPath.row];
     
     [self.title sizeToFit];
 }
@@ -285,7 +296,8 @@
     
     NSString* text = self.title.text;
     
-    [self.title setWordWithStyle: (selected && self.model.wordStyleChange) ? self.model.titleViewModel.selectedStyle : self.model.titleViewModel.normalStyle];
+    BOOL wordStyleChange = [[self.model valueForKey:@"wordStyleChange"] boolValue];
+    [self.title setWordWithStyle: (selected && wordStyleChange) ? self.model.titleViewModel.selectedStyle : self.model.titleViewModel.normalStyle];
     
     self.title.text = text;
     [self.title sizeToFit];
