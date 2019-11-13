@@ -140,6 +140,12 @@
 
 -(void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath
 {
+    if(!collectionView)
+    {
+        [self changeSelectedCellWithIndexPath:indexPath isTap:false];
+        return;
+    }
+    
     NSInteger currentIndex = [[self.model valueForKey:@"currentIndex"] integerValue];
     if(currentIndex == indexPath.row)
         return;
@@ -148,27 +154,8 @@
     MTTenScrollContentView* contentView = [self.model valueForKey:@"contentView"];
     if(contentView.isRolling || isContentViewDragging)
         return;
-
-    MTTenScrollTitleCell* cell = (MTTenScrollTitleCell*)[collectionView cellForItemAtIndexPath:indexPath];
-
-    [self.model setValue:@(indexPath.row) forKey:@"currentIndex"];
-    self.selectedCell.isSelected = YES;
-    self.selectedCell.selected = false;
-    self.selectedCell = cell;
-   self.selectedCell.isSelected = YES;
-   self.selectedCell.selected = YES;
-    if(cell)
-    {
-           [UIView animateWithDuration:0.25 animations:^{
-
-               self.bottomLine.width = self.model.titleViewModel.isEqualBottomLineWidth ? self.model.titleViewModel.bottomLineWidth : ((MTTenScrollTitleCell*)cell).title.width;
-               self.bottomLine.centerX = cell.centerX;
-           }];
-    }
-   
-    [collectionView scrollToItemAtIndexPath:indexPath atScrollPosition:UICollectionViewScrollPositionCenteredHorizontally animated:YES];
-    
-    [self.model performSelector:@selector(didTitleViewSelectedItem)];    
+            
+    [self changeSelectedCellWithIndexPath:indexPath isTap:YES];
 }
 
 -(void)scrollViewWillBeginDragging:(UIScrollView *)scrollView
@@ -192,6 +179,31 @@
 -(void)scrollViewDidScroll:(UIScrollView *)scrollView
 {
     [self.model performSelector:@selector(titleViewDidScroll)];
+}
+
+-(void)changeSelectedCellWithIndexPath:(NSIndexPath *)indexPath isTap:(BOOL)isTap
+{
+    MTTenScrollTitleCell* cell = (MTTenScrollTitleCell*)[self cellForItemAtIndexPath:indexPath];
+     self.selectedCell.isSelected = YES;
+     self.selectedCell.selected = false;
+     self.selectedCell = cell;
+    self.selectedCell.isSelected = YES;
+    self.selectedCell.selected = YES;
+    
+    if(isTap)
+    {
+        [self.model setValue:@(indexPath.row) forKey:@"currentIndex"];
+        
+        [UIView animateWithDuration:0.25 animations:^{
+            
+            self.bottomLine.width = self.model.titleViewModel.isEqualBottomLineWidth ? self.model.titleViewModel.bottomLineWidth : ((MTTenScrollTitleCell*)cell).title.width;
+            self.bottomLine.centerX = cell.centerX;
+        }];
+        
+        [self scrollToItemAtIndexPath:indexPath atScrollPosition:UICollectionViewScrollPositionCenteredHorizontally animated:YES];
+        
+        [self.model performSelector:@selector(didTitleViewSelectedItem)];
+    }
 }
 
 #pragma mark - 手势代理
