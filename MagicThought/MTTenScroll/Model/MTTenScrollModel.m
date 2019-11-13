@@ -54,9 +54,6 @@ NSString* MTTenScrollIdentifier = @"MTTenScrollIdentifier";
 /**titleView固定的偏移值*/
 @property (nonatomic,assign) CGFloat titleViewFixOffset;
 
-/**需要固定的 tenScrollView 集合*/
-@property (nonatomic,strong) NSMutableArray<MTTenScrollView*>* fixSubTenScrollViewArr;
-
 @property (nonatomic,weak) MTTenScrollModel* subModel;
 
 /**相对于父控件它的索引*/
@@ -110,7 +107,6 @@ NSString* MTTenScrollIdentifier = @"MTTenScrollIdentifier";
         self.wordStyleChange = YES;
 //        self.titleViewFixOffset = 40;
         self.objectArr = [NSMutableArray array];
-        self.fixSubTenScrollViewArr = [NSMutableArray array];
         self.subModelList = [NSMutableDictionary dictionary];
         self.cellWidthList = [NSMutableDictionary dictionary];
         self.cellCenterXList = [NSMutableDictionary dictionary];
@@ -152,24 +148,7 @@ NSString* MTTenScrollIdentifier = @"MTTenScrollIdentifier";
 
 -(void)tenScrollViewDidScroll
 {
-    [self resetTenscrollViewOffset];
     [self fixTenScrollViewScroll];
-}
-
--(void)resetTenscrollViewOffset
-{
-    if(self.tenScrollView.offsetY >= self.tenScrollViewMaxOffsetY)
-        return;
-    
-    if(!self.fixSubTenScrollViewArr.count)
-        return;
-    
-    for (MTTenScrollView* tenScrollView in self.fixSubTenScrollViewArr) {
-        if(tenScrollView.model.superIndex != self.currentIndex)
-            tenScrollView.offsetY = 0;
-    }
-    
-    [self.fixSubTenScrollViewArr removeAllObjects];
 }
 
 -(void)fixTenScrollViewScroll
@@ -354,6 +333,10 @@ NSString* MTTenScrollIdentifier = @"MTTenScrollIdentifier";
     if(![self.currentView isKindOfClass:[MTDelegateTenScrollTableView class]])
         return;
     
+    self.superTenScrollView.model.subModel = self;
+    if(self.tenScrollViewMaxOffsetY == 0)
+        self.status = 2;
+    
     CGFloat offsetY = self.currentView.offsetY;
     CGFloat tenScrollOffsetY = self.tenScrollView.offsetY;
     
@@ -365,10 +348,6 @@ NSString* MTTenScrollIdentifier = @"MTTenScrollIdentifier";
     
     if(offsetY < 0)
         offsetY = 0;
-    
-    self.superTenScrollView.model.subModel = self;
-    if(self.tenScrollViewMaxOffsetY == 0)
-        self.status = 2;
     
     self.currentView.offsetY = offsetY;
 }
@@ -912,10 +891,6 @@ NSString* MTTenScrollIdentifier = @"MTTenScrollIdentifier";
 {
     if(!superView)
         return;
-    if([self.currentView isKindOfClass:[MTTenScrollView class]] && (self.currentView.offsetY > 0))
-    {
-        [self.fixSubTenScrollViewArr addObject:(MTTenScrollView*)self.currentView];
-    }
     
     self.currentView.scrollEnabled = YES;
     self.currentView = nil;
@@ -1096,7 +1071,6 @@ NSString* MTTenScrollIdentifier = @"MTTenScrollIdentifier";
     if(_currentIndex == currentIndex)
         return;
         
-    self.subModel = nil;
     _currentIndex = currentIndex;
     self.preCurrentIndex = self.minIndex = self.maxIndex1 = currentIndex;
     [self getViewtByIndex:currentIndex isBandData:false];    
