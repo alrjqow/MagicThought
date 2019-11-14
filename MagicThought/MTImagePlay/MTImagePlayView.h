@@ -24,8 +24,6 @@
 
 @property(nonatomic,assign) CGFloat scrollTime;
 
-@property (nonatomic,assign) UICollectionViewScrollDirection scrollDirection;
-
 /**是否滚动有限*/
 @property (nonatomic,assign) BOOL isScrollLimit;
 

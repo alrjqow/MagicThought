@@ -11,4 +11,8 @@
 
 @interface MTCollectionViewScaleLayout : UICollectionViewFlowLayout
 
+/**缩放系数 数值越大缩放越大 default 0.5*/
+@property (nonatomic,assign) CGFloat scaleFactor;
+
+
 @end

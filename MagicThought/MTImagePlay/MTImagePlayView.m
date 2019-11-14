@@ -23,13 +23,6 @@
 
 @implementation MTImagePlayView
 
--(void)setScrollDirection:(UICollectionViewScrollDirection)scrollDirection
-{
-    _scrollDirection = scrollDirection;
-
-    self.flowLayout.scrollDirection = scrollDirection;
-}
-
 -(void)setImageURLs:(NSArray<NSString *> *)imageURLs
 {
     _imageURLs = imageURLs;
@@ -40,11 +33,12 @@
     self.pagePoint.numberOfPages = self.itemCount;
     self.pagePoint.hidden = self.itemCount <= 1;
     
+    if(!self.isScrollLimit)
+    self.collectionView.tag = self.itemCount > 1 ? self.itemCount * itemTimes * 0.5 : 0;
+    
+    self.tag = 1;
     [self.collectionView reloadData];
-    NSInteger row = self.itemCount > 1 ? self.itemCount * itemTimes * 0.5 : 0;
-    if(self.isScrollLimit)
-        row = 0;
-    [self.collectionView scrollToItemAtIndexPath:[NSIndexPath indexPathForRow:row inSection:0] atScrollPosition:UICollectionViewScrollPositionNone animated:NO];
+    [self.collectionView scrollToItemAtIndexPath:[NSIndexPath indexPathForRow:self.collectionView.tag inSection:0] atScrollPosition:UICollectionViewScrollPositionCenteredHorizontally animated:false];
     [self setupTimer];
 }
 
@@ -97,19 +91,18 @@
     
     [self stopTimer];
     if(self.itemCount <= 1) return;
+
     self.timer = [NSTimer scheduledTimerWithTimeInterval:self.scrollTime target:self selector:@selector(nextPage) userInfo:nil repeats:YES];
     [[NSRunLoop currentRunLoop] addTimer:self.timer forMode:NSRunLoopCommonModes];
 }
 
 -(void)nextPage
 {
-    CGPoint  offset = self.collectionView.contentOffset;
-    offset.x += self.width;
-    
-    if(self.isScrollLimit && (offset.x >= self.itemCount * self.width))
-        offset.x = 0;
+    self.collectionView.tag ++;
+    if(self.isScrollLimit && self.collectionView.tag >= self.itemCount)
+        self.collectionView.tag = 0;
         
-    [self.collectionView setContentOffset:offset animated:YES];
+    [self.collectionView scrollToItemAtIndexPath:[NSIndexPath indexPathForRow:self.collectionView.tag inSection:0] atScrollPosition:UICollectionViewScrollPositionCenteredHorizontally animated:YES];
     self.pagePoint.currentPage = (self.pagePoint.currentPage + 1) % self.itemCount;
 }
 
@@ -127,13 +120,18 @@
 -(void)layoutSubviews
 {
     [super layoutSubviews];
-    
-    self.flowLayout.itemSize = self.frame.size;
+            
     self.collectionView.frame = self.bounds;
     
     CGPoint center = self.center;
     center.y = self.height * 0.85;
     self.pagePoint.center = center;
+    
+    if(self.tag)
+    {
+        [self.collectionView scrollToItemAtIndexPath:[NSIndexPath indexPathForRow:self.collectionView.tag inSection:0] atScrollPosition:UICollectionViewScrollPositionCenteredHorizontally animated:false];
+        self.tag = 0;
+    }
 }
 
 
@@ -162,6 +160,11 @@
     return _flowLayout;
 }
 
+-(void)scrollViewDidScroll:(UIScrollView *)scrollView
+{
+//    NSLog(@"%lf",scrollView.offsetX);
+}
+
 static NSInteger itemTimes = 100;
 #pragma mark - collectionView数据源
 -(NSInteger)numberOfSectionsInCollectionView:(UICollectionView *)collectionView
@@ -187,15 +190,11 @@ static NSInteger itemTimes = 100;
 
 -(void)resetPosition
 {
-    NSInteger  index = self.collectionView.contentOffset.x / self.frame.size.width;
-//    NSLog(@"%zd",index);
-    NSInteger num = index % self.itemCount;
-    self.pagePoint.currentPage = num;
-    
     if(self.isScrollLimit)
         return;
     
-    NSInteger row = self.itemCount > 1 ? self.itemCount * itemTimes * 0.5 +num : 0;
+    NSInteger row = self.itemCount > 1 ? self.itemCount * itemTimes * 0.5 + self.pagePoint.currentPage : 0;
+    self.collectionView.tag = row;
     [self.collectionView scrollToItemAtIndexPath:[NSIndexPath indexPathForRow:row inSection:0] atScrollPosition:UICollectionViewScrollPositionCenteredHorizontally animated:NO];
 }
 
@@ -205,8 +204,19 @@ static NSInteger itemTimes = 100;
     [self stopTimer];
 }
 
+-(void)scrollViewDidEndDragging:(UIScrollView *)scrollView willDecelerate:(BOOL)decelerate
+{
+    if(!decelerate)
+    {
+        self.pagePoint.currentPage = self.collectionView.tag % self.itemCount;
+        [self resetPosition];
+        [self setupTimer];
+    }
+}
+
 - (void)scrollViewDidEndDecelerating:(UIScrollView *)scrollView
 {
+    self.pagePoint.currentPage = self.collectionView.tag % self.itemCount;
     [self resetPosition];
     [self setupTimer];
 }
