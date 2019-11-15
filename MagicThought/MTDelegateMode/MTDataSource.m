@@ -97,7 +97,7 @@
 -(void)setDelegate:(id<MTDelegateProtocol,UITableViewDelegate,UICollectionViewDelegateFlowLayout,UIPickerViewDelegate>)delegate
 {
     _delegate = delegate;
-//    [self addMethod];
+    //    [self addMethod];
 }
 
 -(void)setTableView:(MTDelegateTableView *)tableView
@@ -114,7 +114,7 @@
     for(NSObject* obj in dataList)
     {
         if([obj isKindOfClass:[NSArray class]])
-        continue;
+            continue;
         
         isAllArr = false;
         break;
@@ -124,11 +124,11 @@
     self.isEmpty = !self.sectionCount;
     
     self.tableView.scrollEnabled = !(self.isEmpty && self.emptyData);
-
+    
     if(self.isEmpty && self.emptyData)
     {
         if ((self.tableView.mj_header.state <= 1) && (self.tableView.mj_footer.state <= 1) ) {
-        
+            
             if(!UIEdgeInsetsEqualToEdgeInsets(self.tableView.contentInset, UIEdgeInsetsZero))
                 self.contentInset = self.tableView.contentInset;
             self.tableView.contentInset = UIEdgeInsetsZero;
@@ -153,7 +153,7 @@
     for(id obj in sectionList)
     {
         if([obj isKindOfClass:[NSArray class]])
-        continue;
+            continue;
         
         isSingle = YES;
         break;
@@ -190,19 +190,19 @@
 -(NSObject*)getHeaderFooterDataForSection:(NSInteger)section Index:(NSInteger)index
 {
     if(index >= self.sectionList.count)
-    return nil;
+        return nil;
     
     NSArray* sectionData = self.sectionList[index];
     
     if(section >= sectionData.count)
-    return nil;
+        return nil;
     
     if(![sectionData[section] isKindOfClass:[NSObject class]])
-    return nil;
+        return nil;
     
     NSObject* data = sectionData[section];
     if([data.mt_reuseIdentifier isEqualToString:@"none"] && [data isKindOfClass:[NSString class]])
-    data.mt_reuseIdentifier = (NSString*)data;
+        data.mt_reuseIdentifier = (NSString*)data;
     
     return data;
 }
@@ -224,7 +224,7 @@
     if(self.isEmpty && self.emptyData)
     {
         if([self.emptyData.mt_reuseIdentifier isEqualToString:@"none"] && [self.emptyData isKindOfClass:[NSString class]])
-        self.emptyData.mt_reuseIdentifier = (NSString*)self.emptyData;
+            self.emptyData.mt_reuseIdentifier = (NSString*)self.emptyData;
         
         return self.emptyData;
     }
@@ -237,7 +237,7 @@
 -(void)setup3dTouch:(UIView*)view
 {
     if(![self.delegate isKindOfClass:[UIViewController class]])
-    return;
+        return;
     
     UIViewController* vc = (UIViewController*)self.delegate;
     if ([vc respondsToSelector:@selector(traitCollection)]) {
@@ -253,7 +253,7 @@
         }
     }
 }
-    
+
 /*-----------------------------------华丽分割线-----------------------------------*/
 
 #pragma mark - tableView数据源
@@ -299,11 +299,11 @@
 -(UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section
 {
     if(self.isEmpty && !self.emptyData.mt_headerEmptyShow)
-    return nil;
+        return nil;
     
     NSObject* item = [self getHeaderDataForSection:section];
     if(!item)
-    return nil;
+        return nil;
     
     NSString* identifier = MTEasyReuseIdentifier(item.mt_reuseIdentifier);
     MTDelegateHeaderFooterView* view = [tableView dequeueReusableHeaderFooterViewWithIdentifier:identifier];
@@ -312,9 +312,9 @@
     {
         Class c = NSClassFromString(item.mt_reuseIdentifier);
         if(![c.new isKindOfClass:[MTDelegateHeaderFooterView class]])
-        view = [tableView dequeueReusableHeaderFooterViewWithIdentifier:MTEasyDefaultTableViewHeaderFooterReuseIdentifier];
+            view = [tableView dequeueReusableHeaderFooterViewWithIdentifier:MTEasyDefaultTableViewHeaderFooterReuseIdentifier];
         else
-        view = [[c alloc] initWithReuseIdentifier:identifier];
+            view = [[c alloc] initWithReuseIdentifier:identifier];
     }
     
     view.mt_delegate = self.delegate;
@@ -328,11 +328,11 @@
 - (UIView *)tableView:(UITableView *)tableView viewForFooterInSection:(NSInteger)section
 {
     if(self.isEmpty && self.emptyData)
-    return nil;
+        return nil;
     
     NSObject* item = [self getFooterDataForSection:section];
     if(!item)
-    return nil;
+        return nil;
     
     NSString* identifier = MTEasyReuseIdentifier(item.mt_reuseIdentifier);
     MTDelegateHeaderFooterView* view = [tableView dequeueReusableHeaderFooterViewWithIdentifier:identifier];
@@ -341,9 +341,9 @@
     {
         Class c = NSClassFromString(item.mt_reuseIdentifier);
         if(![c.new isKindOfClass:[MTDelegateHeaderFooterView class]])
-        view = [tableView dequeueReusableHeaderFooterViewWithIdentifier:MTEasyDefaultTableViewHeaderFooterReuseIdentifier];
+            view = [tableView dequeueReusableHeaderFooterViewWithIdentifier:MTEasyDefaultTableViewHeaderFooterReuseIdentifier];
         else
-        view = [[c alloc] initWithReuseIdentifier:identifier];
+            view = [[c alloc] initWithReuseIdentifier:identifier];
     }
     
     view.mt_delegate = self.delegate;
@@ -356,7 +356,7 @@
 -(CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section
 {
     if(self.isEmpty && !self.emptyData.mt_headerEmptyShow)
-    return 0.000001;
+        return 0.000001;
     
     NSObject* item = [self getHeaderDataForSection:section];
     
@@ -366,7 +366,7 @@
 -(CGFloat)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section
 {
     if(self.isEmpty && self.emptyData)
-    return 0.000001;
+        return 0.000001;
     
     NSObject* item = [self getFooterDataForSection:section];
     
@@ -382,7 +382,7 @@
         {
             NSObject* item = [self getHeaderDataForSection:indexPath.section];
             offset = 2 * item.mt_itemHeight;
-        }        
+        }
         return self.emptyData.mt_itemHeight == 0 ? (tableView.height - offset) : self.emptyData.mt_itemHeight;
     }
     
@@ -396,10 +396,10 @@
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     if(self.isEmpty && self.emptyData)
-    return;
+        return;
     
     if([self.delegate respondsToSelector:@selector(tableView:didSelectRowAtIndexPath:)])
-    [self.delegate tableView:tableView didSelectRowAtIndexPath:indexPath];
+        [self.delegate tableView:tableView didSelectRowAtIndexPath:indexPath];
 }
 
 
@@ -452,17 +452,17 @@
     return cell;
 }
 
-    
+
 -(UICollectionReusableView *)collectionView:(UICollectionView *)collectionView viewForSupplementaryElementOfKind:(NSString *)kind atIndexPath:(NSIndexPath *)indexPath
 {
     MTDelegateCollectionReusableView* view = [collectionView dequeueReusableSupplementaryViewOfKind:kind withReuseIdentifier:MTEasyDefaultCollectionViewHeaderFooterReuseIdentifier forIndexPath:indexPath];
     
     if(self.isEmpty && self.emptyData)
-    return view;
+        return view;
     
     NSObject* data = [kind isEqualToString:UICollectionElementKindSectionFooter] ? [self getFooterDataForSection:indexPath.section] :  [self getHeaderDataForSection:indexPath.section];
     if(!data)
-    return view;
+        return view;
     
     
     NSString* mt_reuseIdentifier = data.mt_reuseIdentifier;
@@ -500,17 +500,17 @@
 -(void)collectionView:(UICollectionView *)collectionView willDisplayCell:(UICollectionViewCell *)cell forItemAtIndexPath:(NSIndexPath *)indexPath
 {
     if([self.delegate respondsToSelector:@selector(collectionView:willDisplayCell:forItemAtIndexPath:)])
-       [self.delegate collectionView:collectionView willDisplayCell:cell forItemAtIndexPath:indexPath];
+        [self.delegate collectionView:collectionView willDisplayCell:cell forItemAtIndexPath:indexPath];
 }
 
 - (UIEdgeInsets)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout insetForSectionAtIndex:(NSInteger)section
 {
     if([self.delegate respondsToSelector:@selector(collectionView:layout:insetForSectionAtIndex:)])
-    return [self.delegate collectionView:collectionView layout:collectionViewLayout insetForSectionAtIndex:section];
+        return [self.delegate collectionView:collectionView layout:collectionViewLayout insetForSectionAtIndex:section];
     
     
     if(self.isEmpty && self.emptyData)
-    return UIEdgeInsetsZero;
+        return UIEdgeInsetsZero;
     
     NSObject* item = [self getHeaderDataForSection:section];
     return item.mt_spacing.sectionInset;
@@ -519,10 +519,10 @@
 - (CGFloat)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout minimumLineSpacingForSectionAtIndex:(NSInteger)section
 {
     if([self.delegate respondsToSelector:@selector(collectionView:layout:minimumLineSpacingForSectionAtIndex:)])
-    return [self.delegate collectionView:collectionView layout:collectionViewLayout minimumLineSpacingForSectionAtIndex:section];
+        return [self.delegate collectionView:collectionView layout:collectionViewLayout minimumLineSpacingForSectionAtIndex:section];
     
     if(self.isEmpty && self.emptyData)
-    return 0;
+        return 0;
     
     NSObject* item = [self getHeaderDataForSection:section];
     return item.mt_spacing.minLineSpacing;
@@ -531,10 +531,10 @@
 - (CGFloat)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout minimumInteritemSpacingForSectionAtIndex:(NSInteger)section
 {
     if([self.delegate respondsToSelector:@selector(collectionView:layout:minimumInteritemSpacingForSectionAtIndex:)])
-    return [self.delegate collectionView:collectionView layout:collectionViewLayout minimumInteritemSpacingForSectionAtIndex:section];
+        return [self.delegate collectionView:collectionView layout:collectionViewLayout minimumInteritemSpacingForSectionAtIndex:section];
     
     if(self.isEmpty && self.emptyData)
-    return 0;
+        return 0;
     
     NSObject* item = [self getHeaderDataForSection:section];
     return item.mt_spacing.minItemSpacing;
@@ -545,7 +545,7 @@
     CGSize zeroSize = CGSizeMake(0.000001, 0.000001);
     
     if(self.isEmpty && self.emptyData)
-    return zeroSize;
+        return zeroSize;
     
     NSObject* item = [self getHeaderDataForSection:section];
     BOOL isZero = CGSizeEqualToSize(CGSizeZero, item.mt_itemSize);
@@ -559,7 +559,7 @@
     CGSize zeroSize = CGSizeMake(0.000001, 0.000001);
     
     if(self.isEmpty && self.emptyData)
-    return zeroSize;
+        return zeroSize;
     
     NSObject* item = [self getFooterDataForSection:section];
     BOOL isZero = CGSizeEqualToSize(CGSizeZero, item.mt_itemSize);
@@ -577,16 +577,29 @@
     NSObject* data = [self getDataForIndexPath:indexPath];
     NSObject* list = [self getSectionDataListForSection:indexPath.section];
     
-    CGSize itemSize = list.mt_itemSize;
+    CGSize itemSize = data.mt_itemSize;
     BOOL isZero = CGSizeEqualToSize(CGSizeZero, itemSize);
     if(isZero)
     {
-        itemSize = data.mt_itemSize;
-        isZero = CGSizeEqualToSize(CGSizeZero, itemSize);
+        if(data.mt_itemHeight)
+        {
+            itemSize = CGSizeMake(collectionView.width, data.mt_itemHeight);
+            isZero = false;
+        }
+        else
+        {
+            itemSize = list.mt_itemSize;
+            isZero = CGSizeEqualToSize(CGSizeZero, itemSize);
+            if(isZero && list.mt_itemHeight)
+            {
+                itemSize = CGSizeMake(collectionView.width, list.mt_itemHeight);
+                isZero = false;
+            }
+        }
     }
     
     if(self.isEmpty && self.emptyData)
-    return isZero ? CGSizeMake(collectionView.width, collectionView.height - collectionView.contentInset.bottom) : itemSize;
+        return isZero ? CGSizeMake(collectionView.width, collectionView.height - collectionView.contentInset.bottom) : itemSize;
     
     return isZero ? zeroSize : itemSize;
 }
@@ -594,10 +607,10 @@
 -(void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath
 {
     if(self.isEmpty && self.emptyData)
-    return;
+        return;
     
     if([self.delegate respondsToSelector:@selector(collectionView:didSelectItemAtIndexPath:)])
-    [self.delegate collectionView:collectionView didSelectItemAtIndexPath:indexPath];
+        [self.delegate collectionView:collectionView didSelectItemAtIndexPath:indexPath];
 }
 
 
@@ -620,19 +633,19 @@
 -(void)scrollViewWillBeginDragging:(UIScrollView *)scrollView
 {
     if([self.delegate respondsToSelector:@selector(scrollViewWillBeginDragging:)])
-    [self.delegate scrollViewWillBeginDragging:scrollView];
+        [self.delegate scrollViewWillBeginDragging:scrollView];
 }
 
 -(void)scrollViewDidEndDragging:(UIScrollView *)scrollView willDecelerate:(BOOL)decelerate
 {
     if([self.delegate respondsToSelector:@selector(scrollViewDidEndDragging:willDecelerate:)])
-    [self.delegate scrollViewDidEndDragging:scrollView willDecelerate:decelerate];
+        [self.delegate scrollViewDidEndDragging:scrollView willDecelerate:decelerate];
 }
 
 -(void)scrollViewDidEndDecelerating:(UIScrollView *)scrollView
 {
     if([self.delegate respondsToSelector:@selector(scrollViewDidEndDecelerating:)])
-    [self.delegate scrollViewDidEndDecelerating:scrollView];
+        [self.delegate scrollViewDidEndDecelerating:scrollView];
 }
 
 #pragma mark - pickerView 数据源
@@ -662,7 +675,7 @@
         Class c = NSClassFromString(((MTDelegatePickerView*)pickerView).cellClass);
         NSObject* obj = c.new;
         if([c isKindOfClass:[MTDelegatePickerViewCell class]])
-        
+            
             cell = (MTDelegatePickerViewCell*)obj;
     }
     else if([cellObject isKindOfClass:[MTDelegatePickerViewCell class]])
@@ -697,11 +710,11 @@ static NSString* mt_titleForRowAtIndexPath(id self, SEL cmd, UIPickerView * pick
     {
         MTDelegatePickerView* pView = (MTDelegatePickerView*)pickerView;
         MTDataSource* dataSource = [pView valueForKey:@"mt_dataSource"];
-
+        
         NSObject* data = [dataSource getDataForIndexPath:[NSIndexPath indexPathForRow:row inSection:component]];
         return [data isKindOfClass:[NSString class]] ? (NSString*)data : @"";
     }
-
+    
     return @"";
 }
 
@@ -741,7 +754,7 @@ static NSString* mt_titleForRowAtIndexPath(id self, SEL cmd, UIPickerView * pick
 -(void)setMt_data:(NSObject *)mt_data
 {
     if(![mt_data isKindOfClass:self.classOfResponseObject])
-    return;
+        return;
     
     [self whenGetResponseObject:mt_data];
 }
@@ -758,7 +771,7 @@ static NSString* mt_titleForRowAtIndexPath(id self, SEL cmd, UIPickerView * pick
 -(void)setMt_data:(NSObject *)mt_data
 {
     if(![mt_data isKindOfClass:self.classOfResponseObject])
-    return;
+        return;
     
     [self whenGetResponseObject:mt_data];
 }
@@ -775,7 +788,7 @@ static NSString* mt_titleForRowAtIndexPath(id self, SEL cmd, UIPickerView * pick
 -(void)setMt_data:(NSObject *)mt_data
 {
     if(![mt_data isKindOfClass:self.classOfResponseObject])
-    return;
+        return;
     
     [self whenGetResponseObject:mt_data];
 }
@@ -792,7 +805,7 @@ static NSString* mt_titleForRowAtIndexPath(id self, SEL cmd, UIPickerView * pick
 -(void)setMt_data:(NSObject *)mt_data
 {
     if(![mt_data isKindOfClass:self.classOfResponseObject])
-    return;
+        return;
     
     [self whenGetResponseObject:mt_data];
 }
