@@ -211,7 +211,7 @@
 - (BOOL)gestureRecognizer:(UIGestureRecognizer *)gestureRecognizer shouldRecognizeSimultaneouslyWithGestureRecognizer:(UIGestureRecognizer *)otherGestureRecognizer
 {
     MTTenScrollView* superTenScrollView = [self.model valueForKey:@"superTenScrollView"];
-    MTTenScrollContentView* contentView = [superTenScrollView.model valueForKey:@"contentView"];
+    MTTenScrollContentView* contentView = [superTenScrollView.mt_tenScrollModel valueForKey:@"contentView"];
     return otherGestureRecognizer == contentView.panGestureRecognizer;
 }
 

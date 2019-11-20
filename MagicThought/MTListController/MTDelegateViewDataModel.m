@@ -7,12 +7,12 @@
 //
 
 #import "MTDelegateViewDataModel.h"
-#import "MTTableViewController.h"
+#import "MTListController.h"
 
 
 @interface MTDelegateViewDataModel ()
 
-@property (nonatomic,weak, readonly) MTTableViewController* controller;
+@property (nonatomic,weak) MTListController* controller;
 
 
 
@@ -21,10 +21,10 @@
 @implementation MTDelegateViewDataModel
 
 
-+(instancetype)modelForController:(MTTableViewController*)controller
++(instancetype)modelForController:(MTListController*)controller
 {
-    MTDelegateViewDataModel* model = [MTDelegateViewDataModel new];    
-    [model setValue:controller forKey:@"controller"];
+    MTDelegateViewDataModel* model = [MTDelegateViewDataModel new];
+    model.controller = controller;    
     [model setValue:NSStringFromClass([controller class]) forKey:@"className"];
         
     return model;

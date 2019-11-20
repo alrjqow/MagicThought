@@ -82,11 +82,11 @@
 
 #pragma mark - 懒加载
 
--(void)setDelegate:(id<MTDelegateProtocol>)delegate
+-(void)setMt_delegate:(id<MTDelegateProtocol>)mt_delegate
 {
-    [super setDelegate:delegate];
+    [super setMt_delegate:mt_delegate];
     
-    self.textField.mt_delegate = delegate;
+    self.textField.mt_delegate = mt_delegate;
 }
 
 -(MTTextField *)textField

@@ -7,12 +7,22 @@
 //
 
 #import "NSObject+CommonProtocol.h"
-
+#import <objc/runtime.h>
 
 @implementation NSObject (CommonProtocol)
 
 - (void)setupDefault {}
 
 -(void)whenDealloc{}
+
+-(void)setMt_delegate:(id<MTDelegateProtocol>)mt_delegate
+{
+    objc_setAssociatedObject(self, @selector(mt_delegate), mt_delegate, OBJC_ASSOCIATION_ASSIGN);
+}
+
+-(id<MTDelegateProtocol>)mt_delegate
+{
+    return objc_getAssociatedObject(self, _cmd);
+}
 
 @end

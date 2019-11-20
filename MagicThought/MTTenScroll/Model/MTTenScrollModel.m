@@ -26,9 +26,9 @@ NSString* MTTenScrollIdentifier = @"MTTenScrollIdentifier";
     NSArray* _dataList;
 }
 
-@property (nonatomic,weak) MTTenScrollView* tenScrollView;
+@property (nonatomic,weak) UIScrollView* tenScrollView;
 
-@property (nonatomic,weak) MTTenScrollView* superTenScrollView;
+@property (nonatomic,weak) UIScrollView* superTenScrollView;
 
 @property (nonatomic,weak) MTTenScrollContentView* contentView;
 
@@ -119,7 +119,7 @@ NSString* MTTenScrollIdentifier = @"MTTenScrollIdentifier";
 
 -(void)tenScrollViewWillBeginDragging
 {
-    self.superTenScrollView.model.subModel = self;
+    self.superTenScrollView.mt_tenScrollModel.subModel = self;
     if(self.tenScrollViewMaxOffsetY == 0)
         self.status = 2;
     [self contentViewScrollEnabled:false];
@@ -135,7 +135,7 @@ NSString* MTTenScrollIdentifier = @"MTTenScrollIdentifier";
         }
         
         
-        model = model.superTenScrollView.model;
+        model = model.superTenScrollView.mt_tenScrollModel;
     } while (model);
     
     [self contentViewScrollEnabled:YES];    
@@ -154,11 +154,11 @@ NSString* MTTenScrollIdentifier = @"MTTenScrollIdentifier";
 -(void)fixTenScrollViewScroll
 {
     CGFloat offsetY = self.tenScrollView.offsetY;
-    MTTenScrollModel* superModel = self.superTenScrollView.model;
-    MTTenScrollView* superTenScrollView = superModel.tenScrollView;
+    MTTenScrollModel* superModel = self.superTenScrollView.mt_tenScrollModel;
+    UIScrollView* superTenScrollView = superModel.tenScrollView;
     superModel.subModel = self;
     
-    MTTenScrollModel* superModel2 = superModel.superTenScrollView.model;
+    MTTenScrollModel* superModel2 = superModel.superTenScrollView.mt_tenScrollModel;
     
     MTTenScrollModel* subModel = self.subModel;
     if(!subModel)
@@ -168,16 +168,16 @@ NSString* MTTenScrollIdentifier = @"MTTenScrollIdentifier";
             subModel.status = 2;
     }
     
-    MTTenScrollView* subTenScrollView = subModel.tenScrollView;
+    UIScrollView* subTenScrollView = subModel.tenScrollView;
     
     UIScrollView* tenScrollTableView;
-    if(!subModel && [self.currentView isKindOfClass:[MTDelegateTenScrollTableView class]])
+    if(!subModel && [self.currentView.viewModel isKindOfClass:NSClassFromString(@"MTDelegateTenScrollViewDelegateModel")])
     {
         tenScrollTableView = self.currentView;
     }
     
     UIScrollView* subTenScrollTableView;
-    if(subModel && [subModel.currentView isKindOfClass:[MTDelegateTenScrollTableView class]])
+    if(subModel && [subModel.currentView.viewModel isKindOfClass:NSClassFromString(@"MTDelegateTenScrollViewDelegateModel")])
     {
         subTenScrollTableView = subModel.currentView;
     }
@@ -330,10 +330,10 @@ NSString* MTTenScrollIdentifier = @"MTTenScrollIdentifier";
 
 -(void)tenScrollTableViewScrollDidScroll
 {
-    if(![self.currentView isKindOfClass:[MTDelegateTenScrollTableView class]])
+    if(![self.currentView.viewModel isKindOfClass:NSClassFromString(@"MTDelegateTenScrollViewDelegateModel")])
         return;
     
-    self.superTenScrollView.model.subModel = self;
+    self.superTenScrollView.mt_tenScrollModel.subModel = self;
     if(self.tenScrollViewMaxOffsetY == 0)
         self.status = 2;
     
@@ -343,7 +343,7 @@ NSString* MTTenScrollIdentifier = @"MTTenScrollIdentifier";
     if(tenScrollOffsetY < self.tenScrollViewMaxOffsetY)
         offsetY = 0;
     
-    if(self.superTenScrollView && self.superTenScrollView.model.lastStatus < 3)
+    if(self.superTenScrollView && self.superTenScrollView.mt_tenScrollModel.lastStatus < 3)
         offsetY = 0;
     
     if(offsetY < 0)
@@ -356,8 +356,8 @@ NSString* MTTenScrollIdentifier = @"MTTenScrollIdentifier";
 
 -(void)contentViewWillBeginDragging
 {
-    self.superTenScrollView.model.isDraging = YES;
-    self.superTenScrollView.model.currentView = self.tenScrollView;
+    self.superTenScrollView.mt_tenScrollModel.isDraging = YES;
+    self.superTenScrollView.mt_tenScrollModel.currentView = self.tenScrollView;
     self.tenScrollView.scrollEnabled = false;
     self.currentView.scrollEnabled = false;
     self.titleView.scrollEnabled = false;
@@ -454,7 +454,7 @@ NSString* MTTenScrollIdentifier = @"MTTenScrollIdentifier";
               }
               else
               {
-                  if((subModel.superTenScrollView.model != self) && (subModel.superIndex == subModel.superTenScrollView.model.maxIndex))
+                  if((subModel.superTenScrollView.mt_tenScrollModel != self) && (subModel.superIndex == subModel.superTenScrollView.mt_tenScrollModel.maxIndex))
                   {
                       self.contentView.offsetX = self.contentView.width * currentIndex;
                       return YES;
@@ -491,7 +491,7 @@ NSString* MTTenScrollIdentifier = @"MTTenScrollIdentifier";
               }
               else
               {
-                  if((subModel.superTenScrollView.model != self) && (subModel.superIndex == 0))
+                  if((subModel.superTenScrollView.mt_tenScrollModel != self) && (subModel.superIndex == 0))
                   {
                       self.contentView.offsetX = self.contentView.width * currentIndex;
                       return YES;
@@ -768,7 +768,7 @@ NSString* MTTenScrollIdentifier = @"MTTenScrollIdentifier";
     if(self.titleView.contentSize.width == 0)
         return;
     
-    if(self.superTenScrollView.model.contentView.isDecelerating)
+    if(self.superTenScrollView.mt_tenScrollModel.contentView.isDecelerating)
     {
         self.titleView.offsetX = self.preTitleOffsetX;
         return;
@@ -896,34 +896,25 @@ NSString* MTTenScrollIdentifier = @"MTTenScrollIdentifier";
     self.currentView = nil;
     for(UIView* subView in superView.subviews)
     {
-        if([subView isKindOfClass:[MTDelegateTenScrollTableView class]] || [subView isKindOfClass:[MTTenScrollView class]])
+        if([subView isKindOfClass:[UIScrollView class]])
         {
-            NSInteger offsetY = self.tenScrollView.offsetY;
-            if([subView isKindOfClass:[MTTenScrollView class]])
+            UIScrollView* scrollView = (UIScrollView*)subView;
+            
+            if([scrollView.viewModel isKindOfClass:NSClassFromString(@"MTTenScrollViewDelegateModel")])
             {
-                MTTenScrollView* subTenScrollView = (MTTenScrollView*)subView;
-                subTenScrollView.model.superTenScrollView = self.tenScrollView;
-                subTenScrollView.bounces = false;
-                
-//                if(offsetY > self.tenScrollViewMaxOffsetY)
-//                    [UIView animateWithDuration:0.1 animations:^{
-//                        subTenScrollView.offsetY = subTenScrollView.model.tenScrollViewMaxOffsetY;
-//                    }];
-            }
-            else
-            {
-                ((MTDelegateTenScrollTableView*)subView).model = self;
-                subView.height = self.tenScrollHeight - self.titleViewModel.titleViewHeight;
+                scrollView.mt_tenScrollModel.superTenScrollView = self.tenScrollView;
+                scrollView.bounces = false;
             }
             
-            self.currentView = (UIScrollView*)subView;
+            if([scrollView.viewModel isKindOfClass:NSClassFromString(@"MTDelegateTenScrollViewDelegateModel")])
+            {
+                scrollView.mt_tenScrollModel = self;
+                scrollView.height = self.tenScrollHeight - self.titleViewModel.titleViewHeight;
+            }
+            
+            self.currentView = scrollView;
             self.currentView.showsVerticalScrollIndicator = false;
             self.currentView.showsHorizontalScrollIndicator = false;
-            
-//            if(offsetY < self.tenScrollViewMaxOffsetY)
-//                [UIView animateWithDuration:0.1 animations:^{
-//                    self.currentView.offsetY = 0;
-//                }];
         }
     }
 }
@@ -1045,7 +1036,7 @@ NSString* MTTenScrollIdentifier = @"MTTenScrollIdentifier";
             if(!c1)
                 c1 = NSClassFromString(@"MTTenScrollController");
             if(!c2)
-                c2 = [MTTenScrollView class];
+                c2 = [UIScrollView class];
             Class c = NSClassFromString(obj.mt_reuseIdentifier);
 
             if(![c.new isKindOfClass:c1] && ![c.new isKindOfClass:c2])
@@ -1088,7 +1079,16 @@ NSString* MTTenScrollIdentifier = @"MTTenScrollIdentifier";
 
 -(NSObject *)tenScrollData
 {
-    NSObject* tenScrollData = mt_reuse(self).band(@"MTTenScrollViewCell").bandHeight(self.tenScrollHeight);    
+    NSString* cellClass;
+    if([self.tenScrollView isKindOfClass:[MTTenScrollView class]])
+        cellClass = @"MTTenScrollViewCell";
+    if([self.tenScrollView isKindOfClass:[MTTenScrollViewX class]])
+        cellClass = @"MTTenScrollViewCellX";
+    
+    if(!cellClass)
+        return nil;
+    
+    NSObject* tenScrollData = mt_reuse(self).band(cellClass).bandHeight(self.tenScrollHeight);
     return self.dataList ? tenScrollData : tenScrollData;
 }
 

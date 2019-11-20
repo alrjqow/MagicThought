@@ -1,17 +1,17 @@
 //
-//  MTHeaderFooterRefreshTableViewController.h
+//  MTHeaderFooterRefreshListController.h
 //  MDKit
 //
 //  Created by monda on 2019/5/17.
 //  Copyright © 2019 monda. All rights reserved.
 //
 
-#import "MTHeaderRefreshTableViewController.h"
+#import "MTHeaderRefreshListController.h"
 #import "MTRefreshAutoNormalFooter.h"
 #import "MTPageInfoModel.h"
 
 
-@interface MTHeaderFooterRefreshTableViewController : MTHeaderRefreshTableViewController
+@interface MTHeaderFooterRefreshListController : MTHeaderRefreshListController
 
 @property (nonatomic,assign) NSInteger page;
 

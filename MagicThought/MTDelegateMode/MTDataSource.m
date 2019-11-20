@@ -76,6 +76,9 @@
 
 @property (nonatomic,assign) UIEdgeInsets contentInset;
 
+@property (nonatomic,assign) CGFloat preOffsetX;
+@property (nonatomic,assign) CGFloat preOffsetY;
+
 @end
 
 
@@ -285,7 +288,7 @@
     }
     
     cell.indexPath = indexPath;
-    cell.delegate = self.delegate;
+    cell.mt_delegate = self.delegate;
     cell.mt_data = [data isKindOfClass:[NSReuseObject class]] ? ((NSReuseObject*)data).data : data;
     
     if(data.mt_open3dTouch)
@@ -443,7 +446,7 @@
     }
     
     cell.indexPath = indexPath;
-    cell.delegate = self.delegate;
+    cell.mt_delegate = self.delegate;
     cell.mt_data = [data isKindOfClass:[NSReuseObject class]] ? ((NSReuseObject*)data).data : data;
     
     if(data.mt_open3dTouch)
@@ -618,13 +621,27 @@
 
 -(void)scrollViewDidScroll:(UIScrollView *)scrollView
 {
-    if([scrollView isKindOfClass:[MTDelegateTableView class]])
-    {
-        CGFloat velY = [scrollView.panGestureRecognizer velocityInView:scrollView].y;
-        //向上滑
-        if(velY != 0)
-            [scrollView setValue:@(velY < 0) forKey:@"isScrollTop"];
-    }
+    CGFloat offsetX = scrollView.offsetX;
+    CGFloat offsetY = scrollView.offsetY;
+    NSInteger tagX = 0;
+    NSInteger tagY = 0;
+    if(offsetX > self.preOffsetX)
+        tagX = 1;
+    else if(offsetX < self.preOffsetX)
+        tagX = -1;
+    
+    if(offsetY > self.preOffsetY)
+        tagY = 1;
+    else if(offsetY < self.preOffsetY)
+        tagY = -1;
+    
+    if(scrollView.directionXTag != tagX)
+        [scrollView performSelector:@selector(setDirectionXTag:) withObject:@(tagX)];
+    if(scrollView.directionYTag != tagY)
+        [scrollView performSelector:@selector(setDirectionYTag:) withObject:@(tagY)];
+    
+    self.preOffsetX = offsetX;
+    self.preOffsetY = offsetY;
     
     if([self.delegate respondsToSelector:@selector(scrollViewDidScroll:)])
         [self.delegate scrollViewDidScroll:scrollView];

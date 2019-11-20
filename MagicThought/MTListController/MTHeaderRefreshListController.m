@@ -1,18 +1,18 @@
 //
-//  MTHeaderRefreshTableViewController.m
+//  MTHeaderRefreshListController.m
 //  MDKit
 //
 //  Created by monda on 2019/5/17.
 //  Copyright © 2019 monda. All rights reserved.
 //
 
-#import "MTHeaderRefreshTableViewController.h"
+#import "MTHeaderRefreshListController.h"
 
-@interface MTHeaderRefreshTableViewController ()
+@interface MTHeaderRefreshListController ()
 
 @end
 
-@implementation MTHeaderRefreshTableViewController
+@implementation MTHeaderRefreshListController
 
 #pragma mark - 懒加载
 

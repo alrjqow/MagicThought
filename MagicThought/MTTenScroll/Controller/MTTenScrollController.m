@@ -41,7 +41,7 @@
     if(!_tenScrollView)
     {
         _tenScrollView = [MTTenScrollView new];
-        _tenScrollView.model = self.tenScrollModel;
+        _tenScrollView.mt_tenScrollModel = self.tenScrollModel;
         _tenScrollView.delegate = self;
 //        _tenScrollView.bounces = false;
     }
@@ -49,7 +49,20 @@
     return _tenScrollView;
 }
 
--(MTDelegateTableView *)mtBase_tableView
+-(MTTenScrollViewX *)tenScrollViewX
+{
+    if(!_tenScrollViewX)
+    {
+        _tenScrollViewX = [MTTenScrollViewX new];
+        _tenScrollViewX.mt_tenScrollModel = self.tenScrollModel;
+        _tenScrollViewX.delegate = self;
+//        _tenScrollView.bounces = false;
+    }
+    
+    return _tenScrollViewX;
+}
+
+-(UIScrollView *)listView
 {
     return self.tenScrollView;
 }
@@ -100,19 +113,30 @@
 #pragma mark - 懒加载
 
 
--(MTDelegateTenScrollTableView *)tenScrollTableView
+-(MTDelegateTenScrollView *)delegateTenScrollView
 {
-    if(!_tenScrollTableView)
+    if(!_delegateTenScrollView)
     {
-        _tenScrollTableView = [MTDelegateTenScrollTableView new];
+        _delegateTenScrollView = [MTDelegateTenScrollView new];
     }
     
-    return _tenScrollTableView;
+    return _delegateTenScrollView;
 }
 
--(MTDelegateTableView *)mtBase_tableView
+-(MTDelegateTenScrollViewX *)delegateTenScrollViewX
 {
-    return self.tenScrollTableView;
+    if(!_delegateTenScrollViewX)
+    {
+        _delegateTenScrollViewX = [MTDelegateTenScrollViewX new];
+    }
+    
+    return _delegateTenScrollViewX;
 }
+
+-(UIScrollView *)listView
+{
+    return self.delegateTenScrollView;
+}
+
 
 @end

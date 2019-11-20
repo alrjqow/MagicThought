@@ -6,12 +6,9 @@
 //  Copyright © 2017年 com.bkqw.app. All rights reserved.
 //
 
-#import <UIKit/UIKit.h>
 #import "UIView+Delegate.h"
 
 @interface MTDelegateHeaderFooterView : UITableViewHeaderFooterView
-
-@property(nonatomic,weak) id<MTDelegateProtocol> mt_delegate;
 
 @property(nonatomic,assign) NSInteger section;
 

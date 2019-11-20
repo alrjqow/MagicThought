@@ -1,18 +1,18 @@
 //
-//  MTTableViewController.m
+//  MTListController.m
 //  MDKit
 //
 //  Created by monda on 2019/5/16.
 //  Copyright © 2019 monda. All rights reserved.
 //
 
-#import "MTTableViewController.h"
+#import "MTListController.h"
 
 #import "MTBaseDataModel.h"
 #import "MJExtension.h"
 #import "NSObject+ReuseIdentifier.h"
 
-@interface MTTableViewController ()
+@interface MTListController ()
 {
     NSArray * _modelList;
 }
@@ -20,7 +20,7 @@
 
 @end
 
-@implementation MTTableViewController
+@implementation MTListController
 
 
 #pragma mark - 生命周期
@@ -38,15 +38,15 @@
 {
     [super setupDefault];
     
-    self.mtBase_tableView.frame = self.view.bounds;
-    [self.mtBase_tableView addTarget:self];
+    self.listView.frame = self.view.bounds;
+    [self.listView addTarget:self];
 }
 
 -(void)setupSubview
 {
     [super setupSubview];
     
-    [self.view addSubview:self.mtBase_tableView];
+    [self.view addSubview:self.listView];
 }
 
 
@@ -77,7 +77,7 @@
         emptyData = self.dataModel.emptyData;
     
     
-    [self.mtBase_tableView reloadDataWithDataList:dataList  SectionList:sectionList EmptyData:emptyData];
+    [self.listView reloadDataWithDataList:dataList  SectionList:sectionList EmptyData:emptyData];
 }
 
 #pragma mark - 重载方法
@@ -89,10 +89,10 @@
     if(isSuccess && [self.endRefreshBlackList objectForKey:model.url])
         return;
     
-    [self.mtBase_tableView.mj_header endRefreshing];
+    [self.listView.mj_header endRefreshing];
     
-    if(![self isKindOfClass:NSClassFromString(@"MTHeaderFooterRefreshTableViewController")])
-        [self.mtBase_tableView.mj_footer endRefreshing];
+    if(![self isKindOfClass:NSClassFromString(@"MTHeaderFooterRefreshListController")])
+        [self.listView.mj_footer endRefreshing];
 }
 
 #pragma mark - 点击事件

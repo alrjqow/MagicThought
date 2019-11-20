@@ -6,18 +6,14 @@
 //  Copyright © 2017年 com.bkqw.app. All rights reserved.
 //
 
-#import <UIKit/UIKit.h>
 
-
-#import "MTDelegateProtocol.h"
+#import "UIView+Delegate.h"
 #import "MTTextFieldVerifyModel.h"
 #import "MTWordStyle.h"
 
 @interface MTTextView : UITextView
 
 @property (nonatomic,weak) MTTextFieldVerifyModel* verifyModel;
-
-@property(nonatomic,weak) id<MTDelegateProtocol> mt_delegate;
 
 @property(nonatomic,strong) IBOutlet NSString* placeholder;
 

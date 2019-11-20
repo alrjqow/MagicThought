@@ -126,8 +126,8 @@
 -(void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event
 {
     self.selected = false;
-    if([self.delegate respondsToSelector:@selector(doSomeThingForMe:withOrder:withItem:)])
-        [self.delegate doSomeThingForMe:self withOrder:@"MTAlertSheetCellClickOrder" withItem:self.item.eventOrder];
+    if([self.mt_delegate respondsToSelector:@selector(doSomeThingForMe:withOrder:withItem:)])
+        [self.mt_delegate doSomeThingForMe:self withOrder:@"MTAlertSheetCellClickOrder" withItem:self.item.eventOrder];
     [super touchesBegan:touches withEvent:event];
 }
 

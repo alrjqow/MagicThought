@@ -43,8 +43,8 @@
         
         weakSelf.imgView.image = image ? image : [UIImage imageNamed: @"MTPhotoBrowser.bundle/no_image"];
         
-        if([weakSelf.delegate respondsToSelector:@selector(doSomeThingForMe:withOrder:withItem:)])
-            [weakSelf.delegate doSomeThingForMe:weakSelf withOrder:MTPhotoPreviewViewCellDownloadImageFinishOrder withItem:weakSelf.indexPath];
+        if([weakSelf.mt_delegate respondsToSelector:@selector(doSomeThingForMe:withOrder:withItem:)])
+            [weakSelf.mt_delegate doSomeThingForMe:weakSelf withOrder:MTPhotoPreviewViewCellDownloadImageFinishOrder withItem:weakSelf.indexPath];
     }];
 }
 
@@ -77,8 +77,8 @@
 
 - (IBAction)delete:(UIButton*)sender
 {    
-    if([self.delegate respondsToSelector:@selector(doSomeThingForMe:withOrder:)])
-        [self.delegate doSomeThingForMe:self withOrder:@"MTPhotoPreviewViewCellDeleteImageOrder"];
+    if([self.mt_delegate respondsToSelector:@selector(doSomeThingForMe:withOrder:)])
+        [self.mt_delegate doSomeThingForMe:self withOrder:@"MTPhotoPreviewViewCellDeleteImageOrder"];
 }
 
 

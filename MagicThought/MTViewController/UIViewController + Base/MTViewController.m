@@ -189,8 +189,16 @@
     return self;
 }
 
-#pragma mark - 懒加载
+- (NSInteger)collectionView:(nonnull UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section {
+    return 0;
+}
 
+- (nonnull __kindof UICollectionViewCell *)collectionView:(nonnull UICollectionView *)collectionView cellForItemAtIndexPath:(nonnull NSIndexPath *)indexPath {
+    return [UICollectionViewCell new];
+}
+
+
+#pragma mark - 懒加载
 
 - (MTDelegateTableView *)mtBase_tableView
 {
@@ -209,6 +217,25 @@
         _mtBase_tableView.estimatedSectionFooterHeight = 0;        
     }
     return _mtBase_tableView;
+}
+
+-(MTDelegateCollectionView *)mtBase_collectionView
+{
+    if(!_mtBase_collectionView)
+    {
+        _mtBase_collectionView = [[MTDelegateCollectionView alloc] initWithFrame:self.view.bounds collectionViewLayout:[UICollectionViewFlowLayout new]];
+        _mtBase_collectionView.delegate = self;
+        _mtBase_collectionView.dataSource = self;
+        _mtBase_collectionView.backgroundColor = [UIColor clearColor];
+        _mtBase_collectionView.showsVerticalScrollIndicator = false;
+    }
+    
+    return _mtBase_collectionView;
+}
+
+-(UIScrollView *)listView
+{
+    return self.mtBase_tableView;
 }
 
 -(NSDictionary *)emptyData

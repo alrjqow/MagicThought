@@ -55,8 +55,8 @@
 
 -(void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event
 {
-    if(self.isAlert && [self.delegate respondsToSelector:@selector(doSomeThingForMe:withOrder:)])
-        [self.delegate doSomeThingForMe:self withOrder:MTBaseCellAlertOrder];
+    if(self.isAlert && [self.mt_delegate respondsToSelector:@selector(doSomeThingForMe:withOrder:)])
+        [self.mt_delegate doSomeThingForMe:self withOrder:MTBaseCellAlertOrder];
     else
         [super touchesBegan:touches withEvent:event];
 }

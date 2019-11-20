@@ -182,7 +182,7 @@ static NSInteger itemTimes = 100;
 -(UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath
 {        
     MTImagePlayViewCell* cell = [collectionView dequeueReusableCellWithReuseIdentifier:ImagePlayViewCell forIndexPath:indexPath];
-    cell.delegate = self;
+    cell.mt_delegate = self;
     
     cell.imgURL = self.imageURLs.count > 0 ? self.imageURLs[indexPath.row % self.itemCount] : nil;
     return cell;

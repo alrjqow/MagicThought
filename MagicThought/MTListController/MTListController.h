@@ -1,5 +1,5 @@
 //
-//  MTTableViewController.h
+//  MTListController.h
 //  MDKit
 //
 //  Created by monda on 2019/5/16.
@@ -9,12 +9,11 @@
 #import "MTViewController.h"
 
 #import "MTConst.h"
-#import "MTDelegateTableView.h"
 #import "MJRefresh.h"
 
 #import "MTDelegateViewDataModel.h"
 
-@interface MTTableViewController : MTViewController<MTDelegateViewDataProtocol>
+@interface MTListController : MTViewController<MTDelegateViewDataProtocol>
 
 @property (nonatomic,strong) MTDelegateViewDataModel* dataModel;
 

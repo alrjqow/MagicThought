@@ -1,5 +1,5 @@
 //
-//  MTTableViewControllers.h
+//  MTListControllers.h
 //  MagicThought
 //
 //  Created by monda on 2019/7/30.
@@ -7,9 +7,9 @@
 //
 
 
-#import "MTTableViewController.h"
-#import "MTHeaderRefreshTableViewController.h"
-#import "MTHeaderFooterRefreshTableViewController.h"
+#import "MTListController.h"
+#import "MTHeaderRefreshListController.h"
+#import "MTHeaderFooterRefreshListController.h"
 
 
 #import "MTPageInfoModel.h"

@@ -7,19 +7,27 @@
 //
 
 #import "MTDelegateTableView.h"
-
+#import "MTDelegateCollectionView.h"
 
 @class MTTenScrollModel;
-@interface MTTenScrollView : MTDelegateTableView
+@interface UIScrollView (MTTenScrollModel)
 
-@property (nonatomic,strong) MTTenScrollModel* model;
-
-@end
-
-
-
-@interface MTDelegateTenScrollTableView : MTDelegateTableView
-
-@property (nonatomic,weak) MTTenScrollModel* model;
+@property (nonatomic,weak) MTTenScrollModel* mt_tenScrollModel;
 
 @end
+
+
+
+@interface MTTenScrollView : MTDelegateTableView @end
+
+@interface MTDelegateTenScrollView : MTDelegateTableView @end
+
+
+
+@interface MTTenScrollViewX : MTDelegateCollectionView @end
+
+@interface MTDelegateTenScrollViewX : MTDelegateCollectionView @end
+
+
+
+

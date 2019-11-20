@@ -13,9 +13,6 @@
 
 extern NSString* MTTenScrollIdentifier;
 
-@class MTTenScrollContentView;
-@class MTTenScrollTitleView;
-@class MTTenScrollView;
 
 @interface MTTenScrollModel : NSObject
 

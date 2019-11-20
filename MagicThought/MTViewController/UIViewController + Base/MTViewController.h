@@ -10,15 +10,15 @@
 #import <WebKit/WebKit.h>
 
 #import "MTDelegateTableView.h"
+#import "MTDelegateCollectionView.h"
 #import "UIView+MBHud.h"
 #import "NSObject+API.h"
-#import "NSObject+CommonProtocol.h"
 
 @class MTBaseDataModel;
 @class MTDelegateTableView;
 @protocol MTDelegateProtocol;
 
-@interface MTViewController : UIViewController<UITableViewDelegate, UITableViewDataSource, MTDelegateProtocol, WKScriptMessageHandler, NSCopying>
+@interface MTViewController : UIViewController<UITableViewDelegate, UITableViewDataSource, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout, MTDelegateProtocol, WKScriptMessageHandler, NSCopying>
 
 @property (nonatomic,copy) void (^block)(id);
 
@@ -37,6 +37,8 @@
 
 /**懒加载，默认不添加到父级*/
 @property (nonatomic, strong) MTDelegateTableView *mtBase_tableView;
+@property (nonatomic, strong) MTDelegateCollectionView *mtBase_collectionView;
+@property (nonatomic, strong, readonly) UIScrollView *listView;
 
 /**空数据*/
 @property (nonatomic, strong) NSDictionary* emptyData;

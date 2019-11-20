@@ -36,8 +36,8 @@
     if(!self.isAlreadyLoad)
         return;
     
-    if([self.delegate respondsToSelector:@selector(doSomeThingForMe:withOrder:)])
-        [self.delegate doSomeThingForMe:self withOrder:MTDelegateTableViewCellEmptyDataOrder];
+    if([self.mt_delegate respondsToSelector:@selector(doSomeThingForMe:withOrder:)])
+        [self.mt_delegate doSomeThingForMe:self withOrder:MTDelegateTableViewCellEmptyDataOrder];
 }
 
 -(void)setupDefault

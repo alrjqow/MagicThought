@@ -7,78 +7,57 @@
 //
 
 #import "MTTenScrollViewCell.h"
-#import "MTTenScrollContentView.h"
-#import "MTTenScrollTitleView.h"
-#import "MTTenScrollModel.h"
+#import "MTTenScrollViewCellDelegateModel.h"
 
-#import "UIView+Frame.h"
-
-@interface MTTenScrollViewCell ()
-
-@property (nonatomic,strong) MTTenScrollContentView* collectionView;
-
-@property (nonatomic,strong) MTTenScrollTitleView* titleView;
-
-@end
 
 @implementation MTTenScrollViewCell
 
 -(void)whenGetResponseObject:(NSObject *)object
 {
-    if(![object isKindOfClass:[MTTenScrollModel class]])
+    if(![object isKindOfClass:NSClassFromString(@"MTTenScrollModel")])
         return;
-    
-    self.model = (MTTenScrollModel*)object;
+     
+    ((MTTenScrollViewCellDelegateModel*)self.viewModel).model = (MTTenScrollModel*)object;
 }
 
--(void)setModel:(MTTenScrollModel *)model
+-(NSString *)viewModelClass
 {
-    _model = model;
-    
-    self.collectionView.model = self.model;
-    self.titleView.model = self.model;
+    return @"MTTenScrollViewCellDelegateModel";
 }
 
-#pragma mark - 生命周期
-
--(void)setupDefault
+-(void)layoutSubviews
 {
-    [super setupDefault];
-    
-    self.backgroundColor = [UIColor clearColor];
-    [self addSubview:self.collectionView];
-    [self addSubview:self.titleView];
+    [super layoutSubviews];
+
+    if([self.viewModel respondsToSelector:@selector(giveSomeThingToMe:WithOrder:)])
+        [self.viewModel giveSomeThingToMe:self.contentView WithOrder:nil];
+}
+
+
+@end
+
+
+@implementation MTTenScrollViewCellX
+
+-(void)whenGetResponseObject:(NSObject *)object
+{
+    if(![object isKindOfClass:NSClassFromString(@"MTTenScrollModel")])
+        return;
+     
+    ((MTTenScrollViewCellDelegateModel*)self.viewModel).model = (MTTenScrollModel*)object;
+}
+
+-(NSString *)viewModelClass
+{
+    return @"MTTenScrollViewCellDelegateModel";
 }
 
 -(void)layoutSubviews
 {
     [super layoutSubviews];
         
-    self.titleView.frame = CGRectMake(0, 0, self.contentView.width, self.model.titleViewModel.titleViewHeight);
-    
-    self.collectionView.frame = CGRectMake(0, self.titleView.maxY, self.contentView.width, self.height - self.titleView.maxY);
-}
-
-#pragma mark - 懒加载
-
--(MTTenScrollContentView *)collectionView
-{
-    if(!_collectionView)
-    {
-        _collectionView = [MTTenScrollContentView new];        
-    }
-    
-    return _collectionView;
-}
-
--(MTTenScrollTitleView *)titleView
-{
-    if(!_titleView)
-    {
-        _titleView = [MTTenScrollTitleView new];        
-    }
-    
-    return _titleView;
+    if([self.viewModel respondsToSelector:@selector(giveSomeThingToMe:WithOrder:)])
+        [self.viewModel giveSomeThingToMe:self WithOrder:nil];
 }
 
 @end

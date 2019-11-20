@@ -7,12 +7,9 @@
 //
 
 #import "MTDelegateTableViewCell.h"
-
+#import "MTDelegateCollectionViewCell.h"
 
 @class MTTenScrollModel;
-@interface MTTenScrollViewCell : MTDelegateTableViewCell
+@interface MTTenScrollViewCell : MTDelegateTableViewCell @end
 
-@property (nonatomic,weak) MTTenScrollModel* model;
-
-@end
-
+@interface MTTenScrollViewCellX : MTDelegateCollectionViewCell @end

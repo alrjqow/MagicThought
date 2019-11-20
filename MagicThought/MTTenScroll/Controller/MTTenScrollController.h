@@ -9,21 +9,22 @@
 #import "MTViewController.h"
 #import "MTTenScrollView.h"
 #import "MTTenScrollModel.h"
-#import "MTTableViewController.h"
+#import "MTListController.h"
 
-@interface MTTenScrollController : MTTableViewController
+@interface MTTenScrollController : MTListController
 
 @property (nonatomic,strong) MTTenScrollView* tenScrollView;
+@property (nonatomic,strong) MTTenScrollViewX* tenScrollViewX;
 
 @property (nonatomic,strong) MTTenScrollModel* tenScrollModel;
 
 @end
 
 
-@interface MTTenScrollTableViewController : MTTableViewController
+@interface MTTenScrollTableViewController : MTListController
 
-@property (nonatomic,strong) MTDelegateTenScrollTableView* tenScrollTableView;
-
+@property (nonatomic,strong) MTDelegateTenScrollView* delegateTenScrollView;
+@property (nonatomic,strong) MTDelegateTenScrollViewX* delegateTenScrollViewX;
 
 @end
 

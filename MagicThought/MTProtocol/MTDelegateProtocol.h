@@ -6,6 +6,8 @@
 //  Copyright © 2016年 com.bkqw.app. All rights reserved.
 //
 
+#import <UIKit/UIKit.h>
+
 @protocol MTDelegateProtocol <NSObject>
 
 @optional
@@ -33,6 +35,8 @@
 
 @protocol MTExchangeDataProtocol
 
+@optional
+
 /**当接收到数据*/
 -(void)whenGetResponseObject:(NSObject*)object;
 
@@ -47,5 +51,20 @@
 
 /**设置父类数据*/
 -(void)setSuperResponseObject:(NSObject*)object;
+
+@end
+
+
+@protocol MTListDataProtocol <UIGestureRecognizerDelegate, UIScrollViewDelegate>
+
+@optional
+
+- (NSArray*)newDataList:(NSArray*)dataList;
+
+@end
+
+
+@protocol MTViewModelProtocol<MTListDataProtocol, MTExchangeDataProtocol>
+
 
 @end

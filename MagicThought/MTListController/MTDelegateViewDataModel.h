@@ -11,10 +11,10 @@
 
 
 
-@class MTTableViewController;
+@class MTListController;
 @interface MTDelegateViewDataModel : NSObject
 
-+(instancetype)modelForController:(MTTableViewController*)controller;
++(instancetype)modelForController:(MTListController*)controller;
 
 @property (nonatomic,strong,readonly) NSString* className;
 

@@ -38,8 +38,8 @@
     _imgURL = imgURL;
     
     UIImage* placeholderImage;
-    if([self.delegate isKindOfClass:[MTImagePlayView class]])
-        placeholderImage = ((MTImagePlayView*)self.delegate).placeholderImage;
+    if([self.mt_delegate isKindOfClass:[MTImagePlayView class]])
+        placeholderImage = ((MTImagePlayView*)self.mt_delegate).placeholderImage;
     
     if(!imgURL)
     {
