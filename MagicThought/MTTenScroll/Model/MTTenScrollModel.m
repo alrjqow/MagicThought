@@ -127,18 +127,11 @@ NSString* MTTenScrollIdentifier = @"MTTenScrollIdentifier";
 
 -(void)tenScrollViewEndScroll
 {
-    MTTenScrollModel* model = self;
-    do {
-        if(model.tenScrollView.dragging || model.tenScrollView.decelerating)
-        {
-            return;
-        }
-        
-        
-        model = model.superTenScrollView.mt_tenScrollModel;
-    } while (model);
+    if(self.superTenScrollView)
+        return;
     
-    [self contentViewScrollEnabled:YES];    
+    if(!self.tenScrollView.dragging && !self.tenScrollView.decelerating)
+        [self contentViewScrollEnabled:YES];
 }
 
 -(void)contentViewScrollEnabled:(BOOL)scrollEnabled

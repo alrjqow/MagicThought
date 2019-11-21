@@ -21,17 +21,6 @@
     return self;
 }
 
--(void)setupDefault
-{
-    [super setupDefault];
-    
-    UILabel* titile = [UILabel new];
-    titile.text = @"adas";
-    [titile sizeToFit];
-    
-    [self addSubview:titile];
-}
-
 /**设置父类数据*/
 -(void)setSuperResponseObject:(NSObject*)object
 {

@@ -72,7 +72,10 @@
 {
     UIScrollView* currentView = [self.model valueForKey:@"currentView"];
     if(![currentView.viewModel isKindOfClass:self.class])
-        return;
+    {
+        if(currentView.dragging || currentView.decelerating)
+            return;
+    }        
     
     [self.model performSelector:@selector(tenScrollViewEndScroll)];
 }
@@ -106,14 +109,14 @@
         {
             currentViewOffsetY += currentY;
             
-            if([currentView.viewModel isKindOfClass:self.class])
-            {
-                maxCurrentViewOffsetY = [[((MTTenScrollViewDelegateModel*)currentView.viewModel).model valueForKey:@"tenScrollViewMaxOffsetY"] integerValue];
-                if(currentViewOffsetY > maxCurrentViewOffsetY)
-                {
-                    currentViewOffsetY = maxCurrentViewOffsetY;
-                }
-            }
+//            if([currentView.viewModel isKindOfClass:self.class])
+//            {
+//                maxCurrentViewOffsetY = [[((MTTenScrollViewDelegateModel*)currentView.viewModel).model valueForKey:@"tenScrollViewMaxOffsetY"] integerValue];
+//                if(currentViewOffsetY > maxCurrentViewOffsetY)
+//                {
+//                    currentViewOffsetY = maxCurrentViewOffsetY;
+//                }
+//            }
             
             
             currentView.offsetY = currentViewOffsetY;

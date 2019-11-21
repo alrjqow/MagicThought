@@ -24,7 +24,25 @@
 #import "NSObject+API.h"
 #import "MTBaseDataModel.h"
 
+@interface UICollectionViewCell2 : MTDelegateCollectionViewCell
 
+@end
+
+
+@implementation UICollectionViewCell2
+
+-(void)setupDefault
+{
+    [super setupDefault];
+    
+    UILabel* titile = [UILabel new];
+    titile.text = @"adas";
+    [titile sizeToFit];
+    
+    [self addSubview:titile];
+}
+
+@end
 
 @interface TestSubController : MTViewController
 
@@ -63,7 +81,7 @@
 
 -(NSArray *)dataList
 {
-    return (NSArray*)@"UICollectionViewCell".bandCount(6).bandHeight(44);
+    return (NSArray*)@"UICollectionViewCell2".bandCount(6).bandHeight(44);
     return (NSArray*)@"UITableViewCell".bandCount(6).bandHeight(44);
 }
 
@@ -81,7 +99,7 @@
 
 -(NSArray *)dataList
 {
-    return (NSArray*)@"UICollectionViewCell".bandCount(0).bandHeight(44);
+    return (NSArray*)@"UICollectionViewCell2".bandCount(0).bandHeight(44);
     return (NSArray*)@"UITableViewCell".bandCount(0).bandHeight(44);
 }
 
