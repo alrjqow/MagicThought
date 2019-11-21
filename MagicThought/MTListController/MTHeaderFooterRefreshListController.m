@@ -28,7 +28,7 @@
         
         [weakSelf.itemArr removeAllObjects];
         weakSelf.page = 1;
-        [weakSelf.mtBase_tableView.mj_footer resetNoMoreData];
+        [weakSelf.listView.mj_footer resetNoMoreData];
         [weakSelf startRequest];
     };
 }
@@ -38,9 +38,9 @@
     [super setupSubview];
     
     if(self.isRemoveMJHeader)
-        self.mtBase_tableView.mj_header = nil;
+        self.listView.mj_header = nil;
     
-    self.mtBase_tableView.mj_footer = self.mj_footer;
+    self.listView.mj_footer = self.mj_footer;
 }
 
 
@@ -50,12 +50,12 @@
 {
     [super whenEndRefreshing:isSuccess Model:model];
     
-    self.mtBase_tableView.mj_footer.hidden = !self.itemArr.count;
+    self.listView.mj_footer.hidden = !self.itemArr.count;
     if(!self.infoModel.hasNext)
-        [self.mtBase_tableView.mj_footer endRefreshingWithNoMoreData];
+        [self.listView.mj_footer endRefreshingWithNoMoreData];
     else
     {
-        [self.mtBase_tableView.mj_footer endRefreshing];
+        [self.listView.mj_footer endRefreshing];
         self.page++;
     }
 }
@@ -66,19 +66,24 @@
 {
     static CGFloat originBottomOffset;
     if(!originBottomOffset)
-        originBottomOffset = self.mtBase_tableView.contentInset.bottom;
+        originBottomOffset = self.listView.contentInset.bottom;
     
-    CGFloat headerH = self.mtBase_tableView.tableHeaderView.height;//need
-    CGFloat topOffset = self.mtBase_tableView.contentInset.top;//need
+    
+    CGFloat headerH = 0;//need
+    if([self.listView isKindOfClass:[UITableView class]])
+        headerH = ((UITableView*)self.listView).tableHeaderView.height;//need
+    CGFloat topOffset = self.listView.contentInset.top;//need
     CGFloat cellH = 0;//need
     CGFloat sectionHeaderFooterH = 0;//need
-    CGFloat footerH = self.mtBase_tableView.tableFooterView.height;//need
+    CGFloat footerH = 0;//need
+    if([self.listView isKindOfClass:[UITableView class]])
+        footerH = ((UITableView*)self.listView).tableFooterView.height;//need
     
-    UIEdgeInsets inset = self.mtBase_tableView.contentInset;
-    if(self.mtBase_tableView.mj_footer)
+    UIEdgeInsets inset = self.listView.contentInset;
+    if(self.listView.mj_footer)
         inset.bottom = 0;
     
-    CGFloat bottomOffset = self.mtBase_tableView.contentInset.bottom;//need
+    CGFloat bottomOffset = self.listView.contentInset.bottom;//need
     
     
     //获取所有cell占据的高度
@@ -152,7 +157,7 @@
         }
     }
     
-    //    NSLog(@"%lf",self.mtBase_tableView.height);
+    //    NSLog(@"%lf",self.listView.height);
     //    NSLog(@"%lf",headerH);
     //    NSLog(@"%lf",footerH);
     //    NSLog(@"%lf",topOffset);
@@ -160,10 +165,10 @@
     //    NSLog(@"%lf",cellH);
     //    NSLog(@"%lf",sectionHeaderFooterH);
     
-    CGFloat fillH = self.mtBase_tableView.height - (headerH + footerH + topOffset + bottomOffset + cellH + sectionHeaderFooterH);
+    CGFloat fillH = self.listView.height - (headerH + footerH + topOffset + bottomOffset + cellH + sectionHeaderFooterH);
     
     //这个可以在超出屏幕时仍然可以fill
-    //    CGFloat fillH = self.mtBase_tableView.height - (headerH + footerH + topOffset + bottomOffset + cellH + sectionHeaderFooterH) % self.mtBase_tableView.height;
+    //    CGFloat fillH = self.listView.height - (headerH + footerH + topOffset + bottomOffset + cellH + sectionHeaderFooterH) % self.listView.height;
     if(fillH < 0)
     {
         fillH = 0;
@@ -171,7 +176,7 @@
     }
     
     
-    self.mtBase_tableView.contentInset = inset;
+    self.listView.contentInset = inset;
     return fillH;
 }
 
@@ -210,7 +215,7 @@
         __weak __typeof(self) weakSelf = self;
         _mj_footer_Block = ^{
             
-            [weakSelf.mtBase_tableView.mj_footer endRefreshing];
+            [weakSelf.listView.mj_footer endRefreshing];
         };
     }
     

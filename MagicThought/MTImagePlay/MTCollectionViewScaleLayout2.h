@@ -6,7 +6,7 @@
 //  Copyright © 2019 monda. All rights reserved.
 //
 
-#import <UIKit/UIKit.h>
+#import "MTCollectionViewScaleLayout.h"
 
 
 @interface MTCollectionViewScaleLayout2 : MTCollectionViewScaleLayout

@@ -62,4 +62,9 @@
                 singleLine.backgroundColor = self.separatorColor;
 }
 
+-(void)dealloc
+{
+    [self whenDealloc];
+}
+
 @end

@@ -34,13 +34,12 @@
 
 @implementation MTTenScrollTitleView
 
--(instancetype)initWithFrame:(CGRect)frame collectionViewLayout:(UICollectionViewLayout *)layout
+-(UICollectionViewLayout *)layout
 {
-    UICollectionViewFlowLayout* layout0 = [UICollectionViewFlowLayout new];
-    layout0.scrollDirection = UICollectionViewScrollDirectionHorizontal;
+    UICollectionViewFlowLayout* layout = [UICollectionViewFlowLayout new];
+    layout.scrollDirection = UICollectionViewScrollDirectionHorizontal;
     
-    self = [super initWithFrame:frame collectionViewLayout:layout0];
-    return self;
+    return layout;
 }
 
 -(void)setupDefault
@@ -87,7 +86,7 @@
 -(void)collectionView:(UICollectionView *)collectionView willDisplayCell:(UICollectionViewCell *)cell forItemAtIndexPath:(NSIndexPath *)indexPath
 {
     NSInteger unknownCellIndex = [[self.model valueForKey:@"unknownCellIndex"] integerValue];
-    NSInteger currentIndex = [[self.model valueForKey:@"currentIndex"] integerValue];    
+    NSInteger currentIndex = [[self.model valueForKey:@"currentIndex"] integerValue];
     
     MTTenScrollContentView* contentView = [self.model valueForKey:@"contentView"];
     if(indexPath.row == unknownCellIndex)

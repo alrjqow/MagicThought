@@ -47,15 +47,11 @@
     [self.animator removeAllBehaviors];
     
     [self.model performSelector:@selector(tenScrollViewWillBeginDragging)];
-    
-    [super scrollViewWillBeginDragging:scrollView];
 }
 
 -(void)scrollViewDidScroll:(UIScrollView *)scrollView
 {
     [self.model performSelector:@selector(tenScrollViewDidScroll)];
-    
-    [super scrollViewDidScroll:scrollView];
 }
 
 -(void)scrollViewDidEndDragging:(UIScrollView *)scrollView willDecelerate:(BOOL)decelerate
@@ -70,8 +66,6 @@
     }
     else
         [self simulateDecelerate];
-    
-    [super scrollViewDidEndDragging:scrollView willDecelerate:decelerate];
 }
 
 -(void)scrollViewDidEndDecelerating:(UIScrollView *)scrollView
@@ -204,15 +198,11 @@
 -(void)scrollViewWillBeginDragging:(UIScrollView *)scrollView
 {
     [self.model setValue:scrollView forKey:@"currentView"];
-    
-    [super scrollViewWillBeginDragging:scrollView];
 }
 
 -(void)scrollViewDidScroll:(UIScrollView *)scrollView
 {
     [self.model performSelector:@selector(tenScrollTableViewScrollDidScroll)];
-        
-    [super scrollViewDidScroll:scrollView];
 }
 
 @end

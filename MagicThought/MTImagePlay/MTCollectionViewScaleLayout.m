@@ -8,8 +8,6 @@
 
 #import "MTCollectionViewScaleLayout.h"
 
-#import "UIView+Frame.h"
-
 @implementation MTCollectionViewScaleLayout
 
 -(instancetype)init

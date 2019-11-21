@@ -35,14 +35,12 @@
 
 @implementation MTTenScrollContentView
 
-
--(instancetype)initWithFrame:(CGRect)frame collectionViewLayout:(UICollectionViewLayout *)layout
+-(UICollectionViewLayout *)layout
 {
-    UICollectionViewFlowLayout* layout0 = [UICollectionViewFlowLayout new];
-    layout0.scrollDirection = UICollectionViewScrollDirectionHorizontal;
+    UICollectionViewFlowLayout* layout = [UICollectionViewFlowLayout new];
+    layout.scrollDirection = UICollectionViewScrollDirectionHorizontal;
     
-    self = [super initWithFrame:frame collectionViewLayout:layout0];
-    return self;
+    return layout;
 }
 
 -(void)setupDefault

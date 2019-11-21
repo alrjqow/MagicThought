@@ -642,6 +642,9 @@
     
     self.preOffsetX = offsetX;
     self.preOffsetY = offsetY;
+        
+    if([scrollView.viewModel respondsToSelector:@selector(scrollViewDidScroll:)])
+        [scrollView.viewModel scrollViewDidScroll:scrollView];
     
     if([self.delegate respondsToSelector:@selector(scrollViewDidScroll:)])
         [self.delegate scrollViewDidScroll:scrollView];
@@ -649,18 +652,27 @@
 
 -(void)scrollViewWillBeginDragging:(UIScrollView *)scrollView
 {
+    if([scrollView.viewModel respondsToSelector:@selector(scrollViewWillBeginDragging:)])
+        [scrollView.viewModel scrollViewWillBeginDragging:scrollView];
+    
     if([self.delegate respondsToSelector:@selector(scrollViewWillBeginDragging:)])
         [self.delegate scrollViewWillBeginDragging:scrollView];
 }
 
 -(void)scrollViewDidEndDragging:(UIScrollView *)scrollView willDecelerate:(BOOL)decelerate
 {
+    if([scrollView.viewModel respondsToSelector:@selector(scrollViewDidEndDragging:willDecelerate:)])
+        [scrollView.viewModel scrollViewDidEndDragging:scrollView willDecelerate:decelerate];
+    
     if([self.delegate respondsToSelector:@selector(scrollViewDidEndDragging:willDecelerate:)])
         [self.delegate scrollViewDidEndDragging:scrollView willDecelerate:decelerate];
 }
 
 -(void)scrollViewDidEndDecelerating:(UIScrollView *)scrollView
 {
+    if([scrollView.viewModel respondsToSelector:@selector(scrollViewDidEndDecelerating:)])
+        [scrollView.viewModel scrollViewDidEndDecelerating:scrollView];
+    
     if([self.delegate respondsToSelector:@selector(scrollViewDidEndDecelerating:)])
         [self.delegate scrollViewDidEndDecelerating:scrollView];
 }

@@ -10,6 +10,6 @@
 
 @interface MTDelegateCollectionView : UICollectionView
 
-
+@property (nonatomic,strong, readonly) UICollectionViewLayout * layout;
 
 @end

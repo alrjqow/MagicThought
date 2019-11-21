@@ -12,7 +12,7 @@
 
 @implementation MTTenScrollView
 
--(NSString *)scrollViewModelClass
+-(NSString *)viewModelClass
 {
     return @"MTTenScrollViewDelegateModel";
 }
@@ -22,7 +22,7 @@
 @implementation MTTenScrollViewX
 
 
--(NSString *)scrollViewModelClass
+-(NSString *)viewModelClass
 {
     return @"MTTenScrollViewDelegateModel";
 }
@@ -32,7 +32,7 @@
 
 @implementation MTDelegateTenScrollView
 
--(NSString *)scrollViewModelClass
+-(NSString *)viewModelClass
 {
     return @"MTDelegateTenScrollViewDelegateModel";
 }
@@ -41,7 +41,7 @@
 
 @implementation MTDelegateTenScrollViewX
 
--(NSString *)scrollViewModelClass
+-(NSString *)viewModelClass
 {
     return @"MTDelegateTenScrollViewDelegateModel";
 }

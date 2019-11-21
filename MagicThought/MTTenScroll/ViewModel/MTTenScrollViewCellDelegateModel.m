@@ -30,7 +30,7 @@
 -(void)whenGetResponseObject:(NSObject *)object
 {
     if([object isKindOfClass:[UIView class]])
-        self.cell = (UIScrollView*)object;
+        self.cell = (UIView*)object;
 }
 
 -(void)setupDefault

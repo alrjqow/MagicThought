@@ -20,7 +20,7 @@
 {
     [super setupSubview];
     
-    self.mtBase_tableView.mj_header = self.mj_header;
+    self.listView.mj_header = self.mj_header;
 }
 
 -(MTHeaderRefreshBlock)mj_Block
@@ -30,7 +30,7 @@
         __weak __typeof(self) weakSelf = self;
         _mj_Block = ^{
             
-            [weakSelf.mtBase_tableView.mj_header endRefreshing];
+            [weakSelf.listView.mj_header endRefreshing];
         };
     }
     

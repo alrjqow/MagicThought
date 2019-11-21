@@ -65,6 +65,7 @@
 -(UIScrollView *)listView
 {
     return self.tenScrollView;
+    return self.tenScrollViewX;
 }
 
 -(MTTenScrollModel *)tenScrollModel
@@ -136,6 +137,7 @@
 -(UIScrollView *)listView
 {
     return self.delegateTenScrollView;
+    return self.delegateTenScrollViewX;
 }
 
 

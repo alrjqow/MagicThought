@@ -22,11 +22,6 @@
         [self.viewModel setupDefault];
 }
 
--(void)dealloc
-{
-    [self whenDealloc];
-}
-
 #pragma mark - MDExchangeDataProtocol代理
 
 -(void)whenGetResponseObject:(NSObject *)object{}
@@ -90,7 +85,7 @@
     if(![self isKindOfClass:[UITableView class]] && ![self isKindOfClass:[UICollectionView class]])
         return;
     
-    NSString* key = [target isKindOfClass:[UITableView class]] ? @"tableView" : @"collectionView";
+    NSString* key = [self isKindOfClass:[UITableView class]] ? @"tableView" : @"collectionView";
     
     MTDataSource* dataSource = [MTDataSource new];
     [dataSource setValue:self forKey:key];

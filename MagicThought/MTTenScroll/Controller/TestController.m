@@ -24,6 +24,8 @@
 #import "NSObject+API.h"
 #import "MTBaseDataModel.h"
 
+
+
 @interface TestSubController : MTViewController
 
 @end
@@ -50,8 +52,6 @@
 
 @interface TestTableViewController : MTTenScrollTableViewController
 
-
-
 @end
 
 @implementation TestTableViewController
@@ -63,6 +63,7 @@
 
 -(NSArray *)dataList
 {
+//    return (NSArray*)@"UICollectionViewCell".bandCount(1).bandHeight(44);
     return (NSArray*)@"UITableViewCell".bandCount(30).bandHeight(44);
 }
 
@@ -80,6 +81,7 @@
 
 -(NSArray *)dataList
 {
+    return (NSArray*)@"UICollectionViewCell".bandCount(0).bandHeight(44);
     return (NSArray*)@"UITableViewCell".bandCount(0).bandHeight(44);
 }
 

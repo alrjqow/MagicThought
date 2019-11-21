@@ -42,5 +42,9 @@
 return [MTDelegateCollectionReusableViewLayer class];
 }
 
+-(void)dealloc
+{
+    [self whenDealloc];
+}
 
 @end

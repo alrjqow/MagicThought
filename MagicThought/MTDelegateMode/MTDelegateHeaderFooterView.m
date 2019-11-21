@@ -29,5 +29,9 @@
         [super whenGetResponseObject:object];
 }
 
+-(void)dealloc
+{
+    [self whenDealloc];
+}
 
 @end
