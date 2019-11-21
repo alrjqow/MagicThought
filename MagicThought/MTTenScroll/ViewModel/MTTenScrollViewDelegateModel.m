@@ -182,6 +182,25 @@
     return _item;
 }
 
+-(void)setModel:(MTTenScrollModel *)model
+{
+    [super setModel:model];
+        
+    [model setValue:self.scrollView forKey:@"tenScrollView"];
+}
+
+-(MTTenScrollModel *)model
+{
+    MTTenScrollModel* model = [super model];
+    if(!model)
+    {
+        model = [MTTenScrollModel new];
+        [model setValue:self.scrollView forKey:@"tenScrollView"];
+    }
+    
+    return model;
+}
+
 @end
 
 
@@ -215,26 +234,5 @@
     if([object isKindOfClass:[UIScrollView class]])
         self.scrollView = (UIScrollView*)object;
 }
-
--(void)setModel:(MTTenScrollModel *)model
-{
-    [super setModel:model];
-        
-    [model setValue:self.scrollView forKey:@"tenScrollView"];
-}
-
--(MTTenScrollModel *)model
-{
-    MTTenScrollModel* model = [super model];
-    if(!model)
-    {
-        model = [MTTenScrollModel new];
-        [model setValue:self.scrollView forKey:@"tenScrollView"];
-    }
-    
-    return model;
-}
-
-
 
 @end

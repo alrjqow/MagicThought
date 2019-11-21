@@ -331,8 +331,6 @@ NSString* MTTenScrollIdentifier = @"MTTenScrollIdentifier";
     self.superTenScrollView.mt_tenScrollModel.subModel = self;
     if(self.tenScrollViewMaxOffsetY == 0)
         self.status = 2;
-    else
-        NSLog(@"%zd",self.tenScrollViewMaxOffsetY);
     
     CGFloat offsetY = self.currentView.offsetY;
     CGFloat tenScrollOffsetY = self.tenScrollView.offsetY;
@@ -344,6 +342,9 @@ NSString* MTTenScrollIdentifier = @"MTTenScrollIdentifier";
         offsetY = 0;
     
     if(offsetY < 0)
+        offsetY = 0;
+        
+    if(self.currentView.contentSize.height <= self.currentView.height)
         offsetY = 0;
     
     self.currentView.offsetY = offsetY;

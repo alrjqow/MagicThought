@@ -63,8 +63,8 @@
 
 -(NSArray *)dataList
 {
-//    return (NSArray*)@"UICollectionViewCell".bandCount(1).bandHeight(44);
-    return (NSArray*)@"UITableViewCell".bandCount(30).bandHeight(44);
+    return (NSArray*)@"UICollectionViewCell".bandCount(6).bandHeight(44);
+    return (NSArray*)@"UITableViewCell".bandCount(6).bandHeight(44);
 }
 
 @end
