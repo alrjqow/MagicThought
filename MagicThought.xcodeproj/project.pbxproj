@@ -1514,8 +1514,6 @@
 				789F3F0622DC2B1A00586487 /* MTStyleProtocol.h */,
 				789F3F0722DC2B1A00586487 /* MTInitProtocol.h */,
 				789F3F0822DC2B1A00586487 /* MTDelegateProtocol.h */,
-				789F3F4122DC2B1A00586487 /* UIView+Delegate.h */,
-				789F3F4E22DC2B1A00586487 /* UIView+Delegate.m */,
 				789F3E7322DC2B1A00586487 /* NSObject+CommonProtocol.h */,
 				789F3E7122DC2B1A00586487 /* NSObject+CommonProtocol.m */,
 			);
@@ -1620,6 +1618,8 @@
 				789F3F8222DC2B1A00586487 /* MTDragCollectionViewCell.m */,
 				789F3F4222DC2B1A00586487 /* NSObject+ReuseIdentifier.h */,
 				789F3F4D22DC2B1A00586487 /* NSObject+ReuseIdentifier.m */,
+				789F3F4122DC2B1A00586487 /* UIView+Delegate.h */,
+				789F3F4E22DC2B1A00586487 /* UIView+Delegate.m */,
 			);
 			path = MTDelegateMode;
 			sourceTree = "<group>";

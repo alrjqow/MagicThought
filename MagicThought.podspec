@@ -282,6 +282,7 @@ end
 s.subspec 'MTTextFieldVerify' do |textVerify|
 textVerify.source_files = 'MagicThought/MTTextFieldVerify/*.{h,m}'
 
+lock.dependency 'MagicThought/MTDelegateMode'
 textVerify.dependency 'MagicThought/Category'
 textVerify.dependency 'MagicThought/MTProtocol'
 textVerify.dependency 'MagicThought/MTStyle'
