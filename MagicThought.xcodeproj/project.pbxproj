@@ -423,6 +423,8 @@
 		78C68926224E207D008E3B56 /* libSDWebImage.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 78C68925224E207D008E3B56 /* libSDWebImage.a */; };
 		78C6892A224E207D008E3B56 /* libSVProgressHUD.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 78C68929224E207D008E3B56 /* libSVProgressHUD.a */; };
 		78C6892C224E207D008E3B56 /* libYTKNetwork.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 78C6892B224E207D008E3B56 /* libYTKNetwork.a */; };
+		78CCE00D2387831A00714145 /* MTCollectionViewScaleLayout2.h in Headers */ = {isa = PBXBuildFile; fileRef = 78CCE00B2387831A00714145 /* MTCollectionViewScaleLayout2.h */; };
+		78CCE00E2387831A00714145 /* MTCollectionViewScaleLayout2.m in Sources */ = {isa = PBXBuildFile; fileRef = 78CCE00C2387831A00714145 /* MTCollectionViewScaleLayout2.m */; };
 		90CB7E82B9151C585717AECE /* libPods-MagicThought.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 3E6954489A214AEC6611949C /* libPods-MagicThought.a */; };
 /* End PBXBuildFile section */
 
@@ -875,6 +877,8 @@
 		78C68927224E207D008E3B56 /* libSSKeychain.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; path = libSSKeychain.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		78C68929224E207D008E3B56 /* libSVProgressHUD.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; path = libSVProgressHUD.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		78C6892B224E207D008E3B56 /* libYTKNetwork.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; path = libYTKNetwork.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		78CCE00B2387831A00714145 /* MTCollectionViewScaleLayout2.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MTCollectionViewScaleLayout2.h; sourceTree = "<group>"; };
+		78CCE00C2387831A00714145 /* MTCollectionViewScaleLayout2.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MTCollectionViewScaleLayout2.m; sourceTree = "<group>"; };
 		78F3327C2239051C00DA02F6 /* MagicThought.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = MagicThought.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		78F332802239051C00DA02F6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -1550,6 +1554,8 @@
 				789F3F1D22DC2B1A00586487 /* MTImagePlayViewCell.m */,
 				789F3F1F22DC2B1A00586487 /* MTCollectionViewScaleLayout.h */,
 				789F3F1C22DC2B1A00586487 /* MTCollectionViewScaleLayout.m */,
+				78CCE00B2387831A00714145 /* MTCollectionViewScaleLayout2.h */,
+				78CCE00C2387831A00714145 /* MTCollectionViewScaleLayout2.m */,
 			);
 			path = MTImagePlay;
 			sourceTree = "<group>";
@@ -2011,6 +2017,7 @@
 				789F3FF122DC2B1A00586487 /* MTKit.h in Headers */,
 				789F40AD22DC2B1B00586487 /* MTProtocol.h in Headers */,
 				789F402222DC2B1A00586487 /* NSString+Base64.h in Headers */,
+				78CCE00D2387831A00714145 /* MTCollectionViewScaleLayout2.h in Headers */,
 				789F40AC22DC2B1B00586487 /* MTWordStyle.h in Headers */,
 				789F406422DC2B1B00586487 /* MTAlertSheetItem.h in Headers */,
 				789F3FFD22DC2B1A00586487 /* UIColor+ColorfulColor.h in Headers */,
@@ -2393,6 +2400,7 @@
 				789F402622DC2B1A00586487 /* NSString+Encode.m in Sources */,
 				789F401222DC2B1A00586487 /* NSString+Hash.m in Sources */,
 				789F410A22DC2B1B00586487 /* MTTextField.m in Sources */,
+				78CCE00E2387831A00714145 /* MTCollectionViewScaleLayout2.m in Sources */,
 				789F3FCE22DC2B1A00586487 /* MTListController.m in Sources */,
 				789F404E22DC2B1B00586487 /* MTAlertCollectionController.m in Sources */,
 				7820501122EEEBFD0004C96C /* MTAnimatedTransitioning.m in Sources */,

@@ -6,7 +6,6 @@
 //  Copyright © 2019 monda. All rights reserved.
 //
 
-#import "MTViewController.h"
 #import "MTTenScrollView.h"
 #import "MTTenScrollModel.h"
 #import "MTListController.h"

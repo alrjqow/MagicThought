@@ -7,7 +7,6 @@
 //
 
 #import "MTTenScrollController.h"
-#import "MTHeaderRefreshListController.h"
 
 @interface TestController : MTTenScrollController
 

@@ -134,7 +134,7 @@ Pod::Spec.new do |s|
 # s.dependency "JSONKit", "~> 1.4"
 
 s.name = "MagicThought"
-s.version = "1.8.2"
+s.version = "1.8.3"
 s.summary = "MagicThought for ios."
 s.description = "the MagicThought for ios."
 s.homepage = "https://github.com/alrjqow/MagicThought"
@@ -359,6 +359,7 @@ tenScroll.dependency 'MagicThought/MTStyle'
 tenScroll.dependency 'MagicThought/MTNetwork'
 tenScroll.dependency 'MagicThought/MTDelegateMode'
 tenScroll.dependency 'MagicThought/Dependency'
+tenScroll.dependency 'MagicThought/MTListController'
 end
 
 s.subspec 'MTBaseCell' do |baseCell|
@@ -415,13 +416,13 @@ end
 end
 
 
-s.subspec 'MTTableViewController' do |tableViewController|
-tableViewController.source_files = 'MagicThought/MTTableViewController/*.{h,m}'
-tableViewController.dependency 'MagicThought/MTRefresh'
-tableViewController.dependency 'MagicThought/MTNetwork'
-tableViewController.dependency 'MagicThought/MTViewController/UIViewController+Base'
-tableViewController.dependency 'MagicThought/MTDelegateMode'
-tableViewController.dependency 'MagicThought/Dependency'
+s.subspec 'MTListController' do |listController|
+listController.source_files = 'MagicThought/MTListController/*.{h,m}'
+listController.dependency 'MagicThought/MTRefresh'
+listController.dependency 'MagicThought/MTNetwork'
+listController.dependency 'MagicThought/MTViewController/UIViewController+Base'
+listController.dependency 'MagicThought/MTDelegateMode'
+listController.dependency 'MagicThought/Dependency'
 end
 
 s.subspec 'MTCustomCamera' do |camera|
