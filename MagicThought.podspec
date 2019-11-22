@@ -134,7 +134,7 @@ Pod::Spec.new do |s|
 # s.dependency "JSONKit", "~> 1.4"
 
 s.name = "MagicThought"
-s.version = "1.8.3"
+s.version = "1.8.4"
 s.summary = "MagicThought for ios."
 s.description = "the MagicThought for ios."
 s.homepage = "https://github.com/alrjqow/MagicThought"
@@ -282,7 +282,7 @@ end
 s.subspec 'MTTextFieldVerify' do |textVerify|
 textVerify.source_files = 'MagicThought/MTTextFieldVerify/*.{h,m}'
 
-lock.dependency 'MagicThought/MTDelegateMode'
+textVerify.dependency 'MagicThought/MTDelegateMode'
 textVerify.dependency 'MagicThought/Category'
 textVerify.dependency 'MagicThought/MTProtocol'
 textVerify.dependency 'MagicThought/MTStyle'
