@@ -8,9 +8,5 @@
 
 
 #import "MTDelegateProtocol.h"
-#import "MTRequestProtocol.h"
-#import "MTStyleProtocol.h"
 #import "MTInitProtocol.h"
-
-#import "UIView+Delegate.h"
 #import "NSObject+CommonProtocol.h"

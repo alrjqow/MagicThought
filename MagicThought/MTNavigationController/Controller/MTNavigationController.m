@@ -24,6 +24,8 @@
 
 @property (nonatomic,assign) BOOL isShow;
 
+@property (nonatomic,assign) BOOL setupStatusBar;
+
 /*-----------------------------------全屏侧屏滑动-----------------------------------*/
 
 /*!用来保存系统自带侧滑返回代理 */
@@ -43,15 +45,15 @@
 -(void)viewWillDisappear:(BOOL)animated
 {
     [super viewWillDisappear:animated];
-    
-    [self addStatusBarToDefault:YES];
+        
+    [self addStatusBarToDefault:@(YES)];
 }
 
 -(void)viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:animated];
     
-    [self addStatusBarToDefault:false];
+    [self addStatusBarToDefault:@(false)];
 }
 
 -(void)viewDidLoad
@@ -72,11 +74,11 @@
     [self popViewControllerAnimated:YES];
 }
 
--(void)addStatusBarToDefault:(BOOL)isDefault
+-(void)addStatusBarToDefault:(NSNumber*)isDefault
 {
     if(!self.setupStatusBar)
         return;
-    if(isDefault)
+    if(isDefault.boolValue)
     {
         self.statusBar.y = 0;
         [self.statusBarSuperView addSubview:self.statusBar];

@@ -369,7 +369,7 @@
         _rootViewController = [[MTNavigationController alloc] initWithRootViewController: vc];
         _rootViewController.navigationBar.bottomLine.backgroundColor = [UIColor clearColor];
         _rootViewController.mt_delegate = self;
-        _rootViewController.setupStatusBar = YES;
+        [_rootViewController setValue:@(YES) forKey:@"setupStatusBar"];
     }
     
     return _rootViewController;

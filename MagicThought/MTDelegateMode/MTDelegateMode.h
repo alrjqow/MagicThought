@@ -12,6 +12,8 @@
 
 #import "NSObject+ReuseIdentifier.h"
 
+#import "UIView+Delegate.h"
+
 #import "MTDelegateView.h"
 
 #import "MTDelegateTableView.h"

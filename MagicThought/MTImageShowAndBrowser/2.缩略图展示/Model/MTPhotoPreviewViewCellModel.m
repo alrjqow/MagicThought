@@ -89,7 +89,7 @@
 {
     if(self.browserModel.rootViewController.navigationBar.tag != 0)
     {
-        [(MTNavigationController*)self.browserModel.rootViewController addStatusBarToDefault:false];
+        [self.browserModel.rootViewController performSelector:@selector(addStatusBarToDefault:) withObject:@(false)];
         [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleLightContent animated:false];
     }
     [UIView animateWithDuration:self.animateTime animations:^{
@@ -172,9 +172,8 @@
             }
             
             if(self.look.tag == 0 && self.browserModel.rootViewController.navigationBar.tag != 0)
-                [(MTNavigationController*)self.browserModel.rootViewController addStatusBarToDefault:YES];
-            
-            
+                [self.browserModel.rootViewController performSelector:@selector(addStatusBarToDefault:) withObject:@(YES)];
+                        
             if(self.look.tag == 0)
                 self.zoomView.layer.anchorPoint = anchorPoint;
             self.zoomView.layer.position = [pan locationInView:self.look];
