@@ -60,6 +60,13 @@
 {
     [super viewDidLoad];
     
+    [self setupDefault];
+}
+
+-(void)setupDefault
+{
+    [super setupDefault];
+    
     if(!self.navigationBar.ignoreTranslucentBarTintColor)
         self.navigationBar.ignoreTranslucentBarTintColor = [UIColor whiteColor];
     self.navigationBar.bottomLine.backgroundColor = [UIColor blackColor];
