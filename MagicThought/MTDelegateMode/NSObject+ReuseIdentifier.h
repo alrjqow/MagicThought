@@ -44,48 +44,48 @@ CG_EXTERN NSReuseObject* mt_reuse(id data);
 @end
 
 
-typedef NSObject* (^BandTagIdentifier) (NSString* tagIdentifier);
-typedef NSObject* (^BandReuseIdentifier) (NSString* reuseIdentifier);
-typedef NSObject* (^BandArrayReuseIdentifier) (NSString* reuseIdentifier);
-typedef NSObject* (^BandRowHeight) (CGFloat height);
-typedef NSObject* (^BandRowsHeight) (NSArray<NSNumber*>* heights);
-typedef NSArray* (^BandCount) (NSInteger count);
-typedef NSObject* (^BandItemSize) (CGSize itemSize);
-typedef NSObject* (^BandArrayItemSize) (CGSize itemSize);
-typedef NSObject* (^BandItemsSize) (NSArray<NSValue*>* itemSize);
-typedef NSObject* (^BandItemSpacing) (MTDelegateCollectionViewSpacing spacing);
-typedef NSObject* (^BandItemsSpacing) (NSArray<NSValue*>* spacing);
-typedef NSObject* (^Band3dTouch) (void);
-typedef NSObject* (^BandHeaderEmptyShow) (void);
+typedef NSObject* _Nonnull (^BandTagIdentifier) (NSString* tagIdentifier);
+typedef  NSObject* _Nonnull  (^BandReuseIdentifier) (NSString* reuseIdentifier);
+typedef NSObject* _Nonnull (^BandArrayReuseIdentifier) (NSString* reuseIdentifier);
+typedef NSObject* _Nonnull (^BandRowHeight) (CGFloat height);
+typedef NSObject* _Nonnull (^BandRowsHeight) (NSArray<NSNumber*>* heights);
+typedef NSArray* _Nonnull (^BandCount) (NSInteger count);
+typedef NSObject* _Nonnull (^BandItemSize) (CGSize itemSize);
+typedef NSObject* _Nonnull (^BandArrayItemSize) (CGSize itemSize);
+typedef NSObject* _Nonnull (^BandItemsSize) (NSArray<NSValue*>* itemSize);
+typedef NSObject* _Nonnull (^BandItemSpacing) (MTDelegateCollectionViewSpacing spacing);
+typedef NSObject* _Nonnull (^BandItemsSpacing) (NSArray<NSValue*>* spacing);
+typedef NSObject* _Nonnull (^Band3dTouch) (void);
+typedef NSObject* _Nonnull (^BandHeaderEmptyShow) (void);
 
 
 @interface NSObject (BandReuseIdentifier)
 
-@property (nonatomic,copy,readonly)  BandTagIdentifier bandTag;
+@property (nonatomic,copy,readonly) BandTagIdentifier bandTag;
 
-@property (nonatomic,copy,readonly)  BandCount bandCount;
+@property (nonatomic,copy,readonly) BandCount bandCount;
 
-@property (nonatomic,copy,readonly)  BandReuseIdentifier band;
+@property (nonatomic,copy,readonly) BandReuseIdentifier band;
 
-@property (nonatomic,copy,readonly)  BandArrayReuseIdentifier arrBand;
+@property (nonatomic,copy,readonly) BandArrayReuseIdentifier arrBand;
 
-@property (nonatomic,copy,readonly)  BandRowHeight bandHeight;
+@property (nonatomic,copy,readonly) BandRowHeight bandHeight;
 
-@property (nonatomic,copy,readonly)  BandRowsHeight bandRowsHeight;
+@property (nonatomic,copy,readonly) BandRowsHeight bandRowsHeight;
 
-@property (nonatomic,copy,readonly)  BandItemSize bandSize;
+@property (nonatomic,copy,readonly) BandItemSize bandSize;
 
-@property (nonatomic,copy,readonly)  BandArrayItemSize arrBandSize;
+@property (nonatomic,copy,readonly) BandArrayItemSize arrBandSize;
 
-@property (nonatomic,copy,readonly)  BandItemsSize bandItemsSize;
+@property (nonatomic,copy,readonly) BandItemsSize bandItemsSize;
 
-@property (nonatomic,copy,readonly)  BandItemSpacing bandSpacing;
+@property (nonatomic,copy,readonly) BandItemSpacing bandSpacing;
 
-@property (nonatomic,copy,readonly)  BandItemsSpacing bandItemsSpacing;
+@property (nonatomic,copy,readonly) BandItemsSpacing bandItemsSpacing;
     
-@property (nonatomic,copy,readonly)  Band3dTouch band3dTouch;
+@property (nonatomic,copy,readonly) Band3dTouch band3dTouch;
 
-@property (nonatomic,copy,readonly)  BandHeaderEmptyShow bandHeaderEmptyShow;
+@property (nonatomic,copy,readonly) BandHeaderEmptyShow bandHeaderEmptyShow;
 
 
 @end

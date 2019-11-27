@@ -7,6 +7,8 @@
 //
 
 
+#import "MTTenScrollController.h"
+
 #import "MTTenScrollModel.h"
 #import "MTTenScrollTitleViewModel.h"
 
