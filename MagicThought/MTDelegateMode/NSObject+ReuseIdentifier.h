@@ -25,6 +25,8 @@ CG_EXTERN MTDelegateCollectionViewSpacing mt_collectionViewSpacingMake(CGFloat m
 
 CG_EXTERN NSReuseObject* mt_reuse(id data);
 
+typedef BOOL (^MTClick)(NSString*);
+
 @interface NSObject (ReuseIdentifier)
 
 @property (nonatomic,strong) NSString* mt_tagIdentifier;
@@ -40,6 +42,8 @@ CG_EXTERN NSReuseObject* mt_reuse(id data);
 @property (nonatomic,assign) BOOL mt_open3dTouch;
 
 @property (nonatomic,assign) BOOL mt_headerEmptyShow;
+
+@property (nonatomic,copy) MTClick mt_click;
 
 @end
 
@@ -57,9 +61,12 @@ typedef NSObject* _Nonnull (^BandItemSpacing) (MTDelegateCollectionViewSpacing s
 typedef NSObject* _Nonnull (^BandItemsSpacing) (NSArray<NSValue*>* spacing);
 typedef NSObject* _Nonnull (^Band3dTouch) (void);
 typedef NSObject* _Nonnull (^BandHeaderEmptyShow) (void);
+typedef NSObject* _Nonnull (^BandClick) (MTClick _Nullable );
 
 
 @interface NSObject (BandReuseIdentifier)
+
+@property (nonatomic,copy,readonly) BandClick bandClick;
 
 @property (nonatomic,copy,readonly) BandTagIdentifier bandTag;
 

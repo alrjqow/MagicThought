@@ -191,3 +191,56 @@ static const void *mtHudStyleKey = @"mtHudStyleKey";
 }
 
 @end
+
+
+
+@implementation UIViewController (MBHud)
+
+/**显示成功*/
+-(void)showSuccess:(NSString*)msg
+{
+    [self.view showSuccess:msg];
+}
+
+/**显示错误*/
+-(void)showError:(NSString*)msg
+{
+    [self.view showError:msg];
+}
+
+/**显示提示*/
+-(void)showTips:(NSString*)msg
+{
+    [self.view showTips:msg];
+}
+
+/**显示toast*/
+-(void)showToast:(NSString*)msg
+{
+    [self.view showToast:msg];
+}
+
+/**显示圈圈*/
+-(void)showMsg:(NSString*)msg
+{
+    [self.view showMsg:msg];
+}
+
+/**隐藏提示*/
+-(void)dismissIndicator
+{
+    [self.view dismissIndicator];
+}
+
+#pragma mark - 懒加载
+-(void)setMt_hudStyle:(MBHudStyle)mt_hudStyle
+{
+    self.view.mt_hudStyle = mt_hudStyle;
+}
+
+-(MBHudStyle)mt_hudStyle
+{
+    return self.view.mt_hudStyle;
+}
+
+@end

@@ -39,3 +39,28 @@ typedef NS_ENUM(NSInteger,MBHudStyle){
 -(void)dismissIndicator;
 
 @end
+
+
+@interface UIViewController (MBHud)
+
+@property (nonatomic,assign) MBHudStyle mt_hudStyle;
+
+/**显示成功*/
+-(void)showSuccess:(NSString*)msg;
+
+/**显示错误*/
+-(void)showError:(NSString*)msg;
+
+/**显示提示*/
+-(void)showTips:(NSString*)msg;
+
+/**显示toast*/
+-(void)showToast:(NSString*)msg;
+
+/**显示圈圈*/
+-(void)showMsg:(NSString*)msg;
+
+/**隐藏提示*/
+-(void)dismissIndicator;
+
+@end

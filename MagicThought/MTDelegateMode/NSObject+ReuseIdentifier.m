@@ -18,6 +18,16 @@
 
 @implementation NSObject (ReuseIdentifier)
 
+-(void)setMt_click:(MTClick)mt_click
+{
+    objc_setAssociatedObject(self, @selector(mt_click), mt_click, OBJC_ASSOCIATION_COPY_NONATOMIC);
+}
+
+-(MTClick)mt_click
+{
+    return objc_getAssociatedObject(self, _cmd);
+}
+
 static const void *mtObjectTagIdentifierKey = @"mtObjectTagIdentifierKey";
 -(void)setMt_tagIdentifier:(NSString *)mt_tagIdentifier
 {
@@ -121,6 +131,28 @@ static const void *mtHeaderEmptyShowKey = @"mtHeaderEmptyShowKey";
 
 @implementation NSObject (BandReuseIdentifier)
 
+-(BandClick)bandClick
+{
+    __weak __typeof(self) weakSelf = self;
+    BandClick bandClick  = ^(MTClick click){
+        
+        if([weakSelf isKindOfClass:[NSArray class]])
+        {
+            NSArray* arr = (NSArray*)weakSelf;
+            for(NSObject* obj in arr)
+            {
+                if(!obj.mt_click)
+                    obj.mt_click = click;
+            }
+        }
+        
+        weakSelf.mt_click = click;
+        return weakSelf;
+    };
+    
+    return bandClick;
+}
+
 -(BandCount)bandCount
 {
     __weak __typeof(self) weakSelf = self;
@@ -128,8 +160,8 @@ static const void *mtHeaderEmptyShowKey = @"mtHeaderEmptyShowKey";
         
         NSMutableArray* arr = [NSMutableArray array];
         
-        for(NSInteger i = 0; i < count; i++)            
-        [arr addObject:mt_reuse(weakSelf)];
+        for(NSInteger i = 0; i < count; i++)
+            [arr addObject:mt_reuse(weakSelf)];
         
         return [arr copy];
     };
@@ -146,7 +178,7 @@ static const void *mtHeaderEmptyShowKey = @"mtHeaderEmptyShowKey";
         {
             NSArray* arr = (NSArray*)weakSelf;
             for(NSObject* obj in arr)
-            obj.mt_reuseIdentifier = reuseIdentifier;                        
+                obj.mt_reuseIdentifier = reuseIdentifier;
         }
         
         weakSelf.mt_reuseIdentifier = reuseIdentifier;
@@ -179,17 +211,17 @@ static const void *mtHeaderEmptyShowKey = @"mtHeaderEmptyShowKey";
 
 -(BandArrayReuseIdentifier)arrBand
 {
-__weak __typeof(self) weakSelf = self;
-BandArrayReuseIdentifier arrBand  = ^(NSString* reuseIdentifier){
-    
-    if(![weakSelf isKindOfClass:[NSArray class]])
+    __weak __typeof(self) weakSelf = self;
+    BandArrayReuseIdentifier arrBand  = ^(NSString* reuseIdentifier){
+        
+        if(![weakSelf isKindOfClass:[NSArray class]])
+            return weakSelf;
+        
+        weakSelf.mt_reuseIdentifier = reuseIdentifier;
         return weakSelf;
+    };
     
-    weakSelf.mt_reuseIdentifier = reuseIdentifier;
-    return weakSelf;
-};
-
-return arrBand;
+    return arrBand;
 }
 
 -(BandRowHeight)bandHeight
@@ -201,7 +233,7 @@ return arrBand;
         {
             NSArray* arr = (NSArray*)weakSelf;
             for(NSObject* obj in arr)
-            obj.mt_itemHeight = itemHeight;                        
+                obj.mt_itemHeight = itemHeight;
         }
         
         weakSelf.mt_itemHeight = itemHeight;
@@ -217,16 +249,16 @@ return arrBand;
     BandRowsHeight bandRowsHeight  = ^(NSArray<NSNumber*>* heights){
         
         if(![weakSelf isKindOfClass:[NSArray class]])
-        return weakSelf;
+            return weakSelf;
         
         NSArray* arr = (NSArray*)weakSelf;
         for(NSInteger i = 0; i < arr.count; i++)
         {
             if(i >= heights.count)
-            break;
+                break;
             
             if(![arr[i] isKindOfClass:[NSObject class]])
-            continue;
+                continue;
             
             NSObject* obj =arr[i];
             obj.mt_itemHeight = heights[i].floatValue;
@@ -247,7 +279,7 @@ return arrBand;
         {
             NSArray* arr = (NSArray*)weakSelf;
             for(NSObject* obj in arr)
-            obj.mt_itemSize = size;
+                obj.mt_itemSize = size;
             
             return weakSelf;
         }
@@ -261,17 +293,17 @@ return arrBand;
 
 -(BandArrayItemSize)arrBandSize
 {
-__weak __typeof(self) weakSelf = self;
-BandArrayItemSize bandSize  = ^(CGSize size){
-    
-    if(![weakSelf isKindOfClass:[NSArray class]])
+    __weak __typeof(self) weakSelf = self;
+    BandArrayItemSize bandSize  = ^(CGSize size){
+        
+        if(![weakSelf isKindOfClass:[NSArray class]])
+            return weakSelf;
+        
+        weakSelf.mt_itemSize = size;
         return weakSelf;
+    };
     
-    weakSelf.mt_itemSize = size;
-    return weakSelf;
-};
-
-return bandSize;
+    return bandSize;
 }
 
 -(BandItemsSize)bandItemsSize
@@ -280,16 +312,16 @@ return bandSize;
     BandItemsSize bandItemsSize  = ^(NSArray<NSValue*>* sizes){
         
         if(![weakSelf isKindOfClass:[NSArray class]])
-        return weakSelf;
+            return weakSelf;
         
         NSArray* arr = (NSArray*)weakSelf;
         for(NSInteger i = 0; i < arr.count; i++)
         {
             if(i >= sizes.count)
-            break;
+                break;
             
             if(![arr[i] isKindOfClass:[NSObject class]])
-            continue;
+                continue;
             
             NSObject* obj =arr[i];
             obj.mt_itemSize = sizes[i].CGSizeValue;
@@ -310,7 +342,7 @@ return bandSize;
         {
             NSArray* arr = (NSArray*)weakSelf;
             for(NSObject* obj in arr)
-            obj.mt_spacing = spacing;
+                obj.mt_spacing = spacing;
             
             return weakSelf;
         }
@@ -328,16 +360,16 @@ return bandSize;
     BandItemsSpacing bandItemsSpacing  = ^(NSArray<NSValue*>* itemSpacing){
         
         if(![weakSelf isKindOfClass:[NSArray class]])
-        return weakSelf;
+            return weakSelf;
         
         NSArray* arr = (NSArray*)weakSelf;
         for(NSInteger i = 0; i < arr.count; i++)
         {
             if(i >= itemSpacing.count)
-            break;
+                break;
             
             if(![arr[i] isKindOfClass:[NSObject class]])
-            continue;
+                continue;
             
             MTDelegateCollectionViewSpacing spacing = {0, 0, UIEdgeInsetsZero};
             [itemSpacing[i] getValue:&spacing];
@@ -354,42 +386,42 @@ return bandSize;
 
 - (Band3dTouch)band3dTouch
 {
-__weak __typeof(self) weakSelf = self;
-Band3dTouch band3dTouch  = ^(){
-    if([weakSelf isKindOfClass:[NSArray class]])
-    {
-        NSArray* arr = (NSArray*)weakSelf;
-        for(NSObject* obj in arr)
-        obj.mt_open3dTouch = YES;
+    __weak __typeof(self) weakSelf = self;
+    Band3dTouch band3dTouch  = ^(){
+        if([weakSelf isKindOfClass:[NSArray class]])
+        {
+            NSArray* arr = (NSArray*)weakSelf;
+            for(NSObject* obj in arr)
+                obj.mt_open3dTouch = YES;
+            
+            return weakSelf;
+        }
         
+        weakSelf.mt_open3dTouch = YES;
         return weakSelf;
-    }
+    };
     
-    weakSelf.mt_open3dTouch = YES;
-    return weakSelf;
-};
-
-return band3dTouch;
+    return band3dTouch;
 }
 
 -(BandHeaderEmptyShow)bandHeaderEmptyShow
 {
-__weak __typeof(self) weakSelf = self;
-BandHeaderEmptyShow bandHeaderEmptyShow  = ^(){
-    if([weakSelf isKindOfClass:[NSArray class]])
-    {
-        NSArray* arr = (NSArray*)weakSelf;
-        for(NSObject* obj in arr)
-            obj.mt_headerEmptyShow = YES;
+    __weak __typeof(self) weakSelf = self;
+    BandHeaderEmptyShow bandHeaderEmptyShow  = ^(){
+        if([weakSelf isKindOfClass:[NSArray class]])
+        {
+            NSArray* arr = (NSArray*)weakSelf;
+            for(NSObject* obj in arr)
+                obj.mt_headerEmptyShow = YES;
+            
+            return weakSelf;
+        }
         
+        weakSelf.mt_headerEmptyShow = YES;
         return weakSelf;
-    }
+    };
     
-    weakSelf.mt_headerEmptyShow = YES;
-    return weakSelf;
-};
-
-return bandHeaderEmptyShow;
+    return bandHeaderEmptyShow;
 }
 
 @end
@@ -417,7 +449,7 @@ return bandHeaderEmptyShow;
         keyName = [keyName stringByReplacingOccurrencesOfString:@"_" withString:@""];
         NSLog(@"%@",keyName);
         if ([keyName isEqualToString:propertyName])
-        return YES;
+            return YES;
     }
     return NO;
 }
@@ -428,17 +460,17 @@ return bandHeaderEmptyShow;
 
 MTDelegateCollectionViewSpacing mt_collectionViewSpacingMake(CGFloat minLineSpacing, CGFloat minItemSpacing,UIEdgeInsets sectionInset)
 {
-MTDelegateCollectionViewSpacing spacing = {minLineSpacing, minItemSpacing, sectionInset};
-return spacing;
+    MTDelegateCollectionViewSpacing spacing = {minLineSpacing, minItemSpacing, sectionInset};
+    return spacing;
 }
 
 
 NSReuseObject* mt_reuse(id data)
 {
-NSReuseObject* obj = [NSReuseObject new];
-obj.data = data;
-
-return obj;
+    NSReuseObject* obj = [NSReuseObject new];
+    obj.data = data;
+    
+    return obj;
 }
 
 
