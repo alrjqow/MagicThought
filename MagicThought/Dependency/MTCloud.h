@@ -30,7 +30,6 @@
 
 @property (nonatomic,strong) NSObject<MTBaseDataModelProtocol>* apiManager;
 
-
 @property (nonatomic,weak) UIViewController* currentViewController;
 
 @end

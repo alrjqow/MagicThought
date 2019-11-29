@@ -273,8 +273,6 @@
 		789F40AB22DC2B1B00586487 /* MTBorderStyle.m in Sources */ = {isa = PBXBuildFile; fileRef = 789F3F0022DC2B1A00586487 /* MTBorderStyle.m */; };
 		789F40AC22DC2B1B00586487 /* MTWordStyle.h in Headers */ = {isa = PBXBuildFile; fileRef = 789F3F0122DC2B1A00586487 /* MTWordStyle.h */; };
 		789F40AD22DC2B1B00586487 /* MTProtocol.h in Headers */ = {isa = PBXBuildFile; fileRef = 789F3F0322DC2B1A00586487 /* MTProtocol.h */; };
-		789F40AE22DC2B1B00586487 /* MTRequestProtocol.h in Headers */ = {isa = PBXBuildFile; fileRef = 789F3F0422DC2B1A00586487 /* MTRequestProtocol.h */; };
-		789F40B022DC2B1B00586487 /* MTStyleProtocol.h in Headers */ = {isa = PBXBuildFile; fileRef = 789F3F0622DC2B1A00586487 /* MTStyleProtocol.h */; };
 		789F40B122DC2B1B00586487 /* MTInitProtocol.h in Headers */ = {isa = PBXBuildFile; fileRef = 789F3F0722DC2B1A00586487 /* MTInitProtocol.h */; };
 		789F40B222DC2B1B00586487 /* MTDelegateProtocol.h in Headers */ = {isa = PBXBuildFile; fileRef = 789F3F0822DC2B1A00586487 /* MTDelegateProtocol.h */; };
 		789F40B322DC2B1B00586487 /* MTCollectionBaseCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 789F3F0A22DC2B1A00586487 /* MTCollectionBaseCell.m */; };
@@ -425,6 +423,12 @@
 		78C6892C224E207D008E3B56 /* libYTKNetwork.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 78C6892B224E207D008E3B56 /* libYTKNetwork.a */; };
 		78CCE00D2387831A00714145 /* MTCollectionViewScaleLayout2.h in Headers */ = {isa = PBXBuildFile; fileRef = 78CCE00B2387831A00714145 /* MTCollectionViewScaleLayout2.h */; };
 		78CCE00E2387831A00714145 /* MTCollectionViewScaleLayout2.m in Sources */ = {isa = PBXBuildFile; fileRef = 78CCE00C2387831A00714145 /* MTCollectionViewScaleLayout2.m */; };
+		78DFF1932390C967005C7804 /* MTAppDelegate.h in Headers */ = {isa = PBXBuildFile; fileRef = 78DFF1912390C966005C7804 /* MTAppDelegate.h */; };
+		78DFF1942390C967005C7804 /* MTAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 78DFF1922390C966005C7804 /* MTAppDelegate.m */; };
+		78DFF1982390FBB0005C7804 /* MTTabBarController.h in Headers */ = {isa = PBXBuildFile; fileRef = 78DFF1962390FBB0005C7804 /* MTTabBarController.h */; };
+		78DFF1992390FBB0005C7804 /* MTTabBarController.m in Sources */ = {isa = PBXBuildFile; fileRef = 78DFF1972390FBB0005C7804 /* MTTabBarController.m */; };
+		78DFF19C2390FDBD005C7804 /* MTTabBarItem.h in Headers */ = {isa = PBXBuildFile; fileRef = 78DFF19A2390FDBD005C7804 /* MTTabBarItem.h */; };
+		78DFF19D2390FDBD005C7804 /* MTTabBarItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 78DFF19B2390FDBD005C7804 /* MTTabBarItem.m */; };
 		90CB7E82B9151C585717AECE /* libPods-MagicThought.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 3E6954489A214AEC6611949C /* libPods-MagicThought.a */; };
 /* End PBXBuildFile section */
 
@@ -726,8 +730,6 @@
 		789F3F0022DC2B1A00586487 /* MTBorderStyle.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MTBorderStyle.m; sourceTree = "<group>"; };
 		789F3F0122DC2B1A00586487 /* MTWordStyle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MTWordStyle.h; sourceTree = "<group>"; };
 		789F3F0322DC2B1A00586487 /* MTProtocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MTProtocol.h; sourceTree = "<group>"; };
-		789F3F0422DC2B1A00586487 /* MTRequestProtocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MTRequestProtocol.h; sourceTree = "<group>"; };
-		789F3F0622DC2B1A00586487 /* MTStyleProtocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MTStyleProtocol.h; sourceTree = "<group>"; };
 		789F3F0722DC2B1A00586487 /* MTInitProtocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MTInitProtocol.h; sourceTree = "<group>"; };
 		789F3F0822DC2B1A00586487 /* MTDelegateProtocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MTDelegateProtocol.h; sourceTree = "<group>"; };
 		789F3F0A22DC2B1A00586487 /* MTCollectionBaseCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MTCollectionBaseCell.m; sourceTree = "<group>"; };
@@ -879,6 +881,12 @@
 		78C6892B224E207D008E3B56 /* libYTKNetwork.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; path = libYTKNetwork.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		78CCE00B2387831A00714145 /* MTCollectionViewScaleLayout2.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MTCollectionViewScaleLayout2.h; sourceTree = "<group>"; };
 		78CCE00C2387831A00714145 /* MTCollectionViewScaleLayout2.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MTCollectionViewScaleLayout2.m; sourceTree = "<group>"; };
+		78DFF1912390C966005C7804 /* MTAppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MTAppDelegate.h; sourceTree = "<group>"; };
+		78DFF1922390C966005C7804 /* MTAppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MTAppDelegate.m; sourceTree = "<group>"; };
+		78DFF1962390FBB0005C7804 /* MTTabBarController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MTTabBarController.h; sourceTree = "<group>"; };
+		78DFF1972390FBB0005C7804 /* MTTabBarController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MTTabBarController.m; sourceTree = "<group>"; };
+		78DFF19A2390FDBD005C7804 /* MTTabBarItem.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MTTabBarItem.h; sourceTree = "<group>"; };
+		78DFF19B2390FDBD005C7804 /* MTTabBarItem.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MTTabBarItem.m; sourceTree = "<group>"; };
 		78F3327C2239051C00DA02F6 /* MagicThought.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = MagicThought.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		78F332802239051C00DA02F6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -911,6 +919,12 @@
 				781B0F6822EFFCEB00B56434 /* Dependency.h */,
 				789F3EBD22DC2B1A00586487 /* Reachability.h */,
 				789F3EBB22DC2B1A00586487 /* Reachability.m */,
+				789F3F2B22DC2B1A00586487 /* MTManager.h */,
+				789F3F3322DC2B1A00586487 /* MTManager.m */,
+				789F3F2A22DC2B1A00586487 /* MTCloud.h */,
+				789F3F3022DC2B1A00586487 /* MTCloud.m */,
+				789F3F3222DC2B1A00586487 /* MTTimer.h */,
+				789F3F2C22DC2B1A00586487 /* MTTimer.m */,
 				789F3E7A22DC2B1A00586487 /* MTConst.h */,
 				789F3E7522DC2B1A00586487 /* MTConst.m */,
 				789F3F0122DC2B1A00586487 /* MTWordStyle.h */,
@@ -925,14 +939,12 @@
 				789F3E3A22DC2B1A00586487 /* UIView+Frame.m */,
 				789F3E4122DC2B1A00586487 /* UIView+Circle.h */,
 				789F3E4522DC2B1A00586487 /* UIView+Circle.m */,
-				789F3F2B22DC2B1A00586487 /* MTManager.h */,
-				789F3F3322DC2B1A00586487 /* MTManager.m */,
-				789F3F2A22DC2B1A00586487 /* MTCloud.h */,
-				789F3F3022DC2B1A00586487 /* MTCloud.m */,
-				789F3F3222DC2B1A00586487 /* MTTimer.h */,
-				789F3F2C22DC2B1A00586487 /* MTTimer.m */,
 				789F3E4F22DC2B1A00586487 /* UINavigationBar+Config.h */,
 				789F3E4E22DC2B1A00586487 /* UINavigationBar+Config.m */,
+				789F3F4222DC2B1A00586487 /* NSObject+ReuseIdentifier.h */,
+				789F3F4D22DC2B1A00586487 /* NSObject+ReuseIdentifier.m */,
+				789F3E7322DC2B1A00586487 /* NSObject+CommonProtocol.h */,
+				789F3E7122DC2B1A00586487 /* NSObject+CommonProtocol.m */,
 			);
 			path = Dependency;
 			sourceTree = "<group>";
@@ -1510,12 +1522,8 @@
 			isa = PBXGroup;
 			children = (
 				789F3F0322DC2B1A00586487 /* MTProtocol.h */,
-				789F3F0422DC2B1A00586487 /* MTRequestProtocol.h */,
-				789F3F0622DC2B1A00586487 /* MTStyleProtocol.h */,
 				789F3F0722DC2B1A00586487 /* MTInitProtocol.h */,
 				789F3F0822DC2B1A00586487 /* MTDelegateProtocol.h */,
-				789F3E7322DC2B1A00586487 /* NSObject+CommonProtocol.h */,
-				789F3E7122DC2B1A00586487 /* NSObject+CommonProtocol.m */,
 			);
 			path = MTProtocol;
 			sourceTree = "<group>";
@@ -1616,8 +1624,6 @@
 				789F3F7F22DC2B1A00586487 /* MTDragCollectionView.m */,
 				789F3F8022DC2B1A00586487 /* MTDragCollectionViewCell.h */,
 				789F3F8222DC2B1A00586487 /* MTDragCollectionViewCell.m */,
-				789F3F4222DC2B1A00586487 /* NSObject+ReuseIdentifier.h */,
-				789F3F4D22DC2B1A00586487 /* NSObject+ReuseIdentifier.m */,
 				789F3F4122DC2B1A00586487 /* UIView+Delegate.h */,
 				789F3F4E22DC2B1A00586487 /* UIView+Delegate.m */,
 			);
@@ -1859,6 +1865,26 @@
 			path = MTRefresh;
 			sourceTree = "<group>";
 		};
+		78DFF1902390C966005C7804 /* MTAppDelegate */ = {
+			isa = PBXGroup;
+			children = (
+				78DFF1912390C966005C7804 /* MTAppDelegate.h */,
+				78DFF1922390C966005C7804 /* MTAppDelegate.m */,
+			);
+			path = MTAppDelegate;
+			sourceTree = "<group>";
+		};
+		78DFF1952390FB4E005C7804 /* MTTabBarController */ = {
+			isa = PBXGroup;
+			children = (
+				78DFF1962390FBB0005C7804 /* MTTabBarController.h */,
+				78DFF1972390FBB0005C7804 /* MTTabBarController.m */,
+				78DFF19A2390FDBD005C7804 /* MTTabBarItem.h */,
+				78DFF19B2390FDBD005C7804 /* MTTabBarItem.m */,
+			);
+			path = MTTabBarController;
+			sourceTree = "<group>";
+		};
 		78F332722239051C00DA02F6 = {
 			isa = PBXGroup;
 			children = (
@@ -1882,14 +1908,16 @@
 			children = (
 				789F3E2622DC2B1A00586487 /* MTKit.h */,
 				789F3F1822DC2B1A00586487 /* README.md */,
+				78DFF1952390FB4E005C7804 /* MTTabBarController */,
+				789F3E2322DC2B1A00586487 /* MTNavigationController */,
 				789F3DF422DC2B1A00586487 /* MTListController */,
+				789F3E0A22DC2B1A00586487 /* MTViewController */,
+				78DFF1902390C966005C7804 /* MTAppDelegate */,
 				789F3F4F22DC2B1A00586487 /* MTTenScroll */,
 				781B0F6922F026EB00B56434 /* MTChart */,
 				789F3F8822DC2B1A00586487 /* MTImageShowAndBrowser */,
 				789F3E9422DC2B1A00586487 /* MTAlert2 */,
-				789F3E2322DC2B1A00586487 /* MTNavigationController */,
 				789F3F7822DC2B1A00586487 /* MTCustomCamera */,
-				789F3E0A22DC2B1A00586487 /* MTViewController */,
 				789F3F0922DC2B1A00586487 /* MTBaseCell */,
 				789F3EDA22DC2B1A00586487 /* Library */,
 				789F3F2722DC2B1A00586487 /* MTManager */,
@@ -1970,6 +1998,7 @@
 				789F408922DC2B1B00586487 /* TZPhotoPickerController.h in Headers */,
 				789F400B22DC2B1A00586487 /* UIView+Copy.h in Headers */,
 				789F402022DC2B1A00586487 /* NSString+WordHeight.h in Headers */,
+				78DFF19C2390FDBD005C7804 /* MTTabBarItem.h in Headers */,
 				789F40FB22DC2B1B00586487 /* MTTenScrollTitleView.h in Headers */,
 				789F406C22DC2B1B00586487 /* MTBaseDataModel.h in Headers */,
 				789F404022DC2B1A00586487 /* MTWindow.h in Headers */,
@@ -2036,7 +2065,6 @@
 				789F40D122DC2B1B00586487 /* MTManager.h in Headers */,
 				789F40F722DC2B1B00586487 /* MTTenScrollTitleViewModel.h in Headers */,
 				789F3FD022DC2B1A00586487 /* MTListController.h in Headers */,
-				789F40B022DC2B1B00586487 /* MTStyleProtocol.h in Headers */,
 				789F3FE522DC2B1A00586487 /* MTPickerViewController.h in Headers */,
 				789F403722DC2B1A00586487 /* MTConst.h in Headers */,
 				7820501822EEEBFD0004C96C /* MTInteractiveGestureTransitioningProtocol.h in Headers */,
@@ -2070,6 +2098,7 @@
 				789F3FBB22DC2B1A00586487 /* UIImage+Size.h in Headers */,
 				781B0F8022F0270200B56434 /* MTXAxisView.h in Headers */,
 				789F40A022DC2B1B00586487 /* UIView+Layout.h in Headers */,
+				78DFF1932390C967005C7804 /* MTAppDelegate.h in Headers */,
 				789F40DE22DC2B1B00586487 /* MTDelegateCollectionReusableView.h in Headers */,
 				789F3FA922DC2B1A00586487 /* MTSlideHeader.h in Headers */,
 				78656A50238299A400685B79 /* MTTenScrollViewDelegateModel.h in Headers */,
@@ -2116,6 +2145,7 @@
 				789F406022DC2B1B00586487 /* MTAlertWordItem.h in Headers */,
 				789F401C22DC2B1A00586487 /* NSString+Encode.h in Headers */,
 				789F404822DC2B1B00586487 /* MTRefreshRing.h in Headers */,
+				78DFF1982390FBB0005C7804 /* MTTabBarController.h in Headers */,
 				781B0F7C22F0270200B56434 /* MTLineChartView.h in Headers */,
 				789F40E222DC2B1B00586487 /* MTDataSource.h in Headers */,
 				789F411022DC2B1B00586487 /* NSDictionary+File.h in Headers */,
@@ -2153,7 +2183,6 @@
 				789F3FF722DC2B1A00586487 /* UIButton+HighLight.h in Headers */,
 				789F401722DC2B1A00586487 /* NSString+Money.h in Headers */,
 				789F413022DC2B1B00586487 /* MTPhotoPreviewViewModel.h in Headers */,
-				789F40AE22DC2B1B00586487 /* MTRequestProtocol.h in Headers */,
 				789F410E22DC2B1B00586487 /* NSData+File.h in Headers */,
 				789F400622DC2B1A00586487 /* UIView+Circle.h in Headers */,
 				789F40D422DC2B1B00586487 /* MTLocationManager.h in Headers */,
@@ -2289,6 +2318,7 @@
 				789F40DA22DC2B1B00586487 /* MTLocationManager.m in Sources */,
 				789F402522DC2B1A00586487 /* NSString+Replace.m in Sources */,
 				789F3FB222DC2B1A00586487 /* MTLockNode.m in Sources */,
+				78DFF1992390FBB0005C7804 /* MTTabBarController.m in Sources */,
 				789F413522DC2B1B00586487 /* MTPhotoPreviewViewCell.m in Sources */,
 				789F405C22DC2B1B00586487 /* MTBaseAlertCollectionController.m in Sources */,
 				789F3FB722DC2B1A00586487 /* UIImage+Save.m in Sources */,
@@ -2352,6 +2382,7 @@
 				781B0F7622F0270200B56434 /* MTLineChartContentView.m in Sources */,
 				789F3FFE22DC2B1A00586487 /* UIView+ViewController.m in Sources */,
 				789F412822DC2B1B00586487 /* MTPhotoBrowserController.m in Sources */,
+				78DFF1942390C967005C7804 /* MTAppDelegate.m in Sources */,
 				789F404222DC2B1B00586487 /* MTAlertViewConfig.m in Sources */,
 				789F40EA22DC2B1B00586487 /* MTDelegateCollectionReusableView.m in Sources */,
 				789F401022DC2B1A00586487 /* UINavigationBar+Config.m in Sources */,
@@ -2370,6 +2401,7 @@
 				789F40A622DC2B1B00586487 /* MTWordStyle.m in Sources */,
 				789F3FD122DC2B1A00586487 /* MTHeaderRefreshListController.m in Sources */,
 				789F408622DC2B1B00586487 /* MTLabel.m in Sources */,
+				78DFF19D2390FDBD005C7804 /* MTTabBarItem.m in Sources */,
 				789F3FA622DC2B1A00586487 /* MTSlideView.m in Sources */,
 				789F405A22DC2B1B00586487 /* MTAlertSheetController.m in Sources */,
 				789F401422DC2B1A00586487 /* NSString+Base64.m in Sources */,

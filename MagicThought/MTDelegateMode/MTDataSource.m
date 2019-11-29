@@ -401,7 +401,11 @@
     if(self.isEmpty && self.emptyData)
         return;
     
-    if([self.delegate respondsToSelector:@selector(tableView:didSelectRowAtIndexPath:)])
+    NSObject* data = [self getDataForIndexPath:indexPath];
+         
+    if(data.mt_click)
+        data.mt_click(@"");
+    else if([self.delegate respondsToSelector:@selector(tableView:didSelectRowAtIndexPath:)])
         [self.delegate tableView:tableView didSelectRowAtIndexPath:indexPath];
 }
 
@@ -612,7 +616,11 @@
     if(self.isEmpty && self.emptyData)
         return;
     
-    if([self.delegate respondsToSelector:@selector(collectionView:didSelectItemAtIndexPath:)])
+    NSObject* data = [self getDataForIndexPath:indexPath];
+         
+    if(data.mt_click)
+        data.mt_click(@"");
+    else if([self.delegate respondsToSelector:@selector(collectionView:didSelectItemAtIndexPath:)])
         [self.delegate collectionView:collectionView didSelectItemAtIndexPath:indexPath];
 }
 

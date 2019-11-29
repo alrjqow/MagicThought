@@ -9,4 +9,3 @@
 
 #import "MTDelegateProtocol.h"
 #import "MTInitProtocol.h"
-#import "NSObject+CommonProtocol.h"

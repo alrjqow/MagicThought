@@ -6,7 +6,6 @@
 //  Copyright © 2019 monda. All rights reserved.
 //
 
-#import <UIKit/UIKit.h>
 #import "NSObject+CommonProtocol.h"
 
 @interface UIView (Delegate) <MTExchangeDataProtocol>

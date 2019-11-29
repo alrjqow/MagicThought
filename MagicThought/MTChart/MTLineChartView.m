@@ -8,11 +8,11 @@
 //
 
 #import "MTLineChartView.h"
-#import "SVProgressHUD.h"
 #import "MTXAxisView.h"
 #import "MTYAxisView.h"
 #import "MTLineChartContentView.h"
 #import "MTVernierView.h"
+#import "MTHud.h"
 
 @interface MTLineChartView ()<UIScrollViewDelegate>
 
@@ -362,27 +362,23 @@
             offsetY = 0;
         
         self.scrollView.contentOffset = CGPointMake(offsetX, offsetY);
-        //        NSLog(@"%lf",offsetY);
         
         if(!self.config.hideScaleLimitTips)
         {
             if (recognizer.scale > 1 && self.config.xAxisMargin == self.config.xAxisDefaultMargin && self.config.yAxisMargin == self.config.yAxisDefaultMargin) {
                 
-                [SVProgressHUD showImage:nil status:@"已经放至最大"];
+                [[UIApplication sharedApplication].keyWindow showToast:@"已经放至最大"];
             }
             
             if(recognizer.scale < 1 && self.yAxisView.frame.size.height == self.config.yAxisScrollView.frame.size.height && self.xAxisView.frame.size.width == self.config.xAxisScrollView.frame.size.width){
                 
-                [SVProgressHUD showImage:nil status:@"已经缩至最小"];
+                [[UIApplication sharedApplication].keyWindow showToast:@"已经缩至最小"];
             }
         }
         
         recognizer.scale = 1.0;
     }
     
-    //    NSLog(@"x:%lf=======%lf", self.xAxisView.frame.size.width, self.scrollView.frame.size.width);
-    //    NSLog(@"y:%lf=======%lf", self.config.numberOfYAxisElements * self.config.yAxisMargin + self.config.yAxisLastSpace + 0.5 * self.config.axisLabelFontSize, self.scrollView.frame.size.height);
-    //    NSLog(@"11111");
     self.scrollView.contentSize = CGSizeMake(self.xAxisView.frame.size.width, self.yAxisView.frame.size.height - self.config.xAxisMarkWidth - self.config.xAxisMarkAndLabelMargin - self.config.axisLabelFontSize);
     self.config.xAxisScrollView.contentSize = CGSizeMake(self.xAxisView.frame.size.width, self.config.xAxisScrollView.contentSize.height);
     self.config.yAxisScrollView.contentSize = CGSizeMake(self.config.yAxisScrollView.contentSize.width, self.yAxisView.frame.size.height);

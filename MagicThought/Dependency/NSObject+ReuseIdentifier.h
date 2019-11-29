@@ -61,7 +61,7 @@ typedef NSObject* _Nonnull (^BandItemSpacing) (MTDelegateCollectionViewSpacing s
 typedef NSObject* _Nonnull (^BandItemsSpacing) (NSArray<NSValue*>* spacing);
 typedef NSObject* _Nonnull (^Band3dTouch) (void);
 typedef NSObject* _Nonnull (^BandHeaderEmptyShow) (void);
-typedef NSObject* _Nonnull (^BandClick) (MTClick _Nullable );
+typedef NSObject* _Nonnull (^BandClick) (MTClick _Nullable);
 
 
 @interface NSObject (BandReuseIdentifier)

@@ -6,7 +6,7 @@
 //  Copyright © 2019 monda. All rights reserved.
 //
 
-#import <Foundation/Foundation.h>
+#import <UIKit/UIKit.h>
 #import "MTDelegateProtocol.h"
 #import "MTInitProtocol.h"
 

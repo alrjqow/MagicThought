@@ -13,12 +13,14 @@
 #import "Category.h"
 #import "Library.h"
 
+#import "MTAppDelegate.h"
 #import "MTManagers.h"
 #import "MTStyle.h"
 #import "MTProtocol.h"
 #import "MTDelegateMode.h"
 #import "MTNetwork.h"
 
+#import "MTTabBarController.h"
 #import "MTNavigationControllers.h"
 #import "MTListControllers.h"
 #import "MTViewControllers.h"
