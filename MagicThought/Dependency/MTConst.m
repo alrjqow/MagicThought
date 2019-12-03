@@ -246,37 +246,81 @@ CGFloat mt_iOSVersion()
 
 /**产品型号*/
 NSString *const Device_Simulator = @"Simulator";
-NSString *const Device_iPod1 = @"iPod1";
-NSString *const Device_iPod2 = @"iPod2";
-NSString *const Device_iPod3 = @"iPod3";
-NSString *const Device_iPod4 = @"iPod4";
-NSString *const Device_iPod5 = @"iPod5";
-NSString *const Device_iPad2 = @"iPad2";
-NSString *const Device_iPad3 = @"iPad3";
-NSString *const Device_iPad4 = @"iPad4";
+
+NSString *const Device_AirPods1 = @"AirPods (1st generation)";
+NSString *const Device_AirPods2 = @"AirPods (2nd generation)";
+NSString *const Device_AirPodsPro1 = @"AirPods Pro";
+
+NSString *const Device_AppleTV2 = @"Apple TV (2nd generation)";
+NSString *const Device_AppleTV3 = @"Apple TV (3rd generation)";
+NSString *const Device_AppleTV4 = @"Apple TV (4th generation)";
+NSString *const Device_AppleTV4K = @"Apple TV 4K";
+
+NSString *const Device_AppleWatch1 = @"Apple Watch (1st generation)";
+NSString *const Device_AppleWatchSeries1 = @"Apple Watch Series 1";
+NSString *const Device_AppleWatchSeries2 = @"Apple Watch Series 2";
+NSString *const Device_AppleWatchSeries3 = @"Apple Watch Series 3";
+NSString *const Device_AppleWatchSeries4 = @"Apple Watch Series 4";
+
+NSString *const Device_HomePod1 = @"HomePod";
+
+NSString *const Device_iPodTouch1 = @"iPod touch";
+NSString *const Device_iPodTouch2 = @"iPod touch (2nd generation)";
+NSString *const Device_iPodTouch3 = @"iPod touch (3rd generation)";
+NSString *const Device_iPodTouch4 = @"iPod touch (4th generation)";
+NSString *const Device_iPodTouch5 = @"iPod touch (5th generation)";
+NSString *const Device_iPodTouch6 = @"iPod touch (6th generation)";
+NSString *const Device_iPodTouch7 = @"iPod touch (7th generation)";
+
+NSString *const Device_iPad1 = @"iPad";
+NSString *const Device_iPad2 = @"iPad 2";
+NSString *const Device_iPad3 = @"iPad (3rd generation)";
+NSString *const Device_iPad4 = @"iPad (4th generation)";
+NSString *const Device_iPad5 = @"iPad (5th generation)";
+NSString *const Device_iPad6 = @"iPad (6th generation)";
+NSString *const Device_iPad7 = @"iPad (7th generation)";
+NSString *const Device_iPadAir1 = @"iPad Air";
+NSString *const Device_iPadAir2 = @"iPad Air 2";
+NSString *const Device_iPadAir3 = @"iPad Air (3rd generation)";
+NSString *const Device_iPadPro1 = @"iPad Pro (9.7-inch)";
+NSString *const Device_iPadProMax1 = @"iPad Pro (12.9-inch)";
+NSString *const Device_iPadPro2 = @"iPad Pro (10.5-inch)";;
+NSString *const Device_iPadProMax2 = @"iPad Pro (12.9-inch) (2nd generation)";
+NSString *const Device_iPadPro3 = @"iPad Pro (11-inch)";
+NSString *const Device_iPadProMax3 = @"iPad Pro (12.9-inch) (3rd generation)";
+NSString *const Device_iPadMini1 = @"iPad mini";
+NSString *const Device_iPadMini2 = @"iPad mini 2";
+NSString *const Device_iPadMini3 = @"iPad mini 3";
+NSString *const Device_iPadMini4 = @"iPad mini 4";
+NSString *const Device_iPadMini5 = @"iPad mini (5th generation)";
+
+NSString *const Device_iPhone1 = @"iPhone";
+NSString *const Device_iPhone3G = @"iPhone 3G";
+NSString *const Device_iPhone3GS = @"iPhone 3GS";
 NSString *const Device_iPhone4 = @"iPhone 4";
 NSString *const Device_iPhone4S = @"iPhone 4S";
 NSString *const Device_iPhone5 = @"iPhone 5";
 NSString *const Device_iPhone5S = @"iPhone 5S";
 NSString *const Device_iPhone5C = @"iPhone 5C";
-NSString *const Device_iPadMini1 = @"iPad Mini 1";
-NSString *const Device_iPadMini2 = @"iPad Mini 2";
-NSString *const Device_iPadMini3 = @"iPad Mini 3";
-NSString *const Device_iPadAir1 = @"iPad Air 1";
-NSString *const Device_iPadAir2 = @"iPad Mini 3";
 NSString *const Device_iPhone6 = @"iPhone 6";
-NSString *const Device_iPhone6plus = @"iPhone 6 Plus";
+NSString *const Device_iPhone6Plus = @"iPhone 6 Plus";
 NSString *const Device_iPhone6S = @"iPhone 6S";
-NSString *const Device_iPhone6Splus = @"iPhone 6S Plus";
+NSString *const Device_iPhone6SPlus = @"iPhone 6S Plus";
 NSString *const Device_iPhoneSE = @"iPhone SE";
 NSString *const Device_iPhone7 = @"iPhone 7";
 NSString *const Device_iPhone7Plus = @"iPhone 7 Plus";
-NSString *const Device_iPhone8 = @"Device_iPhone8";
-NSString *const Device_iPhone8Plus = @"Device_iPhone8Plus";
-NSString *const Device_iPhoneX = @"Device_iPhoneX";
-NSString *const Device_iPhoneXS = @"Device_iPhoneXS";
-NSString *const Device_iPhoneXR = @"Device_iPhoneXR";
-NSString *const Device_iPhoneXSMax = @"Device_iPhoneXS Max";
+NSString *const Device_iPhone8 = @"iPhone 8";
+NSString *const Device_iPhone8Plus = @"iPhone 8 Plus";
+NSString *const Device_iPhoneX = @"iPhone X";
+NSString *const Device_iPhoneXS = @"iPhone XS";
+NSString *const Device_iPhoneXR = @"iPhone XR";
+NSString *const Device_iPhoneXSMax = @"iPhone XS Max";
+NSString *const Device_iPhone11 = @"iPhone 11";
+NSString *const Device_iPhone11Pro = @"iPhone 11 Pro";
+NSString *const Device_iPhone11ProMax = @"iPhone 11 Pro Max";
+
+
+
 
 NSString *const IPhoneScreen_3P5 = @"IPhoneScreen_3P5";
 NSString *const IPhoneScreen_4P0 = @"IPhoneScreen_4P0";

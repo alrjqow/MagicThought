@@ -38,7 +38,12 @@
 
 -(void)setupChildController
 {
-    NSArray<MTTabBarItem*>* arr = [MTTabBarItem mj_objectArrayWithKeyValuesArray:self.tabBarItemArr];
+    NSArray<NSObject*>* tabBarItemArr = self.tabBarItemArr;
+    NSArray<MTTabBarItem*>* arr = [MTTabBarItem mj_objectArrayWithKeyValuesArray:tabBarItemArr];
+    
+    for (NSInteger i = 0; i < arr.count; i++) {
+        arr[i].mt_reuseIdentifier = tabBarItemArr[i].mt_reuseIdentifier;
+    }    
     
     id obj;
     Class c, c1;

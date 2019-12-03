@@ -14,13 +14,19 @@
 
 @property (nonatomic, readonly, strong) UIViewController* rootViewController;
 
+/**mainBundle中css文件名*/
+@property (nonatomic,strong) NSString* cssFileName;
+/**css文件路径，优先级大于 cssFileName*/
+@property (nonatomic,strong) NSString* cssFilePath;
+
 /**重写 rootViewController, 改变 windowNum 值实现窗口切换*/
 @property (nonatomic,assign) NSInteger windowNum;
 
-//设置第三方库信息
+
+/**设置第三方库信息*/
 - (void)configThirdPartyLibrary;
 
-  //配置网路请求
+/**配置网路请求*/
 - (void)configNetwork;
 
 /**去登录*/

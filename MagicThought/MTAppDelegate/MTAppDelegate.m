@@ -29,6 +29,9 @@
     //配置网路请求
     [self configNetwork];
     
+    //设置样式
+    [self configViewStyle];
+    
     [self setupDefault];
     
     self.windowNum = 0;
@@ -39,8 +42,29 @@
 //设置第三方库信息
 - (void)configThirdPartyLibrary{}
 
-  //配置网路请求
+//配置网路请求
 - (void)configNetwork{}
+
+//设置样式
+-(void)configViewStyle;
+{
+#if TARGET_IPHONE_SIMULATOR
+    NSString *rootPath = [[NSBundle mainBundle] objectForInfoDictionaryKey:@"projectPath"];
+    //本地绝对路径
+    NSString *cssPath = [NSString stringWithFormat:@"%@/%@.css", rootPath, rootPath.lastPathComponent];    
+    [VKCssHotReloader hotReloaderListenCssPath:cssPath];
+    [VKCssHotReloader startHotReloader];
+#else
+    if([self.cssFilePath isExist])
+    {
+        @loadPathCss(self.cssFilePath);
+    }
+    else if([self.cssFileName isExist])
+    {
+        @loadBundleCss(self.cssFileName);
+    }        
+#endif
+}
 
 /**去登录*/
 -(void)goToLogin{}

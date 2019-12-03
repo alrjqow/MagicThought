@@ -137,28 +137,66 @@ MT_EXTERN NSMutableString* mt_appleStoreID;
 
 /**产品型号*/
 MT_EXTERN NSString *const Device_Simulator;
-MT_EXTERN NSString *const Device_iPod1;
-MT_EXTERN NSString *const Device_iPod2;
-MT_EXTERN NSString *const Device_iPod3;
-MT_EXTERN NSString *const Device_iPod4;
-MT_EXTERN NSString *const Device_iPod5;
+
+MT_EXTERN NSString *const Device_AirPods1;
+MT_EXTERN NSString *const Device_AirPods2;
+MT_EXTERN NSString *const Device_AirPodsPro1;
+
+MT_EXTERN NSString *const Device_AppleTV2;
+MT_EXTERN NSString *const Device_AppleTV3;
+MT_EXTERN NSString *const Device_AppleTV4;
+MT_EXTERN NSString *const Device_AppleTV4K;
+
+MT_EXTERN NSString *const Device_AppleWatch1;
+MT_EXTERN NSString *const Device_AppleWatchSeries1;
+MT_EXTERN NSString *const Device_AppleWatchSeries2;
+MT_EXTERN NSString *const Device_AppleWatchSeries3;
+MT_EXTERN NSString *const Device_AppleWatchSeries4;
+
+MT_EXTERN NSString *const Device_HomePod1;
+
+MT_EXTERN NSString *const Device_iPodTouch1;
+MT_EXTERN NSString *const Device_iPodTouch2;
+MT_EXTERN NSString *const Device_iPodTouch3;
+MT_EXTERN NSString *const Device_iPodTouch4;
+MT_EXTERN NSString *const Device_iPodTouch5;
+MT_EXTERN NSString *const Device_iPodTouch6;
+MT_EXTERN NSString *const Device_iPodTouch7;
+
+MT_EXTERN NSString *const Device_iPad1;
 MT_EXTERN NSString *const Device_iPad2;
 MT_EXTERN NSString *const Device_iPad3;
 MT_EXTERN NSString *const Device_iPad4;
+MT_EXTERN NSString *const Device_iPad5;
+MT_EXTERN NSString *const Device_iPad6;
+MT_EXTERN NSString *const Device_iPad7;
+MT_EXTERN NSString *const Device_iPadAir1;
+MT_EXTERN NSString *const Device_iPadAir2;
+MT_EXTERN NSString *const Device_iPadAir3;
+MT_EXTERN NSString *const Device_iPadPro1;
+MT_EXTERN NSString *const Device_iPadProMax1;
+MT_EXTERN NSString *const Device_iPadPro2;
+MT_EXTERN NSString *const Device_iPadProMax2;
+MT_EXTERN NSString *const Device_iPadPro3;
+MT_EXTERN NSString *const Device_iPadProMax3;
+MT_EXTERN NSString *const Device_iPadMini1;
+MT_EXTERN NSString *const Device_iPadMini2;
+MT_EXTERN NSString *const Device_iPadMini3;
+MT_EXTERN NSString *const Device_iPadMini4;
+MT_EXTERN NSString *const Device_iPadMini5;
+
+MT_EXTERN NSString *const Device_iPhone1;
+MT_EXTERN NSString *const Device_iPhone3G;
+MT_EXTERN NSString *const Device_iPhone3GS;
 MT_EXTERN NSString *const Device_iPhone4;
 MT_EXTERN NSString *const Device_iPhone4S;
 MT_EXTERN NSString *const Device_iPhone5;
 MT_EXTERN NSString *const Device_iPhone5S;
 MT_EXTERN NSString *const Device_iPhone5C;
-MT_EXTERN NSString *const Device_iPadMini1;
-MT_EXTERN NSString *const Device_iPadMini2;
-MT_EXTERN NSString *const Device_iPadMini3;
-MT_EXTERN NSString *const Device_iPadAir1;
-MT_EXTERN NSString *const Device_iPadAir2;
 MT_EXTERN NSString *const Device_iPhone6;
-MT_EXTERN NSString *const Device_iPhone6plus;
+MT_EXTERN NSString *const Device_iPhone6Plus;
 MT_EXTERN NSString *const Device_iPhone6S;
-MT_EXTERN NSString *const Device_iPhone6Splus;
+MT_EXTERN NSString *const Device_iPhone6SPlus;
 MT_EXTERN NSString *const Device_iPhoneSE;
 MT_EXTERN NSString *const Device_iPhone7;
 MT_EXTERN NSString *const Device_iPhone7Plus;
@@ -168,6 +206,9 @@ MT_EXTERN NSString *const Device_iPhoneX;
 MT_EXTERN NSString *const Device_iPhoneXS;
 MT_EXTERN NSString *const Device_iPhoneXR;
 MT_EXTERN NSString *const Device_iPhoneXSMax;
+MT_EXTERN NSString *const Device_iPhone11;
+MT_EXTERN NSString *const Device_iPhone11Pro;
+MT_EXTERN NSString *const Device_iPhone11ProMax;
 
 MT_EXTERN NSString *const IPhoneScreen_3P5;
 MT_EXTERN NSString *const IPhoneScreen_4P0;

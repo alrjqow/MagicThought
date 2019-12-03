@@ -173,7 +173,7 @@
 {
     // 注意：只有非根控制器才有滑动返回功能，根控制器没有。
     // 判断导航控制器是否只有一个子控制器，如果只有一个子控制器，肯定是根控制器
-    if (self.childViewControllers.count == 1) {
+    if (self.viewControllers.count == 1) {
         // 表示用户在根控制器界面，就不需要触发滑动手势，
         return NO;
     }
@@ -201,10 +201,11 @@
 
 -(void)pushViewController:(UIViewController *)viewController animated:(BOOL)animated
 {
-    if(self.childViewControllers.count > 0)
+    if(self.viewControllers.count > 0)
     {
         self.isShow = YES;
         self.interactivePopGestureRecognizer.delegate = (id<UIGestureRecognizerDelegate>)self;
+        viewController.hidesBottomBarWhenPushed = YES;
     }
     
     [self configPushTransitionWithViewController:viewController];
@@ -214,7 +215,7 @@
 
 -(void)navigationController:(UINavigationController *)navigationController didShowViewController:(UIViewController *)viewController animated:(BOOL)animated
 {
-    if(navigationController.childViewControllers.count < 2)
+    if(navigationController.viewControllers.count < 2)
         self.interactivePopGestureRecognizer.delegate = self.interactivePopGestureRecognizerDelegate;
     
     
@@ -228,7 +229,7 @@
         viewController.mt_transitionGestureRecognizer.enabled = false;
     }
     
-    if(self.isShow && viewController == self.childViewControllers[0])
+    if(self.isShow && viewController == self.viewControllers[0])
     {
         self.isShow = false;
         
