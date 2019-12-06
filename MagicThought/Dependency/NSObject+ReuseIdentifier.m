@@ -7,7 +7,6 @@
 //
 
 #import "NSObject+ReuseIdentifier.h"
-#import "NSString+Exist.h"
 #import "MJExtension.h"
 #import "objc/runtime.h"
 
@@ -38,99 +37,88 @@
     return objc_getAssociatedObject(self, _cmd);
 }
 
-static const void *mtObjectTagIdentifierKey = @"mtObjectTagIdentifierKey";
 -(void)setMt_tagIdentifier:(NSString *)mt_tagIdentifier
 {
-    objc_setAssociatedObject(self, mtObjectTagIdentifierKey, mt_tagIdentifier, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
+    objc_setAssociatedObject(self, @selector(mt_tagIdentifier), mt_tagIdentifier, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
 }
 
 -(NSString *)mt_tagIdentifier
 {
-    NSString* tagIdentifier  = objc_getAssociatedObject(self, mtObjectTagIdentifierKey);
-    
-    return [tagIdentifier isExist] ? tagIdentifier : @"";
+    return objc_getAssociatedObject(self, _cmd);
 }
 
-static const void *mtObjectReuseIdentifierKey = @"mtObjectReuseIdentifierKey";
 -(void)setMt_reuseIdentifier:(NSString *)mt_reuseIdentifier
 {
-    objc_setAssociatedObject(self, mtObjectReuseIdentifierKey, mt_reuseIdentifier, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
+    objc_setAssociatedObject(self, @selector(mt_reuseIdentifier), mt_reuseIdentifier, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
 }
 
 - (NSString *)mt_reuseIdentifier
 {
-    NSString* reuseIdentifier  = objc_getAssociatedObject(self, mtObjectReuseIdentifierKey);
-    
-    return [reuseIdentifier isExist] ? reuseIdentifier : @"none";
+    return objc_getAssociatedObject(self, _cmd);
 }
 
-static const void *mtItemHeightKey = @"mtItemHeightKey";
 -(void)setMt_itemHeight:(CGFloat)mt_itemHeight
 {
-    objc_setAssociatedObject(self, mtItemHeightKey, @(mt_itemHeight), OBJC_ASSOCIATION_RETAIN_NONATOMIC);
+    objc_setAssociatedObject(self, @selector(mt_itemHeight), @(mt_itemHeight), OBJC_ASSOCIATION_RETAIN_NONATOMIC);
 }
 
 -(CGFloat)mt_itemHeight
 {
-    NSNumber* height = objc_getAssociatedObject(self, mtItemHeightKey);
+    NSNumber* height = objc_getAssociatedObject(self, _cmd);
     
     return height.floatValue;
 }
 
 
-static const void *mtItemSizeKey = @"mtItemSizeKey";
 -(void)setMt_itemSize:(CGSize)mt_itemSize
 {
-    objc_setAssociatedObject(self, mtItemSizeKey, [NSValue valueWithCGSize:mt_itemSize], OBJC_ASSOCIATION_RETAIN_NONATOMIC);
+    objc_setAssociatedObject(self, @selector(mt_itemSize), [NSValue valueWithCGSize:mt_itemSize], OBJC_ASSOCIATION_RETAIN_NONATOMIC);
 }
 
 
 -(CGSize)mt_itemSize
 {
-    NSValue* size = objc_getAssociatedObject(self, mtItemSizeKey);
+    NSValue* size = objc_getAssociatedObject(self, _cmd);
     
     return size ? size.CGSizeValue : CGSizeZero;
 }
 
-static const void *mtSpacingKey = @"mtSpacingKey";
 -(void)setMt_spacing:(MTDelegateCollectionViewSpacing)mt_spacing
 {
     //结构体转换成对象
-    objc_setAssociatedObject(self, mtSpacingKey, [NSValue valueWithBytes:&mt_spacing objCType:@encode(MTDelegateCollectionViewSpacing)], OBJC_ASSOCIATION_RETAIN_NONATOMIC);
+    objc_setAssociatedObject(self, @selector(mt_spacing), [NSValue valueWithBytes:&mt_spacing objCType:@encode(MTDelegateCollectionViewSpacing)], OBJC_ASSOCIATION_RETAIN_NONATOMIC);
 }
 
 -(MTDelegateCollectionViewSpacing)mt_spacing
 {
     MTDelegateCollectionViewSpacing spacing = {0, 0, UIEdgeInsetsZero};
-    NSValue* value = objc_getAssociatedObject(self, mtSpacingKey);
+    NSValue* value = objc_getAssociatedObject(self, _cmd);
     [value getValue:&spacing];
     
     return spacing;
 }
 
-static const void *mtOpen3dTouchKey = @"mtOpen3dTouchKey";
 -(void)setMt_open3dTouch:(BOOL)mt_open3dTouch
 {
-    objc_setAssociatedObject(self, mtOpen3dTouchKey, @(mt_open3dTouch), OBJC_ASSOCIATION_RETAIN_NONATOMIC);
+    objc_setAssociatedObject(self, @selector(mt_open3dTouch), @(mt_open3dTouch), OBJC_ASSOCIATION_RETAIN_NONATOMIC);
 }
 
 -(BOOL)mt_open3dTouch
 {
-    NSNumber* open3dTouch = objc_getAssociatedObject(self, mtOpen3dTouchKey);
+    NSNumber* open3dTouch = objc_getAssociatedObject(self, _cmd);
     
     return open3dTouch.boolValue;
 }
 
 
-static const void *mtHeaderEmptyShowKey = @"mtHeaderEmptyShowKey";
 -(void)setMt_headerEmptyShow:(BOOL)mt_headerEmptyShow
 {
-    objc_setAssociatedObject(self, mtHeaderEmptyShowKey, @(mt_headerEmptyShow), OBJC_ASSOCIATION_RETAIN_NONATOMIC);
+    objc_setAssociatedObject(self, @selector(mt_headerEmptyShow), @(mt_headerEmptyShow), OBJC_ASSOCIATION_RETAIN_NONATOMIC);
 }
 
 -(BOOL)mt_headerEmptyShow
 {
-    NSNumber* headerEmptyShow = objc_getAssociatedObject(self, mtHeaderEmptyShowKey);
+    NSNumber* headerEmptyShow = objc_getAssociatedObject(self, _cmd);
     
     return headerEmptyShow.boolValue;
 }
@@ -145,6 +133,9 @@ static const void *mtHeaderEmptyShowKey = @"mtHeaderEmptyShowKey";
 {
     __weak __typeof(self) weakSelf = self;
     BindClick bindClick  = ^(MTClick click){
+        
+        if(!click)
+            return weakSelf;
         
         if([weakSelf isKindOfClass:[NSArray class]])
         {
@@ -184,6 +175,9 @@ static const void *mtHeaderEmptyShowKey = @"mtHeaderEmptyShowKey";
     __weak __typeof(self) weakSelf = self;
     BindReuseIdentifier bind  = ^(NSString* reuseIdentifier){
         
+        if(reuseIdentifier.length <= 0)
+            return weakSelf;
+        
         if([weakSelf isKindOfClass:[NSArray class]])
         {
             NSArray* arr = (NSArray*)weakSelf;
@@ -202,6 +196,9 @@ static const void *mtHeaderEmptyShowKey = @"mtHeaderEmptyShowKey";
 {
     __weak __typeof(self) weakSelf = self;
     BindOrder bindOrder  = ^(NSString* order){
+        
+        if(order.length <= 0)
+            return weakSelf;
         
         if([weakSelf isKindOfClass:[NSArray class]])
         {
@@ -223,6 +220,9 @@ static const void *mtHeaderEmptyShowKey = @"mtHeaderEmptyShowKey";
 {
     __weak __typeof(self) weakSelf = self;
     BindTagIdentifier bindTag  = ^(NSString* tagIdentifier){
+        
+        if(tagIdentifier.length <= 0)
+            return weakSelf;
         
         if([weakSelf isKindOfClass:[NSArray class]])
         {
@@ -519,10 +519,10 @@ NSReuseObject* mt_reuse(id data)
     if(![data isKindOfClass:[NSObject class]])
         return nil;
     
-    if([data.mt_reuseIdentifier isEqualToString:@"none"] && [data isKindOfClass:[NSString class]])
+    if(!data.mt_reuseIdentifier && [data isKindOfClass:[NSString class]])
         data.mt_reuseIdentifier = (NSString*)data;
     
-    if([data.mt_reuseIdentifier isEqualToString:@"none"] && [data isKindOfClass:[NSReuseObject class]] && [((NSReuseObject*)data).data isKindOfClass:[NSString class]])
+    if(!data.mt_reuseIdentifier && [data isKindOfClass:[NSReuseObject class]] && [((NSReuseObject*)data).data isKindOfClass:[NSString class]])
         data.mt_reuseIdentifier = (NSString*)((NSReuseObject*)data).data;
     
     return data;

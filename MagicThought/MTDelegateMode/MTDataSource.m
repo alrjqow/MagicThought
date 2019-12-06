@@ -205,7 +205,7 @@
         return nil;
     
     NSObject* data = sectionData[section];
-    if([data.mt_reuseIdentifier isEqualToString:@"none"] && [data isKindOfClass:[NSString class]])
+    if(!data.mt_reuseIdentifier && [data isKindOfClass:[NSString class]])
         data.mt_reuseIdentifier = (NSString*)data;
     
     return data;
@@ -227,7 +227,7 @@
 {
     if(self.isEmpty && self.emptyData)
     {
-        if([self.emptyData.mt_reuseIdentifier isEqualToString:@"none"] && [self.emptyData isKindOfClass:[NSString class]])
+        if(!self.emptyData.mt_reuseIdentifier && [self.emptyData isKindOfClass:[NSString class]])
             self.emptyData.mt_reuseIdentifier = (NSString*)self.emptyData;
         
         return self.emptyData;
@@ -403,7 +403,7 @@
         return;
     
     NSObject* data = [self getDataForIndexPath:indexPath];
-         
+    
     if(data.mt_click)
     {
         //有这个 order 证明不能触发点击
@@ -432,7 +432,7 @@
     NSObject* data = [self getDataForIndexPath:indexPath];
     NSObject* list = [self getSectionDataListForSection:indexPath.section];
     
-    NSString* mt_reuseIdentifier = [list.mt_reuseIdentifier isEqualToString:@"none"] ? data.mt_reuseIdentifier : list.mt_reuseIdentifier;
+    NSString* mt_reuseIdentifier = list.mt_reuseIdentifier ? list.mt_reuseIdentifier : data.mt_reuseIdentifier;
     
     NSString* identifier = MTEasyReuseIdentifier(mt_reuseIdentifier);
     
@@ -622,13 +622,13 @@
         return;
     
     NSObject* data = [self getDataForIndexPath:indexPath];
-             
-      if(data.mt_click)
-      {
-          //有这个 order 证明不能触发点击
-          if(![data.mt_order isEqualToString:@"MTBanClickOrder"])
-              data.mt_click(@"");
-      }
+    
+    if(data.mt_click)
+    {
+        //有这个 order 证明不能触发点击
+        if(![data.mt_order isEqualToString:@"MTBanClickOrder"])
+            data.mt_click(@"");
+    }
     else if([self.delegate respondsToSelector:@selector(collectionView:didSelectItemAtIndexPath:)])
         [self.delegate collectionView:collectionView didSelectItemAtIndexPath:indexPath];
 }
@@ -659,7 +659,7 @@
     
     self.preOffsetX = offsetX;
     self.preOffsetY = offsetY;
-        
+    
     if([scrollView.viewModel respondsToSelector:@selector(scrollViewDidScroll:)])
         [scrollView.viewModel scrollViewDidScroll:scrollView];
     
@@ -801,14 +801,18 @@ static NSString* mt_titleForRowAtIndexPath(id self, SEL cmd, UIPickerView * pick
 {
     if(![mt_data isKindOfClass:self.classOfResponseObject])
     {
-        if([mt_data isKindOfClass:[NSDictionary class]])
+        if([mt_data isKindOfClass:[NSDictionary class]] && [self.classOfResponseObject.new isKindOfClass:[NSObject class]])
         {
-            mt_data = [self.classOfResponseObject mj_objectWithKeyValues:mt_data];
+            NSObject* model = [self.classOfResponseObject mj_objectWithKeyValues:mt_data];
+            if(!model)
+                return;
+            
+            mt_data = model.bind(mt_data.mt_reuseIdentifier).bindClick(mt_data.mt_click).bindOrder(mt_data.mt_order).bindTag(mt_data.mt_tagIdentifier);
         }
         else
             return;
     }
-            
+    
     [self whenGetResponseObject:mt_data];
 }
 
@@ -825,9 +829,13 @@ static NSString* mt_titleForRowAtIndexPath(id self, SEL cmd, UIPickerView * pick
 {
     if(![mt_data isKindOfClass:self.classOfResponseObject])
     {
-        if([mt_data isKindOfClass:[NSDictionary class]])
+        if([mt_data isKindOfClass:[NSDictionary class]] && [self.classOfResponseObject.new isKindOfClass:[NSObject class]])
         {
-            mt_data = [self.classOfResponseObject mj_objectWithKeyValues:mt_data];
+            NSObject* model = [self.classOfResponseObject mj_objectWithKeyValues:mt_data];
+            if(!model)
+                return;
+            
+            mt_data = model.bind(mt_data.mt_reuseIdentifier).bindClick(mt_data.mt_click).bindOrder(mt_data.mt_order).bindTag(mt_data.mt_tagIdentifier);
         }
         else
             return;
@@ -849,9 +857,13 @@ static NSString* mt_titleForRowAtIndexPath(id self, SEL cmd, UIPickerView * pick
 {
     if(![mt_data isKindOfClass:self.classOfResponseObject])
     {
-        if([mt_data isKindOfClass:[NSDictionary class]])
+        if([mt_data isKindOfClass:[NSDictionary class]] && [self.classOfResponseObject.new isKindOfClass:[NSObject class]])
         {
-            mt_data = [self.classOfResponseObject mj_objectWithKeyValues:mt_data];
+            NSObject* model = [self.classOfResponseObject mj_objectWithKeyValues:mt_data];
+            if(!model)
+                return;
+            
+            mt_data = model.bind(mt_data.mt_reuseIdentifier).bindClick(mt_data.mt_click).bindOrder(mt_data.mt_order).bindTag(mt_data.mt_tagIdentifier);
         }
         else
             return;
@@ -873,9 +885,13 @@ static NSString* mt_titleForRowAtIndexPath(id self, SEL cmd, UIPickerView * pick
 {
     if(![mt_data isKindOfClass:self.classOfResponseObject])
     {
-        if([mt_data isKindOfClass:[NSDictionary class]])
+        if([mt_data isKindOfClass:[NSDictionary class]] && [self.classOfResponseObject.new isKindOfClass:[NSObject class]])
         {
-            mt_data = [self.classOfResponseObject mj_objectWithKeyValues:mt_data];
+            NSObject* model = [self.classOfResponseObject mj_objectWithKeyValues:mt_data];
+            if(!model)
+                return;
+            
+            mt_data = model.bind(mt_data.mt_reuseIdentifier).bindClick(mt_data.mt_click).bindOrder(mt_data.mt_order).bindTag(mt_data.mt_tagIdentifier);
         }
         else
             return;
