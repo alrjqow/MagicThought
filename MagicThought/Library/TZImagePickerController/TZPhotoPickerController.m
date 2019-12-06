@@ -19,7 +19,6 @@
 #import <MobileCoreServices/MobileCoreServices.h>
 
 #import "UIImage+PropertyExtension.h"
-#import "UINavigationBar+Config.h"
 
 @interface TZPhotoPickerController ()<UICollectionViewDataSource,UICollectionViewDelegate,UIImagePickerControllerDelegate,UINavigationControllerDelegate,UIAlertViewDelegate> {
     NSMutableArray *_models;
@@ -79,7 +78,7 @@ static CGFloat itemMargin = 5;
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.navigationBarTitleColor = [UIColor whiteColor];
+    [self setValue:[UIColor whiteColor] forKey:@"navigationBarTitleColor"];
     self.isFirstAppear = YES;
     TZImagePickerController *tzImagePickerVc = (TZImagePickerController *)self.navigationController;
     _isSelectOriginalPhoto = tzImagePickerVc.isSelectOriginalPhoto;

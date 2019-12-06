@@ -11,7 +11,6 @@
 #import "MTPhotoBrowserViewModel.h"
 
 #import "MTCloud.h"
-#import "UINavigationBar+Config.h"
 
 @interface MTPhotoBrowserController ()
 
@@ -24,7 +23,7 @@
 
 +(instancetype)photoBrowserControllerWithModel:(MTPhotoBrowserViewModel*)model;
 {
-    MTPhotoBrowserController* vc = [MTPhotoBrowserController new];    
+    MTPhotoBrowserController* vc = [MTPhotoBrowserController new];
     vc.model = model;
     
     return vc;
@@ -60,17 +59,17 @@
     
     self.view.backgroundColor = [UIColor clearColor];
     self.automaticallyAdjustsScrollViewInsets = false;
-    self.ignoreTranslucentBarTintColor = self.model.navigationBarColor;
-    
+    [self setValue:self.model.navigationBarColor forKey:@"ignoreTranslucentBarTintColor"];
+        
     [MTPhotoBrowser shareBrowser].frame = self.view.bounds;
     [self.view addSubview:[MTPhotoBrowser shareBrowser]];
     
-    [self.model reloadPhotoBrowser];        
+    [self.model reloadPhotoBrowser];
 }
 
 -(void)setupNavigationItem
 {
-    self.navigationBarTitleColor = [UIColor whiteColor];    
+    [self setValue:[UIColor whiteColor] forKey:@"navigationBarTitleColor"];
 }
 
 

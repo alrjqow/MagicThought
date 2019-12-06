@@ -7,7 +7,6 @@
 //
 
 #import "MTNavigationController.h"
-#import "UINavigationBar+Config.h"
 
 @interface MTNavigationController ()<UIGestureRecognizerDelegate>
 
@@ -34,10 +33,11 @@
 {
     [super setupDefault];
     
-    if(!self.navigationBar.ignoreTranslucentBarTintColor)
-        self.navigationBar.ignoreTranslucentBarTintColor = [UIColor whiteColor];
-    self.navigationBar.bottomLine.backgroundColor = [UIColor blackColor];
+    if(![self.navigationBar valueForKey:@"ignoreTranslucentBarTintColor"])
+        [self.navigationBar setValue:[UIColor whiteColor] forKey:@"ignoreTranslucentBarTintColor"];
     
+    UIView* bottomLine = [self.navigationBar valueForKey:@"bottomLine"];
+    bottomLine.backgroundColor = [UIColor blackColor];
     self.delegate = self;
 }
 
@@ -99,6 +99,16 @@
     return _fullScreenPopGestureRecognizer;
 }
 
+- (void)setEnableSlideBack:(BOOL)enableSlideBack
+{
+    self.interactivePopGestureRecognizer.enabled = enableSlideBack;
+    self.fullScreenPopGestureRecognizer.enabled = enableSlideBack;
+}
+
+-(BOOL)enableSlideBack
+{
+    return self.isFullScreenPop ? self.fullScreenPopGestureRecognizer.enabled : self.interactivePopGestureRecognizer.enabled;
+}
 
 #pragma mark - 手势代理
 
@@ -118,7 +128,7 @@
 -(void)pushViewController:(UIViewController *)viewController animated:(BOOL)animated
 {
     if(self.viewControllers.count > 0)
-    {        
+    {
         self.interactivePopGestureRecognizer.delegate = (id<UIGestureRecognizerDelegate>)self;
         viewController.hidesBottomBarWhenPushed = YES;
     }

@@ -31,8 +31,30 @@
     return  [self colorWithRed:(((hex) & 0xFF0000) >> 16) / 255.0 green:(((hex) & 0xFF00) >> 8) / 255.0 blue:((hex) & 0xFF) / 255.0 alpha:a];
 }
 
++ (UIColor *)middleColor:(UIColor *)fromColor toColor:(UIColor *)toColor percent:(CGFloat)percent {
+    CGFloat fromRed = 0;
+    CGFloat fromGreen = 0;
+    CGFloat fromBlue = 0;
+    CGFloat fromAlpha = 0;
+    [fromColor getRed:&fromRed green:&fromGreen blue:&fromBlue alpha:&fromAlpha];
+    
+    CGFloat toRed = 0;
+    CGFloat toGreen = 0;
+    CGFloat toBlue = 0;
+    CGFloat toAlpha = 0;
+    [toColor getRed:&toRed green:&toGreen blue:&toBlue alpha:&toAlpha];
+    
+    CGFloat newRed = fromRed + (toRed - fromRed) * percent;
+    CGFloat newGreen = fromGreen + (toGreen - fromGreen) * percent;
+    CGFloat newBlue = fromBlue + (toBlue - fromBlue) * percent;
+    CGFloat newAlpha = fromAlpha + (toAlpha - fromAlpha) * percent;
+    
+    return [UIColor colorWithRed:newRed green:newGreen blue:newBlue alpha:newAlpha];
+}
 
-
++ (CGFloat)middleAlpha:(CGFloat)fromAlpha toAlpha:(CGFloat)toAlpha percent:(CGFloat)percent {
+    return fromAlpha + (toAlpha - fromAlpha) * percent;
+}
 
 @end
 
@@ -41,7 +63,7 @@
 @implementation UIView (ColorfulColor)
 
 -(void)createJianBianBackgroundColorWithStartColor:(UIColor*)startColor endColor:(UIColor*)endColor
-{    
+{
     [self createJianBianBackgroundColorWithStartColor:startColor endColor:endColor startPoint:CGPointMake(0,CGRectGetMidY(self.bounds)) endPoint:CGPointMake(CGRectGetMaxX(self.bounds), CGRectGetMidY(self.bounds))];
 }
 

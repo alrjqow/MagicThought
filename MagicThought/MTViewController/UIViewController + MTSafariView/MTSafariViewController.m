@@ -12,7 +12,6 @@
 #import "MTConst.h"
 #import "MTCloud.h"
 #import "NSString+Exist.h"
-#import "UINavigationBar+Config.h"
 #import "objc/runtime.h"
 
 @interface MTSafariViewController ()<UIImagePickerControllerDelegate, UINavigationControllerDelegate>
@@ -113,13 +112,13 @@
     {
         WKWebViewConfiguration*  config = WKWebViewConfiguration.new;
         config.userContentController = [self safariViewUserContentController];
-        
-        CGFloat topInset = self.navigationBarAlpha ? kNavigationBarHeight_mt() : 0;
+                
+        CGFloat topInset = [self valueForKey:@"navigationBarAlpha"] ? kNavigationBarHeight_mt() : 0;
         _webView = [[MTSafariView alloc] initWithFrame:CGRectMake(0, topInset, mt_ScreenW(), mt_ScreenH() - topInset) configuration:config];
         
         _webView.multipleTouchEnabled=YES;
         _webView.scrollView.showsVerticalScrollIndicator = false;
-        _webView.scrollView.showsHorizontalScrollIndicator = false;        
+        _webView.scrollView.showsHorizontalScrollIndicator = false;
     }
     
     return _webView;
@@ -129,7 +128,7 @@
 {
     if (!_progressView)
     {
-        UIProgressView *progressView = [[UIProgressView alloc] initWithFrame:CGRectMake(0,self.navigationBarAlpha ? kNavigationBarHeight_mt() : 0, self.view.frame.size.width, 0)];
+        UIProgressView *progressView = [[UIProgressView alloc] initWithFrame:CGRectMake(0,[self valueForKey:@"navigationBarAlpha"] ? kNavigationBarHeight_mt() : 0, self.view.frame.size.width, 0)];
       
         progressView.tintColor = [UIColor orangeColor];
         progressView.trackTintColor = [UIColor clearColor];
@@ -196,7 +195,7 @@
     
     [self deleteWebCache];
     [self whenDealloc];
-    NSLog(@"webView死亡");    
+    NSLog(@"webView死亡");
 }
 
 -(void)whenDealloc

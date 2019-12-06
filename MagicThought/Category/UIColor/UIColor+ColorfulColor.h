@@ -16,6 +16,9 @@
 +(UIColor*)colorWithHex:(NSUInteger)hex;
 +(UIColor*)colorWithHex:(NSUInteger)hex WithAlpha:(CGFloat)a;
 
++ (UIColor *)middleColor:(UIColor *)fromColor toColor:(UIColor *)toColor percent:(CGFloat)percent;
+
++ (CGFloat)middleAlpha:(CGFloat)fromAlpha toAlpha:(CGFloat)toAlpha percent:(CGFloat)percent;
 
 @end
 

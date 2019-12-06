@@ -15,7 +15,6 @@
 #import "UIButton+Word.h"
 #import "UIView+Circle.h"
 #import "UIDevice+DeviceInfo.h"
-#import "UINavigationBar+Config.h"
 
 @interface MTFeedBackInfoController ()
 
@@ -28,7 +27,7 @@
 +(instancetype)ControllerWithInfo:(NSDictionary*)info ClickBlock:(void (^)(id))block
 {
     MTFeedBackInfoController* vc = [self new];
-    vc.enableSlideBack = [info[@"slideBack"] boolValue];
+    [vc setValue:info[@"slideBack"] forKey:@"enableSlideBack"];
     vc.imgView.image = [UIImage imageNamed:info[@"img"] ? info[@"img"] : @"success_icon"];
     vc.titleLabel.text = info[@"title"];
     vc.subTitleLabel.text = info[@"content"];

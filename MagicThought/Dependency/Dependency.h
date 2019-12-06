@@ -22,6 +22,5 @@
 #import "UIView+Circle.h"
 #import "NSString+Exist.h"
 #import "UIDevice+DeviceInfo.h"
-#import "UINavigationBar+Config.h"
 #import "NSObject+ReuseIdentifier.h"
 #import "NSObject+CommonProtocol.h"

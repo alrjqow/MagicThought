@@ -15,7 +15,6 @@
 #import "MTPhotoBrowserController.h"
 #import "MTNavigationPhotoBrowserController.h"
 
-#import "UINavigationBar+Config.h"
 #import "MTAlertView.h"
 #import "MTConst.h"
 #import "MTWordStyle.h"
@@ -166,11 +165,12 @@
 #pragma mark - 展示图片浏览器
 
 -(void)showWindow
-{    
+{
     MTPhotoBrowserController* browserController = [MTPhotoBrowserController photoBrowserControllerWithModel:self];
     self.browserController = browserController;
     
-    self.rootViewController.navigationBar.ignoreTranslucentBarTintColor = self.isShowNavigationBar ? self.navigationBarColor : [UIColor clearColor];
+    [self.rootViewController.navigationBar setValue:self.isShowNavigationBar ? self.navigationBarColor : [UIColor clearColor] forKey:@"ignoreTranslucentBarTintColor"];
+    
     [self.previewWindow makeKeyAndVisible];
     
     __weak __typeof(self) weakSelf = self;
@@ -279,7 +279,18 @@
     if(self.navigationBarFix)
         return;
     
-    self.rootViewController.navigationBar.tag == 0 ? [self.rootViewController navigationBarHide] : [self.rootViewController navigationBarShow];
+    if(self.rootViewController.navigationBar.tag == 0)
+    {
+        SEL navigationBarHide = @selector(navigationBarHide);
+        if([self.rootViewController respondsToSelector:navigationBarHide])
+           [self.rootViewController performSelector:navigationBarHide];
+    }
+    else
+    {
+        SEL navigationBarShow = @selector(navigationBarShow);
+        if([self.rootViewController respondsToSelector:navigationBarShow])
+           [self.rootViewController performSelector:navigationBarShow];
+    }
 }
 
 
@@ -365,9 +376,11 @@
     {
         UIViewController* vc = [UIViewController new];
         vc.view.backgroundColor = [UIColor clearColor];
-        vc.navigationBarAlpha = 0;
+        [self setValue:@(0) forKey:@"navigationBarAlpha"];
         _rootViewController = [[MTNavigationPhotoBrowserController alloc] initWithRootViewController: vc];
-        _rootViewController.navigationBar.bottomLine.backgroundColor = [UIColor clearColor];
+        
+        UIView* bottomLine = [_rootViewController.navigationBar valueForKey:@"bottomLine"];
+        bottomLine.backgroundColor = [UIColor clearColor];
         _rootViewController.mt_delegate = self;
         [_rootViewController setValue:@(YES) forKey:@"setupStatusBar"];
     }

@@ -124,6 +124,12 @@
 		78656A4D238247D000685B79 /* MTTenScrollController.m in Sources */ = {isa = PBXBuildFile; fileRef = 78656A4B238247D000685B79 /* MTTenScrollController.m */; };
 		78656A50238299A400685B79 /* MTTenScrollViewDelegateModel.h in Headers */ = {isa = PBXBuildFile; fileRef = 78656A4E238299A400685B79 /* MTTenScrollViewDelegateModel.h */; };
 		78656A51238299A400685B79 /* MTTenScrollViewDelegateModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 78656A4F238299A400685B79 /* MTTenScrollViewDelegateModel.m */; };
+		7874B8EE239A480100F1D109 /* UINavigationController+TransitionConfig.m in Sources */ = {isa = PBXBuildFile; fileRef = 7874B8E8239A480100F1D109 /* UINavigationController+TransitionConfig.m */; };
+		7874B8EF239A480100F1D109 /* UINavigationBar+Config.m in Sources */ = {isa = PBXBuildFile; fileRef = 7874B8E9239A480100F1D109 /* UINavigationBar+Config.m */; };
+		7874B8F0239A480100F1D109 /* UIViewController+TransitionConfig.m in Sources */ = {isa = PBXBuildFile; fileRef = 7874B8EA239A480100F1D109 /* UIViewController+TransitionConfig.m */; };
+		7874B8F1239A480100F1D109 /* UINavigationController+TransitionConfig.h in Headers */ = {isa = PBXBuildFile; fileRef = 7874B8EB239A480100F1D109 /* UINavigationController+TransitionConfig.h */; };
+		7874B8F2239A480100F1D109 /* UIViewController+TransitionConfig.h in Headers */ = {isa = PBXBuildFile; fileRef = 7874B8EC239A480100F1D109 /* UIViewController+TransitionConfig.h */; };
+		7874B8F3239A480100F1D109 /* UINavigationBar+Config.h in Headers */ = {isa = PBXBuildFile; fileRef = 7874B8ED239A480100F1D109 /* UINavigationBar+Config.h */; };
 		789F3FA622DC2B1A00586487 /* MTSlideView.m in Sources */ = {isa = PBXBuildFile; fileRef = 789F3DCB22DC2B1A00586487 /* MTSlideView.m */; };
 		789F3FA722DC2B1A00586487 /* MTSlideHeader.m in Sources */ = {isa = PBXBuildFile; fileRef = 789F3DCC22DC2B1A00586487 /* MTSlideHeader.m */; };
 		789F3FA822DC2B1A00586487 /* MTSlideViewManager.h in Headers */ = {isa = PBXBuildFile; fileRef = 789F3DCD22DC2B1A00586487 /* MTSlideViewManager.h */; };
@@ -217,8 +223,6 @@
 		789F400D22DC2B1A00586487 /* CLLocation+Mar.h in Headers */ = {isa = PBXBuildFile; fileRef = 789F3E4922DC2B1A00586487 /* CLLocation+Mar.h */; };
 		789F400E22DC2B1A00586487 /* UIDevice+DeviceInfo.h in Headers */ = {isa = PBXBuildFile; fileRef = 789F3E4B22DC2B1A00586487 /* UIDevice+DeviceInfo.h */; };
 		789F400F22DC2B1A00586487 /* UIDevice+DeviceInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 789F3E4C22DC2B1A00586487 /* UIDevice+DeviceInfo.m */; };
-		789F401022DC2B1A00586487 /* UINavigationBar+Config.m in Sources */ = {isa = PBXBuildFile; fileRef = 789F3E4E22DC2B1A00586487 /* UINavigationBar+Config.m */; };
-		789F401122DC2B1A00586487 /* UINavigationBar+Config.h in Headers */ = {isa = PBXBuildFile; fileRef = 789F3E4F22DC2B1A00586487 /* UINavigationBar+Config.h */; };
 		789F401222DC2B1A00586487 /* NSString+Hash.m in Sources */ = {isa = PBXBuildFile; fileRef = 789F3E5122DC2B1A00586487 /* NSString+Hash.m */; };
 		789F401322DC2B1A00586487 /* NSString+Exist.h in Headers */ = {isa = PBXBuildFile; fileRef = 789F3E5222DC2B1A00586487 /* NSString+Exist.h */; };
 		789F401422DC2B1A00586487 /* NSString+Base64.m in Sources */ = {isa = PBXBuildFile; fileRef = 789F3E5322DC2B1A00586487 /* NSString+Base64.m */; };
@@ -657,6 +661,12 @@
 		78656A4B238247D000685B79 /* MTTenScrollController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MTTenScrollController.m; sourceTree = "<group>"; };
 		78656A4E238299A400685B79 /* MTTenScrollViewDelegateModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MTTenScrollViewDelegateModel.h; sourceTree = "<group>"; };
 		78656A4F238299A400685B79 /* MTTenScrollViewDelegateModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MTTenScrollViewDelegateModel.m; sourceTree = "<group>"; };
+		7874B8E8239A480100F1D109 /* UINavigationController+TransitionConfig.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UINavigationController+TransitionConfig.m"; sourceTree = "<group>"; };
+		7874B8E9239A480100F1D109 /* UINavigationBar+Config.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UINavigationBar+Config.m"; sourceTree = "<group>"; };
+		7874B8EA239A480100F1D109 /* UIViewController+TransitionConfig.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+TransitionConfig.m"; sourceTree = "<group>"; };
+		7874B8EB239A480100F1D109 /* UINavigationController+TransitionConfig.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UINavigationController+TransitionConfig.h"; sourceTree = "<group>"; };
+		7874B8EC239A480100F1D109 /* UIViewController+TransitionConfig.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIViewController+TransitionConfig.h"; sourceTree = "<group>"; };
+		7874B8ED239A480100F1D109 /* UINavigationBar+Config.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UINavigationBar+Config.h"; sourceTree = "<group>"; };
 		789F3DCB22DC2B1A00586487 /* MTSlideView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MTSlideView.m; sourceTree = "<group>"; };
 		789F3DCC22DC2B1A00586487 /* MTSlideHeader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MTSlideHeader.m; sourceTree = "<group>"; };
 		789F3DCD22DC2B1A00586487 /* MTSlideViewManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MTSlideViewManager.h; sourceTree = "<group>"; };
@@ -750,8 +760,6 @@
 		789F3E4922DC2B1A00586487 /* CLLocation+Mar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "CLLocation+Mar.h"; sourceTree = "<group>"; };
 		789F3E4B22DC2B1A00586487 /* UIDevice+DeviceInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIDevice+DeviceInfo.h"; sourceTree = "<group>"; };
 		789F3E4C22DC2B1A00586487 /* UIDevice+DeviceInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIDevice+DeviceInfo.m"; sourceTree = "<group>"; };
-		789F3E4E22DC2B1A00586487 /* UINavigationBar+Config.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UINavigationBar+Config.m"; sourceTree = "<group>"; };
-		789F3E4F22DC2B1A00586487 /* UINavigationBar+Config.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UINavigationBar+Config.h"; sourceTree = "<group>"; };
 		789F3E5122DC2B1A00586487 /* NSString+Hash.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+Hash.m"; sourceTree = "<group>"; };
 		789F3E5222DC2B1A00586487 /* NSString+Exist.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+Exist.h"; sourceTree = "<group>"; };
 		789F3E5322DC2B1A00586487 /* NSString+Base64.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+Base64.m"; sourceTree = "<group>"; };
@@ -1093,8 +1101,6 @@
 				789F3E3A22DC2B1A00586487 /* UIView+Frame.m */,
 				789F3E4122DC2B1A00586487 /* UIView+Circle.h */,
 				789F3E4522DC2B1A00586487 /* UIView+Circle.m */,
-				789F3E4F22DC2B1A00586487 /* UINavigationBar+Config.h */,
-				789F3E4E22DC2B1A00586487 /* UINavigationBar+Config.m */,
 				789F3F4222DC2B1A00586487 /* NSObject+ReuseIdentifier.h */,
 				789F3F4D22DC2B1A00586487 /* NSObject+ReuseIdentifier.m */,
 				789F3E7322DC2B1A00586487 /* NSObject+CommonProtocol.h */,
@@ -1322,6 +1328,19 @@
 			path = ViewModel;
 			sourceTree = "<group>";
 		};
+		7874B8E7239A480100F1D109 /* UINavigation */ = {
+			isa = PBXGroup;
+			children = (
+				7874B8ED239A480100F1D109 /* UINavigationBar+Config.h */,
+				7874B8E9239A480100F1D109 /* UINavigationBar+Config.m */,
+				7874B8EC239A480100F1D109 /* UIViewController+TransitionConfig.h */,
+				7874B8EA239A480100F1D109 /* UIViewController+TransitionConfig.m */,
+				7874B8EB239A480100F1D109 /* UINavigationController+TransitionConfig.h */,
+				7874B8E8239A480100F1D109 /* UINavigationController+TransitionConfig.m */,
+			);
+			path = UINavigation;
+			sourceTree = "<group>";
+		};
 		789F3DCA22DC2B1A00586487 /* MTSlideView */ = {
 			isa = PBXGroup;
 			children = (
@@ -1518,6 +1537,7 @@
 			isa = PBXGroup;
 			children = (
 				781B0F6722EFFB8600B56434 /* Category.h */,
+				7874B8E7239A480100F1D109 /* UINavigation */,
 				789F3E2822DC2B1A00586487 /* UILabel */,
 				789F3E3022DC2B1A00586487 /* UIColor */,
 				789F3E6F22DC2B1A00586487 /* NSObject */,
@@ -2303,6 +2323,7 @@
 				7849280C239A171600FF1166 /* VKTextAlignStyle.h in Headers */,
 				789F408222DC2B1B00586487 /* UITextField+Word.h in Headers */,
 				789F404422DC2B1B00586487 /* MTPopView.h in Headers */,
+				7874B8F1239A480100F1D109 /* UINavigationController+TransitionConfig.h in Headers */,
 				789F406622DC2B1B00586487 /* MTAlertUIContainer.h in Headers */,
 				7849282A239A171600FF1166 /* UIButton+VKAddion.h in Headers */,
 				780C2FDD22E9B37F005FA4DB /* MTTextFieldVerifyModel.h in Headers */,
@@ -2330,11 +2351,11 @@
 				789F404A22DC2B1B00586487 /* NSDictionary+Json.h in Headers */,
 				789F3FDA22DC2B1A00586487 /* MTCountButton.h in Headers */,
 				789F411422DC2B1B00586487 /* MTSpiltView.h in Headers */,
-				789F401122DC2B1A00586487 /* UINavigationBar+Config.h in Headers */,
 				789F40C722DC2B1B00586487 /* MTCollectionViewScaleLayout.h in Headers */,
 				789F40F622DC2B1B00586487 /* MTTenScrollModel.h in Headers */,
 				789F414522DC2B9100586487 /* MTRefreshAutoNormalFooter.h in Headers */,
 				789F3FAC22DC2B1A00586487 /* MTSlide.h in Headers */,
+				7874B8F2239A480100F1D109 /* UIViewController+TransitionConfig.h in Headers */,
 				789F410922DC2B1B00586487 /* MTTextView.h in Headers */,
 				789F409722DC2B1B00586487 /* TZAssetCell.h in Headers */,
 				7849282F239A171600FF1166 /* VKBorderLeftStyle.h in Headers */,
@@ -2506,6 +2527,7 @@
 				789F40FD22DC2B1B00586487 /* MTTenScrollView.h in Headers */,
 				789F3FF722DC2B1A00586487 /* UIButton+HighLight.h in Headers */,
 				7849280D239A171600FF1166 /* VKFontColorStyle.h in Headers */,
+				7874B8F3239A480100F1D109 /* UINavigationBar+Config.h in Headers */,
 				789F401722DC2B1A00586487 /* NSString+Money.h in Headers */,
 				789F413022DC2B1B00586487 /* MTPhotoPreviewViewModel.h in Headers */,
 				789F410E22DC2B1B00586487 /* NSData+File.h in Headers */,
@@ -2710,9 +2732,11 @@
 				7849279D239A15EE00FF1166 /* MTBaseCellModel.m in Sources */,
 				789F404D22DC2B1B00586487 /* NSArray+Json.m in Sources */,
 				789F3FDB22DC2B1A00586487 /* MTSafariView.m in Sources */,
+				7874B8F0239A480100F1D109 /* UIViewController+TransitionConfig.m in Sources */,
 				789F400A22DC2B1A00586487 /* UIView+Circle.m in Sources */,
 				789F40B322DC2B1B00586487 /* MTCollectionBaseCell.m in Sources */,
 				789F411722DC2B1B00586487 /* MTVideoController.m in Sources */,
+				7874B8EF239A480100F1D109 /* UINavigationBar+Config.m in Sources */,
 				789F40C522DC2B1B00586487 /* MTImagePlayViewCell.m in Sources */,
 				789F411322DC2B1B00586487 /* MTSpiltView.m in Sources */,
 				781B0F7622F0270200B56434 /* MTLineChartContentView.m in Sources */,
@@ -2722,9 +2746,9 @@
 				78DFF1942390C967005C7804 /* MTAppDelegate.m in Sources */,
 				789F404222DC2B1B00586487 /* MTAlertViewConfig.m in Sources */,
 				789F40EA22DC2B1B00586487 /* MTDelegateCollectionReusableView.m in Sources */,
-				789F401022DC2B1A00586487 /* UINavigationBar+Config.m in Sources */,
 				789F40AB22DC2B1B00586487 /* MTBorderStyle.m in Sources */,
 				784927A0239A161000FF1166 /* MTBaseViewContentModel.m in Sources */,
+				7874B8EE239A480100F1D109 /* UINavigationController+TransitionConfig.m in Sources */,
 				789F409322DC2B1B00586487 /* TZPhotoPreviewController.m in Sources */,
 				78492824239A171600FF1166 /* VKBorderTopStyle.m in Sources */,
 				789F3FFC22DC2B1A00586487 /* UIColor+Image.m in Sources */,
