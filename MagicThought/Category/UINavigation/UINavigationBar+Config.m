@@ -11,11 +11,6 @@
 #import "MTConst.h"
 #import "objc/runtime.h"
 
-@interface UINavigationController (Transition)
-
-- (UIColor *)middleColor:(UIColor *)fromColor toColor:(UIColor *)toColor percent:(CGFloat)percent;
-
-@end
 
 @implementation UINavigationBar (Config)
 
@@ -76,7 +71,7 @@
     for (UIView *view in barBackgroundView.subviews)
         view.alpha = backgroundAlpha;
     
-    self.bottomLine.alpha = backgroundAlpha;        
+    self.bottomLine.alpha = backgroundAlpha;
 }
 
 -(CGFloat)backgroundAlpha

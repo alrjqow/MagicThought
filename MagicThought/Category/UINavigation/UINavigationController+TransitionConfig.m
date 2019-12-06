@@ -44,7 +44,6 @@ static int mtPushDisplayCount = 0;
     });
 }
 
-
 - (void)mt_pushViewController:(UIViewController *)viewController animated:(BOOL)animated {
     
     if(![self isKindOfClass:NSClassFromString(@"MTNavigationController")] || [NSStringFromClass([self class]) containsString:@"TZ"])
@@ -66,7 +65,6 @@ static int mtPushDisplayCount = 0;
     [self mt_pushViewController:viewController animated:animated];
     [CATransaction commit];
 }
-
 
 - (NSArray<UIViewController *> *)mt_popToViewController:(UIViewController *)viewController animated:(BOOL)animated {
     
@@ -281,6 +279,18 @@ static int mtPushDisplayCount = 0;
         
         self.view.userInteractionEnabled = YES;
     });
+}
+
+#pragma mark - 懒加载
+
+-(void)setEnableSlideBack:(BOOL)enableSlideBack
+{
+    self.interactivePopGestureRecognizer.enabled = enableSlideBack;
+}
+
+-(BOOL)enableSlideBack
+{
+    return self.interactivePopGestureRecognizer.enabled;
 }
 
 @end
