@@ -9,6 +9,7 @@
 #import "MTAppDelegate.h"
 #import "MTAlert.h"
 #import "MTConst.h"
+#import "NSString+Exist.h"
 
 @interface MTAppDelegate ()
 

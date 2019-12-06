@@ -7,9 +7,11 @@
 //
 
 #import "MTDragCollectionViewCell.h"
-
+#import "MTBaseViewContentModel.h"
 
 @interface MTCollectionBaseCell : MTDragCollectionViewCell
+
+@property (nonatomic,strong) MTBaseViewContentModel* model;
 
 @property (nonatomic,strong) UILabel* textLabel;
 

@@ -227,7 +227,7 @@
     
     self.contentInset = UIEdgeInsetsMake(0, model.titleViewModel.margin, 0, model.titleViewModel.margin);
     NSArray* titleList = [model valueForKey:@"titleList"];
-    [self reloadDataWithDataList:(NSArray*)model.bandCount(titleList.count).band(@"MTTenScrollTitleCell") SectionList:@[@"".bandSpacing(mt_collectionViewSpacingMake(model.titleViewModel.padding, model.titleViewModel.padding, UIEdgeInsetsZero))]];
+    [self reloadDataWithDataList:(NSArray*)model.bindCount(titleList.count).bind(@"MTTenScrollTitleCell") SectionList:@[@"".bindSpacing(mt_collectionViewSpacingMake(model.titleViewModel.padding, model.titleViewModel.padding, UIEdgeInsetsZero))]];
 }
 
 -(UIView *)bottomLine

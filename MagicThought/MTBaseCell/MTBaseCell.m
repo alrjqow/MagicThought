@@ -9,29 +9,29 @@
 #import "MTBaseCell.h"
 #import "UIView+Frame.h"
 
-
 @interface MTBaseCell ()
+{
+    MTBaseCellModel* _model;
+}
 
-@property (nonatomic,assign) BOOL closeSepLine;
-
-@property (nonatomic,assign) BOOL isAlert;
 
 @end
 
 @implementation MTBaseCell
 
--(void)whenGetResponseObject:(NSDictionary *)dict
-{    
-    self.accessoryType = [dict[@"arrow"] boolValue] ? UITableViewCellAccessoryDisclosureIndicator : UITableViewCellAccessoryNone;
+-(void)whenGetResponseObject:(MTBaseCellModel *)model
+{
+    self.model = model;
+}
+
+-(void)setModel:(MTBaseCellModel *)model
+{
+    _model = model;
     
-    self.closeSepLine = [dict[@"closeSepLine"] boolValue];
-    self.isAlert = [dict[@"isAlert"] boolValue];
-    
-    self.textLabel.text = dict[@"title"];
-    self.detailTextLabel.text = dict[@"content"];
-    
-    if(dict[@"img"])
-        self.imageView.image = [UIImage imageNamed:dict[@"img"]];
+    self.accessoryType = model.isArrow ? UITableViewCellAccessoryDisclosureIndicator : UITableViewCellAccessoryNone;
+    self.textLabel.text = model.title;
+    self.detailTextLabel.text = model.content;
+    self.imageView.image = [UIImage imageNamed:model.img];
 }
 
 -(instancetype)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier
@@ -42,23 +42,6 @@
     }
     
     return self;
-}
-
--(void)setupDefault
-{
-    [super setupDefault];
-    
-    self.sepLineWidth = -1;
-    self.accessoryMarginRight = -1;
-}
-
-
--(void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event
-{
-    if(self.isAlert && [self.mt_delegate respondsToSelector:@selector(doSomeThingForMe:withOrder:)])
-        [self.mt_delegate doSomeThingForMe:self withOrder:MTBaseCellAlertOrder];
-    else
-        [super touchesBegan:touches withEvent:event];
 }
 
 -(void)layoutSubviews
@@ -75,11 +58,11 @@
         //寻找箭头
         if([subView isKindOfClass:[UIButton class]] && self.accessoryType == UITableViewCellAccessoryDisclosureIndicator)
         {
-            _arrow = subView;
-            if(!CGRectEqualToRect(CGRectZero, self.accessoryBounds))
-                subView.bounds = self.accessoryBounds;
-            if(self.accessoryMarginRight > 0)
-                subView.maxX = self.width - self.accessoryMarginRight;
+            _arrowView = subView;
+            if(!CGRectEqualToRect(CGRectZero, self.model.accessoryBounds))
+                subView.bounds = self.model.accessoryBounds;
+            if(self.model.accessoryMarginRight > 0)
+                subView.maxX = self.width - self.model.accessoryMarginRight;
         }
     }
     
@@ -93,13 +76,19 @@
             continue;
         }
         
-        if(self.sepLineWidth < 0)
+        if(!self.model || self.model.sepLineWidth < 0)
             break;
-        arr[i].width = self.closeSepLine ? 0 : self.sepLineWidth;
+        
+        arr[i].width = self.model.isCloseSepLine ? 0 : self.model.sepLineWidth;
         arr[i].centerX = self.width * 0.5;
         arr[i].centerY = self.contentView.height - arr[i].halfHeight;
     }
     
+}
+
+-(Class)classOfResponseObject
+{
+    return [MTBaseCellModel class];
 }
 
 @end
@@ -127,14 +116,13 @@
     [self addSubview:self.detailTextLabel2];
 }
 
--(void)whenGetResponseObject:(NSDictionary *)object
+-(void)setModel:(MTBaseCellModel *)model
 {
-    [self setSuperResponseObject:object];
+    [super setModel:model];
     
-    self.detailTextLabel2.text = object[@"content2"];
+    self.detailTextLabel2.text = model.content2;
 }
 
+
 @end
-
-
 

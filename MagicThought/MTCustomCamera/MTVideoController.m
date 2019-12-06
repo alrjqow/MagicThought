@@ -20,6 +20,7 @@
 #import "UIView+MBHud.h"
 #import "UIImage+Cut.h"
 
+NSString*  MTVideoControllerDidFinishPickingImagesOrder = @"MTVideoControllerDidFinishPickingImagesOrder";
 @interface MTVideoController ()<CAAnimationDelegate, UIAlertViewDelegate, AVCaptureFileOutputRecordingDelegate>
 
 //需要硬件设备、一个输入、一个输出、一个连接会话

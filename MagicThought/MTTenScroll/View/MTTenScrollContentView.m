@@ -88,7 +88,7 @@
     _model = model;
     
     [model setValue:self forKey:@"contentView"];
-    [self reloadDataWithDataList:(NSArray*)model.bandCount(model.dataList.count).band(@"MTTenScrollContentCell")];
+    [self reloadDataWithDataList:(NSArray*)model.bindCount(model.dataList.count).bind(@"MTTenScrollContentCell")];
 }
 
 

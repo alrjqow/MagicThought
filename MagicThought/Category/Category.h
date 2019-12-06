@@ -16,6 +16,7 @@
 #import "NSObject+HideKey.h"
 
 #import "UIButton+HighLight.h"
+#import "UIButton+Click.h"
 
 #import "CLLocation+Mar.h"
 

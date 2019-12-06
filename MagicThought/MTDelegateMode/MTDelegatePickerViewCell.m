@@ -35,7 +35,7 @@
 }
 
 
--(Class)classObj
+-(Class)classOfResponseObject
 {
     return [NSString class];
 }

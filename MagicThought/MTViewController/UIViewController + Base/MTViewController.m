@@ -74,7 +74,7 @@
 
 #pragma mark - 网络请求
 
--(void)whenRequestFail:(MTBaseDataModel *)model
+- (void)whenRequestFail:(MTBaseDataModel *)model
 {
     [super whenRequestFail:model];
     [self whenEndRefreshing:false Model:model];
@@ -98,6 +98,8 @@
 -(void)setupNavigationItem{}
 
 - (void)setupSubview{}
+
+-(void)navigationBarRightBtnClick{}
 
 /**加载数据*/
 -(void)loadData{}
@@ -125,15 +127,13 @@
 
 #pragma mark - 成员方法
 
--(void)clearTableViewDelegate
-{
-    self.mtBase_tableView.delegate = nil;
-    self.mtBase_tableView.dataSource = nil;
-}
-
 -(void)goBack
 {
-    if(self.popToController)
+    if (self.presentingViewController)
+        [self dismissViewControllerAnimated:YES completion:nil];
+    else if (self.navigationController.presentingViewController && self.navigationController.viewControllers.count == 1)
+        [self dismissViewControllerAnimated:YES completion:nil];
+    else if(self.popToController)
         [self.navigationController popToViewController:self.popToController animated:YES];
     else
         [self popWithAnimate];
@@ -149,104 +149,8 @@
         [scriptDelegate userContentController:userContentController didReceiveScriptMessage:message];
 }
 
-#pragma mark - 代理与数据源
-
-- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    [tableView deselectRowAtIndexPath:indexPath animated:YES];
-    
-}
-
-- (nonnull UITableViewCell *)tableView:(nonnull UITableView *)tableView cellForRowAtIndexPath:(nonnull NSIndexPath *)indexPath {
-    return [UITableViewCell new];
-}
-
-- (NSInteger)tableView:(nonnull UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return 0;
-}
-
--(UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section
-{
-    return [UIView new];
-}
-
--(UIView *)tableView:(UITableView *)tableView viewForFooterInSection:(NSInteger)section
-{
-    return [UIView new];
-}
-
--(CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section
-{
-    return 0.000001;
-}
-
--(CGFloat)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section
-{
-    return 0.000001;
-}
-
-- (id)copyWithZone:(NSZone *)zone{    
-    return self;
-}
-
-- (NSInteger)collectionView:(nonnull UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section {
-    return 0;
-}
-
-- (nonnull __kindof UICollectionViewCell *)collectionView:(nonnull UICollectionView *)collectionView cellForItemAtIndexPath:(nonnull NSIndexPath *)indexPath {
-    return [UICollectionViewCell new];
-}
-
 
 #pragma mark - 懒加载
-
-- (MTDelegateTableView *)mtBase_tableView
-{
-    if (_mtBase_tableView == nil) {
-                
-        _mtBase_tableView = [[MTDelegateTableView alloc] initWithFrame:self.view.bounds style:UITableViewStyleGrouped];
-        _mtBase_tableView.delegate = self;
-        _mtBase_tableView.dataSource = self;
-        _mtBase_tableView.backgroundColor = [UIColor clearColor];
-        _mtBase_tableView.tableFooterView = [UIView new];
-        _mtBase_tableView.showsVerticalScrollIndicator = false;
-        _mtBase_tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
-        //防止分页漂移
-        _mtBase_tableView.estimatedRowHeight = 0;
-        _mtBase_tableView.estimatedSectionHeaderHeight = 0;
-        _mtBase_tableView.estimatedSectionFooterHeight = 0;        
-    }
-    return _mtBase_tableView;
-}
-
--(MTDelegateCollectionView *)mtBase_collectionView
-{
-    if(!_mtBase_collectionView)
-    {
-        _mtBase_collectionView = [[MTDelegateCollectionView alloc] initWithFrame:self.view.bounds collectionViewLayout:[UICollectionViewFlowLayout new]];
-        _mtBase_collectionView.delegate = self;
-        _mtBase_collectionView.dataSource = self;
-        _mtBase_collectionView.backgroundColor = [UIColor clearColor];
-        _mtBase_collectionView.showsVerticalScrollIndicator = false;
-    }
-    
-    return _mtBase_collectionView;
-}
-
--(UIScrollView *)listView
-{
-    return self.mtBase_tableView;
-}
-
--(NSDictionary *)emptyData
-{
-    if(!_emptyData)
-    {
-        _emptyData = @{};
-    }
-    
-    return _emptyData;
-}
 
 -(NSDictionary *)endRefreshBlackList
 {

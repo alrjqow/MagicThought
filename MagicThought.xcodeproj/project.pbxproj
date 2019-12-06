@@ -38,6 +38,86 @@
 		783FEE1B2383E02600C86440 /* MTTenScrollViewCellDelegateModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 783FEE192383E02600C86440 /* MTTenScrollViewCellDelegateModel.m */; };
 		783FEE1E2383FBDC00C86440 /* MTTenScrollBaseDelegateModel.h in Headers */ = {isa = PBXBuildFile; fileRef = 783FEE1C2383FBDC00C86440 /* MTTenScrollBaseDelegateModel.h */; };
 		783FEE1F2383FBDC00C86440 /* MTTenScrollBaseDelegateModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 783FEE1D2383FBDC00C86440 /* MTTenScrollBaseDelegateModel.m */; };
+		78492793239A15CE00FF1166 /* MTBaseListController.h in Headers */ = {isa = PBXBuildFile; fileRef = 78492791239A15CE00FF1166 /* MTBaseListController.h */; };
+		78492794239A15CE00FF1166 /* MTBaseListController.m in Sources */ = {isa = PBXBuildFile; fileRef = 78492792239A15CE00FF1166 /* MTBaseListController.m */; };
+		7849279A239A15EE00FF1166 /* MTTextFieldCellModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 78492796239A15EE00FF1166 /* MTTextFieldCellModel.m */; };
+		7849279B239A15EE00FF1166 /* MTBaseCellModel.h in Headers */ = {isa = PBXBuildFile; fileRef = 78492797239A15EE00FF1166 /* MTBaseCellModel.h */; };
+		7849279C239A15EE00FF1166 /* MTTextFieldCellModel.h in Headers */ = {isa = PBXBuildFile; fileRef = 78492798239A15EE00FF1166 /* MTTextFieldCellModel.h */; };
+		7849279D239A15EE00FF1166 /* MTBaseCellModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 78492799239A15EE00FF1166 /* MTBaseCellModel.m */; };
+		784927A0239A161000FF1166 /* MTBaseViewContentModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 7849279E239A161000FF1166 /* MTBaseViewContentModel.m */; };
+		784927A1239A161000FF1166 /* MTBaseViewContentModel.h in Headers */ = {isa = PBXBuildFile; fileRef = 7849279F239A161000FF1166 /* MTBaseViewContentModel.h */; };
+		784927A6239A166900FF1166 /* MTNavigationPhotoBrowserController.m in Sources */ = {isa = PBXBuildFile; fileRef = 784927A2239A166900FF1166 /* MTNavigationPhotoBrowserController.m */; };
+		784927A7239A166900FF1166 /* MTNavigationTransitionController.h in Headers */ = {isa = PBXBuildFile; fileRef = 784927A3239A166900FF1166 /* MTNavigationTransitionController.h */; };
+		784927A8239A166900FF1166 /* MTNavigationPhotoBrowserController.h in Headers */ = {isa = PBXBuildFile; fileRef = 784927A4239A166900FF1166 /* MTNavigationPhotoBrowserController.h */; };
+		784927A9239A166900FF1166 /* MTNavigationTransitionController.m in Sources */ = {isa = PBXBuildFile; fileRef = 784927A5239A166900FF1166 /* MTNavigationTransitionController.m */; };
+		784927F5239A171600FF1166 /* VKCssHotReloader.h in Headers */ = {isa = PBXBuildFile; fileRef = 784927AC239A171600FF1166 /* VKCssHotReloader.h */; };
+		784927F6239A171600FF1166 /* SGDirWatchdog.h in Headers */ = {isa = PBXBuildFile; fileRef = 784927AD239A171600FF1166 /* SGDirWatchdog.h */; };
+		784927F7239A171600FF1166 /* VKCssHotReloader.m in Sources */ = {isa = PBXBuildFile; fileRef = 784927AE239A171600FF1166 /* VKCssHotReloader.m */; };
+		784927F8239A171600FF1166 /* SGDirWatchdog.m in Sources */ = {isa = PBXBuildFile; fileRef = 784927AF239A171600FF1166 /* SGDirWatchdog.m */; };
+		784927F9239A171600FF1166 /* VKCssClassModal.h in Headers */ = {isa = PBXBuildFile; fileRef = 784927B1239A171600FF1166 /* VKCssClassModal.h */; };
+		784927FA239A171600FF1166 /* VKCssClassManager.h in Headers */ = {isa = PBXBuildFile; fileRef = 784927B2239A171600FF1166 /* VKCssClassManager.h */; };
+		784927FB239A171600FF1166 /* VKCssClassModal.m in Sources */ = {isa = PBXBuildFile; fileRef = 784927B3239A171600FF1166 /* VKCssClassModal.m */; };
+		784927FC239A171600FF1166 /* VKCssClassManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 784927B4239A171600FF1166 /* VKCssClassManager.m */; };
+		784927FD239A171600FF1166 /* NSObject+VKIdHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 784927B6239A171600FF1166 /* NSObject+VKIdHelper.m */; };
+		784927FE239A171600FF1166 /* UIView+VKCssProtocol.h in Headers */ = {isa = PBXBuildFile; fileRef = 784927B7239A171600FF1166 /* UIView+VKCssProtocol.h */; };
+		784927FF239A171600FF1166 /* UIView+VKMetrics.m in Sources */ = {isa = PBXBuildFile; fileRef = 784927B8239A171600FF1166 /* UIView+VKMetrics.m */; };
+		78492800239A171600FF1166 /* UIColor+VKUtlities.m in Sources */ = {isa = PBXBuildFile; fileRef = 784927B9239A171600FF1166 /* UIColor+VKUtlities.m */; };
+		78492801239A171600FF1166 /* NSMutableAttributedString+VKAttributedString.h in Headers */ = {isa = PBXBuildFile; fileRef = 784927BA239A171600FF1166 /* NSMutableAttributedString+VKAttributedString.h */; };
+		78492802239A171600FF1166 /* NSObject+VKIdHelper.h in Headers */ = {isa = PBXBuildFile; fileRef = 784927BB239A171600FF1166 /* NSObject+VKIdHelper.h */; };
+		78492803239A171600FF1166 /* VKUIKitMarco.h in Headers */ = {isa = PBXBuildFile; fileRef = 784927BC239A171600FF1166 /* VKUIKitMarco.h */; };
+		78492804239A171600FF1166 /* UIView+VKCssProtocol.m in Sources */ = {isa = PBXBuildFile; fileRef = 784927BD239A171600FF1166 /* UIView+VKCssProtocol.m */; };
+		78492805239A171600FF1166 /* UIView+VKMetrics.h in Headers */ = {isa = PBXBuildFile; fileRef = 784927BE239A171600FF1166 /* UIView+VKMetrics.h */; };
+		78492806239A171600FF1166 /* NSMutableAttributedString+VKAttributedString.m in Sources */ = {isa = PBXBuildFile; fileRef = 784927BF239A171600FF1166 /* NSMutableAttributedString+VKAttributedString.m */; };
+		78492807239A171600FF1166 /* NSObject+VKSingleton.h in Headers */ = {isa = PBXBuildFile; fileRef = 784927C0239A171600FF1166 /* NSObject+VKSingleton.h */; };
+		78492808239A171600FF1166 /* UIColor+VKUtlities.h in Headers */ = {isa = PBXBuildFile; fileRef = 784927C1239A171600FF1166 /* UIColor+VKUtlities.h */; };
+		78492809239A171600FF1166 /* VKCssStyleManager.h in Headers */ = {isa = PBXBuildFile; fileRef = 784927C3239A171600FF1166 /* VKCssStyleManager.h */; };
+		7849280A239A171600FF1166 /* VKCssStyleConstants.h in Headers */ = {isa = PBXBuildFile; fileRef = 784927C4239A171600FF1166 /* VKCssStyleConstants.h */; };
+		7849280B239A171600FF1166 /* VKCssStylePch.h in Headers */ = {isa = PBXBuildFile; fileRef = 784927C5239A171600FF1166 /* VKCssStylePch.h */; };
+		7849280C239A171600FF1166 /* VKTextAlignStyle.h in Headers */ = {isa = PBXBuildFile; fileRef = 784927C7239A171600FF1166 /* VKTextAlignStyle.h */; };
+		7849280D239A171600FF1166 /* VKFontColorStyle.h in Headers */ = {isa = PBXBuildFile; fileRef = 784927C8239A171600FF1166 /* VKFontColorStyle.h */; };
+		7849280E239A171600FF1166 /* VKBorderWidthStyle.m in Sources */ = {isa = PBXBuildFile; fileRef = 784927C9239A171600FF1166 /* VKBorderWidthStyle.m */; };
+		7849280F239A171600FF1166 /* VKBorderRadiusStyle.m in Sources */ = {isa = PBXBuildFile; fileRef = 784927CA239A171600FF1166 /* VKBorderRadiusStyle.m */; };
+		78492810239A171600FF1166 /* VKTextStyle.h in Headers */ = {isa = PBXBuildFile; fileRef = 784927CB239A171600FF1166 /* VKTextStyle.h */; };
+		78492811239A171600FF1166 /* VKTextShadowStyle.m in Sources */ = {isa = PBXBuildFile; fileRef = 784927CC239A171600FF1166 /* VKTextShadowStyle.m */; };
+		78492812239A171600FF1166 /* VKFontSizeStyle.h in Headers */ = {isa = PBXBuildFile; fileRef = 784927CD239A171600FF1166 /* VKFontSizeStyle.h */; };
+		78492813239A171600FF1166 /* VKFontFamiltyStyle.m in Sources */ = {isa = PBXBuildFile; fileRef = 784927CE239A171600FF1166 /* VKFontFamiltyStyle.m */; };
+		78492814239A171600FF1166 /* VKBackgroundImageStyle.h in Headers */ = {isa = PBXBuildFile; fileRef = 784927CF239A171600FF1166 /* VKBackgroundImageStyle.h */; };
+		78492815239A171600FF1166 /* VKBackgroundcolorStyle.h in Headers */ = {isa = PBXBuildFile; fileRef = 784927D0239A171600FF1166 /* VKBackgroundcolorStyle.h */; };
+		78492816239A171600FF1166 /* VKBorderColorStyle.m in Sources */ = {isa = PBXBuildFile; fileRef = 784927D1239A171600FF1166 /* VKBorderColorStyle.m */; };
+		78492817239A171600FF1166 /* VKFontColorStyle.m in Sources */ = {isa = PBXBuildFile; fileRef = 784927D2239A171600FF1166 /* VKFontColorStyle.m */; };
+		78492818239A171600FF1166 /* VKTextAlignStyle.m in Sources */ = {isa = PBXBuildFile; fileRef = 784927D3239A171600FF1166 /* VKTextAlignStyle.m */; };
+		78492819239A171600FF1166 /* VKFontFamiltyStyle.h in Headers */ = {isa = PBXBuildFile; fileRef = 784927D4239A171600FF1166 /* VKFontFamiltyStyle.h */; };
+		7849281A239A171600FF1166 /* VKFontSizeStyle.m in Sources */ = {isa = PBXBuildFile; fileRef = 784927D5239A171600FF1166 /* VKFontSizeStyle.m */; };
+		7849281B239A171600FF1166 /* VKTextShadowStyle.h in Headers */ = {isa = PBXBuildFile; fileRef = 784927D6239A171600FF1166 /* VKTextShadowStyle.h */; };
+		7849281C239A171600FF1166 /* VKBorderRadiusStyle.h in Headers */ = {isa = PBXBuildFile; fileRef = 784927D7239A171600FF1166 /* VKBorderRadiusStyle.h */; };
+		7849281D239A171600FF1166 /* VKTextStyle.m in Sources */ = {isa = PBXBuildFile; fileRef = 784927D8239A171600FF1166 /* VKTextStyle.m */; };
+		7849281E239A171600FF1166 /* VKBorderWidthStyle.h in Headers */ = {isa = PBXBuildFile; fileRef = 784927D9239A171600FF1166 /* VKBorderWidthStyle.h */; };
+		7849281F239A171600FF1166 /* VKBackgroundcolorStyle.m in Sources */ = {isa = PBXBuildFile; fileRef = 784927DA239A171600FF1166 /* VKBackgroundcolorStyle.m */; };
+		78492820239A171600FF1166 /* VKBackgroundImageStyle.m in Sources */ = {isa = PBXBuildFile; fileRef = 784927DB239A171600FF1166 /* VKBackgroundImageStyle.m */; };
+		78492821239A171600FF1166 /* VKBorderColorStyle.h in Headers */ = {isa = PBXBuildFile; fileRef = 784927DC239A171600FF1166 /* VKBorderColorStyle.h */; };
+		78492822239A171600FF1166 /* VKTextDecorationStyle.h in Headers */ = {isa = PBXBuildFile; fileRef = 784927DE239A171600FF1166 /* VKTextDecorationStyle.h */; };
+		78492823239A171600FF1166 /* VKBorderBottomStyle.m in Sources */ = {isa = PBXBuildFile; fileRef = 784927DF239A171600FF1166 /* VKBorderBottomStyle.m */; };
+		78492824239A171600FF1166 /* VKBorderTopStyle.m in Sources */ = {isa = PBXBuildFile; fileRef = 784927E0239A171600FF1166 /* VKBorderTopStyle.m */; };
+		78492825239A171600FF1166 /* VKFontWeightStyle.h in Headers */ = {isa = PBXBuildFile; fileRef = 784927E1239A171600FF1166 /* VKFontWeightStyle.h */; };
+		78492826239A171600FF1166 /* VKBorderLeftStyle.m in Sources */ = {isa = PBXBuildFile; fileRef = 784927E2239A171600FF1166 /* VKBorderLeftStyle.m */; };
+		78492827239A171600FF1166 /* UILabel+VKAddion.h in Headers */ = {isa = PBXBuildFile; fileRef = 784927E3239A171600FF1166 /* UILabel+VKAddion.h */; };
+		78492828239A171600FF1166 /* VKBorderRightStyle.h in Headers */ = {isa = PBXBuildFile; fileRef = 784927E4239A171600FF1166 /* VKBorderRightStyle.h */; };
+		78492829239A171600FF1166 /* UIView+VKAddion.h in Headers */ = {isa = PBXBuildFile; fileRef = 784927E5239A171600FF1166 /* UIView+VKAddion.h */; };
+		7849282A239A171600FF1166 /* UIButton+VKAddion.h in Headers */ = {isa = PBXBuildFile; fileRef = 784927E6239A171600FF1166 /* UIButton+VKAddion.h */; };
+		7849282B239A171600FF1166 /* VKTextTransformStyle.h in Headers */ = {isa = PBXBuildFile; fileRef = 784927E7239A171600FF1166 /* VKTextTransformStyle.h */; };
+		7849282C239A171600FF1166 /* VKBorderTopStyle.h in Headers */ = {isa = PBXBuildFile; fileRef = 784927E8239A171600FF1166 /* VKBorderTopStyle.h */; };
+		7849282D239A171600FF1166 /* VKBorderBottomStyle.h in Headers */ = {isa = PBXBuildFile; fileRef = 784927E9239A171600FF1166 /* VKBorderBottomStyle.h */; };
+		7849282E239A171600FF1166 /* VKTextDecorationStyle.m in Sources */ = {isa = PBXBuildFile; fileRef = 784927EA239A171600FF1166 /* VKTextDecorationStyle.m */; };
+		7849282F239A171600FF1166 /* VKBorderLeftStyle.h in Headers */ = {isa = PBXBuildFile; fileRef = 784927EB239A171600FF1166 /* VKBorderLeftStyle.h */; };
+		78492830239A171600FF1166 /* VKFontWeightStyle.m in Sources */ = {isa = PBXBuildFile; fileRef = 784927EC239A171600FF1166 /* VKFontWeightStyle.m */; };
+		78492831239A171600FF1166 /* VKBorderRightStyle.m in Sources */ = {isa = PBXBuildFile; fileRef = 784927ED239A171600FF1166 /* VKBorderRightStyle.m */; };
+		78492832239A171600FF1166 /* UILabel+VKAddion.m in Sources */ = {isa = PBXBuildFile; fileRef = 784927EE239A171600FF1166 /* UILabel+VKAddion.m */; };
+		78492833239A171600FF1166 /* VKTextTransformStyle.m in Sources */ = {isa = PBXBuildFile; fileRef = 784927EF239A171600FF1166 /* VKTextTransformStyle.m */; };
+		78492834239A171600FF1166 /* UIButton+VKAddion.m in Sources */ = {isa = PBXBuildFile; fileRef = 784927F0239A171600FF1166 /* UIButton+VKAddion.m */; };
+		78492835239A171600FF1166 /* UIView+VKAddion.m in Sources */ = {isa = PBXBuildFile; fileRef = 784927F1239A171600FF1166 /* UIView+VKAddion.m */; };
+		78492836239A171600FF1166 /* VKCssStyleManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 784927F2239A171600FF1166 /* VKCssStyleManager.m */; };
+		78492837239A171600FF1166 /* VKCssStyleProtocol.h in Headers */ = {isa = PBXBuildFile; fileRef = 784927F3239A171600FF1166 /* VKCssStyleProtocol.h */; };
+		78492838239A171600FF1166 /* VKCssProtocol.h in Headers */ = {isa = PBXBuildFile; fileRef = 784927F4239A171600FF1166 /* VKCssProtocol.h */; };
 		78656A482382471A00685B79 /* MTDynamicItem.h in Headers */ = {isa = PBXBuildFile; fileRef = 78656A462382471A00685B79 /* MTDynamicItem.h */; };
 		78656A492382471A00685B79 /* MTDynamicItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 78656A472382471A00685B79 /* MTDynamicItem.m */; };
 		78656A4C238247D000685B79 /* MTTenScrollController.h in Headers */ = {isa = PBXBuildFile; fileRef = 78656A4A238247D000685B79 /* MTTenScrollController.h */; };
@@ -91,11 +171,7 @@
 		789F3FD222DC2B1A00586487 /* MTPageInfoModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 789F3DFC22DC2B1A00586487 /* MTPageInfoModel.m */; };
 		789F3FD322DC2B1A00586487 /* MTHeaderFooterRefreshListController.h in Headers */ = {isa = PBXBuildFile; fileRef = 789F3DFD22DC2B1A00586487 /* MTHeaderFooterRefreshListController.h */; };
 		789F3FD422DC2B1A00586487 /* MTDelegateViewDataModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 789F3DFE22DC2B1A00586487 /* MTDelegateViewDataModel.m */; };
-		789F3FD522DC2B1A00586487 /* MTDelegateTableCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 789F3E0022DC2B1A00586487 /* MTDelegateTableCollectionViewCell.m */; };
-		789F3FD622DC2B1A00586487 /* MTDelegateTableCollectionViewCell.h in Headers */ = {isa = PBXBuildFile; fileRef = 789F3E0122DC2B1A00586487 /* MTDelegateTableCollectionViewCell.h */; };
-		789F3FD722DC2B1A00586487 /* MTDelegateButton.h in Headers */ = {isa = PBXBuildFile; fileRef = 789F3E0322DC2B1A00586487 /* MTDelegateButton.h */; };
 		789F3FD822DC2B1A00586487 /* MTCountButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 789F3E0422DC2B1A00586487 /* MTCountButton.m */; };
-		789F3FD922DC2B1A00586487 /* MTDelegateButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 789F3E0522DC2B1A00586487 /* MTDelegateButton.m */; };
 		789F3FDA22DC2B1A00586487 /* MTCountButton.h in Headers */ = {isa = PBXBuildFile; fileRef = 789F3E0622DC2B1A00586487 /* MTCountButton.h */; };
 		789F3FDB22DC2B1A00586487 /* MTSafariView.m in Sources */ = {isa = PBXBuildFile; fileRef = 789F3E0822DC2B1A00586487 /* MTSafariView.m */; };
 		789F3FDC22DC2B1A00586487 /* MTSafariView.h in Headers */ = {isa = PBXBuildFile; fileRef = 789F3E0922DC2B1A00586487 /* MTSafariView.h */; };
@@ -495,6 +571,86 @@
 		783FEE192383E02600C86440 /* MTTenScrollViewCellDelegateModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MTTenScrollViewCellDelegateModel.m; sourceTree = "<group>"; };
 		783FEE1C2383FBDC00C86440 /* MTTenScrollBaseDelegateModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MTTenScrollBaseDelegateModel.h; sourceTree = "<group>"; };
 		783FEE1D2383FBDC00C86440 /* MTTenScrollBaseDelegateModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MTTenScrollBaseDelegateModel.m; sourceTree = "<group>"; };
+		78492791239A15CE00FF1166 /* MTBaseListController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MTBaseListController.h; sourceTree = "<group>"; };
+		78492792239A15CE00FF1166 /* MTBaseListController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MTBaseListController.m; sourceTree = "<group>"; };
+		78492796239A15EE00FF1166 /* MTTextFieldCellModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MTTextFieldCellModel.m; sourceTree = "<group>"; };
+		78492797239A15EE00FF1166 /* MTBaseCellModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MTBaseCellModel.h; sourceTree = "<group>"; };
+		78492798239A15EE00FF1166 /* MTTextFieldCellModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MTTextFieldCellModel.h; sourceTree = "<group>"; };
+		78492799239A15EE00FF1166 /* MTBaseCellModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MTBaseCellModel.m; sourceTree = "<group>"; };
+		7849279E239A161000FF1166 /* MTBaseViewContentModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MTBaseViewContentModel.m; sourceTree = "<group>"; };
+		7849279F239A161000FF1166 /* MTBaseViewContentModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MTBaseViewContentModel.h; sourceTree = "<group>"; };
+		784927A2239A166900FF1166 /* MTNavigationPhotoBrowserController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MTNavigationPhotoBrowserController.m; sourceTree = "<group>"; };
+		784927A3239A166900FF1166 /* MTNavigationTransitionController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MTNavigationTransitionController.h; sourceTree = "<group>"; };
+		784927A4239A166900FF1166 /* MTNavigationPhotoBrowserController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MTNavigationPhotoBrowserController.h; sourceTree = "<group>"; };
+		784927A5239A166900FF1166 /* MTNavigationTransitionController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MTNavigationTransitionController.m; sourceTree = "<group>"; };
+		784927AC239A171600FF1166 /* VKCssHotReloader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VKCssHotReloader.h; sourceTree = "<group>"; };
+		784927AD239A171600FF1166 /* SGDirWatchdog.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SGDirWatchdog.h; sourceTree = "<group>"; };
+		784927AE239A171600FF1166 /* VKCssHotReloader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VKCssHotReloader.m; sourceTree = "<group>"; };
+		784927AF239A171600FF1166 /* SGDirWatchdog.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SGDirWatchdog.m; sourceTree = "<group>"; };
+		784927B1239A171600FF1166 /* VKCssClassModal.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VKCssClassModal.h; sourceTree = "<group>"; };
+		784927B2239A171600FF1166 /* VKCssClassManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VKCssClassManager.h; sourceTree = "<group>"; };
+		784927B3239A171600FF1166 /* VKCssClassModal.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VKCssClassModal.m; sourceTree = "<group>"; };
+		784927B4239A171600FF1166 /* VKCssClassManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VKCssClassManager.m; sourceTree = "<group>"; };
+		784927B6239A171600FF1166 /* NSObject+VKIdHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+VKIdHelper.m"; sourceTree = "<group>"; };
+		784927B7239A171600FF1166 /* UIView+VKCssProtocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+VKCssProtocol.h"; sourceTree = "<group>"; };
+		784927B8239A171600FF1166 /* UIView+VKMetrics.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+VKMetrics.m"; sourceTree = "<group>"; };
+		784927B9239A171600FF1166 /* UIColor+VKUtlities.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+VKUtlities.m"; sourceTree = "<group>"; };
+		784927BA239A171600FF1166 /* NSMutableAttributedString+VKAttributedString.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSMutableAttributedString+VKAttributedString.h"; sourceTree = "<group>"; };
+		784927BB239A171600FF1166 /* NSObject+VKIdHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+VKIdHelper.h"; sourceTree = "<group>"; };
+		784927BC239A171600FF1166 /* VKUIKitMarco.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VKUIKitMarco.h; sourceTree = "<group>"; };
+		784927BD239A171600FF1166 /* UIView+VKCssProtocol.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+VKCssProtocol.m"; sourceTree = "<group>"; };
+		784927BE239A171600FF1166 /* UIView+VKMetrics.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+VKMetrics.h"; sourceTree = "<group>"; };
+		784927BF239A171600FF1166 /* NSMutableAttributedString+VKAttributedString.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSMutableAttributedString+VKAttributedString.m"; sourceTree = "<group>"; };
+		784927C0239A171600FF1166 /* NSObject+VKSingleton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+VKSingleton.h"; sourceTree = "<group>"; };
+		784927C1239A171600FF1166 /* UIColor+VKUtlities.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIColor+VKUtlities.h"; sourceTree = "<group>"; };
+		784927C3239A171600FF1166 /* VKCssStyleManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VKCssStyleManager.h; sourceTree = "<group>"; };
+		784927C4239A171600FF1166 /* VKCssStyleConstants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VKCssStyleConstants.h; sourceTree = "<group>"; };
+		784927C5239A171600FF1166 /* VKCssStylePch.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VKCssStylePch.h; sourceTree = "<group>"; };
+		784927C7239A171600FF1166 /* VKTextAlignStyle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VKTextAlignStyle.h; sourceTree = "<group>"; };
+		784927C8239A171600FF1166 /* VKFontColorStyle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VKFontColorStyle.h; sourceTree = "<group>"; };
+		784927C9239A171600FF1166 /* VKBorderWidthStyle.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VKBorderWidthStyle.m; sourceTree = "<group>"; };
+		784927CA239A171600FF1166 /* VKBorderRadiusStyle.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VKBorderRadiusStyle.m; sourceTree = "<group>"; };
+		784927CB239A171600FF1166 /* VKTextStyle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VKTextStyle.h; sourceTree = "<group>"; };
+		784927CC239A171600FF1166 /* VKTextShadowStyle.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VKTextShadowStyle.m; sourceTree = "<group>"; };
+		784927CD239A171600FF1166 /* VKFontSizeStyle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VKFontSizeStyle.h; sourceTree = "<group>"; };
+		784927CE239A171600FF1166 /* VKFontFamiltyStyle.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VKFontFamiltyStyle.m; sourceTree = "<group>"; };
+		784927CF239A171600FF1166 /* VKBackgroundImageStyle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VKBackgroundImageStyle.h; sourceTree = "<group>"; };
+		784927D0239A171600FF1166 /* VKBackgroundcolorStyle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VKBackgroundcolorStyle.h; sourceTree = "<group>"; };
+		784927D1239A171600FF1166 /* VKBorderColorStyle.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VKBorderColorStyle.m; sourceTree = "<group>"; };
+		784927D2239A171600FF1166 /* VKFontColorStyle.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VKFontColorStyle.m; sourceTree = "<group>"; };
+		784927D3239A171600FF1166 /* VKTextAlignStyle.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VKTextAlignStyle.m; sourceTree = "<group>"; };
+		784927D4239A171600FF1166 /* VKFontFamiltyStyle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VKFontFamiltyStyle.h; sourceTree = "<group>"; };
+		784927D5239A171600FF1166 /* VKFontSizeStyle.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VKFontSizeStyle.m; sourceTree = "<group>"; };
+		784927D6239A171600FF1166 /* VKTextShadowStyle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VKTextShadowStyle.h; sourceTree = "<group>"; };
+		784927D7239A171600FF1166 /* VKBorderRadiusStyle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VKBorderRadiusStyle.h; sourceTree = "<group>"; };
+		784927D8239A171600FF1166 /* VKTextStyle.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VKTextStyle.m; sourceTree = "<group>"; };
+		784927D9239A171600FF1166 /* VKBorderWidthStyle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VKBorderWidthStyle.h; sourceTree = "<group>"; };
+		784927DA239A171600FF1166 /* VKBackgroundcolorStyle.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VKBackgroundcolorStyle.m; sourceTree = "<group>"; };
+		784927DB239A171600FF1166 /* VKBackgroundImageStyle.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VKBackgroundImageStyle.m; sourceTree = "<group>"; };
+		784927DC239A171600FF1166 /* VKBorderColorStyle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VKBorderColorStyle.h; sourceTree = "<group>"; };
+		784927DE239A171600FF1166 /* VKTextDecorationStyle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VKTextDecorationStyle.h; sourceTree = "<group>"; };
+		784927DF239A171600FF1166 /* VKBorderBottomStyle.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VKBorderBottomStyle.m; sourceTree = "<group>"; };
+		784927E0239A171600FF1166 /* VKBorderTopStyle.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VKBorderTopStyle.m; sourceTree = "<group>"; };
+		784927E1239A171600FF1166 /* VKFontWeightStyle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VKFontWeightStyle.h; sourceTree = "<group>"; };
+		784927E2239A171600FF1166 /* VKBorderLeftStyle.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VKBorderLeftStyle.m; sourceTree = "<group>"; };
+		784927E3239A171600FF1166 /* UILabel+VKAddion.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UILabel+VKAddion.h"; sourceTree = "<group>"; };
+		784927E4239A171600FF1166 /* VKBorderRightStyle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VKBorderRightStyle.h; sourceTree = "<group>"; };
+		784927E5239A171600FF1166 /* UIView+VKAddion.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+VKAddion.h"; sourceTree = "<group>"; };
+		784927E6239A171600FF1166 /* UIButton+VKAddion.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIButton+VKAddion.h"; sourceTree = "<group>"; };
+		784927E7239A171600FF1166 /* VKTextTransformStyle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VKTextTransformStyle.h; sourceTree = "<group>"; };
+		784927E8239A171600FF1166 /* VKBorderTopStyle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VKBorderTopStyle.h; sourceTree = "<group>"; };
+		784927E9239A171600FF1166 /* VKBorderBottomStyle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VKBorderBottomStyle.h; sourceTree = "<group>"; };
+		784927EA239A171600FF1166 /* VKTextDecorationStyle.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VKTextDecorationStyle.m; sourceTree = "<group>"; };
+		784927EB239A171600FF1166 /* VKBorderLeftStyle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VKBorderLeftStyle.h; sourceTree = "<group>"; };
+		784927EC239A171600FF1166 /* VKFontWeightStyle.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VKFontWeightStyle.m; sourceTree = "<group>"; };
+		784927ED239A171600FF1166 /* VKBorderRightStyle.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VKBorderRightStyle.m; sourceTree = "<group>"; };
+		784927EE239A171600FF1166 /* UILabel+VKAddion.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UILabel+VKAddion.m"; sourceTree = "<group>"; };
+		784927EF239A171600FF1166 /* VKTextTransformStyle.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VKTextTransformStyle.m; sourceTree = "<group>"; };
+		784927F0239A171600FF1166 /* UIButton+VKAddion.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIButton+VKAddion.m"; sourceTree = "<group>"; };
+		784927F1239A171600FF1166 /* UIView+VKAddion.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+VKAddion.m"; sourceTree = "<group>"; };
+		784927F2239A171600FF1166 /* VKCssStyleManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VKCssStyleManager.m; sourceTree = "<group>"; };
+		784927F3239A171600FF1166 /* VKCssStyleProtocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VKCssStyleProtocol.h; sourceTree = "<group>"; };
+		784927F4239A171600FF1166 /* VKCssProtocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VKCssProtocol.h; sourceTree = "<group>"; };
 		78656A462382471A00685B79 /* MTDynamicItem.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MTDynamicItem.h; sourceTree = "<group>"; };
 		78656A472382471A00685B79 /* MTDynamicItem.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MTDynamicItem.m; sourceTree = "<group>"; };
 		78656A4A238247D000685B79 /* MTTenScrollController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MTTenScrollController.h; sourceTree = "<group>"; };
@@ -548,11 +704,7 @@
 		789F3DFC22DC2B1A00586487 /* MTPageInfoModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MTPageInfoModel.m; sourceTree = "<group>"; };
 		789F3DFD22DC2B1A00586487 /* MTHeaderFooterRefreshListController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MTHeaderFooterRefreshListController.h; sourceTree = "<group>"; };
 		789F3DFE22DC2B1A00586487 /* MTDelegateViewDataModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MTDelegateViewDataModel.m; sourceTree = "<group>"; };
-		789F3E0022DC2B1A00586487 /* MTDelegateTableCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MTDelegateTableCollectionViewCell.m; sourceTree = "<group>"; };
-		789F3E0122DC2B1A00586487 /* MTDelegateTableCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MTDelegateTableCollectionViewCell.h; sourceTree = "<group>"; };
-		789F3E0322DC2B1A00586487 /* MTDelegateButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MTDelegateButton.h; sourceTree = "<group>"; };
 		789F3E0422DC2B1A00586487 /* MTCountButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MTCountButton.m; sourceTree = "<group>"; };
-		789F3E0522DC2B1A00586487 /* MTDelegateButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MTDelegateButton.m; sourceTree = "<group>"; };
 		789F3E0622DC2B1A00586487 /* MTCountButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MTCountButton.h; sourceTree = "<group>"; };
 		789F3E0822DC2B1A00586487 /* MTSafariView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MTSafariView.m; sourceTree = "<group>"; };
 		789F3E0922DC2B1A00586487 /* MTSafariView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MTSafariView.h; sourceTree = "<group>"; };
@@ -919,6 +1071,8 @@
 				781B0F6822EFFCEB00B56434 /* Dependency.h */,
 				789F3EBD22DC2B1A00586487 /* Reachability.h */,
 				789F3EBB22DC2B1A00586487 /* Reachability.m */,
+				7849279F239A161000FF1166 /* MTBaseViewContentModel.h */,
+				7849279E239A161000FF1166 /* MTBaseViewContentModel.m */,
 				789F3F2B22DC2B1A00586487 /* MTManager.h */,
 				789F3F3322DC2B1A00586487 /* MTManager.m */,
 				789F3F2A22DC2B1A00586487 /* MTCloud.h */,
@@ -1003,6 +1157,10 @@
 			children = (
 				7820500722EEEBFD0004C96C /* MTNavigationController.h */,
 				7820500822EEEBFD0004C96C /* MTNavigationController.m */,
+				784927A4239A166900FF1166 /* MTNavigationPhotoBrowserController.h */,
+				784927A2239A166900FF1166 /* MTNavigationPhotoBrowserController.m */,
+				784927A3239A166900FF1166 /* MTNavigationTransitionController.h */,
+				784927A5239A166900FF1166 /* MTNavigationTransitionController.m */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -1015,6 +1173,140 @@
 				7820500B22EEEBFD0004C96C /* MTInteractiveGestureTransitioningProtocol.h */,
 			);
 			path = Model;
+			sourceTree = "<group>";
+		};
+		78492795239A15EE00FF1166 /* CellModel */ = {
+			isa = PBXGroup;
+			children = (
+				78492798239A15EE00FF1166 /* MTTextFieldCellModel.h */,
+				78492796239A15EE00FF1166 /* MTTextFieldCellModel.m */,
+				78492797239A15EE00FF1166 /* MTBaseCellModel.h */,
+				78492799239A15EE00FF1166 /* MTBaseCellModel.m */,
+			);
+			path = CellModel;
+			sourceTree = "<group>";
+		};
+		784927AA239A171600FF1166 /* VKCssProtocol */ = {
+			isa = PBXGroup;
+			children = (
+				784927AB239A171600FF1166 /* VKCssHotReloader */,
+				784927B0239A171600FF1166 /* VKCssClass */,
+				784927B5239A171600FF1166 /* VKCategory */,
+				784927C2239A171600FF1166 /* VKCssStyle */,
+				784927F4239A171600FF1166 /* VKCssProtocol.h */,
+			);
+			path = VKCssProtocol;
+			sourceTree = "<group>";
+		};
+		784927AB239A171600FF1166 /* VKCssHotReloader */ = {
+			isa = PBXGroup;
+			children = (
+				784927AC239A171600FF1166 /* VKCssHotReloader.h */,
+				784927AD239A171600FF1166 /* SGDirWatchdog.h */,
+				784927AE239A171600FF1166 /* VKCssHotReloader.m */,
+				784927AF239A171600FF1166 /* SGDirWatchdog.m */,
+			);
+			path = VKCssHotReloader;
+			sourceTree = "<group>";
+		};
+		784927B0239A171600FF1166 /* VKCssClass */ = {
+			isa = PBXGroup;
+			children = (
+				784927B1239A171600FF1166 /* VKCssClassModal.h */,
+				784927B2239A171600FF1166 /* VKCssClassManager.h */,
+				784927B3239A171600FF1166 /* VKCssClassModal.m */,
+				784927B4239A171600FF1166 /* VKCssClassManager.m */,
+			);
+			path = VKCssClass;
+			sourceTree = "<group>";
+		};
+		784927B5239A171600FF1166 /* VKCategory */ = {
+			isa = PBXGroup;
+			children = (
+				784927B6239A171600FF1166 /* NSObject+VKIdHelper.m */,
+				784927B7239A171600FF1166 /* UIView+VKCssProtocol.h */,
+				784927B8239A171600FF1166 /* UIView+VKMetrics.m */,
+				784927B9239A171600FF1166 /* UIColor+VKUtlities.m */,
+				784927BA239A171600FF1166 /* NSMutableAttributedString+VKAttributedString.h */,
+				784927BB239A171600FF1166 /* NSObject+VKIdHelper.h */,
+				784927BC239A171600FF1166 /* VKUIKitMarco.h */,
+				784927BD239A171600FF1166 /* UIView+VKCssProtocol.m */,
+				784927BE239A171600FF1166 /* UIView+VKMetrics.h */,
+				784927BF239A171600FF1166 /* NSMutableAttributedString+VKAttributedString.m */,
+				784927C0239A171600FF1166 /* NSObject+VKSingleton.h */,
+				784927C1239A171600FF1166 /* UIColor+VKUtlities.h */,
+			);
+			path = VKCategory;
+			sourceTree = "<group>";
+		};
+		784927C2239A171600FF1166 /* VKCssStyle */ = {
+			isa = PBXGroup;
+			children = (
+				784927C3239A171600FF1166 /* VKCssStyleManager.h */,
+				784927C4239A171600FF1166 /* VKCssStyleConstants.h */,
+				784927C5239A171600FF1166 /* VKCssStylePch.h */,
+				784927C6239A171600FF1166 /* VKStyles */,
+				784927DD239A171600FF1166 /* VKRuntimeStyles */,
+				784927F2239A171600FF1166 /* VKCssStyleManager.m */,
+				784927F3239A171600FF1166 /* VKCssStyleProtocol.h */,
+			);
+			path = VKCssStyle;
+			sourceTree = "<group>";
+		};
+		784927C6239A171600FF1166 /* VKStyles */ = {
+			isa = PBXGroup;
+			children = (
+				784927C7239A171600FF1166 /* VKTextAlignStyle.h */,
+				784927C8239A171600FF1166 /* VKFontColorStyle.h */,
+				784927C9239A171600FF1166 /* VKBorderWidthStyle.m */,
+				784927CA239A171600FF1166 /* VKBorderRadiusStyle.m */,
+				784927CB239A171600FF1166 /* VKTextStyle.h */,
+				784927CC239A171600FF1166 /* VKTextShadowStyle.m */,
+				784927CD239A171600FF1166 /* VKFontSizeStyle.h */,
+				784927CE239A171600FF1166 /* VKFontFamiltyStyle.m */,
+				784927CF239A171600FF1166 /* VKBackgroundImageStyle.h */,
+				784927D0239A171600FF1166 /* VKBackgroundcolorStyle.h */,
+				784927D1239A171600FF1166 /* VKBorderColorStyle.m */,
+				784927D2239A171600FF1166 /* VKFontColorStyle.m */,
+				784927D3239A171600FF1166 /* VKTextAlignStyle.m */,
+				784927D4239A171600FF1166 /* VKFontFamiltyStyle.h */,
+				784927D5239A171600FF1166 /* VKFontSizeStyle.m */,
+				784927D6239A171600FF1166 /* VKTextShadowStyle.h */,
+				784927D7239A171600FF1166 /* VKBorderRadiusStyle.h */,
+				784927D8239A171600FF1166 /* VKTextStyle.m */,
+				784927D9239A171600FF1166 /* VKBorderWidthStyle.h */,
+				784927DA239A171600FF1166 /* VKBackgroundcolorStyle.m */,
+				784927DB239A171600FF1166 /* VKBackgroundImageStyle.m */,
+				784927DC239A171600FF1166 /* VKBorderColorStyle.h */,
+			);
+			path = VKStyles;
+			sourceTree = "<group>";
+		};
+		784927DD239A171600FF1166 /* VKRuntimeStyles */ = {
+			isa = PBXGroup;
+			children = (
+				784927DE239A171600FF1166 /* VKTextDecorationStyle.h */,
+				784927DF239A171600FF1166 /* VKBorderBottomStyle.m */,
+				784927E0239A171600FF1166 /* VKBorderTopStyle.m */,
+				784927E1239A171600FF1166 /* VKFontWeightStyle.h */,
+				784927E2239A171600FF1166 /* VKBorderLeftStyle.m */,
+				784927E3239A171600FF1166 /* UILabel+VKAddion.h */,
+				784927E4239A171600FF1166 /* VKBorderRightStyle.h */,
+				784927E5239A171600FF1166 /* UIView+VKAddion.h */,
+				784927E6239A171600FF1166 /* UIButton+VKAddion.h */,
+				784927E7239A171600FF1166 /* VKTextTransformStyle.h */,
+				784927E8239A171600FF1166 /* VKBorderTopStyle.h */,
+				784927E9239A171600FF1166 /* VKBorderBottomStyle.h */,
+				784927EA239A171600FF1166 /* VKTextDecorationStyle.m */,
+				784927EB239A171600FF1166 /* VKBorderLeftStyle.h */,
+				784927EC239A171600FF1166 /* VKFontWeightStyle.m */,
+				784927ED239A171600FF1166 /* VKBorderRightStyle.m */,
+				784927EE239A171600FF1166 /* UILabel+VKAddion.m */,
+				784927EF239A171600FF1166 /* VKTextTransformStyle.m */,
+				784927F0239A171600FF1166 /* UIButton+VKAddion.m */,
+				784927F1239A171600FF1166 /* UIView+VKAddion.m */,
+			);
+			path = VKRuntimeStyles;
 			sourceTree = "<group>";
 		};
 		78656A45238246AC00685B79 /* ViewModel */ = {
@@ -1102,7 +1394,6 @@
 			isa = PBXGroup;
 			children = (
 				781B0F6422EFF77D00B56434 /* SubClass.h */,
-				789F3DFF22DC2B1A00586487 /* UITableViewCell */,
 				789F3E0222DC2B1A00586487 /* UIButton */,
 				789F3E0722DC2B1A00586487 /* WKWebView */,
 			);
@@ -1113,6 +1404,8 @@
 			isa = PBXGroup;
 			children = (
 				781B0F5122EFE66200B56434 /* MTListControllers.h */,
+				78492791239A15CE00FF1166 /* MTBaseListController.h */,
+				78492792239A15CE00FF1166 /* MTBaseListController.m */,
 				789F3DFA22DC2B1A00586487 /* MTListController.h */,
 				789F3DF822DC2B1A00586487 /* MTListController.m */,
 				789F3DF722DC2B1A00586487 /* MTHeaderRefreshListController.h */,
@@ -1127,20 +1420,9 @@
 			path = MTListController;
 			sourceTree = "<group>";
 		};
-		789F3DFF22DC2B1A00586487 /* UITableViewCell */ = {
-			isa = PBXGroup;
-			children = (
-				789F3E0122DC2B1A00586487 /* MTDelegateTableCollectionViewCell.h */,
-				789F3E0022DC2B1A00586487 /* MTDelegateTableCollectionViewCell.m */,
-			);
-			path = UITableViewCell;
-			sourceTree = "<group>";
-		};
 		789F3E0222DC2B1A00586487 /* UIButton */ = {
 			isa = PBXGroup;
 			children = (
-				789F3E0322DC2B1A00586487 /* MTDelegateButton.h */,
-				789F3E0522DC2B1A00586487 /* MTDelegateButton.m */,
 				789F3E0622DC2B1A00586487 /* MTCountButton.h */,
 				789F3E0422DC2B1A00586487 /* MTCountButton.m */,
 			);
@@ -1459,6 +1741,7 @@
 			isa = PBXGroup;
 			children = (
 				781B0F5522EFED2300B56434 /* Library.h */,
+				784927AA239A171600FF1166 /* VKCssProtocol */,
 				789F3EDB22DC2B1A00586487 /* TZImagePickerController */,
 			);
 			path = Library;
@@ -1546,6 +1829,7 @@
 				789F3F1022DC2B1A00586487 /* MTBaseHeaderFooterView.m */,
 				789F3F1622DC2B1A00586487 /* MTBaseCollectionReusableView.h */,
 				789F3F0F22DC2B1A00586487 /* MTBaseCollectionReusableView.m */,
+				78492795239A15EE00FF1166 /* CellModel */,
 			);
 			path = MTBaseCell;
 			sourceTree = "<group>";
@@ -1986,29 +2270,41 @@
 				789F40B122DC2B1B00586487 /* MTInitProtocol.h in Headers */,
 				789F404B22DC2B1B00586487 /* NSArray+Json.h in Headers */,
 				789F40CE22DC2B1B00586487 /* MTAuthorizationManager.h in Headers */,
+				784927FA239A171600FF1166 /* VKCssClassManager.h in Headers */,
 				789F401322DC2B1A00586487 /* NSString+Exist.h in Headers */,
+				78492828239A171600FF1166 /* VKBorderRightStyle.h in Headers */,
 				789F400822DC2B1A00586487 /* UIView+ViewController.h in Headers */,
 				789F3FF422DC2B1A00586487 /* UILabel +AttributeText.h in Headers */,
+				78492810239A171600FF1166 /* VKTextStyle.h in Headers */,
 				789F3FE122DC2B1A00586487 /* MTFeedBackInfoController.h in Headers */,
 				789F3FE022DC2B1A00586487 /* MTViewController.h in Headers */,
 				789F410C22DC2B1B00586487 /* MTFileManager.h in Headers */,
+				78492819239A171600FF1166 /* VKFontFamiltyStyle.h in Headers */,
 				789F403D22DC2B1A00586487 /* MTPopButtonItem.h in Headers */,
 				789F405822DC2B1B00586487 /* MTAlertCollectionController.h in Headers */,
+				78492801239A171600FF1166 /* NSMutableAttributedString+VKAttributedString.h in Headers */,
 				789F40D022DC2B1B00586487 /* MTCloud.h in Headers */,
+				78492827239A171600FF1166 /* UILabel+VKAddion.h in Headers */,
+				784927A1239A161000FF1166 /* MTBaseViewContentModel.h in Headers */,
 				789F408922DC2B1B00586487 /* TZPhotoPickerController.h in Headers */,
 				789F400B22DC2B1A00586487 /* UIView+Copy.h in Headers */,
 				789F402022DC2B1A00586487 /* NSString+WordHeight.h in Headers */,
+				78492807239A171600FF1166 /* NSObject+VKSingleton.h in Headers */,
 				78DFF19C2390FDBD005C7804 /* MTTabBarItem.h in Headers */,
 				789F40FB22DC2B1B00586487 /* MTTenScrollTitleView.h in Headers */,
 				789F406C22DC2B1B00586487 /* MTBaseDataModel.h in Headers */,
 				789F404022DC2B1A00586487 /* MTWindow.h in Headers */,
 				789F402D22DC2B1A00586487 /* UIViewController+Navigation.h in Headers */,
 				789F408822DC2B1B00586487 /* TZPhotoPreviewCell.h in Headers */,
+				78492805239A171600FF1166 /* UIView+VKMetrics.h in Headers */,
+				78492837239A171600FF1166 /* VKCssStyleProtocol.h in Headers */,
 				789F3FC922DC2B1A00586487 /* MTDocumentPreseter.h in Headers */,
 				7820501522EEEBFD0004C96C /* MTNavigationController.h in Headers */,
+				7849280C239A171600FF1166 /* VKTextAlignStyle.h in Headers */,
 				789F408222DC2B1B00586487 /* UITextField+Word.h in Headers */,
 				789F404422DC2B1B00586487 /* MTPopView.h in Headers */,
 				789F406622DC2B1B00586487 /* MTAlertUIContainer.h in Headers */,
+				7849282A239A171600FF1166 /* UIButton+VKAddion.h in Headers */,
 				780C2FDD22E9B37F005FA4DB /* MTTextFieldVerifyModel.h in Headers */,
 				789F3FAF22DC2B1A00586487 /* MTLockView.h in Headers */,
 				789F40CC22DC2B1B00586487 /* MTFingerWaveView.h in Headers */,
@@ -2018,7 +2314,6 @@
 				789F411922DC2B1B00586487 /* MTVideoController.h in Headers */,
 				789F40DF22DC2B1B00586487 /* MTDelegateCollectionView.h in Headers */,
 				783FEE1E2383FBDC00C86440 /* MTTenScrollBaseDelegateModel.h in Headers */,
-				789F3FD622DC2B1A00586487 /* MTDelegateTableCollectionViewCell.h in Headers */,
 				789F40C622DC2B1B00586487 /* MTImagePlayView.h in Headers */,
 				789F401922DC2B1A00586487 /* NSString+MD5.h in Headers */,
 				789F404322DC2B1B00586487 /* MTPopViewConfig.h in Headers */,
@@ -2026,6 +2321,7 @@
 				789F406A22DC2B1B00586487 /* MTApiProtocol.h in Headers */,
 				789F408B22DC2B1B00586487 /* TZImageManager.h in Headers */,
 				789F3FBA22DC2B1A00586487 /* UIImage+Draw.h in Headers */,
+				78492814239A171600FF1166 /* VKBackgroundImageStyle.h in Headers */,
 				789F405B22DC2B1B00586487 /* MTAlertDatePickerController.h in Headers */,
 				789F412F22DC2B1B00586487 /* MTPhotoPreviewViewCellModel.h in Headers */,
 				789F40BE22DC2B1B00586487 /* MTBaseHeaderFooterView.h in Headers */,
@@ -2041,6 +2337,7 @@
 				789F3FAC22DC2B1A00586487 /* MTSlide.h in Headers */,
 				789F410922DC2B1B00586487 /* MTTextView.h in Headers */,
 				789F409722DC2B1B00586487 /* TZAssetCell.h in Headers */,
+				7849282F239A171600FF1166 /* VKBorderLeftStyle.h in Headers */,
 				789F40E422DC2B1B00586487 /* MTDelegateTableView.h in Headers */,
 				789F408722DC2B1B00586487 /* UITextView+Word.h in Headers */,
 				789F3FF122DC2B1A00586487 /* MTKit.h in Headers */,
@@ -2049,6 +2346,10 @@
 				78CCE00D2387831A00714145 /* MTCollectionViewScaleLayout2.h in Headers */,
 				789F40AC22DC2B1B00586487 /* MTWordStyle.h in Headers */,
 				789F406422DC2B1B00586487 /* MTAlertSheetItem.h in Headers */,
+				78492821239A171600FF1166 /* VKBorderColorStyle.h in Headers */,
+				7849281B239A171600FF1166 /* VKTextShadowStyle.h in Headers */,
+				78492802239A171600FF1166 /* NSObject+VKIdHelper.h in Headers */,
+				78492829239A171600FF1166 /* UIView+VKAddion.h in Headers */,
 				789F3FFD22DC2B1A00586487 /* UIColor+ColorfulColor.h in Headers */,
 				781B0F7E22F0270200B56434 /* MTLineChartContentView.h in Headers */,
 				789F40FC22DC2B1B00586487 /* MTTenScrollViewCell.h in Headers */,
@@ -2059,6 +2360,7 @@
 				789F40E022DC2B1B00586487 /* MTDelegateView.h in Headers */,
 				7820501422EEEBFD0004C96C /* MTAnimatedTransitioning.h in Headers */,
 				789F40E622DC2B1B00586487 /* UIView+Delegate.h in Headers */,
+				7849282C239A171600FF1166 /* VKBorderTopStyle.h in Headers */,
 				789F3FEA22DC2B1A00586487 /* MTSafariViewController.h in Headers */,
 				789F3FCC22DC2B1A00586487 /* MTPageInfoModel.h in Headers */,
 				789F3FC522DC2B1A00586487 /* MTFileModel.h in Headers */,
@@ -2067,24 +2369,31 @@
 				789F3FD022DC2B1A00586487 /* MTListController.h in Headers */,
 				789F3FE522DC2B1A00586487 /* MTPickerViewController.h in Headers */,
 				789F403722DC2B1A00586487 /* MTConst.h in Headers */,
+				78492803239A171600FF1166 /* VKUIKitMarco.h in Headers */,
 				7820501822EEEBFD0004C96C /* MTInteractiveGestureTransitioningProtocol.h in Headers */,
+				78492825239A171600FF1166 /* VKFontWeightStyle.h in Headers */,
 				789F410322DC2B1B00586487 /* MTIndicatorView.h in Headers */,
 				789F3FAD22DC2B1A00586487 /* MTLockNode.h in Headers */,
 				789F407F22DC2B1B00586487 /* UIButton+Word.h in Headers */,
 				789F410822DC2B1B00586487 /* MTTextField.h in Headers */,
+				7849280B239A171600FF1166 /* VKCssStylePch.h in Headers */,
 				789F40BF22DC2B1B00586487 /* MTBaseCollectionReusableView.h in Headers */,
 				78656A482382471A00685B79 /* MTDynamicItem.h in Headers */,
 				789F409622DC2B1B00586487 /* TZGifPhotoPreviewController.h in Headers */,
 				789F40F522DC2B1B00586487 /* TestController.h in Headers */,
+				784927F6239A171600FF1166 /* SGDirWatchdog.h in Headers */,
 				781B0F8122F0270200B56434 /* MTYAxisView.h in Headers */,
 				789F40B222DC2B1B00586487 /* MTDelegateProtocol.h in Headers */,
 				789F402122DC2B1A00586487 /* NSString+TestString.h in Headers */,
 				789F411F22DC2B1B00586487 /* MTCountingView.h in Headers */,
+				784927FE239A171600FF1166 /* UIView+VKCssProtocol.h in Headers */,
+				78492815239A171600FF1166 /* VKBackgroundcolorStyle.h in Headers */,
 				789F40DD22DC2B1B00586487 /* MTDelegateCollectionViewCell.h in Headers */,
 				789F3FE322DC2B1A00586487 /* MTDatePickerViewController.h in Headers */,
 				789F3FCD22DC2B1A00586487 /* MTHeaderRefreshListController.h in Headers */,
 				789F402322DC2B1A00586487 /* NSString+Bundle.h in Headers */,
 				789F40FA22DC2B1B00586487 /* MTTenScrollContentView.h in Headers */,
+				7849282D239A171600FF1166 /* VKBorderBottomStyle.h in Headers */,
 				789F40CD22DC2B1B00586487 /* UIView+Tap.h in Headers */,
 				789F413322DC2B1B00586487 /* MTPhotoPreviewViewCell.h in Headers */,
 				789F3FAE22DC2B1A00586487 /* MTLockViewConfig.h in Headers */,
@@ -2097,8 +2406,11 @@
 				789F401822DC2B1A00586487 /* NSString+Replace.h in Headers */,
 				789F3FBB22DC2B1A00586487 /* UIImage+Size.h in Headers */,
 				781B0F8022F0270200B56434 /* MTXAxisView.h in Headers */,
+				7849281C239A171600FF1166 /* VKBorderRadiusStyle.h in Headers */,
 				789F40A022DC2B1B00586487 /* UIView+Layout.h in Headers */,
+				78492808239A171600FF1166 /* UIColor+VKUtlities.h in Headers */,
 				78DFF1932390C967005C7804 /* MTAppDelegate.h in Headers */,
+				78492809239A171600FF1166 /* VKCssStyleManager.h in Headers */,
 				789F40DE22DC2B1B00586487 /* MTDelegateCollectionReusableView.h in Headers */,
 				789F3FA922DC2B1A00586487 /* MTSlideHeader.h in Headers */,
 				78656A50238299A400685B79 /* MTTenScrollViewDelegateModel.h in Headers */,
@@ -2106,20 +2418,25 @@
 				789F40ED22DC2B1B00586487 /* MTDelegateTableViewCell.h in Headers */,
 				789F3FCF22DC2B1A00586487 /* MTDelegateViewDataModel.h in Headers */,
 				789F3FCA22DC2B1A00586487 /* FileType.h in Headers */,
+				784927A8239A166900FF1166 /* MTNavigationPhotoBrowserController.h in Headers */,
 				789F40C322DC2B1B00586487 /* MTImagePlayViewCell.h in Headers */,
 				789F403C22DC2B1A00586487 /* MTAlertViewConfig.h in Headers */,
 				789F405E22DC2B1B00586487 /* MTAlertPickerItem.h in Headers */,
 				7820501922EEEBFD0004C96C /* UIViewControllerTransitionModel.h in Headers */,
+				784927F9239A171600FF1166 /* VKCssClassModal.h in Headers */,
 				789F411E22DC2B1B00586487 /* MTRoundView.h in Headers */,
 				789F411222DC2B1B00586487 /* NSArray+File.h in Headers */,
 				789F405122DC2B1B00586487 /* MTBaseAlertCollectionController.h in Headers */,
 				7820501022EEEBFD0004C96C /* AnimateController.h in Headers */,
 				789F412422DC2B1B00586487 /* MTTakePhotoPreseter.h in Headers */,
 				789F400D22DC2B1A00586487 /* CLLocation+Mar.h in Headers */,
+				78492822239A171600FF1166 /* VKTextDecorationStyle.h in Headers */,
+				78492838239A171600FF1166 /* VKCssProtocol.h in Headers */,
 				789F3FC722DC2B1A00586487 /* MTDocument.h in Headers */,
 				789F40A722DC2B1B00586487 /* MTStyle.h in Headers */,
 				789F409922DC2B1B00586487 /* TZImageCropManager.h in Headers */,
 				789F40F022DC2B1B00586487 /* MTDelegateHeaderFooterView.h in Headers */,
+				7849279C239A15EE00FF1166 /* MTTextFieldCellModel.h in Headers */,
 				789F407E22DC2B1B00586487 /* UILabel+Word.h in Headers */,
 				789F3FC122DC2B1A00586487 /* UIImage+Cut.h in Headers */,
 				789F407122DC2B1B00586487 /* Reachability.h in Headers */,
@@ -2130,6 +2447,7 @@
 				789F403A22DC2B1A00586487 /* UIView+MTBackground.h in Headers */,
 				789F40A422DC2B1B00586487 /* TZProgressView.h in Headers */,
 				789F405522DC2B1B00586487 /* MTBaseAlertGroupController.h in Headers */,
+				7849281E239A171600FF1166 /* VKBorderWidthStyle.h in Headers */,
 				789F406E22DC2B1B00586487 /* NSObject+API.h in Headers */,
 				789F40BB22DC2B1B00586487 /* MTTextFieldCell.h in Headers */,
 				789F405322DC2B1B00586487 /* MTAlertSheetController.h in Headers */,
@@ -2138,16 +2456,19 @@
 				789F412922DC2B1B00586487 /* MTPhotoBrowserController.h in Headers */,
 				789F40E722DC2B1B00586487 /* NSObject+ReuseIdentifier.h in Headers */,
 				789F405022DC2B1B00586487 /* MTAlertPickerController.h in Headers */,
+				78492793239A15CE00FF1166 /* MTBaseListController.h in Headers */,
 				789F40DC22DC2B1B00586487 /* MTDelegatePickerView.h in Headers */,
 				789F3FA822DC2B1A00586487 /* MTSlideViewManager.h in Headers */,
 				789F3FDE22DC2B1A00586487 /* MTProgressController.h in Headers */,
-				789F3FD722DC2B1A00586487 /* MTDelegateButton.h in Headers */,
 				789F406022DC2B1B00586487 /* MTAlertWordItem.h in Headers */,
+				7849280A239A171600FF1166 /* VKCssStyleConstants.h in Headers */,
 				789F401C22DC2B1A00586487 /* NSString+Encode.h in Headers */,
+				784927F5239A171600FF1166 /* VKCssHotReloader.h in Headers */,
 				789F404822DC2B1B00586487 /* MTRefreshRing.h in Headers */,
 				78DFF1982390FBB0005C7804 /* MTTabBarController.h in Headers */,
 				781B0F7C22F0270200B56434 /* MTLineChartView.h in Headers */,
 				789F40E222DC2B1B00586487 /* MTDataSource.h in Headers */,
+				7849282B239A171600FF1166 /* VKTextTransformStyle.h in Headers */,
 				789F411022DC2B1B00586487 /* NSDictionary+File.h in Headers */,
 				789F402722DC2B1A00586487 /* NSString+Unicode.h in Headers */,
 				789F402E22DC2B1A00586487 /* NSObject+HideKey.h in Headers */,
@@ -2159,8 +2480,10 @@
 				789F409122DC2B1B00586487 /* TZImagePickerController.h in Headers */,
 				789F409F22DC2B1B00586487 /* TZPhotoPreviewController.h in Headers */,
 				789F40C022DC2B1B00586487 /* MTLoadingView.h in Headers */,
+				78492812239A171600FF1166 /* VKFontSizeStyle.h in Headers */,
 				789F412D22DC2B1B00586487 /* MTPhotoBrowser.h in Headers */,
 				789F411522DC2B1B00586487 /* MTVideoView.h in Headers */,
+				7849279B239A15EE00FF1166 /* MTBaseCellModel.h in Headers */,
 				789F3FFB22DC2B1A00586487 /* UIColor+RGBValues.h in Headers */,
 				789F40BA22DC2B1B00586487 /* MTBaseCell.h in Headers */,
 				789F3FBE22DC2B1A00586487 /* UIImage+MTCircleImage.h in Headers */,
@@ -2168,6 +2491,7 @@
 				789F3FBC22DC2B1A00586487 /* UIImage+Save.h in Headers */,
 				789F412622DC2B1B00586487 /* MTPhotoBrowserViewModel.h in Headers */,
 				789F400722DC2B1A00586487 /* UIView+Animate.h in Headers */,
+				784927A7239A166900FF1166 /* MTNavigationTransitionController.h in Headers */,
 				789F413422DC2B1B00586487 /* MTPhotoPreviewView.h in Headers */,
 				789F403122DC2B1A00586487 /* NSObject+CommonProtocol.h in Headers */,
 				789F3FBF22DC2B1A00586487 /* UIImage+Base64.h in Headers */,
@@ -2181,6 +2505,7 @@
 				789F411B22DC2B1B00586487 /* MTDragCollectionViewCell.h in Headers */,
 				789F40FD22DC2B1B00586487 /* MTTenScrollView.h in Headers */,
 				789F3FF722DC2B1A00586487 /* UIButton+HighLight.h in Headers */,
+				7849280D239A171600FF1166 /* VKFontColorStyle.h in Headers */,
 				789F401722DC2B1A00586487 /* NSString+Money.h in Headers */,
 				789F413022DC2B1B00586487 /* MTPhotoPreviewViewModel.h in Headers */,
 				789F410E22DC2B1B00586487 /* NSData+File.h in Headers */,
@@ -2311,17 +2636,22 @@
 				7820500F22EEEBFD0004C96C /* AnimateController.m in Sources */,
 				789F404622DC2B1B00586487 /* MTPopButtonItem.m in Sources */,
 				789F401D22DC2B1A00586487 /* NSString+Exist.m in Sources */,
-				789F3FD522DC2B1A00586487 /* MTDelegateTableCollectionViewCell.m in Sources */,
 				789F410F22DC2B1B00586487 /* MTFileManager.m in Sources */,
 				789F40F122DC2B1B00586487 /* MTDelegateTableView.m in Sources */,
 				789F3FD822DC2B1A00586487 /* MTCountButton.m in Sources */,
 				789F40DA22DC2B1B00586487 /* MTLocationManager.m in Sources */,
+				78492800239A171600FF1166 /* UIColor+VKUtlities.m in Sources */,
 				789F402522DC2B1A00586487 /* NSString+Replace.m in Sources */,
+				784927F7239A171600FF1166 /* VKCssHotReloader.m in Sources */,
 				789F3FB222DC2B1A00586487 /* MTLockNode.m in Sources */,
 				78DFF1992390FBB0005C7804 /* MTTabBarController.m in Sources */,
 				789F413522DC2B1B00586487 /* MTPhotoPreviewViewCell.m in Sources */,
 				789F405C22DC2B1B00586487 /* MTBaseAlertCollectionController.m in Sources */,
+				7849280E239A171600FF1166 /* VKBorderWidthStyle.m in Sources */,
 				789F3FB722DC2B1A00586487 /* UIImage+Save.m in Sources */,
+				78492811239A171600FF1166 /* VKTextShadowStyle.m in Sources */,
+				78492826239A171600FF1166 /* VKBorderLeftStyle.m in Sources */,
+				7849281A239A171600FF1166 /* VKFontSizeStyle.m in Sources */,
 				789F409B22DC2B1B00586487 /* TZPhotoPreviewCell.m in Sources */,
 				789F408E22DC2B1B00586487 /* TZAssetModel.m in Sources */,
 				789F413122DC2B1B00586487 /* MTPhotoPreviewViewCellModel.m in Sources */,
@@ -2330,9 +2660,9 @@
 				780C2FDE22E9B37F005FA4DB /* MTTextFieldVerifyModel.m in Sources */,
 				789F3FD422DC2B1A00586487 /* MTDelegateViewDataModel.m in Sources */,
 				7820501622EEEBFD0004C96C /* MTNavigationController.m in Sources */,
+				78492832239A171600FF1166 /* UILabel+VKAddion.m in Sources */,
 				789F40C922DC2B1B00586487 /* UIView+Tap.m in Sources */,
 				789F406322DC2B1B00586487 /* MTAlertWordItem.m in Sources */,
-				789F3FD922DC2B1A00586487 /* MTDelegateButton.m in Sources */,
 				789F406222DC2B1B00586487 /* MTAlertPickerItem.m in Sources */,
 				789F40EE22DC2B1B00586487 /* MTDataSource.m in Sources */,
 				789F410622DC2B1B00586487 /* MTIndicatorView.m in Sources */,
@@ -2341,10 +2671,14 @@
 				789F3FE722DC2B1A00586487 /* MTDatePickerViewController.m in Sources */,
 				789F40C222DC2B1B00586487 /* MTImagePlayView.m in Sources */,
 				789F405222DC2B1B00586487 /* MTAlertDatePickerController.m in Sources */,
+				78492820239A171600FF1166 /* VKBackgroundImageStyle.m in Sources */,
 				789F405622DC2B1B00586487 /* MTAlertPickerController.m in Sources */,
 				789F401F22DC2B1A00586487 /* NSString+Money.m in Sources */,
 				789F40C422DC2B1B00586487 /* MTCollectionViewScaleLayout.m in Sources */,
 				789F3FB022DC2B1A00586487 /* MTLockView.m in Sources */,
+				784927A6239A166900FF1166 /* MTNavigationPhotoBrowserController.m in Sources */,
+				78492834239A171600FF1166 /* UIButton+VKAddion.m in Sources */,
+				784927FC239A171600FF1166 /* VKCssClassManager.m in Sources */,
 				789F3FBD22DC2B1A00586487 /* UIImage+PropertyExtension.m in Sources */,
 				78656A492382471A00685B79 /* MTDynamicItem.m in Sources */,
 				789F408522DC2B1B00586487 /* UITextField+Word.m in Sources */,
@@ -2358,6 +2692,7 @@
 				789F401B22DC2B1A00586487 /* NSString+Unicode.m in Sources */,
 				789F401522DC2B1A00586487 /* NSString+TestString.m in Sources */,
 				789F412722DC2B1B00586487 /* MTPhotoBrowserViewModel.m in Sources */,
+				78492816239A171600FF1166 /* VKBorderColorStyle.m in Sources */,
 				789F40E922DC2B1B00586487 /* MTDelegateCollectionView.m in Sources */,
 				789F3FC222DC2B1A00586487 /* UIView+Image.m in Sources */,
 				789F408022DC2B1B00586487 /* UITextView+Word.m in Sources */,
@@ -2372,6 +2707,7 @@
 				789F410222DC2B1B00586487 /* UIView+MBHud.m in Sources */,
 				789F412B22DC2B1B00586487 /* MTPhotoBrowser.m in Sources */,
 				789F401622DC2B1A00586487 /* NSString+WordHeight.m in Sources */,
+				7849279D239A15EE00FF1166 /* MTBaseCellModel.m in Sources */,
 				789F404D22DC2B1B00586487 /* NSArray+Json.m in Sources */,
 				789F3FDB22DC2B1A00586487 /* MTSafariView.m in Sources */,
 				789F400A22DC2B1A00586487 /* UIView+Circle.m in Sources */,
@@ -2382,13 +2718,17 @@
 				781B0F7622F0270200B56434 /* MTLineChartContentView.m in Sources */,
 				789F3FFE22DC2B1A00586487 /* UIView+ViewController.m in Sources */,
 				789F412822DC2B1B00586487 /* MTPhotoBrowserController.m in Sources */,
+				7849281D239A171600FF1166 /* VKTextStyle.m in Sources */,
 				78DFF1942390C967005C7804 /* MTAppDelegate.m in Sources */,
 				789F404222DC2B1B00586487 /* MTAlertViewConfig.m in Sources */,
 				789F40EA22DC2B1B00586487 /* MTDelegateCollectionReusableView.m in Sources */,
 				789F401022DC2B1A00586487 /* UINavigationBar+Config.m in Sources */,
 				789F40AB22DC2B1B00586487 /* MTBorderStyle.m in Sources */,
+				784927A0239A161000FF1166 /* MTBaseViewContentModel.m in Sources */,
 				789F409322DC2B1B00586487 /* TZPhotoPreviewController.m in Sources */,
+				78492824239A171600FF1166 /* VKBorderTopStyle.m in Sources */,
 				789F3FFC22DC2B1A00586487 /* UIColor+Image.m in Sources */,
+				78492806239A171600FF1166 /* NSMutableAttributedString+VKAttributedString.m in Sources */,
 				789F3FE922DC2B1A00586487 /* MTSafariViewController.m in Sources */,
 				781B0F7822F0270200B56434 /* MTLineChartView.m in Sources */,
 				789F3FB922DC2B1A00586487 /* UIImage+Cut.m in Sources */,
@@ -2398,19 +2738,24 @@
 				789F40EF22DC2B1B00586487 /* MTDelegatePickerViewCell.m in Sources */,
 				789F40C822DC2B1B00586487 /* MTImageView.m in Sources */,
 				789F3FE822DC2B1A00586487 /* MTPickerViewController.m in Sources */,
+				78492794239A15CE00FF1166 /* MTBaseListController.m in Sources */,
 				789F40A622DC2B1B00586487 /* MTWordStyle.m in Sources */,
 				789F3FD122DC2B1A00586487 /* MTHeaderRefreshListController.m in Sources */,
 				789F408622DC2B1B00586487 /* MTLabel.m in Sources */,
 				78DFF19D2390FDBD005C7804 /* MTTabBarItem.m in Sources */,
 				789F3FA622DC2B1A00586487 /* MTSlideView.m in Sources */,
+				78492823239A171600FF1166 /* VKBorderBottomStyle.m in Sources */,
 				789F405A22DC2B1B00586487 /* MTAlertSheetController.m in Sources */,
 				789F401422DC2B1A00586487 /* NSString+Base64.m in Sources */,
 				789F3FC422DC2B1A00586487 /* MTDocumentPreseter.m in Sources */,
+				78492818239A171600FF1166 /* VKTextAlignStyle.m in Sources */,
 				789F3FE222DC2B1A00586487 /* MTFeedBackInfoController.m in Sources */,
 				789F3FFA22DC2B1A00586487 /* UIColor+ColorfulColor.m in Sources */,
 				789F409522DC2B1B00586487 /* TZProgressView.m in Sources */,
 				789F410722DC2B1B00586487 /* MTTextView.m in Sources */,
+				784927FD239A171600FF1166 /* NSObject+VKIdHelper.m in Sources */,
 				789F3FB422DC2B1A00586487 /* UIImage+Base64.m in Sources */,
+				78492804239A171600FF1166 /* UIView+VKCssProtocol.m in Sources */,
 				789F408D22DC2B1B00586487 /* TZVideoPlayerController.m in Sources */,
 				789F409222DC2B1B00586487 /* UIView+Layout.m in Sources */,
 				789F40B822DC2B1B00586487 /* MTBaseCollectionReusableView.m in Sources */,
@@ -2429,24 +2774,32 @@
 				789F3FF222DC2B1A00586487 /* UILabel +AttributeText.m in Sources */,
 				789F404C22DC2B1B00586487 /* NSDictionary+Json.m in Sources */,
 				789F409A22DC2B1B00586487 /* TZPhotoPickerController.m in Sources */,
+				78492836239A171600FF1166 /* VKCssStyleManager.m in Sources */,
+				7849279A239A15EE00FF1166 /* MTTextFieldCellModel.m in Sources */,
 				789F402622DC2B1A00586487 /* NSString+Encode.m in Sources */,
 				789F401222DC2B1A00586487 /* NSString+Hash.m in Sources */,
 				789F410A22DC2B1B00586487 /* MTTextField.m in Sources */,
 				78CCE00E2387831A00714145 /* MTCollectionViewScaleLayout2.m in Sources */,
 				789F3FCE22DC2B1A00586487 /* MTListController.m in Sources */,
+				784927F8239A171600FF1166 /* SGDirWatchdog.m in Sources */,
 				789F404E22DC2B1B00586487 /* MTAlertCollectionController.m in Sources */,
 				7820501122EEEBFD0004C96C /* MTAnimatedTransitioning.m in Sources */,
 				789F409822DC2B1B00586487 /* TZImageManager.m in Sources */,
 				789F408A22DC2B1B00586487 /* TZImageCropManager.m in Sources */,
 				789F40D922DC2B1B00586487 /* MTManager.m in Sources */,
 				781B0F7A22F0270200B56434 /* MTVernierView.m in Sources */,
+				784927FF239A171600FF1166 /* UIView+VKMetrics.m in Sources */,
 				789F40B622DC2B1B00586487 /* MTBaseCell.m in Sources */,
 				789F402422DC2B1A00586487 /* NSString+MD5.m in Sources */,
 				789F3FA722DC2B1A00586487 /* MTSlideHeader.m in Sources */,
+				78492830239A171600FF1166 /* VKFontWeightStyle.m in Sources */,
 				789F405F22DC2B1B00586487 /* MTAlertSheetItem.m in Sources */,
 				789F411D22DC2B1B00586487 /* MTDragCollectionViewCell.m in Sources */,
+				78492833239A171600FF1166 /* VKTextTransformStyle.m in Sources */,
 				789F405D22DC2B1B00586487 /* MTBaseAlertGroupController.m in Sources */,
+				7849281F239A171600FF1166 /* VKBackgroundcolorStyle.m in Sources */,
 				789F40A122DC2B1B00586487 /* TZImagePickerController.m in Sources */,
+				78492813239A171600FF1166 /* VKFontFamiltyStyle.m in Sources */,
 				789F408322DC2B1B00586487 /* UIButton+Word.m in Sources */,
 				789F403F22DC2B1A00586487 /* MTAlertView.m in Sources */,
 				789F403E22DC2B1A00586487 /* MTPopView.m in Sources */,
@@ -2458,12 +2811,16 @@
 				789F400022DC2B1A00586487 /* UIView+Frame.m in Sources */,
 				789F3FC822DC2B1A00586487 /* MTFileModel.m in Sources */,
 				789F40EB22DC2B1B00586487 /* MTDelegateCollectionViewCell.m in Sources */,
+				7849282E239A171600FF1166 /* VKTextDecorationStyle.m in Sources */,
 				789F411A22DC2B1B00586487 /* MTDragCollectionView.m in Sources */,
 				789F40FF22DC2B1B00586487 /* MTTenScrollContentView.m in Sources */,
 				789F40FE22DC2B1B00586487 /* MTTenScrollTitleView.m in Sources */,
 				789F408C22DC2B1B00586487 /* TZAssetCell.m in Sources */,
+				784927A9239A166900FF1166 /* MTNavigationTransitionController.m in Sources */,
 				781B0F7D22F0270200B56434 /* MTXAxisView.m in Sources */,
 				78656A51238299A400685B79 /* MTTenScrollViewDelegateModel.m in Sources */,
+				78492817239A171600FF1166 /* VKFontColorStyle.m in Sources */,
+				78492831239A171600FF1166 /* VKBorderRightStyle.m in Sources */,
 				789F412C22DC2B1B00586487 /* MTPhotoLook.m in Sources */,
 				789F406122DC2B1B00586487 /* MTAlertItem.m in Sources */,
 				789F414322DC2B9100586487 /* MTRefreshAutoNormalFooter.m in Sources */,
@@ -2477,6 +2834,7 @@
 				789F414622DC2B9100586487 /* MTRefreshGifHeader.m in Sources */,
 				789F404122DC2B1B00586487 /* UIView+MTBackground.m in Sources */,
 				789F400C22DC2B1A00586487 /* CLLocation+Mar.m in Sources */,
+				7849280F239A171600FF1166 /* VKBorderRadiusStyle.m in Sources */,
 				789F406922DC2B1B00586487 /* MTBaseApi.m in Sources */,
 				789F40DB22DC2B1B00586487 /* MTDeviceManager.m in Sources */,
 				789F3FF622DC2B1A00586487 /* UIButton+HighLight.m in Sources */,
@@ -2484,6 +2842,7 @@
 				789F40F422DC2B1B00586487 /* TestController.m in Sources */,
 				7820501722EEEBFD0004C96C /* UIViewControllerTransitionModel.m in Sources */,
 				789F40E822DC2B1B00586487 /* MTDelegateView.m in Sources */,
+				784927FB239A171600FF1166 /* VKCssClassModal.m in Sources */,
 				789F3FFF22DC2B1A00586487 /* UIView+Animate.m in Sources */,
 				789F3FF822DC2B1A00586487 /* UIColor+RGBValues.m in Sources */,
 				781B0F7F22F0270200B56434 /* MTYAxisView.m in Sources */,
@@ -2495,6 +2854,7 @@
 				789F3FC322DC2B1A00586487 /* MTDocument.m in Sources */,
 				789F40D222DC2B1B00586487 /* MTTimer.m in Sources */,
 				789F3FAB22DC2B1A00586487 /* MTSlideViewManager.m in Sources */,
+				78492835239A171600FF1166 /* UIView+VKAddion.m in Sources */,
 				789F3FD222DC2B1A00586487 /* MTPageInfoModel.m in Sources */,
 				789F3FF522DC2B1A00586487 /* UILabel+LineSpacing.m in Sources */,
 				789F40E522DC2B1B00586487 /* MTDelegateHeaderFooterView.m in Sources */,

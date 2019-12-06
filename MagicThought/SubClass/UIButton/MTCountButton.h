@@ -6,9 +6,10 @@
 //  Copyright © 2017年 com.bkqw.app. All rights reserved.
 //
 
-#import "MTDelegateButton.h"
+#import "UIView+Delegate.h"
 
-@interface MTCountButton : MTDelegateButton
+extern NSString*  MTCountButtonDidFinishedCountDownOrder;
+@interface MTCountButton : UIButton
 
 -(void)startCountWithTitle:(NSString*)title Time:(NSInteger)time;
 

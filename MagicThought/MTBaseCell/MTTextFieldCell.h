@@ -7,21 +7,16 @@
 //
 
 #import "MTBaseCell.h"
+#import "MTTextFieldCellModel.h"
+#import "MTTextField.h"
 
-
-@class MTTextField;
-@class MTTextFieldVerifyModel;
 @interface MTTextFieldCell : MTBaseCell<UITextFieldDelegate>
-
-@property (nonatomic,assign) CGFloat textFieldMargin;
 
 @property (nonatomic,strong) MTTextField* textField;
 
-@property (nonatomic,weak) MTTextFieldVerifyModel* verifyModel;
-
-@property (nonatomic,assign) CGFloat placeholderSize;
-
 @end
+
+
 
 
 

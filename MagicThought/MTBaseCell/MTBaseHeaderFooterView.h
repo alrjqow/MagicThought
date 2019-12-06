@@ -7,14 +7,11 @@
 //
 
 #import "MTDelegateHeaderFooterView.h"
+#import "MTBaseViewContentModel.h"
 
-
-@class MTWordStyle;
 @interface MTBaseHeaderFooterView : MTDelegateHeaderFooterView
 
-@property (nonatomic,strong) MTWordStyle* word;
-
--(void)btnClick;
+@property (nonatomic,strong) MTBaseViewContentModel* model;
 
 @end
 

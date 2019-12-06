@@ -48,6 +48,9 @@
 /*是否可侧滑返回*/
 @property (nonatomic,assign) BOOL enableSlideBack;
 
+/*是否可 Dismiss*/
+@property (nonatomic,assign) BOOL enableDismiss;
+
 /**设置导航栏标题属性*/
 @property (nonatomic,strong) UIColor* navigationBarTitleColor;
 
@@ -60,7 +63,7 @@
 /**更新标题颜色*/
 - (void)changeDefaultColor:(UIColor*)defaultColor ToTitleColor:(UIColor *)titleColor Percent:(CGFloat)percent;
 
-
+- (void)presentViewController:(UIViewController *)viewControllerToPresent animated: (BOOL)flag completion:(void (^)(void))completion EnableDismiss:(BOOL)enableDismiss;
 
 @end
 

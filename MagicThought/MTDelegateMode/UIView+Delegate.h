@@ -7,6 +7,9 @@
 //
 
 #import "NSObject+CommonProtocol.h"
+#import "NSObject+ReuseIdentifier.h"
+#import "VKCssProtocol.h"
+
 
 @interface UIView (Delegate) <MTExchangeDataProtocol>
 

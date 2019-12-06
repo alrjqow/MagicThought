@@ -121,7 +121,7 @@
     self.placeholderLabel.hidden = textView.text.length;
     self.verifyModel.content = textView.text;
     if([self.mt_delegate respondsToSelector:@selector(doSomeThingForMe:withOrder:)])
-        [self.mt_delegate doSomeThingForMe:self.verifyModel withOrder:MTTextFieldValueChangeOrder];
+        [self.mt_delegate doSomeThingForMe:self.verifyModel withOrder:MTTextValueChangeOrder];
 //    NSLog(@"上次的值：%@", self.previousStr);
 //    NSLog(@"上次长度：%zd", previousStrLength);
 

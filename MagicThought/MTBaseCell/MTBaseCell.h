@@ -7,35 +7,28 @@
 //
 
 #import "MTDelegateTableViewCell.h"
+#import "MTBaseCellModel.h"
 
-
-#define MTBaseCellAlertOrder @"MTBaseCellAlertOrder"
 
 @interface MTBaseCell : MTDelegateTableViewCell
 
-/**分割线长度*/
-@property (nonatomic,assign) CGFloat sepLineWidth;
+@property (nonatomic,strong) MTBaseCellModel* model;
 
-
-/**右箭头的右边距*/
-@property (nonatomic,assign) CGFloat accessoryMarginRight;
-/**右箭头的尺寸*/
-@property (nonatomic,assign) CGRect accessoryBounds;
 /**右箭头*/
-@property (nonatomic,weak, readonly) UIView* arrow;
-
-
+@property (nonatomic,weak, readonly) UIView* arrowView;
 
 @end
 
 
 @interface MTNoSepLineBaseCell : MTBaseCell @end
 
+
 @interface MTSubBaseCell : MTBaseCell
 
 @property (nonatomic,strong) UILabel* detailTextLabel2;
 
 @end
+
 
 
 

@@ -14,46 +14,23 @@
 
 @implementation MTEmptyBaseCell
 
--(void)whenGetResponseObject:(NSDictionary *)object
+-(void)setModel:(MTEmptyBaseCellModel *)model
 {
-    [self setSuperResponseObject:object];
-    
-    self.isAlreadyLoad = [(NSNumber*)object[@"isAlreadyLoad"] boolValue];
-}
-
--(void)setIsAlreadyLoad:(BOOL)isAlreadyLoad
-{
-    _isAlreadyLoad = isAlreadyLoad;
-    
-    self.loadingView.hidden = isAlreadyLoad;
-    
-    if(!self.isTouchLoad)
-        [self isAlreadyLoadYes];
-}
-
--(void)isAlreadyLoadYes
-{
-    if(!self.isAlreadyLoad)
-        return;
-    
-    if([self.mt_delegate respondsToSelector:@selector(doSomeThingForMe:withOrder:)])
-        [self.mt_delegate doSomeThingForMe:self withOrder:MTDelegateTableViewCellEmptyDataOrder];
+    [super setModel:model];
+        
+    self.loadingView.hidden = model.isAlreadyLoad;
+        
+    if(model.isAlreadyLoad && [model.mt_order isEqualToString:MTBanClickOrder] && [model.refreshOrder isExist])
+        model.mt_click(model.refreshOrder);
 }
 
 -(void)setupDefault
 {
     [super setupDefault];
-    
-    self.isTouchLoad = YES;
+        
     self.loadingView.backgroundColor = [UIColor clearColor];
     self.loadingView.hidden = YES;
     [self addSubview:self.loadingView];
-}
-
-- (void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event
-{
-    if(self.isTouchLoad)
-        [self isAlreadyLoadYes];
 }
 
 -(void)layoutSubviews
@@ -92,5 +69,11 @@
     return _loadingView;
 }
 
+-(Class)classOfResponseObject
+{
+    return [MTEmptyBaseCellModel class];
+}
 
 @end
+
+

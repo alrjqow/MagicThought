@@ -102,38 +102,13 @@ MT_EXTERN NSString*  MTReachability;
 
 MT_EXTERN NSString*  MTGetPhotoFromAlbumOrder;
 MT_EXTERN NSString*  MTGetPhotoFromCameraOrder;
-MT_EXTERN NSString*  MTPhotoPreviewViewCellDownloadImageFinishOrder;
-MT_EXTERN NSString*  MTNothingViewOrder;
-MT_EXTERN NSString*  MTImagePlayViewOrder;
-MT_EXTERN NSString*  MTCountingViewOrder;
-MT_EXTERN NSString*  MTRoundViewFinishRunningOrder;
-MT_EXTERN NSString*  MTDragGestureOrder;
-MT_EXTERN NSString*  MTDragGestureBeganOrder;
-MT_EXTERN NSString*  MTDragGestureEndOrder;
-MT_EXTERN NSString*  MTDragDeleteOrder;
-MT_EXTERN NSString*  MTSpiltViewPanEndOrder;
-MT_EXTERN NSString*  MTPhotoPreviewViewReloadDataOrder;
-MT_EXTERN NSString*  MTFormCellTypeClickOrder;
-MT_EXTERN NSString*  MTCountButtonDidFinishedCountDownOrder;
-MT_EXTERN NSString*  MTTopSearchBarMoveBottomOrder;
-MT_EXTERN NSString*  MTTopSearchBarEndEditingOrder;
-MT_EXTERN NSString*  MTTopSearchBarMoveTopOrder;
-MT_EXTERN NSString* MTStarViewScoreChangeOrder;
-MT_EXTERN NSString*  MTVideoControllerDidFinishPickingImagesOrder;
-MT_EXTERN NSString* MTLockViewAfterGetGestureResultOrder;
-MT_EXTERN NSString* MTDelegateTableViewCellEmptyDataOrder;
-MT_EXTERN NSString* MTScrollViewDidScrollOrder;
-MT_EXTERN NSString* MTTextFieldValueChangeOrder;
+MT_EXTERN NSString* MTTextValueChangeOrder;
+MT_EXTERN NSString* MTBanClickOrder;
 
 
-MT_EXTERN NSString*  MTNetWork_Cancel;
-
-MT_EXTERN NSString*  MTCache_Directory;
-
-MT_EXTERN CGFloat MTTopSearchBarMaxHeight;
 
 //app的数字ID
-MT_EXTERN NSMutableString* mt_appleStoreID;
+MT_EXTERN NSString* mt_appleStoreID;
 
 /**产品型号*/
 MT_EXTERN NSString *const Device_Simulator;

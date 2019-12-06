@@ -20,6 +20,7 @@
 
 #import "NSObject+ReuseIdentifier.h"
 #import "UIView+Frame.h"
+#import <MJExtension.h>
 
 @interface MTDelegateCollectionViewCell (Private)
 
@@ -404,7 +405,11 @@
     NSObject* data = [self getDataForIndexPath:indexPath];
          
     if(data.mt_click)
-        data.mt_click(@"");
+    {
+        //有这个 order 证明不能触发点击
+        if(![data.mt_order isEqualToString:@"MTBanClickOrder"])
+            data.mt_click(@"");
+    }
     else if([self.delegate respondsToSelector:@selector(tableView:didSelectRowAtIndexPath:)])
         [self.delegate tableView:tableView didSelectRowAtIndexPath:indexPath];
 }
@@ -617,9 +622,13 @@
         return;
     
     NSObject* data = [self getDataForIndexPath:indexPath];
-         
-    if(data.mt_click)
-        data.mt_click(@"");
+             
+      if(data.mt_click)
+      {
+          //有这个 order 证明不能触发点击
+          if(![data.mt_order isEqualToString:@"MTBanClickOrder"])
+              data.mt_click(@"");
+      }
     else if([self.delegate respondsToSelector:@selector(collectionView:didSelectItemAtIndexPath:)])
         [self.delegate collectionView:collectionView didSelectItemAtIndexPath:indexPath];
 }
@@ -791,8 +800,15 @@ static NSString* mt_titleForRowAtIndexPath(id self, SEL cmd, UIPickerView * pick
 -(void)setMt_data:(NSObject *)mt_data
 {
     if(![mt_data isKindOfClass:self.classOfResponseObject])
-        return;
-    
+    {
+        if([mt_data isKindOfClass:[NSDictionary class]])
+        {
+            mt_data = [self.classOfResponseObject mj_objectWithKeyValues:mt_data];
+        }
+        else
+            return;
+    }
+            
     [self whenGetResponseObject:mt_data];
 }
 
@@ -808,7 +824,14 @@ static NSString* mt_titleForRowAtIndexPath(id self, SEL cmd, UIPickerView * pick
 -(void)setMt_data:(NSObject *)mt_data
 {
     if(![mt_data isKindOfClass:self.classOfResponseObject])
-        return;
+    {
+        if([mt_data isKindOfClass:[NSDictionary class]])
+        {
+            mt_data = [self.classOfResponseObject mj_objectWithKeyValues:mt_data];
+        }
+        else
+            return;
+    }
     
     [self whenGetResponseObject:mt_data];
 }
@@ -825,7 +848,14 @@ static NSString* mt_titleForRowAtIndexPath(id self, SEL cmd, UIPickerView * pick
 -(void)setMt_data:(NSObject *)mt_data
 {
     if(![mt_data isKindOfClass:self.classOfResponseObject])
-        return;
+    {
+        if([mt_data isKindOfClass:[NSDictionary class]])
+        {
+            mt_data = [self.classOfResponseObject mj_objectWithKeyValues:mt_data];
+        }
+        else
+            return;
+    }
     
     [self whenGetResponseObject:mt_data];
 }
@@ -842,7 +872,14 @@ static NSString* mt_titleForRowAtIndexPath(id self, SEL cmd, UIPickerView * pick
 -(void)setMt_data:(NSObject *)mt_data
 {
     if(![mt_data isKindOfClass:self.classOfResponseObject])
-        return;
+    {
+        if([mt_data isKindOfClass:[NSDictionary class]])
+        {
+            mt_data = [self.classOfResponseObject mj_objectWithKeyValues:mt_data];
+        }
+        else
+            return;
+    }
     
     [self whenGetResponseObject:mt_data];
 }

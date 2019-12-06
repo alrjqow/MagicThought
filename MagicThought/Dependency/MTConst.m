@@ -119,45 +119,17 @@ NSInteger MTDayTime = 86400;
 
 BOOL MTDidReceiveMemoryWarning = false;
 
-NSMutableString* mt_appleStoreID = @"";
+NSString* mt_appleStoreID = @"";
 
 NSString*  MTUpdateLocationFinishNotification = @"MTUpdateLocationFinishNotification";
 NSString*  MTUpdatePositionFinishNotification = @"MTUpdatePositionFinishNotification";
 NSString*  MTShadowHideNotification = @"MTShadowHideNotification";
 
-CGFloat MTTopSearchBarMaxHeight = 108;
-
-NSString*  MTLockViewAfterGetGestureResultOrder = @"MTLockViewAfterGetGestureResultOrder";
-
 NSString*  MTGetPhotoFromAlbumOrder = @"MTGetPhotoFromAlbumOrder";
 NSString*  MTGetPhotoFromCameraOrder = @"MTGetPhotoFromCameraOrder";
+NSString*  MTTextValueChangeOrder = @"MTTextValueChangeOrder";
+NSString* MTBanClickOrder = @"MTBanClickOrder";
 
-NSString*  MTVideoControllerDidFinishPickingImagesOrder = @"MTVideoControllerDidFinishPickingImagesOrder";
-NSString*  MTPhotoPreviewViewCellDownloadImageFinishOrder = @"MTPhotoPreviewViewCellDownloadImageFinishOrder";
-NSString*  MTNothingViewOrder = @"MTNothingViewOrder";
-NSString*  MTImagePlayViewOrder = @"MTImagePlayViewOrder";
-NSString*  MTCountingViewOrder = @"MTCountingViewOrder";
-NSString*  MTRoundViewFinishRunningOrder = @"MTRoundViewFinishRunningOrder";
-NSString*  MTDragGestureOrder = @"MTDragGestureOrder";
-NSString*  MTDragGestureBeganOrder = @"MTDragGestureBeganOrder";
-NSString*  MTDragGestureEndOrder = @"MTDragGestureEndOrder";
-NSString*  MTDragDeleteOrder = @"MTDragDeleteOrder";
-NSString*  MTSpiltViewPanEndOrder = @"MTSpiltViewPanEndOrder";
-NSString*  MTPhotoPreviewViewReloadDataOrder = @"MTPhotoPreviewViewReloadDataOrder";
-NSString*  MTFormCellTypeClickOrder = @"MTFormCellTypeClickOrder";
-NSString*  MTCountButtonDidFinishedCountDownOrder = @"MTCountButtonDidFinishedCountDownOrder";
-NSString*  MTTopSearchBarMoveBottomOrder = @"MTTopSearchBarMoveBottomOrder";
-NSString*  MTTopSearchBarEndEditingOrder = @"MTTopSearchBarEndEditingOrder";
-NSString*  MTTopSearchBarMoveTopOrder = @"MTTopSearchBarMoveTopOrder";
-NSString*  MTDelegateTableViewCellEmptyDataOrder = @"MTDelegateTableViewCellEmptyDataOrder";
-NSString*  MTScrollViewDidScrollOrder = @"MTScrollViewDidScrollOrder";
-NSString*  MTTextFieldValueChangeOrder = @"MTTextFieldValueChangeOrder";
-
-
-NSString* MTStarViewScoreChangeOrder = @"MTStarViewScoreChangeOrder";
-
-NSString*  MTNetWork_Cancel = @"MTNetWork_Cancel";
-NSString*  MTCache_Directory = @"MTCache_Directory";
 
 NSString*  MTExitTime = @"MTExitTime";
 NSString*  MTReachability = @"MTReachability";

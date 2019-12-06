@@ -8,14 +8,13 @@
 
 #import "MTDelegateCollectionView.h"
 
-@class MTPhotoPreviewViewModel;
+extern NSString*  MTPhotoPreviewViewReloadDataOrder;
+extern NSString*  MTPhotoPreviewViewCellDownloadImageFinishOrder;
 
+@class MTPhotoPreviewViewModel;
 @interface MTPhotoPreviewView : MTDelegateCollectionView<UICollectionViewDelegate,MTDelegateProtocol>
 
 @property (nonatomic,weak) MTPhotoPreviewViewModel* model;
-
-
-
 
 
 @end

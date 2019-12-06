@@ -9,7 +9,7 @@
 #import "MTDelegateView.h"
 
 
-
+extern NSString*  MTLockViewAfterGetGestureResultOrder;
 @class MTLockViewConfig;
 @interface MTLockView : MTDelegateView
 

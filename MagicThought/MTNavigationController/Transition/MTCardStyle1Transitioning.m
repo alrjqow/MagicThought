@@ -9,7 +9,7 @@
 #import "MTCardStyle1Transitioning.h"
 #import "MTInteractiveNavigationDelegate.h"
 
-#import "MTNavigationController.h"
+#import "MTNavigationTransitionController.h"
 
 @implementation MTCardStyle1TransitioningPush
 

@@ -19,7 +19,7 @@
 #import "MTConst.h"
 #import "UIDevice+DeviceInfo.h"
 #import "MTPhotoManager.h"
-#import "MTNavigationController.h"
+#import "MTNavigationPhotoBrowserController.h"
 
 
 @interface MTPhotoPreviewViewCellModel()<UIActionSheetDelegate>

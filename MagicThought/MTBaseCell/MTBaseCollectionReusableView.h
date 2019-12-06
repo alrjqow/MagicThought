@@ -7,14 +7,13 @@
 //
 
 #import "MTDelegateCollectionReusableView.h"
+#import "MTBaseViewContentModel.h"
 
-
-@class MTWordStyle;
 @interface MTBaseCollectionReusableView : MTDelegateCollectionReusableView
 
-@property (nonatomic,strong) UILabel* textLabel;
+@property (nonatomic,strong) MTBaseViewContentModel* model;
 
-@property (nonatomic,strong) MTWordStyle* word;
+@property (nonatomic,strong, readonly) UILabel* textLabel;
 
 @end
 

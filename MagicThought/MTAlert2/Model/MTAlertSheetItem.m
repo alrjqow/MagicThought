@@ -39,7 +39,7 @@
 -(void)setupItemHeight
 {
     if((self.marginBottom + self.itemHeight) > 0)
-        self.bandHeight(self.marginBottom + self.itemHeight);
+        self.bindHeight(self.marginBottom + self.itemHeight);
 }
 
 

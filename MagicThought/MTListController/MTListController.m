@@ -11,12 +11,15 @@
 #import "MTBaseDataModel.h"
 #import "MJExtension.h"
 #import "NSObject+ReuseIdentifier.h"
+#import "MTDelegateViewDataModel.h"
+#import "NSString+Exist.h"
 
 @interface MTListController ()
 {
     NSArray * _modelList;
 }
 
+@property (nonatomic,strong) MTDelegateViewDataModel* dataModel;
 
 @end
 
@@ -108,7 +111,7 @@
     if(!_modelList)
     {
         NSArray* arr = [NSClassFromString(self.modelClassName) mj_objectArrayWithKeyValuesArray:self.keyValueList];
-    arr.band(self.keyValueList.mt_reuseIdentifier).bandHeight(self.keyValueList.mt_itemHeight);
+    arr.bind(self.keyValueList.mt_reuseIdentifier).bindHeight(self.keyValueList.mt_itemHeight);
         _modelList = arr;
     }
     
@@ -118,15 +121,33 @@
 
 #pragma mark - 懒加载
 
-
 -(MTDelegateViewDataModel *)dataModel
 {
-    if(!_dataModel)
+    static NSString* preDataModelClassName = @"";
+    static BOOL isDataModel = YES;
+    if(!_dataModel && [self.dataModelClassName isExist])
     {
-        _dataModel = [MTDelegateViewDataModel modelForController:self];
+        if([self.dataModelClassName isEqualToString:preDataModelClassName] && !isDataModel)
+            return nil;
+        
+        preDataModelClassName = self.dataModelClassName;
+        Class c = NSClassFromString(self.dataModelClassName);
+                
+        if(![c.new isKindOfClass:[MTDelegateViewDataModel class]])
+        {
+            isDataModel = false;
+            return nil;
+        }
+     
+        _dataModel = [c modelForController:self];
     }
     
     return _dataModel;
+}
+
+-(NSString *)dataModelClassName
+{
+    return nil;
 }
 
 @end

@@ -8,6 +8,7 @@
 
 #import "MTDelegateView.h"
 
+extern NSString*  MTImagePlayViewOrder;
 @interface MTImagePlayView : MTDelegateView
 
 @property (nonatomic, strong) UICollectionViewFlowLayout *flowLayout;

@@ -6,22 +6,22 @@
 //  Copyright © 2019 monda. All rights reserved.
 //
 
-#import "MTViewController.h"
-
+#import "MTBaseListController.h"
 #import "MTConst.h"
 #import "MJRefresh.h"
 
-#import "MTDelegateViewDataModel.h"
+/**使用列表请直接用此类*/
+@interface MTListController : MTBaseListController<MTDelegateViewDataProtocol>
 
-@interface MTListController : MTViewController<MTDelegateViewDataProtocol>
+@property (nonatomic,strong, readonly) NSString* dataModelClassName;
 
-@property (nonatomic,strong) MTDelegateViewDataModel* dataModel;
-
+//配合使用
 @property (nonatomic,strong) NSArray<NSDictionary*>* keyValueList;
-
+//此为需要转成对应模型的类名
 @property (nonatomic,strong, readonly) NSString* modelClassName;
 
 @end
+
 
 
 

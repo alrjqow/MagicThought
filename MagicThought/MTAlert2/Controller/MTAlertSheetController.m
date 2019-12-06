@@ -82,7 +82,7 @@
 {
     _alertItemArr = alertItemArr;    
     
-    alertItemArr.band(@"MTAlertSheetCell");
+    alertItemArr.bind(@"MTAlertSheetCell");
 
     if((NSInteger)(alertItemArr.count - 2) >= 0)
         alertItemArr[alertItemArr.count - 2].marginBottom *= 4;

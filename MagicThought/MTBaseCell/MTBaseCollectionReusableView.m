@@ -10,46 +10,57 @@
 #import "MTWordStyle.h"
 #import "UIView+Frame.h"
 #import "UILabel+Word.h"
-
+#import "NSString+Exist.h"
 
 
 @implementation MTBaseCollectionReusableView
 
-
 -(void)whenGetResponseObject:(NSObject *)object
-{
-    if([object isKindOfClass:[MTWordStyle class]])
-    {
-        self.word = (MTWordStyle*)object;
-        return;
-    }
-    
+{   
     if([object isKindOfClass:[NSString class]])
-        self.word.wordName = (NSString*)object;
+    {
+        MTBaseViewContentModel* model = self.model;
+        if(!model)
+            model = [MTBaseViewContentModel new];
+        
+        model.title = (NSString*)object;
+        self.model = model;
+    }
+    else if([object isKindOfClass:[MTBaseViewContentModel class]])
+        self.model = (MTBaseViewContentModel*)object;
 }
-
 
 -(void)setupDefault
 {
     [super setupDefault];
     
-    self.word = mt_WordStyleMake(12, @"", [UIColor blackColor]);
-    self.textLabel = [UILabel new];
-    
+    _textLabel = [UILabel new];
     [self addSubview:self.textLabel];
+}
+
+-(void)setModel:(MTBaseViewContentModel *)model
+{
+    _model = model;
+    
+    if([model.titleCssClass isExist])
+        self.textLabel.CssClass(model.titleCssClass);
+    else
+        [self.textLabel setWordWithStyle: self.model.titleWord];
+    
+    if([self.model.title isExist])
+        self.textLabel.text = self.model.title;
+    [self setNeedsLayout];
 }
 
 -(void)layoutSubviews
 {
     [super layoutSubviews];
     
-    [self.textLabel setWordWithStyle:self.word];
     [self.textLabel sizeToFit];
     self.textLabel.centerY = self.centerY;
 }
 
-
--(Class)classObj
+-(Class)classOfResponseObject
 {
     return [NSObject class];
 }

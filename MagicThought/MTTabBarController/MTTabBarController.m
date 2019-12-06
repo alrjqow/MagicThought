@@ -85,6 +85,7 @@
                 id obj2 = c1.new;
                 if([obj2 isKindOfClass:[UIViewController class]])
                 {
+                    ((UIViewController*)obj2).title = item.title;
                     UINavigationController* nvc = [[c alloc] initWithRootViewController:obj2];
                     nvc.tabBarItem = item;
                     obj = nvc;
@@ -104,7 +105,8 @@
         }
         
         vc = obj;
-        
+        if(![vc isKindOfClass:[UINavigationController class]])
+            vc.title = item.title;
         [self addChildViewController:vc];
         preReuseIdentifier = item.mt_reuseIdentifier;
         preRootController = item.rootController;

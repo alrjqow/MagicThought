@@ -7,7 +7,7 @@
 //
 
 #import "MTInteractiveNavigationDelegate.h"
-#import "MTNavigationController.h"
+#import "MTNavigationTransitionController.h"
 
 #import "UIViewControllerTransitionModel.h"
 #import "MTAnimatedTransitioning.h"

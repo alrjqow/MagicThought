@@ -21,6 +21,9 @@
 #import "MTPopButtonItem.h"
 
 
+NSString*  MTPhotoPreviewViewReloadDataOrder = @"MTPhotoPreviewViewReloadDataOrder";
+NSString*  MTPhotoPreviewViewCellDownloadImageFinishOrder = @"MTPhotoPreviewViewCellDownloadImageFinishOrder";
+
 @interface MTPhotoPreviewView()
 
 @end

@@ -14,3 +14,6 @@
 #import "MTLoadingView.h"
 #import "MTBaseHeaderFooterView.h"
 #import "MTBaseCollectionReusableView.h"
+
+#import "MTBaseCellModel.h"
+#import "MTTextFieldCellModel.h"

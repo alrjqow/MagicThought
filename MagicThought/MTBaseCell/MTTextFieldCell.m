@@ -7,7 +7,6 @@
 //
 
 #import "MTTextFieldCell.h"
-#import "MTTextField.h"
 #import "MTWordStyle.h"
 #import "NSString+Exist.h"
 #import "UIView+Frame.h"
@@ -22,8 +21,6 @@
     [super setupDefault];
     
     self.accessoryType = UITableViewCellAccessoryNone;
-    
-    self.placeholderSize = 12;    
     [self addSubview:self.textField];
 }
 
@@ -31,20 +28,20 @@
 {
     [super layoutSubviews];
     
-    self.textField.frame = CGRectMake(self.textFieldMargin, 0, self.contentView.width - 2 * self.textFieldMargin, self.contentView.height);
+    MTTextFieldCellModel* model = (MTTextFieldCellModel*)self.model;
+    
+    self.textField.frame = CGRectMake(model.textFieldMargin, 0, self.contentView.width - 2 * model.textFieldMargin, self.contentView.height);
 }
 
 
 #pragma mark - 重载方法
 
--(void)whenGetResponseObject:(MTTextFieldVerifyModel *)object
-{
-    self.verifyModel = object;
-}
 
--(void)setVerifyModel:(MTTextFieldVerifyModel *)verifyModel
+-(void)setModel:(MTTextFieldCellModel *)model
 {
-    _verifyModel = verifyModel;
+    [super setModel:model];
+    
+    MTTextFieldVerifyModel* verifyModel = model.verifyModel;
     self.textField.verifyModel = verifyModel;
     
     if(![verifyModel.placeholder isExist])
@@ -52,7 +49,7 @@
     NSMutableAttributedString *str = [[NSMutableAttributedString alloc] initWithString:verifyModel.placeholder];
     if(verifyModel.placeholderColor)
         [str addAttribute:NSForegroundColorAttributeName value:verifyModel.placeholderColor range:NSMakeRange(0, str.length)];
-    [str addAttribute:NSFontAttributeName value:mt_font(self.placeholderSize) range:NSMakeRange(0, verifyModel.placeholder.length)];
+    [str addAttribute:NSFontAttributeName value:mt_font(model.placeholderSize) range:NSMakeRange(0, verifyModel.placeholder.length)];
     self.textField.attributedPlaceholder = str;
 }
 
@@ -101,9 +98,9 @@
     return _textField;
 }
 
--(Class)classObj
+-(Class)classOfResponseObject
 {
-    return [MTTextFieldVerifyModel class];
+    return [MTTextFieldCellModel class];
 }
 
 @end

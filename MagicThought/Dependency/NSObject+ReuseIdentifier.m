@@ -18,6 +18,16 @@
 
 @implementation NSObject (ReuseIdentifier)
 
+-(void)setMt_order:(NSString *)mt_order
+{
+    objc_setAssociatedObject(self, @selector(mt_order), mt_order, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
+}
+
+-(NSString *)mt_order
+{
+    return objc_getAssociatedObject(self, _cmd);
+}
+
 -(void)setMt_click:(MTClick)mt_click
 {
     objc_setAssociatedObject(self, @selector(mt_click), mt_click, OBJC_ASSOCIATION_COPY_NONATOMIC);
@@ -129,12 +139,12 @@ static const void *mtHeaderEmptyShowKey = @"mtHeaderEmptyShowKey";
 
 
 
-@implementation NSObject (BandReuseIdentifier)
+@implementation NSObject (BindReuseIdentifier)
 
--(BandClick)bandClick
+-(BindClick)bindClick
 {
     __weak __typeof(self) weakSelf = self;
-    BandClick bandClick  = ^(MTClick click){
+    BindClick bindClick  = ^(MTClick click){
         
         if([weakSelf isKindOfClass:[NSArray class]])
         {
@@ -150,13 +160,13 @@ static const void *mtHeaderEmptyShowKey = @"mtHeaderEmptyShowKey";
         return weakSelf;
     };
     
-    return bandClick;
+    return bindClick;
 }
 
--(BandCount)bandCount
+-(BindCount)bindCount
 {
     __weak __typeof(self) weakSelf = self;
-    BandCount bandCount  = ^(NSInteger count){
+    BindCount bindCount  = ^(NSInteger count){
         
         NSMutableArray* arr = [NSMutableArray array];
         
@@ -166,13 +176,13 @@ static const void *mtHeaderEmptyShowKey = @"mtHeaderEmptyShowKey";
         return [arr copy];
     };
     
-    return bandCount;
+    return bindCount;
 }
 
--(BandReuseIdentifier)band
+-(BindReuseIdentifier)bind
 {
     __weak __typeof(self) weakSelf = self;
-    BandReuseIdentifier band  = ^(NSString* reuseIdentifier){
+    BindReuseIdentifier bind  = ^(NSString* reuseIdentifier){
         
         if([weakSelf isKindOfClass:[NSArray class]])
         {
@@ -185,13 +195,34 @@ static const void *mtHeaderEmptyShowKey = @"mtHeaderEmptyShowKey";
         return weakSelf;
     };
     
-    return band;
+    return bind;
 }
 
--(BandTagIdentifier)bandTag
+-(BindOrder)bindOrder
 {
     __weak __typeof(self) weakSelf = self;
-    BandTagIdentifier bandTag  = ^(NSString* tagIdentifier){
+    BindOrder bindOrder  = ^(NSString* order){
+        
+        if([weakSelf isKindOfClass:[NSArray class]])
+        {
+            NSArray* arr = (NSArray*)weakSelf;
+            for(NSObject* obj in arr)
+                obj.mt_order = order;
+            
+            return weakSelf;
+        }
+        
+        weakSelf.mt_order = order;
+        return weakSelf;
+    };
+    
+    return bindOrder;
+}
+
+-(BindTagIdentifier)bindTag
+{
+    __weak __typeof(self) weakSelf = self;
+    BindTagIdentifier bindTag  = ^(NSString* tagIdentifier){
         
         if([weakSelf isKindOfClass:[NSArray class]])
         {
@@ -206,13 +237,13 @@ static const void *mtHeaderEmptyShowKey = @"mtHeaderEmptyShowKey";
         return weakSelf;
     };
     
-    return bandTag;
+    return bindTag;
 }
 
--(BandArrayReuseIdentifier)arrBand
+-(BindArrayReuseIdentifier)arrBind
 {
     __weak __typeof(self) weakSelf = self;
-    BandArrayReuseIdentifier arrBand  = ^(NSString* reuseIdentifier){
+    BindArrayReuseIdentifier arrBind  = ^(NSString* reuseIdentifier){
         
         if(![weakSelf isKindOfClass:[NSArray class]])
             return weakSelf;
@@ -221,13 +252,13 @@ static const void *mtHeaderEmptyShowKey = @"mtHeaderEmptyShowKey";
         return weakSelf;
     };
     
-    return arrBand;
+    return arrBind;
 }
 
--(BandRowHeight)bandHeight
+-(BindRowHeight)bindHeight
 {
     __weak __typeof(self) weakSelf = self;
-    BandRowHeight bandHeight  = ^(CGFloat itemHeight){
+    BindRowHeight bindHeight  = ^(CGFloat itemHeight){
         
         if([weakSelf isKindOfClass:[NSArray class]])
         {
@@ -240,13 +271,13 @@ static const void *mtHeaderEmptyShowKey = @"mtHeaderEmptyShowKey";
         return weakSelf;
     };
     
-    return bandHeight;
+    return bindHeight;
 }
 
--(BandRowsHeight)bandRowsHeight
+-(BindRowsHeight)bindRowsHeight
 {
     __weak __typeof(self) weakSelf = self;
-    BandRowsHeight bandRowsHeight  = ^(NSArray<NSNumber*>* heights){
+    BindRowsHeight bindRowsHeight  = ^(NSArray<NSNumber*>* heights){
         
         if(![weakSelf isKindOfClass:[NSArray class]])
             return weakSelf;
@@ -267,13 +298,13 @@ static const void *mtHeaderEmptyShowKey = @"mtHeaderEmptyShowKey";
         
     };
     
-    return bandRowsHeight;
+    return bindRowsHeight;
 }
 
--(BandItemSize)bandSize
+-(BindItemSize)bindSize
 {
     __weak __typeof(self) weakSelf = self;
-    BandItemSize bandSize  = ^(CGSize size){
+    BindItemSize bindSize  = ^(CGSize size){
         
         if([weakSelf isKindOfClass:[NSArray class]])
         {
@@ -288,13 +319,13 @@ static const void *mtHeaderEmptyShowKey = @"mtHeaderEmptyShowKey";
         return weakSelf;
     };
     
-    return bandSize;
+    return bindSize;
 }
 
--(BandArrayItemSize)arrBandSize
+-(BindArrayItemSize)arrBindSize
 {
     __weak __typeof(self) weakSelf = self;
-    BandArrayItemSize bandSize  = ^(CGSize size){
+    BindArrayItemSize bindSize  = ^(CGSize size){
         
         if(![weakSelf isKindOfClass:[NSArray class]])
             return weakSelf;
@@ -303,13 +334,13 @@ static const void *mtHeaderEmptyShowKey = @"mtHeaderEmptyShowKey";
         return weakSelf;
     };
     
-    return bandSize;
+    return bindSize;
 }
 
--(BandItemsSize)bandItemsSize
+-(BindItemsSize)bindItemsSize
 {
     __weak __typeof(self) weakSelf = self;
-    BandItemsSize bandItemsSize  = ^(NSArray<NSValue*>* sizes){
+    BindItemsSize bindItemsSize  = ^(NSArray<NSValue*>* sizes){
         
         if(![weakSelf isKindOfClass:[NSArray class]])
             return weakSelf;
@@ -330,14 +361,14 @@ static const void *mtHeaderEmptyShowKey = @"mtHeaderEmptyShowKey";
         
     };
     
-    return bandItemsSize;
+    return bindItemsSize;
 }
 
 
--(BandItemSpacing)bandSpacing
+-(BindItemSpacing)bindSpacing
 {
     __weak __typeof(self) weakSelf = self;
-    BandItemSpacing bandSpacing  = ^(MTDelegateCollectionViewSpacing spacing){
+    BindItemSpacing bindSpacing  = ^(MTDelegateCollectionViewSpacing spacing){
         if([weakSelf isKindOfClass:[NSArray class]])
         {
             NSArray* arr = (NSArray*)weakSelf;
@@ -351,13 +382,13 @@ static const void *mtHeaderEmptyShowKey = @"mtHeaderEmptyShowKey";
         return weakSelf;
     };
     
-    return bandSpacing;
+    return bindSpacing;
 }
 
--(BandItemsSpacing)bandItemsSpacing
+-(BindItemsSpacing)bindItemsSpacing
 {
     __weak __typeof(self) weakSelf = self;
-    BandItemsSpacing bandItemsSpacing  = ^(NSArray<NSValue*>* itemSpacing){
+    BindItemsSpacing bindItemsSpacing  = ^(NSArray<NSValue*>* itemSpacing){
         
         if(![weakSelf isKindOfClass:[NSArray class]])
             return weakSelf;
@@ -381,13 +412,13 @@ static const void *mtHeaderEmptyShowKey = @"mtHeaderEmptyShowKey";
         
     };
     
-    return bandItemsSpacing;
+    return bindItemsSpacing;
 }
 
-- (Band3dTouch)band3dTouch
+- (Bind3dTouch)bind3dTouch
 {
     __weak __typeof(self) weakSelf = self;
-    Band3dTouch band3dTouch  = ^(){
+    Bind3dTouch bind3dTouch  = ^(){
         if([weakSelf isKindOfClass:[NSArray class]])
         {
             NSArray* arr = (NSArray*)weakSelf;
@@ -401,13 +432,13 @@ static const void *mtHeaderEmptyShowKey = @"mtHeaderEmptyShowKey";
         return weakSelf;
     };
     
-    return band3dTouch;
+    return bind3dTouch;
 }
 
--(BandHeaderEmptyShow)bandHeaderEmptyShow
+-(BindHeaderEmptyShow)bindHeaderEmptyShow
 {
     __weak __typeof(self) weakSelf = self;
-    BandHeaderEmptyShow bandHeaderEmptyShow  = ^(){
+    BindHeaderEmptyShow bindHeaderEmptyShow  = ^(){
         if([weakSelf isKindOfClass:[NSArray class]])
         {
             NSArray* arr = (NSArray*)weakSelf;
@@ -421,7 +452,7 @@ static const void *mtHeaderEmptyShowKey = @"mtHeaderEmptyShowKey";
         return weakSelf;
     };
     
-    return bandHeaderEmptyShow;
+    return bindHeaderEmptyShow;
 }
 
 @end

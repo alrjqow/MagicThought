@@ -29,7 +29,7 @@
 #define kDefaultValueTextColor                  [UIColor colorWithWhite:0.1 alpha:1]
 
 
-
+NSString*  MTCountingViewOrder = @"MTCountingViewOrder";
 @interface MTCountingView ()
 {
     CGFloat timeDelta;

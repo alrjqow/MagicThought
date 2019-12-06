@@ -819,11 +819,11 @@ NSString* MTTenScrollIdentifier = @"MTTenScrollIdentifier";
 #pragma mark - 缓存
 -(UIView*)getViewByIndex:(NSNumber*)index
 {    
-    return [self getViewtByIndex:index.integerValue isBandData:YES];
+    return [self getViewtByIndex:index.integerValue isBindData:YES];
 }
 
 /**获取view*/
--(UIView*)getViewtByIndex:(NSInteger)index isBandData:(BOOL)isBand
+-(UIView*)getViewtByIndex:(NSInteger)index isBindData:(BOOL)isBind
 {
     NSObject* object;
     if(index < self.objectArr.count)
@@ -848,7 +848,7 @@ NSString* MTTenScrollIdentifier = @"MTTenScrollIdentifier";
     if(![object isKindOfClass:[UIView class]] && ![object isKindOfClass:[UIViewController class]])
         object = nil;
     
-    if(isBand)
+    if(isBind)
     {
         /**绑定数据*/
         MTBaseDataModel* model = [MTBaseDataModel new];
@@ -1050,7 +1050,7 @@ NSString* MTTenScrollIdentifier = @"MTTenScrollIdentifier";
         
     _currentIndex = currentIndex;
     self.preCurrentIndex = self.minIndex = self.maxIndex1 = currentIndex;
-    [self getViewtByIndex:currentIndex isBandData:false];    
+    [self getViewtByIndex:currentIndex isBindData:false];    
 }
 
 -(MTTenScrollTitleViewModel *)titleViewModel
@@ -1074,7 +1074,7 @@ NSString* MTTenScrollIdentifier = @"MTTenScrollIdentifier";
     if(!cellClass)
         return nil;
     
-    NSObject* tenScrollData = mt_reuse(self).band(cellClass).bandHeight(self.tenScrollHeight);
+    NSObject* tenScrollData = mt_reuse(self).bind(cellClass).bindHeight(self.tenScrollHeight);
     return self.dataList ? tenScrollData : tenScrollData;
 }
 

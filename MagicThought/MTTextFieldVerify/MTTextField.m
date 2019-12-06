@@ -111,7 +111,7 @@
 {
     self.verifyModel.content = self.text;
     if([self.mt_delegate respondsToSelector:@selector(doSomeThingForMe:withOrder:)])
-        [self.mt_delegate doSomeThingForMe:self.verifyModel withOrder:MTTextFieldValueChangeOrder];
+        [self.mt_delegate doSomeThingForMe:self.verifyModel withOrder:MTTextValueChangeOrder];
 }
 
 

@@ -9,6 +9,7 @@
 #import "MTDelegateView.h"
 #import "MTBorderStyle.h"
 
+extern NSString*  MTSpiltViewPanEndOrder;
 @interface MTSpiltView : MTDelegateView
 
 +(instancetype _Nullable )spiltViewWithLeftView:( UIView* _Nonnull )leftView AndRightView:(UIView* _Nonnull)rightView;

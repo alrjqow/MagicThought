@@ -13,7 +13,7 @@
 @class MTPhotoPreviewViewModel;
 @class MTPhotoBrowser;
 @class MTPhotoLook;
-@class MTNavigationController;
+@class MTNavigationPhotoBrowserController;
 @protocol MTDelegateProtocol;
 
 @interface MTPhotoBrowserViewModel : NSObject
@@ -52,7 +52,7 @@
 @property(nonatomic,assign) NSInteger currentIndex;
 
 /**根控制器*/
-@property (nonatomic,strong,readonly) MTNavigationController* rootViewController;
+@property (nonatomic,strong,readonly) MTNavigationPhotoBrowserController* rootViewController;
 
 /**是否显示导航栏*/
 @property (nonatomic,assign) BOOL isShowNavigationBar;

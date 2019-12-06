@@ -22,6 +22,8 @@ typedef enum : NSUInteger {
 } MTRoundViewSpeedType;
 
 IB_DESIGNABLE
+
+extern NSString*  MTRoundViewFinishRunningOrder;
 @interface MTRoundView : MTDelegateView
 
 /**花费时间*/

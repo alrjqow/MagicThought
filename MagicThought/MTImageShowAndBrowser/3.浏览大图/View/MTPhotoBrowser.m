@@ -10,7 +10,7 @@
 #import "MTPhotoPreviewViewCellModel.h"
 #import "MTPhotoLook.h"
 #import "MTConst.h"
-#import "MTNavigationController.h"
+#import "MTNavigationPhotoBrowserController.h"
 #import "MTDelegateCollectionViewCell.h"
 #import "MTDelegateCollectionView.h"
 #import "MTPhotoBrowserViewModel.h"
@@ -74,7 +74,7 @@
     if(self.model.isPopDismiss)
         [self.collectionView.panGestureRecognizer requireGestureRecognizerToFail:self.model.rootViewController.interactivePopGestureRecognizer];
     
-    self.imageArr.arrBandSize(CGSizeMake(self.width + 10, self.height));
+    self.imageArr.arrBindSize(CGSizeMake(self.width + 10, self.height));
     [self loadData];
 }
 
@@ -186,7 +186,7 @@ static MTPhotoBrowser *singleton = nil;
     if(self = [super initWithFrame:frame])
     {
         self.imageArr = [NSMutableArray array];
-        self.imageArr.arrBand(@"MTPhotoBrowserCell");
+        self.imageArr.arrBind(@"MTPhotoBrowserCell");
         
         UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(didTap:)];
         [self addGestureRecognizer:tap];

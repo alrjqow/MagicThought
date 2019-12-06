@@ -34,7 +34,7 @@
 - (void)gestureAction:(UIGestureRecognizer *)gestureRecognizer
 {
     if ([self.superview respondsToSelector:@selector(doSomeThingForMe:withOrder:withItem:)])
-        [(UIView<MTDelegateProtocol>*)self.superview doSomeThingForMe:self withOrder:MTDragGestureOrder withItem:gestureRecognizer];
+        [(UIView<MTDelegateProtocol>*)self.superview doSomeThingForMe:self withOrder:@"MTDragGestureOrder" withItem:gestureRecognizer];
 }
 
 

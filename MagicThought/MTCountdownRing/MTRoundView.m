@@ -17,7 +17,7 @@
 #define ProgressOffset 0.00000001
 
 
-
+NSString*  MTRoundViewFinishRunningOrder = @"MTRoundViewFinishRunningOrder";
 @interface MTRoundView ()
 
 /**定时器控制进度*/

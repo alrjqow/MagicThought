@@ -13,6 +13,7 @@
 #import "UIView+Frame.h"
 #import "NSString+Exist.h"
 
+NSString*  MTImagePlayViewOrder = @"MTImagePlayViewOrder";
 @interface MTImagePlayView()<UICollectionViewDelegate,UICollectionViewDataSource,MTDelegateProtocol>
 
 @property(nonatomic,strong) NSTimer* timer;

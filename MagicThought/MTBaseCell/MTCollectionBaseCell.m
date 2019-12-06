@@ -11,15 +11,18 @@
 
 @implementation MTCollectionBaseCell
 
-
--(void)whenGetResponseObject:(NSDictionary *)object
+-(void)whenGetResponseObject:(MTBaseViewContentModel *)object
 {
-    NSDictionary* dict = (NSDictionary*)object;
-    
-    self.imgView.image = [UIImage imageNamed:dict[@"img"]];
-    self.textLabel.text = dict[@"title"];
+    self.model = object;
 }
 
+-(void)setModel:(MTBaseViewContentModel *)model
+{
+    _model = model;
+    
+    self.imgView.image = [UIImage imageNamed:model.img];
+    self.textLabel.text = model.title;
+}
 
 -(void)setupDefault
 {
@@ -48,5 +51,9 @@
     self.textLabel.y = self.imgView.maxY + 15;
 }
 
+-(Class)classOfResponseObject
+{
+    return [MTBaseViewContentModel class];
+}
 
 @end

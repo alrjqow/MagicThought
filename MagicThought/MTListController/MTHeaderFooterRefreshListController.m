@@ -62,100 +62,100 @@
 
 #pragma mark - 成员方法
 
--(CGFloat)getTableViewFillCellHeight
-{
-    static CGFloat originBottomOffset;
-    if(!originBottomOffset)
-        originBottomOffset = self.listView.contentInset.bottom;
-    
-    
-    CGFloat headerH = 0;//need
-    if([self.listView isKindOfClass:[UITableView class]])
-        headerH = ((UITableView*)self.listView).tableHeaderView.height;//need
-    CGFloat topOffset = self.listView.contentInset.top;//need
-    CGFloat cellH = 0;//need
-    CGFloat sectionHeaderFooterH = 0;//need
-    CGFloat footerH = 0;//need
-    if([self.listView isKindOfClass:[UITableView class]])
-        footerH = ((UITableView*)self.listView).tableFooterView.height;//need
-    
-    UIEdgeInsets inset = self.listView.contentInset;
-    if(self.listView.mj_footer)
-        inset.bottom = 0;
-    
-    CGFloat bottomOffset = self.listView.contentInset.bottom;//need
-    
-    
-    //获取所有cell占据的高度
-    CGFloat sectionCount = 1;
-    CGFloat allArrH = 0;
-    CGFloat singleArrH = 0;
-    BOOL isAllArr = YES;
-    for(NSObject* obj in self.itemArr)
-    {
-        if([obj isKindOfClass:[NSArray class]])
-            continue;
-        
-        isAllArr = false;
-        break;
-    }
-    
-    if(isAllArr)
-    {
-        for(NSArray* arr in self.itemArr)
-        {
-            for (NSObject* obj in arr) {
-                allArrH += obj.mt_itemHeight;
-            }
-        }
-    }
-    else
-    {
-        for(NSObject* obj in self.itemArr)
-            singleArrH += obj.mt_itemHeight;
-    }
-    
-    cellH = isAllArr ? allArrH : singleArrH;
-    sectionCount = isAllArr ? self.itemArr.count : 1;
-    
-    //获取组头、组尾占据的高度
-    BOOL isSingle = false;
-    for(id obj in self.dataModel.sectionList)
-    {
-        if([obj isKindOfClass:[NSArray class]])
-            continue;
-        
-        isSingle = YES;
-        break;
-    }
-    
-    if(isSingle)
-    {
-        for(NSObject* obj in self.dataModel.sectionList)
-        {
-            NSInteger index = [self.dataModel.sectionList indexOfObject:obj];
-            if(index >= sectionCount)
-                break;
-            sectionHeaderFooterH += obj.mt_itemHeight;
-        }
-    }
-    else
-    {
-        for(NSArray* arr in self.dataModel.sectionList)
-        {
-            NSInteger index = [self.dataModel.sectionList indexOfObject:arr];
-            if(index >= 2)
-                break;
-            
-            for(NSObject* obj in arr)
-            {
-                NSInteger index = [arr indexOfObject:obj];
-                if(index >= sectionCount)
-                    break;
-                sectionHeaderFooterH += obj.mt_itemHeight;
-            }
-        }
-    }
+//-(CGFloat)getTableViewFillCellHeight
+//{
+//    static CGFloat originBottomOffset;
+//    if(!originBottomOffset)
+//        originBottomOffset = self.listView.contentInset.bottom;
+//
+//
+//    CGFloat headerH = 0;//need
+//    if([self.listView isKindOfClass:[UITableView class]])
+//        headerH = ((UITableView*)self.listView).tableHeaderView.height;//need
+//    CGFloat topOffset = self.listView.contentInset.top;//need
+//    CGFloat cellH = 0;//need
+//    CGFloat sectionHeaderFooterH = 0;//need
+//    CGFloat footerH = 0;//need
+//    if([self.listView isKindOfClass:[UITableView class]])
+//        footerH = ((UITableView*)self.listView).tableFooterView.height;//need
+//
+//    UIEdgeInsets inset = self.listView.contentInset;
+//    if(self.listView.mj_footer)
+//        inset.bottom = 0;
+//
+//    CGFloat bottomOffset = self.listView.contentInset.bottom;//need
+//
+//
+//    //获取所有cell占据的高度
+//    CGFloat sectionCount = 1;
+//    CGFloat allArrH = 0;
+//    CGFloat singleArrH = 0;
+//    BOOL isAllArr = YES;
+//    for(NSObject* obj in self.itemArr)
+//    {
+//        if([obj isKindOfClass:[NSArray class]])
+//            continue;
+//
+//        isAllArr = false;
+//        break;
+//    }
+//
+//    if(isAllArr)
+//    {
+//        for(NSArray* arr in self.itemArr)
+//        {
+//            for (NSObject* obj in arr) {
+//                allArrH += obj.mt_itemHeight;
+//            }
+//        }
+//    }
+//    else
+//    {
+//        for(NSObject* obj in self.itemArr)
+//            singleArrH += obj.mt_itemHeight;
+//    }
+//
+//    cellH = isAllArr ? allArrH : singleArrH;
+//    sectionCount = isAllArr ? self.itemArr.count : 1;
+//
+//    //获取组头、组尾占据的高度
+//    BOOL isSingle = false;
+//    for(id obj in self.dataModel.sectionList)
+//    {
+//        if([obj isKindOfClass:[NSArray class]])
+//            continue;
+//
+//        isSingle = YES;
+//        break;
+//    }
+//
+//    if(isSingle)
+//    {
+//        for(NSObject* obj in self.dataModel.sectionList)
+//        {
+//            NSInteger index = [self.dataModel.sectionList indexOfObject:obj];
+//            if(index >= sectionCount)
+//                break;
+//            sectionHeaderFooterH += obj.mt_itemHeight;
+//        }
+//    }
+//    else
+//    {
+//        for(NSArray* arr in self.dataModel.sectionList)
+//        {
+//            NSInteger index = [self.dataModel.sectionList indexOfObject:arr];
+//            if(index >= 2)
+//                break;
+//
+//            for(NSObject* obj in arr)
+//            {
+//                NSInteger index = [arr indexOfObject:obj];
+//                if(index >= sectionCount)
+//                    break;
+//                sectionHeaderFooterH += obj.mt_itemHeight;
+//            }
+//        }
+//    }
     
     //    NSLog(@"%lf",self.listView.height);
     //    NSLog(@"%lf",headerH);
@@ -165,20 +165,20 @@
     //    NSLog(@"%lf",cellH);
     //    NSLog(@"%lf",sectionHeaderFooterH);
     
-    CGFloat fillH = self.listView.height - (headerH + footerH + topOffset + bottomOffset + cellH + sectionHeaderFooterH);
+//    CGFloat fillH = self.listView.height - (headerH + footerH + topOffset + bottomOffset + cellH + sectionHeaderFooterH);
     
     //这个可以在超出屏幕时仍然可以fill
     //    CGFloat fillH = self.listView.height - (headerH + footerH + topOffset + bottomOffset + cellH + sectionHeaderFooterH) % self.listView.height;
-    if(fillH < 0)
-    {
-        fillH = 0;
-        inset.bottom = originBottomOffset;
-    }
-    
-    
-    self.listView.contentInset = inset;
-    return fillH;
-}
+//    if(fillH < 0)
+//    {
+//        fillH = 0;
+//        inset.bottom = originBottomOffset;
+//    }
+//
+//
+//    self.listView.contentInset = inset;
+//    return fillH;
+//}
 
 #pragma mark - 懒加载
 
@@ -186,8 +186,8 @@
 {
     NSMutableArray* arr = [NSMutableArray arrayWithArray:self.itemArr];
     
-    if(self.itemArr.count)
-        [arr addObject:@"DYNoSepLineBaseCell".bandHeight([self getTableViewFillCellHeight])];
+//    if(self.itemArr.count)
+//        [arr addObject:@"DYNoSepLineBaseCell".bindHeight([self getTableViewFillCellHeight])];
     
     return arr;
 }

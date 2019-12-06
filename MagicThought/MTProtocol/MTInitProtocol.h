@@ -31,6 +31,8 @@
 /**当销毁时*/
 -(void)whenDealloc;
 
+/**点击了导航栏右侧按钮*/
+-(void)navigationBarRightBtnClick;
 
 @end
 

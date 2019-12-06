@@ -44,7 +44,7 @@
         weakSelf.imgView.image = image ? image : [UIImage imageNamed: @"MTPhotoBrowser.bundle/no_image"];
         
         if([weakSelf.mt_delegate respondsToSelector:@selector(doSomeThingForMe:withOrder:withItem:)])
-            [weakSelf.mt_delegate doSomeThingForMe:weakSelf withOrder:MTPhotoPreviewViewCellDownloadImageFinishOrder withItem:weakSelf.indexPath];
+            [weakSelf.mt_delegate doSomeThingForMe:weakSelf withOrder:@"MTPhotoPreviewViewCellDownloadImageFinishOrder" withItem:weakSelf.indexPath];
     }];
 }
 

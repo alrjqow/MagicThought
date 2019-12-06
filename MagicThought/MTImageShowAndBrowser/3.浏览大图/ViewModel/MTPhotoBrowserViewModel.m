@@ -13,7 +13,7 @@
 #import "MTPhotoPreviewViewCell.h"
 #import "MTPopButtonItem.h"
 #import "MTPhotoBrowserController.h"
-#import "MTNavigationController.h"
+#import "MTNavigationPhotoBrowserController.h"
 
 #import "UINavigationBar+Config.h"
 #import "MTAlertView.h"
@@ -24,7 +24,7 @@
 
 @interface MTPhotoBrowserViewModel ()
 {
-    MTNavigationController* _rootViewController;
+    MTNavigationPhotoBrowserController* _rootViewController;
 }
 @property(nonatomic,strong) NSMutableArray* positionArr;
 
@@ -359,14 +359,14 @@
     return _previewWindow;
 }
 
--(MTNavigationController *)rootViewController
+-(MTNavigationPhotoBrowserController *)rootViewController
 {
     if(!_rootViewController)
     {
         UIViewController* vc = [UIViewController new];
         vc.view.backgroundColor = [UIColor clearColor];
         vc.navigationBarAlpha = 0;
-        _rootViewController = [[MTNavigationController alloc] initWithRootViewController: vc];
+        _rootViewController = [[MTNavigationPhotoBrowserController alloc] initWithRootViewController: vc];
         _rootViewController.navigationBar.bottomLine.backgroundColor = [UIColor clearColor];
         _rootViewController.mt_delegate = self;
         [_rootViewController setValue:@(YES) forKey:@"setupStatusBar"];

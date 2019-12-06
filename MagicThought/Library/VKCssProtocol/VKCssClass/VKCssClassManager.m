@@ -211,11 +211,16 @@ VK_DEF_SINGLETON
         NSInteger cssClassNameStart = theScanner.scanLocation + 1;
         [theScanner scanUpToString:@"{" intoString:nil];
         NSInteger cssdefineStart = theScanner.scanLocation + 1;
-        NSString *cssName = [cssContent substringWithRange:NSMakeRange(cssClassNameStart, cssdefineStart - cssClassNameStart - 1)];
+        
+        NSString *cssName = @"";
+        if((cssdefineStart - 1) < cssContent.length)
+            cssName = [cssContent substringWithRange:NSMakeRange(cssClassNameStart, cssdefineStart - cssClassNameStart - 1)];
         [theScanner scanUpToString:@"}" intoString:nil];
         NSInteger cssdefineEnd = theScanner.scanLocation + 1;
         
-        NSString *cssDef = [cssContent substringWithRange:NSMakeRange(cssdefineStart, cssdefineEnd - cssdefineStart - 1)];
+        NSString *cssDef = @"";
+        if((cssdefineEnd - 1) < cssContent.length)
+            cssDef = [cssContent substringWithRange:NSMakeRange(cssdefineStart, cssdefineEnd - cssdefineStart - 1)];
         
         cssName = [cssName stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]];
         if([cssName containsString:@"css\";"])
@@ -258,8 +263,9 @@ VK_DEF_SINGLETON
         [theScanner scanUpToString:@".css\";" intoString:nil];
         NSInteger cssdefineEnd = theScanner.scanLocation;
         
-        
-        NSString *cssFileName = [cssContent substringWithRange:NSMakeRange(cssFileNameStart, cssdefineEnd - cssFileNameStart)];
+        NSString *cssFileName = @"";
+        if(cssdefineEnd < cssContent.length)
+            cssFileName = [cssContent substringWithRange:NSMakeRange(cssFileNameStart, cssdefineEnd - cssFileNameStart)];
         cssFileName = [cssFileName stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]];
         cssFileName = [cssFileName stringByReplacingOccurrencesOfString:@"\"" withString:@""];
         

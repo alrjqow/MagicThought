@@ -11,6 +11,7 @@
 #import "Masonry.h"
 #import "MTConst.h"
 
+NSString*  MTSpiltViewPanEndOrder = @"MTSpiltViewPanEndOrder";
 @interface MTSpiltView ()
 
 @property(nonatomic,weak) UIView* line;

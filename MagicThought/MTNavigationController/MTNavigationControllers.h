@@ -8,6 +8,8 @@
 
 
 #import "MTNavigationController.h"
+#import "MTNavigationTransitionController.h"
+#import "MTNavigationPhotoBrowserController.h"
 
 #import "MTInteractiveNavigationDelegate.h"
 

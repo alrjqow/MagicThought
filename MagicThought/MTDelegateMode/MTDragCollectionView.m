@@ -10,6 +10,11 @@
 #import "MTDragCollectionViewCell.h"
 #import "MTConst.h"
 
+NSString*  MTDragGestureOrder = @"MTDragGestureOrder";
+NSString*  MTDragGestureBeganOrder = @"MTDragGestureBeganOrder";
+NSString*  MTDragGestureEndOrder = @"MTDragGestureEndOrder";
+NSString*  MTDragDeleteOrder = @"MTDragDeleteOrder";
+
 @interface MTDragCollectionView ()<MTDelegateProtocol>
 
 @property (nonatomic,strong) UIView * snapshotView; //截屏得到的view

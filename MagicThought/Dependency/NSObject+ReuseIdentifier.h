@@ -19,19 +19,21 @@ CG_EXTERN MTDelegateCollectionViewSpacing mt_collectionViewSpacingMake(CGFloat m
 
 @interface NSReuseObject : NSObject
 
-@property (nonatomic,strong) id data;
+@property (nonatomic,strong) id _Nullable data;
 
 @end
 
-CG_EXTERN NSReuseObject* mt_reuse(id data);
+CG_EXTERN NSReuseObject* _Nonnull mt_reuse(id _Nullable data);
 
-typedef BOOL (^MTClick)(NSString*);
+typedef BOOL (^MTClick)(NSString* _Nullable order);
 
 @interface NSObject (ReuseIdentifier)
 
-@property (nonatomic,strong) NSString* mt_tagIdentifier;
+@property (nonatomic,strong) NSString* _Nullable mt_order;
 
-@property (nonatomic,strong) NSString* mt_reuseIdentifier;
+@property (nonatomic,strong) NSString* _Nullable mt_tagIdentifier;
+
+@property (nonatomic,strong) NSString* _Nullable mt_reuseIdentifier;
 
 @property (nonatomic,assign) CGFloat mt_itemHeight;
 
@@ -43,65 +45,68 @@ typedef BOOL (^MTClick)(NSString*);
 
 @property (nonatomic,assign) BOOL mt_headerEmptyShow;
 
-@property (nonatomic,copy) MTClick mt_click;
+@property (nonatomic,copy) MTClick _Nullable mt_click;
 
 @end
 
 
-typedef NSObject* _Nonnull (^BandTagIdentifier) (NSString* tagIdentifier);
-typedef  NSObject* _Nonnull  (^BandReuseIdentifier) (NSString* reuseIdentifier);
-typedef NSObject* _Nonnull (^BandArrayReuseIdentifier) (NSString* reuseIdentifier);
-typedef NSObject* _Nonnull (^BandRowHeight) (CGFloat height);
-typedef NSObject* _Nonnull (^BandRowsHeight) (NSArray<NSNumber*>* heights);
-typedef NSArray* _Nonnull (^BandCount) (NSInteger count);
-typedef NSObject* _Nonnull (^BandItemSize) (CGSize itemSize);
-typedef NSObject* _Nonnull (^BandArrayItemSize) (CGSize itemSize);
-typedef NSObject* _Nonnull (^BandItemsSize) (NSArray<NSValue*>* itemSize);
-typedef NSObject* _Nonnull (^BandItemSpacing) (MTDelegateCollectionViewSpacing spacing);
-typedef NSObject* _Nonnull (^BandItemsSpacing) (NSArray<NSValue*>* spacing);
-typedef NSObject* _Nonnull (^Band3dTouch) (void);
-typedef NSObject* _Nonnull (^BandHeaderEmptyShow) (void);
-typedef NSObject* _Nonnull (^BandClick) (MTClick _Nullable);
+typedef NSObject* _Nonnull (^BindOrder) (NSString* _Nonnull order);
+typedef NSObject* _Nonnull (^BindTagIdentifier) (NSString* _Nonnull tagIdentifier);
+typedef  NSObject* _Nonnull  (^BindReuseIdentifier) (NSString* _Nonnull reuseIdentifier);
+typedef NSObject* _Nonnull (^BindArrayReuseIdentifier) (NSString* _Nonnull reuseIdentifier);
+typedef NSObject* _Nonnull (^BindRowHeight) (CGFloat height);
+typedef NSObject* _Nonnull (^BindRowsHeight) (NSArray<NSNumber*>* _Nonnull heights);
+typedef NSArray* _Nonnull (^BindCount) (NSInteger count);
+typedef NSObject* _Nonnull (^BindItemSize) (CGSize itemSize);
+typedef NSObject* _Nonnull (^BindArrayItemSize) (CGSize itemSize);
+typedef NSObject* _Nonnull (^BindItemsSize) (NSArray<NSValue*>* _Nonnull itemSize);
+typedef NSObject* _Nonnull (^BindItemSpacing) (MTDelegateCollectionViewSpacing spacing);
+typedef NSObject* _Nonnull (^BindItemsSpacing) (NSArray<NSValue*>* _Nonnull spacing);
+typedef NSObject* _Nonnull (^Bind3dTouch) (void);
+typedef NSObject* _Nonnull (^BindHeaderEmptyShow) (void);
+typedef NSObject* _Nonnull (^BindClick) (MTClick _Nullable);
 
 
-@interface NSObject (BandReuseIdentifier)
+@interface NSObject (BindReuseIdentifier)
 
-@property (nonatomic,copy,readonly) BandClick bandClick;
+@property (nonatomic,copy,readonly) BindClick _Nonnull bindClick;
 
-@property (nonatomic,copy,readonly) BandTagIdentifier bandTag;
+@property (nonatomic,copy,readonly) BindOrder _Nonnull bindOrder;
 
-@property (nonatomic,copy,readonly) BandCount bandCount;
+@property (nonatomic,copy,readonly) BindTagIdentifier _Nonnull bindTag;
 
-@property (nonatomic,copy,readonly) BandReuseIdentifier band;
+@property (nonatomic,copy,readonly) BindCount _Nonnull bindCount;
 
-@property (nonatomic,copy,readonly) BandArrayReuseIdentifier arrBand;
+@property (nonatomic,copy,readonly) BindReuseIdentifier _Nonnull bind;
 
-@property (nonatomic,copy,readonly) BandRowHeight bandHeight;
+@property (nonatomic,copy,readonly) BindArrayReuseIdentifier _Nonnull arrBind;
 
-@property (nonatomic,copy,readonly) BandRowsHeight bandRowsHeight;
+@property (nonatomic,copy,readonly) BindRowHeight _Nonnull bindHeight;
 
-@property (nonatomic,copy,readonly) BandItemSize bandSize;
+@property (nonatomic,copy,readonly) BindRowsHeight _Nonnull bindRowsHeight;
 
-@property (nonatomic,copy,readonly) BandArrayItemSize arrBandSize;
+@property (nonatomic,copy,readonly) BindItemSize _Nonnull bindSize;
 
-@property (nonatomic,copy,readonly) BandItemsSize bandItemsSize;
+@property (nonatomic,copy,readonly) BindArrayItemSize _Nonnull arrBindSize;
 
-@property (nonatomic,copy,readonly) BandItemSpacing bandSpacing;
+@property (nonatomic,copy,readonly) BindItemsSize _Nonnull bindItemsSize;
 
-@property (nonatomic,copy,readonly) BandItemsSpacing bandItemsSpacing;
+@property (nonatomic,copy,readonly) BindItemSpacing _Nonnull bindSpacing;
+
+@property (nonatomic,copy,readonly) BindItemsSpacing _Nonnull bindItemsSpacing;
     
-@property (nonatomic,copy,readonly) Band3dTouch band3dTouch;
+@property (nonatomic,copy,readonly) Bind3dTouch _Nonnull bind3dTouch;
 
-@property (nonatomic,copy,readonly) BandHeaderEmptyShow bandHeaderEmptyShow;
+@property (nonatomic,copy,readonly) BindHeaderEmptyShow _Nonnull bindHeaderEmptyShow;
 
 
 @end
 
 @interface NSObject (Copy)
 
-- (NSObject*)copyObject;
+- (NSObject* _Nullable)copyObject;
 
-- (BOOL)isContainProperty:(NSString*)propertyName;
+- (BOOL)isContainProperty:(NSString* _Nullable)propertyName;
 
 @end
 
@@ -109,6 +114,6 @@ typedef NSObject* _Nonnull (^BandClick) (MTClick _Nullable);
 
 @interface NSArray (ReuseIdentifier)
 
--(NSObject*)getDataByIndex:(NSInteger)index;
+-(NSObject* _Nonnull)getDataByIndex:(NSInteger)index;
 
 @end

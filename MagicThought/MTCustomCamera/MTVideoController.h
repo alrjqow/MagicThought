@@ -6,11 +6,12 @@
 //  Copyright © 2017年 Renford. All rights reserved.
 //
 
-#import <UIKit/UIKit.h>
+#import "MTViewController.h"
 
 @protocol MTDelegateProtocol;
 
-@interface MTVideoController : UIViewController
+extern NSString*  MTVideoControllerDidFinishPickingImagesOrder;
+@interface MTVideoController : MTViewController
 
 @property(nonatomic,assign) CGFloat imageWidth;
 

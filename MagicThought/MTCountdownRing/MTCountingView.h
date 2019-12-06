@@ -9,6 +9,7 @@
 #import "MTDelegateView.h"
 
 
+extern NSString*  MTCountingViewOrder;
 IB_DESIGNABLE
 @interface MTCountingView : MTDelegateView
 

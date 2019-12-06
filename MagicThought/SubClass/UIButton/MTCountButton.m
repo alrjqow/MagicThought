@@ -10,6 +10,7 @@
 #import "MTConst.h"
 #import "NSString+Exist.h"
 
+NSString*  MTCountButtonDidFinishedCountDownOrder = @"MTCountButtonDidFinishedCountDownOrder";
 @interface MTCountButton ()
 
 @property(nonatomic,strong) NSTimer* timer;

@@ -8,6 +8,11 @@
 
 #import "MTDelegateCollectionView.h"
 
+extern NSString*  MTDragGestureOrder;
+extern NSString*  MTDragGestureBeganOrder;
+extern NSString*  MTDragGestureEndOrder;
+extern NSString*  MTDragDeleteOrder;
+
 @interface MTDragCollectionView : MTDelegateCollectionView
 
 @property(nonatomic,weak) NSMutableArray* dragItems;

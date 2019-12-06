@@ -6,7 +6,7 @@
 //  Copyright © 2018 monda. All rights reserved.
 //
 
-#import "MTViewController.h"
+#import "MTBaseListController.h"
 
 typedef NS_ENUM(NSInteger, MTBaseAlertType)
 {
@@ -14,7 +14,7 @@ typedef NS_ENUM(NSInteger, MTBaseAlertType)
     MTBaseAlertTypeUp,
 };
 
-@interface MTBaseAlertController : MTViewController
+@interface MTBaseAlertController : MTBaseListController
 
 @property (nonatomic,assign) MTBaseAlertType type;
 

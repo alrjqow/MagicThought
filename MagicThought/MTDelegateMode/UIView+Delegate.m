@@ -37,7 +37,7 @@
 
 -(Class)classOfResponseObject
 {
-    return [NSObject class];
+    return nil;
 }
 
 -(void)setViewModel:(NSObject<MTViewModelProtocol> *)viewModel

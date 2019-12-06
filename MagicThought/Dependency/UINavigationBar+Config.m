@@ -168,6 +168,7 @@ static const void *mtTransitionConfigNavigationBarTitleColorKey = @"mtTransition
         SEL needSwizzleSelectors[4] = {
             @selector(viewWillAppear:),
             @selector(viewDidAppear:),
+            @selector(dismissViewControllerAnimated:completion:)
             //            @selector(viewWillDisappear:),
             //            @selector(viewDidDisappear:)
         };
@@ -180,6 +181,20 @@ static const void *mtTransitionConfigNavigationBarTitleColorKey = @"mtTransition
             method_exchangeImplementations(originMethod, swizzledMethod);
         }
     });
+}
+
+-(void)mt_dismissViewControllerAnimated:(BOOL)flag completion:(void (^)(void))completion
+{
+    if(self.enableDismiss)
+        [self mt_dismissViewControllerAnimated:flag completion:completion];
+    else
+        self.enableDismiss = YES;
+}
+
+- (void)presentViewController:(UIViewController *)viewControllerToPresent animated: (BOOL)flag completion:(void (^)(void))completion EnableDismiss:(BOOL)enableDismiss
+{
+    self.enableDismiss = enableDismiss;
+    [self presentViewController:viewControllerToPresent animated:flag completion:completion];
 }
 
 - (void)mt_viewWillAppear:(BOOL)animated
@@ -217,6 +232,20 @@ static const void *mtTransitionConfigNavigationBarTitleColorKey = @"mtTransition
         return YES;
     
     return [enableSlideBack boolValue];
+}
+
+-(void)setEnableDismiss:(BOOL)enableDismiss
+{
+    objc_setAssociatedObject(self, @selector(enableDismiss), @(enableDismiss), OBJC_ASSOCIATION_RETAIN_NONATOMIC);
+}
+
+-(BOOL)enableDismiss
+{
+    id enableDismiss = objc_getAssociatedObject(self, _cmd);
+    if(!enableDismiss)
+        return YES;
+    
+    return [enableDismiss boolValue];
 }
 
 // navigationBar _UIBarBackground alpha

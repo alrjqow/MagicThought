@@ -7,24 +7,9 @@
 //
 
 #import "MTNavigationController.h"
-
-/**转场*/
-#import "UIViewControllerTransitionModel.h"
-#import "MTInteractiveNavigationDelegate.h"
-
 #import "UINavigationBar+Config.h"
-#import "UIDevice+DeviceInfo.h"
-#import "UIView+Frame.h"
 
 @interface MTNavigationController ()<UIGestureRecognizerDelegate>
-
-@property (nonatomic, strong) UIView * statusBar;
-
-@property (nonatomic, weak) UIView * statusBarSuperView;
-
-@property (nonatomic,assign) BOOL isShow;
-
-@property (nonatomic,assign) BOOL setupStatusBar;
 
 /*-----------------------------------全屏侧屏滑动-----------------------------------*/
 
@@ -34,27 +19,9 @@
 /*!用来保存系统全屏滑动手势*/
 @property (nonatomic,strong) UIPanGestureRecognizer*  fullScreenPopGestureRecognizer;
 
-
-/**转场*/
-@property (nonatomic,strong) MTInteractiveNavigationDelegate* interactiveDelegate;
-
 @end
 
 @implementation MTNavigationController
-
--(void)viewWillDisappear:(BOOL)animated
-{
-    [super viewWillDisappear:animated];
-        
-    [self addStatusBarToDefault:@(YES)];
-}
-
--(void)viewWillAppear:(BOOL)animated
-{
-    [super viewWillAppear:animated];
-    
-    [self addStatusBarToDefault:@(false)];
-}
 
 -(void)viewDidLoad
 {
@@ -78,26 +45,17 @@
 
 -(void)back
 {
-    [self popViewControllerAnimated:YES];
-}
-
--(void)addStatusBarToDefault:(NSNumber*)isDefault
-{
-    if(!self.setupStatusBar)
-        return;
-    if(isDefault.boolValue)
+    if([self.topViewController isKindOfClass:NSClassFromString(@"MTViewController")])
     {
-        self.statusBar.y = 0;
-        [self.statusBarSuperView addSubview:self.statusBar];
-        [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleDefault animated:false];
-        
+        [self.topViewController performSelector:@selector(goBack)];
         return;
     }
-    
-    self.statusBar.y = [UIDevice isHairScreen] ? -44 : -20;
-    [self.navigationBar addSubview:self.statusBar];
+        
+    if (self.presentingViewController && self.viewControllers.count == 1)
+        [self dismissViewControllerAnimated:YES completion:nil];
+    else
+        [self popViewControllerAnimated:YES];
 }
-
 
 
 #pragma mark - 初始化
@@ -119,29 +77,6 @@
     self.interactivePopGestureRecognizer.enabled = (delegate == self && !self.isFullScreenPop && self.enableSlideBack);
     self.fullScreenPopGestureRecognizer.enabled = (delegate == self && self.isFullScreenPop);
     [super setDelegate:delegate];
-}
-
--(MTInteractiveNavigationDelegate *)interactiveDelegate
-{
-    if(!_interactiveDelegate)
-    {
-        _interactiveDelegate = [MTInteractiveNavigationDelegate new];
-        _interactiveDelegate.navigationController = self;
-    }
-    
-    return _interactiveDelegate;
-}
-
--(void)setSetupStatusBar:(BOOL)setupStatusBar
-{
-    _setupStatusBar = setupStatusBar;
-    
-    if(!setupStatusBar)
-        return;
-    
-    // 将状态栏添加到自定义的导航栏上
-    self.statusBar = [[UIApplication sharedApplication] valueForKey:@"statusBar"];
-    self.statusBarSuperView = self.statusBar.superview;
 }
 
 -(void)setIsFullScreenPop:(BOOL)isFullScreenPop
@@ -180,35 +115,13 @@
     return YES;
 }
 
-
-#pragma mark - 配置转场
-
--(void)configPushTransitionWithViewController:(UIViewController*)viewController
-{
-    if(!viewController.mt_transitionModel.pushTransition && !viewController.mt_transitionModel.popTransition)
-    {
-        self.delegate = self;
-        if(viewController.mt_transitionModel)
-            self.isFullScreenPop = viewController.mt_transitionModel.edges == UIRectEdgeNone;
-    }
-    else
-    {
-        self.delegate = (!viewController.mt_transitionModel.pushTransition && viewController.mt_transitionModel.popTransition) ? self : self.interactiveDelegate;
-        [self.interactiveDelegate addPanGestureRecognizerWithController:viewController];
-    }
-}
-
-
 -(void)pushViewController:(UIViewController *)viewController animated:(BOOL)animated
 {
     if(self.viewControllers.count > 0)
-    {
-        self.isShow = YES;
+    {        
         self.interactivePopGestureRecognizer.delegate = (id<UIGestureRecognizerDelegate>)self;
         viewController.hidesBottomBarWhenPushed = YES;
     }
-    
-    [self configPushTransitionWithViewController:viewController];
     
     [super pushViewController:viewController animated:animated];
 }
@@ -217,38 +130,6 @@
 {
     if(navigationController.viewControllers.count < 2)
         self.interactivePopGestureRecognizer.delegate = self.interactivePopGestureRecognizerDelegate;
-    
-    
-    [self configPushTransitionWithViewController:viewController];
-    if(!viewController.mt_transitionModel.pushTransition && viewController.mt_transitionModel.popTransition)
-        self.delegate = self.interactiveDelegate;
-    else if(self.visibleViewController.mt_transitionModel.pushTransition && !self.visibleViewController.mt_transitionModel.popTransition)
-    {
-        self.delegate = self;
-        self.isFullScreenPop = false;
-        viewController.mt_transitionGestureRecognizer.enabled = false;
-    }
-    
-    if(self.isShow && viewController == self.viewControllers[0])
-    {
-        self.isShow = false;
-        
-        if([self.mt_delegate respondsToSelector:@selector(doSomeThingForMe:withOrder:)])
-        {
-            [self.mt_delegate doSomeThingForMe:self withOrder:@"MTNavigationControllerDidShowRootViewControllerOrder"];
-            return;
-        }
-    }
-    
-    
-    if([viewController isKindOfClass:NSClassFromString(@"PhotoDetailController")] || [viewController isKindOfClass:NSClassFromString(@"MTPhotoBrowserController")])
-    {
-        if([self.mt_delegate respondsToSelector:@selector(doSomeThingForMe:withOrder:)])
-        {
-            [self.mt_delegate doSomeThingForMe:self withOrder:@"MTNavigationControllerDidShowPhotoBrowserControllerOrder"];
-            return;
-        }
-    }
 }
 
 

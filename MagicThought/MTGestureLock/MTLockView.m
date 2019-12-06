@@ -11,6 +11,7 @@
 #import "MTLockViewConfig.h"
 #import "MTConst.h"
 
+NSString*  MTLockViewAfterGetGestureResultOrder = @"MTLockViewAfterGetGestureResultOrder";
 @interface MTLockView()
 
 /**选中的圆的集合*/

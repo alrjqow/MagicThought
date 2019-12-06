@@ -18,7 +18,7 @@
 
 #import "MTConst.h"
 
-#import "MTVideoController.h"
+//#import "MTVideoController.h"
 #import "MTDelegateProtocol.h"
 
 
@@ -174,7 +174,7 @@
 
 -(void)doSomeThingForMe:(id)obj withOrder:(NSString *)order withItem:(id)item
 {
-    if([order isEqualToString:MTVideoControllerDidFinishPickingImagesOrder])
+    if([order isEqualToString:@"MTVideoControllerDidFinishPickingImagesOrder"])
     {
 //        NSLog(@"%@",NSStringFromCGSize(photos.firstObject.size));
         [self afterGetPhoto:(NSArray<UIImage*>*)item];

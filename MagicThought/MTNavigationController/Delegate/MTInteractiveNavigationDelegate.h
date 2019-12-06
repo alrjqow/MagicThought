@@ -10,10 +10,10 @@
 
 
 
-@class MTNavigationController;
+@class MTNavigationTransitionController;
 @interface MTInteractiveNavigationDelegate : UIPercentDrivenInteractiveTransition<UINavigationControllerDelegate>
 
-@property (nonatomic, weak) MTNavigationController *navigationController;
+@property (nonatomic, weak) MTNavigationTransitionController *navigationController;
 
 @property (nonatomic,strong, readonly) id<UIViewControllerContextTransitioning> currentTransitionContext;
 
