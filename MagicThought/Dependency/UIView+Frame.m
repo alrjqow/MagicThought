@@ -30,26 +30,28 @@
 -(void)mt_setFrame:(CGRect)frame
 {
     CGRect rect = frame;
-    UIEdgeInsets margin = self.margin;
-    rect.size.height -= (margin.bottom + margin.top);
-    rect.origin.y += margin.top;
-    rect.origin.x += margin.left;
-    rect.size.width -= (margin.left + margin.right);
-    
+    if(![NSStringFromClass(self.class) containsString:@"MB"])
+    {
+        UIEdgeInsets margin = self.margin;
+        rect.size.height -= (margin.bottom + margin.top);
+        rect.origin.y += margin.top;
+        rect.origin.x += margin.left;
+        rect.size.width -= (margin.left + margin.right);
+    }
+        
     [self mt_setFrame:rect];
 }
 
-static const void *mtUIViewMarginKey = @"mtUIViewMarginKey";
 -(void)setMargin:(UIEdgeInsets)margin
 {
-    objc_setAssociatedObject(self, mtUIViewMarginKey, [NSValue valueWithUIEdgeInsets:margin], OBJC_ASSOCIATION_RETAIN_NONATOMIC);
+    objc_setAssociatedObject(self, @selector(margin), [NSValue valueWithUIEdgeInsets:margin], OBJC_ASSOCIATION_RETAIN_NONATOMIC);
     
     self.frame = self.frame;
 }
 
 -(UIEdgeInsets)margin
 {
-    NSValue* value = objc_getAssociatedObject(self, mtUIViewMarginKey);
+    NSValue* value = objc_getAssociatedObject(self, _cmd);
     if(![value isKindOfClass:[NSValue class]])
         return UIEdgeInsetsZero;
     
@@ -57,7 +59,7 @@ static const void *mtUIViewMarginKey = @"mtUIViewMarginKey";
 }
 
 + (instancetype)viewFromXib
-{    
+{
     return [[NSBundle mainBundle] loadNibNamed:NSStringFromClass(self) owner:nil options:nil].firstObject;
 }
 

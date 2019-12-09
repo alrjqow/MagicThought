@@ -24,7 +24,7 @@
 /**显示toast*/
 -(void)showToast:(NSString*)msg
 {
-    MBProgressHUD* hud = [self createToastHud];    
+    MBProgressHUD* hud = [self createToastHud];
     hud.label.text = msg;
     
     [hud showAnimated:YES];
@@ -34,19 +34,22 @@
 /**显示成功*/
 -(void)showSuccess:(NSString*)msg
 {
-    [self showCustomViewWithImageName:@"MTHUD.bundle/success" Msg:msg];
+    UIImage* img = [UIImage imageNamed:@"mthud_success"];
+    [self showCustomViewWithImageName: (img ? img : @"MTHUD.bundle/success") Msg:msg];
 }
 
 /**显示错误*/
 -(void)showError:(NSString*)msg
 {
-    [self showCustomViewWithImageName:@"MTHUD.bundle/error" Msg:msg];
+    UIImage* img = [UIImage imageNamed:@"mthud_error"];
+    [self showCustomViewWithImageName: (img ? img : @"MTHUD.bundle/error") Msg:msg];
 }
 
 /**显示提示*/
 -(void)showTips:(NSString*)msg
 {
-    [self showCustomViewWithImageName:@"MTHUD.bundle/info" Msg:msg];
+    UIImage* img = [UIImage imageNamed:@"mthud_info"];
+    [self showCustomViewWithImageName: (img ? img : @"MTHUD.bundle/info") Msg:msg];
 }
 
 /**显示圈圈*/
@@ -58,7 +61,7 @@
     {
         hud.customView = [self createTipsView];
         hud.mode = MBProgressHUDModeCustomView;
-    }    
+    }
     else
         hud.mode = MBProgressHUDModeIndeterminate;
     
@@ -155,16 +158,22 @@
 }
 
 /**展示一张图片的自定义View*/
--(void)showCustomViewWithImageName:(NSString*)imageName Msg:(NSString*)msg
+-(void)showCustomViewWithImageName:(NSObject*)imageName Msg:(NSString*)msg
 {
 //    MBHudStyle style =  self.mt_hudStyle;
 //    self.mt_hudStyle = MBHudStyleDefault;
     MBProgressHUD* hud = [self createHud];
     
-    if(self.mt_hudStyle == MBHudStyleBlack)
-        imageName = [imageName stringByAppendingString:@"_black"];    
+    UIImage *image;
+    if([imageName isKindOfClass:[UIImage class]])
+        image = (UIImage*)imageName;
+    else if([imageName isKindOfClass:[NSString class]])
+    {
+        if(self.mt_hudStyle == MBHudStyleBlack)
+            imageName = [(NSString*)imageName stringByAppendingString:@"_black"];
+        image = [[UIImage imageNamed:(NSString*)imageName] imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate];
+    }
     
-    UIImage *image = [[UIImage imageNamed:imageName] imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate];
     hud.customView = [[UIImageView alloc] initWithImage:image];
     hud.label.text = msg;
     hud.mode = MBProgressHUDModeCustomView;
