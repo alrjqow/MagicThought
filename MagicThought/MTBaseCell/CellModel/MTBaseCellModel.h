@@ -6,11 +6,11 @@
 //  Copyright © 2019 monda. All rights reserved.
 //
 
-#import "MTBaseViewContentModel.h"
+#import "MTViewContentModel.h"
 
 
 //扩展时，先以此类为父类扩展网络数据属性，优先使用 getter 方法 设置 cell 样式
-@interface MTBaseCellModel : MTBaseViewContentModel
+@interface MTBaseCellModel : MTViewContentModel
 
 /**分割线长度*/
 @property (nonatomic,assign) CGFloat sepLineWidth;

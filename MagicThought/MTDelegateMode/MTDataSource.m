@@ -865,6 +865,7 @@ static NSString* mt_titleForRowAtIndexPath(id self, SEL cmd, UIPickerView * pick
             
             mt_data = model.bind(mt_data.mt_reuseIdentifier).bindClick(mt_data.mt_click).bindOrder(mt_data.mt_order).bindTag(mt_data.mt_tagIdentifier);
         }
+        else if([mt_data isKindOfClass:[NSString class]]);
         else
             return;
     }
@@ -893,6 +894,7 @@ static NSString* mt_titleForRowAtIndexPath(id self, SEL cmd, UIPickerView * pick
             
             mt_data = model.bind(mt_data.mt_reuseIdentifier).bindClick(mt_data.mt_click).bindOrder(mt_data.mt_order).bindTag(mt_data.mt_tagIdentifier);
         }
+        else if([mt_data isKindOfClass:[NSString class]]);
         else
             return;
     }

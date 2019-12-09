@@ -1,23 +1,28 @@
 //
-//  MTBaseHeaderFooterView.h
+//  MTBaseCollectionViewCell.h
 //  SimpleProject
 //
 //  Created by monda on 2019/5/13.
 //  Copyright © 2019 monda. All rights reserved.
 //
 
-#import "MTDelegateHeaderFooterView.h"
+#import "MTDragCollectionViewCell.h"
 #import "MTViewContentModel.h"
 
-@interface MTBaseHeaderFooterView : MTDelegateHeaderFooterView
+@interface MTBaseCollectionViewCell : MTDragCollectionViewCell
 
 @property (nonatomic,strong) MTViewContentModel* model;
+
+@property (nonatomic,strong) UILabel* textLabel;
+
+@property (nonatomic,strong) UILabel* detailTextLabel;
 
 @property (nonatomic,strong) UIImageView* imageView;
 
 @end
 
-@interface MTBaseSubHeaderFooterView : MTBaseHeaderFooterView
+
+@interface MTBaseSubCollectionViewCell : MTBaseCollectionViewCell
 
 @property (nonatomic,strong) UIButton* button;
 
@@ -28,6 +33,3 @@
 @property (nonatomic,strong) UILabel* detailTextLabel2;
 
 @end
-
-
-

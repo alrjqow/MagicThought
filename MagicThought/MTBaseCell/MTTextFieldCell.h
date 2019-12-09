@@ -6,11 +6,11 @@
 //  Copyright © 2019 monda. All rights reserved.
 //
 
-#import "MTBaseCell.h"
+#import "MTBaseTableViewCell.h"
 #import "MTTextFieldCellModel.h"
 #import "MTTextField.h"
 
-@interface MTTextFieldCell : MTBaseCell<UITextFieldDelegate>
+@interface MTTextFieldCell : MTBaseTableViewCell<UITextFieldDelegate>
 
 @property (nonatomic,strong) MTTextField* textField;
 

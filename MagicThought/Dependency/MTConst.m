@@ -9,6 +9,40 @@
 #import "MTConst.h"
 #import "UIDevice+DeviceInfo.h"
 
+//设置token
+NSString* UserToken_mt()
+{
+    return [[NSUserDefaults standardUserDefaults] objectForKey:@"UserToken"];
+}
+
+void setUserToken_mt(NSString* token)
+{
+    [[NSUserDefaults standardUserDefaults] setObject:(token) forKey:@"UserToken"];
+}
+
+//设置登录账号
+NSString* UserAccount_mt()
+{
+    return [[NSUserDefaults standardUserDefaults] objectForKey:@"UserAccount"];
+}
+
+void setUserAccount_mt(NSString* account)
+{
+    [[NSUserDefaults standardUserDefaults] setObject:(account) forKey:@"UserAccount"];
+}
+
+
+//检验登录状态
+BOOL UserLoginStatus_mt()
+{
+    return [[NSUserDefaults standardUserDefaults] boolForKey:@"UserLoginStatus"];
+}
+
+void setLoginStatus_mt(BOOL status)
+{
+    [[NSUserDefaults standardUserDefaults] setBool:(status) forKey:@"UserLoginStatus"];
+}
+
 CGFloat kStatusBarHeight_mt()
 {
     return [[UIApplication sharedApplication] statusBarFrame].size.height;
@@ -134,6 +168,12 @@ NSString* MTBanClickOrder = @"MTBanClickOrder";
 NSString*  MTExitTime = @"MTExitTime";
 NSString*  MTReachability = @"MTReachability";
 
+//用户信息路径
+NSString*  mt_userInfoPath()
+{
+    return [mt_documentPath() stringByAppendingPathComponent:@"userInfo.plist"];
+}
+
 NSString*  mt_dataCachePath()
 {
     return [NSString stringWithFormat:@"%@/dataCache",mt_cachePath()];
@@ -185,7 +225,7 @@ void mt_GoToAppStore()
     
     NSURL *url= [NSURL URLWithString:trackViewUrl];
     if([[UIApplication sharedApplication] canOpenURL:url])
-        [[UIApplication sharedApplication] openURL:url];    
+        [[UIApplication sharedApplication] openURL:url];
 }
 
 CGFloat mt_ScreenW()

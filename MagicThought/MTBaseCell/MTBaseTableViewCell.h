@@ -1,5 +1,5 @@
 //
-//  MTBaseCell.h
+//  MTBaseTableViewCell.h
 //  SimpleProject
 //
 //  Created by monda on 2019/5/8.
@@ -10,7 +10,7 @@
 #import "MTBaseCellModel.h"
 
 
-@interface MTBaseCell : MTDelegateTableViewCell
+@interface MTBaseTableViewCell : MTDelegateTableViewCell
 
 @property (nonatomic,strong) MTBaseCellModel* model;
 
@@ -20,10 +20,16 @@
 @end
 
 
-@interface MTNoSepLineBaseCell : MTBaseCell @end
+@interface MTNoSepLineBaseCell : MTBaseTableViewCell @end
 
 
-@interface MTSubBaseCell : MTBaseCell
+@interface MTBaseSubTableViewCell : MTBaseTableViewCell
+
+@property (nonatomic,strong) UIButton* button;
+
+@property (nonatomic,strong) UIButton* button2;
+
+@property (nonatomic,strong) UIImageView* imageView2;
 
 @property (nonatomic,strong) UILabel* detailTextLabel2;
 

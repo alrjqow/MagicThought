@@ -1,5 +1,5 @@
 //
-//  MTBaseViewContentModel.h
+//  MTViewContentModel.h
 //  QXProject
 //
 //  Created by monda on 2019/12/5.
@@ -10,7 +10,9 @@
 #import "MTWordStyle.h"
 
 //优先选择 cssClass
-@interface MTBaseViewContentModel : NSObject
+@interface MTViewContentModel : NSObject
+
+@property (nonatomic,strong, readonly) NSDictionary* tagIdentifier;
 
 /**textLabel 的内容*/
 @property (nonatomic,strong) NSString* title;
@@ -36,9 +38,16 @@
 
 /**imageView 的图片名*/
 @property (nonatomic,strong) NSString* img;
+/**imageView 的cssClass*/
+@property (nonatomic,strong) NSString* imageViewCssClass;
 /**imageView2 的图片名*/
 @property (nonatomic,strong) NSString* img2;
+/**imageView2 的cssClass*/
+@property (nonatomic,strong) NSString* imageView2CssClass;
 
+
+/**btn 的状态*/
+@property (nonatomic,assign, readonly) UIControlState btnState;
 /**btn 的内容*/
 @property (nonatomic,strong) NSString* btnTitle;
 /**btn 的word*/
@@ -46,6 +55,8 @@
 /**btn 的cssClass*/
 @property (nonatomic,strong) NSString* btnCssClass;
 
+/**btn2 的状态*/
+@property (nonatomic,assign, readonly) UIControlState btn2State;
 /**btn2 的内容*/
 @property (nonatomic,strong) NSString* btnTitle2;
 /**btn2 的word*/
@@ -55,3 +66,10 @@
 
 @end
 
+
+
+@interface UIView(MTViewContentModel)
+
+@property (nonatomic,strong) MTViewContentModel* contentModel;
+
+@end

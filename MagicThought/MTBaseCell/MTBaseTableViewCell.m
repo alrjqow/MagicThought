@@ -1,15 +1,15 @@
 //
-//  MTBaseCell.m
+//  MTBaseTableViewCell.m
 //  SimpleProject
 //
 //  Created by monda on 2019/5/8.
 //  Copyright © 2019 monda. All rights reserved.
 //
 
-#import "MTBaseCell.h"
+#import "MTBaseTableViewCell.h"
 #import "UIView+Frame.h"
 
-@interface MTBaseCell ()
+@interface MTBaseTableViewCell ()
 {
     MTBaseCellModel* _model;
 }
@@ -17,7 +17,7 @@
 
 @end
 
-@implementation MTBaseCell
+@implementation MTBaseTableViewCell
 
 -(void)whenGetResponseObject:(MTBaseCellModel *)model
 {
@@ -29,16 +29,19 @@
     _model = model;
     
     self.accessoryType = model.isArrow ? UITableViewCellAccessoryDisclosureIndicator : UITableViewCellAccessoryNone;
-    self.textLabel.text = model.title;
-    self.detailTextLabel.text = model.content;
-    self.imageView.image = [UIImage imageNamed:model.img];
+    
+    self.textLabel.contentModel = model;
+    self.detailTextLabel.contentModel = model;
+    self.imageView.contentModel = model;
 }
 
 -(instancetype)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier
 {
     if(self = [super initWithStyle:UITableViewCellStyleValue1 reuseIdentifier:reuseIdentifier])
     {
-        
+        self.textLabel.bindTag(@"title");
+        self.detailTextLabel.bindTag(@"content");
+        self.imageView.bindTag(@"img");
     }
     
     return self;
@@ -105,14 +108,20 @@
 @end
 
 
-@implementation MTSubBaseCell
+@implementation MTBaseSubTableViewCell
 
 -(void)setupDefault
 {
     [super setupDefault];
     
-    self.detailTextLabel2 = [UILabel new];
+    self.button = (UIButton*)[UIButton new].bindTag(@"btn");
+    self.button2 = (UIButton*)[UIButton new].bindTag(@"btn2");
+    self.imageView2 = (UIImageView*)[UIImageView new].bindTag(@"img2");
+    self.detailTextLabel2 = (UILabel*)[UILabel new].bindTag(@"content2");
     
+    [self addSubview:self.button];
+    [self addSubview:self.button2];
+    [self addSubview:self.imageView2];
     [self addSubview:self.detailTextLabel2];
 }
 
@@ -120,7 +129,13 @@
 {
     [super setModel:model];
     
-    self.detailTextLabel2.text = model.content2;
+    [model setValue:@(self.button.state) forKey:@"btnState"];
+    [model setValue:@(self.button2.state) forKey:@"btn2State"];
+        
+    self.button.contentModel = model;
+    self.button2.contentModel = model;
+    self.detailTextLabel2.contentModel = model;
+    self.imageView2.contentModel = model;
 }
 
 

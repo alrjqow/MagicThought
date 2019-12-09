@@ -1,5 +1,5 @@
 //
-//  MTBaseCells.h
+//  MTBaseTableViewCells.h
 //  MagicThought
 //
 //  Created by monda on 2019/7/30.
@@ -7,9 +7,9 @@
 //
 
 
-#import "MTBaseCell.h"
+#import "MTBaseTableViewCell.h"
 #import "MTEmptyBaseCell.h"
-#import "MTCollectionBaseCell.h"
+#import "MTBaseCollectionViewCell.h"
 #import "MTTextFieldCell.h"
 #import "MTLoadingView.h"
 #import "MTBaseHeaderFooterView.h"

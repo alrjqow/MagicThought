@@ -37,7 +37,7 @@
 
 @optional
 
-/**当接收到数据*/
+/**当接收到数据，请不要在此方法中调用 [super whenGetResponseObject]，可能会因为数据类型不对而报错，要调用 super 请使用 [self setSuperResponseObject]*/
 -(void)whenGetResponseObject:(NSObject*)object;
 
 /**拿一些东西*/

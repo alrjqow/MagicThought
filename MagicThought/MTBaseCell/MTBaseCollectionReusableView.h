@@ -7,13 +7,28 @@
 //
 
 #import "MTDelegateCollectionReusableView.h"
-#import "MTBaseViewContentModel.h"
+#import "MTViewContentModel.h"
 
 @interface MTBaseCollectionReusableView : MTDelegateCollectionReusableView
 
-@property (nonatomic,strong) MTBaseViewContentModel* model;
+@property (nonatomic,strong) MTViewContentModel* model;
 
-@property (nonatomic,strong, readonly) UILabel* textLabel;
+@property (nonatomic,strong) UILabel* textLabel;
+
+@property (nonatomic,strong) UILabel* detailTextLabel;
+
+@property (nonatomic,strong) UIImageView* imageView;
 
 @end
 
+@interface MTBaseSubCollectionReusableView : MTBaseCollectionReusableView
+
+@property (nonatomic,strong) UIButton* button;
+
+@property (nonatomic,strong) UIButton* button2;
+
+@property (nonatomic,strong) UIImageView* imageView2;
+
+@property (nonatomic,strong) UILabel* detailTextLabel2;
+
+@end

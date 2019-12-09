@@ -28,6 +28,18 @@ typedef void (^MTHeaderRefreshBlock) (void);
 
 typedef void (^MTFooterRefreshBlock) (void);
 
+//设置token
+MT_EXTERN NSString* UserToken_mt(void);
+MT_EXTERN void setUserToken_mt(NSString* token);
+
+//设置登录账号
+MT_EXTERN NSString* UserAccount_mt(void);
+MT_EXTERN void setUserAccount_mt(NSString* account);
+
+//检验登录状态
+MT_EXTERN BOOL UserLoginStatus_mt(void);
+MT_EXTERN void setLoginStatus_mt(BOOL status);
+
 
 
 MT_EXTERN CGFloat kStatusBarHeight_mt(void);
@@ -73,6 +85,7 @@ MT_EXTERN NSInteger MTWeekTime;
 /**一天的时间*/
 MT_EXTERN NSInteger MTDayTime;
 
+MT_EXTERN NSString*  mt_userInfoPath(void);
 MT_EXTERN NSString*  mt_dataCachePath(void);
 MT_EXTERN NSString*  mt_cachePath(void);
 MT_EXTERN NSString*  mt_documentPath(void);

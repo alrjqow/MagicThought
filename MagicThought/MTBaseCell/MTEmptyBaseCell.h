@@ -6,7 +6,7 @@
 //  Copyright © 2019 monda. All rights reserved.
 //
 
-#import "MTBaseCell.h"
+#import "MTBaseTableViewCell.h"
 
 
 //MTBanClickOrder
