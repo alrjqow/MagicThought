@@ -12,11 +12,6 @@
 #import "MTConst.h"
 #import "MTWindow.h"
 
-static const void *mt_BackgroundViewKey = @"mt_BackgroundViewKey";
-static const void *mt_BackgroundAnimatingKey = @"mt_BackgroundAnimatingKey";
-static const void *mt_AnimationDurationKey = @"mt_AnimationDurationKey";
-static const void *mt_dimReferenceCountKey = @"mt_dimReferenceCountKey";
-
 
 @interface UIView (ReferenceCount)
 
@@ -27,11 +22,11 @@ static const void *mt_dimReferenceCountKey = @"mt_dimReferenceCountKey";
 @implementation UIView (ReferenceCount)
 
 -(NSInteger)mt_dimReferenceCount{
-    return [objc_getAssociatedObject(self, mt_dimReferenceCountKey) integerValue];
+    return [objc_getAssociatedObject(self, _cmd) integerValue];
 }
 -(void)setMt_dimReferenceCount:(NSInteger)mt_dimReferenceCount
 {
-    objc_setAssociatedObject(self, mt_dimReferenceCountKey, @(mt_dimReferenceCount), OBJC_ASSOCIATION_RETAIN_NONATOMIC);
+    objc_setAssociatedObject(self, @selector(mt_dimReferenceCount), @(mt_dimReferenceCount), OBJC_ASSOCIATION_RETAIN_NONATOMIC);
 }
 
 @end
@@ -116,7 +111,7 @@ static const void *mt_dimReferenceCountKey = @"mt_dimReferenceCountKey";
 
 -(UIView *)mt_BackgroundView
 {
-    UIView *dimView = objc_getAssociatedObject(self, mt_BackgroundViewKey);
+    UIView *dimView = objc_getAssociatedObject(self, _cmd);
     
     if ( !dimView )
     {
@@ -131,7 +126,7 @@ static const void *mt_dimReferenceCountKey = @"mt_dimReferenceCountKey";
         
         self.mt_AnimationDuration = 0.3f;
         
-        objc_setAssociatedObject(self, mt_BackgroundViewKey, dimView, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
+        objc_setAssociatedObject(self, _cmd, dimView, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
     }
     
     return dimView;
@@ -140,24 +135,24 @@ static const void *mt_dimReferenceCountKey = @"mt_dimReferenceCountKey";
 
 -(void)setMt_AnimationDuration:(NSTimeInterval)mt_AnimationDuration
 {
-     objc_setAssociatedObject(self, mt_AnimationDurationKey, @(mt_AnimationDuration), OBJC_ASSOCIATION_RETAIN_NONATOMIC);
+     objc_setAssociatedObject(self, @selector(mt_AnimationDuration), @(mt_AnimationDuration), OBJC_ASSOCIATION_RETAIN_NONATOMIC);
 }
 
 
 -(NSTimeInterval)mt_AnimationDuration
 {
-    return [objc_getAssociatedObject(self, mt_AnimationDurationKey) doubleValue];
+    return [objc_getAssociatedObject(self, _cmd) doubleValue];
 }
 
 
 -(void)setMt_BackgroundAnimating:(BOOL)mt_BackgroundAnimating
 {
-    objc_setAssociatedObject(self, mt_BackgroundAnimatingKey, @(mt_BackgroundAnimating), OBJC_ASSOCIATION_RETAIN_NONATOMIC);
+    objc_setAssociatedObject(self, @selector(mt_BackgroundAnimating), @(mt_BackgroundAnimating), OBJC_ASSOCIATION_RETAIN_NONATOMIC);
 }
 
 -(BOOL)mt_BackgroundAnimating
 {
-    return [objc_getAssociatedObject(self, mt_BackgroundAnimatingKey) boolValue];
+    return [objc_getAssociatedObject(self, _cmd) boolValue];
 }
 
 @end

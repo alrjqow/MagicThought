@@ -7,7 +7,6 @@
 //
 
 #import "MTLoadingView.h"
-#import "UIView+Frame.h"
 
 @interface MTLoadingView ()
 

@@ -35,19 +35,19 @@
 
 @protocol MTExchangeDataProtocol
 
-@optional
-
-/**当接收到数据，请不要在此方法中调用 [super whenGetResponseObject]，可能会因为数据类型不对而报错，要调用 super 请使用 [self setSuperResponseObject]*/
+/**当接收到数据*/
 -(void)whenGetResponseObject:(NSObject*)object;
+
+/**接收数据的类型*/
+-(Class)classOfResponseObject;
+
+@optional
 
 /**拿一些东西*/
 -(NSDictionary*)giveSomeThingToYou;
 
 /**拿一些东西给我做什么*/
 -(void)giveSomeThingToMe:(id)obj WithOrder:(NSString*)order;
-
-/**接收数据的类型*/
--(Class)classOfResponseObject;
 
 /**设置父类数据*/
 -(void)setSuperResponseObject:(NSObject*)object;

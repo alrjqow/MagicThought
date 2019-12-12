@@ -7,22 +7,59 @@
 //
 
 #import "MTAlertViewConfig.h"
-#import "MTPopButtonItem.h"
+#import "MTAlertView.h"
+
 #import "MTConst.h"
 #import "NSString+WordHeight.h"
+#import "NSString+Exist.h"
+
+#import <MJExtension.h>
 
 @implementation MTAlertViewConfig
+
+-(void)setupDefault
+{
+    [super setupDefault];
+        
+    self.backgroundColor = [UIColor whiteColor];
+    self.borderStyle = mt_BorderStyleMake((1/[UIScreen mainScreen].scale), 4, hex(0xCCCCCC));
+            
+    self.content = MTBaseViewContentModel.new(mt_WordStyleMake(12, nil, hex(0x333333)).lineSpacing(1).horizontalAlignment(NSTextAlignmentCenter));
+    self.content2 = MTBaseViewContentModel.new(self.borderStyle.borderColor);
+    
+
+    self.width = kScreenWidth_mt() - 4 * 25;
+    self.splitWidth = 1;
+    
+    self.buttonHeight = 50;
+    self.innerMargin = 20;
+    self.detailInnerMargin = 15;
+    self.innerTopMargin = self.innerMargin;
+    self.logoMargin = UIEdgeInsetsMake(0, 0, 12, 6);
+    
+}
+
+-(void)alert
+{
+    if(![self.title.wordStyle.wordName isExist])
+        self.title.wordStyle = mt_WordStyleMake(18, mt_AppName(), hex(0x333333));
+        
+    [[MTAlertView alertWithConfig:self] show];
+}
+
+
+#pragma mark - 懒加载
 
 -(CGFloat)alertViewHeight
 {
     CGFloat alertViewHeight = 0;
     
-    CGFloat titleHeight = self.innerTopMargin + self.titleFont.pointSize;
+    CGFloat titleHeight = self.innerTopMargin + self.title.wordStyle.wordSize;
     
-    CGFloat detailHeight = (self.title.length > 0  ? self.detailInnerMargin : self.innerMargin) + self.detailHeight;
+    CGFloat detailHeight = (self.title.text.length > 0  ? self.detailInnerMargin : self.innerMargin) + self.detailHeight;
     
-    CGFloat buttonHeight = self.items.count < 3 ? self.buttonHeight : self.buttonHeight * self.items.count;
-    buttonHeight += self.detail.length > 0  ? self.detailInnerMargin + 2 : self.innerMargin;
+    CGFloat buttonHeight = self.buttonModelList.count < 3 ? self.buttonHeight : self.buttonHeight * self.buttonModelList.count;
+    buttonHeight += self.content.text.length > 0  ? self.detailInnerMargin + 2 : self.innerMargin;
     
     alertViewHeight = titleHeight + detailHeight + buttonHeight;
     
@@ -34,101 +71,44 @@
     CGFloat deatilHeight = 0;
     
     NSMutableParagraphStyle *paraStyle = [[NSMutableParagraphStyle alloc] init];
-    paraStyle.lineSpacing = self.detailLineSpacing; //设置行间距
+    paraStyle.lineSpacing = self.content.wordStyle.wordLineSpacing; //设置行间距
     
-    NSDictionary *dic = @{NSFontAttributeName: [UIFont systemFontOfSize:self.detailFont.pointSize], NSParagraphStyleAttributeName:paraStyle, NSKernAttributeName:@1.0f};
-     deatilHeight = [self.detail calculateHeightWithWidth:(self.width - 2*self.innerMargin) andAttribute:dic];
+    NSDictionary *dic = @{NSFontAttributeName: [UIFont systemFontOfSize:self.content.wordStyle.wordSize], NSParagraphStyleAttributeName:paraStyle, NSKernAttributeName:@1.0f};
+     deatilHeight = [self.content.text calculateHeightWithWidth:(self.width - 2*self.innerMargin) andAttribute:dic];
     
     return deatilHeight > 120 ? 120 : deatilHeight;
 }
 
--(instancetype)init
+-(NSArray<MTAlertViewButtonConfig *> *)buttonModelList
 {
-    if(self = [super init])
-    {
-        [self setupDefault];
-        
-//        self.width = kScreenWidth_mt() - 4 * outterMargin25;
-//        self.buttonHeight = 50;
-//        self.cornerRadius = 4;
-//
-//        self.logoMargin = UIEdgeInsetsMake(0, 0, 12, 6);
-//        self.splitWidth = 1;
-//
-//        self.innerMargin = 20;
-//        self.innerTopMargin = self.innerMargin;
-//
-//        self.detailInnerMargin = 15;
-//        self.detailLineSpacing = 1;
-//
-//        self.detailAlignment = NSTextAlignmentCenter;
-//
-//        self.titleFont  = [UIFont boldSystemFontOfSize:18];
-//        self.detailFont = [UIFont systemFontOfSize:12];
-//        self.buttonFont = [UIFont systemFontOfSize:15];
-//
-//        self.backgroundColor = [UIColor colorWithHex:0xFFFFFF];
-//        self.titleColor = kColor_Text_Title;
-//        self.detailColor = kColor_Text_Normal;
-//        self.splitColor = kColor_D0D0D0;
-//
-//        self.itemNormalColor = kColor_Text_Tips;
-//        self.itemHighlightColor = kColor_Blue;
-//        self.itemPressedColor = [UIColor colorWithHex:0xEFEDE7];
-//
-//        self.defaultTextOK = @"好";
-//        self.defaultTextCancel = @"取消";
-//        self.defaultTextConfirm = @"确定";
-//
-//
-//        self.items =@[
-//                      MTPopButtonItemMake(self.defaultTextOK,  MTPopButtonItemTypeHighlight, nil)
-//                      ];
+    if(_buttonModelList.count <= 0)
+    {        
+        _buttonModelList = @[MTAlertViewButtonConfig.new(mt_WordStyleMake(15, @"确定", hex(0xE76153)))];
     }
     
-    return self;
+    return _buttonModelList;
 }
 
-
--(void)setupDefault
+-(MTBaseViewContentModel *)title
 {
-    self.width = 275.0f;
-    self.buttonHeight = 44.0f;//50.0f;
-    self.cornerRadius = 5.0f;
+    MTBaseViewContentModel* title = [super title];
+    if(!title)
+    {
+        title = MTBaseViewContentModel.new(mt_WordStyleMake(18, mt_AppName(), hex(0x333333)));
+        self.title = title;
+    }
     
-    self.logoMargin = UIEdgeInsetsMake(0, 0, 12, 6);
-    self.splitWidth = 2;
-    
-    self.innerMargin = 25.0f;
-    self.innerTopMargin = self.innerMargin;
-    
-    self.detailInnerMargin = 5.0f;
-    self.detailLineSpacing = 1;
-    
-    self.detailAlignment = NSTextAlignmentCenter;
-    
-    self.titleFont  = [UIFont boldSystemFontOfSize:18.0f];
-    self.detailFont = [UIFont systemFontOfSize:14.0f];
-    self.buttonFont = [UIFont systemFontOfSize:17.0f];
-    
-    
-    self.backgroundColor = hex(0xffffff);
-    self.titleColor = hex(0x333333);
-    self.detailColor = hex(0x333333);
-    self.splitColor = hex(0xCCCCCC);
-    
-    self.itemNormalColor = hex(0x333333);
-    self.itemHighlightColor = hex(0xE76153);
-    self.itemPressedColor = hex(0xEFEDE7);
-    
-    self.defaultTextOK = @"好";
-    self.defaultTextCancel = @"取消";
-    self.defaultTextConfirm = @"确定";
-    
-    
-    self.items =@[
-                      MTPopButtonItemMake(self.defaultTextOK,  MTPopButtonItemTypeHighlight, nil)
-                      ];
+    return title;
+}
+
++ (NSDictionary *)mj_objectClassInArray
+{    
+    return @{
+        @"buttonModelList" : [MTAlertViewButtonConfig class]
+    };
 }
 
 @end
+
+
+@implementation MTAlertViewButtonConfig @end

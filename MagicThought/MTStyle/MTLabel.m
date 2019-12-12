@@ -11,7 +11,7 @@
 @implementation MTLabel
 
 
-- (void)setVerticalAlignment:(VerticalAlignment)verticalAlignment {
+- (void)setVerticalAlignment:(MTVerticalAlignment)verticalAlignment {
     _verticalAlignment = verticalAlignment;
     [self setNeedsDisplay];
 }
@@ -20,13 +20,13 @@
     
     CGRect textRect = [super textRectForBounds:bounds limitedToNumberOfLines:numberOfLines];
     switch (self.verticalAlignment) {
-        case VerticalAlignmentTop:
+        case MTVerticalAlignmentTop:
             textRect.origin.y = bounds.origin.y;
             break;
-        case VerticalAlignmentBottom:
+        case MTVerticalAlignmentBottom:
             textRect.origin.y = bounds.origin.y + bounds.size.height - textRect.size.height;
             break;
-        case VerticalAlignmentMiddle:
+        case MTVerticalAlignmentMiddle:
             // Fall through.
         default:
             textRect.origin.y = bounds.origin.y + (bounds.size.height - textRect.size.height) / 2.0;
@@ -44,7 +44,7 @@
 //        return;
 //    }
     
-     return [super drawTextInRect:UIEdgeInsetsInsetRect(self.verticalAlignment == VerticalAlignmentMiddle ? requestedRect : actualRect, self.inset)];
+     return [super drawTextInRect:UIEdgeInsetsInsetRect(self.verticalAlignment == MTVerticalAlignmentMiddle ? requestedRect : actualRect, self.inset)];
 }
 
 @end

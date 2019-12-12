@@ -9,7 +9,6 @@
 #import "MTManager.h"
 
 @protocol MTBaseDataModelProtocol;
-
 @interface MTCloud : MTManager
 
 - (void)setBool:(BOOL)value forKey:(id)key;
@@ -29,6 +28,8 @@
 +(MTCloud*)shareCloud;
 
 @property (nonatomic,strong) NSObject<MTBaseDataModelProtocol>* apiManager;
+
+@property (nonatomic,strong) NSString* alertViewConfigName;
 
 @property (nonatomic,weak) UIViewController* currentViewController;
 

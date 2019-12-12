@@ -17,8 +17,7 @@
     self.text = style.wordName;
     if(style.wordColor)
         self.textColor = style.wordColor;
-    if(style.wordColorValue)
-        self.textColor = hex(style.wordColorValue);
+    
     if(style.wordSize)
     {
         if((style.wordBold && style.wordThin) || (!style.wordBold && !style.wordThin) )
@@ -36,11 +35,11 @@
     
     
     
-    self.textAlignment = style.horizontalAlignment;
+    self.textAlignment = style.wordHorizontalAlignment;
     
     if([self isKindOfClass:[MTLabel class]])
     {        
-        ((MTLabel*)self).verticalAlignment = style.verticalAlignment;
+        ((MTLabel*)self).verticalAlignment = style.wordVerticalAlignment;
     }
     
     return self;

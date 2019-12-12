@@ -16,8 +16,7 @@
     [self setTitle:style.wordName forState:UIControlStateNormal];
     if(style.wordColor)
         [self setTitleColor:style.wordColor forState:UIControlStateNormal];
-    if(style.wordColorValue)
-        [self setTitleColor:hex(style.wordColorValue) forState:UIControlStateNormal];
+    
     if(style.wordSize)
     {
         if((style.wordBold && style.wordThin) || (!style.wordBold && !style.wordThin) )
@@ -33,7 +32,7 @@
         }
     }
         
-    self.titleLabel.textAlignment = style.horizontalAlignment;
+    self.titleLabel.textAlignment = style.wordHorizontalAlignment;
     
     return self;
 }

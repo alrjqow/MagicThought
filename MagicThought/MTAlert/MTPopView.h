@@ -6,10 +6,10 @@
 //  Copyright © 2018年 王奕聪. All rights reserved.
 //
 
-#import "MTDelegateView.h"
+#import "MTBaseView.h"
 
 @class MTPopViewConfig;
-@interface MTPopView : MTDelegateView
+@interface MTPopView : MTBaseView
 
 @property (nonatomic,strong) MTPopViewConfig* config;
 

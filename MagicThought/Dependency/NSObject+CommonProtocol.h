@@ -10,7 +10,7 @@
 #import "MTDelegateProtocol.h"
 #import "MTInitProtocol.h"
 
-@interface NSObject (CommonProtocol)<MTInitProtocol, MTRequestDataProtocol, MTNotificationProtocol>
+@interface NSObject (CommonProtocol)<MTDelegateProtocol, MTInitProtocol, MTRequestDataProtocol, MTNotificationProtocol>
 
 @property(nonatomic,weak) id<MTDelegateProtocol> mt_delegate;
 

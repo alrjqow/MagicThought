@@ -6,9 +6,9 @@
 //  Copyright © 2018年 王奕聪. All rights reserved.
 //
 
-#import <UIKit/UIKit.h>
+#import "MTViewContentModel.h"
 
-@interface MTPopViewConfig : NSObject
+@interface MTPopViewConfig : MTViewContentModel
 
 @property (nonatomic, assign) NSTimeInterval animationDuration;
 

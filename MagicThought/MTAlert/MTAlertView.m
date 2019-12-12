@@ -8,31 +8,13 @@
 
 #import "MTAlertView.h"
 #import "MTAlertViewConfig.h"
-#import "MTPopButtonItem.h"
 #import "MTTextView.h"
-#import "MTWordStyle.h"
-
-#import "UIColor+Image.h"
-#import "NSString+WordHeight.h"
-#import "UIView+Frame.h"
-
-#define MT_SPLIT_WIDTH      (1/[UIScreen mainScreen].scale)
+#import "MTCloud.h"
+#import "NSString+Exist.h"
 
 @interface MTAlertView()
-{
-    MTAlertViewConfig* _alertConfig;
-}
-
-
-@property (nonatomic, strong) NSArray<MTPopButtonItem*>* actionItems;
 
 @property (nonatomic, strong) MTTextView *detailTextView;
-
-@property (nonatomic, strong) UIImageView* titleLogo;
-
-@property (nonatomic, strong) UILabel* titleLabel;
-
-@property (nonatomic, strong) UILabel* detailLabel;
 
 @property (nonatomic, strong) UIView* buttonView;
 
@@ -45,105 +27,106 @@
 
 -(instancetype)initWithFrame:(CGRect)frame
 {
-    if(self = [super initWithFrame:frame])
-    {
-        [self setupSubviews];
-    }
-    
-    return self;
-}
-
-- (instancetype) initWithConfig:(MTAlertViewConfig*)config;
-{
-    return  [self initWithConfig:config CustomView:nil];
-}
-
-- (instancetype) initWithConfig:(MTAlertViewConfig*)config CustomView:(UIView*)customView
-{
     if(self = [super initWithFrame:CGRectZero])
     {
-        self.alertConfig = config;
-        if(customView)
-            self.customView = customView;
-        [self.customView setClipsToBounds:YES];
-        [self setupSubviews];
+        [self initWithConfig:nil CustomView:nil];
     }
-    
     return self;
 }
 
-
--(void)setupSubviews
++ (instancetype) alertWithConfig:(MTAlertViewConfig*)config
 {
-    self.actionItems = self.alertConfig.items;
-    
-    self.layer.cornerRadius = self.alertConfig.cornerRadius;
-    self.clipsToBounds = YES;
-    self.backgroundColor = self.alertConfig.backgroundColor;
-    self.layer.borderWidth = MT_SPLIT_WIDTH;
-    self.layer.borderColor = self.alertConfig.splitColor.CGColor;
-    
-    [self addSubview:self.titleLogo];
-    [self addSubview:self.titleLabel];
-    [self addSubview:self.customView];
-    [self addSubview:self.buttonView];
-    
-    self.actionItems = self.alertConfig.items;
+    return  [self alertWithConfig:config CustomView:nil];
 }
 
++ (instancetype) alertWithConfig:(MTAlertViewConfig*)config CustomView:(UIView*)customView
+{
+    MTAlertView* alertView = [self new];
+    [alertView initWithConfig:config CustomView:customView];
+    return alertView;
+}
 
+- (void)initWithConfig:(MTAlertViewConfig*)config CustomView:(UIView*)customView
+{
+    if(!customView)
+        customView = self.detailTextView;
+    self.customView = customView;
+    
+    if(![config isKindOfClass:self.classOfResponseObject])
+        config = nil;
+    if(!config)
+        config = [MTAlertViewConfig new];
+    
+    self.model = config;
+}
+
+#pragma mark - 成员方法
+
+-(void)setupDefault
+{
+    [super setupDefault];
+    
+    self.clipsToBounds = YES;
+    
+    self.textLabel.textAlignment = NSTextAlignmentCenter;
+    self.textLabel.numberOfLines = 0;
+    
+    _buttonView = [UIView new];
+    [self.buttonView setClipsToBounds:YES];
+    [self addSubview:self.buttonView];
+}
 
 -(void)layoutSubviews
 {
     [super layoutSubviews];
     
-    [self.titleLogo sizeToFit];
-    [self.titleLabel sizeToFit];
+    [self.imageView sizeToFit];
+    [self.textLabel sizeToFit];
     
     self.width = self.alertConfig.width;
     
-    self.titleLogo.x = (self.width - self.titleLogo.width - self.titleLabel.width) * 0.5 ;
-    if(self.titleLogo.x < self.alertConfig.innerMargin)
-        self.titleLogo.x = self.alertConfig.innerMargin;
+    self.imageView.x = (self.width - self.imageView.width - self.textLabel.width) * 0.5 ;
+    if(self.imageView.x < self.alertConfig.innerMargin)
+        self.imageView.x = self.alertConfig.innerMargin;
     
-        
-    self.titleLabel.x = self.titleLogo.maxX + (self.titleLogo.width > 0 ? self.alertConfig.logoMargin.right : 0);
-    if(self.titleLabel.maxX > self.width - self.alertConfig.innerMargin)
-        self.titleLabel.width = self.width - self.alertConfig.innerMargin - self.titleLabel.x;
     
-    if(self.titleLogo.height > self.titleLabel.height)
+    self.textLabel.x = self.imageView.maxX + (self.imageView.width > 0 ? self.alertConfig.logoMargin.right : 0);
+    if(self.textLabel.maxX > self.width - self.alertConfig.innerMargin)
+        self.textLabel.width = self.width - self.alertConfig.innerMargin - self.textLabel.x;
+    
+    if(self.imageView.height > self.textLabel.height)
     {
-            self.titleLogo.y = self.alertConfig.innerTopMargin;
-            self.titleLabel.y = self.titleLogo.y + self.titleLogo.halfHeight - self.titleLabel.halfHeight;
+        self.imageView.y = self.alertConfig.innerTopMargin;
+        self.textLabel.y = self.imageView.y + self.imageView.halfHeight - self.textLabel.halfHeight;
     }
     else
     {
-        self.titleLabel.y = self.alertConfig.innerTopMargin;
-        self.titleLogo.y = self.titleLabel.y + self.titleLabel.halfHeight - self.titleLogo.halfHeight;
+        self.textLabel.y = self.alertConfig.innerTopMargin;
+        self.imageView.y = self.textLabel.y + self.textLabel.halfHeight - self.imageView.halfHeight;
     }
     
     
-    CGFloat maxY = self.titleLabel.maxY > self.titleLogo.maxY ? self.titleLabel.maxY : self.titleLogo.maxY;
+    CGFloat maxY = self.textLabel.maxY > self.imageView.maxY ? self.textLabel.maxY : self.imageView.maxY;
     
-    CGFloat offset = self.titleLogo.maxY > self.titleLabel.maxY ? self.alertConfig.logoMargin.bottom : self.alertConfig.innerTopMargin;
-    if(self.alertConfig.title.length > 0)
+    CGFloat offset = self.imageView.maxY > self.textLabel.maxY ? self.alertConfig.logoMargin.bottom : self.alertConfig.innerTopMargin;
+    if(self.alertConfig.title.text.length > 0)
         offset = self.alertConfig.detailInnerMargin;
     
     self.customView.x = self.alertConfig.innerMargin;
-    self.customView.y = CGSizeEqualToSize(CGSizeZero, self.titleLogo.frame.size) && CGSizeEqualToSize(CGSizeZero, self.titleLabel.frame.size)  ? offset: maxY + offset;
+    self.customView.y = CGSizeEqualToSize(CGSizeZero, self.imageView.frame.size) && CGSizeEqualToSize(CGSizeZero, self.textLabel.frame.size)  ? offset: maxY + offset;
     self.customView.width = self.width - 2 * self.alertConfig.innerMargin;
-
     
-    self.buttonView.y = self.customView.maxY + (self.alertConfig.detail.length > 0  ? self.alertConfig.detailInnerMargin + 2 : self.alertConfig.innerMargin);
+    
+    self.buttonView.y = self.customView.maxY + (self.alertConfig.content.text.length > 0  ? self.alertConfig.detailInnerMargin + 2 : self.alertConfig.innerMargin);
     self.buttonView.width = self.width;
-    self.buttonView.height = (self.alertConfig.buttonHeight +  self.alertConfig.splitWidth) * (self.alertConfig.items.count < 3 ? 1 : self.alertConfig.items.count);
-   
+    self.buttonView.height = (self.alertConfig.buttonHeight +  self.alertConfig.splitWidth) * (self.alertConfig.buttonModelList.count < 3 ? 1 : self.alertConfig.buttonModelList.count);
+    
     
     self.bounds = CGRectMake(0, 0, self.alertConfig.width, self.buttonView.maxY);
     
-    BOOL isSingleLine = self.alertConfig.items.count < 3;
-    NSInteger separatorLineCount = self.alertConfig.items.count + (isSingleLine  ?  - 1 : 0);
-    CGFloat w = (self.width - separatorLineCount * self.alertConfig.splitWidth) / self.alertConfig.items.count;
+    BOOL isSingleLine = self.alertConfig.buttonModelList.count < 3;
+    NSInteger separatorLineCount = self.alertConfig.buttonModelList.count + (isSingleLine  ?  - 1 : 0);
+    CGFloat w = (self.width - separatorLineCount * self.alertConfig.splitWidth) / self.alertConfig.buttonModelList.count;
     maxY = 0;
     
     for(NSInteger i = 0; i < self.buttonView.subviews.count; i++)
@@ -164,33 +147,83 @@
 
 - (void)actionButton:(UIButton*)btn
 {
-    MTPopButtonItem *item = self.actionItems[btn.tag];
+    MTBaseButtonContentModel *item = self.alertConfig.buttonModelList[btn.tag];
     [self hide];
-
-    if (item.handler)
-        item.handler(btn.tag);
+    
+    if (item.mt_click)
+        item.mt_click(item.mt_order);
     else if([self.mt_delegate respondsToSelector:@selector(doSomeThingForMe:withOrder:)])
-        [self.mt_delegate doSomeThingForMe:self.customView == self.detailTextView ? self.config : self.customView withOrder:item.order];    
+        [self.mt_delegate doSomeThingForMe:self.customView == self.detailTextView ? self.config : self.customView withOrder:item.mt_order];
 }
 
 #pragma mark - 懒加载
 
--(UILabel *)titleLabel
+-(void)setModel:(MTAlertViewConfig *)model
 {
-    if(!_titleLabel)
+    if(![model isKindOfClass:[MTAlertViewConfig class]])
+        return;
+    
+    [super setModel:model];
+    
+    self.detailTextView.baseContentModel = model.content;
+    self.buttonView.baseContentModel = model.content2;
+    
+    CGFloat width = model.width - 2 * model.innerMargin;
+    CGSize size =  [self.detailTextView sizeThatFits:CGSizeMake(width, CGFLOAT_MAX)];
+    self.detailTextView.bounds = CGRectMake(0, 0, width, size.height < 125 ? size.height : 125) ;
+    [self.detailTextView scrollRangeToVisible:NSMakeRange(0, 1)];
+    self.detailTextView.scrollEnabled = size.height >= 125;
+    
+    self.buttonView = self.buttonView;
+    
+    [self setNeedsLayout];
+}
+
+
+
+-(void)setButtonView:(UIView *)buttonView
+{
+    if(_buttonView != buttonView)
+        _buttonView = buttonView;
+    else
     {
-        _titleLabel = [UILabel new];
-        [self addSubview:_titleLabel];
-        
-        _titleLabel.textColor = self.alertConfig.titleColor;
-        _titleLabel.textAlignment = NSTextAlignmentCenter;
-        _titleLabel.font = self.alertConfig.titleFont;
-        _titleLabel.numberOfLines = 0;
-        _titleLabel.backgroundColor = self.backgroundColor;
-        _titleLabel.text = self.alertConfig.title;
+        for (UIView* subView in buttonView.subviews)
+            [subView removeFromSuperview];
     }
     
-    return _titleLabel;
+    for (NSInteger i = 0 ; i < self.alertConfig.buttonModelList.count; ++i)
+    {
+        MTBaseButtonContentModel *baseContentModel = self.alertConfig.buttonModelList[i];
+        
+        UIButton *btn = [UIButton new];
+        btn.tag = i;
+        [btn addTarget:self action:@selector(actionButton:) forControlEvents:UIControlEventTouchUpInside];
+        [btn setExclusiveTouch:YES];
+        btn.baseContentModel = baseContentModel;
+        
+        [self.buttonView addSubview:btn];
+    }
+    
+    [self setNeedsLayout];
+}
+
+-(void)setCustomView:(UIView *)customView
+{
+    if(!customView)
+        return;
+    
+    if(_customView != self.detailTextView)
+        [_customView removeFromSuperview];
+    else
+        self.detailTextView.hidden = YES;
+    
+    _customView = customView;
+    [_customView setClipsToBounds:YES];
+    
+    if(_customView != self.detailTextView)
+        [self addSubview:customView];
+    else
+        self.detailTextView.hidden = false;
 }
 
 -(MTTextView *)detailTextView
@@ -198,141 +231,46 @@
     if(!_detailTextView)
     {
         _detailTextView = [MTTextView new];
-
-        _detailTextView.shouldBeginEdit = false;        
-        _detailTextView.textColor = self.alertConfig.detailColor;
-        _detailTextView.backgroundColor = self.backgroundColor;
-        _detailTextView.lineSpacing = self.alertConfig.detailLineSpacing;
-
-        if(self.alertConfig.attributedDetail)
-            _detailTextView.attributedText = self.alertConfig.attributedDetail;
-        else
-        {
-            _detailTextView.text = self.alertConfig.detail;
-            _detailTextView.textAlignment = self.alertConfig.detailAlignment;
-        }
-        
-        _detailTextView.font = self.alertConfig.detailFont;
-        
-        CGFloat width = self.alertConfig.width - 2 * self.alertConfig.innerMargin;
-        CGSize size =  [_detailTextView sizeThatFits:CGSizeMake(width, CGFLOAT_MAX)];
-        _detailTextView.bounds = CGRectMake(0, 0, width, size.height < 125 ? size.height : 125) ;
-        [_detailTextView scrollRangeToVisible:NSMakeRange(0, 1)];
-        _detailTextView.scrollEnabled = size.height >= 125;
+        _detailTextView.shouldBeginEdit = false;
     }
     
     return _detailTextView;
 }
 
--(UIView *)buttonView
+-(MTViewContentModel *)model
 {
-    if(!_buttonView)
+    MTAlertViewConfig* model = (MTAlertViewConfig*)[super model];
+    if(![model isKindOfClass:[MTAlertViewConfig class]])
     {
-        _buttonView = [UIView new];
-        [_buttonView setClipsToBounds:YES];
-        _buttonView.backgroundColor = self.alertConfig.splitColor;
-    }
-    
-    return _buttonView;
-}
-
--(void)setActionItems:(NSArray<MTPopButtonItem *> *)actionItems
-{
-    _actionItems = actionItems;
-    for (UIView* subView in self.buttonView.subviews)
-        [subView removeFromSuperview];
-    
-    for ( NSInteger i = 0 ; i < actionItems.count; ++i )
-    {
-        MTPopButtonItem *item = actionItems[i];
+        NSString* reuseIdentifier = [MTCloud shareCloud].alertViewConfigName;
+        if(![reuseIdentifier isExist])
+            reuseIdentifier = @"MTAlertViewConfig";
         
-        UIButton *btn = [UIButton new];
-        [btn addTarget:self action:@selector(actionButton:) forControlEvents:UIControlEventTouchUpInside];
-        [btn setExclusiveTouch:YES];
-        [btn setBackgroundImage:item.backgroundColor ? [item.backgroundColor changeToImage] : [self.backgroundColor changeToImage]  forState:UIControlStateNormal];
-        [btn setBackgroundImage:[self.alertConfig.itemPressedColor changeToImage] forState:UIControlStateHighlighted];
-        [btn setTitle:item.word.wordName forState:UIControlStateNormal];
-        [btn setTitleColor:item.word.wordColor ? item.word.wordColor : (item.highlight?self.alertConfig.itemHighlightColor : self.alertConfig.itemNormalColor) forState:UIControlStateNormal];
-        btn.titleLabel.font = item.word.wordSize == 0 ? self.alertConfig.buttonFont : [self.alertConfig.buttonFont fontWithSize:item.word.wordSize];
-        [self.buttonView addSubview:btn];
-        btn.tag = i;
+        Class configClassName = NSClassFromString(reuseIdentifier);
+        if(![configClassName isSubclassOfClass:[MTAlertViewConfig class]])
+            configClassName = [MTAlertViewConfig class];
+        
+        model = configClassName.new;
+        self.model = model;
     }
     
-    [self layoutIfNeeded];
+    return model;
 }
 
--(UIImageView *)titleLogo
+-(MTPopViewConfig *)config
 {
-    if(!_titleLogo)
-    {
-        _titleLogo = [[UIImageView alloc] initWithImage:[UIImage imageNamed:self.alertConfig.logoName]];
-    }
-    
-    return _titleLogo;
-}
-
--(void)setAlertConfig:(MTAlertViewConfig *)alertConfig
-{
-    _alertConfig = alertConfig;
-    self.config = alertConfig;
+    return (MTPopViewConfig*)self.model;
 }
 
 -(MTAlertViewConfig *)alertConfig
 {
-    if(!_alertConfig)
-    {
-        _alertConfig = [MTAlertViewConfig new];
-    }
-    
-    return _alertConfig;
+    return (MTAlertViewConfig*)self.model;
 }
 
--(UIView *)customView
+-(Class)classOfResponseObject
 {
-    if(!_customView)
-    {
-        _customView = self.detailTextView;
-    }
-    
-    return _customView;
+    return [MTAlertViewConfig class];
 }
 
 @end
 
-
-
-
-@implementation NSObject (AlertViewDelegate)
-
--(void)alertWithTitle:(NSString*)title Content:(NSString*)detail Buttons:(NSArray<MTPopButtonItem*>*)items
-{
-    [self alertWithLogo:nil Title:title Content:detail Buttons:items];
-}
-
--(void)alertWithLogo:(NSString*)logo Title:(NSString*)title Content:(NSString*)detail Buttons:(NSArray<MTPopButtonItem*>*)items
-{
-    MTAlertViewConfig* config = [MTAlertViewConfig new];
-    config.title = title;
-    config.logoName = logo;
-    config.detail = detail;
-    config.items = items;
-    
-    [self alertWithConfig:config];
-}
-
--(void)alertWithConfig:(MTAlertViewConfig*)config
-{
-    MTAlertView* view = [[MTAlertView alloc] initWithConfig:config];
-    view.mt_delegate = self;
-    [view show];
-}
-
--(void)alertWithConfig:(MTAlertViewConfig*)config CustomView:(UIView*)customView
-{
-    MTAlertView* view = [[MTAlertView alloc] initWithConfig:config CustomView:customView];
-    view.mt_delegate = self;
-    [view show];
-}
-
-
-@end

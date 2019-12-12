@@ -34,11 +34,47 @@
     return wordThin;
 }
 
+-(VerticalAlignment)verticalAlignment
+{
+    __weak __typeof(self) weakSelf = self;
+    VerticalAlignment verticalAlignment = ^(MTVerticalAlignment verticalAlignment){
+        
+        weakSelf.wordVerticalAlignment = verticalAlignment;
+        return weakSelf;
+    };
+    
+    return verticalAlignment;
+}
+
+-(HorizontalAlignment)horizontalAlignment
+{
+    __weak __typeof(self) weakSelf = self;
+    HorizontalAlignment horizontalAlignment = ^(NSTextAlignment horizontalAlignment){
+        
+        weakSelf.wordHorizontalAlignment = horizontalAlignment;
+        return weakSelf;
+    };
+    
+    return horizontalAlignment;
+}
+
+-(LineSpacing)lineSpacing
+{
+    __weak __typeof(self) weakSelf = self;
+       LineSpacing lineSpacing = ^(CGFloat lineSpacing){
+           
+           weakSelf.wordLineSpacing = lineSpacing;
+           return weakSelf;
+       };
+       
+       return lineSpacing;
+}
+
 -(instancetype)init
 {
     if(self = [super init])
     {
-        self.horizontalAlignment = NSTextAlignmentNatural;
+        self.wordHorizontalAlignment = NSTextAlignmentNatural;
     }
     
     return self;
@@ -55,24 +91,15 @@ MTWordStyle* mt_WordStyleMake(CGFloat wordSize, NSString* wordName,UIColor* word
     return word;
 }
 
-MTWordStyle* mt_WordStyleValueMake(CGFloat wordSize, NSString* wordName, NSUInteger wordColorValue)
+MTWordStyle* mt_AttributedWordStyleMake(CGFloat wordSize, NSAttributedString* attributedWordName,UIColor* wordColor)
 {
     MTWordStyle* word = [MTWordStyle new];
     
     word.wordSize = wordSize;
-    word.wordName = wordName;
-    word.wordColorValue = wordColorValue;
+    word.attributedWordName = attributedWordName;
+    word.wordColor = wordColor;
     
     return word;
-}
-
-MTWordStyle* mt_WordStyleAppend(MTWordStyle* style, VerticalAlignment verticalAlignment, NSTextAlignment  horizontalAlignment)
-{
-    style.verticalAlignment = verticalAlignment;
-    
-    style.horizontalAlignment = horizontalAlignment;
-    
-    return style;
 }
 
 

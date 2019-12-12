@@ -282,7 +282,7 @@
     if(!cell)
     {
         Class c = NSClassFromString(data.mt_reuseIdentifier);
-        if(![c.new isKindOfClass:[MTDelegateTableViewCell class]])
+        if(![c isSubclassOfClass:[MTDelegateTableViewCell class]])
             cell = [tableView dequeueReusableCellWithIdentifier:MTEasyDefaultTableViewReuseIdentifier forIndexPath:indexPath];
         else
             cell = [[c alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:identifier];
@@ -315,7 +315,7 @@
     if(!view)
     {
         Class c = NSClassFromString(item.mt_reuseIdentifier);
-        if(![c.new isKindOfClass:[MTDelegateHeaderFooterView class]])
+        if(![c isSubclassOfClass:[MTDelegateHeaderFooterView class]])
             view = [tableView dequeueReusableHeaderFooterViewWithIdentifier:MTEasyDefaultTableViewHeaderFooterReuseIdentifier];
         else
             view = [[c alloc] initWithReuseIdentifier:identifier];
@@ -344,7 +344,7 @@
     if(!view)
     {
         Class c = NSClassFromString(item.mt_reuseIdentifier);
-        if(![c.new isKindOfClass:[MTDelegateHeaderFooterView class]])
+        if(![c isSubclassOfClass:[MTDelegateHeaderFooterView class]])
             view = [tableView dequeueReusableHeaderFooterViewWithIdentifier:MTEasyDefaultTableViewHeaderFooterReuseIdentifier];
         else
             view = [[c alloc] initWithReuseIdentifier:identifier];
@@ -442,7 +442,7 @@
     else
     {
         Class class = NSClassFromString(mt_reuseIdentifier);
-        if(![class.new isKindOfClass:[MTDelegateCollectionViewCell class]])
+        if(![class isSubclassOfClass:[MTDelegateCollectionViewCell class]])
             return [collectionView dequeueReusableCellWithReuseIdentifier:MTEasyDefaultCollectionViewReuseIdentifier forIndexPath:indexPath];
         
         [collectionView registerClass:class forCellWithReuseIdentifier:identifier];
@@ -486,7 +486,7 @@
     else
     {
         Class class = NSClassFromString(mt_reuseIdentifier);
-        if(![class.new isKindOfClass:[MTDelegateCollectionReusableView class]])
+        if(![class isKindOfClass:[MTDelegateCollectionReusableView class]])
             return view;
         
         [collectionView registerClass:class forSupplementaryViewOfKind:kind withReuseIdentifier:identifier];
@@ -712,21 +712,19 @@
 {
     MTDelegatePickerViewCell* cell;
     NSObject* data = [self getDataForIndexPath:cell.indexPath];
-    NSObject* cellObject = NSClassFromString(data.mt_reuseIdentifier).new;
+    Class cellClass = NSClassFromString(data.mt_reuseIdentifier);
     
     if([view isKindOfClass:[MTDelegatePickerViewCell class]])
         cell = (MTDelegatePickerViewCell*)view;
     else if([pickerView isKindOfClass:[MTDelegatePickerView class]])
     {
         Class c = NSClassFromString(((MTDelegatePickerView*)pickerView).cellClass);
-        NSObject* obj = c.new;
-        if([c isKindOfClass:[MTDelegatePickerViewCell class]])
-            
-            cell = (MTDelegatePickerViewCell*)obj;
+        if([c isSubclassOfClass:[MTDelegatePickerViewCell class]])
+            cell = (MTDelegatePickerViewCell*)c.new;
     }
-    else if([cellObject isKindOfClass:[MTDelegatePickerViewCell class]])
+    else if([cellClass isSubclassOfClass:[MTDelegatePickerViewCell class]])
     {
-        cell = (MTDelegatePickerViewCell*)cellObject;
+        cell = (MTDelegatePickerViewCell*)cellClass.new;
     }
     if(!cell)
         cell = [MTDelegatePickerViewCell new];
@@ -801,7 +799,7 @@ static NSString* mt_titleForRowAtIndexPath(id self, SEL cmd, UIPickerView * pick
 {
     if(![mt_data isKindOfClass:self.classOfResponseObject])
     {
-        if([mt_data isKindOfClass:[NSDictionary class]] && [self.classOfResponseObject.new isKindOfClass:[NSObject class]])
+        if([mt_data isKindOfClass:[NSDictionary class]] && [self.classOfResponseObject isSubclassOfClass:[NSObject class]])
         {
             NSObject* model = [self.classOfResponseObject mj_objectWithKeyValues:mt_data];
             if(!model)
@@ -829,7 +827,7 @@ static NSString* mt_titleForRowAtIndexPath(id self, SEL cmd, UIPickerView * pick
 {
     if(![mt_data isKindOfClass:self.classOfResponseObject])
     {
-        if([mt_data isKindOfClass:[NSDictionary class]] && [self.classOfResponseObject.new isKindOfClass:[NSObject class]])
+        if([mt_data isKindOfClass:[NSDictionary class]] && [self.classOfResponseObject isSubclassOfClass:[NSObject class]])
         {
             NSObject* model = [self.classOfResponseObject mj_objectWithKeyValues:mt_data];
             if(!model)
@@ -857,7 +855,7 @@ static NSString* mt_titleForRowAtIndexPath(id self, SEL cmd, UIPickerView * pick
 {
     if(![mt_data isKindOfClass:self.classOfResponseObject])
     {
-        if([mt_data isKindOfClass:[NSDictionary class]] && [self.classOfResponseObject.new isKindOfClass:[NSObject class]])
+        if([mt_data isKindOfClass:[NSDictionary class]] && [self.classOfResponseObject isSubclassOfClass:[NSObject class]])
         {
             NSObject* model = [self.classOfResponseObject mj_objectWithKeyValues:mt_data];
             if(!model)
@@ -886,7 +884,7 @@ static NSString* mt_titleForRowAtIndexPath(id self, SEL cmd, UIPickerView * pick
 {
     if(![mt_data isKindOfClass:self.classOfResponseObject])
     {
-        if([mt_data isKindOfClass:[NSDictionary class]] && [self.classOfResponseObject.new isKindOfClass:[NSObject class]])
+        if([mt_data isKindOfClass:[NSDictionary class]] && [self.classOfResponseObject isSubclassOfClass:[NSObject class]])
         {
             NSObject* model = [self.classOfResponseObject mj_objectWithKeyValues:mt_data];
             if(!model)

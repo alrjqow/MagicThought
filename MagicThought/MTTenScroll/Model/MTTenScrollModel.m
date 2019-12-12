@@ -835,10 +835,9 @@ NSString* MTTenScrollIdentifier = @"MTTenScrollIdentifier";
     {
         NSObject* obj = self.dataList[index];
         Class c = NSClassFromString(obj.mt_reuseIdentifier);
-        obj = c.new;
-        
-        if([obj isKindOfClass:[UIView class]] || [obj isKindOfClass:[UIViewController class]])
-            self.objectArr[index] = obj;
+                
+        if([c isSubclassOfClass:[UIView class]] || [c isSubclassOfClass:[UIViewController class]])
+            self.objectArr[index] = c.new;
         else
             self.objectArr[index] = @"1";
         
@@ -1025,7 +1024,7 @@ NSString* MTTenScrollIdentifier = @"MTTenScrollIdentifier";
                 c2 = [UIScrollView class];
             Class c = NSClassFromString(obj.mt_reuseIdentifier);
 
-            if(![c.new isKindOfClass:c1] && ![c.new isKindOfClass:c2])
+            if(![c isSubclassOfClass:c1] && ![c isSubclassOfClass:c2])
                 _tenScrollHeight = self.tenScrollView.height;
         }
     }

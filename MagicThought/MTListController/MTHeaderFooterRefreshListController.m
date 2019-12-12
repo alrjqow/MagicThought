@@ -41,6 +41,7 @@
         self.listView.mj_header = nil;
     
     self.listView.mj_footer = self.mj_footer;
+    self.listView.mj_footer.refreshingBlock = self.mj_footer_Block;
 }
 
 
@@ -189,20 +190,14 @@
 //    if(self.itemArr.count)
 //        [arr addObject:@"DYNoSepLineBaseCell".bindHeight([self getTableViewFillCellHeight])];
     
-    return arr;
+    return [arr copy];
 }
 
 -(MTRefreshAutoNormalFooter *)mj_footer
 {
     if(!_mj_footer)
     {
-        __weak __typeof(self) weakSelf = self;
-        MTRefreshAutoNormalFooter* footer = [MTRefreshAutoNormalFooter footerWithRefreshingBlock:^{
-            
-            weakSelf.mj_footer_Block();
-        }];
-        
-        _mj_footer = footer;
+        _mj_footer = [MTRefreshAutoNormalFooter footerWithRefreshingBlock:nil];
     }
     
     return _mj_footer;

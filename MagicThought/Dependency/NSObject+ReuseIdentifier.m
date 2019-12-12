@@ -10,6 +10,9 @@
 #import "MJExtension.h"
 #import "objc/runtime.h"
 
+NSString* MTBanClickOrder = @"MTBanClickOrder";
+NSString* MTBindNewObjectOrder = @"MTBindNewObjectOrder";
+
 @implementation NSReuseObject
 
 @end
@@ -214,6 +217,18 @@
     };
     
     return bindOrder;
+}
+
+-(BindNewObjectOrder)bindNewObjectOrder
+{
+    __weak __typeof(self) weakSelf = self;
+       BindNewObjectOrder bindNewObjectOrder  = ^{
+                      
+           weakSelf.mt_order = @"";
+           return weakSelf;
+       };
+       
+       return bindNewObjectOrder;
 }
 
 -(BindTagIdentifier)bindTag
@@ -453,6 +468,19 @@
     };
     
     return bindHeaderEmptyShow;
+}
+
+- (instancetype)setWithObject:(NSObject*)obj{return self;}
+-(MTSetWithObject)setObject
+{
+    __weak __typeof(self) weakSelf = self;
+    MTSetWithObject setObject  = ^(NSObject* object){
+        
+        [weakSelf setWithObject:object];
+        return weakSelf;
+    };
+    
+    return setObject;
 }
 
 @end

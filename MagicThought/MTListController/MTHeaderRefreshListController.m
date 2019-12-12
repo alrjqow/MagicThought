@@ -21,6 +21,7 @@
     [super setupSubview];
     
     self.listView.mj_header = self.mj_header;
+    self.listView.mj_header.refreshingBlock = self.mj_Block;
 }
 
 -(MTHeaderRefreshBlock)mj_Block
@@ -41,11 +42,7 @@
 {
     if(!_mj_header)
     {
-        __weak __typeof(self) weakSelf = self;
-        _mj_header = [MTRefreshGifHeader headerWithRefreshingBlock:^{
-            
-            weakSelf.mj_Block();
-        }];
+        _mj_header = [MTRefreshGifHeader headerWithRefreshingBlock:nil];
     }
     
     return _mj_header;

@@ -1,14 +1,14 @@
 //
-//  MTBaseCollectionViewCell.m
-//  SimpleProject
+//  MTBaseView.m
+//  QXProject
 //
-//  Created by monda on 2019/5/13.
+//  Created by monda on 2019/12/10.
 //  Copyright © 2019 monda. All rights reserved.
 //
 
-#import "MTBaseCollectionViewCell.h"
+#import "MTBaseView.h"
 
-@implementation MTBaseCollectionViewCell
+@implementation MTBaseView
 
 -(void)whenGetResponseObject:(MTViewContentModel *)object
 {
@@ -30,8 +30,6 @@
 {
     [super setupDefault];
     
-    //    self.isDragEnable = YES;
-    
     self.textLabel = [UILabel new];
     self.textLabel.textAlignment = NSTextAlignmentCenter;
     self.detailTextLabel = [UILabel new];
@@ -42,18 +40,6 @@
     [self addSubview:self.imageView];
 }
 
--(void)layoutSubviews
-{
-    [super layoutSubviews];
-    
-    self.imageView.width = 50;
-    self.imageView.height = 50;
-    self.imageView.centerX = self.contentView.centerX;
-    
-    [self.textLabel sizeToFit];
-    self.textLabel.width = self.contentView.width;
-    self.textLabel.y = self.imageView.maxY + 15;
-}
 
 -(Class)classOfResponseObject
 {
@@ -62,8 +48,7 @@
 
 @end
 
-
-@implementation MTBaseSubCollectionViewCell
+@implementation MTBaseSubView
 
 -(void)setupDefault
 {
@@ -91,3 +76,4 @@
 }
 
 @end
+

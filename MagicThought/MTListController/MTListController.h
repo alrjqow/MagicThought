@@ -13,12 +13,8 @@
 /**使用列表请直接用此类*/
 @interface MTListController : MTBaseListController<MTDelegateViewDataProtocol>
 
+/* MTDelegateViewDataModel 类类名，该类用于将 controller 中通用的数据抽离放在一起，避免在 controller 中写重复的数据源*/
 @property (nonatomic,strong, readonly) NSString* dataModelClassName;
-
-//配合使用
-@property (nonatomic,strong) NSArray<NSDictionary*>* keyValueList;
-//此为需要转成对应模型的类名
-@property (nonatomic,strong, readonly) NSString* modelClassName;
 
 @end
 

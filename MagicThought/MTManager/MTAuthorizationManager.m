@@ -8,7 +8,7 @@
 
 #import "MTAuthorizationManager.h"
 #import "MTAlertView.h"
-#import "MTPopButtonItem.h"
+#import "NSArray+Alert.h"
 #import "MTConst.h"
 
 #import <AVFoundation/AVFoundation.h>
@@ -24,7 +24,7 @@
     BOOL haveAuthorization = YES;
     NSString* message;
     
-
+    
     switch (type) {
         case MTAuthorizationTypePhoto:
         {
@@ -33,7 +33,7 @@
             {
                 message = @"您还没有开启相册权限，是否开启？";
                 haveAuthorization = false;
-//                url = @"prefs:root=Privacy&path=Photos";
+                //                url = @"prefs:root=Privacy&path=Photos";
             }
             
             break;
@@ -45,8 +45,8 @@
             if (status == AVAuthorizationStatusRestricted || status ==AVAuthorizationStatusDenied)
             {
                 message = @"您还没有开启相机权限，是否开启？";
-                haveAuthorization = false;                
-//                url = @"prefs:root=Privacy&path=CAMERA";
+                haveAuthorization = false;
+                //                url = @"prefs:root=Privacy&path=CAMERA";
             }
             break;
         }
@@ -59,7 +59,7 @@
             {
                 message = @"您还没有开启定位权限，是否开启？";
                 haveAuthorization = false;
-//                url = @"prefs:root=Privacy&path=LOCATION_SERVICES";
+                //                url = @"prefs:root=Privacy&path=LOCATION_SERVICES";
             }
         }
             
@@ -72,21 +72,21 @@
             {
                 message = @"您还没有开启麦克风权限，是否开启？";
                 haveAuthorization = false;
-//                url = @"prefs:root=Privacy&path=MICROPHONE";
+                //                url = @"prefs:root=Privacy&path=MICROPHONE";
             }
         }
             break;
             
         case MTAuthorizationTypeMessagePush:
         {
-                UIUserNotificationSettings *setting = [[UIApplication sharedApplication] currentUserNotificationSettings];
-                
-                if (UIUserNotificationTypeNone == setting.types)
-                {
-                    message = @"您还没有开启推送权限，是否开启？";
-                    haveAuthorization = false;
-//                    url = @"prefs:root=Privacy&path=NOTIFICATIONS_ID";
-                }
+            UIUserNotificationSettings *setting = [[UIApplication sharedApplication] currentUserNotificationSettings];
+            
+            if (UIUserNotificationTypeNone == setting.types)
+            {
+                message = @"您还没有开启推送权限，是否开启？";
+                haveAuthorization = false;
+                //                    url = @"prefs:root=Privacy&path=NOTIFICATIONS_ID";
+            }
         }
             
             break;
@@ -98,13 +98,19 @@
     
     if(!haveAuthorization)
     {
-        MTPopButtonItem* item = MTPopButtonItemMake(@"去开启", YES, @"MTAuthorizationManagerOpenAuthorizationOrder");
-            __weak __typeof(self) weakSelf = self;
-        item.handler = ^(NSInteger index) {
-            [weakSelf openSettingWithURL:url];
-        };
-        
-        [self alertWithTitle:mt_AppName() Content:message Buttons:@[MTPopButtonItemMake(@"不开启", false, nil), item]];
+        __weak __typeof(self) weakSelf = self;
+        @[
+            MTAppTitle(),
+            MTContent(message),
+            MTButtons(@[
+                @"不开启",
+                @"去开启".bindClick(^(NSString* order)
+                                 {
+                    [weakSelf openSettingWithURL:url];
+                    return YES;
+                }),
+            ])
+        ].alert_mt();
     }
     
     return haveAuthorization;
@@ -114,7 +120,7 @@
 +(void)openSettingWithURL:(NSString*)urlStr
 {
     NSURL* url = [NSURL URLWithString:UIApplicationOpenSettingsURLString];
-//    NSURL* url = [UIDevice currentDevice].systemVersion.floatValue >= 10 ? [NSURL URLWithString:UIApplicationOpenSettingsURLString] :[NSURL URLWithString:urlStr];
+    //    NSURL* url = [UIDevice currentDevice].systemVersion.floatValue >= 10 ? [NSURL URLWithString:UIApplicationOpenSettingsURLString] :[NSURL URLWithString:urlStr];
     
     if([[UIApplication sharedApplication] canOpenURL:url])
         [[UIApplication sharedApplication] openURL:url];

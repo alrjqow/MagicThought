@@ -63,7 +63,7 @@ NSString*  MTImagePlayViewOrder = @"MTImagePlayViewOrder";
     if([self.imagePlayCellClass isExist])
     {
         Class class = NSClassFromString(self.imagePlayCellClass);
-        if([class.new isKindOfClass:[MTImagePlayViewCell class]])
+        if([class isSubclassOfClass:[MTImagePlayViewCell class]])
             [collectionView registerClass:class forCellWithReuseIdentifier:ImagePlayViewCell];
         else
             [collectionView registerClass:[MTImagePlayViewCell class] forCellWithReuseIdentifier:ImagePlayViewCell];

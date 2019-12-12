@@ -9,8 +9,8 @@
 
 #import "MTAlertViewConfig.h"
 #import "MTPopViewConfig.h"
-#import "MTPopButtonItem.h"
 #import "MTPopView.h"
 #import "MTAlertView.h"
 #import "MTWindow.h"
 #import "UIView+MTBackground.h"
+#import "NSArray+Alert.h"

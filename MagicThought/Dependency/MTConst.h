@@ -116,8 +116,6 @@ MT_EXTERN NSString*  MTReachability;
 MT_EXTERN NSString*  MTGetPhotoFromAlbumOrder;
 MT_EXTERN NSString*  MTGetPhotoFromCameraOrder;
 MT_EXTERN NSString* MTTextValueChangeOrder;
-MT_EXTERN NSString* MTBanClickOrder;
-
 
 
 //app的数字ID

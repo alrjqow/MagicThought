@@ -43,73 +43,40 @@
     
     for (NSInteger i = 0; i < arr.count; i++) {
         arr[i].mt_reuseIdentifier = tabBarItemArr[i].mt_reuseIdentifier;
-    }    
+    }
     
-    id obj;
-    Class c, c1;
-    NSString* preReuseIdentifier, *preRootController;    
-    BOOL isReuseIdentifierEqual = false, isNotController = false;
     for (MTTabBarItem* item in arr) {
-             
+        
         if(![item.mt_reuseIdentifier isExist])
             continue;
         
-        isReuseIdentifierEqual = [preReuseIdentifier isEqualToString:item.mt_reuseIdentifier];
-        if(!isReuseIdentifierEqual)
-            c = NSClassFromString(item.mt_reuseIdentifier);
-        if(isReuseIdentifierEqual && isNotController);
+        Class c = NSClassFromString(item.mt_reuseIdentifier);
+        if(![c isSubclassOfClass:[UIViewController class]])
+            continue;
+        
+        UIViewController* vc;
+        if([c isSubclassOfClass:[UINavigationController class]] && [item.rootController isExist])
+        {
+            Class c1 = NSClassFromString(item.rootController);
+            if([c1 isSubclassOfClass:[UIViewController class]])
+            {
+                UIViewController* rootVc = c1.new;
+                rootVc.title = item.title;
+                UINavigationController* nvc = [[c alloc] initWithRootViewController:rootVc];
+                nvc.tabBarItem = item;
+                vc = nvc;
+            }
+        }
         else
         {
-            if(isReuseIdentifierEqual && [obj isKindOfClass:[UINavigationController class]]);
-            else
-                obj = c.new;
-        }
-            
-        
-        if(![obj isKindOfClass:[UIViewController class]])
-        {
-            isNotController = YES;
-            continue;
-        }
-            
-        isNotController = false;
-        
-                
-        UIViewController* vc;
-        if([obj isKindOfClass:[UINavigationController class]])
-        {
-            if([item.rootController isExist])
-            {
-                if(![preRootController isEqualToString:item.rootController])
-                    c1 = NSClassFromString(item.rootController);
-                id obj2 = c1.new;
-                if([obj2 isKindOfClass:[UIViewController class]])
-                {
-                    ((UIViewController*)obj2).title = item.title;
-                    UINavigationController* nvc = [[c alloc] initWithRootViewController:obj2];
-                    nvc.tabBarItem = item;
-                    obj = nvc;
-                }
-            }
-            else
-            {
-                if(isReuseIdentifierEqual)
-                    obj = c.new;
-            }
-        }
-                    
-
-        if([item.order isExist] && [obj respondsToSelector:@selector(getSomeThingForMe:withOrder:withItem:)])
-        {
-            [obj getSomeThingForMe:self withOrder:item.order withItem:item.data];
-        }
-        
-        vc = obj;
-        if(![vc isKindOfClass:[UINavigationController class]])
+            vc = c.new;
             vc.title = item.title;
+        }
+        
+        if([item.order isExist] && [vc respondsToSelector:@selector(getSomeThingForMe:withOrder:withItem:)])
+            [vc getSomeThingForMe:self withOrder:item.order withItem:item.data];
+            
         [self addChildViewController:vc];
-        preReuseIdentifier = item.mt_reuseIdentifier;
-        preRootController = item.rootController;
     }
 }
 

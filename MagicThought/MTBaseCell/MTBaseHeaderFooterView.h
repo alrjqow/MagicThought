@@ -8,6 +8,8 @@
 
 #import "MTDelegateHeaderFooterView.h"
 #import "MTViewContentModel.h"
+#import "UIView+MTBaseViewContentModel.h"
+#import "UIView+Frame.h"
 
 @interface MTBaseHeaderFooterView : MTDelegateHeaderFooterView
 

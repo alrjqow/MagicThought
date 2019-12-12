@@ -47,6 +47,8 @@
 
 -(void)setLineSpacing:(CGFloat)lineSpacing
 {
+    if(lineSpacing < 1)
+        lineSpacing = 1;
     _lineSpacing = lineSpacing;
 
     self.paragraphStyle.lineSpacing = lineSpacing;

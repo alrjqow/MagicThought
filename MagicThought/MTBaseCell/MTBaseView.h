@@ -1,17 +1,17 @@
 //
-//  MTBaseCollectionReusableView.h
-//  SimpleProject
+//  MTBaseView.h
+//  QXProject
 //
-//  Created by monda on 2019/5/13.
+//  Created by monda on 2019/12/10.
 //  Copyright © 2019 monda. All rights reserved.
 //
 
-#import "MTDelegateCollectionReusableView.h"
+#import "MTDelegateView.h"
 #import "MTViewContentModel.h"
 #import "UIView+MTBaseViewContentModel.h"
 #import "UIView+Frame.h"
 
-@interface MTBaseCollectionReusableView : MTDelegateCollectionReusableView
+@interface MTBaseView : MTDelegateView
 
 @property (nonatomic,strong) MTViewContentModel* model;
 
@@ -23,7 +23,8 @@
 
 @end
 
-@interface MTBaseSubCollectionReusableView : MTBaseCollectionReusableView
+
+@interface MTBaseSubView : MTBaseView
 
 @property (nonatomic,strong) UIButton* button;
 

@@ -7,11 +7,6 @@
 //
 
 #import "MTBaseHeaderFooterView.h"
-#import "MTWordStyle.h"
-#import "UIView+Frame.h"
-#import "UILabel+Word.h"
-#import "NSString+Exist.h"
-#import "VKCssProtocol.h"
 
 @implementation MTBaseHeaderFooterView
 
@@ -21,13 +16,19 @@
     {
         MTViewContentModel* model = self.model;
         if(!model)
-            model = self.classOfResponseObject.new;
-        
-        if([model isKindOfClass:[MTViewContentModel class]])
         {
-            model.title = (NSString*)object;
-            self.model = model;
+            if([self.classOfResponseObject isSubclassOfClass:[MTViewContentModel class]])
+                model = self.classOfResponseObject.new;
+            else
+            {
+                model = [MTViewContentModel new];
+                MTBaseViewContentModel* title = [MTBaseViewContentModel new];
+                model.title = title;
+            }
         }
+        
+        model.title.text = (NSString*)object;
+        self.model = model;
     }
     else if([object isKindOfClass:self.classOfResponseObject])
         self.model = (MTViewContentModel*)object;
@@ -37,9 +38,11 @@
 {
     _model = model;
     
-    self.textLabel.contentModel = model;
-    self.detailTextLabel.contentModel = model;
-    self.imageView.contentModel = model;
+    self.baseContentModel = model;
+    
+    self.textLabel.baseContentModel = model.title;
+    self.detailTextLabel.baseContentModel = model.content;
+    self.imageView.baseContentModel = model.img;
 }
 
 -(void)setupDefault
@@ -49,10 +52,7 @@
     self.clipsToBounds = YES;
     self.textLabel.numberOfLines = 0;
     
-    self.textLabel.bindTag(@"title");
-    self.detailTextLabel.bindTag(@"content");
-    
-    self.imageView = (UIImageView*)[UIImageView new].bindTag(@"img");
+    self.imageView = [UIImageView new];
     [self addSubview:self.imageView];
 }
 
@@ -81,10 +81,10 @@
 {
     [super setupDefault];
     
-    self.button = (UIButton*)[UIButton new].bindTag(@"btn");
-    self.button2 = (UIButton*)[UIButton new].bindTag(@"btn2");
-    self.imageView2 = (UIImageView*)[UIImageView new].bindTag(@"img2");
-    self.detailTextLabel2 = (UILabel*)[UILabel new].bindTag(@"content2");
+    self.button = [UIButton new];
+    self.button2 = [UIButton new];
+    self.imageView2 = [UIImageView new];
+    self.detailTextLabel2 = [UILabel new];
     
     [self addSubview:self.button];
     [self addSubview:self.button2];
@@ -97,13 +97,10 @@
 {
     [super setModel:model];
     
-    [model setValue:@(self.button.state) forKey:@"btnState"];
-    [model setValue:@(self.button2.state) forKey:@"btn2State"];
-    
-    self.button.contentModel = model;
-    self.button2.contentModel = model;
-    self.detailTextLabel2.contentModel = model;
-    self.imageView2.contentModel = model;
+    self.button.baseContentModel = model.btnTitle;
+    self.button2.baseContentModel = model.btnTitle2;
+    self.detailTextLabel2.baseContentModel = model.content2;
+    self.imageView2.baseContentModel = model.img2;
 }
 
 @end

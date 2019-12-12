@@ -18,8 +18,7 @@
 #import "MTConst.h"
 #import "NSString+Bundle.h"
 #import "MTAlertView.h"
-#import "MTPopButtonItem.h"
-
+#import "NSArray+Alert.h"
 
 NSString*  MTPhotoPreviewViewReloadDataOrder = @"MTPhotoPreviewViewReloadDataOrder";
 NSString*  MTPhotoPreviewViewCellDownloadImageFinishOrder = @"MTPhotoPreviewViewCellDownloadImageFinishOrder";
@@ -74,7 +73,14 @@ NSString*  MTPhotoPreviewViewCellDownloadImageFinishOrder = @"MTPhotoPreviewView
     if([order isEqualToString:@"MTPhotoPreviewViewCellDeleteImageOrder"])
     {
         object = ((MTPhotoPreviewViewCell*)obj).model;
-        [self alertWithTitle:mt_AppName() Content:@"确定要删除？" Buttons:@[MTPopButtonItemMake(@"我按错了", false, @"MTAlertDeleteImageCancelOrder"), MTPopButtonItemMake(@"是的", YES, @"MTAlertDeleteImageOrder")]];
+        @[
+            MTAppTitle(),
+            MTContent(@"确定要删除？"),
+            MTButtons(@[
+                @"我按错了".bindOrder(@"MTAlertDeleteImageCancelOrder"),
+                @"是的".bindOrder(@"MTAlertDeleteImageOrder"),
+            ])
+        ].alert_mt();
     }
     else if([order isEqualToString:MTPhotoPreviewViewReloadDataOrder])
     {

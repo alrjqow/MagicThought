@@ -23,7 +23,7 @@
 
 +(instancetype)photoBrowserControllerWithModel:(MTPhotoBrowserViewModel*)model;
 {
-    MTPhotoBrowserController* vc = [MTPhotoBrowserController new];
+    MTPhotoBrowserController* vc = [MTPhotoBrowserController new];    
     vc.model = model;
     
     return vc;
@@ -64,12 +64,12 @@
     [MTPhotoBrowser shareBrowser].frame = self.view.bounds;
     [self.view addSubview:[MTPhotoBrowser shareBrowser]];
     
-    [self.model reloadPhotoBrowser];
+    [self.model reloadPhotoBrowser];        
 }
 
 -(void)setupNavigationItem
 {
-    [self setValue:[UIColor whiteColor] forKey:@"navigationBarTitleColor"];
+    [self setValue:[UIColor whiteColor] forKey:@"navigationBarTitleColor"];    
 }
 
 

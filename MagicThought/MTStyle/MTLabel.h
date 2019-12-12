@@ -12,7 +12,7 @@
 
 @interface MTLabel : UILabel
 
-@property(nonatomic,assign) IBInspectable VerticalAlignment verticalAlignment;
+@property(nonatomic,assign) IBInspectable MTVerticalAlignment verticalAlignment;
 
 @property (nonatomic,assign) UIEdgeInsets inset;
 

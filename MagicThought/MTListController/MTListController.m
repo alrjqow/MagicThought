@@ -15,9 +15,6 @@
 #import "NSString+Exist.h"
 
 @interface MTListController ()
-{
-    NSArray * _modelList;
-}
 
 @property (nonatomic,strong) MTDelegateViewDataModel* dataModel;
 
@@ -106,38 +103,17 @@
 
 #pragma mark - 代理与数据源
 
--(NSArray *)dataList
-{
-    if(!_modelList)
-    {
-        NSArray* arr = [NSClassFromString(self.modelClassName) mj_objectArrayWithKeyValuesArray:self.keyValueList];
-    arr.bind(self.keyValueList.mt_reuseIdentifier).bindHeight(self.keyValueList.mt_itemHeight);
-        _modelList = arr;
-    }
-    
-    return _modelList;
-    
-}
 
 #pragma mark - 懒加载
 
 -(MTDelegateViewDataModel *)dataModel
-{
-    static NSString* preDataModelClassName = @"";
-    static BOOL isDataModel = YES;
+{    
     if(!_dataModel && [self.dataModelClassName isExist])
     {
-        if([self.dataModelClassName isEqualToString:preDataModelClassName] && !isDataModel)
-            return nil;
-        
-        preDataModelClassName = self.dataModelClassName;
         Class c = NSClassFromString(self.dataModelClassName);
                 
-        if(![c.new isKindOfClass:[MTDelegateViewDataModel class]])
-        {
-            isDataModel = false;
+        if(![c isSubclassOfClass:[MTDelegateViewDataModel class]])
             return nil;
-        }
      
         _dataModel = [c modelForController:self];
     }

@@ -11,7 +11,6 @@
 #import "MTPhotoBrowser.h"
 #import "MTPhotoPreviewView.h"
 #import "MTPhotoPreviewViewCell.h"
-#import "MTPopButtonItem.h"
 #import "MTPhotoBrowserController.h"
 #import "MTNavigationPhotoBrowserController.h"
 
@@ -19,7 +18,7 @@
 #import "MTConst.h"
 #import "MTWordStyle.h"
 #import "UIButton+Word.h"
-
+#import "NSArray+Alert.h"
 
 @interface MTPhotoBrowserViewModel ()
 {
@@ -252,7 +251,14 @@
 
 -(void)deleteImage
 {
-    [self alertWithTitle:mt_AppName() Content:@"确定要删除？" Buttons:@[MTPopButtonItemMake(@"我按错了", false, nil), MTPopButtonItemMake(@"是的", YES, @"MTAlertDeleteImageOrder")]];
+    @[
+        MTAppTitle(),
+        MTContent(@"确定要删除？"),
+        MTButtons(@[
+            @"我按错了".bindOrder(@"MTAlertDeleteImageCancelOrder"),
+            @"是的".bindOrder(@"MTAlertDeleteImageOrder"),
+        ])
+    ].alert_mt();
 }
 
 -(void)deleteCellModel

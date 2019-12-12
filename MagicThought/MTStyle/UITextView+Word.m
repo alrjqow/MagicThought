@@ -13,13 +13,17 @@
 
 -(UITextView*)setWordWithStyle:(MTWordStyle*)style
 {
-    self.text = style.wordName;
+    if(style.wordLineSpacing && [self isKindOfClass:NSClassFromString(@"MTTextView")])
+        [self setValue:@(style.wordLineSpacing) forKey:@"lineSpacing"];
+    
+    if(style.attributedWordName)
+        self.attributedText = style.attributedWordName;
+    else
+        self.text = style.wordName;
     
     if(style.wordColor)
         self.textColor = style.wordColor;
-    if(style.wordColorValue)
-        self.textColor = hex(style.wordColorValue);
-    
+        
     if(style.wordSize)
     {
         if((style.bold && style.thin) || (!style.bold && !style.thin) )
@@ -35,7 +39,7 @@
         }
     }
     
-    self.textAlignment = style.horizontalAlignment;
+    self.textAlignment = style.wordHorizontalAlignment;
     
     return self;
 }

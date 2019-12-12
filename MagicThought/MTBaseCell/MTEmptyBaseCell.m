@@ -7,8 +7,6 @@
 //
 
 #import "MTEmptyBaseCell.h"
-#import "UIView+Frame.h"
-#import "MTConst.h"
 #import "NSString+Exist.h"
 #import "MTLoadingView.h"
 
@@ -20,7 +18,7 @@
         
     self.loadingView.hidden = model.isAlreadyLoad;
         
-    if(model.isAlreadyLoad && [model.mt_order isEqualToString:MTBanClickOrder] && [model.refreshOrder isExist])
+    if(model.isAlreadyLoad && [model.mt_order isEqualToString:@"MTBanClickOrder"] && [model.refreshOrder isExist])
         model.mt_click(model.refreshOrder);
 }
 

@@ -10,6 +10,9 @@
 #import "MTAlert.h"
 #import "MTConst.h"
 #import "NSString+Exist.h"
+#import "NSArray+Alert.h"
+#import "MTAlertViewConfig.h"
+#import "MTCloud.h"
 
 @interface MTAppDelegate ()
 
@@ -33,6 +36,9 @@
     //设置样式
     [self configViewStyle];
     
+    //设置弹窗样式
+    [self configMTCloud];
+    
     [self setupDefault];
     
     self.windowNum = 0;
@@ -52,7 +58,7 @@
 #if TARGET_IPHONE_SIMULATOR
     NSString *rootPath = [[NSBundle mainBundle] objectForInfoDictionaryKey:@"projectPath"];
     //本地绝对路径
-    NSString *cssPath = [NSString stringWithFormat:@"%@/%@.css", rootPath, rootPath.lastPathComponent];    
+    NSString *cssPath = [NSString stringWithFormat:@"%@/%@.css", rootPath, rootPath.lastPathComponent];
     [VKCssHotReloader hotReloaderListenCssPath:cssPath];
     [VKCssHotReloader startHotReloader];
 #else
@@ -63,8 +69,18 @@
     else if([self.cssFileName isExist])
     {
         @loadBundleCss(self.cssFileName);
-    }        
+    }
 #endif
+}
+
+//设置弹窗样式
+-(void)configMTCloud
+{
+    [MTCloud shareCloud].alertViewConfigName = self.alertConfigName;
+        
+    Class apiManagerClassName = NSClassFromString(self.apiManagerName);
+    if([apiManagerClassName isSubclassOfClass:[NSObject class]])
+      [MTCloud shareCloud].apiManager = apiManagerClassName.new;
 }
 
 /**去登录*/
@@ -116,13 +132,15 @@ void gloablException(NSException * exception) {
 }
 
 - (void)handleCrashException:(nonnull NSString *)exceptionMessage extraInfo:(nullable NSDictionary *)info {
-    MTAlertViewConfig* config = [MTAlertViewConfig new];
-    config.title = mt_AppName();
-    config.detail = @"出现了一个问题，导致程序停止正常工作。请关闭该程序。";
-    config.items = @[MTPopButtonItemMake(@"关闭程序", false, @"MTAlertExitAppOrder")];
-    config.detailLineSpacing = 4;
+                
+    MTAlertViewConfig* config =            @[
+        MTAppTitle(),
+        MTContent(@"出现了一个问题，导致程序停止正常工作。请关闭该程序。"),
+        MTButtons(@"关闭程序")
+    ].alertConfig;
     
-    [self alertWithConfig:config];
+    config.content.wordStyle.wordLineSpacing = 4;
+    config.alert_mt();
 }
 
 - (void)doSomeThingForMe:(id)obj withOrder:(NSString *)order {

@@ -8,6 +8,9 @@
 
 #import <UIKit/UIKit.h>
 
+CG_EXTERN NSString* MTBanClickOrder;
+CG_EXTERN NSString* MTBindNewObjectOrder;
+
 typedef struct
 {
     CGFloat minLineSpacing;
@@ -49,7 +52,7 @@ typedef BOOL (^MTClick)(NSString* _Nullable order);
 
 @end
 
-
+typedef NSObject* _Nonnull (^BindNewObjectOrder) (void);
 typedef NSObject* _Nonnull (^BindOrder) (NSString* _Nonnull order);
 typedef NSObject* _Nonnull (^BindTagIdentifier) (NSString* _Nonnull tagIdentifier);
 typedef  NSObject* _Nonnull  (^BindReuseIdentifier) (NSString* _Nonnull reuseIdentifier);
@@ -65,13 +68,16 @@ typedef NSObject* _Nonnull (^BindItemsSpacing) (NSArray<NSValue*>* _Nonnull spac
 typedef NSObject* _Nonnull (^Bind3dTouch) (void);
 typedef NSObject* _Nonnull (^BindHeaderEmptyShow) (void);
 typedef NSObject* _Nonnull (^BindClick) (MTClick _Nullable);
+typedef id _Nonnull (^MTSetWithObject) (NSObject* _Nullable object);
 
-
+#define new(obj) new.setObject((obj))
 @interface NSObject (BindReuseIdentifier)
 
 @property (nonatomic,copy,readonly) BindClick _Nonnull bindClick;
 
 @property (nonatomic,copy,readonly) BindOrder _Nonnull bindOrder;
+
+@property (nonatomic,copy,readonly) BindNewObjectOrder _Nonnull bindNewObjectOrder;
 
 @property (nonatomic,copy,readonly) BindTagIdentifier _Nonnull bindTag;
 
@@ -99,6 +105,8 @@ typedef NSObject* _Nonnull (^BindClick) (MTClick _Nullable);
 
 @property (nonatomic,copy,readonly) BindHeaderEmptyShow _Nonnull bindHeaderEmptyShow;
 
+@property (nonatomic,copy,readonly) MTSetWithObject _Nonnull setObject;
+- (instancetype _Nullable)setWithObject:(NSObject* _Nullable)obj;
 
 @end
 

@@ -162,8 +162,6 @@ NSString*  MTShadowHideNotification = @"MTShadowHideNotification";
 NSString*  MTGetPhotoFromAlbumOrder = @"MTGetPhotoFromAlbumOrder";
 NSString*  MTGetPhotoFromCameraOrder = @"MTGetPhotoFromCameraOrder";
 NSString*  MTTextValueChangeOrder = @"MTTextValueChangeOrder";
-NSString* MTBanClickOrder = @"MTBanClickOrder";
-
 
 NSString*  MTExitTime = @"MTExitTime";
 NSString*  MTReachability = @"MTReachability";
@@ -225,7 +223,7 @@ void mt_GoToAppStore()
     
     NSURL *url= [NSURL URLWithString:trackViewUrl];
     if([[UIApplication sharedApplication] canOpenURL:url])
-        [[UIApplication sharedApplication] openURL:url];
+        [[UIApplication sharedApplication] openURL:url];    
 }
 
 CGFloat mt_ScreenW()

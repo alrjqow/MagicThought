@@ -9,7 +9,6 @@
 #import "MTTextFieldCell.h"
 #import "MTWordStyle.h"
 #import "NSString+Exist.h"
-#import "UIView+Frame.h"
 #import "MTConst.h"
 
 @implementation MTTextFieldCell

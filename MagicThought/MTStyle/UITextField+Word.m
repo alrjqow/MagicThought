@@ -17,8 +17,6 @@
     
     if(style.wordColor)
         self.textColor = style.wordColor;
-    if(style.wordColorValue)
-        self.textColor = hex(style.wordColorValue);
     
     if(style.wordSize)
     {
@@ -35,7 +33,7 @@
         }            
     }
     
-    self.textAlignment = style.horizontalAlignment;
+    self.textAlignment = style.wordHorizontalAlignment;
     
     return self;
 }
