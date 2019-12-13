@@ -8,7 +8,15 @@
 
 #import "MTWordStyle.h"
 
+#import <MJExtension.h>
+
 @implementation MTWordStyle
+
++(NSArray *)mj_ignoredPropertyNames
+{
+    return @[@"lineSpacing", @"verticalAlignment", @"horizontalAlignment", @"bold", @"thin"];
+}
+
 
 -(Bold)bold
 {
@@ -101,7 +109,5 @@ MTWordStyle* mt_AttributedWordStyleMake(CGFloat wordSize, NSAttributedString* at
     
     return word;
 }
-
-
 
 @end

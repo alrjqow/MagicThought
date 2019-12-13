@@ -32,6 +32,8 @@
 		7820501722EEEBFD0004C96C /* UIViewControllerTransitionModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 7820500A22EEEBFD0004C96C /* UIViewControllerTransitionModel.m */; };
 		7820501822EEEBFD0004C96C /* MTInteractiveGestureTransitioningProtocol.h in Headers */ = {isa = PBXBuildFile; fileRef = 7820500B22EEEBFD0004C96C /* MTInteractiveGestureTransitioningProtocol.h */; };
 		7820501922EEEBFD0004C96C /* UIViewControllerTransitionModel.h in Headers */ = {isa = PBXBuildFile; fileRef = 7820500C22EEEBFD0004C96C /* UIViewControllerTransitionModel.h */; };
+		7840A46423A37426007A378E /* NSObject+MJExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = 7840A46223A37426007A378E /* NSObject+MJExtension.m */; };
+		7840A46523A37426007A378E /* NSObject+MJExtension.h in Headers */ = {isa = PBXBuildFile; fileRef = 7840A46323A37426007A378E /* NSObject+MJExtension.h */; };
 		7842DA0E23A2391E0025033A /* UIView+MTBaseViewContentModel.h in Headers */ = {isa = PBXBuildFile; fileRef = 7842DA0723A2391E0025033A /* UIView+MTBaseViewContentModel.h */; };
 		7842DA0F23A2391E0025033A /* MTViewContentModels.h in Headers */ = {isa = PBXBuildFile; fileRef = 7842DA0823A2391E0025033A /* MTViewContentModels.h */; };
 		7842DA1023A2391E0025033A /* MTViewContentModel.h in Headers */ = {isa = PBXBuildFile; fileRef = 7842DA0923A2391E0025033A /* MTViewContentModel.h */; };
@@ -576,6 +578,8 @@
 		7820500A22EEEBFD0004C96C /* UIViewControllerTransitionModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UIViewControllerTransitionModel.m; sourceTree = "<group>"; };
 		7820500B22EEEBFD0004C96C /* MTInteractiveGestureTransitioningProtocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MTInteractiveGestureTransitioningProtocol.h; sourceTree = "<group>"; };
 		7820500C22EEEBFD0004C96C /* UIViewControllerTransitionModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UIViewControllerTransitionModel.h; sourceTree = "<group>"; };
+		7840A46223A37426007A378E /* NSObject+MJExtension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+MJExtension.m"; sourceTree = "<group>"; };
+		7840A46323A37426007A378E /* NSObject+MJExtension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+MJExtension.h"; sourceTree = "<group>"; };
 		7842DA0723A2391E0025033A /* UIView+MTBaseViewContentModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+MTBaseViewContentModel.h"; sourceTree = "<group>"; };
 		7842DA0823A2391E0025033A /* MTViewContentModels.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MTViewContentModels.h; sourceTree = "<group>"; };
 		7842DA0923A2391E0025033A /* MTViewContentModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MTViewContentModel.h; sourceTree = "<group>"; };
@@ -1186,10 +1190,10 @@
 		7842DA1523A2395A0025033A /* Dependency */ = {
 			isa = PBXGroup;
 			children = (
+				7842DA1923A2395A0025033A /* Dependency.h */,
 				7842DA1623A2395A0025033A /* Reachability.m */,
 				7842DA1723A2395A0025033A /* NSString+Exist.h */,
 				7842DA1823A2395A0025033A /* UIDevice+DeviceInfo.h */,
-				7842DA1923A2395A0025033A /* Dependency.h */,
 				7842DA1A23A2395A0025033A /* MTConst.m */,
 				7842DA1B23A2395A0025033A /* MTCloud.h */,
 				7842DA2723A2395A0025033A /* MTCloud.m */,
@@ -1199,7 +1203,6 @@
 				7842DA1F23A2395A0025033A /* MTWordStyle.m */,
 				7842DA2023A2395A0025033A /* MTBorderStyle.h */,
 				7842DA2123A2395A0025033A /* UIView+Circle.h */,
-				7842DA2223A2395A0025033A /* NSObject+ReuseIdentifier.h */,
 				7842DA2323A2395A0025033A /* NSObject+CommonProtocol.m */,
 				7842DA2423A2395A0025033A /* UIDevice+DeviceInfo.m */,
 				7842DA2523A2395A0025033A /* NSString+Exist.m */,
@@ -1209,7 +1212,10 @@
 				7842DA2A23A2395A0025033A /* UIView+Frame.h */,
 				7842DA2B23A2395A0025033A /* MTManager.m */,
 				7842DA2C23A2395A0025033A /* NSObject+CommonProtocol.h */,
+				7842DA2223A2395A0025033A /* NSObject+ReuseIdentifier.h */,
 				7842DA2D23A2395A0025033A /* NSObject+ReuseIdentifier.m */,
+				7840A46323A37426007A378E /* NSObject+MJExtension.h */,
+				7840A46223A37426007A378E /* NSObject+MJExtension.m */,
 				7842DA2E23A2395A0025033A /* UIView+Circle.m */,
 				7842DA2F23A2395A0025033A /* MTBorderStyle.m */,
 				7842DA3023A2395A0025033A /* MTWordStyle.h */,
@@ -2504,6 +2510,7 @@
 				7820501022EEEBFD0004C96C /* AnimateController.h in Headers */,
 				789F400D22DC2B1A00586487 /* CLLocation+Mar.h in Headers */,
 				78492822239A171600FF1166 /* VKTextDecorationStyle.h in Headers */,
+				7840A46523A37426007A378E /* NSObject+MJExtension.h in Headers */,
 				7842DB8523A23B6D0025033A /* MTTextFieldVerifyModel.h in Headers */,
 				78492838239A171600FF1166 /* VKCssProtocol.h in Headers */,
 				789F3FC722DC2B1A00586487 /* MTDocument.h in Headers */,
@@ -2866,6 +2873,7 @@
 				7842DAC723A23A5C0025033A /* MTBaseCollectionReusableView.m in Sources */,
 				784927F8239A171600FF1166 /* SGDirWatchdog.m in Sources */,
 				789F404E22DC2B1B00586487 /* MTAlertCollectionController.m in Sources */,
+				7840A46423A37426007A378E /* NSObject+MJExtension.m in Sources */,
 				7820501122EEEBFD0004C96C /* MTAnimatedTransitioning.m in Sources */,
 				789F409822DC2B1B00586487 /* TZImageManager.m in Sources */,
 				789F408A22DC2B1B00586487 /* TZImageCropManager.m in Sources */,

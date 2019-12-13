@@ -15,6 +15,12 @@ NSString* MTBindNewObjectOrder = @"MTBindNewObjectOrder";
 
 @implementation NSReuseObject
 
+-(instancetype)setWithObject:(NSObject *)obj
+{
+    self.data = obj;
+    return self;
+}
+
 @end
 
 
@@ -471,16 +477,23 @@ NSString* MTBindNewObjectOrder = @"MTBindNewObjectOrder";
 }
 
 - (instancetype)setWithObject:(NSObject*)obj{return self;}
--(MTSetWithObject)setObject
+-(MTSetWithObjects)setObjects
 {
     __weak __typeof(self) weakSelf = self;
-    MTSetWithObject setObject  = ^(NSObject* object){
+    MTSetWithObjects setObjects  = ^(NSObject* objects){
         
-        [weakSelf setWithObject:object];
+        if([objects isKindOfClass:[NSArray class]])
+        {
+            for (NSObject* obj in (NSArray*)objects)
+                [weakSelf setWithObject:obj];
+        }
+        else
+            [weakSelf setWithObject:objects];
+                
         return weakSelf;
     };
     
-    return setObject;
+    return setObjects;
 }
 
 @end

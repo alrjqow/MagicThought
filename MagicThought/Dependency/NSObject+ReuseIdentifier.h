@@ -68,9 +68,9 @@ typedef NSObject* _Nonnull (^BindItemsSpacing) (NSArray<NSValue*>* _Nonnull spac
 typedef NSObject* _Nonnull (^Bind3dTouch) (void);
 typedef NSObject* _Nonnull (^BindHeaderEmptyShow) (void);
 typedef NSObject* _Nonnull (^BindClick) (MTClick _Nullable);
-typedef id _Nonnull (^MTSetWithObject) (NSObject* _Nullable object);
+typedef id _Nonnull (^MTSetWithObjects) (NSObject* _Nullable objects);
 
-#define new(obj) new.setObject((obj))
+#define new(...) new.setObjects(@[__VA_ARGS__])
 @interface NSObject (BindReuseIdentifier)
 
 @property (nonatomic,copy,readonly) BindClick _Nonnull bindClick;
@@ -105,7 +105,7 @@ typedef id _Nonnull (^MTSetWithObject) (NSObject* _Nullable object);
 
 @property (nonatomic,copy,readonly) BindHeaderEmptyShow _Nonnull bindHeaderEmptyShow;
 
-@property (nonatomic,copy,readonly) MTSetWithObject _Nonnull setObject;
+@property (nonatomic,copy,readonly) MTSetWithObjects _Nonnull setObjects;
 - (instancetype _Nullable)setWithObject:(NSObject* _Nullable)obj;
 
 @end

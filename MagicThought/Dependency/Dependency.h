@@ -24,3 +24,4 @@
 #import "UIDevice+DeviceInfo.h"
 #import "NSObject+ReuseIdentifier.h"
 #import "NSObject+CommonProtocol.h"
+#import "NSObject+MJExtension.h"

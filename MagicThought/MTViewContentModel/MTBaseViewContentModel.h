@@ -52,7 +52,10 @@
 
 
 
+CG_EXTERN NSObject* _Nonnull mt_css(NSString* _Nullable str);
+CG_EXTERN NSObject* _Nonnull mt_btnTextColor(UIColor* _Nullable color);
+CG_EXTERN NSObject* _Nonnull mt_btnImg(NSObject* _Nullable img);
+CG_EXTERN NSObject* _Nonnull mt_btnImg_bg(NSObject* _Nullable img_bg);
 
-@interface CSSString : NSString @end
-CG_EXTERN CSSString* _Nonnull mt_css(NSString* _Nullable str);
+
 

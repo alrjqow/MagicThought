@@ -24,7 +24,7 @@
     if(![oldValue isKindOfClass:[NSObject class]])
         return oldValue;
     
-    if([property.srcClass isSubclassOfClass:[NSArray class]])
+    if([property.type.typeClass isSubclassOfClass:[NSArray class]])
     {
         Class objectClass = [property objectClassInArrayForClass:[self class]];
         
@@ -34,7 +34,7 @@
             return [(NSArray*)oldValue baseViewContentModelArrayWIthClass:objectClass];
     }
     
-    if(![property.srcClass isSubclassOfClass:[MTBaseViewContentModel class]])
+    if(![property.type.typeClass isSubclassOfClass:[MTBaseViewContentModel class]])
         return oldValue;
     
     if([oldValue isKindOfClass:[MTBaseViewContentModel class]])
@@ -43,15 +43,15 @@
     MTBaseViewContentModel* model;
     NSObject* obj = oldValue;
     if([obj.mt_order isEqualToString:MTBindNewObjectOrder])
-        model = property.srcClass.new;
+        model = property.type.typeClass.new;
     else
     {
         model = [self valueForKey:property.name];
         if(!model)
-            model = property.srcClass.new;
+            model = property.type.typeClass.new;
     }
     
-    return model.bind(obj.mt_reuseIdentifier).bindClick(obj.mt_click).bindOrder(obj.mt_order).bindTag(obj.mt_tagIdentifier).setObject(oldValue);
+    return model.bind(obj.mt_reuseIdentifier).bindClick(obj.mt_click).bindOrder(obj.mt_order).bindTag(obj.mt_tagIdentifier).setObjects(oldValue);
 }
 
 
