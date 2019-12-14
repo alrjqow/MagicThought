@@ -437,14 +437,10 @@
 		789F405B22DC2B1B00586487 /* MTAlertDatePickerController.h in Headers */ = {isa = PBXBuildFile; fileRef = 789F3EA322DC2B1A00586487 /* MTAlertDatePickerController.h */; };
 		789F405C22DC2B1B00586487 /* MTBaseAlertCollectionController.m in Sources */ = {isa = PBXBuildFile; fileRef = 789F3EA422DC2B1A00586487 /* MTBaseAlertCollectionController.m */; };
 		789F405D22DC2B1B00586487 /* MTBaseAlertGroupController.m in Sources */ = {isa = PBXBuildFile; fileRef = 789F3EA522DC2B1A00586487 /* MTBaseAlertGroupController.m */; };
-		789F405E22DC2B1B00586487 /* MTAlertPickerItem.h in Headers */ = {isa = PBXBuildFile; fileRef = 789F3EA722DC2B1A00586487 /* MTAlertPickerItem.h */; };
 		789F405F22DC2B1B00586487 /* MTAlertSheetItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 789F3EA822DC2B1A00586487 /* MTAlertSheetItem.m */; };
 		789F406022DC2B1B00586487 /* MTAlertWordItem.h in Headers */ = {isa = PBXBuildFile; fileRef = 789F3EA922DC2B1A00586487 /* MTAlertWordItem.h */; };
-		789F406122DC2B1B00586487 /* MTAlertItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 789F3EAA22DC2B1A00586487 /* MTAlertItem.m */; };
-		789F406222DC2B1B00586487 /* MTAlertPickerItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 789F3EAB22DC2B1A00586487 /* MTAlertPickerItem.m */; };
 		789F406322DC2B1B00586487 /* MTAlertWordItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 789F3EAC22DC2B1A00586487 /* MTAlertWordItem.m */; };
 		789F406422DC2B1B00586487 /* MTAlertSheetItem.h in Headers */ = {isa = PBXBuildFile; fileRef = 789F3EAD22DC2B1A00586487 /* MTAlertSheetItem.h */; };
-		789F406522DC2B1B00586487 /* MTAlertItem.h in Headers */ = {isa = PBXBuildFile; fileRef = 789F3EAE22DC2B1A00586487 /* MTAlertItem.h */; };
 		789F406622DC2B1B00586487 /* MTAlertUIContainer.h in Headers */ = {isa = PBXBuildFile; fileRef = 789F3EB022DC2B1A00586487 /* MTAlertUIContainer.h */; };
 		789F406722DC2B1B00586487 /* MTAlertUIContainer.m in Sources */ = {isa = PBXBuildFile; fileRef = 789F3EB122DC2B1A00586487 /* MTAlertUIContainer.m */; };
 		789F406822DC2B1B00586487 /* MTBaseDataModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 789F3EB322DC2B1A00586487 /* MTBaseDataModel.m */; };
@@ -983,14 +979,10 @@
 		789F3EA322DC2B1A00586487 /* MTAlertDatePickerController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MTAlertDatePickerController.h; sourceTree = "<group>"; };
 		789F3EA422DC2B1A00586487 /* MTBaseAlertCollectionController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MTBaseAlertCollectionController.m; sourceTree = "<group>"; };
 		789F3EA522DC2B1A00586487 /* MTBaseAlertGroupController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MTBaseAlertGroupController.m; sourceTree = "<group>"; };
-		789F3EA722DC2B1A00586487 /* MTAlertPickerItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MTAlertPickerItem.h; sourceTree = "<group>"; };
 		789F3EA822DC2B1A00586487 /* MTAlertSheetItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MTAlertSheetItem.m; sourceTree = "<group>"; };
 		789F3EA922DC2B1A00586487 /* MTAlertWordItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MTAlertWordItem.h; sourceTree = "<group>"; };
-		789F3EAA22DC2B1A00586487 /* MTAlertItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MTAlertItem.m; sourceTree = "<group>"; };
-		789F3EAB22DC2B1A00586487 /* MTAlertPickerItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MTAlertPickerItem.m; sourceTree = "<group>"; };
 		789F3EAC22DC2B1A00586487 /* MTAlertWordItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MTAlertWordItem.m; sourceTree = "<group>"; };
 		789F3EAD22DC2B1A00586487 /* MTAlertSheetItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MTAlertSheetItem.h; sourceTree = "<group>"; };
-		789F3EAE22DC2B1A00586487 /* MTAlertItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MTAlertItem.h; sourceTree = "<group>"; };
 		789F3EB022DC2B1A00586487 /* MTAlertUIContainer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MTAlertUIContainer.h; sourceTree = "<group>"; };
 		789F3EB122DC2B1A00586487 /* MTAlertUIContainer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MTAlertUIContainer.m; sourceTree = "<group>"; };
 		789F3EB322DC2B1A00586487 /* MTBaseDataModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MTBaseDataModel.m; sourceTree = "<group>"; };
@@ -1822,9 +1814,9 @@
 			isa = PBXGroup;
 			children = (
 				781B0F5222EFE70A00B56434 /* MTViewControllers.h */,
+				789F3E0E22DC2B1A00586487 /* UIViewController + Base */,
 				789F3E1422DC2B1A00586487 /* UIViewController + PickView */,
 				789F3E0B22DC2B1A00586487 /* UIViewController + Progress */,
-				789F3E0E22DC2B1A00586487 /* UIViewController + Base */,
 				789F3E1122DC2B1A00586487 /* UIViewController + FeedBackInfo */,
 				789F3E1B22DC2B1A00586487 /* UIViewController + MTSafariView */,
 			);
@@ -2060,14 +2052,10 @@
 		789F3EA622DC2B1A00586487 /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				789F3EA722DC2B1A00586487 /* MTAlertPickerItem.h */,
-				789F3EAB22DC2B1A00586487 /* MTAlertPickerItem.m */,
 				789F3EAD22DC2B1A00586487 /* MTAlertSheetItem.h */,
 				789F3EA822DC2B1A00586487 /* MTAlertSheetItem.m */,
 				789F3EA922DC2B1A00586487 /* MTAlertWordItem.h */,
 				789F3EAC22DC2B1A00586487 /* MTAlertWordItem.m */,
-				789F3EAE22DC2B1A00586487 /* MTAlertItem.h */,
-				789F3EAA22DC2B1A00586487 /* MTAlertItem.m */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -2256,6 +2244,9 @@
 			children = (
 				789F3E2622DC2B1A00586487 /* MTKit.h */,
 				789F3F1822DC2B1A00586487 /* README.md */,
+				7842DB5923A23B2A0025033A /* MTListController */,
+				789F3E0A22DC2B1A00586487 /* MTViewController */,
+				789F3E9422DC2B1A00586487 /* MTAlert2 */,
 				7842DA4C23A2398E0025033A /* MTAlert */,
 				7842DA1523A2395A0025033A /* Dependency */,
 				7842DA6B23A239EC0025033A /* MTAppDelegate */,
@@ -2264,7 +2255,6 @@
 				7842DB8C23A23B8B0025033A /* MTManager */,
 				7842DB7D23A23B6D0025033A /* MTTextFieldVerify */,
 				7842DB7423A23B490025033A /* MTTabBarController */,
-				7842DB5923A23B2A0025033A /* MTListController */,
 				7842DB4623A23B030025033A /* MTImagePlay */,
 				7842DB1123A23ADD0025033A /* MTImageShowAndBrowser */,
 				7842DADA23A23AB80025033A /* MTTenScroll */,
@@ -2272,9 +2262,7 @@
 				7842DAA723A23A5B0025033A /* MTBaseCell */,
 				7842DA7023A23A1E0025033A /* MTDelegateMode */,
 				789F3E2322DC2B1A00586487 /* MTNavigationController */,
-				789F3E0A22DC2B1A00586487 /* MTViewController */,
 				781B0F6922F026EB00B56434 /* MTChart */,
-				789F3E9422DC2B1A00586487 /* MTAlert2 */,
 				789F3F7822DC2B1A00586487 /* MTCustomCamera */,
 				789F3EDA22DC2B1A00586487 /* Library */,
 				789F3DEA22DC2B1A00586487 /* MTFileSelect */,
@@ -2495,7 +2483,6 @@
 				7842DAFA23A23AB90025033A /* MTTenScrollViewCellDelegateModel.h in Headers */,
 				789F3FCA22DC2B1A00586487 /* FileType.h in Headers */,
 				784927A8239A166900FF1166 /* MTNavigationPhotoBrowserController.h in Headers */,
-				789F405E22DC2B1B00586487 /* MTAlertPickerItem.h in Headers */,
 				7842DA4523A2395B0025033A /* UIView+Frame.h in Headers */,
 				7842DA4B23A2395B0025033A /* MTWordStyle.h in Headers */,
 				7820501922EEEBFD0004C96C /* UIViewControllerTransitionModel.h in Headers */,
@@ -2560,7 +2547,6 @@
 				789F411022DC2B1B00586487 /* NSDictionary+File.h in Headers */,
 				789F402722DC2B1A00586487 /* NSString+Unicode.h in Headers */,
 				789F402E22DC2B1A00586487 /* NSObject+HideKey.h in Headers */,
-				789F406522DC2B1B00586487 /* MTAlertItem.h in Headers */,
 				789F3FB622DC2B1A00586487 /* UIImage+PropertyExtension.h in Headers */,
 				789F409122DC2B1B00586487 /* TZImagePickerController.h in Headers */,
 				789F409F22DC2B1B00586487 /* TZPhotoPreviewController.h in Headers */,
@@ -2749,7 +2735,6 @@
 				7842DB0F23A23AB90025033A /* MTTenScrollViewCell.m in Sources */,
 				789F40C922DC2B1B00586487 /* UIView+Tap.m in Sources */,
 				789F406322DC2B1B00586487 /* MTAlertWordItem.m in Sources */,
-				789F406222DC2B1B00586487 /* MTAlertPickerItem.m in Sources */,
 				7842DAC623A23A5C0025033A /* MTLoadingView.m in Sources */,
 				7842DAA623A23A1E0025033A /* MTDragCollectionViewCell.m in Sources */,
 				789F410622DC2B1B00586487 /* MTIndicatorView.m in Sources */,
@@ -2918,7 +2903,6 @@
 				7842DA9F23A23A1E0025033A /* MTDataSource.m in Sources */,
 				7842DB4423A23ADD0025033A /* MTPhotoPreviewViewCell.m in Sources */,
 				7842DA9623A23A1E0025033A /* MTDelegateHeaderFooterView.m in Sources */,
-				789F406122DC2B1B00586487 /* MTAlertItem.m in Sources */,
 				789F414322DC2B9100586487 /* MTRefreshAutoNormalFooter.m in Sources */,
 				7842DA3523A2395A0025033A /* MTConst.m in Sources */,
 				789F404922DC2B1B00586487 /* MTRefreshRing.m in Sources */,

@@ -30,7 +30,7 @@
 {
     [super setupDefault];
     
-    //    self.isDragEnable = YES;
+    self.isDragEnable = false;
     
     self.textLabel = [UILabel new];
     self.textLabel.textAlignment = NSTextAlignmentCenter;

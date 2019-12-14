@@ -10,7 +10,6 @@
 
 #import "MTConst.h"
 #import "UIView+Frame.h"
-#import "UIView+Circle.h"
 
 
 @interface MTBaseAlertPickerController ()

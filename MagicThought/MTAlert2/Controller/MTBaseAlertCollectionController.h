@@ -8,13 +8,6 @@
 
 #import "MTBaseAlertGroupController.h"
 
-#import "MTDragCollectionView.h"
-
-@interface MTBaseAlertCollectionController : MTBaseAlertGroupController<UICollectionViewDelegateFlowLayout>
-
-@property (nonatomic,strong) MTDragCollectionView* collectionView;
-
-
-@end
+@interface MTBaseAlertCollectionController : MTBaseAlertGroupController @end
 
 

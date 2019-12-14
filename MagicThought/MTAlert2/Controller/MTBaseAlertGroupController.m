@@ -9,7 +9,6 @@
 #import "MTBaseAlertGroupController.h"
 
 #import "MTConst.h"
-#import "UIView+Frame.h"
 #import "UIView+Circle.h"
 
 @interface MTBaseAlertGroupController ()
@@ -58,12 +57,6 @@
 
 #pragma mark - 懒加载
 
--(void)setDataList:(NSArray *)dataList
-{
-    _dataList = dataList;
-    
-    [self loadData];
-}
 
 
 @end

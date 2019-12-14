@@ -10,21 +10,11 @@
 
 @implementation MTAlertWordItem
 
-+(instancetype)itemWithOrder:(NSString*)order Title:(NSString*)title
+-(void)setupDefault
 {
-    MTAlertWordItem* item = [self itemWithOrder:order];
-    item.word = mt_WordStyleMake(15, title, hex(0x222222));
-    
-    return item;
-}
-
-
--(void)setIsCancel:(BOOL)isCancel
-{
-    _isCancel = isCancel;
-    
-    if(isCancel)
-        self.word = mt_WordStyleMake(15, @"取消", hex(0x2976f4));
+    [super setupDefault];
+        
+    self.wordStyle = self.isCancel ? mt_WordStyleMake(15, @"取消", hex(0x2976f4)) : mt_WordStyleMake(15, @"", hex(0x222222));
 }
 
 @end
@@ -32,14 +22,28 @@
 
 @implementation MTAlertWordCancelItem
 
--(instancetype)init
+-(BOOL)isCancel
 {
-    if(self = [super init])
-    {
-        self.isCancel = YES;
-    }
-    
-    return self;
+    return YES;
 }
 
 @end
+
+
+
+@implementation MTAlertPickerItem
+
+-(void)setupDefault
+{
+    [super setupDefault];
+    
+    self.wordStyle = mt_WordStyleMake(12, @"", hex(0x333333));
+    self.selectedWordStyle = mt_WordStyleMake(12, @"", hex(0x2976f4));
+}
+
+@end
+
+MTWordStyle* _Nonnull mt_selectedWord(MTWordStyle* _Nullable selectedWordStyle)
+{
+    return (MTWordStyle*)selectedWordStyle.bindTag(@"selectedWordStyle");
+}

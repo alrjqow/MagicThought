@@ -44,12 +44,12 @@
 @implementation MTTakePhotoPreseter
 
 
-+(instancetype)preseter {    
++(instancetype)preseter {
     static MTTakePhotoPreseter *singleton = nil;
     if (! singleton)
     {
         singleton = [super manager];
-        singleton.vc = mt_rootViewController();           
+        singleton.vc = mt_rootViewController();
     }
     return singleton;
 }
@@ -157,7 +157,7 @@
         return;
     
     MTPhotoPreviewViewModel* model = (MTPhotoPreviewViewModel*)self.model;
-    [model addCellModelFromImages:photos];    
+    [model addCellModelFromImages:photos];
 }
 
 #pragma mark - 获取到照片后
@@ -187,8 +187,8 @@
         [self pushImagePickerController];
     else if([order isEqualToString:MTGetPhotoFromCameraOrder])
         [self takePhotoFromCamera];
-    else if([self.model.alertController.modalController respondsToSelector:@selector(doSomeThingForMe:withOrder:)])
-        [self.model.alertController.modalController doSomeThingForMe:self.model withOrder:order];
+    else if([self.model.alertController.mt_delegate respondsToSelector:@selector(doSomeThingForMe:withOrder:)])
+        [self.model.alertController.mt_delegate doSomeThingForMe:self.model withOrder:order];
 }
 
 - (void)actionSheet:(UIActionSheet *)actionSheet clickedButtonAtIndex:(NSInteger)buttonIndex

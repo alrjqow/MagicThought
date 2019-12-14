@@ -9,11 +9,7 @@
 #import "MTBaseAlertController.h"
 
 #import "MTConst.h"
-
-#import "MTCloud.h"
-
 #import "UIView+Frame.h"
-#import "NSString+Exist.h"
 
 @interface MTBaseAlertController ()
 
@@ -22,14 +18,6 @@
 @end
 
 @implementation MTBaseAlertController
-
--(void)viewDidAppear:(BOOL)animated
-{
-    [super viewDidAppear:animated];
-    
-    if(self.modalController)
-        [MTCloud shareCloud].currentViewController = self.modalController;
-}
 
 -(void)setupDefault
 {
@@ -69,18 +57,18 @@
     switch (self.type) {
         case MTBaseAlertTypeUp:
         {
-                [self.modalController.navigationController presentViewController:self animated:false completion:^{
+                [mt_rootViewController() presentViewController:self animated:false completion:^{
                     [UIView animateWithDuration:self.animateTime animations:^{
                         self.blackView.alpha = 1;
                         self.alertView.y = self.view.height - self.alertView.height;
                     }];
-                }];            
+                }];
             break;
         }
             
         default:
         {
-            [self.modalController ? self.modalController : mt_rootViewController()  presentViewController:self animated:YES completion:nil];
+            [mt_rootViewController()  presentViewController:self animated:YES completion:nil];
             break;
         }
     }
@@ -116,23 +104,13 @@
     }
 }
 
-/**用来消失，参数用于触发事件后是否执行dismiss，配合 existEventList 使用*/
--(void)dismissWithEvent:(NSString*)eventOrder
-{
-    self.isDismiss = [eventOrder isEqualToString:MTGetPhotoFromCameraOrder] || [eventOrder isEqualToString:MTGetPhotoFromAlbumOrder];
-    self.isDismiss = [self.existEventList objectForKey:eventOrder] == nil;
-        
-    [self dismiss];
-}
-
-
 -(void)alertTypeUpDismiss
 {
     [UIView animateWithDuration:self.animateTime animations:^{
         self.blackView.alpha = 0;
         self.alertView.y = self.view.height;
     } completion:^(BOOL finished) {
-        if(self.isDismiss)
+//        if(self.isDismiss)
             [self dismissViewControllerAnimated:false completion:nil];
         
         self.isDismiss = YES;
@@ -156,17 +134,6 @@
 }
 
 
-#pragma mark - 代理
 
--(void)doSomeThingForMe:(id)obj withOrder:(NSString *)order withItem:(id)item
-{
-    if([order isEqualToString:@"MTAlertSheetCellClickOrder"])
-    {
-        NSString* eventOrder = item;
-        [self dismissWithEvent:eventOrder];
-        if([eventOrder isExist] && [self.mt_delegate respondsToSelector:@selector(doSomeThingForMe:withOrder:)])
-            [self.mt_delegate doSomeThingForMe:self withOrder:eventOrder];
-    }
-}
 
 @end

@@ -23,13 +23,13 @@
 @protocol MTDelegateViewDataProtocol
 
 @optional
--(NSArray*)dataList;
+@property (nonatomic,strong) NSArray* dataList;
 
--(NSArray*)tenScrollDataList;
+@property (nonatomic,strong) NSArray* tenScrollDataList;
 
--(NSArray*)sectionList;
+@property (nonatomic,strong) NSArray* sectionList;
 
--(NSObject*)emptyData;
+@property (nonatomic,strong) NSObject* emptyData;
 
 @end
 

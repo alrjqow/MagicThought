@@ -23,7 +23,7 @@
 
 +(instancetype)photoBrowserControllerWithModel:(MTPhotoBrowserViewModel*)model;
 {
-    MTPhotoBrowserController* vc = [MTPhotoBrowserController new];    
+    MTPhotoBrowserController* vc = [MTPhotoBrowserController new];
     vc.model = model;
     
     return vc;
@@ -36,14 +36,6 @@
     
     [self.navigationController setNavigationBarHidden:!self.model.isShowNavigationBar animated:YES];
     [[UIApplication sharedApplication] setStatusBarStyle: UIStatusBarStyleLightContent animated:false];
-}
-
--(void)viewDidAppear:(BOOL)animated
-{
-    [super viewDidAppear:animated];
-    
-    if([self.model.mt_delegate isKindOfClass:[MTViewController class]])
-        [MTCloud shareCloud].currentViewController = (MTViewController*)self.model.mt_delegate;
 }
 
 -(void)viewWillDisappear:(BOOL)animated
@@ -64,12 +56,12 @@
     [MTPhotoBrowser shareBrowser].frame = self.view.bounds;
     [self.view addSubview:[MTPhotoBrowser shareBrowser]];
     
-    [self.model reloadPhotoBrowser];        
+    [self.model reloadPhotoBrowser];
 }
 
 -(void)setupNavigationItem
 {
-    [self setValue:[UIColor whiteColor] forKey:@"navigationBarTitleColor"];    
+    [self setValue:[UIColor whiteColor] forKey:@"navigationBarTitleColor"];
 }
 
 

@@ -7,8 +7,10 @@
 //
 
 #import "NSObject+CommonProtocol.h"
+#import "NSObject+ReuseIdentifier.h"
 #import "MTWordStyle.h"
 #import "MTBorderStyle.h"
+#import "MTConst.h"
 
 //优先选择 cssClass
 @interface MTBaseViewContentModel : NSObject
@@ -52,8 +54,8 @@
 
 
 
-CG_EXTERN NSObject* _Nonnull mt_css(NSString* _Nullable str);
-CG_EXTERN NSObject* _Nonnull mt_btnTextColor(UIColor* _Nullable color);
+CG_EXTERN NSString* _Nonnull mt_css(NSString* _Nullable str);
+CG_EXTERN UIColor* _Nonnull mt_btnTextColor(UIColor* _Nullable color);
 CG_EXTERN NSObject* _Nonnull mt_btnImg(NSObject* _Nullable img);
 CG_EXTERN NSObject* _Nonnull mt_btnImg_bg(NSObject* _Nullable img_bg);
 

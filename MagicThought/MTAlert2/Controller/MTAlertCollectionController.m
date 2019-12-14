@@ -28,7 +28,7 @@
     __weak __typeof(self) weakSelf = self;
     [MTAlertUIContainer setUpControllBarOnController:self Layout:^(UIButton *cancelBtn, UIButton *enterBtn, UIView *sepLine) {
         
-        weakSelf.collectionView.frame = CGRectMake(0, sepLine.maxY, kScreenWidth_mt(), weakSelf.alertView.height - sepLine.maxY);
+        weakSelf.mtBase_collectionView.frame = CGRectMake(0, sepLine.maxY, kScreenWidth_mt(), weakSelf.alertView.height - sepLine.maxY);
     }];
 }
 

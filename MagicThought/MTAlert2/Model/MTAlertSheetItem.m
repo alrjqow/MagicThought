@@ -7,19 +7,15 @@
 //
 
 #import "MTAlertSheetItem.h"
-#import "NSObject+ReuseIdentifier.h"
 
 @implementation MTAlertSheetItem
 
--(instancetype)init
+-(void)setupDefault
 {
-    if(self = [super init])
-    {
-        self.marginBottom = 1;
-        self.itemHeight = 56;
-    }
+    [super setupDefault];
     
-    return self;
+    self.marginBottom = 1;
+    self.itemHeight = 56;
 }
 
 -(void)setItemHeight:(CGFloat)itemHeight
@@ -48,14 +44,9 @@
 
 @implementation MTAlertSheetCancelItem
 
--(instancetype)init
+-(BOOL)isCancel
 {
-    if(self = [super init])
-    {
-        self.isCancel = YES;
-    }
-    
-    return self;
+    return YES;
 }
 
 @end

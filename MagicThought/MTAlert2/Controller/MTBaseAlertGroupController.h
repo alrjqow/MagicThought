@@ -11,8 +11,6 @@
 
 @interface MTBaseAlertGroupController : MTBaseAlertController
 
-@property (nonatomic,weak) NSArray* dataList;
-
 -(void)enterSelected;
 
 @end

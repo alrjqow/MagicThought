@@ -20,7 +20,4 @@
 
 
 
-@interface MTAlertSheetCancelItem : MTAlertSheetItem
-
-
-@end
+@interface MTAlertSheetCancelItem : MTAlertSheetItem @end

@@ -7,11 +7,8 @@
 //
 
 #import "MTAlertUIContainer.h"
-
-#import "MTAlertPickerItem.h"
 #import "MTAlertSheetItem.h"
 #import "MTAlertWordItem.h"
-#import "MTAlertItem.h"
 
 
 #import "MTBaseAlertController.h"

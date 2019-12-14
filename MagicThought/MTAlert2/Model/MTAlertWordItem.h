@@ -6,22 +6,22 @@
 //  Copyright © 2018 monda. All rights reserved.
 //
 
-#import "MTAlertItem.h"
 
-#import "MTWordStyle.h"
-#import "MTConst.h"
+#import "MTBaseViewContentModel.h"
 
-@interface MTAlertWordItem : MTAlertItem
-
-+(instancetype)itemWithOrder:(NSString*)order Title:(NSString*)title;
-
-@property (nonatomic,strong) MTWordStyle* word;
+@interface MTAlertWordItem : MTBaseViewContentModel
 
 @property (nonatomic,assign) BOOL isCancel;
 
 @end
 
-@interface MTAlertWordCancelItem : MTAlertWordItem
+@interface MTAlertWordCancelItem : MTAlertWordItem @end
+
+
+
+@interface MTAlertPickerItem : MTAlertWordItem
+
+@property (nonatomic,strong) MTWordStyle* selectedWordStyle;
 
 @end
-
+CG_EXTERN MTWordStyle* _Nonnull mt_selectedWord(MTWordStyle* _Nullable selectedWordStyle);

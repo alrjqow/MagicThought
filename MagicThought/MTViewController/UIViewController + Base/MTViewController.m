@@ -57,9 +57,15 @@
 -(void)viewDidAppear:(BOOL)animated
 {
     [super viewDidAppear:animated];
-        
-    if(![NSStringFromClass([self.view.superview class]) isEqualToString:@"MTTenScrollContentCell"])
-        [MTCloud shareCloud].currentViewController = self;
+    
+    if([self.view.superview isKindOfClass:NSClassFromString(@"MTTenScrollContentCell")])
+        return;
+    if([self isKindOfClass:NSClassFromString(@"MTBaseAlertController")])
+        return;
+    if([self isKindOfClass:NSClassFromString(@"MTPhotoBrowserController")])
+        return;
+    
+    [MTCloud shareCloud].currentViewController = self;
 }
 
 - (void)viewDidLoad {
@@ -119,7 +125,7 @@
         [self.view dismissIndicator];
     }
     else
-        [self.view showToast:model.msg];        
+        [self.view showToast:model.msg];
 }
 
 #pragma mark - 点击事件
