@@ -12,7 +12,7 @@
 @class MTAlertSheetItem;
 @interface MTAlertSheetController : MTBaseAlertController
 
-@property (nonatomic,weak) NSArray<MTAlertSheetItem*>* alertItemArr;
+@property (nonatomic,strong) NSArray<MTAlertSheetItem*>* alertItemArr;
 
 @end
 

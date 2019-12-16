@@ -19,7 +19,7 @@
 {
     [super setupDefault];
     
-    self.listView.frame = self.view.bounds;
+    self.listView.frame = self.view.bounds;    
 }
 
 -(void)setupSubview

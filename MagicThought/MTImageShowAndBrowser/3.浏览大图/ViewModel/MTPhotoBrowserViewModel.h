@@ -6,7 +6,7 @@
 //  Copyright © 2018 monda. All rights reserved.
 //
 
-#import <UIKit/UIKit.h>
+#import "NSObject+CommonProtocol.h"
 
 @class MTPhotoBrowserConfig;
 @class MTPhotoPreviewViewCellModel;
@@ -23,9 +23,6 @@
 
 /**图片浏览器*/
 @property (nonatomic,weak, readonly) MTPhotoBrowser* photoBrowser;
-
-/**刷新用的代理*/
-@property(nonatomic,weak) id<MTDelegateProtocol> mt_delegate;
 
 /**缩略图模型*/
 @property (nonatomic,weak) MTPhotoPreviewViewModel* previewViewModel;

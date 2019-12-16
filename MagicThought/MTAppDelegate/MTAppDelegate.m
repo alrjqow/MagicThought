@@ -58,7 +58,7 @@
 #if TARGET_IPHONE_SIMULATOR
     NSString *rootPath = [[NSBundle mainBundle] objectForInfoDictionaryKey:@"projectPath"];
     //本地绝对路径
-    NSString *cssPath = [NSString stringWithFormat:@"%@/%@.css", rootPath, rootPath.lastPathComponent];
+    NSString *cssPath = [NSString stringWithFormat:@"%@/%@.css", rootPath, rootPath.lastPathComponent];    
     [VKCssHotReloader hotReloaderListenCssPath:cssPath];
     [VKCssHotReloader startHotReloader];
 #else
@@ -69,7 +69,7 @@
     else if([self.cssFileName isExist])
     {
         @loadBundleCss(self.cssFileName);
-    }
+    }        
 #endif
 }
 
@@ -140,7 +140,7 @@ void gloablException(NSException * exception) {
     ].alertConfig;
     
     config.content.wordStyle.wordLineSpacing = 4;
-    config.alert_mt();
+    config.alert_mt();    
 }
 
 - (void)doSomeThingForMe:(id)obj withOrder:(NSString *)order {

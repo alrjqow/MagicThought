@@ -24,7 +24,7 @@
 /**显示toast*/
 -(void)showToast:(NSString*)msg
 {
-    MBProgressHUD* hud = [self createToastHud];
+    MBProgressHUD* hud = [self createToastHud];    
     hud.label.text = msg;
     
     [hud showAnimated:YES];
@@ -61,7 +61,7 @@
     {
         hud.customView = [self createTipsView];
         hud.mode = MBProgressHUDModeCustomView;
-    }
+    }    
     else
         hud.mode = MBProgressHUDModeIndeterminate;
     

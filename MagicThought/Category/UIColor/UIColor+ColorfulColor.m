@@ -63,7 +63,7 @@
 @implementation UIView (ColorfulColor)
 
 -(void)createJianBianBackgroundColorWithStartColor:(UIColor*)startColor endColor:(UIColor*)endColor
-{
+{    
     [self createJianBianBackgroundColorWithStartColor:startColor endColor:endColor startPoint:CGPointMake(0,CGRectGetMidY(self.bounds)) endPoint:CGPointMake(CGRectGetMaxX(self.bounds), CGRectGetMidY(self.bounds))];
 }
 

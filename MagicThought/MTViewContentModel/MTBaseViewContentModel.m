@@ -59,7 +59,7 @@ UIColor* _Nonnull mt_btnTextColor(UIColor* _Nullable color)
 }
 
 NSObject* _Nonnull mt_Img(NSObject* _Nullable img, NSString* identifier)
-{
+{    
     return img.bindTag(identifier);
 }
 
