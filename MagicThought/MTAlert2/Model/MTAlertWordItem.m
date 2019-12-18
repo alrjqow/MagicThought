@@ -38,12 +38,7 @@
     [super setupDefault];
     
     self.wordStyle = mt_WordStyleMake(12, @"", hex(0x333333));
-    self.selectedWordStyle = mt_WordStyleMake(12, @"", hex(0x2976f4));
+    self.selected = MTBaseViewContentModel.new(mt_WordStyleMake(12, @"", hex(0x2976f4)));
 }
 
 @end
-
-MTWordStyle* _Nonnull mt_selectedWord(MTWordStyle* _Nullable selectedWordStyle)
-{
-    return (MTWordStyle*)selectedWordStyle.bindTag(@"selectedWordStyle");
-}

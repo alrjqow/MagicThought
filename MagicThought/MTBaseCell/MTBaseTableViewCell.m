@@ -10,7 +10,7 @@
 
 @interface MTBaseTableViewCell ()
 {
-    MTBaseCellModel* _model;
+    MTBaseCellModel* _contentModel;
 }
 
 
@@ -18,22 +18,22 @@
 
 @implementation MTBaseTableViewCell
 
--(void)whenGetResponseObject:(MTBaseCellModel *)model
+-(void)whenGetResponseObject:(MTBaseCellModel *)contentModel
 {
-    self.model = model;
+    self.contentModel = contentModel;
 }
 
--(void)setModel:(MTBaseCellModel *)model
+-(void)setContentModel:(MTBaseCellModel *)contentModel
 {
-    _model = model;
+    _contentModel = contentModel;
     
-    self.baseContentModel = model;
+    self.baseContentModel = contentModel;
     
-    self.accessoryType = model.isArrow ? UITableViewCellAccessoryDisclosureIndicator : UITableViewCellAccessoryNone;
+    self.accessoryType = contentModel.isArrow ? UITableViewCellAccessoryDisclosureIndicator : UITableViewCellAccessoryNone;
     
-    self.textLabel.baseContentModel = model.title;
-    self.detailTextLabel.baseContentModel = model.content;
-    self.imageView.baseContentModel = model.img;
+    self.textLabel.baseContentModel = contentModel.title;
+    self.detailTextLabel.baseContentModel = contentModel.content;
+    self.imageView.baseContentModel = contentModel.img;
 }
 
 -(instancetype)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier
@@ -61,10 +61,10 @@
         if([subView isKindOfClass:[UIButton class]] && self.accessoryType == UITableViewCellAccessoryDisclosureIndicator)
         {
             _arrowView = subView;
-            if(!CGRectEqualToRect(CGRectZero, self.model.accessoryBounds))
-                subView.bounds = self.model.accessoryBounds;
-            if(self.model.accessoryMarginRight > 0)
-                subView.maxX = self.width - self.model.accessoryMarginRight;
+            if(!CGRectEqualToRect(CGRectZero, self.contentModel.accessoryBounds))
+                subView.bounds = self.contentModel.accessoryBounds;
+            if(self.contentModel.accessoryMarginRight > 0)
+                subView.maxX = self.width - self.contentModel.accessoryMarginRight;
         }
     }
     
@@ -78,10 +78,10 @@
             continue;
         }
         
-        if(!self.model || self.model.sepLineWidth < 0)
+        if(!self.contentModel || self.contentModel.sepLineWidth < 0)
             break;
         
-        arr[i].width = self.model.isCloseSepLine ? 0 : self.model.sepLineWidth;
+        arr[i].width = self.contentModel.isCloseSepLine ? 0 : self.contentModel.sepLineWidth;
         arr[i].centerX = self.width * 0.5;
         arr[i].centerY = self.contentView.height - arr[i].halfHeight;
     }
@@ -124,14 +124,14 @@
     [self addSubview:self.detailTextLabel2];
 }
 
--(void)setModel:(MTBaseCellModel *)model
+-(void)setContentModel:(MTBaseCellModel *)contentModel
 {
-    [super setModel:model];
+    [super setContentModel:contentModel];
         
-    self.button.baseContentModel = model.btnTitle;
-    self.button2.baseContentModel = model.btnTitle2;
-    self.detailTextLabel2.baseContentModel = model.content2;
-    self.imageView2.baseContentModel = model.img2;
+    self.button.baseContentModel = contentModel.btnTitle;
+    self.button2.baseContentModel = contentModel.btnTitle2;
+    self.detailTextLabel2.baseContentModel = contentModel.content2;
+    self.imageView2.baseContentModel = contentModel.img2;
 }
 
 

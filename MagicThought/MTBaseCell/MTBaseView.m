@@ -12,18 +12,18 @@
 
 -(void)whenGetResponseObject:(MTViewContentModel *)object
 {
-    self.model = object;
+    self.contentModel = object;
 }
 
--(void)setModel:(MTViewContentModel *)model
+-(void)setContentModel:(MTViewContentModel *)contentModel
 {
-    _model = model;
+    _contentModel = contentModel;
     
-    self.baseContentModel = model;
+    self.baseContentModel = contentModel;
     
-    self.textLabel.baseContentModel = model.title;
-     self.detailTextLabel.baseContentModel = model.content;
-     self.imageView.baseContentModel = model.img;
+    self.textLabel.baseContentModel = contentModel.title;
+     self.detailTextLabel.baseContentModel = contentModel.content;
+     self.imageView.baseContentModel = contentModel.img;
 }
 
 -(void)setupDefault
@@ -65,14 +65,14 @@
     [self addSubview:self.detailTextLabel2];
 }
 
--(void)setModel:(MTViewContentModel *)model
+-(void)setContentModel:(MTViewContentModel *)contentModel
 {
-    [super setModel:model];
+    [super setContentModel:contentModel];
         
-    self.button.baseContentModel = model.btnTitle;
-    self.button2.baseContentModel = model.btnTitle2;
-    self.detailTextLabel2.baseContentModel = model.content2;
-    self.imageView2.baseContentModel = model.img2;
+    self.button.baseContentModel = contentModel.btnTitle;
+    self.button2.baseContentModel = contentModel.btnTitle2;
+    self.detailTextLabel2.baseContentModel = contentModel.content2;
+    self.imageView2.baseContentModel = contentModel.img2;
 }
 
 @end

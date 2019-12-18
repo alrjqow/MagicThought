@@ -12,14 +12,14 @@
 
 @implementation MTEmptyBaseCell
 
--(void)setModel:(MTEmptyBaseCellModel *)model
+-(void)setContentModel:(MTEmptyBaseCellModel *)contentModel
 {
-    [super setModel:model];
+    [super setContentModel:contentModel];
         
-    self.loadingView.hidden = model.isAlreadyLoad;
+    self.loadingView.hidden = contentModel.isAlreadyLoad;
         
-    if(model.isAlreadyLoad && [model.mt_order isEqualToString:@"MTBanClickOrder"] && [model.refreshOrder isExist])
-        model.mt_click(model.refreshOrder);
+    if(contentModel.isAlreadyLoad && [contentModel.mt_order isEqualToString:@"MTBanClickOrder"] && [contentModel.refreshOrder isExist])
+        contentModel.mt_click(contentModel.refreshOrder);
 }
 
 -(void)setupDefault

@@ -13,7 +13,7 @@
 
 @interface MTBaseCollectionViewCell : MTDragCollectionViewCell
 
-@property (nonatomic,strong) MTViewContentModel* model;
+@property (nonatomic,strong) MTViewContentModel* contentModel;
 
 @property (nonatomic,strong) UILabel* textLabel;
 

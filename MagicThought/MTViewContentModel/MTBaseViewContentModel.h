@@ -33,31 +33,32 @@
 /**view 的 cssclass*/
 @property (nonatomic,strong) NSString* cssClass;
 
+/**view 的 文本颜色*/
+@property (nonatomic,assign) UIColor* textColor;
 
-@end
-
-
-
-@interface MTBaseButtonContentModel : MTBaseViewContentModel
-
-/**button 的文字颜色*/
-@property (nonatomic,strong) UIColor* textColor;
-
-/**button 的图片名*/
+/**图片名*/
 @property (nonatomic,strong) UIImage* image;
 
-/**button 的背景图片名*/
+/**背景图片名*/
 @property (nonatomic,strong) UIImage* image_bg;
-
 
 @end
 
 
+@interface MTBaseViewContentStateModel : MTBaseViewContentModel
 
+@property (nonatomic,strong) MTBaseViewContentModel* highlighted;
+@property (nonatomic,strong) MTBaseViewContentModel* disabled;
+@property (nonatomic,strong) MTBaseViewContentModel* selected;
+
+@end
+
+CG_EXTERN MTBaseViewContentModel* _Nonnull mt_highlighted(MTBaseViewContentModel* _Nullable model);
+CG_EXTERN MTBaseViewContentModel* _Nonnull mt_disabled(MTBaseViewContentModel* _Nullable model);
+CG_EXTERN MTBaseViewContentModel* _Nonnull mt_selected(MTBaseViewContentModel* _Nullable model);
 CG_EXTERN NSString* _Nonnull mt_css(NSString* _Nullable str);
-CG_EXTERN UIColor* _Nonnull mt_btnTextColor(UIColor* _Nullable color);
-CG_EXTERN NSObject* _Nonnull mt_btnImg(NSObject* _Nullable img);
-CG_EXTERN NSObject* _Nonnull mt_btnImg_bg(NSObject* _Nullable img_bg);
+CG_EXTERN UIColor* _Nonnull mt_textColor(UIColor* _Nullable color);
+CG_EXTERN NSObject* _Nonnull mt_image_bg(NSObject* _Nullable img_bg);
 
 
 

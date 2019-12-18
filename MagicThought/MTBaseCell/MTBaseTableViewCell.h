@@ -13,7 +13,7 @@
 
 @interface MTBaseTableViewCell : MTDelegateTableViewCell
 
-@property (nonatomic,strong) MTBaseCellModel* model;
+@property (nonatomic,strong) MTBaseCellModel* contentModel;
 
 /**右箭头*/
 @property (nonatomic,weak, readonly) UIView* arrowView;

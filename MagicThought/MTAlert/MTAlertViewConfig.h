@@ -16,24 +16,23 @@
 
 /*-----------------------------------华丽分割线-----------------------------------*/
 
-@property (nonatomic, assign) CGFloat width;                // Default is 275.
+@property (nonatomic, assign) CGFloat width;                // Default is kScreenWidth_mt() - 4 * 25.
 @property (nonatomic, assign) CGFloat buttonHeight;         // Default is 50.
 @property (nonatomic, assign) CGFloat innerMargin;          // Default is 25.
 @property (nonatomic, assign) CGFloat innerTopMargin;          // Default is 25.
 
 @property (nonatomic,assign) UIEdgeInsets logoMargin;  // Default is (0, 0, 12, 6).
 
-@property (nonatomic, assign) CGFloat detailInnerMargin;          // Default is 25.
+@property (nonatomic, assign) CGFloat detailInnerMargin;          // Default is 15.
 
-@property (nonatomic, assign) CGFloat splitWidth;          // Default is #CCCCCC.
-
-@property (nonatomic,assign) CGFloat detailHeight;
-
-@property (nonatomic,assign) CGFloat alertViewHeight;
+@property (nonatomic, assign) CGFloat splitWidth;          // Default is 1.
 
 -(void)alert;
+
+//直接重写样式，不需 super
+-(void)setupStyle;
 
 @end
 
 
-@interface MTAlertViewButtonConfig : MTBaseButtonContentModel @end
+@interface MTAlertViewButtonConfig : MTBaseViewContentStateModel @end

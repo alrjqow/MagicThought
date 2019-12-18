@@ -74,9 +74,9 @@ NSString*  MTPhotoPreviewViewCellDownloadImageFinishOrder = @"MTPhotoPreviewView
     {
         object = ((MTPhotoPreviewViewCell*)obj).model;
         @[
-            MTAppTitle(),
-            MTContent(@"确定要删除？"),
-            MTButtons(@[
+            mtAppTitle(),
+            mtContent(@"确定要删除？"),
+            mtButtons(@[
                 @"我按错了".bindOrder(@"MTAlertDeleteImageCancelOrder"),
                 @"是的".bindOrder(@"MTAlertDeleteImageOrder"),
             ])

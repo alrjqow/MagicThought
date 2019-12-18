@@ -9,7 +9,6 @@
 #import "MTPopView.h"
 #import "MTWindow.h"
 #import "UIView+MTBackground.h"
-#import "Masonry.h"
 #import "MTPopViewConfig.h"
 
 @implementation MTPopView
@@ -47,13 +46,8 @@
 
 - (void)alertShowAnimation
 {
-    if ( !self.superview )
-    {
-        [self.attachedView.mt_BackgroundView addSubview:self];
-        
-        self.center = self.attachedView.center;
-        [self layoutIfNeeded];
-    }
+    if (!self.superview)
+        [self.attachedView.mt_BackgroundView addSubview:self];    
     
     self.layer.transform = CATransform3DMakeScale(0.6, 0.6, 0.6);
     self.alpha = 0;
@@ -77,7 +71,5 @@
                              [self removeFromSuperview];
                      }];
 }
-
-
 
 @end

@@ -13,13 +13,12 @@
 
 -(UIButton*)setWordWithStyle:(MTWordStyle*)style
 {
-    [self setTitle:style.wordName forState:UIControlStateNormal];
     if(style.wordColor)
         [self setTitleColor:style.wordColor forState:UIControlStateNormal];
     
     if(style.wordSize)
     {
-        if((style.wordBold && style.wordThin) || (!style.wordBold && !style.wordThin) )
+        if((style.wordBold && style.wordThin) || (!style.wordBold && !style.wordThin))
             self.titleLabel.font = [UIFont systemFontOfSize:style.wordSize];
         else if(style.wordBold)
             self.titleLabel.font = [UIFont boldSystemFontOfSize:style.wordSize];
@@ -33,7 +32,8 @@
     }
         
     self.titleLabel.textAlignment = style.wordHorizontalAlignment;
-    
+    [self setTitle:style.wordName forState:UIControlStateNormal];
+    [self sizeToFit];
     return self;
 }
 

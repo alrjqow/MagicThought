@@ -13,7 +13,7 @@
 
 @interface MTBaseHeaderFooterView : MTDelegateHeaderFooterView
 
-@property (nonatomic,strong) MTViewContentModel* model;
+@property (nonatomic,strong) MTViewContentModel* contentModel;
 
 @property (nonatomic,strong) UIImageView* imageView;
 

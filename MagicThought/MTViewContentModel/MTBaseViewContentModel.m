@@ -24,14 +24,18 @@
 
 -(instancetype)setWithObject:(NSObject *)obj
 {
-    if(obj && [obj.mt_tagIdentifier isExist])
-        return [self mj_setKeyValues:@{obj.mt_tagIdentifier : obj}];
+    [super setWithObject:obj];
     
+    if([obj.mt_tagIdentifier isExist])
+        return [self mj_setKeyValues:@{obj.mt_tagIdentifier : obj}];
+                
     NSDictionary* dict;
     if([obj isKindOfClass:[NSDictionary class]])
         dict = (NSDictionary*)obj;
     else if([obj isKindOfClass:[NSString class]])
         dict = @{@"text" : obj};
+    else if([obj isKindOfClass:[UIImage class]])
+        dict = @{@"image" : obj};
     else if([obj isKindOfClass:[MTWordStyle class]])
         dict = @{@"wordStyle" : obj};
     else if([obj isKindOfClass:[MTBorderStyle class]])
@@ -40,36 +44,51 @@
         dict = @{@"backgroundColor" : obj};
     else if([obj isKindOfClass:[MTBaseViewContentModel class]])
         dict = obj.mj_keyValues;
-    
+            
     return [self mj_setKeyValues:dict];
+}
+
++ (instancetype)mj_objectWithKeyValues:(id)keyValues context:(NSManagedObjectContext *)context
+{
+    if([keyValues isKindOfClass:self])
+        return keyValues;
+    return [super mj_objectWithKeyValues:keyValues context:context];
 }
 
 @end
 
-@implementation MTBaseButtonContentModel @end
+@implementation MTBaseViewContentStateModel @end
+
+MTBaseViewContentModel* _Nonnull mt_highlighted(MTBaseViewContentModel* _Nullable model)
+{return (MTBaseViewContentModel*)model.bindTag(@"highlighted");}
+
+MTBaseViewContentModel* _Nonnull mt_disabled(MTBaseViewContentModel* _Nullable model)
+{return (MTBaseViewContentModel*)model.bindTag(@"disabled");}
+
+MTBaseViewContentModel* _Nonnull mt_selected(MTBaseViewContentModel* _Nullable model)
+{return (MTBaseViewContentModel*)model.bindTag(@"selected");}
 
 NSString* _Nonnull mt_css(NSString* _Nullable str)
+{return (NSString*)str.bindTag(@"cssClass");}
+
+UIColor* _Nonnull mt_textColor(UIColor* _Nullable color)
+{return (UIColor*)color.bindTag(@"textColor");}
+
+NSObject* _Nonnull mt_image_bg(NSObject* _Nullable img_bg)
+{return img_bg.bindTag(@"image_bg");}
+
+
+
+@implementation MTBaseViewContentModel(MJExtension)
+
+-(NSMutableDictionary *)mj_keyValues
 {
-    return (NSString*)str.bindTag(@"cssClass");
+    NSMutableDictionary* dict = [super mj_keyValues];
+    dict[@"backgroundColor"] = self.backgroundColor;
+    dict[@"textColor"] = self.textColor;
+    dict[@"image"] = self.image;
+    dict[@"image_bg"] = self.image_bg;
+    return dict;
 }
 
-UIColor* _Nonnull mt_btnTextColor(UIColor* _Nullable color)
-{
-    return (UIColor*)color.bindTag(@"textColor");
-}
-
-NSObject* _Nonnull mt_Img(NSObject* _Nullable img, NSString* identifier)
-{    
-    return img.bindTag(identifier);
-}
-
-
-NSObject* _Nonnull mt_btnImg(NSObject* _Nullable img)
-{
-    return mt_Img(img, @"image");
-}
-
-NSObject* _Nonnull mt_btnImg_bg(NSObject* _Nullable img_bg)
-{
-    return mt_Img(img_bg, @"image_bg");
-}
+@end

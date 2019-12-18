@@ -13,15 +13,9 @@
 NSString* MTBanClickOrder = @"MTBanClickOrder";
 NSString* MTBindNewObjectOrder = @"MTBindNewObjectOrder";
 
-@implementation NSReuseObject
+@implementation NSBindObject @end
 
--(instancetype)setWithObject:(NSObject *)obj
-{
-    self.data = obj;
-    return self;
-}
-
-@end
+@implementation NSReuseObject @end
 
 
 @implementation NSObject (ReuseIdentifier)
@@ -230,7 +224,7 @@ NSString* MTBindNewObjectOrder = @"MTBindNewObjectOrder";
     __weak __typeof(self) weakSelf = self;
        BindNewObjectOrder bindNewObjectOrder  = ^{
                       
-           weakSelf.mt_order = @"";
+           weakSelf.mt_order = MTBindNewObjectOrder;
            return weakSelf;
        };
        
@@ -476,7 +470,21 @@ NSString* MTBindNewObjectOrder = @"MTBindNewObjectOrder";
     return bindHeaderEmptyShow;
 }
 
-- (instancetype)setWithObject:(NSObject*)obj{return self;}
+- (instancetype)setWithObject:(NSObject*)obj{
+    
+    if([obj isKindOfClass:[NSBindObject class]])
+    {
+        [self copyBindWithObject:obj];
+    }
+    
+    return self;
+}
+- (instancetype _Nullable)copyBindWithObject:(NSObject* _Nullable)obj
+{
+    self.bind(obj.mt_reuseIdentifier).bindClick(obj.mt_click).bindOrder(obj.mt_order).bindTag(obj.mt_tagIdentifier);
+    return self;
+}
+
 -(MTSetWithObjects)setObjects
 {
     __weak __typeof(self) weakSelf = self;
@@ -485,7 +493,9 @@ NSString* MTBindNewObjectOrder = @"MTBindNewObjectOrder";
         if([objects isKindOfClass:[NSArray class]])
         {
             for (NSObject* obj in (NSArray*)objects)
+            {
                 [weakSelf setWithObject:obj];
+            }
         }
         else
             [weakSelf setWithObject:objects];
@@ -504,7 +514,7 @@ NSString* MTBindNewObjectOrder = @"MTBindNewObjectOrder";
 
 @implementation NSObject (Copy)
 
-- (NSObject*)copyObject
+- (instancetype)copyObject
 {
     return  [[self class] mj_objectWithKeyValues:[self mj_keyValues]];
 }
@@ -571,3 +581,4 @@ NSReuseObject* mt_reuse(id data)
 
 
 @end
+

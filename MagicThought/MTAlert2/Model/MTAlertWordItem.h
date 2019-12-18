@@ -18,10 +18,4 @@
 @interface MTAlertWordCancelItem : MTAlertWordItem @end
 
 
-
-@interface MTAlertPickerItem : MTAlertWordItem
-
-@property (nonatomic,strong) MTWordStyle* selectedWordStyle;
-
-@end
-CG_EXTERN MTWordStyle* _Nonnull mt_selectedWord(MTWordStyle* _Nullable selectedWordStyle);
+@interface MTAlertPickerItem : MTBaseViewContentStateModel @end

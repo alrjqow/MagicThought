@@ -14,7 +14,6 @@
 
 -(UILabel*)setWordWithStyle:(MTWordStyle*)style
 {
-    self.text = style.wordName;
     if(style.wordColor)
         self.textColor = style.wordColor;
     
@@ -33,8 +32,6 @@
         }
     }
     
-    
-    
     self.textAlignment = style.wordHorizontalAlignment;
     
     if([self isKindOfClass:[MTLabel class]])
@@ -42,6 +39,8 @@
         ((MTLabel*)self).verticalAlignment = style.wordVerticalAlignment;
     }
     
+    self.text = style.wordName;
+    [self sizeToFit];
     return self;
 }
 

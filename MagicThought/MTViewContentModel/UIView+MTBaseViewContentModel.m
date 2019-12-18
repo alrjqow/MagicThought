@@ -56,30 +56,40 @@
         
         if(baseContentModel.wordStyle)
         {
+            MTWordStyle* wordStyle = [baseContentModel.wordStyle copyObject];
+            if([baseContentModel.text isExist])
+                wordStyle.wordName = baseContentModel.text;
+            if(baseContentModel.textColor)
+                wordStyle.wordColor = baseContentModel.textColor;
+            
             if([self isKindOfClass:[UILabel class]])
-                [(UILabel*)self setWordWithStyle:baseContentModel.wordStyle];
+                [(UILabel*)self setWordWithStyle:wordStyle];
             else if([self isKindOfClass:[UIButton class]])
-                [(UIButton*)self setWordWithStyle:baseContentModel.wordStyle];
+                [(UIButton*)self setWordWithStyle:wordStyle];
             if([self isKindOfClass:[UITextField class]])
-                [(UITextField*)self setWordWithStyle:baseContentModel.wordStyle];
+                [(UITextField*)self setWordWithStyle:wordStyle];
             if([self isKindOfClass:[UITextView class]])
-                [(UITextView*)self setWordWithStyle:baseContentModel.wordStyle];
+                [(UITextView*)self setWordWithStyle:wordStyle];
+            else if([self isKindOfClass:[UIImageView class]])
+            {
+                if([wordStyle.wordName isExist])
+                    ((UIImageView*)self).image = [UIImage imageNamed:wordStyle.wordName];
+            }
         }
     }
     
-    NSString* text;
-    if([baseContentModel.text isExist])
-        text = baseContentModel.text;
-    else if(baseContentModel.wordStyle.wordName)
-        text = baseContentModel.wordStyle.wordName;
-    if([text isExist])
+    if(baseContentModel.image)
     {
-        if([self isKindOfClass:[UILabel class]])
-            ((UILabel*)self).text = text;
+        if([self isKindOfClass:[UIImageView class]])
+            ((UIImageView*)self).image = baseContentModel.image;
         else if([self isKindOfClass:[UIButton class]])
-            [(UIButton*)self setTitle:text forState:UIControlStateNormal];
-        else if([self isKindOfClass:[UIImageView class]])
-            ((UIImageView*)self).image = [UIImage imageNamed:text];
+            [(UIButton*)self  setImage:baseContentModel.image forState:UIControlStateNormal];
+    }
+            
+    if(baseContentModel.image_bg)
+    {
+        if([self isKindOfClass:[UIButton class]])
+            [(UIButton*)self  setBackgroundImage:baseContentModel.image_bg forState:UIControlStateNormal];
     }
 }
 
@@ -97,53 +107,42 @@
 {
     [super setBaseContentModel:baseContentModel];
     
-    if(![baseContentModel isKindOfClass:[MTBaseButtonContentModel class]])
+    if(![baseContentModel isKindOfClass:[MTBaseViewContentStateModel class]])
         return;
     
-    MTBaseButtonContentModel* model = (MTBaseButtonContentModel*)baseContentModel;
-    NSInteger viewState = model.viewState;
-    
-    model.viewState = UIControlStateNormal;
-    if(model.image)
-        [self  setImage:model.image forState:UIControlStateNormal];
-    if(model.image_bg)
-        [self  setBackgroundImage:model.image_bg  forState:UIControlStateNormal];
-    if(model.textColor)
-        [self setTitleColor:model.textColor forState:UIControlStateNormal];
-    [self setTitle:model.text forState:UIControlStateNormal];
-    
-    model.viewState = UIControlStateHighlighted;
-    if(model.image)
-        [self  setImage:model.image forState:UIControlStateHighlighted];
-    if(model.image_bg)
-        [self  setBackgroundImage:model.image_bg  forState:UIControlStateHighlighted];
-    if(model.textColor)
-        [self setTitleColor:model.textColor forState:UIControlStateHighlighted];
-    [self setTitle:model.text forState:UIControlStateHighlighted];
-    
-    model.viewState = UIControlStateDisabled;
-    if(model.image)
-        [self  setImage:model.image forState:UIControlStateDisabled];
-    if(model.image_bg)
-        [self  setBackgroundImage:model.image_bg  forState:UIControlStateDisabled];
-    if(model.textColor)
-        [self setTitleColor:model.textColor forState:UIControlStateDisabled];
-    [self setTitle:model.text forState:UIControlStateDisabled];
-    
-    model.viewState = UIControlStateSelected;
-    if(model.image)
-        [self  setImage:model.image forState:UIControlStateSelected];
-    if(model.image_bg)
-        [self  setBackgroundImage:model.image_bg  forState:UIControlStateSelected];
-    if(model.textColor)
-        [self setTitleColor:model.textColor forState:UIControlStateSelected];
-    [self setTitle:model.text forState:UIControlStateSelected];
-    
-    model.viewState = viewState;
+    MTBaseViewContentStateModel* model = (MTBaseViewContentStateModel*)baseContentModel;
+        
+    if(model.highlighted)
+        [self setModel:model.highlighted forState:UIControlStateHighlighted];
+    if(model.disabled)
+        [self setModel:model.disabled forState:UIControlStateDisabled];
+    if(model.selected)
+        [self setModel:model.selected forState:UIControlStateSelected];
 }
 
 
-
+-(void)setModel:(MTBaseViewContentModel*)model forState:(UIControlState)state
+{
+    if(state == UIControlStateNormal)
+        return;
+    
+    if(model.image)
+        [self  setImage:model.image forState:state];
+    if(model.image_bg)
+        [self  setBackgroundImage:model.image_bg  forState:state];
+    
+    if(model.textColor)
+        [self setTitleColor:model.textColor forState:state];
+    else if(model.wordStyle.wordColor)
+        [self setTitleColor:model.wordStyle.wordColor forState:state];
+    
+    NSString* text;
+    if([model.text isExist])
+        text = model.text;
+    else
+        text = model.wordStyle.wordName;
+    [self setTitle:text forState:state];
+}
 
 
 @end

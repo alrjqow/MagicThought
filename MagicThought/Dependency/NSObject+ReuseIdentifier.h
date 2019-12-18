@@ -20,6 +20,9 @@ typedef struct
 
 CG_EXTERN MTDelegateCollectionViewSpacing mt_collectionViewSpacingMake(CGFloat minLineSpacing, CGFloat minItemSpacing,UIEdgeInsets sectionInset);
 
+@interface NSBindObject : NSObject @end
+#define mt_bind NSBindObject.new
+
 @interface NSReuseObject : NSObject
 
 @property (nonatomic,strong) id _Nullable data;
@@ -107,12 +110,12 @@ typedef id _Nonnull (^MTSetWithObjects) (NSObject* _Nullable objects);
 
 @property (nonatomic,copy,readonly) MTSetWithObjects _Nonnull setObjects;
 - (instancetype _Nullable)setWithObject:(NSObject* _Nullable)obj;
-
+- (instancetype _Nullable)copyBindWithObject:(NSObject* _Nullable)obj;
 @end
 
 @interface NSObject (Copy)
 
-- (NSObject* _Nullable)copyObject;
+- (instancetype _Nullable)copyObject;
 
 - (BOOL)isContainProperty:(NSString* _Nullable)propertyName;
 

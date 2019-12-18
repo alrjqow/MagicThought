@@ -134,9 +134,9 @@ void gloablException(NSException * exception) {
 - (void)handleCrashException:(nonnull NSString *)exceptionMessage extraInfo:(nullable NSDictionary *)info {
                 
     MTAlertViewConfig* config =            @[
-        MTAppTitle(),
-        MTContent(@"出现了一个问题，导致程序停止正常工作。请关闭该程序。"),
-        MTButtons(@"关闭程序")
+        mtAppTitle(),
+        mtContent(@"出现了一个问题，导致程序停止正常工作。请关闭该程序。"),
+        mtButtons(@"关闭程序")
     ].alertConfig;
     
     config.content.wordStyle.wordLineSpacing = 4;

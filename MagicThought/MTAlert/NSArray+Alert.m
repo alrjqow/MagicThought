@@ -16,27 +16,27 @@
 
 #import <MJExtension.h>
 
-NSObject* MTAppTitle()
+NSObject* mtAppTitle()
 {
-    return MTTitle(mt_AppName());
+    return mtTitle(mt_AppName());
 }
 
-NSObject* MTTitle(NSObject* object)
+NSObject* mtTitle(NSObject* object)
 {
     return object.bindTag(@"title");
 }
 
-NSObject* MTLogo(NSObject* object)
+NSObject* mtLogo(NSObject* object)
 {
     return object.bindTag(@"img");
 }
 
-NSObject* MTContent(NSObject* object)
+NSObject* mtContent(NSObject* object)
 {
     return object.bindTag(@"content");
 }
 
-NSObject* MTButtons(NSObject* object)
+NSObject* mtButtons(NSObject* object)
 {
     NSArray* arr = (NSArray*)object;
     if(![arr isKindOfClass:[NSArray class]])
@@ -107,10 +107,7 @@ NSObject* MTButtons(NSObject* object)
             continue;
         
         dict[obj.mt_tagIdentifier] = obj;
-        
-        MTBaseViewContentModel* model;
-        if([obj isKindOfClass:[MTBaseViewContentModel class]])
-            model = (MTBaseViewContentModel*)obj;
+        obj.mt_tagIdentifier = nil;
     }
     
     MTAlertViewConfig* config = [configClassName mj_objectWithKeyValues:dict];

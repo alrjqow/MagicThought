@@ -13,8 +13,6 @@
 
 -(UITextField*)setWordWithStyle:(MTWordStyle*)style
 {
-    self.text = style.wordName;
-    
     if(style.wordColor)
         self.textColor = style.wordColor;
     
@@ -34,7 +32,8 @@
     }
     
     self.textAlignment = style.wordHorizontalAlignment;
-    
+    self.text = style.wordName;
+    [self sizeToFit];
     return self;
 }
 

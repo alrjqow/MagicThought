@@ -13,6 +13,7 @@
 #import "UIView+Frame.h"
 #import "MTTextField.h"
 #import "MTConst.h"
+#import "NSString+Exist.h"
 
 @interface MTTextView ()<UITextViewDelegate>
 
@@ -32,7 +33,9 @@
 {
     [super setText:text];
 //    self.placeholderLabel.hidden = text.length;
-    self.attributedText = [[NSAttributedString alloc] initWithString:text attributes:@{NSParagraphStyleAttributeName:self.paragraphStyle, NSFontAttributeName : self.font, NSForegroundColorAttributeName : self.textColor ? self.textColor : [UIColor blackColor], NSKernAttributeName : @(self.fontSpacing)}];
+    
+    if([text isExist])
+        self.attributedText = [[NSAttributedString alloc] initWithString:text attributes:@{NSParagraphStyleAttributeName:self.paragraphStyle, NSFontAttributeName : self.font, NSForegroundColorAttributeName : self.textColor ? self.textColor : [UIColor blackColor], NSKernAttributeName : @(self.fontSpacing)}];
 }
 
 -(NSMutableParagraphStyle *)paragraphStyle
@@ -66,6 +69,13 @@
     _placeholder = placeholder;
 
     self.placeholderLabel.text = placeholder;
+}
+
+-(void)setTextAlignment:(NSTextAlignment)textAlignment
+{
+    [super setTextAlignment:textAlignment];
+    
+    self.paragraphStyle.alignment = textAlignment;
 }
 
 -(instancetype)initWithFrame:(CGRect)frame textContainer:(NSTextContainer *)textContainer

@@ -20,6 +20,8 @@
     return keyValues;
 }
 
+-(NSMutableDictionary *)mj_keyValues{return nil;}
+
 @end
 
 @implementation UIImage(MJExtension)
@@ -35,16 +37,28 @@
     return nil;
 }
 
+-(NSMutableDictionary *)mj_keyValues{return nil;}
+
 @end
 
 @implementation MTWordStyle(MJExtension)
 
 + (instancetype)mj_objectWithKeyValues:(id)keyValues context:(NSManagedObjectContext *)context
 {
-    if(![keyValues isKindOfClass:[MTWordStyle class]])
-        return nil;
+    if([keyValues isKindOfClass:[MTWordStyle class]])
+        return keyValues;
     
-    return keyValues;
+    if([keyValues isKindOfClass:[NSDictionary class]])
+        return [super mj_objectWithKeyValues:keyValues context:context];
+    
+    return nil;
+}
+
+-(NSMutableDictionary *)mj_keyValues
+{
+    NSMutableDictionary* dict = [super mj_keyValues];
+    dict[@"wordColor"] = self.wordColor;
+    return dict;
 }
 
 @end
@@ -53,10 +67,21 @@
 
 + (instancetype)mj_objectWithKeyValues:(id)keyValues context:(NSManagedObjectContext *)context
 {
-    if(![keyValues isKindOfClass:[MTBorderStyle class]])
-        return nil;
+    if([keyValues isKindOfClass:[MTBorderStyle class]])
+        return keyValues;
     
-    return keyValues;
+    if([keyValues isKindOfClass:[NSDictionary class]])
+        return [super mj_objectWithKeyValues:keyValues context:context];
+    
+    return nil;
+}
+
+-(NSMutableDictionary *)mj_keyValues
+{
+    NSMutableDictionary* dict = [super mj_keyValues];
+    dict[@"borderColor"] = self.borderColor;
+    dict[@"fillColor"] = self.fillColor;
+    return dict;
 }
 
 @end

@@ -51,7 +51,7 @@
             model = property.type.typeClass.new;
     }
     
-    return model.bind(obj.mt_reuseIdentifier).bindClick(obj.mt_click).bindOrder(obj.mt_order).bindTag(obj.mt_tagIdentifier).setObjects(oldValue);
+    return [model copyBindWithObject:obj].setObjects(oldValue);
 }
 
 
@@ -87,8 +87,8 @@
             model = obj;
         else
             model = [modelClass.new setWithObject:obj];
-        
-        [arr addObject:model.bind(obj.mt_reuseIdentifier).bindClick(obj.mt_click).bindOrder(obj.mt_order).bindTag(obj.mt_tagIdentifier)];
+                
+        [arr addObject:[model copyBindWithObject:obj]];
     }
     
     return [arr copy];

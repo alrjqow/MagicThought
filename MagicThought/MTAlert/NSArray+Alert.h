@@ -20,8 +20,8 @@ typedef void (^Alert) (void);
 @end
 
 
-extern NSObject* _Nullable MTAppTitle(void);
-extern NSObject* _Nullable MTTitle(NSObject* _Nullable object);
-extern NSObject* _Nullable MTLogo(NSObject* _Nullable object);
-extern NSObject* _Nullable MTContent(NSObject* _Nullable object);
-extern NSObject* _Nullable MTButtons(NSObject* _Nullable object);
+extern NSObject* _Nullable mtAppTitle(void);
+extern NSObject* _Nullable mtTitle(NSObject* _Nullable object);
+extern NSObject* _Nullable mtLogo(NSObject* _Nullable object);
+extern NSObject* _Nullable mtContent(NSObject* _Nullable object);
+extern NSObject* _Nullable mtButtons(NSObject* _Nullable object);

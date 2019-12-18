@@ -14,24 +14,24 @@
 {
     if([object isKindOfClass:[NSString class]])
     {
-        MTViewContentModel* model = self.model;
-        if(!model)
+        MTViewContentModel* contentModel = self.contentModel;
+        if(!contentModel)
         {
             if([self.classOfResponseObject isSubclassOfClass:[MTViewContentModel class]])
-                model = self.classOfResponseObject.new;
+                contentModel = self.classOfResponseObject.new;
             else
             {
-                model = [MTViewContentModel new];
+                contentModel = [MTViewContentModel new];
                 MTBaseViewContentModel* title = [MTBaseViewContentModel new];
-                model.title = title;
+                contentModel.title = title;
             }
         }
         
-        model.title.text = (NSString*)object;
-        self.model = model;
+        contentModel.title.text = (NSString*)object;
+        self.contentModel = contentModel;
     }
     else if([object isKindOfClass:self.classOfResponseObject])
-        self.model = (MTViewContentModel*)object;
+        self.contentModel = (MTViewContentModel*)object;
 }
 
 -(void)setupDefault
@@ -47,15 +47,15 @@
     [self addSubview:self.imageView];
 }
 
--(void)setModel:(MTViewContentModel *)model
+-(void)setContentModel:(MTViewContentModel *)contentModel
 {
-    _model = model;
+    _contentModel = contentModel;
     
-    self.baseContentModel = model;
+    self.baseContentModel = contentModel;
     
-    self.textLabel.baseContentModel = model.title;
-    self.detailTextLabel.baseContentModel = model.content;
-    self.imageView.baseContentModel = model.content2;
+    self.textLabel.baseContentModel = contentModel.title;
+    self.detailTextLabel.baseContentModel = contentModel.content;
+    self.imageView.baseContentModel = contentModel.content2;
 }
 
 -(void)layoutSubviews
@@ -92,14 +92,14 @@
     [self addSubview:self.detailTextLabel2];
 }
 
--(void)setModel:(MTViewContentModel *)model
+-(void)setContentModel:(MTViewContentModel *)contentModel
 {
-    [super setModel:model];
+    [super setContentModel:contentModel];
     
-    self.button.baseContentModel = model.btnTitle;
-    self.button2.baseContentModel = model.btnTitle2;
-    self.detailTextLabel2.baseContentModel = model.content2;
-    self.imageView2.baseContentModel = model.img2;
+    self.button.baseContentModel = contentModel.btnTitle;
+    self.button2.baseContentModel = contentModel.btnTitle2;
+    self.detailTextLabel2.baseContentModel = contentModel.content2;
+    self.imageView2.baseContentModel = contentModel.img2;
 }
 
 @end

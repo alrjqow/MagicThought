@@ -15,19 +15,30 @@
 
 #import <MJExtension.h>
 
+@interface MTAlertViewConfig ()
+
+@property (nonatomic,assign) CGFloat detailHeight;
+@property (nonatomic,assign) CGFloat alertViewHeight;
+
+@end
+
 @implementation MTAlertViewConfig
 
 -(void)setupDefault
 {
     [super setupDefault];
         
+    [self setupStyle];
+}
+
+-(void)setupStyle
+{
     self.backgroundColor = [UIColor whiteColor];
     self.borderStyle = mt_BorderStyleMake((1/[UIScreen mainScreen].scale), 4, hex(0xCCCCCC));
-            
-    self.content = MTBaseViewContentModel.new(mt_WordStyleMake(12, nil, hex(0x333333)).lineSpacing(1).horizontalAlignment(NSTextAlignmentCenter));
+    
+    self.content = MTBaseViewContentModel.new(mt_WordStyleMake(12, nil, hex(0x333333)).lineSpacing(1).horizontalAlignment(NSTextAlignmentCenter), [UIColor clearColor]);
     self.content2 = MTBaseViewContentModel.new(self.borderStyle.borderColor);
     
-
     self.width = kScreenWidth_mt() - 4 * 25;
     self.splitWidth = 1;
     
@@ -36,9 +47,9 @@
     self.detailInnerMargin = 15;
     self.innerTopMargin = self.innerMargin;
     self.logoMargin = UIEdgeInsetsMake(0, 0, 12, 6);
-    
 }
 
+#pragma mark - 弹出框
 -(void)alert
 {
     if(![self.title.wordStyle.wordName isExist])
@@ -83,7 +94,7 @@
 {
     if(_buttonModelList.count <= 0)
     {        
-        _buttonModelList = @[MTAlertViewButtonConfig.new(mt_WordStyleMake(15, @"确定", hex(0xE76153)))];
+        _buttonModelList = @[MTAlertViewButtonConfig.new(mt_WordStyleMake(15, @"确定", hex(0xE76153)), [UIColor whiteColor], mt_highlighted(MTAlertViewButtonConfig.new(mt_textColor(hexa(0xE76153, 0.5)))))];
     }
     
     return _buttonModelList;

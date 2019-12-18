@@ -16,11 +16,6 @@
     if(style.wordLineSpacing && [self isKindOfClass:NSClassFromString(@"MTTextView")])
         [self setValue:@(style.wordLineSpacing) forKey:@"lineSpacing"];
     
-    if(style.attributedWordName)
-        self.attributedText = style.attributedWordName;
-    else
-        self.text = style.wordName;
-    
     if(style.wordColor)
         self.textColor = style.wordColor;
         
@@ -41,6 +36,12 @@
     
     self.textAlignment = style.wordHorizontalAlignment;
     
+    if(style.attributedWordName)
+        self.attributedText = style.attributedWordName;
+    else
+        self.text = style.wordName;
+    
+    [self sizeToFit];
     return self;
 }
 
