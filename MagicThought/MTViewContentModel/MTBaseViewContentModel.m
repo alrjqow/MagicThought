@@ -27,8 +27,12 @@
     [super setWithObject:obj];
     
     if([obj.mt_tagIdentifier isExist])
-        return [self mj_setKeyValues:@{obj.mt_tagIdentifier : obj}];
-                
+    {
+        [self mj_setKeyValues:@{obj.mt_tagIdentifier : obj}];
+        obj.mt_tagIdentifier = nil;
+        return self;
+    }
+                        
     NSDictionary* dict;
     if([obj isKindOfClass:[NSDictionary class]])
         dict = (NSDictionary*)obj;
@@ -53,6 +57,15 @@
     if([keyValues isKindOfClass:self])
         return keyValues;
     return [super mj_objectWithKeyValues:keyValues context:context];
+}
+
+-(void)setMt_tagIdentifier:(NSString *)mt_tagIdentifier
+{
+    if([self.mt_tagIdentifier isEqualToString:mt_tagIdentifier])
+        return;
+    
+    [super setMt_tagIdentifier:mt_tagIdentifier];
+    self.text = mt_tagIdentifier;
 }
 
 @end
