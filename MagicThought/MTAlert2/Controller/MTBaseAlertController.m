@@ -62,7 +62,7 @@
                         self.blackView.alpha = 1;
                         self.alertView.y = self.view.height - self.alertView.height;
                     }];
-                }];
+                }];            
             break;
         }
             

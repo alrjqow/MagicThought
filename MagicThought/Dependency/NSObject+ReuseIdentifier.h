@@ -18,6 +18,9 @@ typedef struct
 
 @interface NSBindObject : NSObject @end
 
+@interface NSBindObject : NSObject @end
+#define mt_bind NSBindObject.new
+
 @interface NSReuseObject : NSObject
 
 @property (nonatomic,strong) id _Nullable data;

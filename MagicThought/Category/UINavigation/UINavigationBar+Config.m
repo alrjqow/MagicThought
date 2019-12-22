@@ -71,7 +71,7 @@
     for (UIView *view in barBackgroundView.subviews)
         view.alpha = backgroundAlpha;
     
-    self.bottomLine.alpha = backgroundAlpha;
+    self.bottomLine.alpha = backgroundAlpha;        
 }
 
 -(CGFloat)backgroundAlpha
