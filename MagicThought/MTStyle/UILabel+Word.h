@@ -13,6 +13,6 @@
 
 @interface UILabel (Word)
 
--(UILabel*)setWordWithStyle:(MTWordStyle*)style;
+-(instancetype)setWordWithStyle:(MTWordStyle*)style;
 
 @end

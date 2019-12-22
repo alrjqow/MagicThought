@@ -56,11 +56,14 @@
 -(void)configViewStyle;
 {
 #if TARGET_IPHONE_SIMULATOR
-    NSString *rootPath = [[NSBundle mainBundle] objectForInfoDictionaryKey:@"projectPath"];
-    //本地绝对路径
-    NSString *cssPath = [NSString stringWithFormat:@"%@/%@.css", rootPath, rootPath.lastPathComponent];
-    [VKCssHotReloader hotReloaderListenCssPath:cssPath];
-    [VKCssHotReloader startHotReloader];
+    if(self.cssFilePath_simulator.length > 0)
+    {
+        NSString *rootPath = [[NSBundle mainBundle] objectForInfoDictionaryKey:@"projectPath"];
+        //本地绝对路径
+        NSString *cssPath = [NSString stringWithFormat:@"%@/%@", rootPath, self.cssFilePath_simulator];
+        [VKCssHotReloader hotReloaderListenCssPath:cssPath];
+        [VKCssHotReloader startHotReloader];
+    }
 #else
     if([self.cssFilePath isExist])
     {
@@ -69,7 +72,7 @@
     else if([self.cssFileName isExist])
     {
         @loadBundleCss(self.cssFileName);
-    }
+    }        
 #endif
 }
 
@@ -88,8 +91,8 @@
 
 + (instancetype)sharedDefault
 {
-    id d = [UIApplication sharedApplication].delegate;
-    if([d isKindOfClass:[MTAppDelegate class]])
+    id d = [UIApplication sharedApplication].delegate;    
+    if(![d isKindOfClass:[MTAppDelegate class]])
         return nil;
     
     return (MTAppDelegate*)d;
@@ -134,13 +137,13 @@ void gloablException(NSException * exception) {
 - (void)handleCrashException:(nonnull NSString *)exceptionMessage extraInfo:(nullable NSDictionary *)info {
                 
     MTAlertViewConfig* config =            @[
-        MTAppTitle(),
-        MTContent(@"出现了一个问题，导致程序停止正常工作。请关闭该程序。"),
-        MTButtons(@"关闭程序")
+        appTitle_mtAlert(),
+        content_mtAlert(@"出现了一个问题，导致程序停止正常工作。请关闭该程序。"),
+        buttons_mtAlert(@"关闭程序")
     ].alertConfig;
     
-    config.content.wordStyle.wordLineSpacing = 4;
-    config.alert_mt();
+    config.mtContent.wordStyle.wordLineSpacing = 4;
+    config.alert_mt();    
 }
 
 - (void)doSomeThingForMe:(id)obj withOrder:(NSString *)order {

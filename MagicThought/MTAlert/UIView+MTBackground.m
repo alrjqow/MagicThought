@@ -8,7 +8,6 @@
 
 #import "UIView+MTBackground.h"
 #import <objc/runtime.h>
-#import "Masonry.h"
 #import "MTConst.h"
 #import "MTWindow.h"
 
@@ -117,9 +116,7 @@
     {
         dimView = [UIView new];
         [self addSubview:dimView];
-        [dimView mas_makeConstraints:^(MASConstraintMaker *make) {
-            make.edges.equalTo(self);
-        }];
+        dimView.frame = self.bounds;
         dimView.alpha = 0.0f;
         dimView.backgroundColor = rgba(0, 0, 0, 0.48);
         dimView.layer.zPosition = FLT_MAX;

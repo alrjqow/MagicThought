@@ -25,4 +25,8 @@
     return objc_getAssociatedObject(self, _cmd);
 }
 
+-(id)valueForUndefinedKey:(NSString *)key{return nil;}
+
+-(void)setValue:(id)value forUndefinedKey:(NSString *)key{}
+
 @end

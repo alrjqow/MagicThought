@@ -10,15 +10,13 @@
 
 @implementation MTBaseCellModel
 
-// -1 表示不作任何修改
--(CGFloat)sepLineWidth
+-(void)setupDefault
 {
-    return -1;
-}
-
--(CGFloat)accessoryMarginRight
-{
-    return -1;
+    [super setupDefault];
+    
+    // -1 表示不作任何修改
+    self.sepLineWidth = -1;
+    self.accessoryMarginRight = -1;
 }
 
 @end

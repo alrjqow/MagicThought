@@ -22,34 +22,55 @@ VK_REGISTE_ATTRIBUTE()
         return;
     }
     
-    UILabel *targetLb = target;
-    if ([target isKindOfClass:[UILabel class]]) {
-        targetLb = target;
-    }
+
+    id view;
+    CGFloat fontsize = 0;
+    if ([target isKindOfClass:[UILabel class]])
+      {
+          view = target;
+          UILabel* label = (UILabel*)target;
+          label.font = nil;
+          fontsize = label.font.pointSize;
+      }
+      
+      if ([target isKindOfClass:[UIButton class]])
+      {
+          view = target;
+          UIButton* btn = (UIButton*)target;
+          fontsize = btn.titleLabel.font.pointSize;
+      }
+      
+      if ([target isKindOfClass:[UITextField class]])
+      {
+          view = target;
+          UITextField* textField = (UITextField*)target;
+          fontsize = textField.font.pointSize;
+      }
+      
+      if ([target isKindOfClass:[UITextView class]])
+      {
+          view = target;
+          UITextView* textView = (UITextView*)target;
+          fontsize = textView.font.pointSize;
+      }
     
-    if ([target isKindOfClass:[UIButton class]]) {
-        UIButton *targetBt = (UIButton *)target;
-        targetLb = targetBt.titleLabel;
-    }
-    
-    CGFloat fontsize = targetLb.font.pointSize;
-    if ([fontName isEqualToString:@"systemFont"]) {
-        targetLb.font = [UIFont systemFontOfSize:fontsize];
+    if(!view)
         return;
-    }
+        
+    UIFont* font;
+    if ([fontName isEqualToString:@"systemFont"])
+        font = [UIFont systemFontOfSize:fontsize];
     
-    if ([fontName isEqualToString:@"boldSystemFont"]) {
-        targetLb.font = [UIFont boldSystemFontOfSize:fontsize];
-        return;
-    }
+    if ([fontName isEqualToString:@"boldSystemFont"])
+        font = [UIFont boldSystemFontOfSize:fontsize];
     
-    if ([fontName isEqualToString:@"italicSystemFont"]) {
-        targetLb.font = [UIFont italicSystemFontOfSize:fontsize];
-        return;
-    }
+    if ([fontName isEqualToString:@"italicSystemFont"])
+        font = [UIFont italicSystemFontOfSize:fontsize];
     
-    targetLb.font = [UIFont fontWithName:fontName size:fontsize];
+    if(!font)
+        font = [UIFont fontWithName:fontName size:fontsize];
     
-    
+    [view setFont:font];
+    [view sizeToFit];
 }
 @end

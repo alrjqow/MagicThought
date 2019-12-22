@@ -10,3 +10,5 @@
 #import "MTBaseViewContentModel.h"
 
 #import "UIView+MTBaseViewContentModel.h"
+
+#import "MTContentModelPropertyConst.h"

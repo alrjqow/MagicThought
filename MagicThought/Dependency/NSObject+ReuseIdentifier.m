@@ -9,19 +9,14 @@
 #import "NSObject+ReuseIdentifier.h"
 #import "MJExtension.h"
 #import "objc/runtime.h"
+#import "NSString+Exist.h"
 
 NSString* MTBanClickOrder = @"MTBanClickOrder";
 NSString* MTBindNewObjectOrder = @"MTBindNewObjectOrder";
 
-@implementation NSReuseObject
+@implementation NSBindObject @end
 
--(instancetype)setWithObject:(NSObject *)obj
-{
-    self.data = obj;
-    return self;
-}
-
-@end
+@implementation NSReuseObject @end
 
 
 @implementation NSObject (ReuseIdentifier)
@@ -191,7 +186,11 @@ NSString* MTBindNewObjectOrder = @"MTBindNewObjectOrder";
         {
             NSArray* arr = (NSArray*)weakSelf;
             for(NSObject* obj in arr)
-                obj.mt_reuseIdentifier = reuseIdentifier;
+            {
+                if(![obj.mt_reuseIdentifier isExist])
+                    obj.mt_reuseIdentifier = reuseIdentifier;
+            }
+                
         }
         
         weakSelf.mt_reuseIdentifier = reuseIdentifier;
@@ -213,8 +212,11 @@ NSString* MTBindNewObjectOrder = @"MTBindNewObjectOrder";
         {
             NSArray* arr = (NSArray*)weakSelf;
             for(NSObject* obj in arr)
-                obj.mt_order = order;
-            
+            {
+                if(![obj.mt_order isExist])
+                    obj.mt_order = order;
+            }
+                            
             return weakSelf;
         }
         
@@ -230,7 +232,7 @@ NSString* MTBindNewObjectOrder = @"MTBindNewObjectOrder";
     __weak __typeof(self) weakSelf = self;
        BindNewObjectOrder bindNewObjectOrder  = ^{
                       
-           weakSelf.mt_order = @"";
+           weakSelf.mt_order = MTBindNewObjectOrder;
            return weakSelf;
        };
        
@@ -249,7 +251,11 @@ NSString* MTBindNewObjectOrder = @"MTBindNewObjectOrder";
         {
             NSArray* arr = (NSArray*)weakSelf;
             for(NSObject* obj in arr)
-                obj.mt_tagIdentifier = tagIdentifier;
+            {
+                if(![obj.mt_tagIdentifier isExist])
+                    obj.mt_tagIdentifier = tagIdentifier;
+            }
+                
             
             return weakSelf;
         }
@@ -259,6 +265,30 @@ NSString* MTBindNewObjectOrder = @"MTBindNewObjectOrder";
     };
     
     return bindTag;
+}
+
+-(BindTagText)bindTagText
+{
+    __weak __typeof(self) weakSelf = self;
+       BindTagText bindTagText  = ^(NSString* tagIdentifier){
+           
+           if(tagIdentifier.length <= 0)
+               return weakSelf;
+           
+           if([weakSelf isKindOfClass:[NSArray class]])
+           {
+               NSArray* arr = (NSArray*)weakSelf;
+               for(NSObject* obj in arr)
+                   obj.mt_tagIdentifier = tagIdentifier;
+               
+               return weakSelf;
+           }
+           
+           weakSelf.mt_tagIdentifier = tagIdentifier;
+           return weakSelf;
+       };
+       
+       return bindTagText;
 }
 
 -(BindArrayReuseIdentifier)arrBind
@@ -285,7 +315,10 @@ NSString* MTBindNewObjectOrder = @"MTBindNewObjectOrder";
         {
             NSArray* arr = (NSArray*)weakSelf;
             for(NSObject* obj in arr)
-                obj.mt_itemHeight = itemHeight;
+            {
+                if(!obj.mt_itemHeight)
+                    obj.mt_itemHeight = itemHeight;
+            }
         }
         
         weakSelf.mt_itemHeight = itemHeight;
@@ -331,8 +364,11 @@ NSString* MTBindNewObjectOrder = @"MTBindNewObjectOrder";
         {
             NSArray* arr = (NSArray*)weakSelf;
             for(NSObject* obj in arr)
-                obj.mt_itemSize = size;
-            
+            {
+                if(CGSizeEqualToSize(CGSizeZero, obj.mt_itemSize))
+                    obj.mt_itemSize = size;
+            }
+                
             return weakSelf;
         }
         
@@ -476,7 +512,21 @@ NSString* MTBindNewObjectOrder = @"MTBindNewObjectOrder";
     return bindHeaderEmptyShow;
 }
 
-- (instancetype)setWithObject:(NSObject*)obj{return self;}
+- (instancetype)setWithObject:(NSObject*)obj{
+    
+    if([obj isKindOfClass:[NSBindObject class]])
+    {
+        [self copyBindWithObject:obj];
+    }
+    
+    return self;
+}
+- (instancetype _Nullable)copyBindWithObject:(NSObject* _Nullable)obj
+{
+    self.bind(obj.mt_reuseIdentifier).bindClick(obj.mt_click).bindOrder(obj.mt_order).bindTag(obj.mt_tagIdentifier);
+    return self;
+}
+
 -(MTSetWithObjects)setObjects
 {
     __weak __typeof(self) weakSelf = self;
@@ -485,7 +535,9 @@ NSString* MTBindNewObjectOrder = @"MTBindNewObjectOrder";
         if([objects isKindOfClass:[NSArray class]])
         {
             for (NSObject* obj in (NSArray*)objects)
+            {
                 [weakSelf setWithObject:obj];
+            }
         }
         else
             [weakSelf setWithObject:objects];
@@ -504,7 +556,7 @@ NSString* MTBindNewObjectOrder = @"MTBindNewObjectOrder";
 
 @implementation NSObject (Copy)
 
-- (NSObject*)copyObject
+- (instancetype)copyObject
 {
     return  [[self class] mj_objectWithKeyValues:[self mj_keyValues]];
 }
@@ -571,3 +623,4 @@ NSReuseObject* mt_reuse(id data)
 
 
 @end
+

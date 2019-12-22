@@ -15,19 +15,30 @@
 
 #import <MJExtension.h>
 
+@interface MTAlertViewConfig ()
+
+@property (nonatomic,assign) CGFloat detailHeight;
+@property (nonatomic,assign) CGFloat alertViewHeight;
+
+@end
+
 @implementation MTAlertViewConfig
 
 -(void)setupDefault
 {
     [super setupDefault];
         
+    [self setupStyle];
+}
+
+-(void)setupStyle
+{
     self.backgroundColor = [UIColor whiteColor];
     self.borderStyle = mt_BorderStyleMake((1/[UIScreen mainScreen].scale), 4, hex(0xCCCCCC));
-            
-    self.content = MTBaseViewContentModel.new(mt_WordStyleMake(12, nil, hex(0x333333)).lineSpacing(1).horizontalAlignment(NSTextAlignmentCenter));
-    self.content2 = MTBaseViewContentModel.new(self.borderStyle.borderColor);
     
-
+    self.mtContent = MTBaseViewContentModel.new(mt_WordStyleMake(12, nil, hex(0x333333)).lineSpacing(1).horizontalAlignment(NSTextAlignmentCenter), [UIColor clearColor]);
+    self.mtContent2 = MTBaseViewContentModel.new(self.borderStyle.borderColor);
+    
     self.width = kScreenWidth_mt() - 4 * 25;
     self.splitWidth = 1;
     
@@ -36,13 +47,13 @@
     self.detailInnerMargin = 15;
     self.innerTopMargin = self.innerMargin;
     self.logoMargin = UIEdgeInsetsMake(0, 0, 12, 6);
-    
 }
 
+#pragma mark - 弹出框
 -(void)alert
 {
-    if(![self.title.wordStyle.wordName isExist])
-        self.title.wordStyle = mt_WordStyleMake(18, mt_AppName(), hex(0x333333));
+    if(![self.mtTitle.wordStyle.wordName isExist])
+        self.mtTitle.wordStyle = mt_WordStyleMake(18, mt_AppName(), hex(0x333333));
         
     [[MTAlertView alertWithConfig:self] show];
 }
@@ -54,12 +65,12 @@
 {
     CGFloat alertViewHeight = 0;
     
-    CGFloat titleHeight = self.innerTopMargin + self.title.wordStyle.wordSize;
+    CGFloat titleHeight = self.innerTopMargin + self.mtTitle.wordStyle.wordSize;
     
-    CGFloat detailHeight = (self.title.text.length > 0  ? self.detailInnerMargin : self.innerMargin) + self.detailHeight;
+    CGFloat detailHeight = (self.mtTitle.text.length > 0  ? self.detailInnerMargin : self.innerMargin) + self.detailHeight;
     
     CGFloat buttonHeight = self.buttonModelList.count < 3 ? self.buttonHeight : self.buttonHeight * self.buttonModelList.count;
-    buttonHeight += self.content.text.length > 0  ? self.detailInnerMargin + 2 : self.innerMargin;
+    buttonHeight += self.mtContent.text.length > 0  ? self.detailInnerMargin + 2 : self.innerMargin;
     
     alertViewHeight = titleHeight + detailHeight + buttonHeight;
     
@@ -71,10 +82,10 @@
     CGFloat deatilHeight = 0;
     
     NSMutableParagraphStyle *paraStyle = [[NSMutableParagraphStyle alloc] init];
-    paraStyle.lineSpacing = self.content.wordStyle.wordLineSpacing; //设置行间距
+    paraStyle.lineSpacing = self.mtContent.wordStyle.wordLineSpacing; //设置行间距
     
-    NSDictionary *dic = @{NSFontAttributeName: [UIFont systemFontOfSize:self.content.wordStyle.wordSize], NSParagraphStyleAttributeName:paraStyle, NSKernAttributeName:@1.0f};
-     deatilHeight = [self.content.text calculateHeightWithWidth:(self.width - 2*self.innerMargin) andAttribute:dic];
+    NSDictionary *dic = @{NSFontAttributeName: [UIFont systemFontOfSize:self.mtContent.wordStyle.wordSize], NSParagraphStyleAttributeName:paraStyle, NSKernAttributeName:@1.0f};
+     deatilHeight = [self.mtContent.text calculateHeightWithWidth:(self.width - 2*self.innerMargin) andAttribute:dic];
     
     return deatilHeight > 120 ? 120 : deatilHeight;
 }
@@ -83,19 +94,19 @@
 {
     if(_buttonModelList.count <= 0)
     {        
-        _buttonModelList = @[MTAlertViewButtonConfig.new(mt_WordStyleMake(15, @"确定", hex(0xE76153)))];
+        _buttonModelList = @[MTAlertViewButtonConfig.new(mt_WordStyleMake(15, @"确定", hex(0xE76153)), [UIColor whiteColor], mt_highlighted(MTAlertViewButtonConfig.new(mt_textColor(hexa(0xE76153, 0.5)))))];
     }
     
     return _buttonModelList;
 }
 
--(MTBaseViewContentModel *)title
+-(MTBaseViewContentModel *)mtTitle
 {
-    MTBaseViewContentModel* title = [super title];
+    MTBaseViewContentModel* title = [super mtTitle];
     if(!title)
     {
         title = MTBaseViewContentModel.new(mt_WordStyleMake(18, mt_AppName(), hex(0x333333)));
-        self.title = title;
+        self.mtTitle = title;
     }
     
     return title;

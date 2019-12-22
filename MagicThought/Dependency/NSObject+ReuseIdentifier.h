@@ -8,8 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-CG_EXTERN NSString* MTBanClickOrder;
-CG_EXTERN NSString* MTBindNewObjectOrder;
 
 typedef struct
 {
@@ -18,7 +16,7 @@ typedef struct
     UIEdgeInsets sectionInset;
 } MTDelegateCollectionViewSpacing;
 
-CG_EXTERN MTDelegateCollectionViewSpacing mt_collectionViewSpacingMake(CGFloat minLineSpacing, CGFloat minItemSpacing,UIEdgeInsets sectionInset);
+@interface NSBindObject : NSObject @end
 
 @interface NSReuseObject : NSObject
 
@@ -26,7 +24,18 @@ CG_EXTERN MTDelegateCollectionViewSpacing mt_collectionViewSpacingMake(CGFloat m
 
 @end
 
+CG_EXTERN NSString* _Nonnull MTBanClickOrder;
+CG_EXTERN NSString* _Nonnull MTBindNewObjectOrder;
+
+CG_EXTERN MTDelegateCollectionViewSpacing mt_collectionViewSpacingMake(CGFloat minLineSpacing, CGFloat minItemSpacing,UIEdgeInsets sectionInset);
+
 CG_EXTERN NSReuseObject* _Nonnull mt_reuse(id _Nullable data);
+
+#define mt_bind NSBindObject.new
+
+#define mt_content(...) MTBaseViewContentModel.new(__VA_ARGS__)
+#define mt_stateContent(...) MTBaseViewContentStateModel.new(__VA_ARGS__)
+#define new(...) new.setObjects(@[__VA_ARGS__])
 
 typedef BOOL (^MTClick)(NSString* _Nullable order);
 
@@ -55,6 +64,7 @@ typedef BOOL (^MTClick)(NSString* _Nullable order);
 typedef NSObject* _Nonnull (^BindNewObjectOrder) (void);
 typedef NSObject* _Nonnull (^BindOrder) (NSString* _Nonnull order);
 typedef NSObject* _Nonnull (^BindTagIdentifier) (NSString* _Nonnull tagIdentifier);
+typedef id _Nonnull (^BindTagText) (NSString* _Nonnull tagIdentifier);
 typedef  NSObject* _Nonnull  (^BindReuseIdentifier) (NSString* _Nonnull reuseIdentifier);
 typedef NSObject* _Nonnull (^BindArrayReuseIdentifier) (NSString* _Nonnull reuseIdentifier);
 typedef NSObject* _Nonnull (^BindRowHeight) (CGFloat height);
@@ -70,7 +80,6 @@ typedef NSObject* _Nonnull (^BindHeaderEmptyShow) (void);
 typedef NSObject* _Nonnull (^BindClick) (MTClick _Nullable);
 typedef id _Nonnull (^MTSetWithObjects) (NSObject* _Nullable objects);
 
-#define new(...) new.setObjects(@[__VA_ARGS__])
 @interface NSObject (BindReuseIdentifier)
 
 @property (nonatomic,copy,readonly) BindClick _Nonnull bindClick;
@@ -79,6 +88,7 @@ typedef id _Nonnull (^MTSetWithObjects) (NSObject* _Nullable objects);
 
 @property (nonatomic,copy,readonly) BindNewObjectOrder _Nonnull bindNewObjectOrder;
 
+@property (nonatomic,copy,readonly) BindTagText _Nonnull bindTagText;
 @property (nonatomic,copy,readonly) BindTagIdentifier _Nonnull bindTag;
 
 @property (nonatomic,copy,readonly) BindCount _Nonnull bindCount;
@@ -107,12 +117,12 @@ typedef id _Nonnull (^MTSetWithObjects) (NSObject* _Nullable objects);
 
 @property (nonatomic,copy,readonly) MTSetWithObjects _Nonnull setObjects;
 - (instancetype _Nullable)setWithObject:(NSObject* _Nullable)obj;
-
+- (instancetype _Nullable)copyBindWithObject:(NSObject* _Nullable)obj;
 @end
 
 @interface NSObject (Copy)
 
-- (NSObject* _Nullable)copyObject;
+- (instancetype _Nullable)copyObject;
 
 - (BOOL)isContainProperty:(NSString* _Nullable)propertyName;
 

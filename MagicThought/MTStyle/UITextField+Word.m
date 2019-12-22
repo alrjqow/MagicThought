@@ -11,10 +11,8 @@
 
 @implementation UITextField (Word)
 
--(UITextField*)setWordWithStyle:(MTWordStyle*)style
+-(instancetype)setWordWithStyle:(MTWordStyle*)style
 {
-    self.text = style.wordName;
-    
     if(style.wordColor)
         self.textColor = style.wordColor;
     
@@ -34,11 +32,12 @@
     }
     
     self.textAlignment = style.wordHorizontalAlignment;
-    
+    self.text = style.wordName;
+    [self sizeToFit];
     return self;
 }
 
--(UITextField*)setPlaceholderWithStyle:(MTWordStyle *)placeholderStyle
+-(instancetype)setPlaceholderWithStyle:(MTWordStyle *)placeholderStyle
 {
     if(!placeholderStyle.wordColor)
     {

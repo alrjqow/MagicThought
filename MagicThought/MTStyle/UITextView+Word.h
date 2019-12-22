@@ -11,7 +11,7 @@
 
 @interface UITextView (Word)
 
--(UITextView*)setWordWithStyle:(MTWordStyle*)style;
+-(instancetype)setWordWithStyle:(MTWordStyle*)style;
 
 
 @end

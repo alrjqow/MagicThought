@@ -9,6 +9,7 @@
 #import "MTCountButton.h"
 #import "MTConst.h"
 #import "NSString+Exist.h"
+#import "NSObject+ReuseIdentifier.h"
 
 NSString*  MTCountButtonDidFinishedCountDownOrder = @"MTCountButtonDidFinishedCountDownOrder";
 @interface MTCountButton ()
@@ -32,12 +33,10 @@ NSString*  MTCountButtonDidFinishedCountDownOrder = @"MTCountButtonDidFinishedCo
 
 -(void)startCountWithTitle:(NSString*)title Time:(NSInteger)time CountDownTitle:(NSString*)countDownTitle
 {
-    self.enabled = false;
-    
     self.countDownTitle = countDownTitle;
     
     //使用_mt_来替代秒数
-    [self setTitle:[title stringByReplacingOccurrencesOfString:@"_mt_" withString:[NSString stringWithFormat:@"%zd",time]] forState:UIControlStateNormal];
+    [self setTitle:[title stringByReplacingOccurrencesOfString:@"_mt_" withString: (time < 1) ? @"" : [NSString stringWithFormat:@"%zd",time]]  forState:UIControlStateNormal];
     self.title = title;
     self.time = time;
     
@@ -49,7 +48,6 @@ NSString*  MTCountButtonDidFinishedCountDownOrder = @"MTCountButtonDidFinishedCo
     if(!self.time)
     {
         [self stopTimer];
-        self.enabled = YES;
         
         if([self.countDownTitle isExist])
         {
@@ -58,13 +56,15 @@ NSString*  MTCountButtonDidFinishedCountDownOrder = @"MTCountButtonDidFinishedCo
         }
         
         
-        if([self.mt_delegate respondsToSelector:@selector(doSomeThingForMe:withOrder:)])
+        if(self.mt_click)
+            self.mt_click(@"");
+        else if([self.mt_delegate respondsToSelector:@selector(doSomeThingForMe:withOrder:)])
            [self.mt_delegate doSomeThingForMe:self withOrder:MTCountButtonDidFinishedCountDownOrder];
         return;
     }
     
     self.time--;
-    [self setTitle:[self.title stringByReplacingOccurrencesOfString:@"_mt_" withString:[NSString stringWithFormat:@"%zd",self.time]] forState:UIControlStateDisabled];
+    [self setTitle:[self.title stringByReplacingOccurrencesOfString:@"_mt_" withString:(self.time < 1) ? @"" : [NSString stringWithFormat:@"%zd",self.time]] forState:UIControlStateNormal];
 }
 
 

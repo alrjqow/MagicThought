@@ -81,15 +81,16 @@
                 
         _mtBase_tableView = [[MTDelegateTableView alloc] initWithFrame:self.view.bounds style:UITableViewStyleGrouped];
         _mtBase_tableView.backgroundColor = [UIColor clearColor];
-        _mtBase_tableView.tableFooterView = [UIView new];
         _mtBase_tableView.showsVerticalScrollIndicator = false;
         _mtBase_tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
+        _mtBase_tableView.contentInset = UIEdgeInsetsMake(0, 0, kTabBarHeight_mt(), 0);
         //防止分页漂移
         _mtBase_tableView.estimatedRowHeight = 0;
         _mtBase_tableView.estimatedSectionHeaderHeight = 0;
         _mtBase_tableView.estimatedSectionFooterHeight = 0;
-        
         [_mtBase_tableView addTarget:self];
+//        在设置代理前设置tableFooterView，上边会出现多余间距，谨记谨记
+        _mtBase_tableView.tableFooterView = [UIView new];
         if (@available(iOS 11.0, *))
             _mtBase_tableView.contentInsetAdjustmentBehavior = UIScrollViewContentInsetAdjustmentNever;
     }
@@ -103,6 +104,7 @@
         _mtBase_collectionView = [[MTDragCollectionView alloc] initWithFrame:self.view.bounds collectionViewLayout:[UICollectionViewFlowLayout new]];
         _mtBase_collectionView.backgroundColor = [UIColor clearColor];
         _mtBase_collectionView.showsVerticalScrollIndicator = false;
+        _mtBase_collectionView.contentInset = UIEdgeInsetsMake(0, 0, kTabBarHeight_mt(), 0);
         
         [_mtBase_collectionView addTarget:self];
         if (@available(iOS 11.0, *))

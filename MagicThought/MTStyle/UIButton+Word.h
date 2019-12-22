@@ -12,6 +12,6 @@
 
 @interface UIButton (Word)
 
--(UIButton*)setWordWithStyle:(MTWordStyle*)style;
+-(instancetype)setWordWithStyle:(MTWordStyle*)style;
 
 @end

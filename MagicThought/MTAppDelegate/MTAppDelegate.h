@@ -17,11 +17,13 @@
 @property (nonatomic,assign) NSInteger windowNum;
 
 
-
 /**mainBundle中css文件名*/
 @property (nonatomic,strong) NSString* cssFileName;
 /**css文件路径，优先级大于 cssFileName*/
 @property (nonatomic,strong) NSString* cssFilePath;
+/**模拟器css文件路径*/
+@property (nonatomic,strong) NSString* cssFilePath_simulator;
+
 
 /**弹框类名*/
 @property (nonatomic,strong, readonly) NSString* alertConfigName;

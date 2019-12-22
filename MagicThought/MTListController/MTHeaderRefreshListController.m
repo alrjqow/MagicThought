@@ -41,7 +41,7 @@
 -(MTRefreshGifHeader *)mj_header
 {
     if(!_mj_header)
-    {
+    {        
         _mj_header = [MTRefreshGifHeader headerWithRefreshingBlock:nil];
     }
     

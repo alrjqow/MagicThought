@@ -11,9 +11,9 @@
 
 @interface UIView (Circle)
 
--(void)becomeWeakCircleWithBorder:(MTBorderStyle*) border;
--(void)becomeCircleWithBorder:(MTBorderStyle*) border;
--(void)becomeCircleWithBorder:(MTBorderStyle*) border AndRoundingCorners:(UIRectCorner)corners;
+-(instancetype)becomeWeakCircleWithBorder:(MTBorderStyle*) border;
+-(instancetype)becomeCircleWithBorder:(MTBorderStyle*) border;
+-(instancetype)becomeCircleWithBorder:(MTBorderStyle*) border AndRoundingCorners:(UIRectCorner)corners;
 
 @end
 

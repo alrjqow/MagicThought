@@ -12,6 +12,9 @@
 
 @property (nonatomic,strong) NSString* order;
 
+/**返回按钮图片名*/
+@property (nonatomic,strong) NSString* leftBtnImageName;
+
 -(void)back;
 
 /*!该属性用于设置侧滑还是全屏滑，默认全屏滑*/

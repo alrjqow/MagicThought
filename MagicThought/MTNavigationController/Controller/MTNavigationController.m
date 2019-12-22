@@ -70,6 +70,42 @@
     return self;
 }
 
+#pragma mark - 重载
+
+-(void)pushViewController:(UIViewController *)viewController animated:(BOOL)animated
+{
+    if(self.viewControllers.count > 0)
+    {
+        self.interactivePopGestureRecognizer.delegate = (id<UIGestureRecognizerDelegate>)self;
+        viewController.hidesBottomBarWhenPushed = YES;
+    }
+    if(!self.navigationBar.isHidden && self.childViewControllers.count > 0)
+        [self setupNavigationItem:viewController];
+    
+    [super pushViewController:viewController animated:animated];
+}
+
+-(void)setupNavigationItem:(UIViewController*)viewController
+{
+    if(self.leftBtnImageName.length <= 0)
+        return;
+    UIImage* img = [UIImage imageNamed:self.leftBtnImageName];
+    if(!img)
+        return;
+    UIButton* btn = [UIButton buttonWithType:UIButtonTypeCustom];
+    [btn setImage: img forState:UIControlStateNormal];
+    [btn addTarget:self action:@selector(back) forControlEvents:UIControlEventTouchUpInside];
+    btn.frame = CGRectMake(0, 0, 50, 50);
+    btn.contentHorizontalAlignment = UIControlContentHorizontalAlignmentLeft;
+    
+    //解决按钮不靠左 靠右的问题.
+    UIBarButtonItem *nagetiveSpacer = [[UIBarButtonItem alloc]initWithBarButtonSystemItem:UIBarButtonSystemItemFixedSpace target:nil action:nil];
+    
+    nagetiveSpacer.width = [[[UIDevice currentDevice] systemVersion] floatValue] >= 11 ? 16 : 9;//这个值可以根据自己需要调整
+
+    viewController.navigationItem.leftBarButtonItems = @[nagetiveSpacer, [[UIBarButtonItem alloc] initWithCustomView:btn]];
+}
+
 #pragma mark - 懒加载
 
 -(void)setDelegate:(id<UINavigationControllerDelegate>)delegate
@@ -123,17 +159,6 @@
         return NO;
     }
     return YES;
-}
-
--(void)pushViewController:(UIViewController *)viewController animated:(BOOL)animated
-{
-    if(self.viewControllers.count > 0)
-    {
-        self.interactivePopGestureRecognizer.delegate = (id<UIGestureRecognizerDelegate>)self;
-        viewController.hidesBottomBarWhenPushed = YES;
-    }
-    
-    [super pushViewController:viewController animated:animated];
 }
 
 -(void)navigationController:(UINavigationController *)navigationController didShowViewController:(UIViewController *)viewController animated:(BOOL)animated

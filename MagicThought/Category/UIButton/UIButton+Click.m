@@ -34,4 +34,8 @@
     [self removeTarget:self action:@selector(buttonClick) forControlEvents:UIControlEventTouchUpInside];
 }
 
+- (void)addTarget:(nullable id)target action:(SEL)action {
+    [self addTarget:target action:action forControlEvents:UIControlEventTouchUpInside];
+}
+
 @end

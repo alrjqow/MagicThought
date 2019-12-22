@@ -24,16 +24,29 @@ VK_REGISTE_ATTRIBUTE()
         return;
     }
     
-    if ([target isKindOfClass:[UILabel class]]) {
-        UILabel *targetLb = target;
-        [targetLb setTextColor:fontColor];
+    if ([target isKindOfClass:[UILabel class]])
+    {
+        UILabel* label = (UILabel*)target;
+        label.textColor = fontColor;
     }
     
-    if ([target isKindOfClass:[UIButton class]]) {
-        UIButton *targetBt = (UIButton *)target;
-        [targetBt setTitleColor:fontColor forState:UIControlStateNormal];
+    if ([target isKindOfClass:[UIButton class]])
+    {
+        UIButton* btn = (UIButton*)target;
+        [btn setTitleColor:fontColor forState:UIControlStateNormal];
     }
     
+    if ([target isKindOfClass:[UITextField class]])
+    {
+        UITextField* textField = (UITextField*)target;
+        textField.textColor = fontColor;
+    }
+    
+    if ([target isKindOfClass:[UITextView class]])
+    {
+        UITextView* textView = (UITextView*)target;\
+        textView.textColor = fontColor;
+    }
 }
 
 

@@ -23,23 +23,33 @@ VK_REGISTE_ATTRIBUTE()
         return;
     }
     
-    
-    UILabel *targetLb;
-    
-    if ([target isKindOfClass:[UILabel class]]) {
-        targetLb = target;
+    if ([target isKindOfClass:[UILabel class]])
+    {
+        UILabel* label = (UILabel*)target;
+        label.font = [UIFont fontWithName:label.font.fontName size:fontsize];
+        [label sizeToFit];
     }
     
-    if ([target isKindOfClass:[UIButton class]]) {
-        UIButton *targetBt = (UIButton *)target;
-        targetLb = targetBt.titleLabel;
+    if ([target isKindOfClass:[UIButton class]])
+    {
+        UIButton* btn = (UIButton*)target;
+        btn.titleLabel.font = [UIFont fontWithName:btn.titleLabel.font.fontName size:fontsize];
+        [btn sizeToFit];
     }
     
+    if ([target isKindOfClass:[UITextField class]])
+    {
+        UITextField* textField = (UITextField*)target;        
+        textField.font = [UIFont fontWithName:textField.font.fontName size:fontsize];
+        [textField sizeToFit];
+    }
     
-    UIFont *currentFont = targetLb.font;
-    targetLb.font = [UIFont fontWithName:currentFont.fontName size:fontsize];
-
-    
+    if ([target isKindOfClass:[UITextView class]])
+    {        
+        UITextView* textView = (UITextView*)target;
+        textView.font = [UIFont fontWithName:textView.font.fontName size:fontsize];
+        [textView sizeToFit];
+    }
 }
 
 @end

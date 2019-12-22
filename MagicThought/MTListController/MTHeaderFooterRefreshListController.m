@@ -197,7 +197,7 @@
 {
     if(!_mj_footer)
     {
-        _mj_footer = [MTRefreshAutoNormalFooter footerWithRefreshingBlock:nil];
+        _mj_footer = [MTRefreshAutoNormalFooter footerWithRefreshingBlock:nil];         
     }
     
     return _mj_footer;

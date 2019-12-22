@@ -205,7 +205,8 @@ NSString* mt_AppVersion()
 
 NSString* mt_AppName()
 {
-    return [[NSBundle mainBundle] infoDictionary][@"CFBundleDisplayName"];
+    return [[NSBundle mainBundle] infoDictionary][@"CFBundleName"];    
+//    return [[NSBundle mainBundle] infoDictionary][@"CFBundleDisplayName"];
 }
 
 NSString* mt_BundleID()

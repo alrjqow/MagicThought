@@ -12,9 +12,9 @@
 
 @interface UITextField (Word)
 
--(UITextField*)setWordWithStyle:(MTWordStyle*)style;
+-(instancetype)setWordWithStyle:(MTWordStyle*)style;
 
--(UITextField*)setPlaceholderWithStyle:(MTWordStyle *)placeholderStyle;
+-(instancetype)setPlaceholderWithStyle:(MTWordStyle *)placeholderStyle;
 
 
 @end

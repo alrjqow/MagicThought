@@ -25,15 +25,6 @@
 
 @implementation MTAlertView
 
--(instancetype)initWithFrame:(CGRect)frame
-{
-    if(self = [super initWithFrame:CGRectZero])
-    {
-        [self initWithConfig:nil CustomView:nil];
-    }
-    return self;
-}
-
 + (instancetype) alertWithConfig:(MTAlertViewConfig*)config
 {
     return  [self alertWithConfig:config CustomView:nil];
@@ -41,23 +32,18 @@
 
 + (instancetype) alertWithConfig:(MTAlertViewConfig*)config CustomView:(UIView*)customView
 {
-    MTAlertView* alertView = [self new];
-    [alertView initWithConfig:config CustomView:customView];
-    return alertView;
+    return [[self alloc] initWithConfig:config CustomView:customView];
 }
 
-- (void)initWithConfig:(MTAlertViewConfig*)config CustomView:(UIView*)customView
+- (instancetype)initWithConfig:(MTAlertViewConfig*)config CustomView:(UIView*)customView
 {
-    if(!customView)
-        customView = self.detailTextView;
-    self.customView = customView;
+    if(self = [super init])
+    {
+        self.customView = customView;
+        self.contentModel = config;
+    }
     
-    if(![config isKindOfClass:self.classOfResponseObject])
-        config = nil;
-    if(!config)
-        config = [MTAlertViewConfig new];
-    
-    self.model = config;
+    return self;
 }
 
 #pragma mark - 成员方法
@@ -67,13 +53,18 @@
     [super setupDefault];
     
     self.clipsToBounds = YES;
+    self.detailTextLabel.hidden = YES;
     
     self.textLabel.textAlignment = NSTextAlignmentCenter;
     self.textLabel.numberOfLines = 0;
     
+    [self addSubview:self.detailTextView];
+    
     _buttonView = [UIView new];
     [self.buttonView setClipsToBounds:YES];
     [self addSubview:self.buttonView];
+    
+    [self contentModel];
 }
 
 -(void)layoutSubviews
@@ -82,8 +73,9 @@
     
     [self.imageView sizeToFit];
     [self.textLabel sizeToFit];
-    
+        
     self.width = self.alertConfig.width;
+    self.center = self.superview.center;
     
     self.imageView.x = (self.width - self.imageView.width - self.textLabel.width) * 0.5 ;
     if(self.imageView.x < self.alertConfig.innerMargin)
@@ -109,15 +101,17 @@
     CGFloat maxY = self.textLabel.maxY > self.imageView.maxY ? self.textLabel.maxY : self.imageView.maxY;
     
     CGFloat offset = self.imageView.maxY > self.textLabel.maxY ? self.alertConfig.logoMargin.bottom : self.alertConfig.innerTopMargin;
-    if(self.alertConfig.title.text.length > 0)
+    if(self.alertConfig.mtTitle.text.length > 0)
         offset = self.alertConfig.detailInnerMargin;
     
+    if(!self.customView)
+        _customView = self.detailTextView;
     self.customView.x = self.alertConfig.innerMargin;
     self.customView.y = CGSizeEqualToSize(CGSizeZero, self.imageView.frame.size) && CGSizeEqualToSize(CGSizeZero, self.textLabel.frame.size)  ? offset: maxY + offset;
     self.customView.width = self.width - 2 * self.alertConfig.innerMargin;
     
     
-    self.buttonView.y = self.customView.maxY + (self.alertConfig.content.text.length > 0  ? self.alertConfig.detailInnerMargin + 2 : self.alertConfig.innerMargin);
+    self.buttonView.y = self.customView.maxY + (self.alertConfig.mtContent.text.length > 0  ? self.alertConfig.detailInnerMargin + 2 : self.alertConfig.innerMargin);
     self.buttonView.width = self.width;
     self.buttonView.height = (self.alertConfig.buttonHeight +  self.alertConfig.splitWidth) * (self.alertConfig.buttonModelList.count < 3 ? 1 : self.alertConfig.buttonModelList.count);
     
@@ -147,7 +141,7 @@
 
 - (void)actionButton:(UIButton*)btn
 {
-    MTBaseButtonContentModel *item = self.alertConfig.buttonModelList[btn.tag];
+    MTBaseViewContentModel *item = self.alertConfig.buttonModelList[btn.tag];
     [self hide];
     
     if (item.mt_click)
@@ -158,21 +152,21 @@
 
 #pragma mark - 懒加载
 
--(void)setModel:(MTAlertViewConfig *)model
+-(void)setContentModel:(MTAlertViewConfig *)contentModel
 {
-    if(![model isKindOfClass:[MTAlertViewConfig class]])
+    [super setContentModel:contentModel];
+    
+    if(![contentModel isKindOfClass:[MTAlertViewConfig class]])
         return;
+
+    self.detailTextView.baseContentModel = contentModel.mtContent;
+    self.buttonView.baseContentModel = contentModel.mtContent2;
     
-    [super setModel:model];
-    
-    self.detailTextView.baseContentModel = model.content;
-    self.buttonView.baseContentModel = model.content2;
-    
-    CGFloat width = model.width - 2 * model.innerMargin;
+    CGFloat width = contentModel.width - 2 * contentModel.innerMargin;
     CGSize size =  [self.detailTextView sizeThatFits:CGSizeMake(width, CGFLOAT_MAX)];
     self.detailTextView.bounds = CGRectMake(0, 0, width, size.height < 125 ? size.height : 125) ;
     [self.detailTextView scrollRangeToVisible:NSMakeRange(0, 1)];
-    self.detailTextView.scrollEnabled = size.height >= 125;
+    self.detailTextView.scrollEnabled = size.height >= 125;    
     
     self.buttonView = self.buttonView;
     
@@ -193,7 +187,7 @@
     
     for (NSInteger i = 0 ; i < self.alertConfig.buttonModelList.count; ++i)
     {
-        MTBaseButtonContentModel *baseContentModel = self.alertConfig.buttonModelList[i];
+        MTBaseViewContentModel *baseContentModel = self.alertConfig.buttonModelList[i];
         
         UIButton *btn = [UIButton new];
         btn.tag = i;
@@ -237,9 +231,9 @@
     return _detailTextView;
 }
 
--(MTViewContentModel *)model
+-(MTViewContentModel *)contentModel
 {
-    MTAlertViewConfig* model = (MTAlertViewConfig*)[super model];
+    MTAlertViewConfig* model = (MTAlertViewConfig*)[super contentModel];
     if(![model isKindOfClass:[MTAlertViewConfig class]])
     {
         NSString* reuseIdentifier = [MTCloud shareCloud].alertViewConfigName;
@@ -251,7 +245,7 @@
             configClassName = [MTAlertViewConfig class];
         
         model = configClassName.new;
-        self.model = model;
+        self.contentModel = model;
     }
     
     return model;
@@ -259,12 +253,12 @@
 
 -(MTPopViewConfig *)config
 {
-    return (MTPopViewConfig*)self.model;
+    return (MTPopViewConfig*)self.contentModel;
 }
 
 -(MTAlertViewConfig *)alertConfig
 {
-    return (MTAlertViewConfig*)self.model;
+    return (MTAlertViewConfig*)self.contentModel;
 }
 
 -(Class)classOfResponseObject

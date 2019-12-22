@@ -379,6 +379,8 @@
 
 -(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
+   
+    
     if(self.isEmpty && self.emptyData)
     {
         CGFloat offset = 0;
@@ -486,7 +488,7 @@
     else
     {
         Class class = NSClassFromString(mt_reuseIdentifier);
-        if(![class isKindOfClass:[MTDelegateCollectionReusableView class]])
+        if(![class isSubclassOfClass:[MTDelegateCollectionReusableView class]])
             return view;
         
         [collectionView registerClass:class forSupplementaryViewOfKind:kind withReuseIdentifier:identifier];
@@ -525,6 +527,7 @@
         return UIEdgeInsetsZero;
     
     NSObject* item = [self getHeaderDataForSection:section];
+//    NSLog(@"%@",NSStringFromUIEdgeInsets(item.mt_spacing.sectionInset));
     return item.mt_spacing.sectionInset;
 }
 
@@ -560,9 +563,15 @@
         return zeroSize;
     
     NSObject* item = [self getHeaderDataForSection:section];
-    BOOL isZero = CGSizeEqualToSize(CGSizeZero, item.mt_itemSize);
-    
-    return isZero ? zeroSize : item.mt_itemSize;
+    CGSize itemSize = item.mt_itemSize;
+    BOOL isZero = CGSizeEqualToSize(CGSizeZero, itemSize);
+    if(isZero && item.mt_itemHeight)
+    {
+        itemSize = CGSizeMake(collectionView.width, item.mt_itemHeight);
+        isZero = false;
+    }
+        
+    return isZero ? zeroSize : itemSize;
 }
 
 
@@ -574,9 +583,15 @@
         return zeroSize;
     
     NSObject* item = [self getFooterDataForSection:section];
+    CGSize itemSize = item.mt_itemSize;
     BOOL isZero = CGSizeEqualToSize(CGSizeZero, item.mt_itemSize);
+    if(isZero && item.mt_itemHeight)
+    {
+        itemSize = CGSizeMake(collectionView.width, item.mt_itemHeight);
+        isZero = false;
+    }
     
-    return isZero ? zeroSize : item.mt_itemSize;
+    return isZero ? zeroSize : itemSize;
 }
 
 #pragma mark - item的size
@@ -863,7 +878,6 @@ static NSString* mt_titleForRowAtIndexPath(id self, SEL cmd, UIPickerView * pick
             
             mt_data = model.bind(mt_data.mt_reuseIdentifier).bindClick(mt_data.mt_click).bindOrder(mt_data.mt_order).bindTag(mt_data.mt_tagIdentifier);
         }
-        else if([mt_data isKindOfClass:[NSString class]]);
         else
             return;
     }
@@ -892,7 +906,6 @@ static NSString* mt_titleForRowAtIndexPath(id self, SEL cmd, UIPickerView * pick
             
             mt_data = model.bind(mt_data.mt_reuseIdentifier).bindClick(mt_data.mt_click).bindOrder(mt_data.mt_order).bindTag(mt_data.mt_tagIdentifier);
         }
-        else if([mt_data isKindOfClass:[NSString class]]);
         else
             return;
     }

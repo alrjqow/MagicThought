@@ -17,7 +17,7 @@ VK_REGISTE_ATTRIBUTE()
 }
 
 + (void)setTarget:(id)target styleValue:(id)value{
-    NSTextAlignment align = 0;
+    NSTextAlignment align = NSTextAlignmentNatural;
     if ([value isKindOfClass:[NSString class]]) {
         NSString *alignstr = (NSString *)value;
         if ([alignstr isEqualToString:@"right"]) {
@@ -39,10 +39,32 @@ VK_REGISTE_ATTRIBUTE()
         return;
     }
     
-    if ([target isKindOfClass:[UILabel class]]) {
-        UILabel *targetLb = target;
-        [targetLb setTextAlignment:align];
+    if ([target isKindOfClass:[UILabel class]])
+    {
+        UILabel* label = (UILabel*)target;
+        label.textAlignment = align;
+        [label sizeToFit];
     }
     
+    if ([target isKindOfClass:[UIButton class]])
+    {
+        UIButton* btn = (UIButton*)target;
+        btn.titleLabel.textAlignment = align;
+        [btn sizeToFit];
+    }
+    
+    if ([target isKindOfClass:[UITextField class]])
+    {
+        UITextField* textField = (UITextField*)target;
+        textField.textAlignment = align;
+        [textField sizeToFit];
+    }
+    
+    if ([target isKindOfClass:[UITextView class]])
+    {
+        UITextView* textView = (UITextView*)target;
+        textView.textAlignment = align;
+        [textView sizeToFit];
+    }
 }
 @end

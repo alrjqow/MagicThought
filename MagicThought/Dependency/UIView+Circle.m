@@ -47,14 +47,14 @@
 
 @implementation UIView (Circle)
 
--(void)becomeWeakCircleWithBorder:(MTBorderStyle*) border
+-(instancetype)becomeWeakCircleWithBorder:(MTBorderStyle*) border
 {
     border.isWeak = YES;
 
-    [self becomeCircleWithBorder:border];
+    return [self becomeCircleWithBorder:border];
 }
 
--(void)becomeCircleWithBorder:(MTBorderStyle*) border
+-(instancetype)becomeCircleWithBorder:(MTBorderStyle*) border
 {
     if(!border)
         border = mt_BorderStyleMake(2, self.frame.size.width * 0.5, [UIColor whiteColor]);
@@ -89,10 +89,11 @@
         self.layer.borderWidth = border.borderWidth;
     }
     
+    return self;
 }
 
 
--(void)becomeCircleWithBorder:(MTBorderStyle*) border AndRoundingCorners:(UIRectCorner)corners
+-(instancetype)becomeCircleWithBorder:(MTBorderStyle*) border AndRoundingCorners:(UIRectCorner)corners
 {    
     UIBezierPath *maskPath = [UIBezierPath bezierPathWithRoundedRect:self.bounds byRoundingCorners: corners cornerRadii:CGSizeMake(border.borderRadius, border.borderRadius)];
     CAShapeLayer *maskLayer = [[CAShapeLayer alloc] init];
@@ -106,6 +107,8 @@
     
     if(border.fillColor)
         self.backgroundColor = border.fillColor;
+    
+    return self;
 }
 
 @end

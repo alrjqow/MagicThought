@@ -19,7 +19,7 @@
 {
     [super setupDefault];
     
-    self.listView.frame = self.view.bounds;
+    self.listView.frame = self.view.bounds;    
 }
 
 -(void)setupSubview
@@ -37,6 +37,8 @@
 #pragma mark - 成员方法
 
 #pragma mark - 代理与数据源
+
+
 
 #pragma mark - 懒加载
 

@@ -24,12 +24,21 @@
 /**显示toast*/
 -(void)showToast:(NSString*)msg
 {
-    MBProgressHUD* hud = [self createToastHud];
+    MBProgressHUD* hud = [self createToastHudWithOffset:CGPointMake(0.f, (mt_Window().height / 2 -120))];
     hud.label.text = msg;
     
     [hud showAnimated:YES];
     [hud hideAnimated:YES afterDelay:2.f];
 }
+-(void)showCenterToast:(NSString*)msg
+{
+    MBProgressHUD* hud = [self createToastHudWithOffset:CGPointZero];
+    hud.label.text = msg;
+    
+    [hud showAnimated:YES];
+    [hud hideAnimated:YES afterDelay:2.f];
+}
+
 
 /**显示成功*/
 -(void)showSuccess:(NSString*)msg
@@ -61,7 +70,7 @@
     {
         hud.customView = [self createTipsView];
         hud.mode = MBProgressHUDModeCustomView;
-    }
+    }    
     else
         hud.mode = MBProgressHUDModeIndeterminate;
     
@@ -118,27 +127,27 @@
     return hud;
 }
 
--(MBProgressHUD*)createToastHud
+-(MBProgressHUD*)createToastHudWithOffset:(CGPoint)offset
 {
     [MBProgressHUD hideHUDForView:self animated:YES];
-    
-    MBProgressHUD* hud = [[MBProgressHUD alloc] initWithView:self];
-    hud.removeFromSuperViewOnHide = YES;
-    [self addSubview:hud];
-    hud.bezelView.color = [UIColor colorWithR:0 G:0 B:0 A:1];
-    hud.contentColor = [UIColor whiteColor];
-    hud.label.numberOfLines = 0;
-    if (@available(iOS 8.2, *)) {
-        hud.label.font = [UIFont systemFontOfSize:15 weight:UIFontWeightBold];
-    } else {
-        hud.label.font = [UIFont systemFontOfSize:15];
-    }
-    hud.offset = CGPointMake(0.f, (mt_Window().height / 2 -120));
-    hud.mode = MBProgressHUDModeText;
-    hud.animationType = MBProgressHUDAnimationZoom;
-    hud.margin = 12;
-    
-    return hud;
+      
+      MBProgressHUD* hud = [[MBProgressHUD alloc] initWithView:self];
+      hud.removeFromSuperViewOnHide = YES;
+      [self addSubview:hud];
+      hud.bezelView.color = [UIColor colorWithR:0 G:0 B:0 A:1];
+      hud.contentColor = [UIColor whiteColor];
+      hud.label.numberOfLines = 0;
+      if (@available(iOS 8.2, *)) {
+          hud.label.font = [UIFont systemFontOfSize:15 weight:UIFontWeightBold];
+      } else {
+          hud.label.font = [UIFont systemFontOfSize:15];
+      }
+      hud.offset = offset;
+      hud.mode = MBProgressHUDModeText;
+      hud.animationType = MBProgressHUDAnimationZoom;
+      hud.margin = 12;
+      
+      return hud;
 }
 
 -(UIImageView*)createTipsView
@@ -206,39 +215,50 @@ static const void *mtHudStyleKey = @"mtHudStyleKey";
 @implementation UIViewController (MBHud)
 
 /**显示成功*/
--(void)showSuccess:(NSString*)msg
+-(instancetype)showSuccess:(NSString*)msg
 {
     [self.view showSuccess:msg];
+    return self;
 }
 
 /**显示错误*/
--(void)showError:(NSString*)msg
+-(instancetype)showError:(NSString*)msg
 {
     [self.view showError:msg];
+    return self;
 }
 
 /**显示提示*/
--(void)showTips:(NSString*)msg
+-(instancetype)showTips:(NSString*)msg
 {
     [self.view showTips:msg];
+    return self;
 }
 
 /**显示toast*/
--(void)showToast:(NSString*)msg
+-(instancetype)showToast:(NSString*)msg
 {
     [self.view showToast:msg];
+    return self;
+}
+-(instancetype)showCenterToast:(NSString*)msg
+{
+    [self.view showCenterToast:msg];
+    return self;
 }
 
 /**显示圈圈*/
--(void)showMsg:(NSString*)msg
+-(instancetype)showMsg:(NSString*)msg
 {
     [self.view showMsg:msg];
+    return self;
 }
 
 /**隐藏提示*/
--(void)dismissIndicator
+-(instancetype)dismissIndicator
 {
     [self.view dismissIndicator];
+    return self;
 }
 
 #pragma mark - 懒加载

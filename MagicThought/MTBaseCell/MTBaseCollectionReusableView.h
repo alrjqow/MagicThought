@@ -13,24 +13,33 @@
 
 @interface MTBaseCollectionReusableView : MTDelegateCollectionReusableView
 
-@property (nonatomic,strong) MTViewContentModel* model;
+@property (nonatomic,strong) MTViewContentModel* contentModel;
 
 @property (nonatomic,strong) UILabel* textLabel;
 
 @property (nonatomic,strong) UILabel* detailTextLabel;
 
+@property (nonatomic,strong) UILabel* detailTextLabel2;
+
+@property (nonatomic,strong) UILabel* detailTextLabel3;
+
 @property (nonatomic,strong) UIImageView* imageView;
 
-@end
+@property (nonatomic,strong) UIImageView* imageView2;
 
-@interface MTBaseSubCollectionReusableView : MTBaseCollectionReusableView
+@property (nonatomic,strong) UIImageView* imageView3;
+
+@property (nonatomic,strong) UIImageView* imageView4;
 
 @property (nonatomic,strong) UIButton* button;
 
 @property (nonatomic,strong) UIButton* button2;
 
-@property (nonatomic,strong) UIImageView* imageView2;
+@property (nonatomic,strong) UIButton* button3;
 
-@property (nonatomic,strong) UILabel* detailTextLabel2;
+@property (nonatomic,strong) UIButton* button4;
 
 @end
+
+
+

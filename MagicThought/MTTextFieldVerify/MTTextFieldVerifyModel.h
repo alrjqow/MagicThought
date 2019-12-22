@@ -7,6 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "MTBaseViewContentModel.h"
 
 typedef NS_ENUM(NSInteger, MTTextFieldEventType)
 {
@@ -27,7 +28,7 @@ typedef NS_ENUM(NSInteger, MTTextFieldVerifyType)
     MTTextFieldVerifyTypeCustom,
 };
 
-@interface MTTextFieldVerifyModel : NSObject
+@interface MTTextFieldVerifyModel : MTBaseViewContentStateModel
 
 #pragma mark - 被动调用
 

@@ -100,9 +100,9 @@
     {
         __weak __typeof(self) weakSelf = self;
         @[
-            MTAppTitle(),
-            MTContent(message),
-            MTButtons(@[
+            appTitle_mtAlert(),
+            content_mtAlert(message),
+            buttons_mtAlert(@[
                 @"不开启",
                 @"去开启".bindClick(^(NSString* order)
                                  {

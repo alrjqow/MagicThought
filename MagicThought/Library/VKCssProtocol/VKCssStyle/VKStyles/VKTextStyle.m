@@ -23,11 +23,25 @@ VK_REGISTE_ATTRIBUTE()
         if ([target isKindOfClass:[UILabel class]]) {
             UILabel *targetLb = (UILabel *)target;
             targetLb.text = value;
+            [targetLb sizeToFit];
         }
         
         if ([target isKindOfClass:[UIButton class]]) {
             UIButton *targetBt = (UIButton *)target;
             [targetBt setTitle:value forState:UIControlStateNormal];
+            [targetBt sizeToFit];
+        }
+        
+        if ([target isKindOfClass:[UITextField class]]) {
+            UITextField *textField = (UITextField *)target;
+            textField.text = value;
+            [textField sizeToFit];
+        }
+        
+        if ([target isKindOfClass:[UITextView class]]) {
+            UITextView *textView = (UITextView *)target;
+            textView.text = value;
+            [textView sizeToFit];
         }
     }
 }
