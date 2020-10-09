@@ -46,4 +46,30 @@
     return [newImage imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
 }
 
+- (UIImage *)changeToWidthWiithHorizontalStretchExceptCenter:(NSInteger)width {
+            
+    UIImage *image = [self resizableImageWithCapInsets:UIEdgeInsetsMake(0, (NSInteger)(self.size.width * 0.7), 0, (NSInteger)(self.size.width * 0.2))];
+    
+    NSInteger tempWidth = self.size.width + (width - self.size.width)/2;
+    UIGraphicsBeginImageContextWithOptions(CGSizeMake(tempWidth, (NSInteger)self.size.height), NO, [UIScreen mainScreen].scale);
+    
+    [image drawInRect:CGRectMake(0, 0, tempWidth, self.size.height)];
+        
+    image = UIGraphicsGetImageFromCurrentImageContext();
+    UIGraphicsEndImageContext();
+    
+    image = [image resizableImageWithCapInsets:UIEdgeInsetsMake(0, (NSInteger)(image.size.width * 0.2), 0, (NSInteger)(image.size.width * 0.7))];
+
+    UIGraphicsBeginImageContextWithOptions(CGSizeMake(width, (NSInteger)self.size.height), NO, [UIScreen mainScreen].scale);
+
+    [image drawInRect:CGRectMake(0, 0, width, self.size.height)];
+
+    image = UIGraphicsGetImageFromCurrentImageContext();
+    UIGraphicsEndImageContext();
+    
+    
+    
+    return image;
+}
+
 @end

@@ -7,30 +7,13 @@
 //
 
 #import "MTAlertSheetController.h"
-#import "MTAlertSheetItem.h"
-
-#import "NSString+Exist.h"
-#import "UILabel+Word.h"
 #import "UIDevice+DeviceInfo.h"
-#import "UIView+Frame.h"
-#import "UIView+Circle.h"
-#import "UIView+MTBaseViewContentModel.h"
 #import "NSObject+ReuseIdentifier.h"
 
+NSString*  MTBaseAlertDismissOrder_Close = @"MTBaseAlertDismissOrder_True_Close";
+NSString*  MTBaseAlertDismissOrder_Enter = @"MTBaseAlertDismissOrder_True_Enter";
 
-#import "MTDelegateTableViewCell.h"
-
-
-
-@interface MTAlertSheetController ()
-
-//暂时忽略
-@property (nonatomic,strong) NSDictionary* dismissBlackList;
-
-@property (nonatomic,assign) CGFloat tableViewHeight;
-
-
-@end
+@interface MTAlertSheetController() @end
 
 @implementation MTAlertSheetController
 
@@ -45,115 +28,75 @@
 {
     [super setupDefault];
     
-    self.mtBase_tableView.bounces = false;
-    self.mtBase_tableView.backgroundColor = rgb(245, 245, 245);
-    [self.mtBase_tableView becomeCircleWithBorder:mt_BorderStyleMake(0, 12, nil) AndRoundingCorners:UIRectCornerTopLeft | UIRectCornerTopRight];
-    
-    UIView* footerView = [UIView new];
-    footerView.backgroundColor = [UIColor whiteColor];
-    footerView.frame = CGRectMake(0, 0, kScreenWidth_mt(), [UIDevice isHairScreen] ?  kStatusBarHeight_mt() : 0);
-    self.mtBase_tableView.tableFooterView = footerView;
-    
-    [self.mtBase_tableView addTarget:self];
-    [self loadData];
-}
-
-
--(void)loadData
-{
-    self.mtBase_tableView.height = self.tableViewHeight;
-    [self.view setNeedsLayout];
-    [self.mtBase_tableView reloadDataWithDataList:self.alertItemArr];
+    self.listView.bounces = false;
+    self.listView.contentInset = UIEdgeInsetsZero;
+    self.listView.currentContradictIndex = self.currentIndex;
 }
 
 #pragma mark - 代理
 
--(void)doSomeThingForMe:(id)obj withOrder:(NSString *)order withItem:(id)item
-{
-    if([order isEqualToString:@"MTAlertSheetCellClickOrder"])
-    {
-        NSString* eventOrder = item;
-        BOOL isDismiss = [self.dismissBlackList objectForKey:eventOrder] == nil;
-        isDismiss = [eventOrder isEqualToString:MTGetPhotoFromCameraOrder] || [eventOrder isEqualToString:MTGetPhotoFromAlbumOrder];
-        [self setValue:@(isDismiss) forKey:@"isDismiss"];
-        
-        [self dismiss];
-        if([eventOrder isExist] && [self.mt_delegate respondsToSelector:@selector(doSomeThingForMe:withOrder:)])
-            [self.mt_delegate doSomeThingForMe:self withOrder:eventOrder];
-    }
-}
-
 #pragma mark - 懒加载
 
--(void)setAlertItemArr:(NSArray<MTAlertSheetItem*> *)alertItemArr
+-(UIView *)alertView
 {
-    _alertItemArr = alertItemArr;
-    
-    alertItemArr.bind(@"MTAlertSheetCell");
-
-    if((NSInteger)(alertItemArr.count - 2) >= 0)
-        alertItemArr[alertItemArr.count - 2].marginBottom *= 4;
-    
-    CGFloat itemHeight = 0;
-    for (MTAlertSheetItem* item in alertItemArr)
-        itemHeight += (item.itemHeight + item.marginBottom);
-    self.tableViewHeight = itemHeight + ([UIDevice isHairScreen] ?  kStatusBarHeight_mt() : 0);
-            
-    if(self.isViewDidLoad)
-       [self loadData];
+    return self.listView;
 }
 
--(UIView *)alertView
+-(UIScrollView *)listView
 {
     return self.mtBase_tableView;
 }
 
+-(BOOL)adjustListViewHeightByData
+{
+    return YES;
+}
+
+-(void)dismissCompletion
+{
+    if([self.mt_order containsString:MTBaseAlertDismissOrder_Close])
+    {
+        self.listView.currentContradictIndex = self.currentIndex;
+        self.listView.currentContradictSection = self.currentSection;
+    }
+        
+    self.mt_order = nil;
+}
+
+-(void)setCurrentIndex:(NSInteger)currentIndex
+{
+    _currentIndex = currentIndex;
+        
+    if(self.isViewDidLoad)
+    {
+        self.listView.currentContradictIndex = currentIndex;
+        [self loadData];
+    }
+}
+
+-(void)setMt_order:(NSString *)mt_order
+{
+    [super setMt_order:mt_order];
+    
+    if([mt_order containsString:MTBaseAlertDismissOrder_Enter] && ![mt_order containsString:MTBaseAlertDismissOrder_Close])
+    {
+        self.currentIndex = self.listView.currentContradictIndex;
+        self.currentSection = self.listView.currentContradictSection;
+        
+        if(self.enterBlock)
+            self.enterBlock(self.currentIndex, self.currentSection);
+    }
+}
+
 @end
 
 
-
-@interface MTAlertSheetCell : MTDelegateTableViewCell
-
-@property (nonatomic,weak) MTAlertSheetItem* item;
-
-@end
-
-
-
-@implementation MTAlertSheetCell
-
-
--(void)whenGetResponseObject:(NSObject *)object
+CGFloat bottomCellHeight_mtAlertHair(CGFloat height)
 {
-    if(![object isKindOfClass:[MTAlertSheetItem class]])
-        return;
-    
-    self.item = (MTAlertSheetItem*)object;
+    return height - ([UIDevice isHairScreen] ? 0 : kStatusBarHeight_mt());
 }
 
--(void)setItem:(MTAlertSheetItem *)item
+CGFloat bottomCellHeight_mtAlertNormal(CGFloat height)
 {
-    _item = item;
-    
-    self.textLabel.baseContentModel = item;
-    self.margin = UIEdgeInsetsMake(0, 0, item.marginBottom, 0);
-    self.textLabel.textAlignment = NSTextAlignmentCenter;
+    return height + ([UIDevice isHairScreen] ?  kStatusBarHeight_mt() : 0);
 }
-
--(void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event
-{
-    self.selected = false;
-    if([self.mt_delegate respondsToSelector:@selector(doSomeThingForMe:withOrder:withItem:)])
-        [self.mt_delegate doSomeThingForMe:self withOrder:@"MTAlertSheetCellClickOrder" withItem:self.item.mt_order];
-    [super touchesBegan:touches withEvent:event];
-}
-
--(void)setupDefault
-{
-    [super setupDefault];
-    
-    self.selectionStyle = UITableViewCellSelectionStyleDefault;
-    self.backgroundColor = [UIColor whiteColor];
-}
-
-@end

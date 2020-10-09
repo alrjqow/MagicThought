@@ -754,7 +754,7 @@
         [imagePickerVc showProgressHUD];
     }
 
-    dispatch_async(dispatch_get_global_queue(0, 0), ^{
+//    dispatch_async(dispatch_get_global_queue(0, 0), ^{
         TZImagePickerController *imagePickerVc = (TZImagePickerController *)self.navigationController;
         [[TZImageManager manager] getAllAlbums:imagePickerVc.allowPickingVideo allowPickingImage:imagePickerVc.allowPickingImage needFetchAssets:!self.isFirstAppear completion:^(NSArray<TZAlbumModel *> *models) {
             dispatch_async(dispatch_get_main_queue(), ^{
@@ -782,7 +782,7 @@
                 }
             });
         }];
-    });
+//    });
 }
 
 - (void)dealloc {

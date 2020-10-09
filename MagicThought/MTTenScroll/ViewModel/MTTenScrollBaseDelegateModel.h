@@ -11,7 +11,7 @@
 @class MTTenScrollModel;
 @interface MTTenScrollBaseDelegateModel : NSObject<MTViewModelProtocol>
 
-@property (nonatomic,strong) MTTenScrollModel* model;
+@property (nonatomic,weak) MTTenScrollModel* model;
 
 @end
 

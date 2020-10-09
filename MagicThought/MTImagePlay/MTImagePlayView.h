@@ -1,34 +1,20 @@
 //
 //  MTImagePlayView.h
-//  8kqw
+//  QXProject
 //
-//  Created by 王奕聪 on 2017/4/7.
-//  Copyright © 2017年 com.bkqw.app. All rights reserved.
+//  Created by 王奕聪 on 2020/1/7.
+//  Copyright © 2020 monda. All rights reserved.
 //
 
-#import "MTDelegateView.h"
+#import "MTDelegateCollectionView.h"
+#import "MTCollectionViewScaleLayout.h"
+#import "MTCollectionViewScaleLayout2.h"
 
-extern NSString*  MTImagePlayViewOrder;
-@interface MTImagePlayView : MTDelegateView
+@interface MTBaseImagePlayView : MTDelegateCollectionView @end
 
-@property (nonatomic, strong) UICollectionViewFlowLayout *flowLayout;
+@interface MTImagePlayView : MTBaseImagePlayView @end
 
-@property (strong, nonatomic)  UIPageControl *pagePoint;
+@interface MTImagePlayScaleLayoutView : MTImagePlayView @end
 
-@property (weak, nonatomic, readonly)  UICollectionView *collectionView;
+@interface MTImagePlayScaleLayout2View : MTImagePlayView @end
 
-@property (nonatomic,strong) NSString* imagePlayCellClass;
-
-@property (nonatomic, strong) NSArray<NSString*>* imageURLs;
-
-@property(nonatomic,strong) UIImage* placeholderImage;
-
-@property(nonatomic,assign) CGFloat scrollTime;
-
-/**是否滚动有限*/
-@property (nonatomic,assign) BOOL isScrollLimit;
-
-/**是否关闭自动滚动*/
-@property (nonatomic,assign) BOOL isStopTimer;
-
-@end

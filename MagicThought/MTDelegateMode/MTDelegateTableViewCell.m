@@ -32,9 +32,17 @@
     return self;
 }
 
--(void)dealloc
+-(void)layoutSubviews
 {
-    [self whenDealloc];
+    [super layoutSubviews];
+    
+    for (UIView* subView in self.subviews) {
+        if([subView isKindOfClass:NSClassFromString(@"_UISystemBackgroundView")])
+        {
+            [self insertSubview:self.contentView aboveSubview:subView];
+            break;
+        }
+    }
 }
 
 @end

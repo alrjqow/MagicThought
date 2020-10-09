@@ -12,6 +12,4 @@
 #import "MTHeaderRefreshListController.h"
 #import "MTHeaderFooterRefreshListController.h"
 
-
 #import "MTPageInfoModel.h"
-#import "MTDelegateViewDataModel.h"

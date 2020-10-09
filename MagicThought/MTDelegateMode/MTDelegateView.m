@@ -7,6 +7,7 @@
 //
 
 #import "MTDelegateView.h"
+#import <MJExtension.h>
 
 @implementation MTDelegateView
 
@@ -21,9 +22,27 @@
     return self;
 }
 
--(void)dealloc
+-(instancetype)setWithObject:(NSObject *)obj
 {
-    [self whenDealloc];
+    if([obj isKindOfClass:NSClassFromString(@"MTBaseViewContentModel")] || [obj.mt_reuseIdentifier isEqualToString:@"baseContentModel"])
+        return [super setWithObject:obj];
+     
+    if(![obj isKindOfClass:self.classOfResponseObject])
+    {
+        if([obj isKindOfClass:[NSDictionary class]] && [self.classOfResponseObject isSubclassOfClass:[NSObject class]])
+        {
+            NSObject* model = [self.classOfResponseObject mj_objectWithKeyValues:obj];
+            if(!model)
+                return self;
+            
+            obj = [model copyBindWithObject:obj];
+        }
+        else
+            return self;
+    }
+    
+    [self whenGetResponseObject:obj];
+    return self;
 }
 
 @end

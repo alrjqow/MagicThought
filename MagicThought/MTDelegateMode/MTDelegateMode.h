@@ -9,6 +9,7 @@
 
 
 #import "MTDataSource.h"
+#import "MTDataSourceModel.h"
 
 #import "UIView+Delegate.h"
 

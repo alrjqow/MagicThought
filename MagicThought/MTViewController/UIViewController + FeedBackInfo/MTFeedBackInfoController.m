@@ -45,7 +45,7 @@
 {
     [super setupSubview];
     
-    [self.subTitleLabel setLineSpacing:6];
+    [self.subTitleLabel setLineSpacingFloat:6];
     
     [self.view addSubview:self.imgView];
     [self.view addSubview:self.titleLabel];

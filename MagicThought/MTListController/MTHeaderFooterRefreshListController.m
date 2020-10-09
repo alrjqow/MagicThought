@@ -21,29 +21,21 @@
 {
     [super setupDefault];
     
+    if(!self.isRemoveMJFooter)
+        self.listView.mj_footer = self.mj_footer;
+    
     self.page = 1;
     
     __weak __typeof(self) weakSelf = self;
-    self.mj_Block = ^{
-        
-        [weakSelf.itemArr removeAllObjects];
-        weakSelf.page = 1;
-        [weakSelf.listView.mj_footer resetNoMoreData];
-        [weakSelf startRequest];
-    };
+    if(!self.mj_Block)
+        self.mj_Block = ^{
+            
+            [weakSelf.itemArr removeAllObjects];
+            weakSelf.page = 1;
+            [weakSelf.listView.mj_footer resetNoMoreData];
+            [weakSelf startRequest];
+        };
 }
-
--(void)setupSubview
-{
-    [super setupSubview];
-    
-    if(self.isRemoveMJHeader)
-        self.listView.mj_header = nil;
-    
-    self.listView.mj_footer = self.mj_footer;
-    self.listView.mj_footer.refreshingBlock = self.mj_footer_Block;
-}
-
 
 #pragma mark - 重载方法
 
@@ -193,17 +185,33 @@
     return [arr copy];
 }
 
--(MTRefreshAutoNormalFooter *)mj_footer
+-(MJRefreshFooter<MJRefreshFooterProtocol> *)mj_footer
 {
     if(!_mj_footer)
     {
-        _mj_footer = [MTRefreshAutoNormalFooter footerWithRefreshingBlock:nil];         
+            __weak __typeof(self) weakSelf = self;
+        
+        Class footerClass = self.footerClass;
+        if(![footerClass isSubclassOfClass:[MJRefreshFooter class]])
+            footerClass = [MTRefreshBackNormalFooter class];
+                    
+        MJRefreshFooter<MJRefreshFooterProtocol>* footer = [footerClass new];
+        footer.refreshingBlock = ^{
+             if(weakSelf.mj_footer_Block)
+                   weakSelf.mj_footer_Block();
+        };
+        _mj_footer = footer;
     }
     
     return _mj_footer;
 }
 
--(MTFooterRefreshBlock)mj_footer_Block
+-(Class)footerClass
+{
+    return MTRefreshBackNormalFooter.class;
+}
+
+-(MTBlock)mj_footer_Block
 {
     if(!_mj_footer_Block)
     {

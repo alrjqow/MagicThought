@@ -68,7 +68,7 @@
 
 @end
 
-@interface TestTableViewController : MTTenScrollTableViewController
+@interface TestTableViewController : MTTenScrollListController
 
 @end
 
@@ -312,3 +312,143 @@
 }
 
 @end
+
+
+@interface MTPageTestController : UIViewController
+
+@property (nonatomic,strong) NSNumber* index;
+
+@end
+
+@implementation MTPageTestController
+
+-(void)whenDealloc
+{
+    NSLog(@"MTPageTestController销毁");
+}
+
+-(void)viewDidLoad
+{
+    [super viewDidLoad];
+    
+    self.view.backgroundColor = [UIColor whiteColor];
+    
+    UILabel* label = [UILabel new];
+    label.text = self.index.stringValue;
+    [label sizeToFit];
+    
+    label.center = self.view.center;
+    [self.view addSubview:label];
+}
+
+-(void)whenGetPageData:(NSNumber *)data
+{
+     self.index = data;
+}
+
+-(instancetype)setWithObject:(NSNumber *)obj
+{
+    self.index = obj;
+    return self;
+}
+
+@end
+
+
+@interface MTPageController ()<UIPageViewControllerDelegate, UIPageViewControllerDataSource, UIScrollViewDelegate>
+
+@property (nonatomic,strong) NSArray<MTPageTestController*>* pageTestControllerArray;
+
+@property (nonatomic,assign) NSInteger currentIndex;
+@property (nonatomic,assign) NSInteger nextIndex;
+
+@property (nonatomic,weak) UIScrollView* scrollView;
+
+@end
+
+@implementation MTPageController
+
+-(void)viewDidLoad
+{
+    [super viewDidLoad];
+    
+    self.delegate = self;
+    self.dataSource = self;
+    
+    for (UIView* subView in self.view.subviews) {
+        if([subView isKindOfClass:[UIScrollView class]])
+        {
+            self.scrollView = (UIScrollView*)subView;
+            self.scrollView.delegate = self;
+            [self.scrollView.panGestureRecognizer requireGestureRecognizerToFail:self.navigationController.interactivePopGestureRecognizer];
+            break;
+        }
+    }
+    
+    [self setViewControllers:@[self.pageTestControllerArray[self.currentIndex]] direction:UIPageViewControllerNavigationDirectionForward animated:YES completion:nil];
+}
+
+- (void)scrollViewDidScroll:(UIScrollView *)scrollView{
+    
+    CGFloat percentage = (scrollView.offsetX - self.view.width) / self.view.width;
+                                                                                        
+    NSLog(@"%lf === %zd",percentage, self.currentIndex);
+
+//    [self.titleView setUplineViewSlideWhenScroll:percentage currentIndex:self.currentIndex];
+}
+
+- (UIViewController *)pageViewController:(UIPageViewController *)pageViewController viewControllerBeforeViewController:(UIViewController *)viewController
+{
+    NSInteger index = [self.pageTestControllerArray indexOfObject:(MTPageTestController*)viewController];
+    index --;
+    if(index < 0)
+        index = self.pageTestControllerArray.count - 1;
+    
+    return self.pageTestControllerArray[index];
+}
+
+- (UIViewController *)pageViewController:(UIPageViewController *)pageViewController viewControllerAfterViewController:(UIViewController *)viewController
+{
+    NSInteger index = [self.pageTestControllerArray indexOfObject:(MTPageTestController*)viewController];
+    index ++;
+    if(index > self.pageTestControllerArray.count - 1)
+        index = 0;
+    
+    return self.pageTestControllerArray[index];
+}
+
+- (void)pageViewController:(UIPageViewController *)pageViewController willTransitionToViewControllers:(NSArray<UIViewController *> *)pendingViewControllers{
+        
+    self.nextIndex = [self.pageTestControllerArray indexOfObject:(MTPageTestController*)[pendingViewControllers firstObject]];
+}
+
+- (void)pageViewController:(UIPageViewController *)pageViewController didFinishAnimating:(BOOL)finished previousViewControllers:(NSArray<UIViewController *> *)previousViewControllers transitionCompleted:(BOOL)completed{
+    
+    if (completed) 
+        self.currentIndex = self.nextIndex;
+}
+
+-(NSArray<MTPageTestController *> *)pageTestControllerArray
+{
+    if(!_pageTestControllerArray)
+    {
+        _pageTestControllerArray = @[
+                            MTPageTestController.new(@(0)),
+                            MTPageTestController.new(@(1)),
+                            MTPageTestController.new(@(2)),
+                            MTPageTestController.new(@(3))
+        ];
+    }
+    
+    return _pageTestControllerArray;
+}
+
+-(instancetype)initWithTransitionStyle:(UIPageViewControllerTransitionStyle)style navigationOrientation:(UIPageViewControllerNavigationOrientation)navigationOrientation options:(NSDictionary<UIPageViewControllerOptionsKey,id> *)options
+{
+    if(self = [super initWithTransitionStyle:UIPageViewControllerTransitionStyleScroll navigationOrientation:navigationOrientation options:options]);
+        
+    return self;
+}
+
+@end
+

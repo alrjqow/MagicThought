@@ -7,5 +7,8 @@
 //
 
 #import "MTImagePlayView.h"
-#import "MTImagePlayViewCell.h"
-#import "MTCollectionViewScaleLayout.h"
+#import "MTImageCell.h"
+#import "MTImageShowControllModel.h"
+
+
+

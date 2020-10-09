@@ -19,4 +19,7 @@
 /**根据尺寸修改宽度为屏幕宽度，若为横屏，则高度等于屏幕宽度*/
 -(UIImage*)changeSizeAccordingToScreenWidth;
 
+/**中间不拉伸，两边拉伸*/
+- (UIImage *)changeToWidthWiithHorizontalStretchExceptCenter:(NSInteger)width;
+
 @end

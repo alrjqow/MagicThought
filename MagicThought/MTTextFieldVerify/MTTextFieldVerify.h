@@ -7,6 +7,8 @@
 //
 
 
-#import "MTTextFieldVerifyModel.h"
+#import "MTTextVerifyModel.h"
 #import "MTTextField.h"
 #import "MTTextView.h"
+#import "UIView+MTTextVerifyModel.h"
+

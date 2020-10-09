@@ -13,3 +13,7 @@
 @end
 
 
+@interface MTPageController : UIPageViewController
+
+@end
+

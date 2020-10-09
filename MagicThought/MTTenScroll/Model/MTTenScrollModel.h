@@ -13,8 +13,19 @@
 
 extern NSString* MTTenScrollIdentifier;
 
+typedef enum : NSInteger {
+    
+    /**默认把刷新至于最顶*/
+    MTTenScrollModelScrollTypeDefault,
+    
+    /**顶层标题栏固定,使刷新能置于标题底部*/
+    MTTenScrollModelScrollTypeTitleFixed,
+    
+} MTTenScrollModelScrollType;
 
 @interface MTTenScrollModel : NSObject
+
+@property (nonatomic,assign) MTTenScrollModelScrollType viewState;
 
 @property (nonatomic,weak) NSObject<MTDelegateViewDataProtocol>* delegate;
 
@@ -26,6 +37,8 @@ extern NSString* MTTenScrollIdentifier;
 
 /**contentView固定的偏移值*/
 @property (nonatomic,assign) CGFloat contentViewFixOffset;
+
+@property (nonatomic,assign) NSInteger beginPage;
 
 @end
 

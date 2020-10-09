@@ -18,6 +18,17 @@
     return [[NSString alloc] initWithData:jsonData encoding:NSUTF8StringEncoding];
 }
 
++ (NSArray *)arrayWithJson:(NSString*)json
+{
+    if(![json isKindOfClass:[NSString class]])
+        return @[];
+    
+    NSData *jsonData = [json dataUsingEncoding:NSUTF8StringEncoding];
+    NSArray *array = [NSJSONSerialization JSONObjectWithData:jsonData options:NSJSONReadingMutableContainers error:nil];
+    
+    return array;
+}
+
 // 控制台输出
 //-(NSString *)descriptionWithLocale:(id)locale indent:(NSUInteger)level
 //{

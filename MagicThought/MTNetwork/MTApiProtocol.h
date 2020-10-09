@@ -30,7 +30,7 @@
 @protocol MTBaseDataModelProtocol
 
 /**生成一个ytkrequest请求*/
--(MTBaseApi*)createApiWithIdentifier:(NSString*)identifier;
+-(NSDictionary<NSString*,  NSArray<NSString*>*> *)apiRequestList;
 
 /**数据过滤1*/
 -(BOOL)filterIsResponseFailBy:(NSDictionary*)responseObject;

@@ -10,12 +10,17 @@
 #import "MTViewContentModel.h"
 #import "UIView+MTBaseViewContentModel.h"
 #import "UIView+Frame.h"
+#import "MTTextField.h"
+#import "MTTextView.h"
 
-@interface MTBaseHeaderFooterView : MTDelegateHeaderFooterView
+@interface MTBaseHeaderFooterView : MTDelegateHeaderFooterView<MTTextFieldDelegate, UITextViewDelegate>
 
 @property (nonatomic,strong) UIColor* headerFooterViewBackgroundColor;
 
 @property (nonatomic,strong) MTViewContentModel* contentModel;
+
+/**扩展*/
+@property (nonatomic,strong) UIView* externView;
 
 @property (nonatomic,strong) UILabel* detailTextLabel2;
 
@@ -37,6 +42,9 @@
 
 @property (nonatomic,strong) UIButton* button4;
 
+@property (nonatomic,strong) MTTextField* textField;
+
+@property (nonatomic, strong) MTTextView *textView;
 
 @end
 

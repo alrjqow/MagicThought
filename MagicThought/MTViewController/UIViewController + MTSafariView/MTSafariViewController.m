@@ -358,6 +358,14 @@
     [self.webView goBack];
 }
 
+-(void)goBack
+{    
+    if([self.webView canGoBack])
+        [self.webView goBack];
+    else
+        [super goBack];
+}
+
 -(void)setupLeftButtonWithTitle:(NSString*)title Image:(NSString*)image ForState:(UIControlState)state
 {
     [self setupBarButton:self.back WithTitle:title Image:image ForState:state];

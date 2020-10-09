@@ -11,6 +11,14 @@
 
 @implementation NSString (Money)
 
++(NSString*)stringWithMoneyHidePoint:(CGFloat)floatValue
+{
+    if(floatValue - (NSInteger)floatValue > 0)
+        return [NSString stringWithFormat:@"%.2lf", floatValue];
+    else
+        return [NSString stringWithFormat:@"%.0lf", floatValue];
+}
+
 -(NSString*)money
 {
     if(self.floatValue <= 0) return @"0.00";
@@ -80,6 +88,17 @@
     return s;
 }
 
+
+-(NSString*)deleteFloatAllZero
+{
+    NSArray * arrStr=[self componentsSeparatedByString:@"."];
+    NSString *str=arrStr.firstObject;
+    NSString *str1=arrStr.lastObject;
+    while ([str1 hasSuffix:@"0"]) {
+        str1=[str1 substringToIndex:(str1.length-1)];
+    }
+    return (str1.length>0)?[NSString stringWithFormat:@"%@.%@",str,str1]:str;
+}
 
 
 @end

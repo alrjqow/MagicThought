@@ -17,8 +17,14 @@
 -(void)pop;
 -(void)popWithAnimate;
 
+-(void)popSelf;
+-(void)popSelfWithAnimate;
+
 -(void)popToRoot;
 -(void)popToRootWithAnimate;
+
+-(void)popSelfToRoot;
+-(void)popSelfToRootWithAnimate;
 
 @end
 

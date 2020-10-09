@@ -318,6 +318,8 @@ NSString* MTTenScrollIdentifier = @"MTTenScrollIdentifier";
 
 -(void)tenScrollTableViewScrollDidScroll
 {
+    if(self.viewState == MTTenScrollModelScrollTypeTitleFixed)
+        return;
     if(![self.currentView.viewModel isKindOfClass:NSClassFromString(@"MTDelegateTenScrollViewDelegateModel")])
         return;
     
@@ -336,11 +338,16 @@ NSString* MTTenScrollIdentifier = @"MTTenScrollIdentifier";
     
     if(offsetY < 0)
         offsetY = 0;
-        
-    if(self.currentView.contentSize.height <= self.currentView.height)
+           
+    if((self.currentView.contentSize.height + self.currentView.contentInset.top + self.currentView.contentInset.bottom) <= self.currentView.height)
         offsetY = 0;
     
     self.currentView.offsetY = offsetY;
+}
+
+-(void)tenScrollTableViewEndScroll
+{    
+    [self contentViewScrollEnabled:YES];
 }
 
 #pragma mark - ContentView
@@ -704,12 +711,9 @@ NSString* MTTenScrollIdentifier = @"MTTenScrollIdentifier";
     }
     
     if(isScroll)
-    {
-        self.titleView.bottomLine.centerX = beginCenterX + (nextCenterX - beginCenterX) * rate;
-        self.titleView.bottomLine.width = beginWidth + (nextWidth - beginWidth)*rate;
-    }
+        [self transitionBottomLineFrameWithCurrentCellCenterX:beginCenterX NextCellCenterX:nextCenterX CurrentCellWidth:beginWidth NextCellWidth:nextWidth Rate:rate];
         
-    /*-----------------------------------自动滚动-----------------------------------*/
+/*-----------------------------------自动滚动-----------------------------------*/
     
     if(self.directionTag < 0)
     {
@@ -723,6 +727,62 @@ NSString* MTTenScrollIdentifier = @"MTTenScrollIdentifier";
     }
             
     self.preCurrentIndex = floatCurrentIndex;
+}
+
+
+#pragma mark - 下划线变化
+-(void)transitionBottomLineFrameWithCurrentCellCenterX:(CGFloat)currentCellCenterX NextCellCenterX:(CGFloat)nextCellCenterX CurrentCellWidth:(CGFloat)currentCellWidth NextCellWidth:(CGFloat)nextCellWidth Rate:(CGFloat)rate
+{
+    switch (self.titleViewModel.bottomLineStyle) {
+        case MTTenScrollTitleViewBottomLineStickiness:
+        {
+            [self transitionBottomLineFrameStickinessWithCurrentCellCenterX:currentCellCenterX NextCellCenterX:nextCellCenterX CurrentCellWidth:currentCellWidth NextCellWidth:nextCellWidth Rate:rate];
+            break;
+        }
+                            
+        default:
+        {
+            self.titleView.bottomLine.centerX = currentCellCenterX + (nextCellCenterX - currentCellCenterX) * rate;
+            
+            if(!self.titleViewModel.isEqualBottomLineWidth)
+                self.titleView.bottomLine.width = currentCellWidth + (nextCellWidth - currentCellWidth)*rate;
+            break;
+        }
+    }
+}
+
+#pragma mark - 粘性下划线变化
+-(void)transitionBottomLineFrameStickinessWithCurrentCellCenterX:(CGFloat)currentCellCenterX NextCellCenterX:(CGFloat)nextCellCenterX CurrentCellWidth:(CGFloat)currentCellWidth NextCellWidth:(CGFloat)nextCellWidth Rate:(CGFloat)rate
+{
+    CGFloat beginWidth = self.titleViewModel.isEqualBottomLineWidth ? self.titleViewModel.bottomLineWidth : currentCellWidth;
+    CGFloat maxWidth = nextCellCenterX - currentCellCenterX;
+    CGFloat endWidth = self.titleViewModel.isEqualBottomLineWidth ? self.titleViewModel.bottomLineWidth : nextCellWidth;
+    
+    CGFloat lineRate;
+    if(rate <= 0.5)
+        lineRate = 2 * rate;
+    else
+        lineRate = 1 - 2 * (rate - 0.5);
+        
+    CGFloat bottomLineX;
+    CGFloat bottomLineW;
+    if(rate <= 0.5)
+    {
+        bottomLineW = beginWidth + (maxWidth - beginWidth) * lineRate;
+        CGFloat beginX = currentCellCenterX - beginWidth * 0.5;
+        bottomLineX = beginX + (currentCellCenterX - beginX) * lineRate;
+    }
+    else
+    {
+        bottomLineW = endWidth + (maxWidth - endWidth) * lineRate;
+        CGFloat endX = nextCellCenterX + endWidth * 0.5;
+        CGFloat endRate = 2 * (rate - 0.5);
+        CGFloat maxX = nextCellCenterX + (endX - nextCellCenterX) * endRate;
+        bottomLineX = maxX - bottomLineW;
+    }
+    
+    self.titleView.bottomLine.x = bottomLineX;
+    self.titleView.bottomLine.width = bottomLineW;
 }
 
 -(void)didContentViewEndScrollWithDecelerate:(NSNumber*)decelerate1
@@ -841,7 +901,7 @@ NSString* MTTenScrollIdentifier = @"MTTenScrollIdentifier";
         else
             self.objectArr[index] = @"1";
         
-        object = obj;
+        object = self.objectArr[index];
     }
         
     if(![object isKindOfClass:[UIView class]] && ![object isKindOfClass:[UIViewController class]])
@@ -852,10 +912,11 @@ NSString* MTTenScrollIdentifier = @"MTTenScrollIdentifier";
         /**绑定数据*/
         MTBaseDataModel* model = [MTBaseDataModel new];
         NSObject* data = [self.dataList getDataByIndex:index];
-        model.data = [data isKindOfClass:[NSReuseObject class]] ? ((NSReuseObject*)data).data : data;
+        model.data = [data isKindOfClass:[NSReuseObject class]] ? ((NSReuseObject*)data).data : ([data isKindOfClass:[NSWeakReuseObject class]] ? ((NSWeakReuseObject*)data).data : data);
+        model.bindEnum(data.mt_tag);
         model.identifier = MTTenScrollIdentifier;
         if([object respondsToSelector:@selector(whenGetTenScrollDataModel:)])
-            [object whenGetTenScrollDataModel:model];        
+            [object whenGetTenScrollDataModel:model];
     }
     
     if(object && self.currentIndex < 0)
@@ -871,7 +932,7 @@ NSString* MTTenScrollIdentifier = @"MTTenScrollIdentifier";
         view = (UIView*)object;
     else
         view = ((UIViewController*)object).view;
-    
+       
     [self setUpCurrentViewBySuperView:view];
     
     return view;
@@ -884,6 +945,7 @@ NSString* MTTenScrollIdentifier = @"MTTenScrollIdentifier";
     
     self.currentView.scrollEnabled = YES;
     self.currentView = nil;
+    CGFloat maxHeight = self.tenScrollHeight - self.titleViewModel.titleViewHeight;
     for(UIView* subView in superView.subviews)
     {
         if([subView isKindOfClass:[UIScrollView class]])
@@ -899,13 +961,21 @@ NSString* MTTenScrollIdentifier = @"MTTenScrollIdentifier";
             if([scrollView.viewModel isKindOfClass:NSClassFromString(@"MTDelegateTenScrollViewDelegateModel")])
             {
                 scrollView.mt_tenScrollModel = self;
-                scrollView.height = self.tenScrollHeight - self.titleViewModel.titleViewHeight;
+                scrollView.height = maxHeight;
             }
             
             self.currentView = scrollView;
             self.currentView.showsVerticalScrollIndicator = false;
             self.currentView.showsHorizontalScrollIndicator = false;
         }
+        else
+        {
+            if(subView.height > maxHeight)
+                subView.height = maxHeight;
+            if(subView.maxY > maxHeight)
+                   subView.maxY = maxHeight;
+        }
+        
     }
 }
 
@@ -983,6 +1053,29 @@ NSString* MTTenScrollIdentifier = @"MTTenScrollIdentifier";
 
 
 #pragma mark - 懒加载
+
+-(void)setBeginPage:(NSInteger)beginPage
+{
+    _beginPage = beginPage;
+    if(self.currentIndex < 0 && beginPage >= 0)
+        self.currentIndex = beginPage;
+}
+
+-(void)setViewState:(MTTenScrollModelScrollType)viewState
+{
+    _viewState = viewState;
+    switch (viewState) {
+        case MTTenScrollModelScrollTypeTitleFixed:
+        {
+            if(!self.superTenScrollView)
+                self.tenScrollView.bounces = false;
+            break;
+        }
+                        
+        default:
+            break;
+    }
+}
 
 -(NSInteger)tenScrollViewMaxOffsetY2
 {

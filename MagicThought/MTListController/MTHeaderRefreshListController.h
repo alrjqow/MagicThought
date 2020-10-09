@@ -15,7 +15,9 @@
 
 @property (nonatomic,strong) MTRefreshGifHeader* mj_header;
 
-@property (nonatomic,copy) MTHeaderRefreshBlock mj_Block;
+@property (nonatomic,copy) MTBlock mj_Block;
+
+@property (nonatomic,assign, readonly) BOOL isRemoveMJHeader;
 
 @end
 

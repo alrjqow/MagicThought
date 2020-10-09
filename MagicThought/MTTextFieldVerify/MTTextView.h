@@ -8,21 +8,10 @@
 
 
 #import "UIView+Delegate.h"
-#import "MTTextFieldVerifyModel.h"
-#import "MTWordStyle.h"
+#import "MTTextVerifyModel.h"
 
 @interface MTTextView : UITextView
 
-@property (nonatomic,weak) MTTextFieldVerifyModel* verifyModel;
-
-@property(nonatomic,strong) IBOutlet NSString* placeholder;
-
-@property(nonatomic,strong) MTWordStyle* placeholderStyle;
-
-@property(nonatomic,assign) BOOL shouldBeginEdit;
-
-@property(nonatomic,assign) CGFloat lineSpacing;
-
-@property(nonatomic,assign) CGFloat fontSpacing;
+@property (nonatomic,strong) MTTextVerifyModel* verifyModel;
  
 @end

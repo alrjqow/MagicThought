@@ -40,12 +40,17 @@
 {
     NSArray<NSObject*>* tabBarItemArr = self.tabBarItemArr;
     NSArray<MTTabBarItem*>* arr = [MTTabBarItem mj_objectArrayWithKeyValuesArray:tabBarItemArr];
-    
+
+    [self setupTabBarItemWithArray:arr];
+        
     for (NSInteger i = 0; i < arr.count; i++) {
         arr[i].mt_reuseIdentifier = tabBarItemArr[i].mt_reuseIdentifier;
     }
     
     for (MTTabBarItem* item in arr) {
+        
+        item.image = [item.image imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
+        item.selectedImage = [item.selectedImage imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
         
         if(![item.mt_reuseIdentifier isExist])
             continue;
@@ -80,6 +85,7 @@
     }
 }
 
+-(void)setupTabBarItemWithArray:(NSArray<UITabBarItem*>*)tabBarItemArray{}
 
 #pragma mark - 懒加载
 

@@ -11,6 +11,14 @@
 #import "MTConst.h"
 #import "UIView+Frame.h"
 
+NSString*  MTBaseAlertDismissOrder = @"MTBaseAlertDismissOrder_True";
+
+@interface MTBaseAlertBlackView ()
+
+@property (nonatomic,weak) MTBaseAlertController* alertController;
+
+@end
+
 @interface MTBaseAlertController ()
 
 @property (nonatomic,assign) BOOL isDismiss;
@@ -27,21 +35,32 @@
     
     self.blackView.frame = self.view.bounds;
     self.blackView.backgroundColor = rgba(0, 0, 0, 0.3);
-    self.blackView.alpha = self.type == MTBaseAlertTypeDefault;
+    self.blackView.alpha = self.type == MTBaseAlertTypeDefault || self.type == MTBaseAlertTypeDefault_NotBackgroundDismiss;
     
-    self.animateTime = 0.25;
-    self.isDismiss = YES;
+    self.animateTime = 0.25;    
 }
 
 -(void)setupSubview
 {
     [super setupSubview];
     
-    [self.view addSubview:self.blackView];
+    [self.view insertSubview:self.blackView atIndex:0];
+    
     if(self.alertView)
     {
-        if(self.type == MTBaseAlertTypeUp)
-            self.alertView.y = self.view.height;
+        switch (self.type) {
+            case MTBaseAlertTypeUp:
+            case MTBaseAlertTypeUp_NotBackgroundDismiss:
+            case MTBaseAlertTypeUp_DismissTwice:
+            {
+                self.alertView.y = self.view.height;
+                break;
+            }
+
+            default:
+                break;
+        }
+                            
         [self.view addSubview:self.alertView];
     }
 }
@@ -51,13 +70,19 @@
 
 -(void)alert
 {
-    self.modalPresentationStyle = UIModalPresentationCustom;
-    self.modalTransitionStyle = UIModalTransitionStyleCrossDissolve;
+    self.isDismiss = self.type != MTBaseAlertTypeUp_DismissTwice;
+        
+    UIViewController* vc = mt_rootViewController();
+    while (vc.presentedViewController) {vc = vc.presentedViewController;}
     
     switch (self.type) {
+        
+        case MTBaseAlertTypeUp_NotBackgroundDismiss:
+        case MTBaseAlertTypeUp_DismissTwice:
         case MTBaseAlertTypeUp:
         {
-                [mt_rootViewController() presentViewController:self animated:false completion:^{
+//            NSLog(@"%@",self.alertView);
+                [vc presentViewController:self animated:false completion:^{
                     [UIView animateWithDuration:self.animateTime animations:^{
                         self.blackView.alpha = 1;
                         self.alertView.y = self.view.height - self.alertView.height;
@@ -68,57 +93,131 @@
             
         default:
         {
-            [mt_rootViewController()  presentViewController:self animated:YES completion:nil];
+            [vc  presentViewController:self animated:YES completion:^{
+                [self alertCompletion];
+            }];
             break;
         }
     }
 }
 
-#pragma mark - 点击
+-(void)willAlert{}
+-(void)alerting{}
+-(void)alertCompletion{}
 
--(void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event
-{
-    if(!self.isVisible)
-        return;
-    
-    if(self.type == MTBaseAlertTypeUp)
-        [self dismiss];
-}
+#pragma mark - 点击
 
 #pragma mark - 消失
 
+-(void)dismissWithAnimate
+{
+     [self dismiss:nil Completion:nil Animate:YES];
+}
+
 -(void)dismiss
 {
+    [self dismiss:nil Completion:nil Animate:false];
+}
+
+-(void)dismissBeforeWithAnimate:(MTBlock)before
+{
+    [self dismiss:before Completion:nil Animate:YES];
+}
+
+-(void)dismissBefore:(MTBlock)before
+{
+    [self dismiss:before Completion:nil Animate:false];
+}
+
+-(void)dismissCompletionWithAnimate:(MTBlock)completion
+{
+    [self dismiss:nil Completion:completion Animate:YES];
+}
+
+-(void)dismissCompletion:(MTBlock)completion
+{
+    [self dismiss:nil Completion:completion Animate:false];
+}
+
+-(void)dismiss:(MTBlock)before Completion:(MTBlock)completion
+{
+    [self dismiss:before Completion:completion Animate:false];
+}
+
+-(void)dismissWithAnimate:(MTBlock)before Completion:(MTBlock)completion
+{
+    [self dismiss:before Completion:completion Animate:YES];
+}
+
+-(void)dismiss:(MTBlock)before Completion:(MTBlock)completion Animate:(BOOL)animate
+{
+    [self dismissIndicator];
     switch (self.type) {
+        
+        case MTBaseAlertTypeUp_NotBackgroundDismiss:
+        case MTBaseAlertTypeUp_DismissTwice:
         case MTBaseAlertTypeUp:
         {
-            [self alertTypeUpDismiss];
+            [self alertTypeUpDismiss:before Completion:completion];
             break;
         }
             
         default:
         {
-            [self dismissViewControllerAnimated:YES completion:nil];
+            if(before)
+                before();
+            [self.presentingViewController dismissViewControllerAnimated:animate completion:^{
+                [self dismissCompletion];
+                if(completion)
+                    completion();
+            }];
             break;
         }
     }
 }
 
--(void)alertTypeUpDismiss
+-(void)dismissCompletion{}
+
+-(void)alertTypeUpDismiss:(MTBlock)before Completion:(MTBlock)completion
 {
     [UIView animateWithDuration:self.animateTime animations:^{
         self.blackView.alpha = 0;
         self.alertView.y = self.view.height;
     } completion:^(BOOL finished) {
-//        if(self.isDismiss)
-            [self dismissViewControllerAnimated:false completion:nil];
-        
+         
+        if(self.isDismiss)
+        {
+            if(before)
+                before();
+            [self.presentingViewController dismissViewControllerAnimated:false completion:^{
+                [self dismissCompletion];
+                if(completion)
+                    completion();
+            }];
+        }
+        else
+            [self dismissCompletion];
         self.isDismiss = YES;
     }];
 }
 
 #pragma mark - 懒加载
 
+-(UIScrollView *)listView{return nil;}
+
+-(void)setMt_order:(NSString *)mt_order
+{
+    if([mt_order containsString:@"MTBaseAlertDismissOrder"])
+    {
+        if([mt_order containsString:@"_True"])
+            self.isDismiss = YES;
+        if([mt_order containsString:@"_Close"])
+            [super setMt_order:mt_order];
+        [self dismissWithAnimate];
+    }
+    else
+        [super setMt_order:mt_order];
+}
 
 
 #pragma mark - 生命周期
@@ -127,13 +226,48 @@
 {
     if(self = [super init])
     {
-        _blackView = [UIView new];
+        self.modalPresentationStyle = UIModalPresentationCustom;
+        self.modalTransitionStyle = UIModalTransitionStyleCrossDissolve;
+        
+        _blackView = [MTBaseAlertBlackView new];
+        _blackView.alertController = self;        
     }
     
     return self;
 }
 
 
+@end
 
+@implementation MTBaseAlertBlackView
+
+-(void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event
+{
+    [super touchesBegan:touches withEvent:event];
+    
+    if(self.alertController.presentedViewController)
+           return;
+       if(!self.alertController.isVisible)
+           return;
+
+       switch (self.alertController.type) {
+           case MTBaseAlertTypeUp:
+           case MTBaseAlertTypeUp_DismissTwice:
+           {
+               self.alertController.isDismiss = YES;
+               [self.alertController dismissWithAnimate];
+               break;
+           }
+           case MTBaseAlertTypeDefault_NotBackgroundDismiss:
+           case MTBaseAlertTypeUp_NotBackgroundDismiss:
+               break;
+               
+           default:
+           {
+               [self.alertController dismissWithAnimate];
+               break;
+           }
+       }
+}
 
 @end

@@ -236,41 +236,15 @@
     [[self createApi:api postParameter:parameter] start];
 }
 
-
 -(void)startWithApi:(NSString*)api Identifier:(NSString*)identifier UpLoadBlock:(AFConstructingBlock)block
 {
     [[self createApi:api Identifier:identifier UpLoadBlock:block] start];
 }
 
+/**创建请求*/
 -(MTBaseApi*)createApi:(NSString*)api postParameter:(NSDictionary*)parameter
 {
-    return [self createApi:api postParameter:parameter ApiIdentifier:nil];
-}
-
--(MTBaseApi*)createApi:(NSString*)api Identifier:(NSString*)identifier UpLoadBlock:(AFConstructingBlock)block
-{
-    return  [self createApi:api Identifier:identifier UpLoadBlock:block ApiIdentifier:nil];
-}
-
-
--(void)startWithApi:(NSString*)api postParameter:(NSDictionary*)parameter ApiIdentifier:(NSString*)apiIdentifier
-{
-    [[self createApi:api postParameter:parameter ApiIdentifier:apiIdentifier] start];
-}
-
--(void)startWithApi:(NSString*)api Identifier:(NSString*)identifier UpLoadBlock:(AFConstructingBlock)block ApiIdentifier:(NSString*)apiIdentifier
-{
-    [self createApi:api Identifier:identifier UpLoadBlock:block ApiIdentifier:apiIdentifier];
-}
-
-/**创建请求*/
--(MTBaseApi*)createApi:(NSString*)api postParameter:(NSDictionary*)parameter ApiIdentifier:(NSString*)apiIdentifier
-{
-    MTBaseApi* baseApi;
-    if([[MTCloud shareCloud].apiManager respondsToSelector:@selector(createApiWithIdentifier:)])
-        baseApi = [[MTCloud shareCloud].apiManager createApiWithIdentifier:apiIdentifier];
-    if(!baseApi)
-        baseApi = [MTBaseApi new];
+    MTBaseApi* baseApi = [self createApi:api];
     baseApi.url = api;
     if(parameter)
         [baseApi.postParameter setValuesForKeysWithDictionary:parameter];
@@ -279,15 +253,38 @@
     return baseApi;
 }
 
-/**创建上传数据请求*/
--(MTBaseApi*)createApi:(NSString*)api Identifier:(NSString*)identifier UpLoadBlock:(AFConstructingBlock)block ApiIdentifier:(NSString*)apiIdentifier
+-(MTBaseApi*)createApi:(NSString*)api
 {
-    MTBaseApi* baseApi;
-    if([[MTCloud shareCloud].apiManager respondsToSelector:@selector(createApiWithIdentifier:)])
-        baseApi = [[MTCloud shareCloud].apiManager createApiWithIdentifier:apiIdentifier];
+    if(![[MTCloud shareCloud].apiManager respondsToSelector:@selector(apiRequestList)])
+        return [MTBaseApi new];
+                
+    NSDictionary<NSString*,  NSArray<NSString*>*> * apiRequestList = [MTCloud shareCloud].apiManager.apiRequestList;
+        
+    __block MTBaseApi* baseApi;
+    [apiRequestList enumerateKeysAndObjectsUsingBlock:^(NSString * _Nonnull key, NSArray<NSString *> * _Nonnull obj, BOOL * _Nonnull stop) {
+        
+        NSInteger index = [obj indexOfObject:api];
+       if(index >= 0 && index < obj.count)
+       {
+           Class c = NSClassFromString(key);
+            if([c isSubclassOfClass:[MTBaseApi class]])
+            {
+                baseApi = c.new;
+                *stop = YES;
+            }
+       }
+    }];
+    
     if(!baseApi)
         baseApi = [MTBaseApi new];
     
+    return baseApi;
+}
+
+/**创建上传数据请求*/
+-(MTBaseApi*)createApi:(NSString*)api Identifier:(NSString*)identifier UpLoadBlock:(AFConstructingBlock)block
+{
+    MTBaseApi* baseApi = [self createApi:api];
     baseApi.identifier = identifier;
     baseApi.url = api;
     baseApi.constructingBodyBlock = block;

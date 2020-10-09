@@ -14,6 +14,8 @@
 #import "MTConst.h"
 #import "MTAlertViewConfig.h"
 
+#import "MTContentModelPropertyConst.h"
+
 #import <MJExtension.h>
 
 NSObject* appTitle_mtAlert()
@@ -23,17 +25,17 @@ NSObject* appTitle_mtAlert()
 
 NSObject* title_mtAlert(NSObject* object)
 {
-    return object.bindTag(@"title");
+    return object.bindKey(kTitle);
 }
 
 NSObject* logo_mtAlert(NSObject* object)
 {
-    return object.bindTag(@"img");
+    return object.bindKey(kImg);
 }
 
 NSObject* content_mtAlert(NSObject* object)
 {
-    return object.bindTag(@"content");
+    return object.bindKey(kContent);
 }
 
 NSObject* buttons_mtAlert(NSObject* object)
@@ -42,7 +44,7 @@ NSObject* buttons_mtAlert(NSObject* object)
     if(![arr isKindOfClass:[NSArray class]])
         arr = @[arr];
     
-    return arr.bindTag(@"buttonModelList");
+    return arr.bindKey(@"buttonModelList");
 }
 
 @interface NSArray (Alert)
@@ -103,11 +105,11 @@ NSObject* buttons_mtAlert(NSObject* object)
         if(![obj isKindOfClass:[NSObject class]])
             continue;
         
-        if(![obj.mt_tagIdentifier isExist])
+        if(![obj.mt_keyName isExist])
             continue;
         
-        dict[obj.mt_tagIdentifier] = obj;
-        obj.mt_tagIdentifier = nil;
+        dict[obj.mt_keyName] = obj;
+        obj.mt_keyName = nil;
     }
     
     MTAlertViewConfig* config = [configClassName mj_objectWithKeyValues:dict];

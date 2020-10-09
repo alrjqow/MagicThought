@@ -84,7 +84,7 @@
     if([self.mt_delegate respondsToSelector:@selector(doSomeThingForMe:withOrder:withItem:)])
         [self.mt_delegate doSomeThingForMe:self withOrder:@"MTAlertDatePickerControllerEnterOrder" withItem:[self getTime]];
     
-    [self dismiss];
+    [self dismissWithAnimate];
 }
 
 #pragma mark - 成员方法

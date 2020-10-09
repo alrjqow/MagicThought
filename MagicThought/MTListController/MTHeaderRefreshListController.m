@@ -16,15 +16,15 @@
 
 #pragma mark - 懒加载
 
--(void)setupSubview
+-(void)setupDefault
 {
-    [super setupSubview];
+    [super setupDefault];
     
+    if(!self.isRemoveMJHeader)
     self.listView.mj_header = self.mj_header;
-    self.listView.mj_header.refreshingBlock = self.mj_Block;
 }
 
--(MTHeaderRefreshBlock)mj_Block
+-(MTBlock)mj_Block
 {
     if(!_mj_Block)
     {
@@ -41,8 +41,12 @@
 -(MTRefreshGifHeader *)mj_header
 {
     if(!_mj_header)
-    {        
-        _mj_header = [MTRefreshGifHeader headerWithRefreshingBlock:nil];
+    {
+            __weak __typeof(self) weakSelf = self;
+        _mj_header = [MTRefreshGifHeader headerWithRefreshingBlock:^{
+            if(weakSelf.mj_Block)
+                weakSelf.mj_Block();
+        }];
     }
     
     return _mj_header;

@@ -12,6 +12,8 @@
 
 #import "UIView+Frame.h"
 
+#import <MJRefresh/MJRefresh.h>
+
 @interface MTTenScrollViewBaseDelegateModel ()
 
 @property (nonatomic,weak) UIScrollView* scrollView;
@@ -80,15 +82,34 @@
     [self.model performSelector:@selector(tenScrollViewEndScroll)];
 }
 
-#pragma mark - 模拟减速
+#pragma mark - 模拟向下减速
 -(void)simulateDecelerate
 {
     UIScrollView* currentView = [self.model valueForKey:@"currentView"];
+    if(currentView.directionYTag <= 0)
+    {
+        [self.model performSelector:@selector(tenScrollViewEndScroll)];
+        return;
+    }
+    if(currentView.mj_footer.state == MJRefreshStatePulling ||
+       currentView.mj_footer.state == MJRefreshStateRefreshing ||
+       currentView.mj_footer.state == MJRefreshStateWillRefresh)
+    {
+        [self.model performSelector:@selector(tenScrollViewEndScroll)];
+        return;
+    }
 
+    
     [self.animator removeAllBehaviors];
     self.item.center = CGPointZero;
     
     CGPoint vPoint = [self.scrollView.panGestureRecognizer velocityInView:self.scrollView];
+    if(vPoint.y > 0)
+    {
+        [self.model performSelector:@selector(tenScrollViewEndScroll)];
+        return;
+    }
+        
     
     UIDynamicItemBehavior* behavior = [[UIDynamicItemBehavior alloc] initWithItems:@[self.item]];
     [behavior addLinearVelocity:CGPointMake(0, -vPoint.y) forItem:self.item];
@@ -100,25 +121,13 @@
     behavior.action = ^{
         
         CGFloat currentY = weakSelf.item.center.y - lastCenter.y;
-        
-        CGFloat maxCurrentViewOffsetY = currentView.contentSize.height - currentView.height;
+        CGFloat maxCurrentViewOffsetY = (currentView.contentInset.top + currentView.contentInset.bottom + currentView.contentSize.height) - currentView.height;
         CGFloat currentViewOffsetY = currentView.offsetY;
-        if(currentView.offsetY > (maxCurrentViewOffsetY + 100))
+        if(currentView.offsetY > maxCurrentViewOffsetY)
             [self simulateCurrentViewSpring:currentView];
         else
         {
             currentViewOffsetY += currentY;
-            
-//            if([currentView.viewModel isKindOfClass:self.class])
-//            {
-//                maxCurrentViewOffsetY = [[((MTTenScrollViewDelegateModel*)currentView.viewModel).model valueForKey:@"tenScrollViewMaxOffsetY"] integerValue];
-//                if(currentViewOffsetY > maxCurrentViewOffsetY)
-//                {
-//                    currentViewOffsetY = maxCurrentViewOffsetY;
-//                }
-//            }
-            
-            
             currentView.offsetY = currentViewOffsetY;
         }
         
@@ -131,7 +140,9 @@
 #pragma mark - 模拟回弹
 -(void)simulateCurrentViewSpring:(UIScrollView*)currentView
 {
-    CGFloat maxCurrentViewOffsetY = currentView.contentSize.height - currentView.height;
+    if(currentView.directionYTag <= 0)
+        return;
+    CGFloat maxCurrentViewOffsetY = (currentView.contentInset.top + currentView.contentInset.bottom + currentView.contentSize.height) - currentView.height;
     if(maxCurrentViewOffsetY < 0)
         maxCurrentViewOffsetY = 0;
     
@@ -226,6 +237,12 @@
 {
     [self.model performSelector:@selector(tenScrollTableViewScrollDidScroll)];
 }
+
+-(void)scrollViewDidEndDecelerating:(UIScrollView *)scrollView
+{
+    [self.model performSelector:@selector(tenScrollTableViewEndScroll)];
+}
+
 
 @end
 

@@ -13,7 +13,6 @@
 
 -(void)push
 {
-    
     [[MTCloud shareCloud].currentViewController.navigationController pushViewController:self animated:false];
 }
 -(void)pushWithAnimate
@@ -23,20 +22,53 @@
 
 -(void)pop
 {
-    [self.navigationController popViewControllerAnimated:false];
+    [[MTCloud shareCloud].currentViewController.navigationController popViewControllerAnimated:false];
 }
 -(void)popWithAnimate
 {
-    [self.navigationController popViewControllerAnimated:YES];
+    [[MTCloud shareCloud].currentViewController.navigationController popViewControllerAnimated:YES];
+}
+
+-(void)popSelf
+{
+     [self.navigationController popViewControllerAnimated:false];
+}
+
+-(void)popSelfWithAnimate
+{
+     [self.navigationController popViewControllerAnimated:YES];
 }
 
 -(void)popToRoot
 {
-    [[MTCloud shareCloud].currentViewController.navigationController popToRootViewControllerAnimated:false];
+    if([self isKindOfClass:[UINavigationController class]])
+       [((UINavigationController*)self) popToRootViewControllerAnimated:false];
+    else
+        [[MTCloud shareCloud].currentViewController.navigationController popToRootViewControllerAnimated:false];
 }
+
 -(void)popToRootWithAnimate
 {
-    [[MTCloud shareCloud].currentViewController.navigationController popToRootViewControllerAnimated:YES];
+    if([self isKindOfClass:[UINavigationController class]])
+       [((UINavigationController*)self) popToRootViewControllerAnimated:YES];
+    else
+        [[MTCloud shareCloud].currentViewController.navigationController popToRootViewControllerAnimated:YES];
+}
+
+-(void)popSelfToRoot
+{
+    if([self isKindOfClass:[UINavigationController class]])
+       [((UINavigationController*)self) popToRootViewControllerAnimated:false];
+    else
+        [self.navigationController popToRootViewControllerAnimated:false];
+}
+
+-(void)popSelfToRootWithAnimate
+{
+    if([self isKindOfClass:[UINavigationController class]])
+       [((UINavigationController*)self) popToRootViewControllerAnimated:YES];
+    else
+        [self.navigationController popToRootViewControllerAnimated:YES];
 }
 
 @end

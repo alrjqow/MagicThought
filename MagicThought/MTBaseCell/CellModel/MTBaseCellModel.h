@@ -15,14 +15,15 @@
 /**分割线长度*/
 @property (nonatomic,assign) CGFloat sepLineWidth;
 /**是否消除分割线，默认不消除*/
-@property (nonatomic,assign) BOOL isCloseSepLine;
+@property (nonatomic,strong) NSNumber* isCloseSepLine;
 
 /**是否显示箭头*/
-@property (nonatomic,assign) CGFloat isArrow;
+@property (nonatomic,strong) NSNumber* isArrow;
+
 /**右箭头的右边距*/
-@property (nonatomic,assign) CGFloat accessoryMarginRight;
+//@property (nonatomic,assign) CGFloat accessoryMarginRight;
 /**右箭头的尺寸*/
-@property (nonatomic,assign) CGRect accessoryBounds;
+//@property (nonatomic,assign) CGRect accessoryBounds;
 
 
 @end

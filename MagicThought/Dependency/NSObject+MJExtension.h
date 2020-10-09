@@ -17,3 +17,6 @@
 @interface MTWordStyle(MJExtension) @end
 
 @interface MTBorderStyle(MJExtension) @end
+
+@interface MTShadowStyle(MJExtension) @end
+

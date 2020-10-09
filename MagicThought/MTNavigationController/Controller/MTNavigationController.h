@@ -8,6 +8,13 @@
 
 #import "NSObject+CommonProtocol.h"
 
+@interface UINavigationController (Extern)
+
+/*是否可侧滑返回*/
+@property (nonatomic,assign) BOOL enableSlideBack;
+
+@end
+
 @interface MTNavigationController : UINavigationController<UINavigationControllerDelegate>
 
 @property (nonatomic,strong) NSString* order;
@@ -20,9 +27,11 @@
 /*!该属性用于设置侧滑还是全屏滑，默认全屏滑*/
 @property(nonatomic,assign) BOOL isFullScreenPop;
 
-/*是否可侧滑返回*/
-@property (nonatomic,assign) BOOL enableSlideBack;
-
 @end
 
 
+@interface UIViewController (NavigationRecord)
+
+@property (nonatomic,strong, readonly) UIViewController* previousController;
+
+@end

@@ -8,12 +8,15 @@
 
 #import "MTBaseListController.h"
 #import "MTBaseDataModel.h"
-#import "MTDelegateViewDataModel.h"
+#import "MTDataSourceModel.h"
 #import "NSString+Exist.h"
+#import "UIView+Frame.h"
 
 @interface MTBaseListController ()
-
-@property (nonatomic,strong) MTDelegateViewDataModel* dataModel;
+{
+    UICollectionViewFlowLayout* _collectionViewFlowLayout;
+}
+@property (nonatomic,strong) MTDataSourceModel* dataModel;
 
 @end
 
@@ -33,6 +36,8 @@
 
 -(void)loadData
 {
+    if(!self.listView)
+        return;
     NSArray* dataList;
     NSArray* sectionList;
     NSObject* emptyData;
@@ -53,8 +58,78 @@
     if(!emptyData)
         emptyData = self.dataModel.emptyData;
     
-    
     [self.listView reloadDataWithDataList:dataList  SectionList:sectionList EmptyData:emptyData];
+}
+
+-(void)doSomeThingForMe:(id)obj withOrder:(NSString *)order
+{
+    if([order isEqualToString:@"MTDataSourceReloadDataBeforeOrder"])
+    {
+        if(!self.adjustListViewHeightByData)
+            return;
+        NSArray* dataList = [obj valueForKey:@"dataList"];
+        NSArray* sectionList = [obj valueForKey:@"sectionList"];
+        NSArray* emptyData = [obj valueForKey:@"emptyData"];
+        
+        [self adjustListViewHeightWithDataList:dataList SectionList:sectionList EmptyData:emptyData];
+    }
+}
+
+-(void)adjustListViewHeightWithDataList:(NSArray*)dataList SectionList:(NSArray*)sectionList EmptyData:(NSObject*)emptyData
+{
+    if(self.listView != _mtBase_tableView)
+        return;
+    
+    CGFloat height = 0;
+    if(dataList.count)
+    {
+        for (NSArray* arr in dataList) {
+            if(![arr isKindOfClass:[NSArray class]])
+                return;
+            
+            for(NSObject* obj in arr)
+            {
+                if(![obj isKindOfClass:[NSObject class]])
+                    return;
+                
+                height += obj.mt_itemHeight;
+            }
+        }
+        
+        NSInteger index = -1;
+        for (NSArray* arr in sectionList) {
+            index++;
+            if(index > 1) break;
+                
+            if(![arr isKindOfClass:[NSArray class]])
+                return;
+            
+            for(NSObject* obj in arr)
+            {
+                if(![obj isKindOfClass:[NSObject class]])
+                    return;
+                
+                height += obj.mt_itemHeight;
+            }
+        }
+    }
+    else
+    {
+        height += emptyData.mt_itemHeight;
+        if(emptyData.mt_headerEmptyShow)
+        {
+            if(sectionList.count > 0)
+            {
+                NSArray* arr = sectionList[0];
+                if(arr.count > 0)
+                    height += ((NSObject*)arr[0]).mt_itemHeight;
+            }
+        }
+    }
+    
+    height += (self.mtBase_tableView.contentInset.top + self.mtBase_tableView.contentInset.bottom);
+    height += (self.mtBase_tableView.tableHeaderView.height + self.mtBase_tableView.tableFooterView.height);
+    self.mtBase_tableView.height = height;
 }
 
 #pragma mark - 重载方法
@@ -79,7 +154,7 @@
 {
     if (_mtBase_tableView == nil) {
                 
-        _mtBase_tableView = [[MTDelegateTableView alloc] initWithFrame:self.view.bounds style:UITableViewStyleGrouped];
+        _mtBase_tableView = [[MTDelegateTableView alloc] initWithFrame:CGRectZero style:UITableViewStyleGrouped];
         _mtBase_tableView.backgroundColor = [UIColor clearColor];
         _mtBase_tableView.showsVerticalScrollIndicator = false;
         _mtBase_tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
@@ -101,10 +176,12 @@
 {
     if(!_mtBase_collectionView)
     {
-        _mtBase_collectionView = [[MTDragCollectionView alloc] initWithFrame:self.view.bounds collectionViewLayout:[UICollectionViewFlowLayout new]];
+        _mtBase_collectionView = [[MTDragCollectionView alloc] initWithFrame:CGRectZero collectionViewLayout:self.collectionViewFlowLayout];
         _mtBase_collectionView.backgroundColor = [UIColor clearColor];
         _mtBase_collectionView.showsVerticalScrollIndicator = false;
+        _mtBase_collectionView.showsHorizontalScrollIndicator = false;
         _mtBase_collectionView.contentInset = UIEdgeInsetsMake(0, 0, kTabBarHeight_mt(), 0);
+        
         
         [_mtBase_collectionView addTarget:self];
         if (@available(iOS 11.0, *))
@@ -119,16 +196,16 @@
     return self.mtBase_tableView;
 }
 
--(MTDelegateViewDataModel *)dataModel
+-(MTDataSourceModel *)dataModel
 {
     if(!_dataModel && [self.dataModelClassName isExist])
     {
         Class c = NSClassFromString(self.dataModelClassName);
                 
-        if(![c isSubclassOfClass:[MTDelegateViewDataModel class]])
+        if(![c isSubclassOfClass:[MTDataSourceModel class]])
             return nil;
-     
-        _dataModel = [c modelForController:self];
+             
+        _dataModel = [c.new setWithObject:NSStringFromClass(self.class)];
     }
     
     return _dataModel;
@@ -181,6 +258,21 @@
 -(NSArray *)sectionList
 {
     return self.realSectionList;
+}
+
+- (UICollectionViewFlowLayout *)collectionViewFlowLayout
+{
+    if(!_collectionViewFlowLayout)
+    {
+        _collectionViewFlowLayout = [self createCollectionViewFlowLayout];
+    }
+    
+    return _collectionViewFlowLayout;
+}
+
+-(UICollectionViewFlowLayout*)createCollectionViewFlowLayout
+{
+    return [UICollectionViewFlowLayout new];
 }
 
 @end

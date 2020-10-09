@@ -12,4 +12,7 @@
 
 @property (nonatomic,strong, readonly) UICollectionViewLayout * layout;
 
++(UICollectionViewLayout*)layout;
+
 @end
+

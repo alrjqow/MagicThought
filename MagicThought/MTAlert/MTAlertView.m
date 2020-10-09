@@ -107,7 +107,7 @@
     if(!self.customView)
         _customView = self.detailTextView;
     self.customView.x = self.alertConfig.innerMargin;
-    self.customView.y = CGSizeEqualToSize(CGSizeZero, self.imageView.frame.size) && CGSizeEqualToSize(CGSizeZero, self.textLabel.frame.size)  ? offset: maxY + offset;
+    self.customView.y = CGSizeEqualToSize(CGSizeZero, self.imageView.frame.size) && CGSizeEqualToSize(CGSizeZero, self.textLabel.frame.size)  ? offset: (maxY - 3) + offset;
     self.customView.width = self.width - 2 * self.alertConfig.innerMargin;
     
     
@@ -144,9 +144,8 @@
     MTBaseViewContentModel *item = self.alertConfig.buttonModelList[btn.tag];
     [self hide];
     
-    if (item.mt_click)
-        item.mt_click(item.mt_order);
-    else if([self.mt_delegate respondsToSelector:@selector(doSomeThingForMe:withOrder:)])
+    [self viewEventWithView:btn Data:mt_empty()];
+    if([self.mt_delegate respondsToSelector:@selector(doSomeThingForMe:withOrder:)])
         [self.mt_delegate doSomeThingForMe:self.customView == self.detailTextView ? self.config : self.customView withOrder:item.mt_order];
 }
 
@@ -159,6 +158,7 @@
     if(![contentModel isKindOfClass:[MTAlertViewConfig class]])
         return;
 
+    self.detailTextLabel.hidden = YES;
     self.detailTextView.baseContentModel = contentModel.mtContent;
     self.buttonView.baseContentModel = contentModel.mtContent2;
     
@@ -185,7 +185,7 @@
             [subView removeFromSuperview];
     }
     
-    for (NSInteger i = 0 ; i < self.alertConfig.buttonModelList.count; ++i)
+    for (NSInteger i = 0 ; i < self.alertConfig.buttonModelList.count; i++)
     {
         MTBaseViewContentModel *baseContentModel = self.alertConfig.buttonModelList[i];
         
@@ -225,7 +225,7 @@
     if(!_detailTextView)
     {
         _detailTextView = [MTTextView new];
-        _detailTextView.shouldBeginEdit = false;
+        _detailTextView.verifyModel.shouldBeginEdit = false;
     }
     
     return _detailTextView;

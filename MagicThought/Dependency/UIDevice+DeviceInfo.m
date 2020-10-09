@@ -13,6 +13,7 @@
 
 #import <sys/utsname.h>
 
+//附上一个设备表链接 地址：https://www.theiphonewiki.com/wiki/Models
 @implementation UIDevice (DeviceInfo)
 
 +(NSString*)UUID
@@ -79,7 +80,11 @@
                               @"Watch4,2"   : Device_AppleWatchSeries4,
                               @"Watch4,3"   : Device_AppleWatchSeries4,
                               @"Watch4,4"   : Device_AppleWatchSeries4,
-                              
+                              @"Watch5,1"   : Device_AppleWatchSeries5,
+                              @"Watch5,2"   : Device_AppleWatchSeries5,
+                              @"Watch5,3"   : Device_AppleWatchSeries5,
+                              @"Watch5,4"   : Device_AppleWatchSeries5,
+                                                             
                               @"AudioAccessory1,1"   : Device_HomePod1,
                               @"AudioAccessory1,2"   : Device_HomePod1,
                               
@@ -144,6 +149,10 @@
                               @"iPad8,6"   : Device_iPadProMax3,
                               @"iPad8,7"   : Device_iPadProMax3,
                               @"iPad8,8"   : Device_iPadProMax3,
+                              @"iPad8,9"   : Device_iPadPro4,
+                              @"iPad8,10"   : Device_iPadPro4,
+                              @"iPad8,11"   : Device_iPadProMax4,
+                              @"iPad8,12"   : Device_iPadProMax4,
                                                             
                               @"iPhone1,1" : Device_iPhone1,
                               @"iPhone1,2" : Device_iPhone3G,
@@ -180,6 +189,7 @@
                               @"iPhone12,1" : Device_iPhone11,
                               @"iPhone12,3" : Device_iPhone11Pro,
                               @"iPhone12,5" : Device_iPhone11ProMax,
+                              @"iPhone12,8" : Device_iPhoneSE2,
                               };
     }
     
@@ -212,8 +222,17 @@
 }
 
 + (BOOL)isHairScreen {
-    static NSInteger isFinish = -1;
 
+    if (@available(iOS 11.0, *))
+        return [[UIApplication sharedApplication] delegate].window.safeAreaInsets.bottom > 0;
+    else
+        return false;
+}
+
++ (BOOL)isHairScreen2 {
+    
+    static NSInteger isFinish = -1;
+    
     if(isFinish > -1)
         return isFinish == 1;
     
@@ -222,14 +241,14 @@
     if(device != Device_iPhoneX && device != Device_Simulator)
         isFinish = 0;
     
-    if(device == Device_iPhoneX || device == Device_iPhoneXS || device == Device_iPhoneXSMax || device == Device_iPhoneXR)
+    if(device == Device_iPhoneX || device == Device_iPhoneXS || device == Device_iPhoneXSMax || device == Device_iPhoneXR || device == Device_iPhone11 || device == Device_iPhone11Pro || device == Device_iPhone11ProMax)
         isFinish = 1;
     
     if(device == Device_Simulator)
     {
         CGSize size = [UIScreen mainScreen].bounds.size;
         isFinish = CGSizeEqualToSize(size, CGSizeMake(375, 812)) ||
-                    CGSizeEqualToSize(size, CGSizeMake(812, 375)) || CGSizeEqualToSize(CGSizeMake(414, 896), size) || CGSizeEqualToSize(CGSizeMake(896, 414), size);
+        CGSizeEqualToSize(size, CGSizeMake(812, 375)) || CGSizeEqualToSize(CGSizeMake(414, 896), size) || CGSizeEqualToSize(CGSizeMake(896, 414), size);
     }
     
     return isFinish == 1;

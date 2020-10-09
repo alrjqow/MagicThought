@@ -7,7 +7,7 @@
 //
 
 #import "MTHeaderRefreshListController.h"
-#import "MTRefreshAutoNormalFooter.h"
+#import "MTRefreshBackNormalFooter.h"
 #import "MTPageInfoModel.h"
 
 
@@ -15,15 +15,17 @@
 
 @property (nonatomic,assign) NSInteger page;
 
-@property (nonatomic,strong) MTRefreshAutoNormalFooter* mj_footer;
+@property (nonatomic,strong) MJRefreshFooter<MJRefreshFooterProtocol>* mj_footer;
 
-@property (nonatomic,copy) MTFooterRefreshBlock mj_footer_Block;
+@property (nonatomic,copy) MTBlock mj_footer_Block;
 
 @property (nonatomic,strong) MTPageInfoModel* infoModel;
 
-@property (nonatomic,assign, readonly) BOOL isRemoveMJHeader;
+@property (nonatomic,assign, readonly) BOOL isRemoveMJFooter;
 
 @property (nonatomic,strong) NSMutableArray* itemArr;
+
+@property (nonatomic,strong, readonly) Class footerClass;
 
 @end
 

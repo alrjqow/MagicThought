@@ -33,7 +33,7 @@
     self.alertView = [UIView new];
     self.alertView.frame = CGRectMake(0, 0, kScreenWidth_mt(), 360);
     self.alertView.backgroundColor = [UIColor whiteColor];
-    [self.alertView becomeCircleWithBorder:mt_BorderStyleMake(0, 12, nil) AndRoundingCorners:UIRectCornerTopLeft | UIRectCornerTopRight];
+    [self.alertView becomeCircleWithBorder:mt_BorderStyleMake(0, 12, nil).corners(UIRectCornerTopLeft | UIRectCornerTopRight)];
     
     [self.view addSubview:self.alertView];
 }

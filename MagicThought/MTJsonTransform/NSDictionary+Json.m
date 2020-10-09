@@ -23,6 +23,9 @@
 /**json转成字典*/
 + (NSDictionary *)dictionaryWithJson:(NSString*)json
 {
+    if(![json isKindOfClass:[NSString class]])
+        return @{};
+    
     NSData *jsonData = [json dataUsingEncoding:NSUTF8StringEncoding];
     NSDictionary *dictionary = [NSJSONSerialization JSONObjectWithData:jsonData options:NSJSONReadingMutableContainers error:nil];
     

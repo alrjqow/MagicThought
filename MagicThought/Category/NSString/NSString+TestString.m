@@ -28,6 +28,12 @@
     return [self testWithFormat:@"^\\+?[1-9][0-9]*$"];
 }
 
+-(BOOL)testStartWith:(NSString*)startStr
+{    
+    return  [self testWithFormat:[NSString stringWithFormat:@"^(%@).*$",startStr]];
+}
+
+
 -(BOOL)testPositiveNumber
 {
     return [self testWithFormat:@"^(([0-9]+\\.[0-9]*[1-9][0-9]*)|([0-9]*[1-9][0-9]*\\.[0-9]+)|([0-9]*[1-9][0-9]*))$"];
@@ -191,6 +197,19 @@
 -(BOOL)testMoney
 {
     return [self testDecimalWithPlace:2];
+}
+
+-(NSRange)rangeWithFormat:(NSString *)regularExpress
+{
+    NSError *error;
+    NSRegularExpression *regex = [NSRegularExpression regularExpressionWithPattern:regularExpress options:0 error:&error];
+    if (regex != nil) {
+        NSTextCheckingResult *firstMatch=[regex firstMatchInString:self options:0 range:NSMakeRange(0, self.length)];
+        if (firstMatch)
+            return [firstMatch rangeAtIndex:0];
+    }
+    
+    return NSMakeRange(NSNotFound, 0);
 }
 
 @end

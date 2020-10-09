@@ -13,6 +13,13 @@
 
 -(instancetype)setWordWithStyle:(MTWordStyle*)style
 {
+    if(style.isAttributedWord)
+    {
+        self.attributedText = style.attributedWordName;
+        [self sizeToFit];
+        return self;
+    }
+            
     if(style.wordColor)
         self.textColor = style.wordColor;
     

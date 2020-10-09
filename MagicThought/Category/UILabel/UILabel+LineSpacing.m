@@ -24,7 +24,7 @@
     [self setAttributedText:attributedString];
 }
 
--(void)setLineSpacing:(CGFloat)space
+-(void)setLineSpacingFloat:(CGFloat)space
 {
     if(![self.text isExist])
         return;
@@ -51,24 +51,6 @@
     NSAttributedString *attributeStr = [[NSAttributedString alloc] initWithString:self.text attributes:dic];
     [self setAttributedText:attributeStr];
 }
-
-//-(void)setLabelSpace:(UILabel*)label withValue:(NSString*)str {
-//    NSMutableParagraphStyle *paraStyle = [[NSMutableParagraphStyle alloc] init];
-//    paraStyle.lineBreakMode = NSLineBreakByCharWrapping;
-//    paraStyle.alignment = NSTextAlignmentLeft;
-//    paraStyle.lineSpacing = UILABEL_LINE_SPACE; //设置行间距
-//    paraStyle.hyphenationFactor = 1.0;
-//    paraStyle.firstLineHeadIndent = 0.0;
-//    paraStyle.paragraphSpacingBefore = 0.0;
-//    paraStyle.headIndent = 0;
-//    paraStyle.tailIndent = 0;
-//    //设置字间距 NSKernAttributeName:@1.5f
-//    NSDictionary *dic = @{ NSParagraphStyleAttributeName:paraStyle, NSKernAttributeName:@1.5f
-//                          };
-//    
-//    NSAttributedString *attributeStr = [[NSAttributedString alloc] initWithString:str attributes:dic];
-//    label.attributedText = attributeStr;
-//}
 
 
 @end

@@ -27,6 +27,10 @@
 
 @property (nonatomic,strong) NSArray* tenScrollDataList;
 
+@property (nonatomic,strong) NSArray* pageScrollDataList;
+
+@property (nonatomic,strong) NSArray* pageScrollTitleDataList;
+
 @property (nonatomic,strong) NSArray* sectionList;
 
 @property (nonatomic,strong) NSObject* emptyData;
@@ -61,10 +65,13 @@
 
 - (NSArray*)newDataList:(NSArray*)dataList;
 
+- (void)didSetDataList:(NSArray*)dataList;
+
 @end
 
 
-@protocol MTViewModelProtocol<MTListDataProtocol, MTExchangeDataProtocol>
+@protocol MTViewModelProtocol<UICollectionViewDataSource,MTListDataProtocol, MTExchangeDataProtocol>
 
+-(void)layoutSubviews;
 
 @end

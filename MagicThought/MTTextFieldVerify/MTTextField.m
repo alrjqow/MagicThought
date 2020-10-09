@@ -10,15 +10,67 @@
 #import "NSString+TestString.h"
 #import "NSString+Exist.h"
 #import "NSString+Money.h"
-#import "MTConst.h"
 #import "MTDelegateProtocol.h"
+#import "UIView+MTBaseViewContentModel.h"
 
+@interface MTTextField ()<MTTextFieldDelegate>
+
+@end
 
 @implementation MTTextField
 
--(BOOL)shouldChangeCharactersInRange:(NSRange)range replacementString:(NSString *)string
+#pragma mark - 生命周期
+
+-(instancetype)initWithFrame:(CGRect)frame
 {
-    switch (self.verifyModel.verifyType) {
+    if(self = [super initWithFrame:frame])
+    {
+        [self setupDefault];
+    }
+    
+    return self;
+}
+
+-(void)setupDefault
+{
+    [super setupDefault];
+    
+    self.clearButtonMode = UITextFieldViewModeWhileEditing;
+    self.delegate = self;
+    [self addTarget:self action:@selector(didTextValueChange:) forControlEvents:UIControlEventEditingChanged];
+}
+
+
+-(CGRect)textRectForBounds:(CGRect)bounds
+{
+    return [self rectForBounds:bounds];
+}
+
+//-(CGRect)editingRectForBounds:(CGRect)bounds
+//{
+//    return [self rectForBounds:bounds];
+//}
+
+-(CGRect)rectForBounds:(CGRect)bounds
+{
+    if(!self.baseContentModel.padding)
+          return bounds;
+    
+      UIEdgeInsets padding = self.baseContentModel.padding.UIEdgeInsetsValue;
+      
+      CGFloat x = padding.left;
+      CGFloat y = padding.top;
+      CGFloat w = bounds.size.width - padding.right - x;
+      CGFloat h = bounds.size.height - padding.bottom - y;
+      
+      return CGRectMake(x, y, w, h);
+}
+
+#pragma mark - 代理与数据源
+
+-(BOOL)textField:(UITextField *)textField shouldChangeCharactersInRange:(NSRange)range replacementString:(NSString *)string
+{
+    switch (self.verifyModel.verifyType.integerValue) {
         case MTTextFieldVerifyTypePhone:
         {
             if(self.text.length < 1 && ![string isEqualToString:@"1"])
@@ -28,8 +80,8 @@
         case MTTextFieldVerifyTypePassword:
         case MTTextFieldVerifyTypeNumberPassword:
         case MTTextFieldVerifyTypeCustom:
-            return !(self.text.length > (self.verifyModel.maxChar - 1) && [string isExist]);
-        
+            return (self.text.length + string.length) <= self.verifyModel.maxChar.integerValue;
+            
         case MTTextFieldVerifyTypeMoney:
         {
             //如果输入的是“.”  判断之前已经有"."或者字符串为空
@@ -48,14 +100,26 @@
         }
             
         default:
-            return YES;
+        {
+            switch (self.keyboardType) {
+                case UIKeyboardTypeNumberPad:
+                    return [string testDecimalWithPlace:0] || ![string isExist];
+                    
+                default:
+                {
+                    if([self.mt_delegate respondsToSelector:@selector(textField:shouldChangeCharactersInRange:replacementString:)])
+                    return [((NSObject<MTTextFieldDelegate>*)self.mt_delegate) textField:textField shouldChangeCharactersInRange:range replacementString:string];
+                    return YES;
+                }                    
+            }
+        }
     }
 }
 
--(void)didBeginEditing
+-(void)textFieldDidBeginEditing:(UITextField *)textField
 {
-    switch (self.verifyModel.verifyType) {
-        
+    switch (self.verifyModel.verifyType.integerValue) {
+            
         case MTTextFieldVerifyTypePhone:
         {
             self.text = [self.text stringByReplacingOccurrencesOfString:@" " withString:@""];
@@ -72,18 +136,21 @@
         default:
             break;
     }
+    
+    if([self.mt_delegate respondsToSelector:@selector(textFieldDidBeginEditing:)])
+        [self.mt_delegate performSelector:@selector(textFieldDidBeginEditing:) withObject:self];
 }
 
 - (void)didEndEditing
 {
-    switch (self.verifyModel.verifyType) {
+    switch (self.verifyModel.verifyType.integerValue) {
         case MTTextFieldVerifyTypePhone:
         {
             if(![self.text isExist])
-                return;
+                break;
             
             if(self.text.length < 11)
-                return;
+                break;
             
             NSMutableString* text = [self.text mutableCopy];
             
@@ -106,33 +173,41 @@
             break;
     }
 }
-
--(void)didTextValueChange
+- (void)textFieldDidEndEditing:(UITextField *)textField
 {
-    self.verifyModel.content = self.text;
-    if([self.mt_delegate respondsToSelector:@selector(doSomeThingForMe:withOrder:)])
-        [self.mt_delegate doSomeThingForMe:self.verifyModel withOrder:MTTextValueChangeOrder];
-}
-
-
-#pragma mark - 生命周期
-
--(instancetype)initWithFrame:(CGRect)frame
-{
-    if(self = [super initWithFrame:frame])
-        self.clearButtonMode = UITextFieldViewModeWhileEditing;
+    [self didEndEditing];
     
-    return self;
+    if([self.mt_delegate respondsToSelector:@selector(textFieldDidEndEditing:)])
+        [self.mt_delegate performSelector:@selector(textFieldDidEndEditing:) withObject:self];
 }
 
+-(void)didTextValueChange:(UITextField *)textField
+{
+    self.verifyModel.content = [super text];
+    if([self.mt_delegate respondsToSelector:@selector(didTextValueChange:)])
+        [self.mt_delegate performSelector:@selector(didTextValueChange:) withObject:self];
+}
+
+- (BOOL)textFieldShouldBeginEditing:(UITextField *)textField
+{
+    return self.verifyModel ? self.verifyModel.shouldBeginEdit : YES;
+}
+
+-(BOOL)textFieldShouldReturn:(UITextField *)textField
+{
+    if([self.mt_delegate respondsToSelector:@selector(textFieldShouldReturn:)])
+        [self.mt_delegate performSelector:@selector(textFieldShouldReturn:) withObject:self];
+    
+    return false;
+}
 
 #pragma mark - 懒加载
 
--(void)setVerifyModel:(MTTextFieldVerifyModel *)verifyModel
-{
+-(void)setVerifyModel:(MTTextVerifyModel *)verifyModel
+{    
     _verifyModel = verifyModel;
     
-    switch (self.verifyModel.verifyType) {
+    switch (self.verifyModel.verifyType.integerValue) {
         case MTTextFieldVerifyTypePhone:
         case MTTextFieldVerifyTypeVFCode:
         case MTTextFieldVerifyTypeNumberPassword:
@@ -148,13 +223,31 @@
         }
             
         default:
-            self.keyboardType = UIKeyboardTypeDefault;
+        {
+            if(verifyModel.keyboardType)
+                self.keyboardType = verifyModel.keyboardType.integerValue;
+            else
+                self.keyboardType = UIKeyboardTypeDefault;
+        }
+            
     }
     
-    self.secureTextEntry = (self.verifyModel.verifyType == MTTextFieldVerifyTypePassword) || (self.verifyModel.verifyType == MTTextFieldVerifyTypeNumberPassword);
+    self.secureTextEntry = (self.verifyModel.verifyType.integerValue == MTTextFieldVerifyTypePassword) || (self.verifyModel.verifyType.integerValue == MTTextFieldVerifyTypeNumberPassword);
     self.text = verifyModel.content;
     
-    [self didEndEditing];
+    [self didEndEditing];    
+}
+
+-(NSString *)text
+{
+    NSString* text;
+    if(self.verifyModel)
+        text = (NSString*)self.verifyModel.content.bindResult(self.verifyModel.mt_result);
+    else
+        text = (NSString*)[super text].bindResult(YES);
+
+    return text;
 }
 
 @end
+

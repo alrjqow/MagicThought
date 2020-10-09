@@ -16,7 +16,7 @@
 #import "NSObject+HideKey.h"
 
 #import "UIButton+HighLight.h"
-#import "UIButton+Click.h"
+#import "UIView+Dependency.h"
 
 #import "CLLocation+Mar.h"
 
@@ -37,8 +37,3 @@
 #import "NSString+Money.h"
 #import "NSString+WordHeight.h"
 #import "NSString+Bundle.h"
-
-
-//#import "UINavigationBar+Config.h"
-//#import "UINavigationController+TransitionConfig.h"
-//#import "UIViewController+TransitionConfig.h"

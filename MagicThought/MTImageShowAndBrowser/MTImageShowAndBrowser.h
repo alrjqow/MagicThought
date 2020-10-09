@@ -23,4 +23,6 @@
 #import "MTPhotoBrowserController.h"
 
 
+#import "MTImageCell.h"
+#import "MTAlertGetPhotoWayController.h"
 

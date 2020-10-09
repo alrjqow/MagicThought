@@ -15,5 +15,7 @@
 
 @property (nonatomic,strong,readonly) NSArray<NSDictionary*>* tabBarItemArr;
 
+-(void)setupTabBarItemWithArray:(NSArray<UITabBarItem*>*)tabBarItemArray;
+
 @end
 

@@ -13,8 +13,23 @@
 
 -(instancetype)setWordWithStyle:(MTWordStyle*)style
 {
+    return [self setWordWithStyle:style State:UIControlStateNormal];
+}
+
+-(instancetype)setWordWithStyle:(MTWordStyle*)style State:(UIControlState)state
+{
+    self.titleLabel.lineBreakMode = style.wordLineBreakMode;
+    self.titleLabel.numberOfLines = style.wordNumberOfLines;
+    
+    if(style.isAttributedWord)
+    {
+        [self setAttributedTitle:style.attributedWordName forState:state];
+        [self sizeToFit];
+        return self;
+    }
+    
     if(style.wordColor)
-        [self setTitleColor:style.wordColor forState:UIControlStateNormal];
+        [self setTitleColor:style.wordColor forState:state];
     
     if(style.wordSize)
     {
@@ -24,15 +39,15 @@
             self.titleLabel.font = [UIFont boldSystemFontOfSize:style.wordSize];
         else if(style.wordThin)
         {
-            if (@available(iOS 8.2, *)) 
+            if (@available(iOS 8.2, *))
                 self.titleLabel.font = [UIFont systemFontOfSize:style.wordSize weight:UIFontWeightThin];
-             else
+            else
                 self.titleLabel.font = [UIFont systemFontOfSize:style.wordSize];
         }
     }
-        
+    
     self.titleLabel.textAlignment = style.wordHorizontalAlignment;
-    [self setTitle:style.wordName forState:UIControlStateNormal];
+    [self setTitle:style.wordName forState:state];
     [self sizeToFit];
     return self;
 }

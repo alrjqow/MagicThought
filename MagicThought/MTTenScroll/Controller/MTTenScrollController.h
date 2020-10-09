@@ -8,9 +8,11 @@
 
 #import "MTTenScrollView.h"
 #import "MTTenScrollModel.h"
-#import "MTListController.h"
+#import "MTHeaderRefreshListController.h"
+#import "MTHeaderFooterRefreshListController.h"
 
-@interface MTTenScrollController : MTListController
+
+@interface MTTenScrollController : MTHeaderRefreshListController
 
 @property (nonatomic,strong) MTTenScrollView* tenScrollView;
 @property (nonatomic,strong) MTTenScrollViewX* tenScrollViewX;
@@ -20,7 +22,7 @@
 @end
 
 
-@interface MTTenScrollTableViewController : MTListController
+@interface MTTenScrollListController : MTHeaderFooterRefreshListController
 
 @property (nonatomic,strong) MTDelegateTenScrollView* delegateTenScrollView;
 @property (nonatomic,strong) MTDelegateTenScrollViewX* delegateTenScrollViewX;

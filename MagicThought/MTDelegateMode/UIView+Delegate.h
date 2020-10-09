@@ -8,8 +8,7 @@
 
 #import "NSObject+CommonProtocol.h"
 #import "NSObject+ReuseIdentifier.h"
-#import "VKCssProtocol.h"
-
+#import "MTDataSourceModel.h"
 
 @interface UIView (Delegate) <MTExchangeDataProtocol>
 
@@ -21,6 +20,18 @@
 
 
 @interface UIScrollView (MTList)<MTListDataProtocol>
+
+/**数据源模型，传入即刷新列表*/
+@property (nonatomic,strong) MTDataSourceModel* dataSourceModel;
+
+@property (nonatomic,assign) NSInteger currentIndex;
+@property (nonatomic,assign) NSInteger currentSection;
+
+/**单选框索引*/
+@property (nonatomic,assign) NSInteger currentContradictIndex;
+@property (nonatomic,assign) NSInteger currentContradictSection;
+
+@property (nonatomic,strong) NSMutableArray<NSMutableArray*>* cellStateArray;
 
 - (void)addTarget:(id)target;
 

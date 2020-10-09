@@ -14,6 +14,16 @@
 
 -(instancetype)setWordWithStyle:(MTWordStyle*)style
 {
+    self.lineBreakMode = style.wordLineBreakMode;
+    self.numberOfLines = style.wordNumberOfLines;
+    
+    if(style.isAttributedWord)
+    {
+        self.attributedText = style.attributedWordName;        
+        [self sizeToFit];
+        return self;
+    }
+        
     if(style.wordColor)
         self.textColor = style.wordColor;
     
@@ -38,7 +48,7 @@
     {        
         ((MTLabel*)self).verticalAlignment = style.wordVerticalAlignment;
     }
-    
+        
     self.text = style.wordName;
     [self sizeToFit];
     return self;

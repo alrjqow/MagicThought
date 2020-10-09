@@ -6,10 +6,14 @@
 //  Copyright © 2017年 com.king.app. All rights reserved.
 //
 
-#import <Foundation/Foundation.h>
+#import <UIKit/UIKit.h>
 
 @interface NSString (Money)
 
++(NSString*)stringWithMoneyHidePoint:(CGFloat)floatValue;
+
 -(NSString*)money;
+
+-(NSString*)deleteFloatAllZero;
 
 @end

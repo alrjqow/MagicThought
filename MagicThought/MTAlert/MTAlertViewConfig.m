@@ -3,7 +3,7 @@
 //  MTalertView
 //
 //  Created by 王奕聪 on 2018/3/25.
-//  Copyr/Users/monda/Desktop/MTalertView/MTalertView/MTAlertView/MTPopView.might © 2018年 王奕聪. All rights reserved.
+//  Copyright © 2018年 王奕聪. All rights reserved.
 //
 
 #import "MTAlertViewConfig.h"
@@ -16,6 +16,8 @@
 #import <MJExtension.h>
 
 @interface MTAlertViewConfig ()
+
+@property (nonatomic,weak) MTAlertView* alertView;
 
 @property (nonatomic,assign) CGFloat detailHeight;
 @property (nonatomic,assign) CGFloat alertViewHeight;
@@ -55,9 +57,13 @@
     if(![self.mtTitle.wordStyle.wordName isExist])
         self.mtTitle.wordStyle = mt_WordStyleMake(18, mt_AppName(), hex(0x333333));
         
-    [[MTAlertView alertWithConfig:self] show];
+    self.alertView = [MTAlertView alertWithConfig:self];
+    [self.alertView show];
 }
-
+-(void)hide
+{
+    [self.alertView hide];
+}
 
 #pragma mark - 懒加载
 
@@ -90,11 +96,17 @@
     return deatilHeight > 120 ? 120 : deatilHeight;
 }
 
--(NSArray<MTAlertViewButtonConfig *> *)buttonModelList
+-(NSArray<MTBaseViewContentModel *> *)buttonModelList
 {
     if(_buttonModelList.count <= 0)
-    {        
-        _buttonModelList = @[MTAlertViewButtonConfig.new(mt_WordStyleMake(15, @"确定", hex(0xE76153)), [UIColor whiteColor], mt_highlighted(MTAlertViewButtonConfig.new(mt_textColor(hexa(0xE76153, 0.5)))))];
+    {
+        _buttonModelList = @[
+                            mt_stateContent(
+                                            mt_WordStyleMake(15, @"确定", hex(0xE76153)),
+                                            [UIColor whiteColor],
+                                           mt_highlighted(mt_content(mt_textColor(hexa(0xE76153, 0.5))))
+                                            )
+                                ];
     }
     
     return _buttonModelList;

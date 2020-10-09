@@ -17,16 +17,30 @@
 #  endif
 #endif
 
+#define half(a) ((a) / 2)
+#define doubles(a) ((a) * 2)
+
+
 #define MT_iPhone4s CGSizeMake(320, 480)
 #define MT_iPhone5s CGSizeMake(320, 568)
 #define MT_iPhone6s CGSizeMake(375,667)
 #define MT_iPhone6sP CGSizeMake(414,736)
 
-typedef BOOL (^MTBlock) (id);
+typedef void (^MTBlock) (void);
+typedef void (^MTBlockWithObject) (id);
 
-typedef void (^MTHeaderRefreshBlock) (void);
+typedef BOOL (^MTBOOLBlock) (void);
+typedef BOOL (^MTBOOLBlockWithObject) (id);
 
-typedef void (^MTFooterRefreshBlock) (void);
+typedef NSInteger (^MTIntegerBlock) (void);
+typedef NSInteger (^MTIntegerBlockWithObject) (id);
+
+typedef CGFloat (^MTFloatBlock) (void);
+typedef CGFloat (^MTFloatBlockWithObject) (id);
+
+typedef id (^MTObjectBlock) (void);
+typedef id (^MTObjectBlockWithObject) (id);
+
 
 //设置token
 MT_EXTERN NSString* UserToken_mt(void);
@@ -40,13 +54,15 @@ MT_EXTERN void setUserAccount_mt(NSString* account);
 MT_EXTERN BOOL UserLoginStatus_mt(void);
 MT_EXTERN void setLoginStatus_mt(BOOL status);
 
-
+//四舍五入
+MT_EXTERN CGFloat mt_roundFloat(CGFloat floatValue);
 
 MT_EXTERN CGFloat kStatusBarHeight_mt(void);
 
 MT_EXTERN CGFloat kNavigationBarHeight_mt(void);
 
 MT_EXTERN CGFloat kTabBarHeight_mt(void);
+MT_EXTERN CGFloat kTabBarBottomInset_mt(void);
 
 MT_EXTERN CGFloat kScreenWidth_mt(void);
 
@@ -96,6 +112,8 @@ MT_EXTERN NSString*  mt_AppBulid(void);
 MT_EXTERN NSString*  mt_AppName(void);
 MT_EXTERN NSString* mt_BundleID(void);
 MT_EXTERN void mt_GoToAppStore(void);
+MT_EXTERN void mt_PostNotification(NSString* notificationName, NSDictionary* userInfo);
+MT_EXTERN void mt_PostNotificationWithObject(NSString* notificationName, id object);
 
 MT_EXTERN CGFloat mt_ScreenW(void);
 MT_EXTERN CGFloat mt_ScreenH(void);
@@ -138,6 +156,7 @@ MT_EXTERN NSString *const Device_AppleWatchSeries1;
 MT_EXTERN NSString *const Device_AppleWatchSeries2;
 MT_EXTERN NSString *const Device_AppleWatchSeries3;
 MT_EXTERN NSString *const Device_AppleWatchSeries4;
+MT_EXTERN NSString *const Device_AppleWatchSeries5;
 
 MT_EXTERN NSString *const Device_HomePod1;
 
@@ -165,6 +184,8 @@ MT_EXTERN NSString *const Device_iPadPro2;
 MT_EXTERN NSString *const Device_iPadProMax2;
 MT_EXTERN NSString *const Device_iPadPro3;
 MT_EXTERN NSString *const Device_iPadProMax3;
+MT_EXTERN NSString *const Device_iPadPro4;
+MT_EXTERN NSString *const Device_iPadProMax4;
 MT_EXTERN NSString *const Device_iPadMini1;
 MT_EXTERN NSString *const Device_iPadMini2;
 MT_EXTERN NSString *const Device_iPadMini3;
@@ -184,6 +205,7 @@ MT_EXTERN NSString *const Device_iPhone6Plus;
 MT_EXTERN NSString *const Device_iPhone6S;
 MT_EXTERN NSString *const Device_iPhone6SPlus;
 MT_EXTERN NSString *const Device_iPhoneSE;
+MT_EXTERN NSString *const Device_iPhoneSE2;
 MT_EXTERN NSString *const Device_iPhone7;
 MT_EXTERN NSString *const Device_iPhone7Plus;
 MT_EXTERN NSString *const Device_iPhone8;

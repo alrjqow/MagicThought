@@ -34,6 +34,9 @@
 /**点击了导航栏右侧按钮*/
 -(void)navigationBarRightBtnClick;
 
+/**反向计算父控件高度*/
+-(CGSize)layoutSubviewsForWidth:(CGFloat)contentWidth Height:(CGFloat)contentHeight;
+
 @end
 
 

@@ -11,6 +11,8 @@
 extern NSString*  MTCountButtonDidFinishedCountDownOrder;
 @interface MTCountButton : UIButton
 
+-(void)stop;
+
 -(void)startCountWithTitle:(NSString*)title Time:(NSInteger)time;
 
 -(void)startCountWithTitle:(NSString*)title Time:(NSInteger)time CountDownTitle:(NSString*)title;

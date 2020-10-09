@@ -12,7 +12,7 @@
 
 @interface MTAlertViewConfig : MTPopViewConfig
 
-@property (nonatomic, strong) NSArray<MTAlertViewButtonConfig*>* buttonModelList;
+@property (nonatomic, strong) NSArray<MTBaseViewContentModel*>* buttonModelList;
 
 /*-----------------------------------华丽分割线-----------------------------------*/
 
@@ -28,6 +28,7 @@
 @property (nonatomic, assign) CGFloat splitWidth;          // Default is 1.
 
 -(void)alert;
+-(void)hide;
 
 //直接重写样式，不需 super
 -(void)setupStyle;

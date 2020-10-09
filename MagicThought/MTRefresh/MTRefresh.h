@@ -8,4 +8,4 @@
 
 #import "MTRefreshRing.h"
 #import "MTRefreshGifHeader.h"
-#import "MTRefreshAutoNormalFooter.h"
+#import "MTRefreshBackNormalFooter.h"

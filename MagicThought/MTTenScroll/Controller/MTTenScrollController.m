@@ -40,10 +40,20 @@
 {
     if(!_tenScrollView)
     {
-        _tenScrollView = [MTTenScrollView new];
+        _tenScrollView = [[MTTenScrollView alloc] initWithFrame:CGRectZero style:UITableViewStyleGrouped];
         _tenScrollView.mt_tenScrollModel = self.tenScrollModel;
-        _tenScrollView.delegate = self;
-//        _tenScrollView.bounces = false;
+        _tenScrollView.backgroundColor = [UIColor clearColor];
+        _tenScrollView.showsVerticalScrollIndicator = false;
+        _tenScrollView.separatorStyle = UITableViewCellSeparatorStyleNone;        
+        //防止分页漂移
+        _tenScrollView.estimatedRowHeight = 0;
+        _tenScrollView.estimatedSectionHeaderHeight = 0;
+        _tenScrollView.estimatedSectionFooterHeight = 0;
+        [_tenScrollView addTarget:self];
+        //        在设置代理前设置tableFooterView，上边会出现多余间距，谨记谨记
+        _tenScrollView.tableFooterView = [UIView new];
+        if (@available(iOS 11.0, *))
+            _tenScrollView.contentInsetAdjustmentBehavior = UIScrollViewContentInsetAdjustmentNever;
     }
     
     return _tenScrollView;
@@ -53,10 +63,13 @@
 {
     if(!_tenScrollViewX)
     {
-        _tenScrollViewX = [MTTenScrollViewX new];
+        _tenScrollViewX = [[MTTenScrollViewX alloc] initWithFrame:CGRectZero collectionViewLayout:[UICollectionViewFlowLayout new]];
         _tenScrollViewX.mt_tenScrollModel = self.tenScrollModel;
-        _tenScrollViewX.delegate = self;
-//        _tenScrollView.bounces = false;
+        _tenScrollViewX.backgroundColor = [UIColor clearColor];
+        _tenScrollViewX.showsVerticalScrollIndicator = false;
+        [_tenScrollViewX addTarget:self];
+        if (@available(iOS 11.0, *))
+            _tenScrollViewX.contentInsetAdjustmentBehavior = UIScrollViewContentInsetAdjustmentNever;
     }
     
     return _tenScrollViewX;
@@ -64,7 +77,6 @@
 
 -(UIScrollView *)listView
 {
-//    return self.tenScrollView;
     return self.tenScrollViewX;
 }
 
@@ -79,19 +91,24 @@
     return _tenScrollModel;
 }
 
-@end
-
-
-
-
-#pragma mark - MTTenScrollTableViewController
-
-
-@interface MTTenScrollTableViewController ()
+-(BOOL)isRemoveMJHeader
+{
+    return YES;
+}
 
 @end
 
-@implementation MTTenScrollTableViewController
+
+
+
+#pragma mark - MTTenScrollListController
+
+
+@interface MTTenScrollListController ()
+
+@end
+
+@implementation MTTenScrollListController
 
 #pragma mark - 生命周期
 
@@ -118,7 +135,22 @@
 {
     if(!_delegateTenScrollView)
     {
-        _delegateTenScrollView = [MTDelegateTenScrollView new];
+        _delegateTenScrollView = [[MTDelegateTenScrollView alloc] initWithFrame:CGRectZero style:UITableViewStyleGrouped];
+                
+        _delegateTenScrollView.backgroundColor = [UIColor clearColor];
+        _delegateTenScrollView.showsVerticalScrollIndicator = false;
+        _delegateTenScrollView.separatorStyle = UITableViewCellSeparatorStyleNone;
+        _delegateTenScrollView.contentInset = UIEdgeInsetsMake(0, 0, kTabBarHeight_mt(), 0);
+        //防止分页漂移
+        _delegateTenScrollView.estimatedRowHeight = 0;
+        _delegateTenScrollView.estimatedSectionHeaderHeight = 0;
+        _delegateTenScrollView.estimatedSectionFooterHeight = 0;
+        [_delegateTenScrollView addTarget:self];
+        //        在设置代理前设置tableFooterView，上边会出现多余间距，谨记谨记
+        _delegateTenScrollView.tableFooterView = [UIView new];
+        if (@available(iOS 11.0, *))
+            _delegateTenScrollView.contentInsetAdjustmentBehavior = UIScrollViewContentInsetAdjustmentNever;
+        
     }
     
     return _delegateTenScrollView;
@@ -128,7 +160,14 @@
 {
     if(!_delegateTenScrollViewX)
     {
-        _delegateTenScrollViewX = [MTDelegateTenScrollViewX new];
+        _delegateTenScrollViewX = [[MTDelegateTenScrollViewX alloc] initWithFrame:CGRectZero collectionViewLayout:[UICollectionViewFlowLayout new]];
+        _delegateTenScrollViewX.backgroundColor = [UIColor clearColor];
+        _delegateTenScrollViewX.showsVerticalScrollIndicator = false;
+        _delegateTenScrollViewX.contentInset = UIEdgeInsetsMake(0, 0, kTabBarHeight_mt(), 0);
+        
+        [_delegateTenScrollViewX addTarget:self];
+        if (@available(iOS 11.0, *))
+            _delegateTenScrollViewX.contentInsetAdjustmentBehavior = UIScrollViewContentInsetAdjustmentNever;
     }
     
     return _delegateTenScrollViewX;
@@ -140,5 +179,14 @@
     return self.delegateTenScrollViewX;
 }
 
+-(BOOL)isRemoveMJHeader
+{
+    return YES;
+}
+
+-(BOOL)isRemoveMJFooter
+{
+    return YES;
+}
 
 @end

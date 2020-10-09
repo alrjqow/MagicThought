@@ -42,5 +42,36 @@
     }
 }
 
+-(OrderAppend)orderAppend
+{
+        __weak __typeof(self) weakSelf = self;
+    OrderAppend orderAppend = ^(NSString* str){
+        
+        return [NSString stringWithFormat:@"%@_%@", weakSelf, str];
+    };
+    
+    return orderAppend;
+}
+
+@end
+
+@implementation NSArray (OrderAppend)
+
+-(OrderArrayAppend)orderArrayAppend
+{
+    __weak __typeof(self) weakSelf = self;
+    OrderArrayAppend orderArrayAppend = ^(NSString* str){
+        
+        NSMutableArray* arr = [NSMutableArray array];
+        for (NSString* string in weakSelf) {
+            if([string isKindOfClass:[NSString class]])
+               [arr addObject:string.orderAppend(str)];
+        }
+        
+        return [arr copy];
+    };
+    
+    return orderArrayAppend;
+}
 
 @end

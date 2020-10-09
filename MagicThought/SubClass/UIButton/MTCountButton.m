@@ -75,6 +75,10 @@ NSString*  MTCountButtonDidFinishedCountDownOrder = @"MTCountButtonDidFinishedCo
     [[NSRunLoop currentRunLoop] addTimer:self.timer forMode:NSRunLoopCommonModes];
 }
 
+-(void)stop
+{
+    [self stopTimer];
+}
 -(void)stopTimer
 {
     [self.timer invalidate];

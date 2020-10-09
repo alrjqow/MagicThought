@@ -10,16 +10,70 @@
 #import "MJExtension.h"
 #import "objc/runtime.h"
 #import "NSString+Exist.h"
+#import "MTContentModelPropertyConst.h"
 
+NSString* MTClearNotificationOrder = @"MTClearNotificationOrder";
 NSString* MTBanClickOrder = @"MTBanClickOrder";
 NSString* MTBindNewObjectOrder = @"MTBindNewObjectOrder";
+
 
 @implementation NSBindObject @end
 
 @implementation NSReuseObject @end
+@implementation NSWeakReuseObject @end
 
 
 @implementation NSObject (ReuseIdentifier)
+
+-(void)setMt_automaticDimension:(BOOL)mt_automaticDimension
+{
+    objc_setAssociatedObject(self, @selector(mt_automaticDimension), @(mt_automaticDimension), OBJC_ASSOCIATION_RETAIN_NONATOMIC);
+}
+
+-(BOOL)mt_automaticDimension
+{
+    return [objc_getAssociatedObject(self, _cmd) boolValue];
+}
+
+-(void)setMt_result:(BOOL)mt_result
+{
+    objc_setAssociatedObject(self, @selector(mt_result), @(mt_result), OBJC_ASSOCIATION_RETAIN_NONATOMIC);
+}
+
+-(BOOL)mt_result
+{
+    NSNumber* result = objc_getAssociatedObject(self, _cmd);
+    
+    if(result)
+        return [result boolValue];
+    else
+        return YES;
+}
+
+-(void)setMt_tag:(NSInteger)mt_tag
+{
+    objc_setAssociatedObject(self, @selector(mt_tag), @(mt_tag), OBJC_ASSOCIATION_RETAIN_NONATOMIC);
+}
+
+-(NSInteger)mt_tag
+{
+    return [objc_getAssociatedObject(self, _cmd) integerValue];
+}
+
+-(void)setMt_index:(NSNumber *)mt_index
+{
+    objc_setAssociatedObject(self, @selector(mt_index), mt_index, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
+}
+
+-(NSNumber *)mt_index
+{
+    return objc_getAssociatedObject(self, _cmd);
+}
+
+-(NSInteger)mt_currentIndex
+{    
+    return self.mt_index.integerValue;
+}
 
 -(void)setMt_order:(NSString *)mt_order
 {
@@ -37,6 +91,26 @@ NSString* MTBindNewObjectOrder = @"MTBindNewObjectOrder";
 }
 
 -(MTClick)mt_click
+{
+    return objc_getAssociatedObject(self, _cmd);
+}
+
+-(void)setMt_automaticDimensionSize:(MTAutomaticDimensionSize)mt_automaticDimensionSize
+{
+     objc_setAssociatedObject(self, @selector(mt_automaticDimensionSize), mt_automaticDimensionSize, OBJC_ASSOCIATION_COPY_NONATOMIC);
+}
+
+-(MTAutomaticDimensionSize)mt_automaticDimensionSize
+{
+    return objc_getAssociatedObject(self, _cmd);
+}
+
+-(void)setMt_notificationHandle:(MTNotificationHandle)mt_notificationHandle
+{
+    objc_setAssociatedObject(self, @selector(mt_notificationHandle), mt_notificationHandle, OBJC_ASSOCIATION_COPY_NONATOMIC);
+}
+
+-(MTNotificationHandle)mt_notificationHandle
 {
     return objc_getAssociatedObject(self, _cmd);
 }
@@ -61,6 +135,16 @@ NSString* MTBindNewObjectOrder = @"MTBindNewObjectOrder";
     return objc_getAssociatedObject(self, _cmd);
 }
 
+-(void)setMt_keyName:(NSString *)mt_keyName
+{
+    objc_setAssociatedObject(self, @selector(mt_keyName), mt_keyName, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
+}
+
+-(NSString *)mt_keyName
+{
+    return objc_getAssociatedObject(self, _cmd);
+}
+
 -(void)setMt_itemHeight:(CGFloat)mt_itemHeight
 {
     objc_setAssociatedObject(self, @selector(mt_itemHeight), @(mt_itemHeight), OBJC_ASSOCIATION_RETAIN_NONATOMIC);
@@ -73,6 +157,23 @@ NSString* MTBindNewObjectOrder = @"MTBindNewObjectOrder";
     return height.floatValue;
 }
 
+-(void)setMt_itemEstimateHeight:(NSObject *)mt_itemEstimateHeight
+{
+    objc_setAssociatedObject(self, @selector(mt_itemEstimateHeight), mt_itemEstimateHeight, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
+}
+
+-(NSObject *)mt_itemEstimateHeight
+{
+    NSObject* itemEstimateHeight = objc_getAssociatedObject(self, _cmd);
+    
+    if(!itemEstimateHeight)
+    {
+        itemEstimateHeight = [NSObject new];
+        objc_setAssociatedObject(self, _cmd, itemEstimateHeight, OBJC_ASSOCIATION_RETAIN_NONATOMIC);        
+    }
+    
+    return itemEstimateHeight;
+}
 
 -(void)setMt_itemSize:(CGSize)mt_itemSize
 {
@@ -190,7 +291,7 @@ NSString* MTBindNewObjectOrder = @"MTBindNewObjectOrder";
                 if(![obj.mt_reuseIdentifier isExist])
                     obj.mt_reuseIdentifier = reuseIdentifier;
             }
-                
+            
         }
         
         weakSelf.mt_reuseIdentifier = reuseIdentifier;
@@ -216,7 +317,7 @@ NSString* MTBindNewObjectOrder = @"MTBindNewObjectOrder";
                 if(![obj.mt_order isExist])
                     obj.mt_order = order;
             }
-                            
+            
             return weakSelf;
         }
         
@@ -227,16 +328,108 @@ NSString* MTBindNewObjectOrder = @"MTBindNewObjectOrder";
     return bindOrder;
 }
 
--(BindNewObjectOrder)bindNewObjectOrder
+-(BindOrder)bindArrayOrder
 {
     __weak __typeof(self) weakSelf = self;
-       BindNewObjectOrder bindNewObjectOrder  = ^{
-                      
-           weakSelf.mt_order = MTBindNewObjectOrder;
+    BindOrder bindArrayOrder  = ^(NSString* order){
+        
+        if(order.length <= 0)
+            return weakSelf;
+        
+        if(![weakSelf isKindOfClass:[NSArray class]])
+            return weakSelf;
+               
+        weakSelf.mt_order = order;
+        return weakSelf;
+    };
+    
+    return bindArrayOrder;
+}
+
+-(AutomaticDimension)automaticDimension
+{
+    __weak __typeof(self) weakSelf = self;
+     AutomaticDimension automaticDimension  = ^{
+         
+         if([weakSelf isKindOfClass:[NSArray class]])
+         {
+             NSArray* arr = (NSArray*)weakSelf;
+             for(NSObject* obj in arr)
+             {
+                 obj.mt_automaticDimension = YES;
+                 obj.mt_tag = kNew;
+             }                 
+             
+             return weakSelf;
+         }
+         
+         weakSelf.mt_automaticDimension = YES;
+         weakSelf.mt_tag = kNew;
+         return weakSelf;
+     };
+     
+     return automaticDimension;
+}
+
+
+-(AutomaticDimensionSize)automaticDimensionSize
+{
+    __weak __typeof(self) weakSelf = self;
+       AutomaticDimensionSize automaticDimensionSize  = ^(MTAutomaticDimensionSize mt_automaticDimensionSize){
+                 
+           weakSelf.mt_automaticDimensionSize = mt_automaticDimensionSize;           
            return weakSelf;
        };
        
-       return bindNewObjectOrder;
+       return automaticDimensionSize;
+}
+
+-(BindNewObjectOrder)bindNewObjectOrder
+{
+    __weak __typeof(self) weakSelf = self;
+    BindNewObjectOrder bindNewObjectOrder  = ^{
+        
+        weakSelf.mt_order = MTBindNewObjectOrder;
+        return weakSelf;
+    };
+    
+    return bindNewObjectOrder;
+}
+
+-(BindTag)bindEnum
+{
+    __weak __typeof(self) weakSelf = self;
+    BindTag bindEnum  = ^(NSInteger tag){
+        
+        weakSelf.mt_tag = tag;
+        return weakSelf;
+    };
+    
+    return bindEnum;
+}
+
+-(BindIndex)bindIndex
+{
+    __weak __typeof(self) weakSelf = self;
+    BindIndex bindIndex  = ^(NSInteger index){
+        
+        weakSelf.mt_index = @(index);
+        return weakSelf;
+    };
+    
+    return bindIndex;
+}
+
+-(BindResult)bindResult
+{
+    __weak __typeof(self) weakSelf = self;
+    BindResult bindResult  = ^(BOOL result){
+        
+        weakSelf.mt_result = result;
+        return weakSelf;
+    };
+    
+   return bindResult;
 }
 
 -(BindTagIdentifier)bindTag
@@ -255,7 +448,7 @@ NSString* MTBindNewObjectOrder = @"MTBindNewObjectOrder";
                 if(![obj.mt_tagIdentifier isExist])
                     obj.mt_tagIdentifier = tagIdentifier;
             }
-                
+            
             
             return weakSelf;
         }
@@ -267,28 +460,40 @@ NSString* MTBindNewObjectOrder = @"MTBindNewObjectOrder";
     return bindTag;
 }
 
+-(BindKey)bindKey
+{
+    __weak __typeof(self) weakSelf = self;
+    BindKey bindKey  = ^(NSString* keyName){
+        
+        if(keyName.length <= 0)
+            return weakSelf;
+        
+        weakSelf.mt_keyName = keyName;
+        return weakSelf;
+    };
+    
+    return bindKey;
+}
+
 -(BindTagText)bindTagText
 {
     __weak __typeof(self) weakSelf = self;
-       BindTagText bindTagText  = ^(NSString* tagIdentifier){
-           
-           if(tagIdentifier.length <= 0)
-               return weakSelf;
-           
-           if([weakSelf isKindOfClass:[NSArray class]])
-           {
-               NSArray* arr = (NSArray*)weakSelf;
-               for(NSObject* obj in arr)
-                   obj.mt_tagIdentifier = tagIdentifier;
-               
-               return weakSelf;
-           }
-           
-           weakSelf.mt_tagIdentifier = tagIdentifier;
-           return weakSelf;
-       };
-       
-       return bindTagText;
+    BindTagText bindTagText  = ^(NSString* tagIdentifier){
+                
+        if([weakSelf isKindOfClass:[NSArray class]])
+        {
+            NSArray* arr = (NSArray*)weakSelf;
+            for(NSObject* obj in arr)
+                obj.mt_tagIdentifier = tagIdentifier;
+            
+            return weakSelf;
+        }
+        
+        weakSelf.mt_tagIdentifier = tagIdentifier;
+        return weakSelf;
+    };
+    
+    return bindTagText;
 }
 
 -(BindArrayReuseIdentifier)arrBind
@@ -368,7 +573,7 @@ NSString* MTBindNewObjectOrder = @"MTBindNewObjectOrder";
                 if(CGSizeEqualToSize(CGSizeZero, obj.mt_itemSize))
                     obj.mt_itemSize = size;
             }
-                
+            
             return weakSelf;
         }
         
@@ -523,14 +728,40 @@ NSString* MTBindNewObjectOrder = @"MTBindNewObjectOrder";
 }
 - (instancetype _Nullable)copyBindWithObject:(NSObject* _Nullable)obj
 {
-    self.bind(obj.mt_reuseIdentifier).bindClick(obj.mt_click).bindOrder(obj.mt_order).bindTag(obj.mt_tagIdentifier);
+    if(![self.mt_reuseIdentifier isExist])
+        self.bind(obj.mt_reuseIdentifier);
+    if(obj.mt_click)
+        self.bindClick(obj.mt_click);    
+    if(![self.mt_order isExist])
+        self.bindOrder(obj.mt_order);
+    if(![self.mt_tagIdentifier isExist])
+        self.bindTag(obj.mt_tagIdentifier);
+    self.bindEnum(obj.mt_tag);
+    if(!self.mt_index)
+        self.bindIndex(obj.mt_index.integerValue);
+    
+    self.mt_automaticDimension = obj.mt_automaticDimension;
+    
     return self;
 }
 
--(MTSetWithObjects)setObjects
+-(instancetype _Nullable)clearBind
 {
+    self.mt_reuseIdentifier = nil;
+    self.mt_click = nil;
+    self.mt_order = nil;
+    self.mt_tag = 0;
+    self.mt_result = YES;
+    self.mt_tagIdentifier = nil;
+    self.mt_itemHeight = 0;
+    
+    return self;
+}
+
+-(id _Nonnull (^) (NSObject* _Nullable objects))setObjects
+{    
     __weak __typeof(self) weakSelf = self;
-    MTSetWithObjects setObjects  = ^(NSObject* objects){
+    id _Nonnull (^ _Nonnull setObjects) (NSObject* _Nullable objects)  = ^(NSObject* objects){
         
         if([objects isKindOfClass:[NSArray class]])
         {
@@ -541,20 +772,87 @@ NSString* MTBindNewObjectOrder = @"MTBindNewObjectOrder";
         }
         else
             [weakSelf setWithObject:objects];
-                
+        
         return weakSelf;
     };
     
     return setObjects;
 }
 
+
+
 @end
 
 
+@implementation NSObject (Notification)
 
+-(WhenReceiveNotification)whenReceiveNotification
+{
+    __weak __typeof(self) weakSelf = self;
+       WhenReceiveNotification whenReceiveNotification  = ^(MTNotificationHandle notificationHandle){
+           
+           if(!notificationHandle)
+               return weakSelf;
+             
+           weakSelf.mt_notificationHandle = notificationHandle;
+           return weakSelf;
+       };
+       
+       return whenReceiveNotification;
+}
+
+-(BindNotifications)bindNotifications
+{
+    __weak __typeof(self) weakSelf = self;
+       BindNotifications bindNotifications  = ^(NSArray<NSString*>* _Nonnull notifications){
+           
+           if(notifications.count <= 0)
+               return weakSelf;
+           
+           for (NSString* notification in notifications)
+           {
+               if([notification isExist])
+                   [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(whenReceiveNotification:) name:notification object:nil];
+           }
+                      
+           weakSelf.mt_notifications = notifications;
+           return weakSelf;
+       };
+       
+       return bindNotifications;
+}
+
+-(void)whenReceiveNotification:(NSNotification *)info
+{
+    if(self.mt_notificationHandle)
+        self.mt_notificationHandle(info);
+}
+
+-(void)whenDealloc
+{
+    self.mt_notifications = nil;
+}
+
+-(void)setMt_notifications:(NSArray<NSString *> *)mt_notifications
+{
+    for(NSString* notification in self.mt_notifications)
+        [[NSNotificationCenter defaultCenter] removeObserver:self name: notification object:nil];
+    
+    objc_setAssociatedObject(self, @selector(mt_notifications), mt_notifications, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
+}
+
+-(NSArray<NSString *> *)mt_notifications
+{
+    return objc_getAssociatedObject(self, _cmd);
+}
+
+@end
 
 
 @implementation NSObject (Copy)
+
+-(NSInteger)bindNotification{return 0;}
+-(NSInteger)objects{return 0;}
 
 - (instancetype)copyObject
 {
@@ -597,7 +895,21 @@ NSReuseObject* mt_reuse(id data)
     return obj;
 }
 
+NSReuseObject* mt_empty()
+{
+    NSReuseObject* obj = [NSReuseObject new];
+    obj.data = @{};
+    
+    return obj;
+}
 
+NSWeakReuseObject* mt_weakReuse(id data)
+{
+    NSWeakReuseObject* obj = [NSWeakReuseObject new];
+    obj.data = data;
+    
+    return obj;
+}
 
 
 @implementation NSArray(ReuseIdentifier)

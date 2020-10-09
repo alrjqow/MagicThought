@@ -11,12 +11,19 @@
 
 @interface UIView (Circle)
 
--(instancetype)becomeWeakCircleWithBorder:(MTBorderStyle*) border;
--(instancetype)becomeCircleWithBorder:(MTBorderStyle*) border;
--(instancetype)becomeCircleWithBorder:(MTBorderStyle*) border AndRoundingCorners:(UIRectCorner)corners;
+-(instancetype)becomeCircleWithBorder:(MTBorderStyle*)border;
+
+-(instancetype)becomeShadow:(MTShadowStyle*)shadowStyle;
 
 @end
 
+@interface UIImage (Circle)
+
+-(UIImage*)getImageWithBorder:(MTBorderStyle*)border;
+
+-(UIImage *)boxblurImageWithBlurNumber:(CGFloat)blur;
+
+@end
 
 @interface MTWeakLine : UIView
 

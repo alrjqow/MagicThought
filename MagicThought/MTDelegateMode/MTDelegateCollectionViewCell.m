@@ -28,9 +28,11 @@
         [super whenGetResponseObject:object];
 }
 
--(void)dealloc
+-(void)layoutSubviews
 {
-    [self whenDealloc];
+    [super layoutSubviews];
+    
+    [self insertSubview:self.contentView atIndex:0];    
 }
 
 @end

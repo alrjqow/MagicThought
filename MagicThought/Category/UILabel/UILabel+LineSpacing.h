@@ -13,7 +13,7 @@
 /**富文本行高*/
 -(void)setAttrLineSpacing:(CGFloat)space;
 
--(void)setLineSpacing:(CGFloat)space;
+-(void)setLineSpacingFloat:(CGFloat)space;
 -(void)setLineSpacing:(CGFloat)space WithWordSpacing:(CGFloat)fontSpacing;
 
 @end

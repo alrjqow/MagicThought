@@ -8,6 +8,8 @@
 
 #import "NSObject+CommonProtocol.h"
 
+#define RegisterAppDelegate(appDelegate) typedef appDelegate __MTAppDelegate__;
+
 @interface MTAppDelegate : UIResponder <UIApplicationDelegate>
 
 @property (strong, nonatomic) UIWindow *window;
@@ -44,4 +46,4 @@
 
 @end
 
-#define AppDelegate_mt [MTAppDelegate sharedDefault]
+#define AppDelegate_mt [__MTAppDelegate__ sharedDefault]

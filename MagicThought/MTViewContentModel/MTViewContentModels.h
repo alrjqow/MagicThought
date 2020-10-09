@@ -11,4 +11,4 @@
 
 #import "UIView+MTBaseViewContentModel.h"
 
-#import "MTContentModelPropertyConst.h"
+#import "MTViewContentManager.h"

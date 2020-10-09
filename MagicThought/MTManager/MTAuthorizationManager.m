@@ -106,8 +106,7 @@
                 @"不开启",
                 @"去开启".bindClick(^(NSString* order)
                                  {
-                    [weakSelf openSettingWithURL:url];
-                    return YES;
+                    [weakSelf openSettingWithURL:url];                    
                 }),
             ])
         ].alert_mt();

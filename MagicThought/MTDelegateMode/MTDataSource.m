@@ -21,6 +21,10 @@
 #import "NSObject+ReuseIdentifier.h"
 #import "UIView+Frame.h"
 #import <MJExtension.h>
+#import "MTContentModelPropertyConst.h"
+#import "NSString+Exist.h"
+#import "UIView+MTBaseViewContentModel.h"
+
 
 @interface MTDelegateCollectionViewCell (Private)
 
@@ -80,11 +84,44 @@
 @property (nonatomic,assign) CGFloat preOffsetX;
 @property (nonatomic,assign) CGFloat preOffsetY;
 
+@property (nonatomic,assign) BOOL adjustContentInset;
+
+@property (nonatomic,strong) NSMutableDictionary<NSString*,MTDelegateCollectionViewCell*>* shadowCollectionViewCellList;
+
+@property (nonatomic,strong) NSMutableDictionary<NSString*,MTDelegateTableViewCell*>* shadowTableViewCellList;
+
+@property (nonatomic,strong) NSMutableDictionary<NSString*,MTDelegateCollectionReusableView*>* shadowReusableViewList;
+
+
 @end
 
 
 
 @implementation MTDataSource
+
++(void)load
+{
+    /*
+     if([[[UIDevice currentDevice] systemVersion] floatValue] < 11)
+     {
+     class_addMethod([self class],@selector(tableView:estimatedHeightForRowAtIndexPath:),(IMP)mt_estimatedHeightForRowAtIndexPath,"f@:@@");
+     
+     class_addMethod([self class],@selector(tableView:estimatedHeightForHeaderInSection:),(IMP)mt_estimatedHeightForHeaderInSection,"f@:@i");
+     
+     class_addMethod([self class],@selector(tableView:estimatedHeightForFooterInSection:),(IMP)mt_estimatedHeightForFooterInSection,"f@:@i");
+     }
+     */
+}
+
+static CGFloat mt_estimatedHeightForHeaderInSection(id self, SEL cmd, UITableView * tableView, NSInteger section) {
+    return tableView.halfHeight;
+}
+static CGFloat mt_estimatedHeightForFooterInSection(id self, SEL cmd, UITableView * tableView, NSInteger section) {
+    return tableView.halfHeight;
+}
+static CGFloat mt_estimatedHeightForRowAtIndexPath(id self, SEL cmd, UITableView * tableView, NSIndexPath* indexPath) {
+    return tableView.halfHeight;
+}
 
 /*-----------------------------------华丽分割线-----------------------------------*/
 
@@ -94,8 +131,8 @@
     
     [collectionView registerClass:[MTDelegateCollectionViewCell class] forCellWithReuseIdentifier:MTEasyDefaultCollectionViewReuseIdentifier];
     
-    [collectionView registerClass:[UICollectionReusableView class] forSupplementaryViewOfKind:UICollectionElementKindSectionHeader withReuseIdentifier:MTEasyDefaultCollectionViewHeaderFooterReuseIdentifier];
-    [collectionView registerClass:[UICollectionReusableView class] forSupplementaryViewOfKind:UICollectionElementKindSectionFooter withReuseIdentifier:MTEasyDefaultCollectionViewHeaderFooterReuseIdentifier];
+    [collectionView registerClass:[MTDelegateCollectionReusableView class] forSupplementaryViewOfKind:UICollectionElementKindSectionHeader withReuseIdentifier:MTEasyDefaultCollectionViewHeaderFooterReuseIdentifier];
+    [collectionView registerClass:[MTDelegateCollectionReusableView class] forSupplementaryViewOfKind:UICollectionElementKindSectionFooter withReuseIdentifier:MTEasyDefaultCollectionViewHeaderFooterReuseIdentifier];
 }
 
 -(void)setDelegate:(id<MTDelegateProtocol,UITableViewDelegate,UICollectionViewDelegateFlowLayout,UIPickerViewDelegate>)delegate
@@ -127,28 +164,38 @@
     self.sectionCount = isAllArr ? dataList.count : 1;
     self.isEmpty = !self.sectionCount;
     
-    self.tableView.scrollEnabled = !(self.isEmpty && self.emptyData);
+//    self.tableView.scrollEnabled = !(self.isEmpty && self.emptyData);
     
     if(self.isEmpty && self.emptyData)
     {
         if ((self.tableView.mj_header.state <= 1) && (self.tableView.mj_footer.state <= 1) ) {
-            
+
             if(!UIEdgeInsetsEqualToEdgeInsets(self.tableView.contentInset, UIEdgeInsetsZero))
                 self.contentInset = self.tableView.contentInset;
-            self.tableView.contentInset = UIEdgeInsetsZero;
+            {
+                self.tableView.contentInset = UIEdgeInsetsZero;
+                self.adjustContentInset = YES;
+            }
         }
     }
     else
     {
-        if(UIEdgeInsetsEqualToEdgeInsets(self.tableView.contentInset, UIEdgeInsetsZero) && !UIEdgeInsetsEqualToEdgeInsets(self.contentInset, UIEdgeInsetsZero))
+        if(self.adjustContentInset)
+        {
             self.tableView.contentInset = self.contentInset;
+            self.adjustContentInset = false;
+        }    
     }
-    
-    
+        
     _dataList = isAllArr ? dataList : @[dataList];
     
     if(!isAllArr && [dataList isKindOfClass:[NSMutableArray class]] && [self.collectionView isKindOfClass:[MTDragCollectionView class]])
         ((MTDragCollectionView*)self.collectionView).dragItems = (NSMutableArray*)dataList;
+    
+    if([self.collectionView.viewModel respondsToSelector:@selector(didSetDataList:)])
+        [self.collectionView.viewModel didSetDataList:dataList];
+    if([self.tableView.viewModel respondsToSelector:@selector(didSetDataList:)])
+        [self.tableView.viewModel didSetDataList:dataList];
 }
 
 -(void)setSectionList:(NSArray *)sectionList
@@ -238,6 +285,98 @@
     return [list getDataByIndex:indexPath.row];
 }
 
+-(void)getReusableViewAutomaticDimensionSizeWithData:(NSObject*)data Section:(NSInteger)section SuperView:(UIView*)superView
+{
+    if(data.mt_tag == kDefault)
+        return;
+    
+    NSString* mt_reuseIdentifier = data.mt_reuseIdentifier;
+    if(![mt_reuseIdentifier isExist])
+        return;
+            
+    MTDelegateCollectionReusableView* reusableView = self.shadowReusableViewList[mt_reuseIdentifier];
+    if(!reusableView)
+    {
+        Class class = NSClassFromString(mt_reuseIdentifier);
+        if(![class isSubclassOfClass:[MTDelegateCollectionReusableView class]])
+            return;
+        
+        reusableView = class.new;
+        reusableView.automaticDimension();
+        reusableView.bindOrder(@"isAssistCell");
+        self.shadowReusableViewList[mt_reuseIdentifier] = reusableView;
+    }
+    
+    reusableView.section = section;
+    reusableView.mt_data = [data isKindOfClass:[NSReuseObject class]] ? ((NSReuseObject*)data).data : ([data isKindOfClass:[NSWeakReuseObject class]] ? ((NSWeakReuseObject*)data).data : data);
+    data.bindSize([reusableView layoutSubviewsForWidth:superView.width Height:superView.height]);
+    if(data.mt_automaticDimensionSize)
+        data.mt_automaticDimensionSize(data.mt_itemSize);
+    
+    data.mt_tag = kDefault;
+}
+
+-(void)getAutomaticDimensionSizeWithData:(NSObject*)data IndexPath:(NSIndexPath*)indexPath SuperView:(UIView*)superView
+{
+    if(data.mt_tag == kDefault)
+        return;
+    
+    NSString* mt_reuseIdentifier = data.mt_reuseIdentifier;
+    if(![mt_reuseIdentifier isExist])
+        return;
+            
+    MTDelegateCollectionViewCell* cell = self.shadowCollectionViewCellList[mt_reuseIdentifier];
+    if(!cell)
+    {
+        Class class = NSClassFromString(mt_reuseIdentifier);
+        if(![class isSubclassOfClass:[MTDelegateCollectionViewCell class]])
+            return;
+        
+        cell = class.new;
+        cell.automaticDimension();
+        cell.bindOrder(@"isAssistCell");
+        self.shadowCollectionViewCellList[mt_reuseIdentifier] = cell;
+    }
+    
+    cell.indexPath = indexPath;
+    cell.mt_data = [data isKindOfClass:[NSReuseObject class]] ? ((NSReuseObject*)data).data : ([data isKindOfClass:[NSWeakReuseObject class]] ? ((NSWeakReuseObject*)data).data : data);
+    data.bindSize([cell layoutSubviewsForWidth:superView.width Height:superView.height]);
+    if(data.mt_automaticDimensionSize)
+        data.mt_automaticDimensionSize(data.mt_itemSize);
+    
+    data.mt_tag = kDefault;
+}
+
+-(void)getAutomaticDimensionHeightWithData:(NSObject*)data IndexPath:(NSIndexPath*)indexPath SuperView:(UIView*)superView
+{
+    if(data.mt_tag == kDefault)
+        return;
+    
+    NSString* mt_reuseIdentifier = data.mt_reuseIdentifier;
+    if(![mt_reuseIdentifier isExist])
+        return;
+            
+    MTDelegateTableViewCell* cell = self.shadowTableViewCellList[mt_reuseIdentifier];
+    if(!cell)
+    {
+        Class class = NSClassFromString(mt_reuseIdentifier);
+        if(![class isSubclassOfClass:[MTDelegateTableViewCell class]])
+            return;
+        
+        cell = class.new;
+        cell.automaticDimension();
+        cell.bindOrder(@"isAssistCell");
+        self.shadowTableViewCellList[mt_reuseIdentifier] = cell;
+    }
+    
+    cell.indexPath = indexPath;
+    cell.mt_data = [data isKindOfClass:[NSReuseObject class]] ? ((NSReuseObject*)data).data : ([data isKindOfClass:[NSWeakReuseObject class]] ? ((NSWeakReuseObject*)data).data : data);
+    data.bindHeight([cell layoutSubviewsForWidth:superView.width Height:superView.height].height);
+    if(data.mt_automaticDimensionSize)
+        data.mt_automaticDimensionSize(CGSizeMake(0, data.mt_itemHeight));
+    data.mt_tag = kDefault;
+}
+
 -(void)setup3dTouch:(UIView*)view
 {
     if(![self.delegate isKindOfClass:[UIViewController class]])
@@ -264,16 +403,30 @@
 
 -(NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
-    return (self.isEmpty && self.emptyData) ? 1 : self.sectionCount;
+    if([self.delegate respondsToSelector:@selector(numberOfSectionsInTableView:)])
+        return [self.delegate numberOfSectionsInTableView:tableView];
+    NSInteger sectionCount = (self.isEmpty && self.emptyData) ? 1 : self.sectionCount;
+    while (tableView.cellStateArray.count < sectionCount)
+        [tableView.cellStateArray addObject:[NSMutableArray array]];
+        
+    return sectionCount;
 }
 
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return (self.isEmpty && self.emptyData) ? 1 :  [self getSectionDataListForSection:section].count;
+    if([self.delegate respondsToSelector:@selector(tableView:numberOfRowsInSection:)])
+        return [self.delegate tableView:tableView numberOfRowsInSection:section];
+    NSInteger rowCount = (self.isEmpty && self.emptyData) ? 1 :  [self getSectionDataListForSection:section].count;
+    while (tableView.cellStateArray[section].count < rowCount)
+        [tableView.cellStateArray[section] addObject:@(kDeselected)];
+    
+    return rowCount;
 }
 
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
+    if([self.delegate respondsToSelector:@selector(tableView:cellForRowAtIndexPath:)])
+        return [self.delegate tableView:tableView cellForRowAtIndexPath:indexPath];
     NSObject* data = [self getDataForIndexPath:indexPath];
     
     NSString* identifier = MTEasyReuseIdentifier(data.mt_reuseIdentifier);
@@ -288,9 +441,20 @@
             cell = [[c alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:identifier];
     }
     
+    if(![tableView.cellStateArray.mt_order containsString:MTCellKeepStateOrder])
+    {
+         if(tableView.cellStateArray.count > indexPath.section)
+        {
+            NSMutableArray* arr = tableView.cellStateArray[indexPath.section];
+            if(arr.count > indexPath.row)
+                arr[indexPath.row] = @(kDeselected);
+        }
+    }
+                
+    indexPath.mt_order = nil;
     cell.indexPath = indexPath;
-    cell.mt_delegate = self.delegate;
-    cell.mt_data = [data isKindOfClass:[NSReuseObject class]] ? ((NSReuseObject*)data).data : data;
+    cell.mt_delegate = self.delegate;    
+    cell.mt_data = [data isKindOfClass:[NSReuseObject class]] ? ((NSReuseObject*)data).data : ([data isKindOfClass:[NSWeakReuseObject class]] ? ((NSWeakReuseObject*)data).data : data);
     
     if(data.mt_open3dTouch)
         [self setup3dTouch:cell];
@@ -323,7 +487,7 @@
     
     view.mt_delegate = self.delegate;
     view.section = section;
-    view.mt_data = item;
+    view.mt_data = [item isKindOfClass:[NSReuseObject class]] ? ((NSReuseObject*)item).data : item;
     
     return view;
 }
@@ -352,7 +516,7 @@
     
     view.mt_delegate = self.delegate;
     view.section = section;
-    view.mt_data = item;
+    view.mt_data = [item isKindOfClass:[NSReuseObject class]] ? ((NSReuseObject*)item).data : item;
     
     return view;
 }
@@ -379,8 +543,8 @@
 
 -(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-   
-    
+    if([self.delegate respondsToSelector:@selector(tableView:heightForRowAtIndexPath:)])
+        return [self.delegate tableView:tableView heightForRowAtIndexPath:indexPath];
     if(self.isEmpty && self.emptyData)
     {
         CGFloat offset = 0;
@@ -391,49 +555,99 @@
         }
         return self.emptyData.mt_itemHeight == 0 ? (tableView.height - offset) : self.emptyData.mt_itemHeight;
     }
-    
-    
+        
     NSObject* data = [self getDataForIndexPath:indexPath];
-    
-    
-    return data.mt_itemHeight == 0 ? ([data.mt_reuseIdentifier isEqualToString:@"MTTenScrollViewCell"] ? tableView.height : 0.000001) : data.mt_itemHeight;
+    if(data.mt_automaticDimension)
+           [self getAutomaticDimensionHeightWithData:data IndexPath:indexPath SuperView:tableView];
+//      if([data.mt_itemEstimateHeight isKindOfClass:NSClassFromString(@"MTEstimateHeight")])
+//          NSLog(@"%lf",data.mt_itemEstimateHeight.mt_itemHeight);
+    return data.mt_itemHeight == 0 ? ([data.mt_reuseIdentifier isEqualToString:@"MTTenScrollViewCell"] ? tableView.height : 0.000001) : (data.mt_itemHeight + data.mt_itemEstimateHeight.mt_itemHeight);
 }
+
+-(void)tableView:(UITableView *)tableView willDisplayCell:(UITableViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    NSObject* data = [self getDataForIndexPath:indexPath];
+    if([data.mt_order containsString:@"MTCellContradict"])
+        cell.bindEnum((tableView.currentContradictIndex == indexPath.row && tableView.currentContradictSection == indexPath.section) ? kSelected : kDeselected);
+    else if(tableView.cellStateArray.count > indexPath.section)
+    {
+        NSArray* arr = tableView.cellStateArray[indexPath.section];
+        if(arr.count > indexPath.row)
+            cell.bindEnum([arr[indexPath.row] integerValue]);
+    }
+        
+            
+    if([self.delegate respondsToSelector:@selector(tableView:willDisplayCell:forRowAtIndexPath:)])
+        [self.delegate tableView:tableView willDisplayCell:cell forRowAtIndexPath:indexPath];
+}
+
+NSString* MTCellContradictOrder = @"MTCellContradictOrder";
+NSString* MTCellKeepStateOrder = @"MTCellKeepStateOrder";
 
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
+    indexPath.mt_order = nil;
     if(self.isEmpty && self.emptyData)
+    {
+        tableView.currentSection = indexPath.section;
+        tableView.currentIndex = indexPath.row;
         return;
-    
+    }
+        
     NSObject* data = [self getDataForIndexPath:indexPath];
     
-    if(data.mt_click)
+    if([data.mt_order containsString:@"MTCellContradict"])
     {
-        //有这个 order 证明不能触发点击
-        if(![data.mt_order isEqualToString:@"MTBanClickOrder"])
-            data.mt_click(@"");
+        if((indexPath.section != tableView.currentContradictSection) || (indexPath.row != tableView.currentContradictIndex))
+        {
+            UITableViewCell* cell = [tableView cellForRowAtIndexPath:[NSIndexPath indexPathForRow:tableView.currentContradictIndex inSection:tableView.currentContradictSection]];
+            cell.bindEnum(kDeselected);
+            cell = [tableView cellForRowAtIndexPath:indexPath];
+            cell.bindEnum(kSelected);
+            tableView.currentContradictSection = indexPath.section;
+            tableView.currentContradictIndex = indexPath.row;
+        }
     }
-    else if([self.delegate respondsToSelector:@selector(tableView:didSelectRowAtIndexPath:)])
-        [self.delegate tableView:tableView didSelectRowAtIndexPath:indexPath];
+    else
+    {
+        NSInteger state = [tableView.cellStateArray[indexPath.section][indexPath.row] integerValue];
+        tableView.cellStateArray[indexPath.section][indexPath.row] = @(state == kSelected ? kDeselected : kSelected);
+    }
+                
+    tableView.currentSection = indexPath.section;
+    tableView.currentIndex = indexPath.row;
+            
+    UITableViewCell* cell = [tableView cellForRowAtIndexPath:indexPath];
+    indexPath.bindOrder([data.mt_order isExist] ? data.mt_order : ([data.mt_reuseIdentifier isExist] ? data.mt_reuseIdentifier : NSStringFromClass(cell.class)));
+    indexPath.mt_order.bindEnum(cell.mt_tag);
+    [cell clickWithClearData:indexPath.bindClick(data.mt_click)];
+    if([self.delegate respondsToSelector:@selector(tableView:didSelectRowAtIndexPath:)])
+        [self.delegate tableView:tableView didSelectRowAtIndexPath:(NSIndexPath*)indexPath.bindOrder([data.mt_order isExist] ? data.mt_order : data.mt_reuseIdentifier)];
 }
-
 
 #pragma mark - collectionView数据源
 
 -(NSInteger)numberOfSectionsInCollectionView:(UICollectionView *)collectionView
 {
+    if([collectionView.viewModel respondsToSelector:@selector(numberOfSectionsInCollectionView:)])
+        return [collectionView.viewModel numberOfSectionsInCollectionView:collectionView];
+    
     return (self.isEmpty && self.emptyData) ? 1 : self.sectionCount;
 }
 
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section
 {
+    if([collectionView.viewModel respondsToSelector:@selector(collectionView:numberOfItemsInSection:)])
+        return [collectionView.viewModel collectionView:collectionView numberOfItemsInSection:section];
+    
     return (self.isEmpty && self.emptyData) ? 1 :  [self getSectionDataListForSection:section].count;
 }
 
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath
 {
-    NSObject* data = [self getDataForIndexPath:indexPath];
-    NSObject* list = [self getSectionDataListForSection:indexPath.section];
-    
+    NSArray* list = [self getSectionDataListForSection:indexPath.section];
+    NSObject* data = [self getDataForIndexPath:[NSIndexPath indexPathForRow:(indexPath.row % list.count) inSection:indexPath.section]];
+        
     NSString* mt_reuseIdentifier = list.mt_reuseIdentifier ? list.mt_reuseIdentifier : data.mt_reuseIdentifier;
     
     NSString* identifier = MTEasyReuseIdentifier(mt_reuseIdentifier);
@@ -456,9 +670,10 @@
         cell = cell0;
     }
     
+    indexPath.mt_order = nil;
     cell.indexPath = indexPath;
     cell.mt_delegate = self.delegate;
-    cell.mt_data = [data isKindOfClass:[NSReuseObject class]] ? ((NSReuseObject*)data).data : data;
+    cell.mt_data = [data isKindOfClass:[NSReuseObject class]] ? ((NSReuseObject*)data).data : ([data isKindOfClass:[NSWeakReuseObject class]] ? ((NSWeakReuseObject*)data).data : data);
     
     if(data.mt_open3dTouch)
         [self setup3dTouch:cell];
@@ -469,19 +684,16 @@
 
 -(UICollectionReusableView *)collectionView:(UICollectionView *)collectionView viewForSupplementaryElementOfKind:(NSString *)kind atIndexPath:(NSIndexPath *)indexPath
 {
-    MTDelegateCollectionReusableView* view = [collectionView dequeueReusableSupplementaryViewOfKind:kind withReuseIdentifier:MTEasyDefaultCollectionViewHeaderFooterReuseIdentifier forIndexPath:indexPath];
-    
+    MTDelegateCollectionReusableView* view;        
     if(self.isEmpty && self.emptyData)
-        return view;
-    
+        return [collectionView dequeueReusableSupplementaryViewOfKind:kind withReuseIdentifier:MTEasyDefaultCollectionViewHeaderFooterReuseIdentifier forIndexPath:indexPath];
+                
     NSObject* data = [kind isEqualToString:UICollectionElementKindSectionFooter] ? [self getFooterDataForSection:indexPath.section] :  [self getHeaderDataForSection:indexPath.section];
     if(!data)
-        return view;
-    
-    
+        return [collectionView dequeueReusableSupplementaryViewOfKind:kind withReuseIdentifier:MTEasyDefaultCollectionViewHeaderFooterReuseIdentifier forIndexPath:indexPath];
+        
     NSString* mt_reuseIdentifier = data.mt_reuseIdentifier;
     NSString* identifier = MTEasyReuseIdentifier(mt_reuseIdentifier);
-    
     
     if(self.registerSectionList[identifier])
         view = [collectionView dequeueReusableSupplementaryViewOfKind:kind withReuseIdentifier:identifier forIndexPath:indexPath];
@@ -489,15 +701,15 @@
     {
         Class class = NSClassFromString(mt_reuseIdentifier);
         if(![class isSubclassOfClass:[MTDelegateCollectionReusableView class]])
-            return view;
+            return [collectionView dequeueReusableSupplementaryViewOfKind:kind withReuseIdentifier:MTEasyDefaultCollectionViewHeaderFooterReuseIdentifier forIndexPath:indexPath];
         
         [collectionView registerClass:class forSupplementaryViewOfKind:kind withReuseIdentifier:identifier];
         
         MTDelegateCollectionReusableView* view0 = [collectionView dequeueReusableSupplementaryViewOfKind:kind withReuseIdentifier:identifier forIndexPath:indexPath];
         if(!view0)
-            return view;
-        
-        self.registerSectionList[identifier] = identifier;
+            return [collectionView dequeueReusableSupplementaryViewOfKind:kind withReuseIdentifier:MTEasyDefaultCollectionViewHeaderFooterReuseIdentifier forIndexPath:indexPath];        
+                    
+        self.registerSectionList[identifier] = identifier;        
         view = view0;
     }
     
@@ -527,7 +739,6 @@
         return UIEdgeInsetsZero;
     
     NSObject* item = [self getHeaderDataForSection:section];
-//    NSLog(@"%@",NSStringFromUIEdgeInsets(item.mt_spacing.sectionInset));
     return item.mt_spacing.sectionInset;
 }
 
@@ -563,6 +774,10 @@
         return zeroSize;
     
     NSObject* item = [self getHeaderDataForSection:section];
+    
+    if(item.mt_automaticDimension)
+        [self getReusableViewAutomaticDimensionSizeWithData:item Section:section SuperView:collectionView];
+        
     CGSize itemSize = item.mt_itemSize;
     BOOL isZero = CGSizeEqualToSize(CGSizeZero, itemSize);
     if(isZero && item.mt_itemHeight)
@@ -583,6 +798,10 @@
         return zeroSize;
     
     NSObject* item = [self getFooterDataForSection:section];
+    
+    if(item.mt_automaticDimension)
+        [self getReusableViewAutomaticDimensionSizeWithData:item Section:section SuperView:collectionView];
+    
     CGSize itemSize = item.mt_itemSize;
     BOOL isZero = CGSizeEqualToSize(CGSizeZero, item.mt_itemSize);
     if(isZero && item.mt_itemHeight)
@@ -595,6 +814,7 @@
 }
 
 #pragma mark - item的size
+
 - (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath
 {
     if([self.delegate respondsToSelector:@selector(collectionView:layout:sizeForItemAtIndexPath:)])
@@ -604,6 +824,9 @@
     NSObject* data = [self getDataForIndexPath:indexPath];
     NSObject* list = [self getSectionDataListForSection:indexPath.section];
     
+    if(data.mt_automaticDimension)
+        [self getAutomaticDimensionSizeWithData:data IndexPath:indexPath SuperView:collectionView];
+                            
     CGSize itemSize = data.mt_itemSize;
     BOOL isZero = CGSizeEqualToSize(CGSizeZero, itemSize);
     if(isZero)
@@ -625,6 +848,9 @@
         }
     }
     
+    if(itemSize.height == 0)
+        itemSize.height = collectionView.height;
+        
     if(self.isEmpty && self.emptyData)
         return isZero ? CGSizeMake(collectionView.width, collectionView.height - collectionView.contentInset.bottom) : itemSize;
     
@@ -633,19 +859,18 @@
 
 -(void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath
 {
+    indexPath.mt_order = nil;
+    collectionView.currentSection = indexPath.section;
+    collectionView.currentIndex = indexPath.row;
     if(self.isEmpty && self.emptyData)
         return;
     
     NSObject* data = [self getDataForIndexPath:indexPath];
-    
-    if(data.mt_click)
-    {
-        //有这个 order 证明不能触发点击
-        if(![data.mt_order isEqualToString:@"MTBanClickOrder"])
-            data.mt_click(@"");
-    }
-    else if([self.delegate respondsToSelector:@selector(collectionView:didSelectItemAtIndexPath:)])
-        [self.delegate collectionView:collectionView didSelectItemAtIndexPath:indexPath];
+    UICollectionViewCell* cell = [collectionView cellForItemAtIndexPath:indexPath];
+    indexPath.bindOrder([data.mt_order isExist] ? data.mt_order : ([data.mt_reuseIdentifier isExist] ? data.mt_reuseIdentifier : NSStringFromClass(cell.class)));    
+    [cell clickWithClearData:indexPath.bindClick(data.mt_click)];
+    if([self.delegate respondsToSelector:@selector(collectionView:didSelectItemAtIndexPath:)])
+        [self.delegate collectionView:collectionView didSelectItemAtIndexPath:(NSIndexPath*)indexPath];
 }
 
 
@@ -678,6 +903,8 @@
     if([scrollView.viewModel respondsToSelector:@selector(scrollViewDidScroll:)])
         [scrollView.viewModel scrollViewDidScroll:scrollView];
     
+    if(scrollView.viewModel == self.delegate) return;
+    
     if([self.delegate respondsToSelector:@selector(scrollViewDidScroll:)])
         [self.delegate scrollViewDidScroll:scrollView];
 }
@@ -686,6 +913,8 @@
 {
     if([scrollView.viewModel respondsToSelector:@selector(scrollViewWillBeginDragging:)])
         [scrollView.viewModel scrollViewWillBeginDragging:scrollView];
+    
+    if(scrollView.viewModel == self.delegate) return;
     
     if([self.delegate respondsToSelector:@selector(scrollViewWillBeginDragging:)])
         [self.delegate scrollViewWillBeginDragging:scrollView];
@@ -696,6 +925,8 @@
     if([scrollView.viewModel respondsToSelector:@selector(scrollViewDidEndDragging:willDecelerate:)])
         [scrollView.viewModel scrollViewDidEndDragging:scrollView willDecelerate:decelerate];
     
+    if(scrollView.viewModel == self.delegate) return;
+    
     if([self.delegate respondsToSelector:@selector(scrollViewDidEndDragging:willDecelerate:)])
         [self.delegate scrollViewDidEndDragging:scrollView willDecelerate:decelerate];
 }
@@ -705,8 +936,21 @@
     if([scrollView.viewModel respondsToSelector:@selector(scrollViewDidEndDecelerating:)])
         [scrollView.viewModel scrollViewDidEndDecelerating:scrollView];
     
+    if(scrollView.viewModel == self.delegate) return;
+    
     if([self.delegate respondsToSelector:@selector(scrollViewDidEndDecelerating:)])
         [self.delegate scrollViewDidEndDecelerating:scrollView];
+}
+
+- (void)scrollViewDidEndScrollingAnimation:(UIScrollView *)scrollView
+{
+    if([scrollView.viewModel respondsToSelector:@selector(scrollViewDidEndScrollingAnimation:)])
+        [scrollView.viewModel scrollViewDidEndScrollingAnimation:scrollView];
+    
+    if(scrollView.viewModel == self.delegate) return;
+    
+    if([self.delegate respondsToSelector:@selector(scrollViewDidEndScrollingAnimation:)])
+        [self.delegate scrollViewDidEndScrollingAnimation:scrollView];
 }
 
 #pragma mark - pickerView 数据源
@@ -799,6 +1043,36 @@ static NSString* mt_titleForRowAtIndexPath(id self, SEL cmd, UIPickerView * pick
     return _registerSectionList;
 }
 
+-(NSMutableDictionary<NSString *,MTDelegateCollectionViewCell *> *)shadowCollectionViewCellList
+{
+    if(!_shadowCollectionViewCellList)
+    {
+        _shadowCollectionViewCellList = [NSMutableDictionary dictionary];
+    }
+    
+    return _shadowCollectionViewCellList;
+}
+
+-(NSMutableDictionary<NSString *,MTDelegateTableViewCell *> *)shadowTableViewCellList
+{
+    if(!_shadowTableViewCellList)
+    {
+        _shadowTableViewCellList = [NSMutableDictionary dictionary];
+    }
+    
+    return _shadowTableViewCellList;
+}
+
+-(NSMutableDictionary<NSString *,MTDelegateCollectionReusableView *> *)shadowReusableViewList
+{
+    if(!_shadowReusableViewList)
+    {
+        _shadowReusableViewList = [NSMutableDictionary dictionary];
+    }
+    
+    return _shadowReusableViewList;
+}
+
 
 @end
 
@@ -810,6 +1084,15 @@ static NSString* mt_titleForRowAtIndexPath(id self, SEL cmd, UIPickerView * pick
 
 @implementation MTDelegateCollectionViewCell (Private)
 
+-(instancetype)setWithObject:(NSObject *)obj
+{
+    if([obj isKindOfClass:NSClassFromString(@"MTBaseViewContentModel")] || [obj.mt_reuseIdentifier isEqualToString:@"baseContentModel"])
+        return [super setWithObject:obj];
+   
+    self.mt_data = obj;
+    return self;
+}
+
 -(void)setMt_data:(NSObject *)mt_data
 {
     if(![mt_data isKindOfClass:self.classOfResponseObject])
@@ -820,10 +1103,17 @@ static NSString* mt_titleForRowAtIndexPath(id self, SEL cmd, UIPickerView * pick
             if(!model)
                 return;
             
-            mt_data = model.bind(mt_data.mt_reuseIdentifier).bindClick(mt_data.mt_click).bindOrder(mt_data.mt_order).bindTag(mt_data.mt_tagIdentifier);
+            mt_data = [model copyBindWithObject:mt_data];
         }
         else
+        {
+            if(mt_data.mt_click)
+                 self.bindClick(mt_data.mt_click);
+                        
+            if(self.mt_click && self.mt_click != mt_data.mt_click)
+                self.mt_click(self.indexPath);
             return;
+        }
     }
     
     [self whenGetResponseObject:mt_data];
@@ -838,6 +1128,15 @@ static NSString* mt_titleForRowAtIndexPath(id self, SEL cmd, UIPickerView * pick
 
 @implementation MTDelegateTableViewCell (Private)
 
+-(instancetype)setWithObject:(NSObject *)obj
+{
+    if([obj isKindOfClass:NSClassFromString(@"MTBaseViewContentModel")] || [obj.mt_reuseIdentifier isEqualToString:@"baseContentModel"])
+        return [super setWithObject:obj];
+   
+    self.mt_data = obj;
+    return self;
+}
+
 -(void)setMt_data:(NSObject *)mt_data
 {
     if(![mt_data isKindOfClass:self.classOfResponseObject])
@@ -847,11 +1146,16 @@ static NSString* mt_titleForRowAtIndexPath(id self, SEL cmd, UIPickerView * pick
             NSObject* model = [self.classOfResponseObject mj_objectWithKeyValues:mt_data];
             if(!model)
                 return;
-            
-            mt_data = model.bind(mt_data.mt_reuseIdentifier).bindClick(mt_data.mt_click).bindOrder(mt_data.mt_order).bindTag(mt_data.mt_tagIdentifier);
+                        
+            mt_data.mt_itemEstimateHeight = model.mt_itemEstimateHeight;
+            mt_data = [model copyBindWithObject:mt_data];
         }
         else
+        {
+            if(mt_data.mt_click)
+                self.bindClick(mt_data.mt_click);
             return;
+        }
     }
     
     [self whenGetResponseObject:mt_data];
@@ -866,6 +1170,15 @@ static NSString* mt_titleForRowAtIndexPath(id self, SEL cmd, UIPickerView * pick
 
 @implementation MTDelegateHeaderFooterView (Private)
 
+-(instancetype)setWithObject:(NSObject *)obj
+{
+    if([obj isKindOfClass:NSClassFromString(@"MTBaseViewContentModel")] || [obj.mt_reuseIdentifier isEqualToString:@"baseContentModel"])
+        return [super setWithObject:obj];
+   
+    self.mt_data = obj;
+    return self;
+}
+
 -(void)setMt_data:(NSObject *)mt_data
 {
     if(![mt_data isKindOfClass:self.classOfResponseObject])
@@ -876,10 +1189,14 @@ static NSString* mt_titleForRowAtIndexPath(id self, SEL cmd, UIPickerView * pick
             if(!model)
                 return;
             
-            mt_data = model.bind(mt_data.mt_reuseIdentifier).bindClick(mt_data.mt_click).bindOrder(mt_data.mt_order).bindTag(mt_data.mt_tagIdentifier);
+            mt_data = [model copyBindWithObject:mt_data];
         }
         else
+        {
+            if(mt_data.mt_click)
+                self.bindClick(mt_data.mt_click);
             return;
+        }
     }
     
     [self whenGetResponseObject:mt_data];
@@ -894,6 +1211,15 @@ static NSString* mt_titleForRowAtIndexPath(id self, SEL cmd, UIPickerView * pick
 
 @implementation MTDelegateCollectionReusableView (Private)
 
+-(instancetype)setWithObject:(NSObject *)obj
+{
+    if([obj isKindOfClass:NSClassFromString(@"MTBaseViewContentModel")] || [obj.mt_reuseIdentifier isEqualToString:@"baseContentModel"])
+        return [super setWithObject:obj];
+   
+    self.mt_data = obj;
+    return self;
+}
+
 -(void)setMt_data:(NSObject *)mt_data
 {
     if(![mt_data isKindOfClass:self.classOfResponseObject])
@@ -904,10 +1230,14 @@ static NSString* mt_titleForRowAtIndexPath(id self, SEL cmd, UIPickerView * pick
             if(!model)
                 return;
             
-            mt_data = model.bind(mt_data.mt_reuseIdentifier).bindClick(mt_data.mt_click).bindOrder(mt_data.mt_order).bindTag(mt_data.mt_tagIdentifier);
+            mt_data = [model copyBindWithObject:mt_data];            
         }
         else
+        {
+            if(mt_data.mt_click)
+                self.bindClick(mt_data.mt_click);
             return;
+        }
     }
     
     [self whenGetResponseObject:mt_data];

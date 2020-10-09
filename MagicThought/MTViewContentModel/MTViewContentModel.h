@@ -9,7 +9,7 @@
 #import <Foundation/Foundation.h>
 #import "MTBaseViewContentModel.h"
 
-@interface MTViewContentModel : MTBaseViewContentModel
+@interface MTViewContentModel : MTBaseViewContentStateModel
 
 /**textLabel*/
 @property (nonatomic,strong) MTBaseViewContentModel* mtTitle;
@@ -65,9 +65,18 @@
 /**btn6 */
 @property (nonatomic,strong) MTBaseViewContentModel* mtBtnTitle6;
 
+/**textField */
+@property (nonatomic,strong) MTBaseViewContentModel* mtTextField;
+
+/**textView */
+@property (nonatomic,strong) MTBaseViewContentModel* mtTextView;
+
+/**扩展内容*/
+@property (nonatomic,strong) NSObject* mtExternContent;
+
+-(CGFloat)setUpEstimateHeight;
+
 @end
-
-
 
 
 

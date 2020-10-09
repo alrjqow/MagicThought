@@ -10,10 +10,8 @@
 #import "MTBaseTableViewCell.h"
 #import "MTEmptyBaseCell.h"
 #import "MTBaseCollectionViewCell.h"
-#import "MTTextFieldCell.h"
 #import "MTLoadingView.h"
 #import "MTBaseHeaderFooterView.h"
 #import "MTBaseCollectionReusableView.h"
 
 #import "MTBaseCellModel.h"
-#import "MTTextFieldCellModel.h"

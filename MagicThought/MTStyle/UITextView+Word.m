@@ -13,8 +13,14 @@
 
 -(instancetype)setWordWithStyle:(MTWordStyle*)style
 {
-    if(style.wordLineSpacing && [self isKindOfClass:NSClassFromString(@"MTTextView")])
-        [self setValue:@(style.wordLineSpacing) forKey:@"lineSpacing"];
+    self.textContainer.lineBreakMode = style.wordLineBreakMode;
+    
+    if(style.isAttributedWord)
+    {
+        self.attributedText = style.attributedWordName;
+        [self sizeToFit];
+        return self;
+    }
     
     if(style.wordColor)
         self.textColor = style.wordColor;
@@ -35,12 +41,8 @@
     }
     
     self.textAlignment = style.wordHorizontalAlignment;
-    
-    if(style.attributedWordName)
-        self.attributedText = style.attributedWordName;
-    else
-        self.text = style.wordName;
-    
+
+    self.text = style.wordName;
     [self sizeToFit];
     return self;
 }

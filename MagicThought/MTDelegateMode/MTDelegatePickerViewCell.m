@@ -40,9 +40,4 @@
     return [NSString class];
 }
 
--(void)dealloc
-{
-    [self whenDealloc];
-}
-
 @end

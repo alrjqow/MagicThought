@@ -10,13 +10,18 @@
 #import "MTBaseCellModel.h"
 #import "UIView+MTBaseViewContentModel.h"
 #import "UIView+Frame.h"
+#import "MTTextField.h"
+#import "MTTextView.h"
 
-@interface MTBaseTableViewCell : MTDelegateTableViewCell
+@interface MTBaseTableViewCell : MTDelegateTableViewCell<MTTextFieldDelegate, UITextViewDelegate>
 
 @property (nonatomic,strong) MTBaseCellModel* contentModel;
 
 /**右箭头*/
 @property (nonatomic,strong, readonly) UIImageView* arrowView;
+
+/**扩展*/
+@property (nonatomic,strong) UIView* externView;
 
 @property (nonatomic,strong) UILabel* detailTextLabel2;
 
@@ -36,6 +41,9 @@
 
 @property (nonatomic,strong) UIButton* button4;
 
+@property (nonatomic,strong) MTTextField* textField;
+
+@property (nonatomic, strong) MTTextView *textView;
 
 @end
 

@@ -16,7 +16,7 @@
     
     // -1 表示不作任何修改
     self.sepLineWidth = -1;
-    self.accessoryMarginRight = -1;
+//    self.accessoryMarginRight = -1;
 }
 
 @end

@@ -20,11 +20,6 @@
     return self;
 }
 
--(void)dealloc
-{
-    [self whenDealloc];
-}
-
 @end
 
 

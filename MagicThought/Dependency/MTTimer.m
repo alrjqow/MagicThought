@@ -25,6 +25,13 @@
     return [self getTimeWithDate:[self getCurrentDate] Format:format];
 }
 
++(NSString*)getTimeWithDateString:(NSString*)dateString Format:(NSString*)format
+{
+    NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
+    [formatter setDateFormat:@"yyyy-MM-dd HH:mm:ss"];
+    return [self getTimeWithDate:[formatter dateFromString:dateString] Format:format];
+}
+
 +(NSString*)getTimeWithDate:(NSDate*)date Format:(NSString*)format
 {
     NSDateFormatter* formater = [NSDateFormatter new];

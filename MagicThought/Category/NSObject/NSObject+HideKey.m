@@ -33,3 +33,16 @@
 
 
 
+@implementation NSObject (Pasteboard)
+
+-(instancetype)copyToPasteboard
+{
+    UIPasteboard* pasteboard = [UIPasteboard generalPasteboard];
+        
+    if([self isKindOfClass:[NSString class]])
+        [pasteboard setString:(NSString*)self];
+    
+    return self;
+}
+
+@end

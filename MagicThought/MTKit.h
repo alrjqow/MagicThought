@@ -39,10 +39,12 @@
 #import "MTFileSelect.h"
 
 //#import "MTCustomCamera.h"
-#import "MTImageShowAndBrowser.h"
+//#import "MTImageShowAndBrowser.h"
 #import "MTTenScroll.h"
+#import "MTPageScroll.h"
 //#import "MTSlide.h"
 #import "MTImagePlay.h"
+#import "MTImageShow.h"
 //#import "MTCountdownRing.h"
 //#import "MTSpiltView.h"
 //#import "MTGestureLock.h"

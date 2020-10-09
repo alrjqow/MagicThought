@@ -6,12 +6,17 @@
 //  Copyright © 2017年 com.bkqw.app. All rights reserved.
 //
 
-#import <Foundation/Foundation.h>
+#import <UIKit/UIKit.h>
 
 @interface NSObject (HideKey)
 
 +(void)getKeyName;
 
+
 @end
 
+@interface NSObject (Pasteboard)
 
+-(instancetype)copyToPasteboard;
+
+@end

@@ -15,4 +15,3 @@
 @property(nonatomic,weak) id<MTDelegateProtocol> mt_delegate;
 
 @end
-

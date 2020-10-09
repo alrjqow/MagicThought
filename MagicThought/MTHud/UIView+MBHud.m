@@ -22,47 +22,52 @@
 
 
 /**显示toast*/
--(void)showToast:(NSString*)msg
+-(instancetype)showToast:(NSString*)msg
 {
     MBProgressHUD* hud = [self createToastHudWithOffset:CGPointMake(0.f, (mt_Window().height / 2 -120))];
     hud.label.text = msg;
     
     [hud showAnimated:YES];
     [hud hideAnimated:YES afterDelay:2.f];
+    return self;
 }
--(void)showCenterToast:(NSString*)msg
+-(instancetype)showCenterToast:(NSString*)msg
 {
     MBProgressHUD* hud = [self createToastHudWithOffset:CGPointZero];
     hud.label.text = msg;
     
     [hud showAnimated:YES];
     [hud hideAnimated:YES afterDelay:2.f];
+    return self;
 }
 
 
 /**显示成功*/
--(void)showSuccess:(NSString*)msg
+-(instancetype)showSuccess:(NSString*)msg
 {
     UIImage* img = [UIImage imageNamed:@"mthud_success"];
     [self showCustomViewWithImageName: (img ? img : @"MTHUD.bundle/success") Msg:msg];
+    return self;
 }
 
 /**显示错误*/
--(void)showError:(NSString*)msg
+-(instancetype)showError:(NSString*)msg
 {
     UIImage* img = [UIImage imageNamed:@"mthud_error"];
     [self showCustomViewWithImageName: (img ? img : @"MTHUD.bundle/error") Msg:msg];
+    return self;
 }
 
 /**显示提示*/
--(void)showTips:(NSString*)msg
+-(instancetype)showTips:(NSString*)msg
 {
     UIImage* img = [UIImage imageNamed:@"mthud_info"];
     [self showCustomViewWithImageName: (img ? img : @"MTHUD.bundle/info") Msg:msg];
+    return self;
 }
 
 /**显示圈圈*/
--(void)showMsg:(NSString*)msg
+-(instancetype)showMsg:(NSString*)msg
 {
     MBProgressHUD* hud = [self createHud];
     
@@ -76,13 +81,17 @@
     
     hud.label.text = msg;
     [hud showAnimated:YES];
+    
+    return self;
 }
 
 /**隐藏提示*/
--(void)dismissIndicator
+-(instancetype)dismissIndicator
 {
     MBProgressHUD* hud = [MBProgressHUD HUDForView:self];
     [hud hideAnimated:YES];
+    
+    return self;
 }
 
 
@@ -193,21 +202,6 @@
 }
 
 
-
-#pragma mark - 懒加载
-
-static const void *mtHudStyleKey = @"mtHudStyleKey";
-
--(MBHudStyle)mt_hudStyle
-{
-    return ((NSNumber*)objc_getAssociatedObject(self, mtHudStyleKey)).integerValue;
-}
-
--(void)setMt_hudStyle:(MBHudStyle)mt_hudStyle
-{
-    objc_setAssociatedObject(self, mtHudStyleKey, @(mt_hudStyle), OBJC_ASSOCIATION_RETAIN_NONATOMIC);
-}
-
 @end
 
 
@@ -270,6 +264,73 @@ static const void *mtHudStyleKey = @"mtHudStyleKey";
 -(MBHudStyle)mt_hudStyle
 {
     return self.view.mt_hudStyle;
+}
+
+@end
+
+
+@implementation NSObject (MBHud)
+
+/**显示成功*/
+-(instancetype)showSuccess:(NSString*)msg
+{
+    [mt_Window() showSuccess:msg];
+    return self;
+}
+
+/**显示错误*/
+-(instancetype)showError:(NSString*)msg
+{
+    [mt_Window() showError:msg];
+    return self;
+}
+
+/**显示提示*/
+-(instancetype)showTips:(NSString*)msg
+{
+    [mt_Window() showTips:msg];
+    return self;
+}
+
+/**显示toast*/
+-(instancetype)showToast:(NSString*)msg
+{
+    [mt_Window() showToast:msg];
+    return self;
+}
+
+-(instancetype)showCenterToast:(NSString*)msg
+{
+    [mt_Window() showCenterToast:msg];
+    return self;
+}
+
+/**显示圈圈*/
+-(instancetype)showMsg:(NSString*)msg
+{
+    [mt_Window() showMsg:msg];
+    return self;
+}
+
+/**隐藏提示*/
+-(instancetype)dismissIndicator
+{
+    [mt_Window() dismissIndicator];
+    return self;
+}
+
+
+
+#pragma mark - 懒加载
+
+-(MBHudStyle)mt_hudStyle
+{
+    return ((NSNumber*)objc_getAssociatedObject(self, _cmd)).integerValue;
+}
+
+-(void)setMt_hudStyle:(MBHudStyle)mt_hudStyle
+{
+    objc_setAssociatedObject(self, @selector(mt_hudStyle), @(mt_hudStyle), OBJC_ASSOCIATION_RETAIN_NONATOMIC);
 }
 
 @end

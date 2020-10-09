@@ -13,4 +13,7 @@
 /**数组转json字符串*/
 -(NSString *)json;
 
+/**json转成数组*/
++ (NSArray *)arrayWithJson:(NSString*)json;
+
 @end

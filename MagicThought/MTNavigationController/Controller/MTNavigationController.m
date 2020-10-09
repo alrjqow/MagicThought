@@ -7,6 +7,7 @@
 //
 
 #import "MTNavigationController.h"
+#import <objc/runtime.h>
 
 @interface MTNavigationController ()<UIGestureRecognizerDelegate>
 
@@ -74,6 +75,7 @@
 
 -(void)pushViewController:(UIViewController *)viewController animated:(BOOL)animated
 {
+    [viewController setValue:self.topViewController forKey:@"previousController"];    
     if(self.viewControllers.count > 0)
     {
         self.interactivePopGestureRecognizer.delegate = (id<UIGestureRecognizerDelegate>)self;
@@ -137,8 +139,16 @@
 
 - (void)setEnableSlideBack:(BOOL)enableSlideBack
 {
-    self.interactivePopGestureRecognizer.enabled = enableSlideBack;
-    self.fullScreenPopGestureRecognizer.enabled = enableSlideBack;
+    if(self.isFullScreenPop)
+    {
+        self.interactivePopGestureRecognizer.enabled = false;
+        self.fullScreenPopGestureRecognizer.enabled = enableSlideBack;
+    }
+    else
+    {
+        self.interactivePopGestureRecognizer.enabled = enableSlideBack;
+        self.fullScreenPopGestureRecognizer.enabled = false;
+    }
 }
 
 -(BOOL)enableSlideBack
@@ -169,3 +179,34 @@
 
 
 @end
+
+@implementation UINavigationController (Extern)
+
+-(void)setEnableSlideBack:(BOOL)enableSlideBack
+{
+    self.interactivePopGestureRecognizer.enabled = enableSlideBack;
+}
+
+-(BOOL)enableSlideBack
+{
+    return self.interactivePopGestureRecognizer.enabled;
+}
+
+
+@end
+
+
+@implementation UIViewController (NavigationRecord)
+
+-(void)setPreviousController:(UIViewController *)previousController
+{
+    objc_setAssociatedObject(self, @selector(previousController), previousController, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
+}
+
+-(UIViewController *)previousController
+{
+    return objc_getAssociatedObject(self, _cmd);
+}
+
+@end
+

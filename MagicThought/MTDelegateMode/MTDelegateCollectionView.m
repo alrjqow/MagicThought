@@ -12,22 +12,26 @@
 
 -(instancetype)initWithFrame:(CGRect)frame collectionViewLayout:(UICollectionViewLayout *)layout
 {
-    if (self = [super initWithFrame:frame collectionViewLayout:layout ? layout : self.layout]) {
-                
-        if([self.layout isKindOfClass:[UICollectionViewFlowLayout class]])
+    if(!layout)
+        layout = [self.class layout];
+    if (self = [super initWithFrame:frame collectionViewLayout:layout]) {
+                 
+        if([layout isKindOfClass:[UICollectionViewFlowLayout class]])
         {
-            UICollectionViewFlowLayout* layout0 = (UICollectionViewFlowLayout*)self.layout;
+            UICollectionViewFlowLayout* layout0 = (UICollectionViewFlowLayout*)layout;
             self.alwaysBounceVertical= layout0.scrollDirection == UICollectionViewScrollDirectionVertical;
             self.alwaysBounceHorizontal = layout0.scrollDirection == UICollectionViewScrollDirectionHorizontal;
         }
         
+        _layout = layout;
         [self setupDefault];
     }
     
     return self;
 }
 
--(UICollectionViewLayout *)layout
+
++(UICollectionViewLayout*)layout
 {
     return [UICollectionViewFlowLayout new];
 }

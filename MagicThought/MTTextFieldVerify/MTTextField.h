@@ -7,16 +7,17 @@
 //
 
 #import "UIView+Delegate.h"
-#import "MTTextFieldVerifyModel.h"
+#import "MTTextVerifyModel.h"
+
+@protocol MTTextFieldDelegate <UITextFieldDelegate>
+
+-(void)didTextValueChange:(UITextField *)textField;
+
+@end
 
 @interface MTTextField : UITextField
 
-@property (nonatomic,weak) MTTextFieldVerifyModel* verifyModel;
-
--(BOOL)shouldChangeCharactersInRange:(NSRange)range replacementString:(NSString *)string;
--(void)didBeginEditing;
-- (void)didEndEditing;
--(void)didTextValueChange;
+@property (nonatomic,strong) MTTextVerifyModel* verifyModel;
 
 @end
 

@@ -25,6 +25,9 @@
 /**检验是否为非0的正整数*/
 -(BOOL)testPositiveInteger;
 
+/**检验是否以某个字符串开头*/
+-(BOOL)testStartWith:(NSString*)startStr;
+
 /**检验是否为正数*/
 -(BOOL)testPositiveNumber;
 
@@ -45,5 +48,7 @@
 
 /**检验是否为n位的数字*/
 -(BOOL)testNumberWithCount:(NSInteger)count;
+
+-(NSRange)rangeWithFormat:(NSString *)regularExpress;
 
 @end

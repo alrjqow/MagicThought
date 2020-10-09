@@ -30,6 +30,17 @@
 -(void)mt_setFrame:(CGRect)frame
 {
     CGRect rect = frame;
+            
+    if([self isKindOfClass:NSClassFromString(@"MTRefreshBackNormalFooter")])
+    {
+        UIScrollView* scrollView = (UIScrollView*)self.superview;
+        CGFloat contentHieght = scrollView.contentSize.height + scrollView.contentInset.top + scrollView.contentInset.bottom;
+        rect.origin.y = MAX(contentHieght, scrollView.height);
+        
+        [self mt_setFrame:rect];
+        return;
+    }
+            
     if(![NSStringFromClass(self.class) containsString:@"MB"])
     {
         UIEdgeInsets margin = self.margin;
@@ -38,15 +49,16 @@
         rect.origin.x += margin.left;
         rect.size.width -= (margin.left + margin.right);
     }
-        
+                       
     [self mt_setFrame:rect];
 }
 
 -(void)setMargin:(UIEdgeInsets)margin
-{
+{    
     objc_setAssociatedObject(self, @selector(margin), [NSValue valueWithUIEdgeInsets:margin], OBJC_ASSOCIATION_RETAIN_NONATOMIC);
     
-    self.frame = self.frame;
+    if(!CGRectEqualToRect(self.frame, CGRectZero))
+        self.frame = self.frame;
 }
 
 -(UIEdgeInsets)margin

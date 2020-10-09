@@ -8,7 +8,7 @@
 
 #import "MTTenScrollViewCell.h"
 #import "MTTenScrollViewCellDelegateModel.h"
-
+#import "MTTenScrollModel.h"
 
 @implementation MTTenScrollViewCell
 
@@ -39,12 +39,9 @@
 
 @implementation MTTenScrollViewCellX
 
--(void)whenGetResponseObject:(NSObject *)object
+-(void)whenGetResponseObject:(MTTenScrollModel *)object
 {
-    if(![object isKindOfClass:NSClassFromString(@"MTTenScrollModel")])
-        return;
-     
-    ((MTTenScrollViewCellDelegateModel*)self.viewModel).model = (MTTenScrollModel*)object;
+    ((MTTenScrollViewCellDelegateModel*)self.viewModel).model = object;
 }
 
 -(NSString *)viewModelClass
@@ -58,6 +55,11 @@
         
     if([self.viewModel respondsToSelector:@selector(giveSomeThingToMe:WithOrder:)])
         [self.viewModel giveSomeThingToMe:self WithOrder:nil];
+}
+
+-(Class)classOfResponseObject
+{
+    return [MTTenScrollModel class];
 }
 
 @end

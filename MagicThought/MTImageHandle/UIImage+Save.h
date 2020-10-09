@@ -8,6 +8,12 @@
 
 #import <UIKit/UIKit.h>
 
+typedef enum : NSUInteger {
+    MTImageSaveToLibraryTypeFailure,
+    MTImageSaveToLibraryTypeSuccessButCollectionFailure,
+    MTImageSaveToLibraryTypeSuccess,
+} MTImageSaveToLibraryType;
+
 @interface UIImage (Save)
 
 /**将图片保存至某路径，压缩比可调*/
@@ -21,5 +27,13 @@
 
 /**压缩图片根据给定的最大MB*/
 - (NSData *)compressWithMaxDataSizeMBytes:(CGFloat)size;
+
+
+
+@end
+
+@interface  UIImage(PhotoLibrary)
+
+- (void)saveToPhotoLibrary: (void (^)(BOOL success))completion;
 
 @end

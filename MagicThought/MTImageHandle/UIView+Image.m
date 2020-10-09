@@ -11,13 +11,15 @@
 @implementation UIView (Image)
 
 - (UIImage *)createViewImage{
+    
+    CGFloat cornerRadius = self.layer.cornerRadius;
+    self.layer.cornerRadius = 0;
     UIGraphicsBeginImageContextWithOptions(self.bounds.size, NO, [UIScreen mainScreen].scale);
     [self.layer renderInContext:UIGraphicsGetCurrentContext()];
     UIImage * image = UIGraphicsGetImageFromCurrentImageContext();
     UIGraphicsEndImageContext();
     
-    
-    
+    self.layer.cornerRadius = cornerRadius;    
     return [UIImage imageWithData:UIImagePNGRepresentation(image)];
 }
 

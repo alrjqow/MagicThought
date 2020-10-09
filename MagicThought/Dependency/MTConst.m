@@ -45,7 +45,8 @@ void setLoginStatus_mt(BOOL status)
 
 CGFloat kStatusBarHeight_mt()
 {
-    return [[UIApplication sharedApplication] statusBarFrame].size.height;
+//    return [[UIApplication sharedApplication] statusBarFrame].size.height;
+    return [UIDevice isHairScreen] ? 44 : 20;
 }
 
 CGFloat kNavigationBarHeight_mt()
@@ -53,13 +54,31 @@ CGFloat kNavigationBarHeight_mt()
     return [UIDevice isHairScreen] ? 88 : 64;
 }
 
+CGFloat mt_roundFloat(CGFloat floatValue)
+{
+    CGFloat f = floatValue * 100;
+    NSInteger IntegerF = f;
+        
+    CGFloat tail =  f - IntegerF;
+    
+    if(tail >= 0.5)
+        IntegerF += 1;
+    
+    return IntegerF * 0.01;
+}
+
 CGFloat kTabBarHeight_mt()
 {
     return [UIDevice isHairScreen] ? 83 : 49;
 }
 
-CGFloat kScreenWidth_mt()
+CGFloat kTabBarBottomInset_mt()
 {
+    return [UIDevice isHairScreen] ? 34 : 0;
+}
+
+CGFloat kScreenWidth_mt()
+{    
     return [UIScreen mainScreen].bounds.size.width;
 }
 
@@ -227,6 +246,16 @@ void mt_GoToAppStore()
         [[UIApplication sharedApplication] openURL:url];    
 }
 
+void mt_PostNotification(NSString* notificationName, NSDictionary* userInfo)
+{
+    [[NSNotificationCenter defaultCenter] postNotificationName:notificationName object:nil userInfo:userInfo];
+}
+
+void mt_PostNotificationWithObject(NSString* notificationName, id object)
+{
+    [[NSNotificationCenter defaultCenter] postNotificationName:notificationName object:object userInfo:nil];
+}
+
 CGFloat mt_ScreenW()
 {
     return [UIApplication sharedApplication].keyWindow.bounds.size.width;
@@ -272,6 +301,7 @@ NSString *const Device_AppleWatchSeries1 = @"Apple Watch Series 1";
 NSString *const Device_AppleWatchSeries2 = @"Apple Watch Series 2";
 NSString *const Device_AppleWatchSeries3 = @"Apple Watch Series 3";
 NSString *const Device_AppleWatchSeries4 = @"Apple Watch Series 4";
+NSString *const Device_AppleWatchSeries5 = @"Apple Watch Series 5";
 
 NSString *const Device_HomePod1 = @"HomePod";
 
@@ -299,6 +329,8 @@ NSString *const Device_iPadPro2 = @"iPad Pro (10.5-inch)";;
 NSString *const Device_iPadProMax2 = @"iPad Pro (12.9-inch) (2nd generation)";
 NSString *const Device_iPadPro3 = @"iPad Pro (11-inch)";
 NSString *const Device_iPadProMax3 = @"iPad Pro (12.9-inch) (3rd generation)";
+NSString *const Device_iPadPro4 = @"iPad Pro (11-inch) (2nd generation)";
+NSString *const Device_iPadProMax4 = @"iPad Pro (12.9-inch) (4th generation)";
 NSString *const Device_iPadMini1 = @"iPad mini";
 NSString *const Device_iPadMini2 = @"iPad mini 2";
 NSString *const Device_iPadMini3 = @"iPad mini 3";
@@ -318,6 +350,7 @@ NSString *const Device_iPhone6Plus = @"iPhone 6 Plus";
 NSString *const Device_iPhone6S = @"iPhone 6S";
 NSString *const Device_iPhone6SPlus = @"iPhone 6S Plus";
 NSString *const Device_iPhoneSE = @"iPhone SE";
+NSString *const Device_iPhoneSE2 = @"iPhone SE2";
 NSString *const Device_iPhone7 = @"iPhone 7";
 NSString *const Device_iPhone7Plus = @"iPhone 7 Plus";
 NSString *const Device_iPhone8 = @"iPhone 8";

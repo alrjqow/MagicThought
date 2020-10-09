@@ -14,4 +14,6 @@
 
 -(instancetype)setWordWithStyle:(MTWordStyle*)style;
 
+-(instancetype)setWordWithStyle:(MTWordStyle*)style State:(UIControlState)state;
+
 @end

@@ -15,6 +15,9 @@
 
 @property (nonatomic,strong) MTViewContentModel* contentModel;
 
+/**扩展*/
+@property (nonatomic,strong) UIView* externView;
+
 @property (nonatomic,strong) UILabel* textLabel;
 
 @property (nonatomic,strong) UILabel* detailTextLabel;

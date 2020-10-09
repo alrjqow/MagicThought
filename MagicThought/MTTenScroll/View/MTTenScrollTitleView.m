@@ -34,7 +34,7 @@
 
 @implementation MTTenScrollTitleView
 
--(UICollectionViewLayout *)layout
++(UICollectionViewLayout *)layout
 {
     UICollectionViewFlowLayout* layout = [UICollectionViewFlowLayout new];
     layout.scrollDirection = UICollectionViewScrollDirectionHorizontal;
@@ -57,7 +57,9 @@
     self.showsHorizontalScrollIndicator = false;
     self.clipsToBounds = false;
     self.bounces = false;
-    [self.panGestureRecognizer requireGestureRecognizerToFail:[MTCloud shareCloud].currentViewController.navigationController.interactivePopGestureRecognizer];
+    
+    if([MTCloud shareCloud].currentViewController.navigationController)
+        [self.panGestureRecognizer requireGestureRecognizerToFail:[MTCloud shareCloud].currentViewController.navigationController.interactivePopGestureRecognizer];
     [self addSubview:self.bottomLine];
     [self addTarget:self EmptyData:nil DataList:nil SectionList:nil];
     
@@ -227,7 +229,9 @@
     
     self.contentInset = UIEdgeInsetsMake(0, model.titleViewModel.margin, 0, model.titleViewModel.margin);
     NSArray* titleList = [model valueForKey:@"titleList"];
-    [self reloadDataWithDataList:(NSArray*)model.bindCount(titleList.count).bind(@"MTTenScrollTitleCell") SectionList:@[@"".bindSpacing(mt_collectionViewSpacingMake(model.titleViewModel.padding, model.titleViewModel.padding, UIEdgeInsetsZero))]];
+    [self reloadDataWithDataList:(NSArray*)model.bindCount(titleList.count).bind(@"MTTenScrollTitleCell") SectionList:@[mt_empty().bindSpacing(mt_collectionViewSpacingMake(model.titleViewModel.padding, model.titleViewModel.padding, UIEdgeInsetsZero))]];
+    
+    [self collectionView:self didSelectItemAtIndexPath:[NSIndexPath indexPathForRow:model.beginPage inSection:0]];
 }
 
 -(UIView *)bottomLine
@@ -249,13 +253,9 @@
 @implementation MTTenScrollTitleCell
 
 
-
--(void)whenGetResponseObject:(NSObject *)object
+-(void)whenGetResponseObject:(MTTenScrollModel *)object
 {
-    if(![object isKindOfClass:[MTTenScrollModel class]])
-        return;
-    
-    self.model = (MTTenScrollModel*)object;
+    self.model = object;
 }
 
 -(void)setupDefault
@@ -312,6 +312,11 @@
     
     self.title.text = text;
     [self.title sizeToFit];
+}
+
+-(Class)classOfResponseObject
+{
+    return [MTTenScrollModel class];
 }
 
 @end

@@ -8,6 +8,4 @@
 
 #import "MTTabBarItem.h"
 
-@implementation MTTabBarItem
-
-@end
+@implementation MTTabBarItem @end

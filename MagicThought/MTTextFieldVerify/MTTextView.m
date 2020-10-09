@@ -8,151 +8,132 @@
 
 #import "MTTextView.h"
 #import "MTDelegateProtocol.h"
-#import "UILabel+Word.h"
-#import "UIColor+ColorfulColor.h"
 #import "UIView+Frame.h"
-#import "MTTextField.h"
-#import "MTConst.h"
+#import "NSString+TestString.h"
 #import "NSString+Exist.h"
 
 @interface MTTextView ()<UITextViewDelegate>
 
 @property(nonatomic,weak) UILabel* placeholderLabel;
 
-@property(nonatomic,strong) NSMutableParagraphStyle* paragraphStyle;
-
-@property(nonatomic,strong) NSString* previousStr;
-
-@property(nonatomic,assign) NSInteger previousStrLength;
-
 @end
 
 @implementation MTTextView
 
--(void)setText:(NSString *)text
-{
-    [super setText:text];
-//    self.placeholderLabel.hidden = text.length;
-    
-    if([text isExist])
-        self.attributedText = [[NSAttributedString alloc] initWithString:text attributes:@{NSParagraphStyleAttributeName:self.paragraphStyle, NSFontAttributeName : self.font, NSForegroundColorAttributeName : self.textColor ? self.textColor : [UIColor blackColor], NSKernAttributeName : @(self.fontSpacing)}];
-}
-
--(NSMutableParagraphStyle *)paragraphStyle
-{
-    if(!_paragraphStyle)
-    {
-        _paragraphStyle = [NSMutableParagraphStyle new];
-    }
-
-    return _paragraphStyle;
-}
-
--(void)setLineSpacing:(CGFloat)lineSpacing
-{
-    if(lineSpacing < 1)
-        lineSpacing = 1;
-    _lineSpacing = lineSpacing;
-
-    self.paragraphStyle.lineSpacing = lineSpacing;
-}
-
--(void)setPlaceholderStyle:(MTWordStyle *)placeholderStyle
-{
-    _placeholderStyle = placeholderStyle;
-
-    [self.placeholderLabel setWordWithStyle:placeholderStyle];
-}
-
--(void)setPlaceholder:(NSString *)placeholder
-{
-    _placeholder = placeholder;
-
-    self.placeholderLabel.text = placeholder;
-}
-
--(void)setTextAlignment:(NSTextAlignment)textAlignment
-{
-    [super setTextAlignment:textAlignment];
-    
-    self.paragraphStyle.alignment = textAlignment;
-}
 
 -(instancetype)initWithFrame:(CGRect)frame textContainer:(NSTextContainer *)textContainer
 {
     if(self = [super initWithFrame:frame textContainer:textContainer])
-    {
-        self.delegate = self;
-        [self setupSubView];
+    {        
+        [self setupDefault];
     }
 
     return self;
 }
 
--(void)awakeFromNib
+-(void)setupDefault
 {
-    [super awakeFromNib];
-
     self.delegate = self;
-    [self setupSubView];
-}
-
-
--(void)setupSubView
-{
-    self.textContainer.lineBreakMode = NSLineBreakByCharWrapping;
-    
     UILabel* label = [UILabel new];
     label.numberOfLines = 0;
     [self insertSubview:label atIndex:0];
     self.placeholderLabel = label;
-    self.placeholderStyle = mt_WordStyleMake(14, @"", [UIColor colorWithHex:0xcccccc]);
-
-    self.textContainerInset = UIEdgeInsetsMake(0, 0, 2, 0);
-
-    self.shouldBeginEdit = YES;
+    
+    self.textContainerInset = UIEdgeInsetsZero;
+    self.textContainer.lineFragmentPadding = 0;
 }
 
 -(void)layoutSubviews
 {
     [super layoutSubviews];
-
+    
     self.placeholderLabel.width = self.width - 1;
     [self.placeholderLabel sizeToFit];
-    self.placeholderLabel.x = 4;
-    self.placeholderLabel.y = 0;
+    self.placeholderLabel.x = self.textContainerInset.left + self.font.pointSize * 0.5;
+    self.placeholderLabel.y = self.textContainerInset.top;
 }
 
 -(BOOL)textViewShouldBeginEditing:(UITextView *)textView
 {
-    return self.shouldBeginEdit;
+    return self.verifyModel ? self.verifyModel.shouldBeginEdit : YES;
+}
+
+-(BOOL)textView:(UITextView *)textView shouldChangeTextInRange:(NSRange)range replacementText:(NSString *)text
+{
+    switch (self.verifyModel.verifyType.integerValue) {
+        case MTTextFieldVerifyTypePhone:
+        {
+            if(self.text.length < 1 && ![text isEqualToString:@"1"])
+                return false;
+        }
+        case MTTextFieldVerifyTypeVFCode:
+        case MTTextFieldVerifyTypePassword:
+        case MTTextFieldVerifyTypeNumberPassword:
+        case MTTextFieldVerifyTypeCustom:
+            return (self.text.length + text.length) <= self.verifyModel.maxChar.integerValue;
+            
+            
+            
+        case MTTextFieldVerifyTypeMoney:
+        {
+            //如果输入的是“.”  判断之前已经有"."或者字符串为空
+            if ([text isEqualToString:@"."] && ([self.text rangeOfString:@"."].location != NSNotFound || [self.text isEqualToString:@""])) {
+                return NO;
+            }
+            
+            //拼出输入完成的str,判断str的长度大于等于“.”的位置＋4,则返回false,此次插入string失败 （"379132.424",长度10,"."的位置6, 10>=6+4）
+            NSMutableString *str = [[NSMutableString alloc] initWithString:self.text];
+            [str insertString:text atIndex:range.location];
+            if (str.length > [str rangeOfString:@"."].location+3){
+                return NO;
+            }
+            
+            return YES;
+        }
+            
+        default:
+        {
+            switch (self.keyboardType) {
+                case UIKeyboardTypeNumberPad:
+                    return [text testDecimalWithPlace:0] || ![text isExist];
+                    
+                default:
+                {
+                    if([self.mt_delegate respondsToSelector:@selector(textView:shouldChangeTextInRange:replacementText:)])
+                        return [((NSObject<UITextViewDelegate>*)self.mt_delegate) textView:textView shouldChangeTextInRange:range replacementText:text];
+                                
+                    return YES;
+                }
+            }
+        }
+    }
 }
 
 -(void)textViewDidChange:(UITextView *)textView
 {
     self.placeholderLabel.hidden = textView.text.length;
     self.verifyModel.content = textView.text;
-    if([self.mt_delegate respondsToSelector:@selector(doSomeThingForMe:withOrder:)])
-        [self.mt_delegate doSomeThingForMe:self.verifyModel withOrder:MTTextValueChangeOrder];
-//    NSLog(@"上次的值：%@", self.previousStr);
-//    NSLog(@"上次长度：%zd", previousStrLength);
-
-//    UITextRange *selectedRange = [textView markedTextRange];
-//    NSString * newText = [textView textInRange:selectedRange];
-//
-//
-//    if(!(newText.length == 0 && self.previousStrLength == 1) && ![newText isExist])
-//    {
-//        NSLog(@" %@ ------ %@",textView.text, self.previousStr);
-//        textView.attributedText = [[NSAttributedString alloc] initWithString:[textView.text stringByAppendingString:[self.previousStr isExist] ? self.previousStr : @""] attributes:@{NSParagraphStyleAttributeName:self.paragraphStyle, NSFontAttributeName : self.font, NSForegroundColorAttributeName : self.textColor, NSKernAttributeName : @(self.fontSpacing)}];
-//    }
-//
-//
-//
-//    self.previousStr = newText;
-//    self.previousStrLength = newText.length;
+    if([self.mt_delegate respondsToSelector:@selector(textViewDidChange:)])
+       [self.mt_delegate performSelector:@selector(textViewDidChange:) withObject:textView];
+//    if([self.mt_delegate respondsToSelector:@selector(doSomeThingForMe:withOrder:)])
+//        [self.mt_delegate doSomeThingForMe:self.verifyModel withOrder:@"MTTextValueChangeOrder"];
 }
 
+- (void)textViewDidEndEditing:(UITextView *)textView
+{
+    if([self.mt_delegate respondsToSelector:@selector(textViewDidEndEditing:)])
+        [self.mt_delegate performSelector:@selector(textViewDidEndEditing:) withObject:textView];
+}
 
+-(MTTextVerifyModel *)verifyModel
+{
+    if(!_verifyModel)
+    {
+        _verifyModel = [MTTextVerifyModel new];
+    }
+    
+    return _verifyModel;
+}
 
 @end
+

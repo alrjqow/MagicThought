@@ -13,6 +13,7 @@
 #import "NSArray+Alert.h"
 #import "MTAlertViewConfig.h"
 #import "MTCloud.h"
+#import "VKCssProtocol.h"
 
 @interface MTAppDelegate ()
 
@@ -25,7 +26,7 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
    
     //设置异常监听
-    [self configExceptionHandle];
+//    [self configExceptionHandle];
        
     //设置第三方库信息
     [self configThirdPartyLibrary];
@@ -128,8 +129,8 @@ void gloablException(NSException * exception) {
     
 #endif
     
-    // 重启
-    [AppDelegate_mt handleCrashException:@"" extraInfo:nil];
+    // 重启        
+    [[MTAppDelegate sharedDefault] handleCrashException:@"" extraInfo:nil];
     [[NSRunLoop currentRunLoop]addPort:[NSPort port] forMode:NSDefaultRunLoopMode];
     [[NSRunLoop currentRunLoop]run];
 }

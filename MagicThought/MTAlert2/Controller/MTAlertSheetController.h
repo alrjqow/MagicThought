@@ -8,14 +8,17 @@
 
 #import "MTBaseAlertController.h"
 
+CG_EXTERN NSString*  MTBaseAlertDismissOrder_Close;
+CG_EXTERN NSString*  MTBaseAlertDismissOrder_Enter;
 
-@class MTAlertSheetItem;
 @interface MTAlertSheetController : MTBaseAlertController
 
-@property (nonatomic,strong) NSArray<MTAlertSheetItem*>* alertItemArr;
+@property (nonatomic,copy) void (^enterBlock)(NSInteger currentIndex, NSInteger currentSection);
+
+@property (nonatomic,assign) NSInteger currentIndex;
+@property (nonatomic,assign) NSInteger currentSection;
 
 @end
 
-
-
-
+CG_EXTERN CGFloat bottomCellHeight_mtAlertHair(CGFloat height);
+CG_EXTERN CGFloat bottomCellHeight_mtAlertNormal(CGFloat height);

@@ -35,7 +35,7 @@
 
 @implementation MTTenScrollContentView
 
--(UICollectionViewLayout *)layout
++(UICollectionViewLayout *)layout
 {
     UICollectionViewFlowLayout* layout = [UICollectionViewFlowLayout new];
     layout.scrollDirection = UICollectionViewScrollDirectionHorizontal;
@@ -89,8 +89,20 @@
     
     [model setValue:self forKey:@"contentView"];
     [self reloadDataWithDataList:(NSArray*)model.bindCount(model.dataList.count).bind(@"MTTenScrollContentCell")];
+    
+    self.tag = 1;
 }
 
+-(void)layoutSubviews
+{
+    [super layoutSubviews];
+    
+    if(self.tag)
+    {
+        [self scrollToItemAtIndexPath:[NSIndexPath indexPathForRow:self.model.beginPage inSection:0] atScrollPosition:UICollectionViewScrollPositionCenteredHorizontally animated:false];
+        self.tag = 0;
+    }    
+}
 
 #pragma mark - 代理
 - (void)collectionView:(UICollectionView *)collectionView willDisplayCell:(UICollectionViewCell *)cell forItemAtIndexPath:(NSIndexPath *)indexPath
@@ -144,12 +156,9 @@
 
 @implementation MTTenScrollContentCell
 
-- (void)whenGetResponseObject:(NSObject *)object
+- (void)whenGetResponseObject:(MTTenScrollModel *)object
 {
-    if(![object isKindOfClass:[MTTenScrollModel class]])
-        return;
-    
-    self.model = (MTTenScrollModel*)object;
+    self.model = object;
 }
 
 -(void)setModel:(MTTenScrollModel *)model
@@ -178,5 +187,9 @@
     }
 }
 
+-(Class)classOfResponseObject
+{
+    return [MTTenScrollModel class];
+}
 
 @end

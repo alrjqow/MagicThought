@@ -12,3 +12,5 @@
 #import "UIButton+Word.h"
 #import "UITextView+Word.h"
 #import "UITextField+Word.h"
+
+#import "UILabel+Size.h"
