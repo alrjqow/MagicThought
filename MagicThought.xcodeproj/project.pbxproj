@@ -210,28 +210,6 @@
 		7810103025300EB600CD6E1F /* TZLocationManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 78100E4A25300EB400CD6E1F /* TZLocationManager.m */; };
 		7810103125300EB600CD6E1F /* TZGifPhotoPreviewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 78100E4B25300EB400CD6E1F /* TZGifPhotoPreviewController.m */; };
 		7810103225300EB600CD6E1F /* TZProgressView.h in Headers */ = {isa = PBXBuildFile; fileRef = 78100E4C25300EB400CD6E1F /* TZProgressView.h */; };
-		7810103325300EB600CD6E1F /* MTTakePhotoPreseter.m in Sources */ = {isa = PBXBuildFile; fileRef = 78100E4F25300EB400CD6E1F /* MTTakePhotoPreseter.m */; };
-		7810103425300EB600CD6E1F /* MTTakePhotoPreseterModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 78100E5025300EB400CD6E1F /* MTTakePhotoPreseterModel.m */; };
-		7810103525300EB600CD6E1F /* MTTakePhotoPreseter.h in Headers */ = {isa = PBXBuildFile; fileRef = 78100E5125300EB400CD6E1F /* MTTakePhotoPreseter.h */; };
-		7810103625300EB600CD6E1F /* MTTakePhotoPreseterModel.h in Headers */ = {isa = PBXBuildFile; fileRef = 78100E5225300EB400CD6E1F /* MTTakePhotoPreseterModel.h */; };
-		7810103725300EB600CD6E1F /* MTPhotoBrowserViewModel.h in Headers */ = {isa = PBXBuildFile; fileRef = 78100E5525300EB400CD6E1F /* MTPhotoBrowserViewModel.h */; };
-		7810103825300EB600CD6E1F /* MTPhotoBrowserViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 78100E5625300EB400CD6E1F /* MTPhotoBrowserViewModel.m */; };
-		7810103925300EB600CD6E1F /* MTPhotoBrowserController.m in Sources */ = {isa = PBXBuildFile; fileRef = 78100E5825300EB400CD6E1F /* MTPhotoBrowserController.m */; };
-		7810103A25300EB600CD6E1F /* MTPhotoBrowserController.h in Headers */ = {isa = PBXBuildFile; fileRef = 78100E5925300EB400CD6E1F /* MTPhotoBrowserController.h */; };
-		7810103B25300EB600CD6E1F /* MTPhotoLook.h in Headers */ = {isa = PBXBuildFile; fileRef = 78100E5B25300EB400CD6E1F /* MTPhotoLook.h */; };
-		7810103C25300EB600CD6E1F /* MTPhotoBrowser.m in Sources */ = {isa = PBXBuildFile; fileRef = 78100E5C25300EB400CD6E1F /* MTPhotoBrowser.m */; };
-		7810103D25300EB600CD6E1F /* MTPhotoLook.m in Sources */ = {isa = PBXBuildFile; fileRef = 78100E5D25300EB400CD6E1F /* MTPhotoLook.m */; };
-		7810103E25300EB600CD6E1F /* MTPhotoBrowser.h in Headers */ = {isa = PBXBuildFile; fileRef = 78100E5E25300EB400CD6E1F /* MTPhotoBrowser.h */; };
-		7810103F25300EB600CD6E1F /* MTImageShowAndBrowser.h in Headers */ = {isa = PBXBuildFile; fileRef = 78100E5F25300EB400CD6E1F /* MTImageShowAndBrowser.h */; };
-		7810104025300EB600CD6E1F /* MTPhotoPreviewViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 78100E6225300EB400CD6E1F /* MTPhotoPreviewViewModel.m */; };
-		7810104125300EB600CD6E1F /* MTPhotoPreviewViewCellModel.h in Headers */ = {isa = PBXBuildFile; fileRef = 78100E6325300EB400CD6E1F /* MTPhotoPreviewViewCellModel.h */; };
-		7810104225300EB600CD6E1F /* MTPhotoPreviewViewModel.h in Headers */ = {isa = PBXBuildFile; fileRef = 78100E6425300EB400CD6E1F /* MTPhotoPreviewViewModel.h */; };
-		7810104325300EB600CD6E1F /* MTPhotoPreviewViewCellModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 78100E6525300EB400CD6E1F /* MTPhotoPreviewViewCellModel.m */; };
-		7810104425300EB600CD6E1F /* MTPhotoPreviewView.m in Sources */ = {isa = PBXBuildFile; fileRef = 78100E6725300EB400CD6E1F /* MTPhotoPreviewView.m */; };
-		7810104525300EB600CD6E1F /* MTPhotoPreviewViewCell.h in Headers */ = {isa = PBXBuildFile; fileRef = 78100E6825300EB400CD6E1F /* MTPhotoPreviewViewCell.h */; };
-		7810104625300EB600CD6E1F /* MTPhotoPreviewView.h in Headers */ = {isa = PBXBuildFile; fileRef = 78100E6925300EB400CD6E1F /* MTPhotoPreviewView.h */; };
-		7810104725300EB600CD6E1F /* MTPhotoPreviewViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 78100E6A25300EB400CD6E1F /* MTPhotoPreviewViewCell.m */; };
-		7810104825300EB600CD6E1F /* MTPhotoBrowser.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 78100E6B25300EB400CD6E1F /* MTPhotoBrowser.bundle */; };
 		7810104925300EB600CD6E1F /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = 78100E6C25300EB400CD6E1F /* README.md */; };
 		7810104A25300EB600CD6E1F /* NSDictionary+Json.h in Headers */ = {isa = PBXBuildFile; fileRef = 78100E6E25300EB400CD6E1F /* NSDictionary+Json.h */; };
 		7810104B25300EB600CD6E1F /* NSArray+Json.h in Headers */ = {isa = PBXBuildFile; fileRef = 78100E6F25300EB400CD6E1F /* NSArray+Json.h */; };
@@ -727,28 +705,6 @@
 		78100E4A25300EB400CD6E1F /* TZLocationManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TZLocationManager.m; sourceTree = "<group>"; };
 		78100E4B25300EB400CD6E1F /* TZGifPhotoPreviewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TZGifPhotoPreviewController.m; sourceTree = "<group>"; };
 		78100E4C25300EB400CD6E1F /* TZProgressView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TZProgressView.h; sourceTree = "<group>"; };
-		78100E4F25300EB400CD6E1F /* MTTakePhotoPreseter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MTTakePhotoPreseter.m; sourceTree = "<group>"; };
-		78100E5025300EB400CD6E1F /* MTTakePhotoPreseterModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MTTakePhotoPreseterModel.m; sourceTree = "<group>"; };
-		78100E5125300EB400CD6E1F /* MTTakePhotoPreseter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MTTakePhotoPreseter.h; sourceTree = "<group>"; };
-		78100E5225300EB400CD6E1F /* MTTakePhotoPreseterModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MTTakePhotoPreseterModel.h; sourceTree = "<group>"; };
-		78100E5525300EB400CD6E1F /* MTPhotoBrowserViewModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MTPhotoBrowserViewModel.h; sourceTree = "<group>"; };
-		78100E5625300EB400CD6E1F /* MTPhotoBrowserViewModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MTPhotoBrowserViewModel.m; sourceTree = "<group>"; };
-		78100E5825300EB400CD6E1F /* MTPhotoBrowserController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MTPhotoBrowserController.m; sourceTree = "<group>"; };
-		78100E5925300EB400CD6E1F /* MTPhotoBrowserController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MTPhotoBrowserController.h; sourceTree = "<group>"; };
-		78100E5B25300EB400CD6E1F /* MTPhotoLook.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MTPhotoLook.h; sourceTree = "<group>"; };
-		78100E5C25300EB400CD6E1F /* MTPhotoBrowser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MTPhotoBrowser.m; sourceTree = "<group>"; };
-		78100E5D25300EB400CD6E1F /* MTPhotoLook.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MTPhotoLook.m; sourceTree = "<group>"; };
-		78100E5E25300EB400CD6E1F /* MTPhotoBrowser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MTPhotoBrowser.h; sourceTree = "<group>"; };
-		78100E5F25300EB400CD6E1F /* MTImageShowAndBrowser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MTImageShowAndBrowser.h; sourceTree = "<group>"; };
-		78100E6225300EB400CD6E1F /* MTPhotoPreviewViewModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MTPhotoPreviewViewModel.m; sourceTree = "<group>"; };
-		78100E6325300EB400CD6E1F /* MTPhotoPreviewViewCellModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MTPhotoPreviewViewCellModel.h; sourceTree = "<group>"; };
-		78100E6425300EB400CD6E1F /* MTPhotoPreviewViewModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MTPhotoPreviewViewModel.h; sourceTree = "<group>"; };
-		78100E6525300EB400CD6E1F /* MTPhotoPreviewViewCellModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MTPhotoPreviewViewCellModel.m; sourceTree = "<group>"; };
-		78100E6725300EB400CD6E1F /* MTPhotoPreviewView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MTPhotoPreviewView.m; sourceTree = "<group>"; };
-		78100E6825300EB400CD6E1F /* MTPhotoPreviewViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MTPhotoPreviewViewCell.h; sourceTree = "<group>"; };
-		78100E6925300EB400CD6E1F /* MTPhotoPreviewView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MTPhotoPreviewView.h; sourceTree = "<group>"; };
-		78100E6A25300EB400CD6E1F /* MTPhotoPreviewViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MTPhotoPreviewViewCell.m; sourceTree = "<group>"; };
-		78100E6B25300EB400CD6E1F /* MTPhotoBrowser.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = MTPhotoBrowser.bundle; sourceTree = "<group>"; };
 		78100E6C25300EB400CD6E1F /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		78100E6E25300EB400CD6E1F /* NSDictionary+Json.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDictionary+Json.h"; sourceTree = "<group>"; };
 		78100E6F25300EB400CD6E1F /* NSArray+Json.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSArray+Json.h"; sourceTree = "<group>"; };
@@ -1441,99 +1397,6 @@
 			path = TZImagePickerController;
 			sourceTree = "<group>";
 		};
-		78100E4D25300EB400CD6E1F /* MTImageShowAndBrowser */ = {
-			isa = PBXGroup;
-			children = (
-				78100E4E25300EB400CD6E1F /* 1.获取图片 */,
-				78100E5325300EB400CD6E1F /* 3.浏览大图 */,
-				78100E5F25300EB400CD6E1F /* MTImageShowAndBrowser.h */,
-				78100E6025300EB400CD6E1F /* 2.缩略图展示 */,
-				78100E6B25300EB400CD6E1F /* MTPhotoBrowser.bundle */,
-			);
-			path = MTImageShowAndBrowser;
-			sourceTree = "<group>";
-		};
-		78100E4E25300EB400CD6E1F /* 1.获取图片 */ = {
-			isa = PBXGroup;
-			children = (
-				78100E4F25300EB400CD6E1F /* MTTakePhotoPreseter.m */,
-				78100E5025300EB400CD6E1F /* MTTakePhotoPreseterModel.m */,
-				78100E5125300EB400CD6E1F /* MTTakePhotoPreseter.h */,
-				78100E5225300EB400CD6E1F /* MTTakePhotoPreseterModel.h */,
-			);
-			path = "1.获取图片";
-			sourceTree = "<group>";
-		};
-		78100E5325300EB400CD6E1F /* 3.浏览大图 */ = {
-			isa = PBXGroup;
-			children = (
-				78100E5425300EB400CD6E1F /* ViewModel */,
-				78100E5725300EB400CD6E1F /* Controller */,
-				78100E5A25300EB400CD6E1F /* View */,
-			);
-			path = "3.浏览大图";
-			sourceTree = "<group>";
-		};
-		78100E5425300EB400CD6E1F /* ViewModel */ = {
-			isa = PBXGroup;
-			children = (
-				78100E5525300EB400CD6E1F /* MTPhotoBrowserViewModel.h */,
-				78100E5625300EB400CD6E1F /* MTPhotoBrowserViewModel.m */,
-			);
-			path = ViewModel;
-			sourceTree = "<group>";
-		};
-		78100E5725300EB400CD6E1F /* Controller */ = {
-			isa = PBXGroup;
-			children = (
-				78100E5825300EB400CD6E1F /* MTPhotoBrowserController.m */,
-				78100E5925300EB400CD6E1F /* MTPhotoBrowserController.h */,
-			);
-			path = Controller;
-			sourceTree = "<group>";
-		};
-		78100E5A25300EB400CD6E1F /* View */ = {
-			isa = PBXGroup;
-			children = (
-				78100E5B25300EB400CD6E1F /* MTPhotoLook.h */,
-				78100E5C25300EB400CD6E1F /* MTPhotoBrowser.m */,
-				78100E5D25300EB400CD6E1F /* MTPhotoLook.m */,
-				78100E5E25300EB400CD6E1F /* MTPhotoBrowser.h */,
-			);
-			path = View;
-			sourceTree = "<group>";
-		};
-		78100E6025300EB400CD6E1F /* 2.缩略图展示 */ = {
-			isa = PBXGroup;
-			children = (
-				78100E6125300EB400CD6E1F /* Model */,
-				78100E6625300EB400CD6E1F /* View */,
-			);
-			path = "2.缩略图展示";
-			sourceTree = "<group>";
-		};
-		78100E6125300EB400CD6E1F /* Model */ = {
-			isa = PBXGroup;
-			children = (
-				78100E6225300EB400CD6E1F /* MTPhotoPreviewViewModel.m */,
-				78100E6325300EB400CD6E1F /* MTPhotoPreviewViewCellModel.h */,
-				78100E6425300EB400CD6E1F /* MTPhotoPreviewViewModel.h */,
-				78100E6525300EB400CD6E1F /* MTPhotoPreviewViewCellModel.m */,
-			);
-			path = Model;
-			sourceTree = "<group>";
-		};
-		78100E6625300EB400CD6E1F /* View */ = {
-			isa = PBXGroup;
-			children = (
-				78100E6725300EB400CD6E1F /* MTPhotoPreviewView.m */,
-				78100E6825300EB400CD6E1F /* MTPhotoPreviewViewCell.h */,
-				78100E6925300EB400CD6E1F /* MTPhotoPreviewView.h */,
-				78100E6A25300EB400CD6E1F /* MTPhotoPreviewViewCell.m */,
-			);
-			path = View;
-			sourceTree = "<group>";
-		};
 		78100E6D25300EB400CD6E1F /* MTJsonTransform */ = {
 			isa = PBXGroup;
 			children = (
@@ -1830,22 +1693,22 @@
 		78100F0425300EB500CD6E1F /* MTBaseCell */ = {
 			isa = PBXGroup;
 			children = (
-				78100F0525300EB500CD6E1F /* MTBaseView.m */,
-				78100F0625300EB500CD6E1F /* MTEmptyBaseCell.m */,
-				78100F0725300EB500CD6E1F /* MTBaseTableViewCell.m */,
-				78100F0825300EB500CD6E1F /* CellModel */,
-				78100F0B25300EB500CD6E1F /* MTLoadingView.m */,
-				78100F0C25300EB500CD6E1F /* MTBaseCollectionReusableView.m */,
-				78100F0D25300EB500CD6E1F /* MTBaseHeaderFooterView.m */,
-				78100F0E25300EB500CD6E1F /* MTBaseCollectionViewCell.m */,
-				78100F0F25300EB500CD6E1F /* MTBaseView.h */,
 				78100F1025300EB500CD6E1F /* MTBaseCells.h */,
+				78100F0825300EB500CD6E1F /* CellModel */,
 				78100F1125300EB500CD6E1F /* MTBaseTableViewCell.h */,
-				78100F1225300EB500CD6E1F /* MTEmptyBaseCell.h */,
+				78100F0725300EB500CD6E1F /* MTBaseTableViewCell.m */,
 				78100F1325300EB500CD6E1F /* MTBaseCollectionViewCell.h */,
+				78100F0E25300EB500CD6E1F /* MTBaseCollectionViewCell.m */,
 				78100F1425300EB500CD6E1F /* MTBaseHeaderFooterView.h */,
+				78100F0D25300EB500CD6E1F /* MTBaseHeaderFooterView.m */,
 				78100F1525300EB500CD6E1F /* MTBaseCollectionReusableView.h */,
+				78100F0C25300EB500CD6E1F /* MTBaseCollectionReusableView.m */,
+				78100F0F25300EB500CD6E1F /* MTBaseView.h */,
+				78100F0525300EB500CD6E1F /* MTBaseView.m */,
+				78100F1225300EB500CD6E1F /* MTEmptyBaseCell.h */,
+				78100F0625300EB500CD6E1F /* MTEmptyBaseCell.m */,
 				78100F1625300EB500CD6E1F /* MTLoadingView.h */,
+				78100F0B25300EB500CD6E1F /* MTLoadingView.m */,
 			);
 			path = MTBaseCell;
 			sourceTree = "<group>";
@@ -2207,7 +2070,6 @@
 				78100EF225300EB500CD6E1F /* MTImageHandle */,
 				78100DD025300EB400CD6E1F /* MTImagePlay */,
 				78100E8925300EB400CD6E1F /* MTImageShow */,
-				78100E4D25300EB400CD6E1F /* MTImageShowAndBrowser */,
 				78100E6D25300EB400CD6E1F /* MTJsonTransform */,
 				78100EAD25300EB400CD6E1F /* MTListController */,
 				78100E9925300EB400CD6E1F /* MTManager */,
@@ -2273,7 +2135,6 @@
 				78100FD225300EB600CD6E1F /* VKCssHotReloader.h in Headers */,
 				7810115425300EB600CD6E1F /* MTBaseViewContentModel.h in Headers */,
 				7810102E25300EB600CD6E1F /* UIView+Layout.h in Headers */,
-				7810103F25300EB600CD6E1F /* MTImageShowAndBrowser.h in Headers */,
 				78100FE225300EB600CD6E1F /* UIView+VKMetrics.h in Headers */,
 				78100FE625300EB600CD6E1F /* VKCssStyleManager.h in Headers */,
 				781010C325300EB600CD6E1F /* UIImage+Save.h in Headers */,
@@ -2301,14 +2162,12 @@
 				78100FDE25300EB600CD6E1F /* NSMutableAttributedString+VKAttributedString.h in Headers */,
 				78100FE725300EB600CD6E1F /* VKCssStyleConstants.h in Headers */,
 				7810115D25300EB600CD6E1F /* UIView+MBHud.h in Headers */,
-				7810103B25300EB600CD6E1F /* MTPhotoLook.h in Headers */,
 				78100D8F25300EAA00CD6E1F /* UIView+Frame.h in Headers */,
 				78100D9E25300EAA00CD6E1F /* UIColor+ColorfulColor.h in Headers */,
 				7810115125300EB600CD6E1F /* MTViewContentModels.h in Headers */,
 				7810111D25300EB600CD6E1F /* MTNetwork.h in Headers */,
 				781010DD25300EB600CD6E1F /* UIButton+Word.h in Headers */,
 				7810115025300EB600CD6E1F /* UIView+MTBaseViewContentModel.h in Headers */,
-				7810103625300EB600CD6E1F /* MTTakePhotoPreseterModel.h in Headers */,
 				7810101725300EB600CD6E1F /* TZPhotoPickerController.h in Headers */,
 				781010AC25300EB600CD6E1F /* MTDynamicItem.h in Headers */,
 				7810110625300EB600CD6E1F /* UIView+MTBackground.h in Headers */,
@@ -2336,8 +2195,6 @@
 				7810111325300EB600CD6E1F /* MTAlertView.h in Headers */,
 				78100FD625300EB600CD6E1F /* VKCssClassModal.h in Headers */,
 				78100FE525300EB600CD6E1F /* UIColor+VKUtlities.h in Headers */,
-				7810104125300EB600CD6E1F /* MTPhotoPreviewViewCellModel.h in Headers */,
-				7810104625300EB600CD6E1F /* MTPhotoPreviewView.h in Headers */,
 				78100FFE25300EB600CD6E1F /* VKBorderColorStyle.h in Headers */,
 				78100D7725300EAA00CD6E1F /* Dependency.h in Headers */,
 				7810116525300EB600CD6E1F /* MTTextView.h in Headers */,
@@ -2345,13 +2202,11 @@
 				7810106125300EB600CD6E1F /* NSArray+File.h in Headers */,
 				7810110925300EB600CD6E1F /* MTAlertViewConfig.h in Headers */,
 				781010AD25300EB600CD6E1F /* MTTenScrollModel.h in Headers */,
-				7810103A25300EB600CD6E1F /* MTPhotoBrowserController.h in Headers */,
 				7810110425300EB600CD6E1F /* MTDelegateMode.h in Headers */,
 				7810115325300EB600CD6E1F /* MTViewContentModel.h in Headers */,
 				781010E025300EB600CD6E1F /* UITextField+Word.h in Headers */,
 				7810110025300EB600CD6E1F /* MTDragCollectionView.h in Headers */,
 				7810104B25300EB600CD6E1F /* NSArray+Json.h in Headers */,
-				7810104225300EB600CD6E1F /* MTPhotoPreviewViewModel.h in Headers */,
 				7810110C25300EB600CD6E1F /* MTWindow.h in Headers */,
 				78100FFB25300EB600CD6E1F /* VKBorderWidthStyle.h in Headers */,
 				78100D9425300EAA00CD6E1F /* UINavigationBar+Config.h in Headers */,
@@ -2387,7 +2242,6 @@
 				78100FEA25300EB600CD6E1F /* VKFontColorStyle.h in Headers */,
 				78100D7325300EAA00CD6E1F /* MTTimeModel.h in Headers */,
 				7810114325300EB600CD6E1F /* MTPageTitleControllModel.h in Headers */,
-				7810104525300EB600CD6E1F /* MTPhotoPreviewViewCell.h in Headers */,
 				781010A325300EB600CD6E1F /* MTTenScrollViewCellDelegateModel.h in Headers */,
 				78100FF825300EB600CD6E1F /* VKTextShadowStyle.h in Headers */,
 				7810107E25300EB600CD6E1F /* FileType.h in Headers */,
@@ -2406,7 +2260,6 @@
 				7810100925300EB600CD6E1F /* VKBorderTopStyle.h in Headers */,
 				78100D7B25300EAA00CD6E1F /* MTManager.h in Headers */,
 				7810106425300EB600CD6E1F /* MTImageShow.h in Headers */,
-				7810103525300EB600CD6E1F /* MTTakePhotoPreseter.h in Headers */,
 				781010C225300EB600CD6E1F /* UIImage+Size.h in Headers */,
 				781010E225300EB600CD6E1F /* MTStyle.h in Headers */,
 				78100FE825300EB600CD6E1F /* VKCssStylePch.h in Headers */,
@@ -2425,7 +2278,6 @@
 				78100FBA25300EB500CD6E1F /* MTViewControllers.h in Headers */,
 				781010A525300EB600CD6E1F /* MTTenScrollBaseDelegateModel.h in Headers */,
 				7810106D25300EB600CD6E1F /* MTAuthorizationManager.h in Headers */,
-				7810103725300EB600CD6E1F /* MTPhotoBrowserViewModel.h in Headers */,
 				781010B225300EB600CD6E1F /* MTTenScrollContentView.h in Headers */,
 				78100DA225300EAA00CD6E1F /* UIView+Animate.h in Headers */,
 				7810102B25300EB600CD6E1F /* TZAssetModel.h in Headers */,
@@ -2499,7 +2351,6 @@
 				7810112C25300EB600CD6E1F /* MTNavigationTransitionController.h in Headers */,
 				7810108825300EB600CD6E1F /* MTBaseListController.h in Headers */,
 				7810102525300EB600CD6E1F /* TZAssetCell.h in Headers */,
-				7810103E25300EB600CD6E1F /* MTPhotoBrowser.h in Headers */,
 				7810108F25300EB600CD6E1F /* MTBaseAlertCollectionController.h in Headers */,
 				7810109725300EB600CD6E1F /* MTAlertCollectionController.h in Headers */,
 				7810111F25300EB600CD6E1F /* NSObject+API.h in Headers */,
@@ -2587,7 +2438,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				7810104825300EB600CD6E1F /* MTPhotoBrowser.bundle in Resources */,
 				7810115C25300EB600CD6E1F /* MTHud.bundle in Resources */,
 				78100FC125300EB600CD6E1F /* MTSafariViewController.bundle in Resources */,
 				7810104925300EB600CD6E1F /* README.md in Resources */,
@@ -2640,7 +2490,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				7810103425300EB600CD6E1F /* MTTakePhotoPreseterModel.m in Sources */,
 				78100D9725300EAA00CD6E1F /* UIView+Dependency.m in Sources */,
 				7810100B25300EB600CD6E1F /* VKTextDecorationStyle.m in Sources */,
 				781010CB25300EB600CD6E1F /* MTBaseView.m in Sources */,
@@ -2648,7 +2497,6 @@
 				78100DBC25300EAA00CD6E1F /* NSString+Replace.m in Sources */,
 				78100FD425300EB600CD6E1F /* VKCssHotReloader.m in Sources */,
 				7810113225300EB600CD6E1F /* MTCountButton.m in Sources */,
-				7810104725300EB600CD6E1F /* MTPhotoPreviewViewCell.m in Sources */,
 				7810105D25300EB600CD6E1F /* MTFileManager.m in Sources */,
 				78100D7A25300EAA00CD6E1F /* UIView+Frame.m in Sources */,
 				78100FE325300EB600CD6E1F /* NSMutableAttributedString+VKAttributedString.m in Sources */,
@@ -2677,7 +2525,6 @@
 				7810115725300EB600CD6E1F /* MTBaseViewContentModel.m in Sources */,
 				7810101225300EB600CD6E1F /* UIView+VKAddion.m in Sources */,
 				781010F325300EB600CD6E1F /* MTDragCollectionView.m in Sources */,
-				7810103925300EB600CD6E1F /* MTPhotoBrowserController.m in Sources */,
 				7810109525300EB600CD6E1F /* MTAlertPickerController.m in Sources */,
 				7810103125300EB600CD6E1F /* TZGifPhotoPreviewController.m in Sources */,
 				7810114525300EB600CD6E1F /* MTPageSumController.m in Sources */,
@@ -2707,7 +2554,6 @@
 				78100DC325300EAA00CD6E1F /* NSObject+HideKey.m in Sources */,
 				7810114925300EB600CD6E1F /* MTPageScrollCell.m in Sources */,
 				7810108425300EB600CD6E1F /* MTPageInfoModel.m in Sources */,
-				7810103825300EB600CD6E1F /* MTPhotoBrowserViewModel.m in Sources */,
 				7810110A25300EB600CD6E1F /* MTPopView.m in Sources */,
 				78100FEE25300EB600CD6E1F /* VKTextShadowStyle.m in Sources */,
 				78100FBD25300EB600CD6E1F /* MTFeedBackInfoController.m in Sources */,
@@ -2722,9 +2568,7 @@
 				7810109B25300EB600CD6E1F /* MTBaseAlertCollectionController.m in Sources */,
 				781010E125300EB600CD6E1F /* UILabel+Size.m in Sources */,
 				781010C725300EB600CD6E1F /* UIImage+Draw.m in Sources */,
-				7810103C25300EB600CD6E1F /* MTPhotoBrowser.m in Sources */,
 				78100FF525300EB600CD6E1F /* VKTextAlignStyle.m in Sources */,
-				7810104325300EB600CD6E1F /* MTPhotoPreviewViewCellModel.m in Sources */,
 				7810114A25300EB600CD6E1F /* MTPageTitleView.m in Sources */,
 				78100FD925300EB600CD6E1F /* VKCssClassManager.m in Sources */,
 				7810100F25300EB600CD6E1F /* UILabel+VKAddion.m in Sources */,
@@ -2777,7 +2621,6 @@
 				7810105925300EB600CD6E1F /* NSDictionary+File.m in Sources */,
 				7810101025300EB600CD6E1F /* VKTextTransformStyle.m in Sources */,
 				7810100D25300EB600CD6E1F /* VKFontWeightStyle.m in Sources */,
-				7810104425300EB600CD6E1F /* MTPhotoPreviewView.m in Sources */,
 				781010F725300EB600CD6E1F /* MTDelegateView.m in Sources */,
 				7810110325300EB600CD6E1F /* UIView+Delegate.m in Sources */,
 				7810101B25300EB600CD6E1F /* TZVideoPlayerController.m in Sources */,
@@ -2809,7 +2652,6 @@
 				7810107525300EB600CD6E1F /* MTDeviceManager.m in Sources */,
 				7810115825300EB600CD6E1F /* MTViewContentModel.m in Sources */,
 				7810113E25300EB600CD6E1F /* MTPageScrollViewModel.m in Sources */,
-				7810103D25300EB600CD6E1F /* MTPhotoLook.m in Sources */,
 				7810110125300EB600CD6E1F /* MTDataSourceModel.m in Sources */,
 				7810114625300EB600CD6E1F /* MTPageScrollController.m in Sources */,
 				7810112B25300EB600CD6E1F /* MTNavigationController.m in Sources */,
@@ -2823,10 +2665,8 @@
 				781010A225300EB600CD6E1F /* MTTenScrollBaseDelegateModel.m in Sources */,
 				78100DBF25300EAA00CD6E1F /* UIViewController+Navigation.m in Sources */,
 				7810116725300EB600CD6E1F /* MTTextVerifyModel.m in Sources */,
-				7810104025300EB600CD6E1F /* MTPhotoPreviewViewModel.m in Sources */,
 				7810113D25300EB600CD6E1F /* MTPageScrollBaseViewModel.m in Sources */,
 				781010B025300EB600CD6E1F /* MTTenScrollModel.m in Sources */,
-				7810103325300EB600CD6E1F /* MTTakePhotoPreseter.m in Sources */,
 				781010F925300EB600CD6E1F /* MTDelegateCollectionReusableView.m in Sources */,
 				78100D9325300EAA00CD6E1F /* UIView+Circle.m in Sources */,
 				7810108D25300EB600CD6E1F /* MTBaseAlertPickerController.m in Sources */,

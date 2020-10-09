@@ -8,8 +8,6 @@
 
 #import "MTBaseView.h"
 #import "MTContentModelPropertyConst.h"
-#import "UIView+MTBaseViewContentModel.h"
-#import "MTBaseCellModel.h"
 
 @interface MTBaseView()
 {
@@ -362,7 +360,7 @@
 
 @implementation MTBaseSubView
 
--(void)setContentModel:(MTBaseCellModel *)contentModel
+-(void)setContentModel:(MTViewContentModel *)contentModel
 {
     [super setContentModel:contentModel];
     
@@ -422,7 +420,7 @@
 
 @implementation MTBaseSubView2
 
--(void)setContentModel:(MTBaseCellModel *)contentModel
+-(void)setContentModel:(MTViewContentModel *)contentModel
 {
     [super setContentModel:contentModel];
     

@@ -8,8 +8,6 @@
 
 #import "MTBaseCollectionReusableView.h"
 #import "MTContentModelPropertyConst.h"
-#import "UIView+MTBaseViewContentModel.h"
-#import "MTBaseCellModel.h"
 
 @interface MTBaseCollectionReusableView ()
 {

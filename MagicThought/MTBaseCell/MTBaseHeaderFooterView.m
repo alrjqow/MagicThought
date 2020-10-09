@@ -8,7 +8,6 @@
 
 #import "MTBaseHeaderFooterView.h"
 #import "MTContentModelPropertyConst.h"
-#import "MTBaseCellModel.h"
 #import "UIView+Circle.h"
 
 @interface MTBaseHeaderFooterView ()

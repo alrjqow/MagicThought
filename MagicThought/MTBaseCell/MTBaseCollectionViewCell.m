@@ -8,7 +8,6 @@
 
 #import "MTBaseCollectionViewCell.h"
 #import "MTContentModelPropertyConst.h"
-#import "MTBaseCellModel.h"
 
 @interface MTBaseCollectionViewCell ()<UITextViewDelegate>
 {
@@ -470,7 +469,7 @@
 
 @implementation MTBaseSubCollectionViewCell
 
--(void)setContentModel:(MTBaseCellModel *)contentModel
+-(void)setContentModel:(MTViewContentModel *)contentModel
 {
     [super setContentModel:contentModel];
     
@@ -540,7 +539,7 @@
 
 @implementation MTBaseSubCollectionViewCell2
 
--(void)setContentModel:(MTBaseCellModel *)contentModel
+-(void)setContentModel:(MTViewContentModel *)contentModel
 {
     [super setContentModel:contentModel];
     
