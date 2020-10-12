@@ -6,7 +6,6 @@
 //  Copyright © 2019 monda. All rights reserved.
 //
 
-#import "UILabel +AttributeText.h"
 #import "UILabel+LineSpacing.h"
 
 #import "UIColor+RGBValues.h"
@@ -14,9 +13,6 @@
 #import "UIColor+ColorfulColor.h"
 
 #import "NSObject+HideKey.h"
-
-#import "UIButton+HighLight.h"
-#import "UIView+Dependency.h"
 
 #import "CLLocation+Mar.h"
 
