@@ -8,103 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		78100FD125300EB600CD6E1F /* Library.h in Headers */ = {isa = PBXBuildFile; fileRef = 78100DE325300EB400CD6E1F /* Library.h */; };
-		78100FD225300EB600CD6E1F /* VKCssHotReloader.h in Headers */ = {isa = PBXBuildFile; fileRef = 78100DE625300EB400CD6E1F /* VKCssHotReloader.h */; };
-		78100FD325300EB600CD6E1F /* SGDirWatchdog.h in Headers */ = {isa = PBXBuildFile; fileRef = 78100DE725300EB400CD6E1F /* SGDirWatchdog.h */; };
-		78100FD425300EB600CD6E1F /* VKCssHotReloader.m in Sources */ = {isa = PBXBuildFile; fileRef = 78100DE825300EB400CD6E1F /* VKCssHotReloader.m */; };
-		78100FD525300EB600CD6E1F /* SGDirWatchdog.m in Sources */ = {isa = PBXBuildFile; fileRef = 78100DE925300EB400CD6E1F /* SGDirWatchdog.m */; };
-		78100FD625300EB600CD6E1F /* VKCssClassModal.h in Headers */ = {isa = PBXBuildFile; fileRef = 78100DEB25300EB400CD6E1F /* VKCssClassModal.h */; };
-		78100FD725300EB600CD6E1F /* VKCssClassManager.h in Headers */ = {isa = PBXBuildFile; fileRef = 78100DEC25300EB400CD6E1F /* VKCssClassManager.h */; };
-		78100FD825300EB600CD6E1F /* VKCssClassModal.m in Sources */ = {isa = PBXBuildFile; fileRef = 78100DED25300EB400CD6E1F /* VKCssClassModal.m */; };
-		78100FD925300EB600CD6E1F /* VKCssClassManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 78100DEE25300EB400CD6E1F /* VKCssClassManager.m */; };
-		78100FDA25300EB600CD6E1F /* NSObject+VKIdHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 78100DF025300EB400CD6E1F /* NSObject+VKIdHelper.m */; };
-		78100FDB25300EB600CD6E1F /* UIView+VKCssProtocol.h in Headers */ = {isa = PBXBuildFile; fileRef = 78100DF125300EB400CD6E1F /* UIView+VKCssProtocol.h */; };
-		78100FDC25300EB600CD6E1F /* UIView+VKMetrics.m in Sources */ = {isa = PBXBuildFile; fileRef = 78100DF225300EB400CD6E1F /* UIView+VKMetrics.m */; };
-		78100FDD25300EB600CD6E1F /* UIColor+VKUtlities.m in Sources */ = {isa = PBXBuildFile; fileRef = 78100DF325300EB400CD6E1F /* UIColor+VKUtlities.m */; };
-		78100FDE25300EB600CD6E1F /* NSMutableAttributedString+VKAttributedString.h in Headers */ = {isa = PBXBuildFile; fileRef = 78100DF425300EB400CD6E1F /* NSMutableAttributedString+VKAttributedString.h */; };
-		78100FDF25300EB600CD6E1F /* NSObject+VKIdHelper.h in Headers */ = {isa = PBXBuildFile; fileRef = 78100DF525300EB400CD6E1F /* NSObject+VKIdHelper.h */; };
-		78100FE025300EB600CD6E1F /* VKUIKitMarco.h in Headers */ = {isa = PBXBuildFile; fileRef = 78100DF625300EB400CD6E1F /* VKUIKitMarco.h */; };
-		78100FE125300EB600CD6E1F /* UIView+VKCssProtocol.m in Sources */ = {isa = PBXBuildFile; fileRef = 78100DF725300EB400CD6E1F /* UIView+VKCssProtocol.m */; };
-		78100FE225300EB600CD6E1F /* UIView+VKMetrics.h in Headers */ = {isa = PBXBuildFile; fileRef = 78100DF825300EB400CD6E1F /* UIView+VKMetrics.h */; };
-		78100FE325300EB600CD6E1F /* NSMutableAttributedString+VKAttributedString.m in Sources */ = {isa = PBXBuildFile; fileRef = 78100DF925300EB400CD6E1F /* NSMutableAttributedString+VKAttributedString.m */; };
-		78100FE425300EB600CD6E1F /* NSObject+VKSingleton.h in Headers */ = {isa = PBXBuildFile; fileRef = 78100DFA25300EB400CD6E1F /* NSObject+VKSingleton.h */; };
-		78100FE525300EB600CD6E1F /* UIColor+VKUtlities.h in Headers */ = {isa = PBXBuildFile; fileRef = 78100DFB25300EB400CD6E1F /* UIColor+VKUtlities.h */; };
-		78100FE625300EB600CD6E1F /* VKCssStyleManager.h in Headers */ = {isa = PBXBuildFile; fileRef = 78100DFD25300EB400CD6E1F /* VKCssStyleManager.h */; };
-		78100FE725300EB600CD6E1F /* VKCssStyleConstants.h in Headers */ = {isa = PBXBuildFile; fileRef = 78100DFE25300EB400CD6E1F /* VKCssStyleConstants.h */; };
-		78100FE825300EB600CD6E1F /* VKCssStylePch.h in Headers */ = {isa = PBXBuildFile; fileRef = 78100DFF25300EB400CD6E1F /* VKCssStylePch.h */; };
-		78100FE925300EB600CD6E1F /* VKTextAlignStyle.h in Headers */ = {isa = PBXBuildFile; fileRef = 78100E0125300EB400CD6E1F /* VKTextAlignStyle.h */; };
-		78100FEA25300EB600CD6E1F /* VKFontColorStyle.h in Headers */ = {isa = PBXBuildFile; fileRef = 78100E0225300EB400CD6E1F /* VKFontColorStyle.h */; };
-		78100FEB25300EB600CD6E1F /* VKBorderWidthStyle.m in Sources */ = {isa = PBXBuildFile; fileRef = 78100E0325300EB400CD6E1F /* VKBorderWidthStyle.m */; };
-		78100FEC25300EB600CD6E1F /* VKBorderRadiusStyle.m in Sources */ = {isa = PBXBuildFile; fileRef = 78100E0425300EB400CD6E1F /* VKBorderRadiusStyle.m */; };
-		78100FED25300EB600CD6E1F /* VKTextStyle.h in Headers */ = {isa = PBXBuildFile; fileRef = 78100E0525300EB400CD6E1F /* VKTextStyle.h */; };
-		78100FEE25300EB600CD6E1F /* VKTextShadowStyle.m in Sources */ = {isa = PBXBuildFile; fileRef = 78100E0625300EB400CD6E1F /* VKTextShadowStyle.m */; };
-		78100FEF25300EB600CD6E1F /* VKFontSizeStyle.h in Headers */ = {isa = PBXBuildFile; fileRef = 78100E0725300EB400CD6E1F /* VKFontSizeStyle.h */; };
-		78100FF025300EB600CD6E1F /* VKFontFamiltyStyle.m in Sources */ = {isa = PBXBuildFile; fileRef = 78100E0825300EB400CD6E1F /* VKFontFamiltyStyle.m */; };
-		78100FF125300EB600CD6E1F /* VKBackgroundImageStyle.h in Headers */ = {isa = PBXBuildFile; fileRef = 78100E0925300EB400CD6E1F /* VKBackgroundImageStyle.h */; };
-		78100FF225300EB600CD6E1F /* VKBackgroundcolorStyle.h in Headers */ = {isa = PBXBuildFile; fileRef = 78100E0A25300EB400CD6E1F /* VKBackgroundcolorStyle.h */; };
-		78100FF325300EB600CD6E1F /* VKBorderColorStyle.m in Sources */ = {isa = PBXBuildFile; fileRef = 78100E0B25300EB400CD6E1F /* VKBorderColorStyle.m */; };
-		78100FF425300EB600CD6E1F /* VKFontColorStyle.m in Sources */ = {isa = PBXBuildFile; fileRef = 78100E0C25300EB400CD6E1F /* VKFontColorStyle.m */; };
-		78100FF525300EB600CD6E1F /* VKTextAlignStyle.m in Sources */ = {isa = PBXBuildFile; fileRef = 78100E0D25300EB400CD6E1F /* VKTextAlignStyle.m */; };
-		78100FF625300EB600CD6E1F /* VKFontFamiltyStyle.h in Headers */ = {isa = PBXBuildFile; fileRef = 78100E0E25300EB400CD6E1F /* VKFontFamiltyStyle.h */; };
-		78100FF725300EB600CD6E1F /* VKFontSizeStyle.m in Sources */ = {isa = PBXBuildFile; fileRef = 78100E0F25300EB400CD6E1F /* VKFontSizeStyle.m */; };
-		78100FF825300EB600CD6E1F /* VKTextShadowStyle.h in Headers */ = {isa = PBXBuildFile; fileRef = 78100E1025300EB400CD6E1F /* VKTextShadowStyle.h */; };
-		78100FF925300EB600CD6E1F /* VKBorderRadiusStyle.h in Headers */ = {isa = PBXBuildFile; fileRef = 78100E1125300EB400CD6E1F /* VKBorderRadiusStyle.h */; };
-		78100FFA25300EB600CD6E1F /* VKTextStyle.m in Sources */ = {isa = PBXBuildFile; fileRef = 78100E1225300EB400CD6E1F /* VKTextStyle.m */; };
-		78100FFB25300EB600CD6E1F /* VKBorderWidthStyle.h in Headers */ = {isa = PBXBuildFile; fileRef = 78100E1325300EB400CD6E1F /* VKBorderWidthStyle.h */; };
-		78100FFC25300EB600CD6E1F /* VKBackgroundcolorStyle.m in Sources */ = {isa = PBXBuildFile; fileRef = 78100E1425300EB400CD6E1F /* VKBackgroundcolorStyle.m */; };
-		78100FFD25300EB600CD6E1F /* VKBackgroundImageStyle.m in Sources */ = {isa = PBXBuildFile; fileRef = 78100E1525300EB400CD6E1F /* VKBackgroundImageStyle.m */; };
-		78100FFE25300EB600CD6E1F /* VKBorderColorStyle.h in Headers */ = {isa = PBXBuildFile; fileRef = 78100E1625300EB400CD6E1F /* VKBorderColorStyle.h */; };
-		78100FFF25300EB600CD6E1F /* VKTextDecorationStyle.h in Headers */ = {isa = PBXBuildFile; fileRef = 78100E1825300EB400CD6E1F /* VKTextDecorationStyle.h */; };
-		7810100025300EB600CD6E1F /* VKBorderBottomStyle.m in Sources */ = {isa = PBXBuildFile; fileRef = 78100E1925300EB400CD6E1F /* VKBorderBottomStyle.m */; };
-		7810100125300EB600CD6E1F /* VKBorderTopStyle.m in Sources */ = {isa = PBXBuildFile; fileRef = 78100E1A25300EB400CD6E1F /* VKBorderTopStyle.m */; };
-		7810100225300EB600CD6E1F /* VKFontWeightStyle.h in Headers */ = {isa = PBXBuildFile; fileRef = 78100E1B25300EB400CD6E1F /* VKFontWeightStyle.h */; };
-		7810100325300EB600CD6E1F /* VKBorderLeftStyle.m in Sources */ = {isa = PBXBuildFile; fileRef = 78100E1C25300EB400CD6E1F /* VKBorderLeftStyle.m */; };
-		7810100425300EB600CD6E1F /* UILabel+VKAddion.h in Headers */ = {isa = PBXBuildFile; fileRef = 78100E1D25300EB400CD6E1F /* UILabel+VKAddion.h */; };
-		7810100525300EB600CD6E1F /* VKBorderRightStyle.h in Headers */ = {isa = PBXBuildFile; fileRef = 78100E1E25300EB400CD6E1F /* VKBorderRightStyle.h */; };
-		7810100625300EB600CD6E1F /* UIView+VKAddion.h in Headers */ = {isa = PBXBuildFile; fileRef = 78100E1F25300EB400CD6E1F /* UIView+VKAddion.h */; };
-		7810100725300EB600CD6E1F /* UIButton+VKAddion.h in Headers */ = {isa = PBXBuildFile; fileRef = 78100E2025300EB400CD6E1F /* UIButton+VKAddion.h */; };
-		7810100825300EB600CD6E1F /* VKTextTransformStyle.h in Headers */ = {isa = PBXBuildFile; fileRef = 78100E2125300EB400CD6E1F /* VKTextTransformStyle.h */; };
-		7810100925300EB600CD6E1F /* VKBorderTopStyle.h in Headers */ = {isa = PBXBuildFile; fileRef = 78100E2225300EB400CD6E1F /* VKBorderTopStyle.h */; };
-		7810100A25300EB600CD6E1F /* VKBorderBottomStyle.h in Headers */ = {isa = PBXBuildFile; fileRef = 78100E2325300EB400CD6E1F /* VKBorderBottomStyle.h */; };
-		7810100B25300EB600CD6E1F /* VKTextDecorationStyle.m in Sources */ = {isa = PBXBuildFile; fileRef = 78100E2425300EB400CD6E1F /* VKTextDecorationStyle.m */; };
-		7810100C25300EB600CD6E1F /* VKBorderLeftStyle.h in Headers */ = {isa = PBXBuildFile; fileRef = 78100E2525300EB400CD6E1F /* VKBorderLeftStyle.h */; };
-		7810100D25300EB600CD6E1F /* VKFontWeightStyle.m in Sources */ = {isa = PBXBuildFile; fileRef = 78100E2625300EB400CD6E1F /* VKFontWeightStyle.m */; };
-		7810100E25300EB600CD6E1F /* VKBorderRightStyle.m in Sources */ = {isa = PBXBuildFile; fileRef = 78100E2725300EB400CD6E1F /* VKBorderRightStyle.m */; };
-		7810100F25300EB600CD6E1F /* UILabel+VKAddion.m in Sources */ = {isa = PBXBuildFile; fileRef = 78100E2825300EB400CD6E1F /* UILabel+VKAddion.m */; };
-		7810101025300EB600CD6E1F /* VKTextTransformStyle.m in Sources */ = {isa = PBXBuildFile; fileRef = 78100E2925300EB400CD6E1F /* VKTextTransformStyle.m */; };
-		7810101125300EB600CD6E1F /* UIButton+VKAddion.m in Sources */ = {isa = PBXBuildFile; fileRef = 78100E2A25300EB400CD6E1F /* UIButton+VKAddion.m */; };
-		7810101225300EB600CD6E1F /* UIView+VKAddion.m in Sources */ = {isa = PBXBuildFile; fileRef = 78100E2B25300EB400CD6E1F /* UIView+VKAddion.m */; };
-		7810101325300EB600CD6E1F /* VKCssStyleManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 78100E2C25300EB400CD6E1F /* VKCssStyleManager.m */; };
-		7810101425300EB600CD6E1F /* VKCssStyleProtocol.h in Headers */ = {isa = PBXBuildFile; fileRef = 78100E2D25300EB400CD6E1F /* VKCssStyleProtocol.h */; };
-		7810101525300EB600CD6E1F /* VKCssProtocol.h in Headers */ = {isa = PBXBuildFile; fileRef = 78100E2E25300EB400CD6E1F /* VKCssProtocol.h */; };
-		7810101625300EB600CD6E1F /* TZPhotoPreviewCell.h in Headers */ = {isa = PBXBuildFile; fileRef = 78100E3025300EB400CD6E1F /* TZPhotoPreviewCell.h */; };
-		7810101725300EB600CD6E1F /* TZPhotoPickerController.h in Headers */ = {isa = PBXBuildFile; fileRef = 78100E3125300EB400CD6E1F /* TZPhotoPickerController.h */; };
-		7810101825300EB600CD6E1F /* TZImageCropManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 78100E3225300EB400CD6E1F /* TZImageCropManager.m */; };
-		7810101925300EB600CD6E1F /* TZImageManager.h in Headers */ = {isa = PBXBuildFile; fileRef = 78100E3325300EB400CD6E1F /* TZImageManager.h */; };
-		7810101A25300EB600CD6E1F /* TZAssetCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 78100E3425300EB400CD6E1F /* TZAssetCell.m */; };
-		7810101B25300EB600CD6E1F /* TZVideoPlayerController.m in Sources */ = {isa = PBXBuildFile; fileRef = 78100E3525300EB400CD6E1F /* TZVideoPlayerController.m */; };
-		7810101C25300EB600CD6E1F /* TZAssetModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 78100E3625300EB400CD6E1F /* TZAssetModel.m */; };
-		7810101D25300EB600CD6E1F /* NSBundle+TZImagePicker.m in Sources */ = {isa = PBXBuildFile; fileRef = 78100E3725300EB400CD6E1F /* NSBundle+TZImagePicker.m */; };
-		7810101E25300EB600CD6E1F /* TZLocationManager.h in Headers */ = {isa = PBXBuildFile; fileRef = 78100E3825300EB400CD6E1F /* TZLocationManager.h */; };
-		7810101F25300EB600CD6E1F /* TZImagePickerController.h in Headers */ = {isa = PBXBuildFile; fileRef = 78100E3925300EB400CD6E1F /* TZImagePickerController.h */; };
-		7810102025300EB600CD6E1F /* UIView+Layout.m in Sources */ = {isa = PBXBuildFile; fileRef = 78100E3A25300EB400CD6E1F /* UIView+Layout.m */; };
-		7810102125300EB600CD6E1F /* TZPhotoPreviewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 78100E3B25300EB400CD6E1F /* TZPhotoPreviewController.m */; };
-		7810102225300EB600CD6E1F /* TZImagePickerController.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 78100E3C25300EB400CD6E1F /* TZImagePickerController.bundle */; };
-		7810102325300EB600CD6E1F /* TZProgressView.m in Sources */ = {isa = PBXBuildFile; fileRef = 78100E3D25300EB400CD6E1F /* TZProgressView.m */; };
-		7810102425300EB600CD6E1F /* TZGifPhotoPreviewController.h in Headers */ = {isa = PBXBuildFile; fileRef = 78100E3E25300EB400CD6E1F /* TZGifPhotoPreviewController.h */; };
-		7810102525300EB600CD6E1F /* TZAssetCell.h in Headers */ = {isa = PBXBuildFile; fileRef = 78100E3F25300EB400CD6E1F /* TZAssetCell.h */; };
-		7810102625300EB600CD6E1F /* TZImageManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 78100E4025300EB400CD6E1F /* TZImageManager.m */; };
-		7810102725300EB600CD6E1F /* TZImageCropManager.h in Headers */ = {isa = PBXBuildFile; fileRef = 78100E4125300EB400CD6E1F /* TZImageCropManager.h */; };
-		7810102825300EB600CD6E1F /* TZPhotoPickerController.m in Sources */ = {isa = PBXBuildFile; fileRef = 78100E4225300EB400CD6E1F /* TZPhotoPickerController.m */; };
-		7810102925300EB600CD6E1F /* TZPhotoPreviewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 78100E4325300EB400CD6E1F /* TZPhotoPreviewCell.m */; };
-		7810102A25300EB600CD6E1F /* NSBundle+TZImagePicker.h in Headers */ = {isa = PBXBuildFile; fileRef = 78100E4425300EB400CD6E1F /* NSBundle+TZImagePicker.h */; };
-		7810102B25300EB600CD6E1F /* TZAssetModel.h in Headers */ = {isa = PBXBuildFile; fileRef = 78100E4525300EB400CD6E1F /* TZAssetModel.h */; };
-		7810102C25300EB600CD6E1F /* TZVideoPlayerController.h in Headers */ = {isa = PBXBuildFile; fileRef = 78100E4625300EB400CD6E1F /* TZVideoPlayerController.h */; };
-		7810102D25300EB600CD6E1F /* TZPhotoPreviewController.h in Headers */ = {isa = PBXBuildFile; fileRef = 78100E4725300EB400CD6E1F /* TZPhotoPreviewController.h */; };
-		7810102E25300EB600CD6E1F /* UIView+Layout.h in Headers */ = {isa = PBXBuildFile; fileRef = 78100E4825300EB400CD6E1F /* UIView+Layout.h */; };
-		7810102F25300EB600CD6E1F /* TZImagePickerController.m in Sources */ = {isa = PBXBuildFile; fileRef = 78100E4925300EB400CD6E1F /* TZImagePickerController.m */; };
-		7810103025300EB600CD6E1F /* TZLocationManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 78100E4A25300EB400CD6E1F /* TZLocationManager.m */; };
-		7810103125300EB600CD6E1F /* TZGifPhotoPreviewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 78100E4B25300EB400CD6E1F /* TZGifPhotoPreviewController.m */; };
-		7810103225300EB600CD6E1F /* TZProgressView.h in Headers */ = {isa = PBXBuildFile; fileRef = 78100E4C25300EB400CD6E1F /* TZProgressView.h */; };
 		7810104925300EB600CD6E1F /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = 78100E6C25300EB400CD6E1F /* README.md */; };
 		785DE2BC256B4EBA0026B1B0 /* UILabel+LineSpacing.h in Headers */ = {isa = PBXBuildFile; fileRef = 785DE28B256B4EBA0026B1B0 /* UILabel+LineSpacing.h */; };
 		785DE2BD256B4EBA0026B1B0 /* UILabel+LineSpacing.m in Sources */ = {isa = PBXBuildFile; fileRef = 785DE28C256B4EBA0026B1B0 /* UILabel+LineSpacing.m */; };
@@ -497,109 +400,109 @@
 		785DE622256B52D20026B1B0 /* MTHeaderRefreshListController.m in Sources */ = {isa = PBXBuildFile; fileRef = 785DE617256B52D10026B1B0 /* MTHeaderRefreshListController.m */; };
 		785DE623256B52D20026B1B0 /* MTBaseListController.h in Headers */ = {isa = PBXBuildFile; fileRef = 785DE618256B52D10026B1B0 /* MTBaseListController.h */; };
 		785DE624256B52D20026B1B0 /* MTListControllers.h in Headers */ = {isa = PBXBuildFile; fileRef = 785DE619256B52D10026B1B0 /* MTListControllers.h */; };
+		785DE68E256B55790026B1B0 /* TZPhotoPreviewCell.h in Headers */ = {isa = PBXBuildFile; fileRef = 785DE626256B55790026B1B0 /* TZPhotoPreviewCell.h */; };
+		785DE68F256B55790026B1B0 /* TZPhotoPickerController.h in Headers */ = {isa = PBXBuildFile; fileRef = 785DE627256B55790026B1B0 /* TZPhotoPickerController.h */; };
+		785DE690256B55790026B1B0 /* TZImageCropManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 785DE628256B55790026B1B0 /* TZImageCropManager.m */; };
+		785DE691256B55790026B1B0 /* TZImageManager.h in Headers */ = {isa = PBXBuildFile; fileRef = 785DE629256B55790026B1B0 /* TZImageManager.h */; };
+		785DE692256B55790026B1B0 /* TZAssetCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 785DE62A256B55790026B1B0 /* TZAssetCell.m */; };
+		785DE693256B55790026B1B0 /* TZVideoPlayerController.m in Sources */ = {isa = PBXBuildFile; fileRef = 785DE62B256B55790026B1B0 /* TZVideoPlayerController.m */; };
+		785DE694256B55790026B1B0 /* TZAssetModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 785DE62C256B55790026B1B0 /* TZAssetModel.m */; };
+		785DE695256B55790026B1B0 /* NSBundle+TZImagePicker.m in Sources */ = {isa = PBXBuildFile; fileRef = 785DE62D256B55790026B1B0 /* NSBundle+TZImagePicker.m */; };
+		785DE696256B55790026B1B0 /* TZLocationManager.h in Headers */ = {isa = PBXBuildFile; fileRef = 785DE62E256B55790026B1B0 /* TZLocationManager.h */; };
+		785DE697256B55790026B1B0 /* TZImagePickerController.h in Headers */ = {isa = PBXBuildFile; fileRef = 785DE62F256B55790026B1B0 /* TZImagePickerController.h */; };
+		785DE698256B55790026B1B0 /* UIView+Layout.m in Sources */ = {isa = PBXBuildFile; fileRef = 785DE630256B55790026B1B0 /* UIView+Layout.m */; };
+		785DE699256B55790026B1B0 /* TZPhotoPreviewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 785DE631256B55790026B1B0 /* TZPhotoPreviewController.m */; };
+		785DE69A256B55790026B1B0 /* TZImagePickerController.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 785DE632256B55790026B1B0 /* TZImagePickerController.bundle */; };
+		785DE69B256B55790026B1B0 /* TZProgressView.m in Sources */ = {isa = PBXBuildFile; fileRef = 785DE633256B55790026B1B0 /* TZProgressView.m */; };
+		785DE69C256B55790026B1B0 /* TZGifPhotoPreviewController.h in Headers */ = {isa = PBXBuildFile; fileRef = 785DE634256B55790026B1B0 /* TZGifPhotoPreviewController.h */; };
+		785DE69D256B55790026B1B0 /* TZAssetCell.h in Headers */ = {isa = PBXBuildFile; fileRef = 785DE635256B55790026B1B0 /* TZAssetCell.h */; };
+		785DE69E256B557A0026B1B0 /* TZImageManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 785DE636256B55790026B1B0 /* TZImageManager.m */; };
+		785DE69F256B557A0026B1B0 /* TZImageCropManager.h in Headers */ = {isa = PBXBuildFile; fileRef = 785DE637256B55790026B1B0 /* TZImageCropManager.h */; };
+		785DE6A0256B557A0026B1B0 /* TZPhotoPickerController.m in Sources */ = {isa = PBXBuildFile; fileRef = 785DE638256B55790026B1B0 /* TZPhotoPickerController.m */; };
+		785DE6A1256B557A0026B1B0 /* TZPhotoPreviewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 785DE639256B55790026B1B0 /* TZPhotoPreviewCell.m */; };
+		785DE6A2256B557A0026B1B0 /* NSBundle+TZImagePicker.h in Headers */ = {isa = PBXBuildFile; fileRef = 785DE63A256B55790026B1B0 /* NSBundle+TZImagePicker.h */; };
+		785DE6A3256B557A0026B1B0 /* TZAssetModel.h in Headers */ = {isa = PBXBuildFile; fileRef = 785DE63B256B55790026B1B0 /* TZAssetModel.h */; };
+		785DE6A4256B557A0026B1B0 /* TZVideoPlayerController.h in Headers */ = {isa = PBXBuildFile; fileRef = 785DE63C256B55790026B1B0 /* TZVideoPlayerController.h */; };
+		785DE6A5256B557A0026B1B0 /* TZPhotoPreviewController.h in Headers */ = {isa = PBXBuildFile; fileRef = 785DE63D256B55790026B1B0 /* TZPhotoPreviewController.h */; };
+		785DE6A6256B557A0026B1B0 /* UIView+Layout.h in Headers */ = {isa = PBXBuildFile; fileRef = 785DE63E256B55790026B1B0 /* UIView+Layout.h */; };
+		785DE6A7256B557A0026B1B0 /* TZImagePickerController.m in Sources */ = {isa = PBXBuildFile; fileRef = 785DE63F256B55790026B1B0 /* TZImagePickerController.m */; };
+		785DE6A8256B557A0026B1B0 /* TZLocationManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 785DE640256B55790026B1B0 /* TZLocationManager.m */; };
+		785DE6A9256B557A0026B1B0 /* TZGifPhotoPreviewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 785DE641256B55790026B1B0 /* TZGifPhotoPreviewController.m */; };
+		785DE6AA256B557A0026B1B0 /* TZProgressView.h in Headers */ = {isa = PBXBuildFile; fileRef = 785DE642256B55790026B1B0 /* TZProgressView.h */; };
+		785DE6AB256B557A0026B1B0 /* VKCssHotReloader.h in Headers */ = {isa = PBXBuildFile; fileRef = 785DE645256B55790026B1B0 /* VKCssHotReloader.h */; };
+		785DE6AC256B557A0026B1B0 /* SGDirWatchdog.h in Headers */ = {isa = PBXBuildFile; fileRef = 785DE646256B55790026B1B0 /* SGDirWatchdog.h */; };
+		785DE6AD256B557A0026B1B0 /* VKCssHotReloader.m in Sources */ = {isa = PBXBuildFile; fileRef = 785DE647256B55790026B1B0 /* VKCssHotReloader.m */; };
+		785DE6AE256B557A0026B1B0 /* SGDirWatchdog.m in Sources */ = {isa = PBXBuildFile; fileRef = 785DE648256B55790026B1B0 /* SGDirWatchdog.m */; };
+		785DE6AF256B557A0026B1B0 /* VKCssClassModal.h in Headers */ = {isa = PBXBuildFile; fileRef = 785DE64A256B55790026B1B0 /* VKCssClassModal.h */; };
+		785DE6B0256B557A0026B1B0 /* VKCssClassManager.h in Headers */ = {isa = PBXBuildFile; fileRef = 785DE64B256B55790026B1B0 /* VKCssClassManager.h */; };
+		785DE6B1256B557A0026B1B0 /* VKCssClassModal.m in Sources */ = {isa = PBXBuildFile; fileRef = 785DE64C256B55790026B1B0 /* VKCssClassModal.m */; };
+		785DE6B2256B557A0026B1B0 /* VKCssClassManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 785DE64D256B55790026B1B0 /* VKCssClassManager.m */; };
+		785DE6B3256B557A0026B1B0 /* NSObject+VKIdHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 785DE64F256B55790026B1B0 /* NSObject+VKIdHelper.m */; };
+		785DE6B4256B557A0026B1B0 /* UIView+VKCssProtocol.h in Headers */ = {isa = PBXBuildFile; fileRef = 785DE650256B55790026B1B0 /* UIView+VKCssProtocol.h */; };
+		785DE6B5256B557A0026B1B0 /* UIView+VKMetrics.m in Sources */ = {isa = PBXBuildFile; fileRef = 785DE651256B55790026B1B0 /* UIView+VKMetrics.m */; };
+		785DE6B6256B557A0026B1B0 /* UIColor+VKUtlities.m in Sources */ = {isa = PBXBuildFile; fileRef = 785DE652256B55790026B1B0 /* UIColor+VKUtlities.m */; };
+		785DE6B7256B557A0026B1B0 /* NSMutableAttributedString+VKAttributedString.h in Headers */ = {isa = PBXBuildFile; fileRef = 785DE653256B55790026B1B0 /* NSMutableAttributedString+VKAttributedString.h */; };
+		785DE6B8256B557A0026B1B0 /* NSObject+VKIdHelper.h in Headers */ = {isa = PBXBuildFile; fileRef = 785DE654256B55790026B1B0 /* NSObject+VKIdHelper.h */; };
+		785DE6B9256B557A0026B1B0 /* VKUIKitMarco.h in Headers */ = {isa = PBXBuildFile; fileRef = 785DE655256B55790026B1B0 /* VKUIKitMarco.h */; };
+		785DE6BA256B557A0026B1B0 /* UIView+VKCssProtocol.m in Sources */ = {isa = PBXBuildFile; fileRef = 785DE656256B55790026B1B0 /* UIView+VKCssProtocol.m */; };
+		785DE6BB256B557A0026B1B0 /* UIView+VKMetrics.h in Headers */ = {isa = PBXBuildFile; fileRef = 785DE657256B55790026B1B0 /* UIView+VKMetrics.h */; };
+		785DE6BC256B557A0026B1B0 /* NSMutableAttributedString+VKAttributedString.m in Sources */ = {isa = PBXBuildFile; fileRef = 785DE658256B55790026B1B0 /* NSMutableAttributedString+VKAttributedString.m */; };
+		785DE6BD256B557A0026B1B0 /* NSObject+VKSingleton.h in Headers */ = {isa = PBXBuildFile; fileRef = 785DE659256B55790026B1B0 /* NSObject+VKSingleton.h */; };
+		785DE6BE256B557A0026B1B0 /* UIColor+VKUtlities.h in Headers */ = {isa = PBXBuildFile; fileRef = 785DE65A256B55790026B1B0 /* UIColor+VKUtlities.h */; };
+		785DE6BF256B557A0026B1B0 /* VKCssStyleManager.h in Headers */ = {isa = PBXBuildFile; fileRef = 785DE65C256B55790026B1B0 /* VKCssStyleManager.h */; };
+		785DE6C0256B557A0026B1B0 /* VKCssStyleConstants.h in Headers */ = {isa = PBXBuildFile; fileRef = 785DE65D256B55790026B1B0 /* VKCssStyleConstants.h */; };
+		785DE6C1256B557A0026B1B0 /* VKCssStylePch.h in Headers */ = {isa = PBXBuildFile; fileRef = 785DE65E256B55790026B1B0 /* VKCssStylePch.h */; };
+		785DE6C2256B557A0026B1B0 /* VKTextAlignStyle.h in Headers */ = {isa = PBXBuildFile; fileRef = 785DE660256B55790026B1B0 /* VKTextAlignStyle.h */; };
+		785DE6C3256B557A0026B1B0 /* VKFontColorStyle.h in Headers */ = {isa = PBXBuildFile; fileRef = 785DE661256B55790026B1B0 /* VKFontColorStyle.h */; };
+		785DE6C4256B557A0026B1B0 /* VKBorderWidthStyle.m in Sources */ = {isa = PBXBuildFile; fileRef = 785DE662256B55790026B1B0 /* VKBorderWidthStyle.m */; };
+		785DE6C5256B557A0026B1B0 /* VKBorderRadiusStyle.m in Sources */ = {isa = PBXBuildFile; fileRef = 785DE663256B55790026B1B0 /* VKBorderRadiusStyle.m */; };
+		785DE6C6256B557A0026B1B0 /* VKTextStyle.h in Headers */ = {isa = PBXBuildFile; fileRef = 785DE664256B55790026B1B0 /* VKTextStyle.h */; };
+		785DE6C7256B557A0026B1B0 /* VKTextShadowStyle.m in Sources */ = {isa = PBXBuildFile; fileRef = 785DE665256B55790026B1B0 /* VKTextShadowStyle.m */; };
+		785DE6C8256B557A0026B1B0 /* VKFontSizeStyle.h in Headers */ = {isa = PBXBuildFile; fileRef = 785DE666256B55790026B1B0 /* VKFontSizeStyle.h */; };
+		785DE6C9256B557A0026B1B0 /* VKFontFamiltyStyle.m in Sources */ = {isa = PBXBuildFile; fileRef = 785DE667256B55790026B1B0 /* VKFontFamiltyStyle.m */; };
+		785DE6CA256B557A0026B1B0 /* VKBackgroundImageStyle.h in Headers */ = {isa = PBXBuildFile; fileRef = 785DE668256B55790026B1B0 /* VKBackgroundImageStyle.h */; };
+		785DE6CB256B557A0026B1B0 /* VKBackgroundcolorStyle.h in Headers */ = {isa = PBXBuildFile; fileRef = 785DE669256B55790026B1B0 /* VKBackgroundcolorStyle.h */; };
+		785DE6CC256B557A0026B1B0 /* VKBorderColorStyle.m in Sources */ = {isa = PBXBuildFile; fileRef = 785DE66A256B55790026B1B0 /* VKBorderColorStyle.m */; };
+		785DE6CD256B557A0026B1B0 /* VKFontColorStyle.m in Sources */ = {isa = PBXBuildFile; fileRef = 785DE66B256B55790026B1B0 /* VKFontColorStyle.m */; };
+		785DE6CE256B557A0026B1B0 /* VKTextAlignStyle.m in Sources */ = {isa = PBXBuildFile; fileRef = 785DE66C256B55790026B1B0 /* VKTextAlignStyle.m */; };
+		785DE6CF256B557A0026B1B0 /* VKFontFamiltyStyle.h in Headers */ = {isa = PBXBuildFile; fileRef = 785DE66D256B55790026B1B0 /* VKFontFamiltyStyle.h */; };
+		785DE6D0256B557A0026B1B0 /* VKFontSizeStyle.m in Sources */ = {isa = PBXBuildFile; fileRef = 785DE66E256B55790026B1B0 /* VKFontSizeStyle.m */; };
+		785DE6D1256B557A0026B1B0 /* VKTextShadowStyle.h in Headers */ = {isa = PBXBuildFile; fileRef = 785DE66F256B55790026B1B0 /* VKTextShadowStyle.h */; };
+		785DE6D2256B557A0026B1B0 /* VKBorderRadiusStyle.h in Headers */ = {isa = PBXBuildFile; fileRef = 785DE670256B55790026B1B0 /* VKBorderRadiusStyle.h */; };
+		785DE6D3256B557A0026B1B0 /* VKTextStyle.m in Sources */ = {isa = PBXBuildFile; fileRef = 785DE671256B55790026B1B0 /* VKTextStyle.m */; };
+		785DE6D4256B557A0026B1B0 /* VKBorderWidthStyle.h in Headers */ = {isa = PBXBuildFile; fileRef = 785DE672256B55790026B1B0 /* VKBorderWidthStyle.h */; };
+		785DE6D5256B557A0026B1B0 /* VKBackgroundcolorStyle.m in Sources */ = {isa = PBXBuildFile; fileRef = 785DE673256B55790026B1B0 /* VKBackgroundcolorStyle.m */; };
+		785DE6D6256B557A0026B1B0 /* VKBackgroundImageStyle.m in Sources */ = {isa = PBXBuildFile; fileRef = 785DE674256B55790026B1B0 /* VKBackgroundImageStyle.m */; };
+		785DE6D7256B557A0026B1B0 /* VKBorderColorStyle.h in Headers */ = {isa = PBXBuildFile; fileRef = 785DE675256B55790026B1B0 /* VKBorderColorStyle.h */; };
+		785DE6D8256B557A0026B1B0 /* VKTextDecorationStyle.h in Headers */ = {isa = PBXBuildFile; fileRef = 785DE677256B55790026B1B0 /* VKTextDecorationStyle.h */; };
+		785DE6D9256B557A0026B1B0 /* VKBorderBottomStyle.m in Sources */ = {isa = PBXBuildFile; fileRef = 785DE678256B55790026B1B0 /* VKBorderBottomStyle.m */; };
+		785DE6DA256B557A0026B1B0 /* VKBorderTopStyle.m in Sources */ = {isa = PBXBuildFile; fileRef = 785DE679256B55790026B1B0 /* VKBorderTopStyle.m */; };
+		785DE6DB256B557A0026B1B0 /* VKFontWeightStyle.h in Headers */ = {isa = PBXBuildFile; fileRef = 785DE67A256B55790026B1B0 /* VKFontWeightStyle.h */; };
+		785DE6DC256B557A0026B1B0 /* VKBorderLeftStyle.m in Sources */ = {isa = PBXBuildFile; fileRef = 785DE67B256B55790026B1B0 /* VKBorderLeftStyle.m */; };
+		785DE6DD256B557A0026B1B0 /* UILabel+VKAddion.h in Headers */ = {isa = PBXBuildFile; fileRef = 785DE67C256B55790026B1B0 /* UILabel+VKAddion.h */; };
+		785DE6DE256B557A0026B1B0 /* VKBorderRightStyle.h in Headers */ = {isa = PBXBuildFile; fileRef = 785DE67D256B55790026B1B0 /* VKBorderRightStyle.h */; };
+		785DE6DF256B557A0026B1B0 /* UIView+VKAddion.h in Headers */ = {isa = PBXBuildFile; fileRef = 785DE67E256B55790026B1B0 /* UIView+VKAddion.h */; };
+		785DE6E0256B557A0026B1B0 /* UIButton+VKAddion.h in Headers */ = {isa = PBXBuildFile; fileRef = 785DE67F256B55790026B1B0 /* UIButton+VKAddion.h */; };
+		785DE6E1256B557A0026B1B0 /* VKTextTransformStyle.h in Headers */ = {isa = PBXBuildFile; fileRef = 785DE680256B55790026B1B0 /* VKTextTransformStyle.h */; };
+		785DE6E2256B557A0026B1B0 /* VKBorderTopStyle.h in Headers */ = {isa = PBXBuildFile; fileRef = 785DE681256B55790026B1B0 /* VKBorderTopStyle.h */; };
+		785DE6E3256B557A0026B1B0 /* VKBorderBottomStyle.h in Headers */ = {isa = PBXBuildFile; fileRef = 785DE682256B55790026B1B0 /* VKBorderBottomStyle.h */; };
+		785DE6E4256B557A0026B1B0 /* VKTextDecorationStyle.m in Sources */ = {isa = PBXBuildFile; fileRef = 785DE683256B55790026B1B0 /* VKTextDecorationStyle.m */; };
+		785DE6E5256B557A0026B1B0 /* VKBorderLeftStyle.h in Headers */ = {isa = PBXBuildFile; fileRef = 785DE684256B55790026B1B0 /* VKBorderLeftStyle.h */; };
+		785DE6E6256B557A0026B1B0 /* VKFontWeightStyle.m in Sources */ = {isa = PBXBuildFile; fileRef = 785DE685256B55790026B1B0 /* VKFontWeightStyle.m */; };
+		785DE6E7256B557A0026B1B0 /* VKBorderRightStyle.m in Sources */ = {isa = PBXBuildFile; fileRef = 785DE686256B55790026B1B0 /* VKBorderRightStyle.m */; };
+		785DE6E8256B557A0026B1B0 /* UILabel+VKAddion.m in Sources */ = {isa = PBXBuildFile; fileRef = 785DE687256B55790026B1B0 /* UILabel+VKAddion.m */; };
+		785DE6E9256B557A0026B1B0 /* VKTextTransformStyle.m in Sources */ = {isa = PBXBuildFile; fileRef = 785DE688256B55790026B1B0 /* VKTextTransformStyle.m */; };
+		785DE6EA256B557A0026B1B0 /* UIButton+VKAddion.m in Sources */ = {isa = PBXBuildFile; fileRef = 785DE689256B55790026B1B0 /* UIButton+VKAddion.m */; };
+		785DE6EB256B557A0026B1B0 /* UIView+VKAddion.m in Sources */ = {isa = PBXBuildFile; fileRef = 785DE68A256B55790026B1B0 /* UIView+VKAddion.m */; };
+		785DE6EC256B557A0026B1B0 /* VKCssStyleManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 785DE68B256B55790026B1B0 /* VKCssStyleManager.m */; };
+		785DE6ED256B557A0026B1B0 /* VKCssStyleProtocol.h in Headers */ = {isa = PBXBuildFile; fileRef = 785DE68C256B55790026B1B0 /* VKCssStyleProtocol.h */; };
+		785DE6EE256B557A0026B1B0 /* VKCssProtocol.h in Headers */ = {isa = PBXBuildFile; fileRef = 785DE68D256B55790026B1B0 /* VKCssProtocol.h */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		210510B7765DBA71AEBA6E98 /* Pods-MagicThought.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MagicThought.release.xcconfig"; path = "Pods/Target Support Files/Pods-MagicThought/Pods-MagicThought.release.xcconfig"; sourceTree = "<group>"; };
 		5C1BD1A3B7E4CF44B667CE97 /* Pods-MagicThought.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MagicThought.debug.xcconfig"; path = "Pods/Target Support Files/Pods-MagicThought/Pods-MagicThought.debug.xcconfig"; sourceTree = "<group>"; };
 		78100DE325300EB400CD6E1F /* Library.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Library.h; sourceTree = "<group>"; };
-		78100DE625300EB400CD6E1F /* VKCssHotReloader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VKCssHotReloader.h; sourceTree = "<group>"; };
-		78100DE725300EB400CD6E1F /* SGDirWatchdog.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SGDirWatchdog.h; sourceTree = "<group>"; };
-		78100DE825300EB400CD6E1F /* VKCssHotReloader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VKCssHotReloader.m; sourceTree = "<group>"; };
-		78100DE925300EB400CD6E1F /* SGDirWatchdog.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SGDirWatchdog.m; sourceTree = "<group>"; };
-		78100DEB25300EB400CD6E1F /* VKCssClassModal.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VKCssClassModal.h; sourceTree = "<group>"; };
-		78100DEC25300EB400CD6E1F /* VKCssClassManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VKCssClassManager.h; sourceTree = "<group>"; };
-		78100DED25300EB400CD6E1F /* VKCssClassModal.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VKCssClassModal.m; sourceTree = "<group>"; };
-		78100DEE25300EB400CD6E1F /* VKCssClassManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VKCssClassManager.m; sourceTree = "<group>"; };
-		78100DF025300EB400CD6E1F /* NSObject+VKIdHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+VKIdHelper.m"; sourceTree = "<group>"; };
-		78100DF125300EB400CD6E1F /* UIView+VKCssProtocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+VKCssProtocol.h"; sourceTree = "<group>"; };
-		78100DF225300EB400CD6E1F /* UIView+VKMetrics.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+VKMetrics.m"; sourceTree = "<group>"; };
-		78100DF325300EB400CD6E1F /* UIColor+VKUtlities.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+VKUtlities.m"; sourceTree = "<group>"; };
-		78100DF425300EB400CD6E1F /* NSMutableAttributedString+VKAttributedString.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSMutableAttributedString+VKAttributedString.h"; sourceTree = "<group>"; };
-		78100DF525300EB400CD6E1F /* NSObject+VKIdHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+VKIdHelper.h"; sourceTree = "<group>"; };
-		78100DF625300EB400CD6E1F /* VKUIKitMarco.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VKUIKitMarco.h; sourceTree = "<group>"; };
-		78100DF725300EB400CD6E1F /* UIView+VKCssProtocol.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+VKCssProtocol.m"; sourceTree = "<group>"; };
-		78100DF825300EB400CD6E1F /* UIView+VKMetrics.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+VKMetrics.h"; sourceTree = "<group>"; };
-		78100DF925300EB400CD6E1F /* NSMutableAttributedString+VKAttributedString.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSMutableAttributedString+VKAttributedString.m"; sourceTree = "<group>"; };
-		78100DFA25300EB400CD6E1F /* NSObject+VKSingleton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+VKSingleton.h"; sourceTree = "<group>"; };
-		78100DFB25300EB400CD6E1F /* UIColor+VKUtlities.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIColor+VKUtlities.h"; sourceTree = "<group>"; };
-		78100DFD25300EB400CD6E1F /* VKCssStyleManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VKCssStyleManager.h; sourceTree = "<group>"; };
-		78100DFE25300EB400CD6E1F /* VKCssStyleConstants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VKCssStyleConstants.h; sourceTree = "<group>"; };
-		78100DFF25300EB400CD6E1F /* VKCssStylePch.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VKCssStylePch.h; sourceTree = "<group>"; };
-		78100E0125300EB400CD6E1F /* VKTextAlignStyle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VKTextAlignStyle.h; sourceTree = "<group>"; };
-		78100E0225300EB400CD6E1F /* VKFontColorStyle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VKFontColorStyle.h; sourceTree = "<group>"; };
-		78100E0325300EB400CD6E1F /* VKBorderWidthStyle.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VKBorderWidthStyle.m; sourceTree = "<group>"; };
-		78100E0425300EB400CD6E1F /* VKBorderRadiusStyle.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VKBorderRadiusStyle.m; sourceTree = "<group>"; };
-		78100E0525300EB400CD6E1F /* VKTextStyle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VKTextStyle.h; sourceTree = "<group>"; };
-		78100E0625300EB400CD6E1F /* VKTextShadowStyle.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VKTextShadowStyle.m; sourceTree = "<group>"; };
-		78100E0725300EB400CD6E1F /* VKFontSizeStyle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VKFontSizeStyle.h; sourceTree = "<group>"; };
-		78100E0825300EB400CD6E1F /* VKFontFamiltyStyle.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VKFontFamiltyStyle.m; sourceTree = "<group>"; };
-		78100E0925300EB400CD6E1F /* VKBackgroundImageStyle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VKBackgroundImageStyle.h; sourceTree = "<group>"; };
-		78100E0A25300EB400CD6E1F /* VKBackgroundcolorStyle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VKBackgroundcolorStyle.h; sourceTree = "<group>"; };
-		78100E0B25300EB400CD6E1F /* VKBorderColorStyle.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VKBorderColorStyle.m; sourceTree = "<group>"; };
-		78100E0C25300EB400CD6E1F /* VKFontColorStyle.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VKFontColorStyle.m; sourceTree = "<group>"; };
-		78100E0D25300EB400CD6E1F /* VKTextAlignStyle.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VKTextAlignStyle.m; sourceTree = "<group>"; };
-		78100E0E25300EB400CD6E1F /* VKFontFamiltyStyle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VKFontFamiltyStyle.h; sourceTree = "<group>"; };
-		78100E0F25300EB400CD6E1F /* VKFontSizeStyle.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VKFontSizeStyle.m; sourceTree = "<group>"; };
-		78100E1025300EB400CD6E1F /* VKTextShadowStyle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VKTextShadowStyle.h; sourceTree = "<group>"; };
-		78100E1125300EB400CD6E1F /* VKBorderRadiusStyle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VKBorderRadiusStyle.h; sourceTree = "<group>"; };
-		78100E1225300EB400CD6E1F /* VKTextStyle.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VKTextStyle.m; sourceTree = "<group>"; };
-		78100E1325300EB400CD6E1F /* VKBorderWidthStyle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VKBorderWidthStyle.h; sourceTree = "<group>"; };
-		78100E1425300EB400CD6E1F /* VKBackgroundcolorStyle.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VKBackgroundcolorStyle.m; sourceTree = "<group>"; };
-		78100E1525300EB400CD6E1F /* VKBackgroundImageStyle.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VKBackgroundImageStyle.m; sourceTree = "<group>"; };
-		78100E1625300EB400CD6E1F /* VKBorderColorStyle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VKBorderColorStyle.h; sourceTree = "<group>"; };
-		78100E1825300EB400CD6E1F /* VKTextDecorationStyle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VKTextDecorationStyle.h; sourceTree = "<group>"; };
-		78100E1925300EB400CD6E1F /* VKBorderBottomStyle.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VKBorderBottomStyle.m; sourceTree = "<group>"; };
-		78100E1A25300EB400CD6E1F /* VKBorderTopStyle.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VKBorderTopStyle.m; sourceTree = "<group>"; };
-		78100E1B25300EB400CD6E1F /* VKFontWeightStyle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VKFontWeightStyle.h; sourceTree = "<group>"; };
-		78100E1C25300EB400CD6E1F /* VKBorderLeftStyle.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VKBorderLeftStyle.m; sourceTree = "<group>"; };
-		78100E1D25300EB400CD6E1F /* UILabel+VKAddion.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UILabel+VKAddion.h"; sourceTree = "<group>"; };
-		78100E1E25300EB400CD6E1F /* VKBorderRightStyle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VKBorderRightStyle.h; sourceTree = "<group>"; };
-		78100E1F25300EB400CD6E1F /* UIView+VKAddion.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+VKAddion.h"; sourceTree = "<group>"; };
-		78100E2025300EB400CD6E1F /* UIButton+VKAddion.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIButton+VKAddion.h"; sourceTree = "<group>"; };
-		78100E2125300EB400CD6E1F /* VKTextTransformStyle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VKTextTransformStyle.h; sourceTree = "<group>"; };
-		78100E2225300EB400CD6E1F /* VKBorderTopStyle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VKBorderTopStyle.h; sourceTree = "<group>"; };
-		78100E2325300EB400CD6E1F /* VKBorderBottomStyle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VKBorderBottomStyle.h; sourceTree = "<group>"; };
-		78100E2425300EB400CD6E1F /* VKTextDecorationStyle.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VKTextDecorationStyle.m; sourceTree = "<group>"; };
-		78100E2525300EB400CD6E1F /* VKBorderLeftStyle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VKBorderLeftStyle.h; sourceTree = "<group>"; };
-		78100E2625300EB400CD6E1F /* VKFontWeightStyle.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VKFontWeightStyle.m; sourceTree = "<group>"; };
-		78100E2725300EB400CD6E1F /* VKBorderRightStyle.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VKBorderRightStyle.m; sourceTree = "<group>"; };
-		78100E2825300EB400CD6E1F /* UILabel+VKAddion.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UILabel+VKAddion.m"; sourceTree = "<group>"; };
-		78100E2925300EB400CD6E1F /* VKTextTransformStyle.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VKTextTransformStyle.m; sourceTree = "<group>"; };
-		78100E2A25300EB400CD6E1F /* UIButton+VKAddion.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIButton+VKAddion.m"; sourceTree = "<group>"; };
-		78100E2B25300EB400CD6E1F /* UIView+VKAddion.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+VKAddion.m"; sourceTree = "<group>"; };
-		78100E2C25300EB400CD6E1F /* VKCssStyleManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VKCssStyleManager.m; sourceTree = "<group>"; };
-		78100E2D25300EB400CD6E1F /* VKCssStyleProtocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VKCssStyleProtocol.h; sourceTree = "<group>"; };
-		78100E2E25300EB400CD6E1F /* VKCssProtocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VKCssProtocol.h; sourceTree = "<group>"; };
-		78100E3025300EB400CD6E1F /* TZPhotoPreviewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TZPhotoPreviewCell.h; sourceTree = "<group>"; };
-		78100E3125300EB400CD6E1F /* TZPhotoPickerController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TZPhotoPickerController.h; sourceTree = "<group>"; };
-		78100E3225300EB400CD6E1F /* TZImageCropManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TZImageCropManager.m; sourceTree = "<group>"; };
-		78100E3325300EB400CD6E1F /* TZImageManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TZImageManager.h; sourceTree = "<group>"; };
-		78100E3425300EB400CD6E1F /* TZAssetCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TZAssetCell.m; sourceTree = "<group>"; };
-		78100E3525300EB400CD6E1F /* TZVideoPlayerController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TZVideoPlayerController.m; sourceTree = "<group>"; };
-		78100E3625300EB400CD6E1F /* TZAssetModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TZAssetModel.m; sourceTree = "<group>"; };
-		78100E3725300EB400CD6E1F /* NSBundle+TZImagePicker.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSBundle+TZImagePicker.m"; sourceTree = "<group>"; };
-		78100E3825300EB400CD6E1F /* TZLocationManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TZLocationManager.h; sourceTree = "<group>"; };
-		78100E3925300EB400CD6E1F /* TZImagePickerController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TZImagePickerController.h; sourceTree = "<group>"; };
-		78100E3A25300EB400CD6E1F /* UIView+Layout.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+Layout.m"; sourceTree = "<group>"; };
-		78100E3B25300EB400CD6E1F /* TZPhotoPreviewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TZPhotoPreviewController.m; sourceTree = "<group>"; };
-		78100E3C25300EB400CD6E1F /* TZImagePickerController.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = TZImagePickerController.bundle; sourceTree = "<group>"; };
-		78100E3D25300EB400CD6E1F /* TZProgressView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TZProgressView.m; sourceTree = "<group>"; };
-		78100E3E25300EB400CD6E1F /* TZGifPhotoPreviewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TZGifPhotoPreviewController.h; sourceTree = "<group>"; };
-		78100E3F25300EB400CD6E1F /* TZAssetCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TZAssetCell.h; sourceTree = "<group>"; };
-		78100E4025300EB400CD6E1F /* TZImageManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TZImageManager.m; sourceTree = "<group>"; };
-		78100E4125300EB400CD6E1F /* TZImageCropManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TZImageCropManager.h; sourceTree = "<group>"; };
-		78100E4225300EB400CD6E1F /* TZPhotoPickerController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TZPhotoPickerController.m; sourceTree = "<group>"; };
-		78100E4325300EB400CD6E1F /* TZPhotoPreviewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TZPhotoPreviewCell.m; sourceTree = "<group>"; };
-		78100E4425300EB400CD6E1F /* NSBundle+TZImagePicker.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSBundle+TZImagePicker.h"; sourceTree = "<group>"; };
-		78100E4525300EB400CD6E1F /* TZAssetModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TZAssetModel.h; sourceTree = "<group>"; };
-		78100E4625300EB400CD6E1F /* TZVideoPlayerController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TZVideoPlayerController.h; sourceTree = "<group>"; };
-		78100E4725300EB400CD6E1F /* TZPhotoPreviewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TZPhotoPreviewController.h; sourceTree = "<group>"; };
-		78100E4825300EB400CD6E1F /* UIView+Layout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+Layout.h"; sourceTree = "<group>"; };
-		78100E4925300EB400CD6E1F /* TZImagePickerController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TZImagePickerController.m; sourceTree = "<group>"; };
-		78100E4A25300EB400CD6E1F /* TZLocationManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TZLocationManager.m; sourceTree = "<group>"; };
-		78100E4B25300EB400CD6E1F /* TZGifPhotoPreviewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TZGifPhotoPreviewController.m; sourceTree = "<group>"; };
-		78100E4C25300EB400CD6E1F /* TZProgressView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TZProgressView.h; sourceTree = "<group>"; };
 		78100E6C25300EB400CD6E1F /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		785DE28B256B4EBA0026B1B0 /* UILabel+LineSpacing.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UILabel+LineSpacing.h"; sourceTree = "<group>"; };
 		785DE28C256B4EBA0026B1B0 /* UILabel+LineSpacing.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UILabel+LineSpacing.m"; sourceTree = "<group>"; };
@@ -992,6 +895,103 @@
 		785DE617256B52D10026B1B0 /* MTHeaderRefreshListController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MTHeaderRefreshListController.m; sourceTree = "<group>"; };
 		785DE618256B52D10026B1B0 /* MTBaseListController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MTBaseListController.h; sourceTree = "<group>"; };
 		785DE619256B52D10026B1B0 /* MTListControllers.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MTListControllers.h; sourceTree = "<group>"; };
+		785DE626256B55790026B1B0 /* TZPhotoPreviewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TZPhotoPreviewCell.h; sourceTree = "<group>"; };
+		785DE627256B55790026B1B0 /* TZPhotoPickerController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TZPhotoPickerController.h; sourceTree = "<group>"; };
+		785DE628256B55790026B1B0 /* TZImageCropManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TZImageCropManager.m; sourceTree = "<group>"; };
+		785DE629256B55790026B1B0 /* TZImageManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TZImageManager.h; sourceTree = "<group>"; };
+		785DE62A256B55790026B1B0 /* TZAssetCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TZAssetCell.m; sourceTree = "<group>"; };
+		785DE62B256B55790026B1B0 /* TZVideoPlayerController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TZVideoPlayerController.m; sourceTree = "<group>"; };
+		785DE62C256B55790026B1B0 /* TZAssetModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TZAssetModel.m; sourceTree = "<group>"; };
+		785DE62D256B55790026B1B0 /* NSBundle+TZImagePicker.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSBundle+TZImagePicker.m"; sourceTree = "<group>"; };
+		785DE62E256B55790026B1B0 /* TZLocationManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TZLocationManager.h; sourceTree = "<group>"; };
+		785DE62F256B55790026B1B0 /* TZImagePickerController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TZImagePickerController.h; sourceTree = "<group>"; };
+		785DE630256B55790026B1B0 /* UIView+Layout.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+Layout.m"; sourceTree = "<group>"; };
+		785DE631256B55790026B1B0 /* TZPhotoPreviewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TZPhotoPreviewController.m; sourceTree = "<group>"; };
+		785DE632256B55790026B1B0 /* TZImagePickerController.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = TZImagePickerController.bundle; sourceTree = "<group>"; };
+		785DE633256B55790026B1B0 /* TZProgressView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TZProgressView.m; sourceTree = "<group>"; };
+		785DE634256B55790026B1B0 /* TZGifPhotoPreviewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TZGifPhotoPreviewController.h; sourceTree = "<group>"; };
+		785DE635256B55790026B1B0 /* TZAssetCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TZAssetCell.h; sourceTree = "<group>"; };
+		785DE636256B55790026B1B0 /* TZImageManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TZImageManager.m; sourceTree = "<group>"; };
+		785DE637256B55790026B1B0 /* TZImageCropManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TZImageCropManager.h; sourceTree = "<group>"; };
+		785DE638256B55790026B1B0 /* TZPhotoPickerController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TZPhotoPickerController.m; sourceTree = "<group>"; };
+		785DE639256B55790026B1B0 /* TZPhotoPreviewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TZPhotoPreviewCell.m; sourceTree = "<group>"; };
+		785DE63A256B55790026B1B0 /* NSBundle+TZImagePicker.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSBundle+TZImagePicker.h"; sourceTree = "<group>"; };
+		785DE63B256B55790026B1B0 /* TZAssetModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TZAssetModel.h; sourceTree = "<group>"; };
+		785DE63C256B55790026B1B0 /* TZVideoPlayerController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TZVideoPlayerController.h; sourceTree = "<group>"; };
+		785DE63D256B55790026B1B0 /* TZPhotoPreviewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TZPhotoPreviewController.h; sourceTree = "<group>"; };
+		785DE63E256B55790026B1B0 /* UIView+Layout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+Layout.h"; sourceTree = "<group>"; };
+		785DE63F256B55790026B1B0 /* TZImagePickerController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TZImagePickerController.m; sourceTree = "<group>"; };
+		785DE640256B55790026B1B0 /* TZLocationManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TZLocationManager.m; sourceTree = "<group>"; };
+		785DE641256B55790026B1B0 /* TZGifPhotoPreviewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TZGifPhotoPreviewController.m; sourceTree = "<group>"; };
+		785DE642256B55790026B1B0 /* TZProgressView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TZProgressView.h; sourceTree = "<group>"; };
+		785DE645256B55790026B1B0 /* VKCssHotReloader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VKCssHotReloader.h; sourceTree = "<group>"; };
+		785DE646256B55790026B1B0 /* SGDirWatchdog.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SGDirWatchdog.h; sourceTree = "<group>"; };
+		785DE647256B55790026B1B0 /* VKCssHotReloader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VKCssHotReloader.m; sourceTree = "<group>"; };
+		785DE648256B55790026B1B0 /* SGDirWatchdog.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SGDirWatchdog.m; sourceTree = "<group>"; };
+		785DE64A256B55790026B1B0 /* VKCssClassModal.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VKCssClassModal.h; sourceTree = "<group>"; };
+		785DE64B256B55790026B1B0 /* VKCssClassManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VKCssClassManager.h; sourceTree = "<group>"; };
+		785DE64C256B55790026B1B0 /* VKCssClassModal.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VKCssClassModal.m; sourceTree = "<group>"; };
+		785DE64D256B55790026B1B0 /* VKCssClassManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VKCssClassManager.m; sourceTree = "<group>"; };
+		785DE64F256B55790026B1B0 /* NSObject+VKIdHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+VKIdHelper.m"; sourceTree = "<group>"; };
+		785DE650256B55790026B1B0 /* UIView+VKCssProtocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+VKCssProtocol.h"; sourceTree = "<group>"; };
+		785DE651256B55790026B1B0 /* UIView+VKMetrics.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+VKMetrics.m"; sourceTree = "<group>"; };
+		785DE652256B55790026B1B0 /* UIColor+VKUtlities.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+VKUtlities.m"; sourceTree = "<group>"; };
+		785DE653256B55790026B1B0 /* NSMutableAttributedString+VKAttributedString.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSMutableAttributedString+VKAttributedString.h"; sourceTree = "<group>"; };
+		785DE654256B55790026B1B0 /* NSObject+VKIdHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+VKIdHelper.h"; sourceTree = "<group>"; };
+		785DE655256B55790026B1B0 /* VKUIKitMarco.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VKUIKitMarco.h; sourceTree = "<group>"; };
+		785DE656256B55790026B1B0 /* UIView+VKCssProtocol.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+VKCssProtocol.m"; sourceTree = "<group>"; };
+		785DE657256B55790026B1B0 /* UIView+VKMetrics.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+VKMetrics.h"; sourceTree = "<group>"; };
+		785DE658256B55790026B1B0 /* NSMutableAttributedString+VKAttributedString.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSMutableAttributedString+VKAttributedString.m"; sourceTree = "<group>"; };
+		785DE659256B55790026B1B0 /* NSObject+VKSingleton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+VKSingleton.h"; sourceTree = "<group>"; };
+		785DE65A256B55790026B1B0 /* UIColor+VKUtlities.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIColor+VKUtlities.h"; sourceTree = "<group>"; };
+		785DE65C256B55790026B1B0 /* VKCssStyleManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VKCssStyleManager.h; sourceTree = "<group>"; };
+		785DE65D256B55790026B1B0 /* VKCssStyleConstants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VKCssStyleConstants.h; sourceTree = "<group>"; };
+		785DE65E256B55790026B1B0 /* VKCssStylePch.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VKCssStylePch.h; sourceTree = "<group>"; };
+		785DE660256B55790026B1B0 /* VKTextAlignStyle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VKTextAlignStyle.h; sourceTree = "<group>"; };
+		785DE661256B55790026B1B0 /* VKFontColorStyle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VKFontColorStyle.h; sourceTree = "<group>"; };
+		785DE662256B55790026B1B0 /* VKBorderWidthStyle.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VKBorderWidthStyle.m; sourceTree = "<group>"; };
+		785DE663256B55790026B1B0 /* VKBorderRadiusStyle.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VKBorderRadiusStyle.m; sourceTree = "<group>"; };
+		785DE664256B55790026B1B0 /* VKTextStyle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VKTextStyle.h; sourceTree = "<group>"; };
+		785DE665256B55790026B1B0 /* VKTextShadowStyle.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VKTextShadowStyle.m; sourceTree = "<group>"; };
+		785DE666256B55790026B1B0 /* VKFontSizeStyle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VKFontSizeStyle.h; sourceTree = "<group>"; };
+		785DE667256B55790026B1B0 /* VKFontFamiltyStyle.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VKFontFamiltyStyle.m; sourceTree = "<group>"; };
+		785DE668256B55790026B1B0 /* VKBackgroundImageStyle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VKBackgroundImageStyle.h; sourceTree = "<group>"; };
+		785DE669256B55790026B1B0 /* VKBackgroundcolorStyle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VKBackgroundcolorStyle.h; sourceTree = "<group>"; };
+		785DE66A256B55790026B1B0 /* VKBorderColorStyle.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VKBorderColorStyle.m; sourceTree = "<group>"; };
+		785DE66B256B55790026B1B0 /* VKFontColorStyle.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VKFontColorStyle.m; sourceTree = "<group>"; };
+		785DE66C256B55790026B1B0 /* VKTextAlignStyle.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VKTextAlignStyle.m; sourceTree = "<group>"; };
+		785DE66D256B55790026B1B0 /* VKFontFamiltyStyle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VKFontFamiltyStyle.h; sourceTree = "<group>"; };
+		785DE66E256B55790026B1B0 /* VKFontSizeStyle.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VKFontSizeStyle.m; sourceTree = "<group>"; };
+		785DE66F256B55790026B1B0 /* VKTextShadowStyle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VKTextShadowStyle.h; sourceTree = "<group>"; };
+		785DE670256B55790026B1B0 /* VKBorderRadiusStyle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VKBorderRadiusStyle.h; sourceTree = "<group>"; };
+		785DE671256B55790026B1B0 /* VKTextStyle.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VKTextStyle.m; sourceTree = "<group>"; };
+		785DE672256B55790026B1B0 /* VKBorderWidthStyle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VKBorderWidthStyle.h; sourceTree = "<group>"; };
+		785DE673256B55790026B1B0 /* VKBackgroundcolorStyle.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VKBackgroundcolorStyle.m; sourceTree = "<group>"; };
+		785DE674256B55790026B1B0 /* VKBackgroundImageStyle.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VKBackgroundImageStyle.m; sourceTree = "<group>"; };
+		785DE675256B55790026B1B0 /* VKBorderColorStyle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VKBorderColorStyle.h; sourceTree = "<group>"; };
+		785DE677256B55790026B1B0 /* VKTextDecorationStyle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VKTextDecorationStyle.h; sourceTree = "<group>"; };
+		785DE678256B55790026B1B0 /* VKBorderBottomStyle.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VKBorderBottomStyle.m; sourceTree = "<group>"; };
+		785DE679256B55790026B1B0 /* VKBorderTopStyle.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VKBorderTopStyle.m; sourceTree = "<group>"; };
+		785DE67A256B55790026B1B0 /* VKFontWeightStyle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VKFontWeightStyle.h; sourceTree = "<group>"; };
+		785DE67B256B55790026B1B0 /* VKBorderLeftStyle.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VKBorderLeftStyle.m; sourceTree = "<group>"; };
+		785DE67C256B55790026B1B0 /* UILabel+VKAddion.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UILabel+VKAddion.h"; sourceTree = "<group>"; };
+		785DE67D256B55790026B1B0 /* VKBorderRightStyle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VKBorderRightStyle.h; sourceTree = "<group>"; };
+		785DE67E256B55790026B1B0 /* UIView+VKAddion.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+VKAddion.h"; sourceTree = "<group>"; };
+		785DE67F256B55790026B1B0 /* UIButton+VKAddion.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIButton+VKAddion.h"; sourceTree = "<group>"; };
+		785DE680256B55790026B1B0 /* VKTextTransformStyle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VKTextTransformStyle.h; sourceTree = "<group>"; };
+		785DE681256B55790026B1B0 /* VKBorderTopStyle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VKBorderTopStyle.h; sourceTree = "<group>"; };
+		785DE682256B55790026B1B0 /* VKBorderBottomStyle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VKBorderBottomStyle.h; sourceTree = "<group>"; };
+		785DE683256B55790026B1B0 /* VKTextDecorationStyle.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VKTextDecorationStyle.m; sourceTree = "<group>"; };
+		785DE684256B55790026B1B0 /* VKBorderLeftStyle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VKBorderLeftStyle.h; sourceTree = "<group>"; };
+		785DE685256B55790026B1B0 /* VKFontWeightStyle.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VKFontWeightStyle.m; sourceTree = "<group>"; };
+		785DE686256B55790026B1B0 /* VKBorderRightStyle.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VKBorderRightStyle.m; sourceTree = "<group>"; };
+		785DE687256B55790026B1B0 /* UILabel+VKAddion.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UILabel+VKAddion.m"; sourceTree = "<group>"; };
+		785DE688256B55790026B1B0 /* VKTextTransformStyle.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VKTextTransformStyle.m; sourceTree = "<group>"; };
+		785DE689256B55790026B1B0 /* UIButton+VKAddion.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIButton+VKAddion.m"; sourceTree = "<group>"; };
+		785DE68A256B55790026B1B0 /* UIView+VKAddion.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+VKAddion.m"; sourceTree = "<group>"; };
+		785DE68B256B55790026B1B0 /* VKCssStyleManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VKCssStyleManager.m; sourceTree = "<group>"; };
+		785DE68C256B55790026B1B0 /* VKCssStyleProtocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VKCssStyleProtocol.h; sourceTree = "<group>"; };
+		785DE68D256B55790026B1B0 /* VKCssProtocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VKCssProtocol.h; sourceTree = "<group>"; };
 		78F3327C2239051C00DA02F6 /* MagicThought.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = MagicThought.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		78F332802239051C00DA02F6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -1011,169 +1011,10 @@
 			isa = PBXGroup;
 			children = (
 				78100DE325300EB400CD6E1F /* Library.h */,
-				78100DE425300EB400CD6E1F /* VKCssProtocol */,
-				78100E2F25300EB400CD6E1F /* TZImagePickerController */,
+				785DE625256B55790026B1B0 /* TZImagePickerController */,
+				785DE643256B55790026B1B0 /* VKCssProtocol */,
 			);
 			path = Library;
-			sourceTree = "<group>";
-		};
-		78100DE425300EB400CD6E1F /* VKCssProtocol */ = {
-			isa = PBXGroup;
-			children = (
-				78100DE525300EB400CD6E1F /* VKCssHotReloader */,
-				78100DEA25300EB400CD6E1F /* VKCssClass */,
-				78100DEF25300EB400CD6E1F /* VKCategory */,
-				78100DFC25300EB400CD6E1F /* VKCssStyle */,
-				78100E2E25300EB400CD6E1F /* VKCssProtocol.h */,
-			);
-			path = VKCssProtocol;
-			sourceTree = "<group>";
-		};
-		78100DE525300EB400CD6E1F /* VKCssHotReloader */ = {
-			isa = PBXGroup;
-			children = (
-				78100DE625300EB400CD6E1F /* VKCssHotReloader.h */,
-				78100DE725300EB400CD6E1F /* SGDirWatchdog.h */,
-				78100DE825300EB400CD6E1F /* VKCssHotReloader.m */,
-				78100DE925300EB400CD6E1F /* SGDirWatchdog.m */,
-			);
-			path = VKCssHotReloader;
-			sourceTree = "<group>";
-		};
-		78100DEA25300EB400CD6E1F /* VKCssClass */ = {
-			isa = PBXGroup;
-			children = (
-				78100DEB25300EB400CD6E1F /* VKCssClassModal.h */,
-				78100DEC25300EB400CD6E1F /* VKCssClassManager.h */,
-				78100DED25300EB400CD6E1F /* VKCssClassModal.m */,
-				78100DEE25300EB400CD6E1F /* VKCssClassManager.m */,
-			);
-			path = VKCssClass;
-			sourceTree = "<group>";
-		};
-		78100DEF25300EB400CD6E1F /* VKCategory */ = {
-			isa = PBXGroup;
-			children = (
-				78100DF025300EB400CD6E1F /* NSObject+VKIdHelper.m */,
-				78100DF125300EB400CD6E1F /* UIView+VKCssProtocol.h */,
-				78100DF225300EB400CD6E1F /* UIView+VKMetrics.m */,
-				78100DF325300EB400CD6E1F /* UIColor+VKUtlities.m */,
-				78100DF425300EB400CD6E1F /* NSMutableAttributedString+VKAttributedString.h */,
-				78100DF525300EB400CD6E1F /* NSObject+VKIdHelper.h */,
-				78100DF625300EB400CD6E1F /* VKUIKitMarco.h */,
-				78100DF725300EB400CD6E1F /* UIView+VKCssProtocol.m */,
-				78100DF825300EB400CD6E1F /* UIView+VKMetrics.h */,
-				78100DF925300EB400CD6E1F /* NSMutableAttributedString+VKAttributedString.m */,
-				78100DFA25300EB400CD6E1F /* NSObject+VKSingleton.h */,
-				78100DFB25300EB400CD6E1F /* UIColor+VKUtlities.h */,
-			);
-			path = VKCategory;
-			sourceTree = "<group>";
-		};
-		78100DFC25300EB400CD6E1F /* VKCssStyle */ = {
-			isa = PBXGroup;
-			children = (
-				78100DFD25300EB400CD6E1F /* VKCssStyleManager.h */,
-				78100DFE25300EB400CD6E1F /* VKCssStyleConstants.h */,
-				78100DFF25300EB400CD6E1F /* VKCssStylePch.h */,
-				78100E0025300EB400CD6E1F /* VKStyles */,
-				78100E1725300EB400CD6E1F /* VKRuntimeStyles */,
-				78100E2C25300EB400CD6E1F /* VKCssStyleManager.m */,
-				78100E2D25300EB400CD6E1F /* VKCssStyleProtocol.h */,
-			);
-			path = VKCssStyle;
-			sourceTree = "<group>";
-		};
-		78100E0025300EB400CD6E1F /* VKStyles */ = {
-			isa = PBXGroup;
-			children = (
-				78100E0125300EB400CD6E1F /* VKTextAlignStyle.h */,
-				78100E0225300EB400CD6E1F /* VKFontColorStyle.h */,
-				78100E0325300EB400CD6E1F /* VKBorderWidthStyle.m */,
-				78100E0425300EB400CD6E1F /* VKBorderRadiusStyle.m */,
-				78100E0525300EB400CD6E1F /* VKTextStyle.h */,
-				78100E0625300EB400CD6E1F /* VKTextShadowStyle.m */,
-				78100E0725300EB400CD6E1F /* VKFontSizeStyle.h */,
-				78100E0825300EB400CD6E1F /* VKFontFamiltyStyle.m */,
-				78100E0925300EB400CD6E1F /* VKBackgroundImageStyle.h */,
-				78100E0A25300EB400CD6E1F /* VKBackgroundcolorStyle.h */,
-				78100E0B25300EB400CD6E1F /* VKBorderColorStyle.m */,
-				78100E0C25300EB400CD6E1F /* VKFontColorStyle.m */,
-				78100E0D25300EB400CD6E1F /* VKTextAlignStyle.m */,
-				78100E0E25300EB400CD6E1F /* VKFontFamiltyStyle.h */,
-				78100E0F25300EB400CD6E1F /* VKFontSizeStyle.m */,
-				78100E1025300EB400CD6E1F /* VKTextShadowStyle.h */,
-				78100E1125300EB400CD6E1F /* VKBorderRadiusStyle.h */,
-				78100E1225300EB400CD6E1F /* VKTextStyle.m */,
-				78100E1325300EB400CD6E1F /* VKBorderWidthStyle.h */,
-				78100E1425300EB400CD6E1F /* VKBackgroundcolorStyle.m */,
-				78100E1525300EB400CD6E1F /* VKBackgroundImageStyle.m */,
-				78100E1625300EB400CD6E1F /* VKBorderColorStyle.h */,
-			);
-			path = VKStyles;
-			sourceTree = "<group>";
-		};
-		78100E1725300EB400CD6E1F /* VKRuntimeStyles */ = {
-			isa = PBXGroup;
-			children = (
-				78100E1825300EB400CD6E1F /* VKTextDecorationStyle.h */,
-				78100E1925300EB400CD6E1F /* VKBorderBottomStyle.m */,
-				78100E1A25300EB400CD6E1F /* VKBorderTopStyle.m */,
-				78100E1B25300EB400CD6E1F /* VKFontWeightStyle.h */,
-				78100E1C25300EB400CD6E1F /* VKBorderLeftStyle.m */,
-				78100E1D25300EB400CD6E1F /* UILabel+VKAddion.h */,
-				78100E1E25300EB400CD6E1F /* VKBorderRightStyle.h */,
-				78100E1F25300EB400CD6E1F /* UIView+VKAddion.h */,
-				78100E2025300EB400CD6E1F /* UIButton+VKAddion.h */,
-				78100E2125300EB400CD6E1F /* VKTextTransformStyle.h */,
-				78100E2225300EB400CD6E1F /* VKBorderTopStyle.h */,
-				78100E2325300EB400CD6E1F /* VKBorderBottomStyle.h */,
-				78100E2425300EB400CD6E1F /* VKTextDecorationStyle.m */,
-				78100E2525300EB400CD6E1F /* VKBorderLeftStyle.h */,
-				78100E2625300EB400CD6E1F /* VKFontWeightStyle.m */,
-				78100E2725300EB400CD6E1F /* VKBorderRightStyle.m */,
-				78100E2825300EB400CD6E1F /* UILabel+VKAddion.m */,
-				78100E2925300EB400CD6E1F /* VKTextTransformStyle.m */,
-				78100E2A25300EB400CD6E1F /* UIButton+VKAddion.m */,
-				78100E2B25300EB400CD6E1F /* UIView+VKAddion.m */,
-			);
-			path = VKRuntimeStyles;
-			sourceTree = "<group>";
-		};
-		78100E2F25300EB400CD6E1F /* TZImagePickerController */ = {
-			isa = PBXGroup;
-			children = (
-				78100E3025300EB400CD6E1F /* TZPhotoPreviewCell.h */,
-				78100E3125300EB400CD6E1F /* TZPhotoPickerController.h */,
-				78100E3225300EB400CD6E1F /* TZImageCropManager.m */,
-				78100E3325300EB400CD6E1F /* TZImageManager.h */,
-				78100E3425300EB400CD6E1F /* TZAssetCell.m */,
-				78100E3525300EB400CD6E1F /* TZVideoPlayerController.m */,
-				78100E3625300EB400CD6E1F /* TZAssetModel.m */,
-				78100E3725300EB400CD6E1F /* NSBundle+TZImagePicker.m */,
-				78100E3825300EB400CD6E1F /* TZLocationManager.h */,
-				78100E3925300EB400CD6E1F /* TZImagePickerController.h */,
-				78100E3A25300EB400CD6E1F /* UIView+Layout.m */,
-				78100E3B25300EB400CD6E1F /* TZPhotoPreviewController.m */,
-				78100E3C25300EB400CD6E1F /* TZImagePickerController.bundle */,
-				78100E3D25300EB400CD6E1F /* TZProgressView.m */,
-				78100E3E25300EB400CD6E1F /* TZGifPhotoPreviewController.h */,
-				78100E3F25300EB400CD6E1F /* TZAssetCell.h */,
-				78100E4025300EB400CD6E1F /* TZImageManager.m */,
-				78100E4125300EB400CD6E1F /* TZImageCropManager.h */,
-				78100E4225300EB400CD6E1F /* TZPhotoPickerController.m */,
-				78100E4325300EB400CD6E1F /* TZPhotoPreviewCell.m */,
-				78100E4425300EB400CD6E1F /* NSBundle+TZImagePicker.h */,
-				78100E4525300EB400CD6E1F /* TZAssetModel.h */,
-				78100E4625300EB400CD6E1F /* TZVideoPlayerController.h */,
-				78100E4725300EB400CD6E1F /* TZPhotoPreviewController.h */,
-				78100E4825300EB400CD6E1F /* UIView+Layout.h */,
-				78100E4925300EB400CD6E1F /* TZImagePickerController.m */,
-				78100E4A25300EB400CD6E1F /* TZLocationManager.m */,
-				78100E4B25300EB400CD6E1F /* TZGifPhotoPreviewController.m */,
-				78100E4C25300EB400CD6E1F /* TZProgressView.h */,
-			);
-			path = TZImagePickerController;
 			sourceTree = "<group>";
 		};
 		785DE289256B4EBA0026B1B0 /* Category */ = {
@@ -2034,6 +1875,165 @@
 			path = MTListController;
 			sourceTree = "<group>";
 		};
+		785DE625256B55790026B1B0 /* TZImagePickerController */ = {
+			isa = PBXGroup;
+			children = (
+				785DE626256B55790026B1B0 /* TZPhotoPreviewCell.h */,
+				785DE627256B55790026B1B0 /* TZPhotoPickerController.h */,
+				785DE628256B55790026B1B0 /* TZImageCropManager.m */,
+				785DE629256B55790026B1B0 /* TZImageManager.h */,
+				785DE62A256B55790026B1B0 /* TZAssetCell.m */,
+				785DE62B256B55790026B1B0 /* TZVideoPlayerController.m */,
+				785DE62C256B55790026B1B0 /* TZAssetModel.m */,
+				785DE62D256B55790026B1B0 /* NSBundle+TZImagePicker.m */,
+				785DE62E256B55790026B1B0 /* TZLocationManager.h */,
+				785DE62F256B55790026B1B0 /* TZImagePickerController.h */,
+				785DE630256B55790026B1B0 /* UIView+Layout.m */,
+				785DE631256B55790026B1B0 /* TZPhotoPreviewController.m */,
+				785DE632256B55790026B1B0 /* TZImagePickerController.bundle */,
+				785DE633256B55790026B1B0 /* TZProgressView.m */,
+				785DE634256B55790026B1B0 /* TZGifPhotoPreviewController.h */,
+				785DE635256B55790026B1B0 /* TZAssetCell.h */,
+				785DE636256B55790026B1B0 /* TZImageManager.m */,
+				785DE637256B55790026B1B0 /* TZImageCropManager.h */,
+				785DE638256B55790026B1B0 /* TZPhotoPickerController.m */,
+				785DE639256B55790026B1B0 /* TZPhotoPreviewCell.m */,
+				785DE63A256B55790026B1B0 /* NSBundle+TZImagePicker.h */,
+				785DE63B256B55790026B1B0 /* TZAssetModel.h */,
+				785DE63C256B55790026B1B0 /* TZVideoPlayerController.h */,
+				785DE63D256B55790026B1B0 /* TZPhotoPreviewController.h */,
+				785DE63E256B55790026B1B0 /* UIView+Layout.h */,
+				785DE63F256B55790026B1B0 /* TZImagePickerController.m */,
+				785DE640256B55790026B1B0 /* TZLocationManager.m */,
+				785DE641256B55790026B1B0 /* TZGifPhotoPreviewController.m */,
+				785DE642256B55790026B1B0 /* TZProgressView.h */,
+			);
+			path = TZImagePickerController;
+			sourceTree = "<group>";
+		};
+		785DE643256B55790026B1B0 /* VKCssProtocol */ = {
+			isa = PBXGroup;
+			children = (
+				785DE644256B55790026B1B0 /* VKCssHotReloader */,
+				785DE649256B55790026B1B0 /* VKCssClass */,
+				785DE64E256B55790026B1B0 /* VKCategory */,
+				785DE65B256B55790026B1B0 /* VKCssStyle */,
+				785DE68D256B55790026B1B0 /* VKCssProtocol.h */,
+			);
+			path = VKCssProtocol;
+			sourceTree = "<group>";
+		};
+		785DE644256B55790026B1B0 /* VKCssHotReloader */ = {
+			isa = PBXGroup;
+			children = (
+				785DE645256B55790026B1B0 /* VKCssHotReloader.h */,
+				785DE646256B55790026B1B0 /* SGDirWatchdog.h */,
+				785DE647256B55790026B1B0 /* VKCssHotReloader.m */,
+				785DE648256B55790026B1B0 /* SGDirWatchdog.m */,
+			);
+			path = VKCssHotReloader;
+			sourceTree = "<group>";
+		};
+		785DE649256B55790026B1B0 /* VKCssClass */ = {
+			isa = PBXGroup;
+			children = (
+				785DE64A256B55790026B1B0 /* VKCssClassModal.h */,
+				785DE64B256B55790026B1B0 /* VKCssClassManager.h */,
+				785DE64C256B55790026B1B0 /* VKCssClassModal.m */,
+				785DE64D256B55790026B1B0 /* VKCssClassManager.m */,
+			);
+			path = VKCssClass;
+			sourceTree = "<group>";
+		};
+		785DE64E256B55790026B1B0 /* VKCategory */ = {
+			isa = PBXGroup;
+			children = (
+				785DE64F256B55790026B1B0 /* NSObject+VKIdHelper.m */,
+				785DE650256B55790026B1B0 /* UIView+VKCssProtocol.h */,
+				785DE651256B55790026B1B0 /* UIView+VKMetrics.m */,
+				785DE652256B55790026B1B0 /* UIColor+VKUtlities.m */,
+				785DE653256B55790026B1B0 /* NSMutableAttributedString+VKAttributedString.h */,
+				785DE654256B55790026B1B0 /* NSObject+VKIdHelper.h */,
+				785DE655256B55790026B1B0 /* VKUIKitMarco.h */,
+				785DE656256B55790026B1B0 /* UIView+VKCssProtocol.m */,
+				785DE657256B55790026B1B0 /* UIView+VKMetrics.h */,
+				785DE658256B55790026B1B0 /* NSMutableAttributedString+VKAttributedString.m */,
+				785DE659256B55790026B1B0 /* NSObject+VKSingleton.h */,
+				785DE65A256B55790026B1B0 /* UIColor+VKUtlities.h */,
+			);
+			path = VKCategory;
+			sourceTree = "<group>";
+		};
+		785DE65B256B55790026B1B0 /* VKCssStyle */ = {
+			isa = PBXGroup;
+			children = (
+				785DE65C256B55790026B1B0 /* VKCssStyleManager.h */,
+				785DE65D256B55790026B1B0 /* VKCssStyleConstants.h */,
+				785DE65E256B55790026B1B0 /* VKCssStylePch.h */,
+				785DE65F256B55790026B1B0 /* VKStyles */,
+				785DE676256B55790026B1B0 /* VKRuntimeStyles */,
+				785DE68B256B55790026B1B0 /* VKCssStyleManager.m */,
+				785DE68C256B55790026B1B0 /* VKCssStyleProtocol.h */,
+			);
+			path = VKCssStyle;
+			sourceTree = "<group>";
+		};
+		785DE65F256B55790026B1B0 /* VKStyles */ = {
+			isa = PBXGroup;
+			children = (
+				785DE660256B55790026B1B0 /* VKTextAlignStyle.h */,
+				785DE661256B55790026B1B0 /* VKFontColorStyle.h */,
+				785DE662256B55790026B1B0 /* VKBorderWidthStyle.m */,
+				785DE663256B55790026B1B0 /* VKBorderRadiusStyle.m */,
+				785DE664256B55790026B1B0 /* VKTextStyle.h */,
+				785DE665256B55790026B1B0 /* VKTextShadowStyle.m */,
+				785DE666256B55790026B1B0 /* VKFontSizeStyle.h */,
+				785DE667256B55790026B1B0 /* VKFontFamiltyStyle.m */,
+				785DE668256B55790026B1B0 /* VKBackgroundImageStyle.h */,
+				785DE669256B55790026B1B0 /* VKBackgroundcolorStyle.h */,
+				785DE66A256B55790026B1B0 /* VKBorderColorStyle.m */,
+				785DE66B256B55790026B1B0 /* VKFontColorStyle.m */,
+				785DE66C256B55790026B1B0 /* VKTextAlignStyle.m */,
+				785DE66D256B55790026B1B0 /* VKFontFamiltyStyle.h */,
+				785DE66E256B55790026B1B0 /* VKFontSizeStyle.m */,
+				785DE66F256B55790026B1B0 /* VKTextShadowStyle.h */,
+				785DE670256B55790026B1B0 /* VKBorderRadiusStyle.h */,
+				785DE671256B55790026B1B0 /* VKTextStyle.m */,
+				785DE672256B55790026B1B0 /* VKBorderWidthStyle.h */,
+				785DE673256B55790026B1B0 /* VKBackgroundcolorStyle.m */,
+				785DE674256B55790026B1B0 /* VKBackgroundImageStyle.m */,
+				785DE675256B55790026B1B0 /* VKBorderColorStyle.h */,
+			);
+			path = VKStyles;
+			sourceTree = "<group>";
+		};
+		785DE676256B55790026B1B0 /* VKRuntimeStyles */ = {
+			isa = PBXGroup;
+			children = (
+				785DE677256B55790026B1B0 /* VKTextDecorationStyle.h */,
+				785DE678256B55790026B1B0 /* VKBorderBottomStyle.m */,
+				785DE679256B55790026B1B0 /* VKBorderTopStyle.m */,
+				785DE67A256B55790026B1B0 /* VKFontWeightStyle.h */,
+				785DE67B256B55790026B1B0 /* VKBorderLeftStyle.m */,
+				785DE67C256B55790026B1B0 /* UILabel+VKAddion.h */,
+				785DE67D256B55790026B1B0 /* VKBorderRightStyle.h */,
+				785DE67E256B55790026B1B0 /* UIView+VKAddion.h */,
+				785DE67F256B55790026B1B0 /* UIButton+VKAddion.h */,
+				785DE680256B55790026B1B0 /* VKTextTransformStyle.h */,
+				785DE681256B55790026B1B0 /* VKBorderTopStyle.h */,
+				785DE682256B55790026B1B0 /* VKBorderBottomStyle.h */,
+				785DE683256B55790026B1B0 /* VKTextDecorationStyle.m */,
+				785DE684256B55790026B1B0 /* VKBorderLeftStyle.h */,
+				785DE685256B55790026B1B0 /* VKFontWeightStyle.m */,
+				785DE686256B55790026B1B0 /* VKBorderRightStyle.m */,
+				785DE687256B55790026B1B0 /* UILabel+VKAddion.m */,
+				785DE688256B55790026B1B0 /* VKTextTransformStyle.m */,
+				785DE689256B55790026B1B0 /* UIButton+VKAddion.m */,
+				785DE68A256B55790026B1B0 /* UIView+VKAddion.m */,
+			);
+			path = VKRuntimeStyles;
+			sourceTree = "<group>";
+		};
 		78F332722239051C00DA02F6 = {
 			isa = PBXGroup;
 			children = (
@@ -2114,80 +2114,71 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				78100FFF25300EB600CD6E1F /* VKTextDecorationStyle.h in Headers */,
 				785DE567256B50A20026B1B0 /* MTTenScrollContentView.h in Headers */,
 				785DE3AA256B4FC30026B1B0 /* MTFileManager.h in Headers */,
-				7810102425300EB600CD6E1F /* TZGifPhotoPreviewController.h in Headers */,
 				785DE59C256B50A20026B1B0 /* MTAnimatedTransitioning.h in Headers */,
 				785DE521256B50A20026B1B0 /* MTPageTitleControllModel.h in Headers */,
 				785DE57B256B50A20026B1B0 /* MTInitProtocol.h in Headers */,
 				785DE57C256B50A20026B1B0 /* MTDelegateProtocol.h in Headers */,
-				78100FF225300EB600CD6E1F /* VKBackgroundcolorStyle.h in Headers */,
 				785DE3B6256B4FC30026B1B0 /* MTFileModel.h in Headers */,
 				785DE594256B50A20026B1B0 /* MTImagePlayView0.h in Headers */,
-				7810102A25300EB600CD6E1F /* NSBundle+TZImagePicker.h in Headers */,
 				785DE406256B4FC30026B1B0 /* MTBaseAlertPickerController.h in Headers */,
 				785DE3B0256B4FC30026B1B0 /* MTFileHandle.h in Headers */,
-				78100FD225300EB600CD6E1F /* VKCssHotReloader.h in Headers */,
-				7810102E25300EB600CD6E1F /* UIView+Layout.h in Headers */,
 				785DE54F256B50A20026B1B0 /* MTDeviceManager.h in Headers */,
 				785DE40E256B4FC30026B1B0 /* MTAlertUIContainer.h in Headers */,
-				78100FE225300EB600CD6E1F /* UIView+VKMetrics.h in Headers */,
 				785DE3F0256B4FC30026B1B0 /* MTDelegateTableViewCell.h in Headers */,
-				78100FE625300EB600CD6E1F /* VKCssStyleManager.h in Headers */,
+				785DE6AC256B557A0026B1B0 /* SGDirWatchdog.h in Headers */,
 				785DE569256B50A20026B1B0 /* MTTenScrollViewCell.h in Headers */,
-				7810100C25300EB600CD6E1F /* VKBorderLeftStyle.h in Headers */,
 				785DE5A5256B50A20026B1B0 /* MTNavigationControllers.h in Headers */,
 				785DE3CA256B4FC30026B1B0 /* MTBaseCollectionViewCell.h in Headers */,
-				7810101E25300EB600CD6E1F /* TZLocationManager.h in Headers */,
 				785DE2E3256B4EBA0026B1B0 /* UIViewController+Navigation.h in Headers */,
 				785DE5C1256B50A20026B1B0 /* MTTextView.h in Headers */,
 				785DE403256B4FC30026B1B0 /* MTAlertGetPhotoWayController.h in Headers */,
-				78100FF125300EB600CD6E1F /* VKBackgroundImageStyle.h in Headers */,
-				78100FE425300EB600CD6E1F /* NSObject+VKSingleton.h in Headers */,
-				78100FED25300EB600CD6E1F /* VKTextStyle.h in Headers */,
+				785DE6BF256B557A0026B1B0 /* VKCssStyleManager.h in Headers */,
 				785DE58E256B50A20026B1B0 /* MTCollectionViewScaleLayout.h in Headers */,
-				78100FDE25300EB600CD6E1F /* NSMutableAttributedString+VKAttributedString.h in Headers */,
-				78100FE725300EB600CD6E1F /* VKCssStyleConstants.h in Headers */,
 				785DE3C6256B4FC30026B1B0 /* MTBaseView.h in Headers */,
 				785DE331256B4F780026B1B0 /* UINavigationBar+Config.h in Headers */,
+				785DE6D1256B557A0026B1B0 /* VKTextShadowStyle.h in Headers */,
 				785DE3E6256B4FC30026B1B0 /* MTDataSourceModel.h in Headers */,
-				7810101725300EB600CD6E1F /* TZPhotoPickerController.h in Headers */,
+				785DE6AF256B557A0026B1B0 /* VKCssClassModal.h in Headers */,
 				785DE3B2256B4FC30026B1B0 /* MTAppDelegate.h in Headers */,
+				785DE6CF256B557A0026B1B0 /* VKFontFamiltyStyle.h in Headers */,
 				785DE2C5256B4EBA0026B1B0 /* UIView+Animate.h in Headers */,
 				785DE5BE256B50A20026B1B0 /* MTTextVerifyModel.h in Headers */,
 				785DE58F256B50A20026B1B0 /* MTImageCell.h in Headers */,
+				785DE6E3256B557A0026B1B0 /* VKBorderBottomStyle.h in Headers */,
 				785DE578256B50A20026B1B0 /* MTImageShowCell.h in Headers */,
 				785DE2BC256B4EBA0026B1B0 /* UILabel+LineSpacing.h in Headers */,
 				785DE2CF256B4EBA0026B1B0 /* NSString+Money.h in Headers */,
-				78100FF925300EB600CD6E1F /* VKBorderRadiusStyle.h in Headers */,
 				785DE32E256B4F780026B1B0 /* NSObject+CommonProtocol.h in Headers */,
 				785DE571256B50A20026B1B0 /* MTImageShow.h in Headers */,
-				7810103225300EB600CD6E1F /* TZProgressView.h in Headers */,
 				785DE2BE256B4EBA0026B1B0 /* UIColor+Image.h in Headers */,
 				785DE318256B4F780026B1B0 /* MTManager.h in Headers */,
 				785DE5B3256B50A20026B1B0 /* UILabel+Size.h in Headers */,
 				785DE3CD256B4FC30026B1B0 /* MTLoadingView.h in Headers */,
+				785DE6C3256B557A0026B1B0 /* VKFontColorStyle.h in Headers */,
 				785DE332256B4F780026B1B0 /* MTContentModelPropertyConst.h in Headers */,
-				7810101625300EB600CD6E1F /* TZPhotoPreviewCell.h in Headers */,
 				785DE5BC256B50A20026B1B0 /* MTTextFieldVerify.h in Headers */,
 				785DE546256B50A20026B1B0 /* MTRefresh.h in Headers */,
+				785DE6A2256B557A0026B1B0 /* NSBundle+TZImagePicker.h in Headers */,
 				785DE3CB256B4FC30026B1B0 /* MTBaseHeaderFooterView.h in Headers */,
 				785DE2D9256B4EBA0026B1B0 /* NSString+WordHeight.h in Headers */,
 				785DE2D1256B4EBA0026B1B0 /* NSString+MD5.h in Headers */,
 				785DE5C7256B50A20026B1B0 /* UIImage+PropertyExtension.h in Headers */,
 				785DE559256B50A20026B1B0 /* MTTenScrollViewDelegateModel.h in Headers */,
+				785DE6D8256B557A0026B1B0 /* VKTextDecorationStyle.h in Headers */,
 				785DE329256B4F780026B1B0 /* MTConst.h in Headers */,
+				785DE6BD256B557A0026B1B0 /* NSObject+VKSingleton.h in Headers */,
+				785DE6D4256B557A0026B1B0 /* VKBorderWidthStyle.h in Headers */,
+				785DE6CB256B557A0026B1B0 /* VKBackgroundcolorStyle.h in Headers */,
 				785DE573256B50A20026B1B0 /* MTAlertBigImageController.h in Headers */,
 				785DE562256B50A20026B1B0 /* MTTenScrollModel.h in Headers */,
-				7810101525300EB600CD6E1F /* VKCssProtocol.h in Headers */,
-				78100FD625300EB600CD6E1F /* VKCssClassModal.h in Headers */,
+				785DE6B4256B557A0026B1B0 /* UIView+VKCssProtocol.h in Headers */,
 				785DE552256B50A20026B1B0 /* MTManagers.h in Headers */,
-				78100FE525300EB600CD6E1F /* UIColor+VKUtlities.h in Headers */,
 				785DE53F256B50A20026B1B0 /* UIView+MBHud.h in Headers */,
 				785DE59D256B50A20026B1B0 /* MTInteractiveNavigationDelegate.h in Headers */,
+				785DE6ED256B557A0026B1B0 /* VKCssStyleProtocol.h in Headers */,
 				785DE3CF256B4FC30026B1B0 /* NSArray+Alert.h in Headers */,
-				78100FFE25300EB600CD6E1F /* VKBorderColorStyle.h in Headers */,
 				785DE57A256B50A20026B1B0 /* MTProtocol.h in Headers */,
 				785DE3D4256B4FC30026B1B0 /* MTWindow.h in Headers */,
 				785DE52E256B50A20026B1B0 /* MTViewControllers.h in Headers */,
@@ -2196,80 +2187,80 @@
 				785DE3C7256B4FC30026B1B0 /* MTBaseCells.h in Headers */,
 				785DE312256B4F780026B1B0 /* NSString+Exist.h in Headers */,
 				785DE3E0256B4FC30026B1B0 /* MTDelegateCollectionView.h in Headers */,
+				785DE6B0256B557A0026B1B0 /* VKCssClassManager.h in Headers */,
 				785DE534256B50A20026B1B0 /* MTSafariViewController.h in Headers */,
 				785DE32C256B4F780026B1B0 /* UIView+Frame.h in Headers */,
 				785DE2D6256B4EBA0026B1B0 /* NSString+Hash.h in Headers */,
 				785DE54A256B50A20026B1B0 /* MTRefreshBackNormalFooter.h in Headers */,
 				785DE513256B50A20026B1B0 /* MTViewContentModel.h in Headers */,
 				785DE52C256B50A20026B1B0 /* MTPageTitleView.h in Headers */,
-				78100FFB25300EB600CD6E1F /* VKBorderWidthStyle.h in Headers */,
 				785DE2DA256B4EBA0026B1B0 /* NSString+TestString.h in Headers */,
-				7810102D25300EB600CD6E1F /* TZPhotoPreviewController.h in Headers */,
 				785DE327256B4F780026B1B0 /* Reachability.h in Headers */,
 				785DE314256B4F780026B1B0 /* Dependency.h in Headers */,
 				785DE5BF256B50A20026B1B0 /* MTTextField.h in Headers */,
 				785DE561256B50A20026B1B0 /* MTDynamicItem.h in Headers */,
+				785DE6A6256B557A0026B1B0 /* UIView+Layout.h in Headers */,
+				785DE6A3256B557A0026B1B0 /* TZAssetModel.h in Headers */,
+				785DE6C0256B557A0026B1B0 /* VKCssStyleConstants.h in Headers */,
 				785DE544256B50A20026B1B0 /* MTSafariView.h in Headers */,
-				7810100225300EB600CD6E1F /* VKFontWeightStyle.h in Headers */,
 				785DE52B256B50A20026B1B0 /* MTPageScrollView.h in Headers */,
 				785DE3DA256B4FC30026B1B0 /* MTPopView.h in Headers */,
 				785DE3F4256B4FC30026B1B0 /* MTDragCollectionView.h in Headers */,
 				785DE3E3256B4FC30026B1B0 /* MTDataSource.h in Headers */,
+				785DE6C6256B557A0026B1B0 /* VKTextStyle.h in Headers */,
 				785DE3DD256B4FC30026B1B0 /* MTDelegatePickerView.h in Headers */,
-				78100FD325300EB600CD6E1F /* SGDirWatchdog.h in Headers */,
-				7810101925300EB600CD6E1F /* TZImageManager.h in Headers */,
+				785DE6D2256B557A0026B1B0 /* VKBorderRadiusStyle.h in Headers */,
+				785DE6C8256B557A0026B1B0 /* VKFontSizeStyle.h in Headers */,
 				785DE55C256B50A20026B1B0 /* MTTenScroll.h in Headers */,
-				7810100A25300EB600CD6E1F /* VKBorderBottomStyle.h in Headers */,
 				785DE598256B50A20026B1B0 /* AnimateController.h in Headers */,
 				785DE3F8256B4FC30026B1B0 /* MTDelegateMode.h in Headers */,
 				785DE59B256B50A20026B1B0 /* MTCardStyle1Transitioning.h in Headers */,
-				7810100625300EB600CD6E1F /* UIView+VKAddion.h in Headers */,
 				785DE310256B4F780026B1B0 /* MTTimeModel.h in Headers */,
-				7810101425300EB600CD6E1F /* VKCssStyleProtocol.h in Headers */,
 				785DE623256B52D20026B1B0 /* MTBaseListController.h in Headers */,
+				785DE6E1256B557A0026B1B0 /* VKTextTransformStyle.h in Headers */,
+				785DE697256B55790026B1B0 /* TZImagePickerController.h in Headers */,
 				785DE53D256B50A20026B1B0 /* MTHud.h in Headers */,
 				785DE3CE256B4FC30026B1B0 /* UIView+MTBackground.h in Headers */,
 				785DE401256B4FC30026B1B0 /* MTAlertSheetController.h in Headers */,
 				785DE5A1256B50A20026B1B0 /* MTNavigationPhotoBrowserController.h in Headers */,
-				78100FF625300EB600CD6E1F /* VKFontFamiltyStyle.h in Headers */,
 				785DE51A256B50A20026B1B0 /* MTPageScrollCellViewModel.h in Headers */,
 				785DE525256B50A20026B1B0 /* MTPageSumController.h in Headers */,
 				785DE3AC256B4FC30026B1B0 /* NSData+File.h in Headers */,
-				78100FEA25300EB600CD6E1F /* VKFontColorStyle.h in Headers */,
 				785DE511256B50A20026B1B0 /* MTViewContentModels.h in Headers */,
 				785DE5B9256B50A20026B1B0 /* MTTabBarItem.h in Headers */,
 				785DE31A256B4F780026B1B0 /* NSObject+MJExtension.h in Headers */,
-				78100FF825300EB600CD6E1F /* VKTextShadowStyle.h in Headers */,
 				785DE2E4256B4EBA0026B1B0 /* Category.h in Headers */,
+				785DE696256B55790026B1B0 /* TZLocationManager.h in Headers */,
 				785DE2C7256B4EBA0026B1B0 /* UIView+Copy.h in Headers */,
+				785DE6C2256B557A0026B1B0 /* VKTextAlignStyle.h in Headers */,
+				785DE6C1256B557A0026B1B0 /* VKCssStylePch.h in Headers */,
+				785DE6B9256B557A0026B1B0 /* VKUIKitMarco.h in Headers */,
 				785DE3C0256B4FC30026B1B0 /* MTBaseCellModel.h in Headers */,
 				785DE5D2256B50A20026B1B0 /* MTImageHandle.h in Headers */,
 				785DE560256B50A20026B1B0 /* TestController.h in Headers */,
 				785DE574256B50A20026B1B0 /* MTImageShowViewContentModel.h in Headers */,
-				78100FE025300EB600CD6E1F /* VKUIKitMarco.h in Headers */,
 				785DE2D0256B4EBA0026B1B0 /* NSString+Replace.h in Headers */,
 				785DE3E1256B4FC30026B1B0 /* MTDelegateView.h in Headers */,
 				785DE5B0256B50A20026B1B0 /* MTStyle.h in Headers */,
 				785DE5A3256B50A20026B1B0 /* MTNavigationTransitionController.h in Headers */,
 				785DE532256B50A20026B1B0 /* MTViewController.h in Headers */,
 				785DE54E256B50A20026B1B0 /* MTPhotoManager.h in Headers */,
-				78100FDF25300EB600CD6E1F /* NSObject+VKIdHelper.h in Headers */,
 				785DE56F256B50A20026B1B0 /* MTImageShowControllModel.h in Headers */,
 				785DE5A0256B50A20026B1B0 /* MTNavigationController.h in Headers */,
-				78100FE925300EB600CD6E1F /* VKTextAlignStyle.h in Headers */,
 				785DE31F256B4F780026B1B0 /* UIView+Circle.h in Headers */,
 				785DE5B8256B50A20026B1B0 /* MTTabBarController.h in Headers */,
+				785DE6AB256B557A0026B1B0 /* VKCssHotReloader.h in Headers */,
 				785DE50E256B50A20026B1B0 /* MTBaseApi.h in Headers */,
-				7810100925300EB600CD6E1F /* VKBorderTopStyle.h in Headers */,
 				785DE3B8256B4FC30026B1B0 /* MTDocument.h in Headers */,
-				78100FE825300EB600CD6E1F /* VKCssStylePch.h in Headers */,
 				785DE3CC256B4FC30026B1B0 /* MTBaseCollectionReusableView.h in Headers */,
 				785DE313256B4F780026B1B0 /* UIDevice+DeviceInfo.h in Headers */,
+				785DE6CA256B557A0026B1B0 /* VKBackgroundImageStyle.h in Headers */,
+				785DE6DE256B557A0026B1B0 /* VKBorderRightStyle.h in Headers */,
 				785DE522256B50A20026B1B0 /* MTPageControllModel.h in Headers */,
 				785DE321256B4F780026B1B0 /* NSObject+ReuseIdentifier.h in Headers */,
+				785DE69F256B557A0026B1B0 /* TZImageCropManager.h in Headers */,
 				785DE325256B4F780026B1B0 /* MTLayout.h in Headers */,
 				785DE3EA256B4FC30026B1B0 /* UIView+Delegate.h in Headers */,
-				7810102B25300EB600CD6E1F /* TZAssetModel.h in Headers */,
 				785DE3FA256B4FC30026B1B0 /* MTTakePhotoModel.h in Headers */,
 				785DE519256B50A20026B1B0 /* MTPageScrollViewModel.h in Headers */,
 				785DE5A9256B50A20026B1B0 /* MTKit.h in Headers */,
@@ -2281,13 +2272,10 @@
 				785DE50F256B50A20026B1B0 /* NSObject+API.h in Headers */,
 				785DE316256B4F780026B1B0 /* MTCloud.h in Headers */,
 				785DE2CA256B4EBA0026B1B0 /* NSString+MaxLength.h in Headers */,
-				7810100425300EB600CD6E1F /* UILabel+VKAddion.h in Headers */,
 				785DE2DC256B4EBA0026B1B0 /* NSString+Bundle.h in Headers */,
-				78100FEF25300EB600CD6E1F /* VKFontSizeStyle.h in Headers */,
 				785DE549256B50A20026B1B0 /* MTRefreshGifHeader.h in Headers */,
 				785DE2E1256B4EBA0026B1B0 /* NSString+Unicode.h in Headers */,
 				785DE5CD256B50A20026B1B0 /* UIImage+Save.h in Headers */,
-				78100FDB25300EB600CD6E1F /* UIView+VKCssProtocol.h in Headers */,
 				785DE410256B4FC30026B1B0 /* MTAlert2.h in Headers */,
 				785DE620256B52D20026B1B0 /* MTHeaderFooterRefreshListController.h in Headers */,
 				785DE50D256B50A20026B1B0 /* MTNetwork.h in Headers */,
@@ -2301,59 +2289,68 @@
 				785DE50C256B50A20026B1B0 /* MTBaseDataModel.h in Headers */,
 				785DE577256B50A20026B1B0 /* MTBigimageCellModel.h in Headers */,
 				785DE3E9256B4FC30026B1B0 /* MTDragCollectionViewCell.h in Headers */,
+				785DE6A4256B557A0026B1B0 /* TZVideoPlayerController.h in Headers */,
 				785DE53C256B50A20026B1B0 /* MTIndicatorView.h in Headers */,
 				785DE593256B50A20026B1B0 /* MTImagePlayViewCell.h in Headers */,
 				785DE407256B4FC30026B1B0 /* MTAlertCollectionController.h in Headers */,
 				785DE2E5256B4EBA0026B1B0 /* NSObject+HideKey.h in Headers */,
+				785DE6D7256B557A0026B1B0 /* VKBorderColorStyle.h in Headers */,
 				785DE3B1256B4FC30026B1B0 /* NSArray+File.h in Headers */,
 				785DE5B6256B50A20026B1B0 /* UITextView+Word.h in Headers */,
 				785DE2D5256B4EBA0026B1B0 /* NSString+Encode.h in Headers */,
-				7810102725300EB600CD6E1F /* TZImageCropManager.h in Headers */,
 				785DE542256B50A20026B1B0 /* MTCountButton.h in Headers */,
 				785DE3E2256B4FC30026B1B0 /* MTDelegatePickerViewCell.h in Headers */,
 				785DE3DB256B4FC30026B1B0 /* MTAlertView.h in Headers */,
 				785DE514256B50A20026B1B0 /* MTBaseViewContentModel.h in Headers */,
 				785DE5C9256B50A20026B1B0 /* UIView+Image.h in Headers */,
+				785DE6E5256B557A0026B1B0 /* VKBorderLeftStyle.h in Headers */,
 				785DE550256B50A20026B1B0 /* MTLocationManager.h in Headers */,
 				785DE592256B50A20026B1B0 /* MTImagePlayView.h in Headers */,
+				785DE6E2256B557A0026B1B0 /* VKBorderTopStyle.h in Headers */,
 				785DE3B9256B4FC30026B1B0 /* MTFileSelect.h in Headers */,
 				785DE512256B50A20026B1B0 /* MTViewContentManager.h in Headers */,
 				785DE55A256B50A20026B1B0 /* MTTenScrollBaseDelegateModel.h in Headers */,
 				785DE2DB256B4EBA0026B1B0 /* NSString+Base64.h in Headers */,
 				785DE3E5256B4FC30026B1B0 /* MTDelegateTableView.h in Headers */,
+				785DE6B7256B557A0026B1B0 /* NSMutableAttributedString+VKAttributedString.h in Headers */,
 				785DE548256B50A20026B1B0 /* MTRefreshRing.h in Headers */,
 				785DE591256B50A20026B1B0 /* MTImagePlayViewModel.h in Headers */,
+				785DE69D256B55790026B1B0 /* TZAssetCell.h in Headers */,
 				785DE5BB256B50A20026B1B0 /* UIView+MTTextVerifyModel.h in Headers */,
 				785DE2C9256B4EBA0026B1B0 /* CLLocation+Mar.h in Headers */,
 				785DE52A256B50A20026B1B0 /* MTPageScrollCell.h in Headers */,
+				785DE68E256B55790026B1B0 /* TZPhotoPreviewCell.h in Headers */,
 				785DE5A7256B50A20026B1B0 /* MTInteractiveGestureTransitioningProtocol.h in Headers */,
 				785DE55D256B50A20026B1B0 /* MTTenScrollController.h in Headers */,
 				785DE50A256B50A20026B1B0 /* MTApiProtocol.h in Headers */,
 				785DE5D3256B50A20026B1B0 /* UIImage+Cut.h in Headers */,
 				785DE31D256B4F780026B1B0 /* MTBorderStyle.h in Headers */,
+				785DE6DF256B557A0026B1B0 /* UIView+VKAddion.h in Headers */,
+				785DE6BE256B557A0026B1B0 /* UIColor+VKUtlities.h in Headers */,
 				785DE3DE256B4FC30026B1B0 /* MTDelegateCollectionViewCell.h in Headers */,
-				7810101F25300EB600CD6E1F /* TZImagePickerController.h in Headers */,
-				7810100525300EB600CD6E1F /* VKBorderRightStyle.h in Headers */,
-				7810100725300EB600CD6E1F /* UIButton+VKAddion.h in Headers */,
 				785DE58B256B50A20026B1B0 /* MTCollectionViewScaleLayout2.h in Headers */,
 				785DE40A256B4FC30026B1B0 /* MTAlertDatePickerController.h in Headers */,
 				785DE558256B50A20026B1B0 /* MTTenScrollViewCellDelegateModel.h in Headers */,
 				785DE5CB256B50A20026B1B0 /* UIImage+Draw.h in Headers */,
+				785DE6AA256B557A0026B1B0 /* TZProgressView.h in Headers */,
 				785DE3F3256B4FC30026B1B0 /* MTDelegateHeaderFooterView.h in Headers */,
 				785DE568256B50A20026B1B0 /* MTTenScrollTitleView.h in Headers */,
+				785DE69C256B55790026B1B0 /* TZGifPhotoPreviewController.h in Headers */,
 				785DE56A256B50A20026B1B0 /* MTTenScrollView.h in Headers */,
-				7810100825300EB600CD6E1F /* VKTextTransformStyle.h in Headers */,
+				785DE6EE256B557A0026B1B0 /* VKCssProtocol.h in Headers */,
 				785DE31B256B4F780026B1B0 /* UIView+Dependency.h in Headers */,
 				785DE3D7256B4FC30026B1B0 /* MTAlert.h in Headers */,
 				785DE5CF256B50A20026B1B0 /* UIImage+MTCircleImage.h in Headers */,
 				785DE5AE256B50A20026B1B0 /* UITextField+Word.h in Headers */,
+				785DE6E0256B557A0026B1B0 /* UIButton+VKAddion.h in Headers */,
+				785DE68F256B55790026B1B0 /* TZPhotoPickerController.h in Headers */,
 				785DE3D9256B4FC30026B1B0 /* MTPopViewConfig.h in Headers */,
 				785DE52D256B50A20026B1B0 /* MTPageScroll.h in Headers */,
 				785DE621256B52D20026B1B0 /* MTListController.h in Headers */,
+				785DE6A5256B557A0026B1B0 /* TZPhotoPreviewController.h in Headers */,
 				785DE335256B4F780026B1B0 /* MTWordStyle.h in Headers */,
 				785DE5AA256B50A20026B1B0 /* UILabel+Word.h in Headers */,
 				785DE5A8256B50A20026B1B0 /* UIViewControllerTransitionModel.h in Headers */,
-				7810102525300EB600CD6E1F /* TZAssetCell.h in Headers */,
 				785DE510256B50A20026B1B0 /* UIView+MTBaseViewContentModel.h in Headers */,
 				785DE3FF256B4FC30026B1B0 /* MTBaseAlertCollectionController.h in Headers */,
 				785DE2C1256B4EBA0026B1B0 /* UIColor+ColorfulColor.h in Headers */,
@@ -2363,19 +2360,22 @@
 				785DE54D256B50A20026B1B0 /* MTAuthorizationManager.h in Headers */,
 				785DE3FE256B4FC30026B1B0 /* MTAlertPickerController.h in Headers */,
 				785DE3AE256B4FC30026B1B0 /* NSDictionary+File.h in Headers */,
+				785DE6BB256B557A0026B1B0 /* UIView+VKMetrics.h in Headers */,
 				785DE404256B4FC30026B1B0 /* MTBaseAlertGroupController.h in Headers */,
+				785DE6B8256B557A0026B1B0 /* NSObject+VKIdHelper.h in Headers */,
 				785DE2DD256B4EBA0026B1B0 /* NSString+JKNormalRegex.h in Headers */,
-				7810102C25300EB600CD6E1F /* TZVideoPlayerController.h in Headers */,
 				785DE545256B50A20026B1B0 /* SubClass.h in Headers */,
-				78100FD725300EB600CD6E1F /* VKCssClassManager.h in Headers */,
 				785DE61E256B52D20026B1B0 /* MTHeaderRefreshListController.h in Headers */,
 				785DE32B256B4F780026B1B0 /* MTTimer.h in Headers */,
 				785DE5CC256B50A20026B1B0 /* UIImage+Size.h in Headers */,
+				785DE691256B55790026B1B0 /* TZImageManager.h in Headers */,
 				785DE5DC256B51FE0026B1B0 /* NSArray+Json.h in Headers */,
 				785DE408256B4FC30026B1B0 /* MTBaseAlertController.h in Headers */,
 				785DE3BC256B4FC30026B1B0 /* FileType.h in Headers */,
 				785DE530256B50A20026B1B0 /* MTFeedBackInfoController.h in Headers */,
+				785DE6DB256B557A0026B1B0 /* VKFontWeightStyle.h in Headers */,
 				785DE3BB256B4FC30026B1B0 /* MTDocumentPreseter.h in Headers */,
+				785DE6DD256B557A0026B1B0 /* UILabel+VKAddion.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -2439,9 +2439,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				7810104925300EB600CD6E1F /* README.md in Resources */,
+				785DE69A256B55790026B1B0 /* TZImagePickerController.bundle in Resources */,
 				785DE535256B50A20026B1B0 /* MTSafariViewController.bundle in Resources */,
 				785DE53E256B50A20026B1B0 /* MTHud.bundle in Resources */,
-				7810102225300EB600CD6E1F /* TZImagePickerController.bundle in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -2495,107 +2495,102 @@
 				785DE5C3256B50A20026B1B0 /* MTTextVerifyModel.m in Sources */,
 				785DE2D2256B4EBA0026B1B0 /* NSString+JKNormalRegex.m in Sources */,
 				785DE3AB256B4FC30026B1B0 /* NSArray+File.m in Sources */,
-				7810100B25300EB600CD6E1F /* VKTextDecorationStyle.m in Sources */,
-				78100FD425300EB600CD6E1F /* VKCssHotReloader.m in Sources */,
+				785DE6D9256B557A0026B1B0 /* VKBorderBottomStyle.m in Sources */,
 				785DE333256B4F780026B1B0 /* MTBorderStyle.m in Sources */,
 				785DE556256B50A20026B1B0 /* MTTenScrollViewDelegateModel.m in Sources */,
 				785DE5A2256B50A20026B1B0 /* MTNavigationController.m in Sources */,
+				785DE6C5256B557A0026B1B0 /* VKBorderRadiusStyle.m in Sources */,
 				785DE3EB256B4FC30026B1B0 /* MTDelegateView.m in Sources */,
-				78100FE325300EB600CD6E1F /* NSMutableAttributedString+VKAttributedString.m in Sources */,
 				785DE524256B50A20026B1B0 /* MTPageScrollController.m in Sources */,
-				7810102025300EB600CD6E1F /* UIView+Layout.m in Sources */,
-				7810101A25300EB600CD6E1F /* TZAssetCell.m in Sources */,
 				785DE317256B4F780026B1B0 /* UIView+Frame.m in Sources */,
-				7810102125300EB600CD6E1F /* TZPhotoPreviewController.m in Sources */,
 				785DE3C3256B4FC30026B1B0 /* MTBaseCollectionReusableView.m in Sources */,
-				7810102925300EB600CD6E1F /* TZPhotoPreviewCell.m in Sources */,
 				785DE2E6256B4EBA0026B1B0 /* NSObject+HideKey.m in Sources */,
 				785DE51D256B50A20026B1B0 /* MTPageScrollCellViewModel.m in Sources */,
 				785DE566256B50A20026B1B0 /* MTTenScrollTitleViewModel.m in Sources */,
-				7810102625300EB600CD6E1F /* TZImageManager.m in Sources */,
+				785DE69E256B557A0026B1B0 /* TZImageManager.m in Sources */,
 				785DE58D256B50A20026B1B0 /* MTCollectionViewScaleLayout2.m in Sources */,
+				785DE6BA256B557A0026B1B0 /* UIView+VKCssProtocol.m in Sources */,
 				785DE56B256B50A20026B1B0 /* MTTenScrollTitleView.m in Sources */,
 				785DE61D256B52D20026B1B0 /* MTBaseListController.m in Sources */,
 				785DE61C256B52D20026B1B0 /* MTListController.m in Sources */,
-				7810100025300EB600CD6E1F /* VKBorderBottomStyle.m in Sources */,
-				78100FD525300EB600CD6E1F /* SGDirWatchdog.m in Sources */,
 				785DE58C256B50A20026B1B0 /* MTCollectionViewScaleLayout.m in Sources */,
-				7810100325300EB600CD6E1F /* VKBorderLeftStyle.m in Sources */,
 				785DE52F256B50A20026B1B0 /* MTViewController.m in Sources */,
-				78100FFC25300EB600CD6E1F /* VKBackgroundcolorStyle.m in Sources */,
 				785DE551256B50A20026B1B0 /* MTAuthorizationManager.m in Sources */,
 				785DE5B5256B50A20026B1B0 /* MTLabel.m in Sources */,
 				785DE2D4256B4EBA0026B1B0 /* NSString+Unicode.m in Sources */,
 				785DE32D256B4F780026B1B0 /* MTManager.m in Sources */,
-				78100FFA25300EB600CD6E1F /* VKTextStyle.m in Sources */,
 				785DE55F256B50A20026B1B0 /* MTTenScrollController.m in Sources */,
+				785DE6A9256B557A0026B1B0 /* TZGifPhotoPreviewController.m in Sources */,
 				785DE596256B50A20026B1B0 /* MTImagePlayView0.m in Sources */,
 				785DE5AF256B50A20026B1B0 /* UILabel+Size.m in Sources */,
 				785DE508256B50A20026B1B0 /* MTBaseDataModel.m in Sources */,
-				7810101225300EB600CD6E1F /* UIView+VKAddion.m in Sources */,
+				785DE6A7256B557A0026B1B0 /* TZImagePickerController.m in Sources */,
 				785DE5A4256B50A20026B1B0 /* MTNavigationPhotoBrowserController.m in Sources */,
 				785DE3B4256B4FC30026B1B0 /* MTDocument.m in Sources */,
 				785DE5AC256B50A20026B1B0 /* UITextView+Word.m in Sources */,
-				7810103125300EB600CD6E1F /* TZGifPhotoPreviewController.m in Sources */,
 				785DE56C256B50A20026B1B0 /* MTTenScrollContentView.m in Sources */,
 				785DE5D4256B50A20026B1B0 /* UIView+Image.m in Sources */,
 				785DE55E256B50A20026B1B0 /* TestController.m in Sources */,
-				7810101125300EB600CD6E1F /* UIButton+VKAddion.m in Sources */,
 				785DE622256B52D20026B1B0 /* MTHeaderRefreshListController.m in Sources */,
-				7810101825300EB600CD6E1F /* TZImageCropManager.m in Sources */,
 				785DE579256B50A20026B1B0 /* MTImageShowCell.m in Sources */,
 				785DE3D0256B4FC30026B1B0 /* MTPopViewConfig.m in Sources */,
 				785DE2C2256B4EBA0026B1B0 /* UIView+ViewController.m in Sources */,
 				785DE3D8256B4FC30026B1B0 /* MTAlertViewConfig.m in Sources */,
 				785DE588256B50A20026B1B0 /* MTImageCell.m in Sources */,
 				785DE2BF256B4EBA0026B1B0 /* UIColor+ColorfulColor.m in Sources */,
-				7810101C25300EB600CD6E1F /* TZAssetModel.m in Sources */,
 				785DE3F2256B4FC30026B1B0 /* MTDelegatePickerViewCell.m in Sources */,
 				785DE3D5256B4FC30026B1B0 /* NSArray+Alert.m in Sources */,
 				785DE409256B4FC30026B1B0 /* MTAlertSheetController.m in Sources */,
+				785DE6C4256B557A0026B1B0 /* VKBorderWidthStyle.m in Sources */,
 				785DE2C0256B4EBA0026B1B0 /* UIColor+Image.m in Sources */,
 				785DE2BD256B4EBA0026B1B0 /* UILabel+LineSpacing.m in Sources */,
 				785DE3C4256B4FC30026B1B0 /* MTBaseHeaderFooterView.m in Sources */,
-				78100FF425300EB600CD6E1F /* VKFontColorStyle.m in Sources */,
+				785DE695256B55790026B1B0 /* NSBundle+TZImagePicker.m in Sources */,
 				785DE30F256B4F780026B1B0 /* Reachability.m in Sources */,
-				7810102F25300EB600CD6E1F /* TZImagePickerController.m in Sources */,
 				785DE528256B50A20026B1B0 /* MTPageTitleView.m in Sources */,
 				785DE323256B4F780026B1B0 /* UIDevice+DeviceInfo.m in Sources */,
 				785DE5B1256B50A20026B1B0 /* UIButton+Word.m in Sources */,
 				785DE3D2256B4FC30026B1B0 /* MTPopView.m in Sources */,
 				785DE523256B50A20026B1B0 /* MTPageSumController.m in Sources */,
 				785DE315256B4F780026B1B0 /* MTConst.m in Sources */,
+				785DE6B6256B557A0026B1B0 /* UIColor+VKUtlities.m in Sources */,
+				785DE6E7256B557A0026B1B0 /* VKBorderRightStyle.m in Sources */,
 				785DE311256B4F780026B1B0 /* MTLayout.m in Sources */,
-				78100FEE25300EB600CD6E1F /* VKTextShadowStyle.m in Sources */,
 				785DE326256B4F780026B1B0 /* MTTimeModel.m in Sources */,
 				785DE572256B50A20026B1B0 /* MTAlertBigImageController.m in Sources */,
+				785DE6D3256B557A0026B1B0 /* VKTextStyle.m in Sources */,
+				785DE6AD256B557A0026B1B0 /* VKCssHotReloader.m in Sources */,
 				785DE2E2256B4EBA0026B1B0 /* UIViewController+Navigation.m in Sources */,
 				785DE324256B4F780026B1B0 /* NSString+Exist.m in Sources */,
 				785DE554256B50A20026B1B0 /* MTLocationManager.m in Sources */,
+				785DE6EA256B557A0026B1B0 /* UIButton+VKAddion.m in Sources */,
 				785DE328256B4F780026B1B0 /* MTCloud.m in Sources */,
 				785DE2CD256B4EBA0026B1B0 /* NSString+TestString.m in Sources */,
 				785DE575256B50A20026B1B0 /* MTBigimageCellModel.m in Sources */,
 				785DE543256B50A20026B1B0 /* MTSafariView.m in Sources */,
 				785DE547256B50A20026B1B0 /* MTRefreshBackNormalFooter.m in Sources */,
+				785DE6B5256B557A0026B1B0 /* UIView+VKMetrics.m in Sources */,
 				785DE5B4256B50A20026B1B0 /* UITextField+Word.m in Sources */,
 				785DE2C4256B4EBA0026B1B0 /* UIView+Copy.m in Sources */,
+				785DE6BC256B557A0026B1B0 /* NSMutableAttributedString+VKAttributedString.m in Sources */,
 				785DE2CB256B4EBA0026B1B0 /* NSString+Hash.m in Sources */,
-				78100FDC25300EB600CD6E1F /* UIView+VKMetrics.m in Sources */,
 				785DE334256B4F780026B1B0 /* UIView+Dependency.m in Sources */,
 				785DE589256B50A20026B1B0 /* MTImagePlayViewModel.m in Sources */,
-				78100FF525300EB600CD6E1F /* VKTextAlignStyle.m in Sources */,
+				785DE6C9256B557A0026B1B0 /* VKFontFamiltyStyle.m in Sources */,
 				785DE517256B50A20026B1B0 /* MTBaseViewContentModel.m in Sources */,
 				785DE5CE256B50A20026B1B0 /* UIImage+PropertyExtension.m in Sources */,
 				785DE3FB256B4FC30026B1B0 /* MTTakePhotoModel.m in Sources */,
 				785DE2D3256B4EBA0026B1B0 /* NSString+Bundle.m in Sources */,
-				78100FD925300EB600CD6E1F /* VKCssClassManager.m in Sources */,
 				785DE5B2256B50A20026B1B0 /* UILabel+Word.m in Sources */,
 				785DE3DC256B4FC30026B1B0 /* MTWindow.m in Sources */,
+				785DE6A8256B557A0026B1B0 /* TZLocationManager.m in Sources */,
 				785DE59E256B50A20026B1B0 /* MTInteractiveNavigationDelegate.m in Sources */,
+				785DE6D5256B557A0026B1B0 /* VKBackgroundcolorStyle.m in Sources */,
+				785DE694256B55790026B1B0 /* TZAssetModel.m in Sources */,
 				785DE2CC256B4EBA0026B1B0 /* NSString+Base64.m in Sources */,
 				785DE3AF256B4FC30026B1B0 /* NSData+File.m in Sources */,
-				7810100F25300EB600CD6E1F /* UILabel+VKAddion.m in Sources */,
-				78100FD825300EB600CD6E1F /* VKCssClassModal.m in Sources */,
+				785DE6E4256B557A0026B1B0 /* VKTextDecorationStyle.m in Sources */,
+				785DE6EC256B557A0026B1B0 /* VKCssStyleManager.m in Sources */,
 				785DE2C8256B4EBA0026B1B0 /* CLLocation+Mar.m in Sources */,
 				785DE322256B4F780026B1B0 /* NSObject+CommonProtocol.m in Sources */,
 				785DE32A256B4F780026B1B0 /* NSObject+MJExtension.m in Sources */,
@@ -2603,72 +2598,78 @@
 				785DE31E256B4F780026B1B0 /* MTContentModelPropertyConst.m in Sources */,
 				785DE5BD256B50A20026B1B0 /* MTTextView.m in Sources */,
 				785DE40F256B4FC30026B1B0 /* MTAlertUIContainer.m in Sources */,
+				785DE690256B55790026B1B0 /* TZImageCropManager.m in Sources */,
 				785DE51C256B50A20026B1B0 /* MTPageScrollViewModel.m in Sources */,
 				785DE58A256B50A20026B1B0 /* MTImagePlayView.m in Sources */,
-				78100FEB25300EB600CD6E1F /* VKBorderWidthStyle.m in Sources */,
+				785DE6E9256B557A0026B1B0 /* VKTextTransformStyle.m in Sources */,
 				785DE40D256B4FC30026B1B0 /* MTAlertGetPhotoWayController.m in Sources */,
 				785DE599256B50A20026B1B0 /* MTAnimatedTransitioning.m in Sources */,
+				785DE6AE256B557A0026B1B0 /* SGDirWatchdog.m in Sources */,
 				785DE540256B50A20026B1B0 /* MTIndicatorView.m in Sources */,
 				785DE3D3256B4FC30026B1B0 /* MTAlertView.m in Sources */,
 				785DE5C2256B50A20026B1B0 /* MTTextField.m in Sources */,
 				785DE5C5256B50A20026B1B0 /* UIImage+Base64.m in Sources */,
 				785DE557256B50A20026B1B0 /* MTTenScrollBaseDelegateModel.m in Sources */,
+				785DE6D0256B557A0026B1B0 /* VKFontSizeStyle.m in Sources */,
 				785DE3C1256B4FC30026B1B0 /* MTBaseCellModel.m in Sources */,
 				785DE553256B50A20026B1B0 /* MTPhotoManager.m in Sources */,
+				785DE6A0256B557A0026B1B0 /* TZPhotoPickerController.m in Sources */,
 				785DE3EE256B4FC30026B1B0 /* MTDelegateCollectionViewCell.m in Sources */,
-				7810101D25300EB600CD6E1F /* NSBundle+TZImagePicker.m in Sources */,
 				785DE51F256B50A20026B1B0 /* MTPageControllModel.m in Sources */,
 				785DE3EC256B4FC30026B1B0 /* MTDelegateCollectionView.m in Sources */,
 				785DE3F5256B4FC30026B1B0 /* MTDataSourceModel.m in Sources */,
 				785DE2DF256B4EBA0026B1B0 /* NSString+Replace.m in Sources */,
 				785DE5BA256B50A20026B1B0 /* MTTabBarController.m in Sources */,
-				78100FE125300EB600CD6E1F /* UIView+VKCssProtocol.m in Sources */,
 				785DE3E7256B4FC30026B1B0 /* MTDragCollectionView.m in Sources */,
+				785DE6CE256B557A0026B1B0 /* VKTextAlignStyle.m in Sources */,
 				785DE31C256B4F780026B1B0 /* MTWordStyle.m in Sources */,
+				785DE6D6256B557A0026B1B0 /* VKBackgroundImageStyle.m in Sources */,
 				785DE320256B4F780026B1B0 /* UINavigationBar+Config.m in Sources */,
-				7810100125300EB600CD6E1F /* VKBorderTopStyle.m in Sources */,
 				785DE570256B50A20026B1B0 /* MTImageShowControllModel.m in Sources */,
 				785DE3B5256B4FC30026B1B0 /* MTDocumentPreseter.m in Sources */,
 				785DE54B256B50A20026B1B0 /* MTRefreshRing.m in Sources */,
-				7810101025300EB600CD6E1F /* VKTextTransformStyle.m in Sources */,
 				785DE2C3256B4EBA0026B1B0 /* UIView+Animate.m in Sources */,
-				7810100D25300EB600CD6E1F /* VKFontWeightStyle.m in Sources */,
+				785DE692256B55790026B1B0 /* TZAssetCell.m in Sources */,
 				785DE330256B4F780026B1B0 /* UIView+Circle.m in Sources */,
-				7810101B25300EB600CD6E1F /* TZVideoPlayerController.m in Sources */,
 				785DE61F256B52D20026B1B0 /* MTPageInfoModel.m in Sources */,
 				785DE3EF256B4FC30026B1B0 /* MTDelegatePickerView.m in Sources */,
-				7810102325300EB600CD6E1F /* TZProgressView.m in Sources */,
+				785DE6B1256B557A0026B1B0 /* VKCssClassModal.m in Sources */,
 				785DE61A256B52D20026B1B0 /* MTHeaderFooterRefreshListController.m in Sources */,
 				785DE319256B4F780026B1B0 /* MTTimer.m in Sources */,
 				785DE2E0256B4EBA0026B1B0 /* NSString+Encode.m in Sources */,
-				78100FF025300EB600CD6E1F /* VKFontFamiltyStyle.m in Sources */,
+				785DE699256B55790026B1B0 /* TZPhotoPreviewController.m in Sources */,
 				785DE3F6256B4FC30026B1B0 /* MTDelegateTableView.m in Sources */,
 				785DE59F256B50A20026B1B0 /* MTNavigationTransitionController.m in Sources */,
-				78100FDA25300EB600CD6E1F /* NSObject+VKIdHelper.m in Sources */,
+				785DE698256B55790026B1B0 /* UIView+Layout.m in Sources */,
+				785DE69B256B55790026B1B0 /* TZProgressView.m in Sources */,
 				785DE5C4256B50A20026B1B0 /* UIImage+Size.m in Sources */,
-				78100FDD25300EB600CD6E1F /* UIColor+VKUtlities.m in Sources */,
+				785DE6E6256B557A0026B1B0 /* VKFontWeightStyle.m in Sources */,
 				785DE3FC256B4FC30026B1B0 /* MTAlertCollectionController.m in Sources */,
+				785DE6C7256B557A0026B1B0 /* VKTextShadowStyle.m in Sources */,
 				785DE529256B50A20026B1B0 /* MTPageScrollView.m in Sources */,
 				785DE509256B50A20026B1B0 /* MTBaseApi.m in Sources */,
 				785DE5C6256B50A20026B1B0 /* UIImage+MTCircleImage.m in Sources */,
+				785DE6A1256B557A0026B1B0 /* TZPhotoPreviewCell.m in Sources */,
 				785DE3F1256B4FC30026B1B0 /* MTDataSource.m in Sources */,
 				785DE564256B50A20026B1B0 /* MTDynamicItem.m in Sources */,
 				785DE3F9256B4FC30026B1B0 /* MTDragCollectionViewCell.m in Sources */,
 				785DE400256B4FC30026B1B0 /* MTAlertDatePickerController.m in Sources */,
 				785DE3D6256B4FC30026B1B0 /* UIView+MTBackground.m in Sources */,
+				785DE6E8256B557A0026B1B0 /* UILabel+VKAddion.m in Sources */,
 				785DE3BE256B4FC30026B1B0 /* MTEmptyBaseCell.m in Sources */,
 				785DE3E4256B4FC30026B1B0 /* MTDelegateTableViewCell.m in Sources */,
-				78100FEC25300EB600CD6E1F /* VKBorderRadiusStyle.m in Sources */,
 				785DE3AD256B4FC30026B1B0 /* MTFileManager.m in Sources */,
+				785DE693256B55790026B1B0 /* TZVideoPlayerController.m in Sources */,
 				785DE516256B50A20026B1B0 /* MTViewContentManager.m in Sources */,
 				785DE40C256B4FC30026B1B0 /* MTBaseAlertGroupController.m in Sources */,
 				785DE402256B4FC30026B1B0 /* MTBaseAlertController.m in Sources */,
 				785DE3C2256B4FC30026B1B0 /* MTLoadingView.m in Sources */,
-				7810101325300EB600CD6E1F /* VKCssStyleManager.m in Sources */,
+				785DE6CC256B557A0026B1B0 /* VKBorderColorStyle.m in Sources */,
 				785DE5DF256B51FE0026B1B0 /* NSArray+Json.m in Sources */,
 				785DE5C8256B50A20026B1B0 /* UIImage+Save.m in Sources */,
 				785DE3B7256B4FC30026B1B0 /* FileType.m in Sources */,
 				785DE55B256B50A20026B1B0 /* MTTenScrollViewCellDelegateModel.m in Sources */,
+				785DE6B2256B557A0026B1B0 /* VKCssClassManager.m in Sources */,
 				785DE531256B50A20026B1B0 /* MTFeedBackInfoController.m in Sources */,
 				785DE5C0256B50A20026B1B0 /* UIView+MTTextVerifyModel.m in Sources */,
 				785DE5A6256B50A20026B1B0 /* UIViewControllerTransitionModel.m in Sources */,
@@ -2679,18 +2680,19 @@
 				785DE3F7256B4FC30026B1B0 /* UIView+Delegate.m in Sources */,
 				785DE2CE256B4EBA0026B1B0 /* NSString+WordHeight.m in Sources */,
 				785DE53B256B50A20026B1B0 /* UIView+MBHud.m in Sources */,
-				7810100E25300EB600CD6E1F /* VKBorderRightStyle.m in Sources */,
-				7810103025300EB600CD6E1F /* TZLocationManager.m in Sources */,
 				785DE50B256B50A20026B1B0 /* NSObject+API.m in Sources */,
 				785DE2D8256B4EBA0026B1B0 /* NSString+Money.m in Sources */,
+				785DE6DC256B557A0026B1B0 /* VKBorderLeftStyle.m in Sources */,
 				785DE5CA256B50A20026B1B0 /* UIImage+Cut.m in Sources */,
 				785DE520256B50A20026B1B0 /* MTPageTitleControllModel.m in Sources */,
 				785DE597256B50A20026B1B0 /* AnimateController.m in Sources */,
+				785DE6DA256B557A0026B1B0 /* VKBorderTopStyle.m in Sources */,
 				785DE56D256B50A20026B1B0 /* MTTenScrollViewCell.m in Sources */,
 				785DE40B256B4FC30026B1B0 /* MTBaseAlertCollectionController.m in Sources */,
 				785DE3B3256B4FC30026B1B0 /* MTAppDelegate.m in Sources */,
 				785DE3E8256B4FC30026B1B0 /* MTDelegateHeaderFooterView.m in Sources */,
 				785DE56E256B50A20026B1B0 /* MTTenScrollView.m in Sources */,
+				785DE6EB256B557A0026B1B0 /* UIView+VKAddion.m in Sources */,
 				785DE518256B50A20026B1B0 /* MTViewContentModel.m in Sources */,
 				785DE2DE256B4EBA0026B1B0 /* NSString+MD5.m in Sources */,
 				785DE3BA256B4FC30026B1B0 /* MTFileModel.m in Sources */,
@@ -2699,19 +2701,17 @@
 				785DE3BD256B4FC30026B1B0 /* MTBaseView.m in Sources */,
 				785DE405256B4FC30026B1B0 /* MTAlertPickerController.m in Sources */,
 				785DE5D1256B50A20026B1B0 /* UIImage+Draw.m in Sources */,
-				78100FF325300EB600CD6E1F /* VKBorderColorStyle.m in Sources */,
 				785DE2D7256B4EBA0026B1B0 /* NSString+MaxLength.m in Sources */,
+				785DE6B3256B557A0026B1B0 /* NSObject+VKIdHelper.m in Sources */,
+				785DE6CD256B557A0026B1B0 /* VKFontColorStyle.m in Sources */,
 				785DE3C5256B4FC30026B1B0 /* MTBaseCollectionViewCell.m in Sources */,
 				785DE527256B50A20026B1B0 /* MTPageScrollCell.m in Sources */,
-				78100FF725300EB600CD6E1F /* VKFontSizeStyle.m in Sources */,
-				7810102825300EB600CD6E1F /* TZPhotoPickerController.m in Sources */,
 				785DE555256B50A20026B1B0 /* MTDeviceManager.m in Sources */,
 				785DE595256B50A20026B1B0 /* MTImagePlayViewCell.m in Sources */,
 				785DE59A256B50A20026B1B0 /* MTCardStyle1Transitioning.m in Sources */,
 				785DE3ED256B4FC30026B1B0 /* MTDelegateCollectionReusableView.m in Sources */,
 				785DE565256B50A20026B1B0 /* MTTenScrollModel.m in Sources */,
 				785DE51B256B50A20026B1B0 /* MTPageScrollBaseViewModel.m in Sources */,
-				78100FFD25300EB600CD6E1F /* VKBackgroundImageStyle.m in Sources */,
 				785DE32F256B4F780026B1B0 /* NSObject+ReuseIdentifier.m in Sources */,
 				785DE515256B50A20026B1B0 /* UIView+MTBaseViewContentModel.m in Sources */,
 			);
