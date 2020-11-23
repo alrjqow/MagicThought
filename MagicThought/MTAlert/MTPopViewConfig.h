@@ -12,4 +12,6 @@
 
 @property (nonatomic, assign) NSTimeInterval animationDuration;
 
+@property (nonatomic,assign) CGFloat backgroundViewAlpha;
+    
 @end

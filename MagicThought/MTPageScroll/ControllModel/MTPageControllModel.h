@@ -53,6 +53,20 @@ typedef enum : NSInteger {
 /**点击了标题*/
 -(void)pageTitleViewDidSelectItemAtIndex:(NSInteger)selectedIndex;
 
+#pragma mark - 交互相关
+
+@property (nonatomic,weak, readonly) UIScrollView* pageScrollView;
+@property (nonatomic,weak, readonly) UIScrollView* pageScrollListView;
+
+// MTPageScrollView 的滚动方法
+-(void)pageScrollViewDidScroll:(UIScrollView *)pageScrollView;
+
+// MTPageScrollListView 的滚动方法
+-(void)pageScrollListViewDidScroll:(UIScrollView *)pageScrollListView;
+
+// 水平滚动结束
+- (void)pageScrollHorizontalViewDidEndDragging;
+
 @end
 
 

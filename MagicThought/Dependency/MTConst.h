@@ -41,6 +41,8 @@ typedef CGFloat (^MTFloatBlockWithObject) (id);
 typedef id (^MTObjectBlock) (void);
 typedef id (^MTObjectBlockWithObject) (id);
 
+//判断是几位整数
+MT_EXTERN NSInteger numberCount(NSInteger number);
 
 //设置token
 MT_EXTERN NSString* UserToken_mt(void);

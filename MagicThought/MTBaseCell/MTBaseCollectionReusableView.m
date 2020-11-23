@@ -165,14 +165,18 @@
 
 -(void)buttonClick:(UIButton*)btn
 {
-    btn.selected = !btn.selected;
-    NSObject* obj = @(self.section).bindOrder(btn.mt_order);
-    if(btn.mt_click)
-        btn.mt_click(obj);
-    else if(self.mt_click)
-         self.mt_click(obj);
-    else if(self.baseContentModel.mt_click)
-         self.baseContentModel.mt_click(obj);
+//    btn.selected = !btn.selected;
+//    NSObject* obj = @(self.section).bindOrder(btn.mt_order);
+//    if(btn.mt_click)
+//        btn.mt_click(obj);
+//    else if(self.mt_click)
+//         self.mt_click(obj);
+//    else if(self.baseContentModel.mt_click)
+//         self.baseContentModel.mt_click(obj);
+    
+    if(btn.mt_tag != kSelectedForever && btn.mt_tag != kDefaultForever)
+         btn.bindEnum(btn.mt_tag == kSelected ? kDeselected : kSelected);
+     [self viewEventWithView:btn Data:@(self.section)];
 }
 
 -(void)layoutSubviews

@@ -116,3 +116,63 @@ MTShadowStyle* mt_ShadowStyleMake(CGFloat shadowOpacity, CGFloat shadowRadius, U
 @end
 
 
+
+@implementation MTJianBianStyle
+
+-(void)setBackgroundColor:(UIView *)view
+{
+    if(!self.startColor && !self.endColor)
+        return;
+    
+    CGSize size;
+     if(self.viewSize.width && self.viewSize.height)
+         size = self.viewSize;
+     else
+         size = view.bounds.size;
+    
+    if(!size.width || !size.height)
+        return;
+            
+    CGPoint startPoint = self.startPoint;
+    CGPoint endPoint = self.endPoint;
+    if(CGPointEqualToPoint(startPoint, endPoint))
+        return;
+        
+    // 防止重复添加
+    CALayer *tempLayer = view.layer.sublayers.firstObject;
+    if ([tempLayer isMemberOfClass:[CAGradientLayer class]]) {
+        [tempLayer removeFromSuperlayer];
+    }
+
+    CAGradientLayer *gradientLayer = [CAGradientLayer layer];
+    gradientLayer.frame = CGRectMake(0, 0, size.width, size.height);
+    gradientLayer.colors = [NSArray arrayWithObjects:
+                            (id)(self.startColor ? self.startColor.CGColor : self.endColor.CGColor),
+                            (id)(self.endColor ? self.endColor.CGColor :  self.startColor.CGColor),
+                          nil];
+
+    gradientLayer.startPoint = startPoint;
+    gradientLayer.endPoint = endPoint;
+     
+    gradientLayer.locations = [NSArray arrayWithObjects:
+                             [NSNumber numberWithFloat:0.0f],
+                             [NSNumber numberWithFloat:1.0f],
+                             nil];
+
+    [view.layer insertSublayer:gradientLayer atIndex:0];
+}
+
+
+MTJianBianStyle* mt_jianBianStyleMake(UIColor* startColor, UIColor* endColor, CGPoint startPoint, CGPoint endPoint, CGSize viewSize)
+{
+    MTJianBianStyle* jianBianStyle = MTJianBianStyle.new;
+    jianBianStyle.startColor = startColor;
+    jianBianStyle.endColor = endColor;
+    jianBianStyle.startPoint = startPoint;
+    jianBianStyle.endPoint = endPoint;
+    jianBianStyle.viewSize = viewSize;
+    
+    return jianBianStyle;
+}
+
+@end

@@ -77,3 +77,14 @@
 }
 
 @end
+
+@implementation MTButton
+
+-(void)layoutSubviews
+{
+    [super layoutSubviews];
+    
+    [self layoutSubviewsForWidth:self.width Height:self.height];
+}
+
+@end

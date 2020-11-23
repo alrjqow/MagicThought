@@ -47,6 +47,9 @@ typedef NS_ENUM(NSInteger, MTViewContentHorizontalAlignment) {
 /**view 的 shadowStyle*/
 @property (nonatomic,strong) MTShadowStyle* shadowStyle;
 
+/**view 的 jianBianStyle*/
+@property (nonatomic,strong) MTJianBianStyle* jianBianStyle;
+
 /**view 的 cssclass*/
 @property (nonatomic,strong) NSString* cssClass;
 

@@ -19,10 +19,8 @@
 }
 
 @property (nonatomic,strong) MTPageScrollController* pageScrollController;
-@property (nonatomic,weak) UIScrollView* pageScrollView;
 @property (nonatomic,weak) MTPageTitleView* pageTitleView;
 @property (nonatomic,weak) UIScrollView* pageScrollHorizontalView;
-@property (nonatomic,weak) UIScrollView* pageScrollListView;
 
 @property (nonatomic,assign) NSInteger preCurrentIndex;
 @property (nonatomic,assign) NSInteger currentIndex;
@@ -82,10 +80,6 @@
         return;
     }
         
-        
-//    NSLog(@"%@",NSStringFromCGPoint([pageScrollView.panGestureRecognizer velocityInView:pageScrollView]));
-        
-//    NSLog(@"pageScrollViewDidScroll === %@ === %lf", NSStringFromClass(pageScrollView.class), pageScrollView.offsetY);
     if(pageScrollView.offsetY > self.pageScrollViewMaxOffsetY)
         pageScrollView.offsetY = self.pageScrollViewMaxOffsetY;
         
@@ -114,13 +108,13 @@
 
 -(void)pageScrollListViewDidAppear:(UIScrollView*)pageScrollListView
 {
-    self.pageScrollListView = pageScrollListView;
+    _pageScrollListView = pageScrollListView;
 }
 
 -(void)pageScrollListViewDidDisappear:(UIScrollView*)pageScrollListView
 {
     if(self.pageScrollListView == pageScrollListView)
-        self.pageScrollListView = nil;
+        _pageScrollListView = nil;
 }
 
 -(void)pageScrollListViewDidScroll:(UIScrollView *)pageScrollListView
@@ -303,10 +297,13 @@
 {
     self.isPageScrollHorizontalViewDragging = false;
     self.verticalScrollEnable = YES;
-    
+
+    [self pageScrollHorizontalViewDidEndDragging];
     if([self.delegate respondsToSelector:@selector(pageViewDidEndScroll)])
        [self.delegate pageViewDidEndScroll];
 }
+
+- (void)pageScrollHorizontalViewDidEndDragging{}
 
 #pragma mark - 下划线变化
 -(void)transitionBottomLineFrameWithCurrentCellCenterX:(CGFloat)currentCellCenterX NextCellCenterX:(CGFloat)nextCellCenterX CurrentCellWidth:(CGFloat)currentCellWidth NextCellWidth:(CGFloat)nextCellWidth Rate:(CGFloat)rate

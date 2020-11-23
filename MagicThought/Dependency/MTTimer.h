@@ -16,6 +16,9 @@
 /**获取给定时间的字符串*/
 +(NSString*)getTimeWithDate:(NSDate*)date Format:(NSString*)format;
 
+/**获取给定字符串的时间*/
++(NSDate*)getDateWithTime:(NSString*)time Format:(NSString*)format;
+
 /**获取给定时间字符串的字符串*/
 +(NSString*)getTimeWithDateString:(NSString*)dateString Format:(NSString*)format;
 
@@ -24,6 +27,12 @@
 
 /**获取当前时间的时间戳*/
 +(NSTimeInterval)getCurrentTimeStamp;
+
+/**获取给定字符串的时间戳*/
++(NSTimeInterval)getTimeStampWithString:(NSString*)timeString;
+
+/**获取当日凌晨0点的时间戳*/
++(NSTimeInterval)getTodayBeginTimeStamp;
 
 /**获取当前时区时间的时间戳*/
 //+(NSTimeInterval)getCurrentZoneTimeStamp;

@@ -15,6 +15,7 @@
     UIButton* _button2;
     UIButton* _button3;
     UIButton* _button4;
+    UIView* _externView;
 }
 
 @end
@@ -422,12 +423,17 @@
     return _button4;
 }
 
+-(void)setExternView:(UIView *)externView
+{
+    _externView = externView;
+    [self addSubview:externView];
+}
+
 -(UIView *)externView
 {
     if(!_externView)
     {
-        _externView = [UIView new];
-        [self addSubview:_externView];
+        self.externView = [UIView new];
     }
     
     return _externView;
@@ -600,3 +606,121 @@
 
 
 @end
+
+@implementation MTBaseSubCollectionViewCell3
+
+-(void)setContentModel:(MTViewContentModel *)contentModel
+{
+    [super setContentModel:contentModel];
+    
+    __weak __typeof(self) weakSelf = self;
+    
+    [self setSubView:_detailTextLabel6 Model:contentModel.mtContent6 For:^UIView *{
+        return weakSelf.detailTextLabel6;
+    }];
+    
+    [self setSubView:_detailTextLabel7 Model:contentModel.mtContent7 For:^UIView *{
+        return weakSelf.detailTextLabel7;
+    }];
+    
+    [self setSubView:_detailTextLabel8 Model:contentModel.mtContent8 For:^UIView *{
+        return weakSelf.detailTextLabel8;
+    }];
+    
+ 
+    [self setSubView:_imageView7 Model:contentModel.mtImg7 For:^UIView *{
+        return weakSelf.imageView7;
+    }];
+    
+    [self setSubView:_imageView8 Model:contentModel.mtImg8 For:^UIView *{
+        return weakSelf.imageView8;
+    }];
+    
+    [self setSubView:_imageView9 Model:contentModel.mtImg9 For:^UIView *{
+        return weakSelf.imageView9;
+    }];
+    
+    [self setSubView:_button7 Model:contentModel.mtBtnTitle7 For:^UIView *{
+        return weakSelf.button7;
+    }];
+    
+    [self setSubView:_button8 Model:contentModel.mtBtnTitle8 For:^UIView *{
+        return weakSelf.button8;
+    }];
+    
+    [self setSubView:_button9 Model:contentModel.mtBtnTitle9 For:^UIView *{
+        return weakSelf.button9;
+    }];
+}
+
+#pragma mark - 懒加载
+
+-(UILabel *)detailTextLabel6
+{
+    if(!_detailTextLabel6)
+    {
+        _detailTextLabel6 = [UILabel new];
+        [self addSubview:_detailTextLabel6];
+    }
+    
+    return _detailTextLabel6;
+}
+
+-(UILabel *)detailTextLabel7
+{
+    if(!_detailTextLabel7)
+    {
+        _detailTextLabel7 = [UILabel new];
+        [self addSubview:_detailTextLabel7];
+    }
+    
+    return _detailTextLabel7;
+}
+
+-(UILabel *)detailTextLabel8
+{
+    if(!_detailTextLabel8)
+    {
+        _detailTextLabel8 = [UILabel new];
+        [self addSubview:_detailTextLabel8];
+    }
+    
+    return _detailTextLabel8;
+}
+
+-(UIImageView *)imageView7
+{
+    if(!_imageView7)
+    {
+        _imageView7 = [UIImageView new];
+        [self addSubview:_imageView7];
+    }
+    
+    return _imageView7;
+}
+
+-(UIImageView *)imageView8
+{
+    if(!_imageView8)
+    {
+        _imageView8 = [UIImageView new];
+        [self addSubview:_imageView8];
+    }
+    
+    return _imageView8;
+}
+
+-(UIImageView *)imageView9
+{
+    if(!_imageView9)
+    {
+        _imageView9 = [UIImageView new];
+        [self addSubview:_imageView9];
+    }
+    
+    return _imageView9;
+}
+
+@end
+
+

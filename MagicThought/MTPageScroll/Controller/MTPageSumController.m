@@ -79,11 +79,17 @@
 {
     if(!_pageControllModel)
     {
-        _pageControllModel = [MTPageControllModel new];
+        Class c = NSClassFromString(self.pageControllModelClassName); 
+        _pageControllModel = [c isSubclassOfClass:[MTPageControllModel class]] ? c.new : MTPageControllModel.new;
         _pageControllModel.delegate = self;
     }
     
     return _pageControllModel;
+}
+
+-(NSString *)pageControllModelClassName
+{
+    return @"MTPageControllModel";
 }
 
 -(BOOL)isRemoveMJHeader

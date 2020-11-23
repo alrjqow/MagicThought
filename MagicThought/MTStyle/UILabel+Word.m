@@ -29,16 +29,21 @@
     
     if(style.wordSize)
     {
-        if((style.wordBold && style.wordThin) || (!style.wordBold && !style.wordThin) )
-            self.font = [UIFont systemFontOfSize:style.wordSize];
-        else if(style.wordBold)
-            self.font = [UIFont boldSystemFontOfSize:style.wordSize];
-        else if(style.wordThin)
+        if([style.wordFontName isExist])
+            self.font = [UIFont fontWithName:style.wordFontName size:style.wordSize];
+        else
         {
-            if (@available(iOS 8.2, *))
-                self.font = [UIFont systemFontOfSize:style.wordSize weight:UIFontWeightThin];
-            else
+            if((style.wordBold && style.wordThin) || (!style.wordBold && !style.wordThin) )
                 self.font = [UIFont systemFontOfSize:style.wordSize];
+            else if(style.wordBold)
+                self.font = [UIFont boldSystemFontOfSize:style.wordSize];
+            else if(style.wordThin)
+            {
+                if (@available(iOS 8.2, *))
+                    self.font = [UIFont systemFontOfSize:style.wordSize weight:UIFontWeightThin];
+                else
+                    self.font = [UIFont systemFontOfSize:style.wordSize];
+            }
         }
     }
     

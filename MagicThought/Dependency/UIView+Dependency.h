@@ -9,6 +9,8 @@
 
 #import <UIKit/UIKit.h>
 
+@interface MTButton : UIButton @end
+
 @interface UIButton (Click)
 
 - (void)clearClick;

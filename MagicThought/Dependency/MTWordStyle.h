@@ -34,6 +34,7 @@ typedef MTWordStyle* (^RangeMethod)(WordRangeMethod wordRangeMethod);
 typedef MTWordStyle* (^WordStyles)(NSArray<MTWordStyle*>* wordStyleList);
 typedef MTWordStyle* (^WordReplaceTags)(NSArray<NSString*>* wordTagReplaceList);
 typedef MTWordStyle* (^UnderLine)(NSInteger wordUnderLine);
+typedef MTWordStyle* (^FontName)(NSString* wordFontName);
 
 #define wordStyles(...) styleList(@[__VA_ARGS__])
 #define wordReplaceTags(...) tagReplaceList(@[__VA_ARGS__])
@@ -44,6 +45,7 @@ typedef MTWordStyle* (^UnderLine)(NSInteger wordUnderLine);
 
 @property(nonatomic,assign) CGFloat wordSize;
 @property(nonatomic,strong) NSString* wordName;
+@property(nonatomic,strong) NSString* wordFontName;
 @property(nonatomic,strong) UIColor* wordColor;
 @property(nonatomic,strong, readonly) NSAttributedString *attributedWordName;
 
@@ -75,6 +77,7 @@ typedef MTWordStyle* (^UnderLine)(NSInteger wordUnderLine);
 @property (nonatomic,assign,readonly)  NSInteger wordStyles;
 @property (nonatomic,assign,readonly)  NSInteger wordReplaceTags;
 
+@property (nonatomic,copy,readonly)  FontName fontName;
 @property (nonatomic,copy,readonly)  MaximumLineHeight maximumLineHeight;
 @property (nonatomic,copy,readonly)  WordReplaceTags tagReplaceList;
 @property (nonatomic,copy,readonly)  WordStyles styleList;

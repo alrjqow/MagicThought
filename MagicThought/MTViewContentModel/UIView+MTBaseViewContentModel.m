@@ -343,6 +343,8 @@
         
     MTBaseViewContentModel* borderStyleModel = [self findBorderStyleModel:baseViewContentModel];
     
+    MTBaseViewContentModel* jianBianModel = [self findJianBianStyleModel:baseViewContentModel];
+    
     if(backgroundColorModel.backgroundColor)
     {
         if([self isKindOfClass:[UITableViewCell class]])
@@ -358,6 +360,9 @@
             borderStyle.fillColor = backgroundColorModel.backgroundColor;
         [self becomeCircleWithBorder:borderStyle];
     }
+    
+    MTJianBianStyle* jianBianStyle = jianBianModel.jianBianStyle;
+    [jianBianStyle setBackgroundColor:self];
 }
 
 //纯文本
@@ -399,6 +404,17 @@
            if(!baseViewContentModel.borderStyle && model.borderStyle)
                baseViewContentModel.borderStyle = model.borderStyle;
            return model.borderStyle != nil;
+       }];
+}
+
+//渐变样式
+-(MTBaseViewContentModel*)findJianBianStyleModel:(MTBaseViewContentModel*)baseViewContentModel
+{
+    return
+       [self findBaseViewContentModel:baseViewContentModel Key:@"isNoMatchJianBianStyle" For:^BOOL(MTBaseViewContentModel *model) {
+           if(!baseViewContentModel.jianBianStyle && model.jianBianStyle)
+               baseViewContentModel.jianBianStyle = model.jianBianStyle;
+           return model.jianBianStyle != nil;
        }];
 }
 
@@ -671,7 +687,8 @@
         superModel = [superModel valueForKey:@"superModel"];
     }
     
-    [baseViewContentModel setValue:@(YES) forKey:key];
+    if(!baseViewContentModel.isDefaultOriginModel)
+        [baseViewContentModel setValue:@(YES) forKey:key];
     
     check(self.defaultBaseContentModel);
     return self.defaultBaseContentModel;
@@ -943,7 +960,7 @@
 
 -(void)setBaseContentModel:(MTBaseViewContentModel *)baseContentModel
 {
-//    if([baseContentModel.text containsString:@"单独买"])
+//    if([baseContentModel.text containsString:@"售后中"])
 //        NSLog(@"asdasd");
     if([self checkBaseViewContentModel:baseContentModel])
         return;
@@ -955,6 +972,9 @@
     else if([baseContentModel valueForKey:@"associatedDefaultModel"] == self.defaultBaseContentModel && self.defaultBaseContentModel.viewState != kDefault)
         viewState = self.defaultBaseContentModel.viewState;
         
+//    if([self.superview isKindOfClass:NSClassFromString(@"QXOrderTwoButtonView")])
+//        NSLog(@"asdasd");
+    
     MTBaseViewContentModel* highlightedModel = [self whenGetViewState:kHighlighted ForModel:baseContentModel];
     MTBaseViewContentModel* disabledModel = [self whenGetViewState:kDisabled ForModel:baseContentModel];
     MTBaseViewContentModel* selectedModel = [self whenGetViewState:kSelected ForModel:baseContentModel];

@@ -28,7 +28,8 @@
     if (!self.attachedView)
         self.attachedView = [MTWindow sharedWindow].attachView;
     
-    [self.attachedView showBackground];
+    [self.attachedView showBackground];    
+    self.attachedView.mt_BackgroundView.backgroundColor = rgba(0, 0, 0, self.config.backgroundViewAlpha);
     
     [self alertShowAnimation];
 }

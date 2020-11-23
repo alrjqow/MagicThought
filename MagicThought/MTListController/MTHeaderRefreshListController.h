@@ -13,11 +13,13 @@
 
 @interface MTHeaderRefreshListController : MTListController
 
-@property (nonatomic,strong) MTRefreshGifHeader* mj_header;
+@property (nonatomic,strong) MJRefreshHeader* mj_header;
 
 @property (nonatomic,copy) MTBlock mj_Block;
 
 @property (nonatomic,assign, readonly) BOOL isRemoveMJHeader;
+
+@property (nonatomic,strong, readonly) Class headerClass;
 
 @end
 

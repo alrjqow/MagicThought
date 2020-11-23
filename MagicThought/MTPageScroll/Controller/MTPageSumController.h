@@ -18,6 +18,8 @@
 
 @property (nonatomic,strong) MTPageControllModel* pageControllModel;
 
+@property (nonatomic,strong, readonly) NSString* pageControllModelClassName;
+
 @end
 
 @interface MTPageScrollListController : MTHeaderFooterRefreshListController

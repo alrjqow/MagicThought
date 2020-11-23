@@ -10,15 +10,12 @@
 
 @implementation MTPopViewConfig
 
--(instancetype)init
+-(void)setupDefault
 {
-    if(self = [super init])
-    {
-        self.animationDuration = 0.2;
-    }
+    [super setupDefault];
     
-    return self;
+    self.animationDuration = 0.2;
+    self.backgroundViewAlpha = 0.48;
 }
-
 
 @end

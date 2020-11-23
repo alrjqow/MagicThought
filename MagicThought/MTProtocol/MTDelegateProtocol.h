@@ -31,6 +31,8 @@
 
 @property (nonatomic,strong) NSArray* pageScrollTitleDataList;
 
+@property (nonatomic,strong) NSArray* pageScrollTailDataList;
+
 @property (nonatomic,strong) NSArray* sectionList;
 
 @property (nonatomic,strong) NSObject* emptyData;

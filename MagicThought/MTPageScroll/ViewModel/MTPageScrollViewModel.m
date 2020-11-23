@@ -199,15 +199,22 @@
 
 -(NSArray *)newDataList:(NSArray *)dataList
 {
+    NSMutableArray* arr = [NSMutableArray arrayWithArray:dataList];
     NSObject* pageScrollData = [self.model valueForKey:@"pageScrollData"];
+    BOOL isAllArray = arr.isAllArray;
+    
     if(pageScrollData)
+        [arr addObject:isAllArray ? @[pageScrollData] : pageScrollData];
+    
+    if([self.model.delegate respondsToSelector:@selector(pageScrollTailDataList)] && (self.model.delegate.pageScrollTailDataList.count > 0))
     {
-        NSMutableArray* arr = [NSMutableArray arrayWithArray:dataList];
-        [arr addObject:pageScrollData];
-        return [arr copy];
+        if(isAllArray)
+           [arr addObject:self.model.delegate.pageScrollTailDataList];
+        else            
+            [arr addObjectsFromArray:self.model.delegate.pageScrollTailDataList];
     }
-    else
-        return dataList;    
+    
+    return [arr copy];
 }
 
 -(void)setModel:(MTPageControllModel *)model

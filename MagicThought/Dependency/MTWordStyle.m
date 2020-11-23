@@ -26,7 +26,7 @@
 
 +(NSArray *)mj_ignoredPropertyNames
 {
-    return @[@"lineSpacing", @"verticalAlignment", @"horizontalAlignment", @"bold", @"thin", @"attributedWord", @"attributedWordName", @"spacing", @"numberOfLines", @"lineBreakMode", @"attributedDict", @"paragraphStyle", @"range", @"wordRangeMethod", @"rangeMethod", @"wordStyleList", @"tagReplaceList", @"specialTag", @"maximumLineHeight",@"underLine"];
+    return @[@"lineSpacing", @"verticalAlignment", @"horizontalAlignment", @"bold", @"thin", @"attributedWord", @"attributedWordName", @"spacing", @"numberOfLines", @"lineBreakMode", @"attributedDict", @"paragraphStyle", @"range", @"wordRangeMethod", @"rangeMethod", @"wordStyleList", @"tagReplaceList", @"specialTag", @"maximumLineHeight",@"underLine",@"fontName"];
 }
 
 -(UnderLine)underLine
@@ -221,6 +221,18 @@
     return maximumLineHeight;
 }
 
+-(FontName)fontName
+{
+    __weak __typeof(self) weakSelf = self;
+    FontName fontName = ^(NSString* wordFontName){
+        
+        weakSelf.wordFontName = wordFontName;
+        return weakSelf;
+    };
+    
+    return fontName;
+}
+
 -(void)setWordMaximumLineHeight:(CGFloat)wordMaximumLineHeight
 {
     _wordMaximumLineHeight = wordMaximumLineHeight;
@@ -250,18 +262,23 @@
     if(self.wordSize)
     {
         UIFont* font;
-        if((self.wordBold && self.wordThin) || (!self.wordBold && !self.wordThin) )
-            font = [UIFont systemFontOfSize:self.wordSize];
-        else if(self.wordBold)
-            font = [UIFont boldSystemFontOfSize:self.wordSize];
-        else if(self.wordThin)
+        if([self.wordFontName isExist])
+            font = [UIFont fontWithName:self.wordFontName size:self.wordSize];
+        else
         {
-            if (@available(iOS 8.2, *))
-                font = [UIFont systemFontOfSize:self.wordSize weight:UIFontWeightThin];
-            else
+            if((self.wordBold && self.wordThin) || (!self.wordBold && !self.wordThin) )
                 font = [UIFont systemFontOfSize:self.wordSize];
+            else if(self.wordBold)
+                font = [UIFont boldSystemFontOfSize:self.wordSize];
+            else if(self.wordThin)
+            {
+                if (@available(iOS 8.2, *))
+                    font = [UIFont systemFontOfSize:self.wordSize weight:UIFontWeightThin];
+                else
+                    font = [UIFont systemFontOfSize:self.wordSize];
+            }
         }
-        
+                
         self.attributedDict[NSFontAttributeName] = font;
                 
         if(self.wordNumberOfLines == 1)

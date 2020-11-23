@@ -933,6 +933,20 @@ NSWeakReuseObject* mt_weakReuse(id data)
     return data;
 }
 
+-(BOOL)isAllArray
+{
+    BOOL isAllArr = YES;
+    for(NSObject* obj in self)
+    {
+        if([obj isKindOfClass:[NSArray class]])
+            continue;
+        
+        isAllArr = false;
+        break;
+    }
+    
+    return isAllArr;
+}
 
 @end
 

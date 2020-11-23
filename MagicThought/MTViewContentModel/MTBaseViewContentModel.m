@@ -22,6 +22,7 @@
 @property (nonatomic,assign) BOOL isNoMatchWordStyle;
 @property (nonatomic,assign) BOOL isNoMatchBorderStyle;
 @property (nonatomic,assign) BOOL isNoMatchShadowStyle;
+@property (nonatomic,assign) BOOL isNoMatchJianBianStyle;
 @property (nonatomic,assign) BOOL isNoMatchTextColor;
 @property (nonatomic,assign) BOOL isNoMatchUserInteractionEnabled;
 @property (nonatomic,assign) BOOL isNoMatchMargin;
@@ -99,6 +100,8 @@
         dict = @{@"borderStyle" : obj};
     else if([obj isKindOfClass:[MTShadowStyle class]])
         dict = @{@"shadowStyle" : obj};
+    else if([obj isKindOfClass:[MTJianBianStyle class]])
+        dict = @{@"jianBianStyle" : obj};
     else if([obj isKindOfClass:[UIColor class]])
         dict = @{@"backgroundColor" : obj};
     else if([obj isKindOfClass:[NSNumber class]])
@@ -413,7 +416,8 @@ NSObject* _Nonnull mt_isArrow(BOOL isArrow)
 +(NSArray *)mj_ignoredPropertyNames
 {
     return @[
-        @"viewHeight", @"isNoMatchHidden", @"isNoMatchBackgroundColor", @"isNoMatchText", @"isNoMatchWordStyle", @"isNoMatchBorderStyle", @"isNoMatchShadowStyle", @"isNoMatchTextColor", @"isNoMatchUserInteractionEnabled", @"isNoMatchMargin", @"isNoMatchKeyboardType", @"isNoMatchPadding", @"isNoMatchImage", @"isNoMatchPlaceholderImage", @"isNoMatchBackgroundImage", @"isNoMatchVerticalAlignment", @"isNoMatchHorizontalAlignment", @"isNoMatchClearButtonMode", @"finalModel", @"superModel", @"superOriginModel", @"isPlaceholder", @"associatedDefaultModel", @"associatedModel", @"matchHighlighted", @"matchDisabled", @"matchSelected", @"matchPlaceholder",@"isNoMatchReturnKeyType"
+        @"viewHeight", @"isNoMatchHidden", @"isNoMatchBackgroundColor", @"isNoMatchText", @"isNoMatchWordStyle", @"isNoMatchBorderStyle", @"isNoMatchShadowStyle",
+        @"isNoMatchJianBianStyle", @"isNoMatchTextColor", @"isNoMatchUserInteractionEnabled", @"isNoMatchMargin", @"isNoMatchKeyboardType", @"isNoMatchPadding", @"isNoMatchImage", @"isNoMatchPlaceholderImage", @"isNoMatchBackgroundImage", @"isNoMatchVerticalAlignment", @"isNoMatchHorizontalAlignment", @"isNoMatchClearButtonMode", @"finalModel", @"superModel", @"superOriginModel", @"isPlaceholder", @"associatedDefaultModel", @"associatedModel", @"matchHighlighted", @"matchDisabled", @"matchSelected", @"matchPlaceholder",@"isNoMatchReturnKeyType"
         ,@"isNoMatchNoHighLight"
     ];
 }

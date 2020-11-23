@@ -211,6 +211,8 @@ typedef NSObject* _Nonnull (^WhenReceiveNotification) (MTNotificationHandle _Nul
 
 @interface NSArray (ReuseIdentifier)
 
+@property (nonatomic,assign, readonly) BOOL isAllArray;
+
 -(NSObject* _Nonnull)getDataByIndex:(NSInteger)index;
 
 @end

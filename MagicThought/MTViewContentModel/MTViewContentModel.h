@@ -29,6 +29,15 @@
 /**第五个detailTextLabel*/
 @property (nonatomic,strong) MTBaseViewContentModel* mtContent5;
 
+/**第六个detailTextLabel*/
+@property (nonatomic,strong) MTBaseViewContentModel* mtContent6;
+
+/**第七个detailTextLabel*/
+@property (nonatomic,strong) MTBaseViewContentModel* mtContent7;
+
+/**第八个detailTextLabel*/
+@property (nonatomic,strong) MTBaseViewContentModel* mtContent8;
+
 /**imageView*/
 @property (nonatomic,strong) MTBaseViewContentModel* mtImg;
 
@@ -47,6 +56,15 @@
 /**imageView6*/
 @property (nonatomic,strong) MTBaseViewContentModel* mtImg6;
 
+/**imageView7*/
+@property (nonatomic,strong) MTBaseViewContentModel* mtImg7;
+
+/**imageView8*/
+@property (nonatomic,strong) MTBaseViewContentModel* mtImg8;
+
+/**imageView9*/
+@property (nonatomic,strong) MTBaseViewContentModel* mtImg9;
+
 /**btn*/
 @property (nonatomic,strong) MTBaseViewContentModel* mtBtnTitle;
 
@@ -64,6 +82,15 @@
 
 /**btn6 */
 @property (nonatomic,strong) MTBaseViewContentModel* mtBtnTitle6;
+
+/**btn7 */
+@property (nonatomic,strong) MTBaseViewContentModel* mtBtnTitle7;
+
+/**btn8 */
+@property (nonatomic,strong) MTBaseViewContentModel* mtBtnTitle8;
+
+/**btn9 */
+@property (nonatomic,strong) MTBaseViewContentModel* mtBtnTitle9;
 
 /**textField */
 @property (nonatomic,strong) MTBaseViewContentModel* mtTextField;

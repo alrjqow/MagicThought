@@ -21,7 +21,7 @@
     [super setupDefault];
     
     if(!self.isRemoveMJHeader)
-    self.listView.mj_header = self.mj_header;
+        self.listView.mj_header = self.mj_header;
 }
 
 -(MTBlock)mj_Block
@@ -38,19 +38,30 @@
     return _mj_Block;
 }
 
--(MTRefreshGifHeader *)mj_header
+-(MJRefreshHeader *)mj_header
 {
     if(!_mj_header)
     {
-            __weak __typeof(self) weakSelf = self;
-        _mj_header = [MTRefreshGifHeader headerWithRefreshingBlock:^{
+        __weak __typeof(self) weakSelf = self;
+        
+        Class headerClass = self.headerClass;
+        if(![headerClass isSubclassOfClass:[MJRefreshHeader class]])
+            headerClass = [MTRefreshGifHeader class];
+        
+        MJRefreshHeader* header = [headerClass new];
+        header.refreshingBlock = ^{
             if(weakSelf.mj_Block)
                 weakSelf.mj_Block();
-        }];
+        };
+        _mj_header = header;
     }
     
     return _mj_header;
 }
 
+-(Class)headerClass
+{
+    return MTRefreshGifHeader.class;
+}
 
 @end

@@ -71,3 +71,20 @@
 @property (nonatomic,strong) UIButton* button6;
 
 @end
+
+@interface MTBaseSubCollectionViewCell3 : MTBaseSubCollectionViewCell2
+
+@property (nonatomic,strong) UILabel* detailTextLabel6;
+@property (nonatomic,strong) UILabel* detailTextLabel7;
+@property (nonatomic,strong) UILabel* detailTextLabel8;
+
+@property (nonatomic,strong) UIImageView* imageView7;
+@property (nonatomic,strong) UIImageView* imageView8;
+@property (nonatomic,strong) UIImageView* imageView9;
+
+@property (nonatomic,strong) UIButton* button7;
+@property (nonatomic,strong) UIButton* button8;
+@property (nonatomic,strong) UIButton* button9;
+
+
+@end

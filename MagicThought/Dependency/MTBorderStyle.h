@@ -51,3 +51,21 @@ CG_EXTERN MTBorderStyle* mt_BorderStyleMake(CGFloat borderWidth, CGFloat borderR
 @end
 
 CG_EXTERN MTShadowStyle* mt_ShadowStyleMake(CGFloat shadowOpacity, CGFloat shadowRadius, UIColor* shadowColor, CGSize shadowOffset);
+
+
+@interface MTJianBianStyle : NSObject
+
+@property(nonatomic,assign) CGSize viewSize;
+
+@property(nonatomic,strong) UIColor* startColor;
+@property(nonatomic,strong) UIColor* endColor;
+
+@property(nonatomic,assign) CGPoint startPoint;
+@property(nonatomic,assign) CGPoint endPoint;
+
+
+-(void)setBackgroundColor:(UIView*)view;
+
+@end
+
+CG_EXTERN MTJianBianStyle* mt_jianBianStyleMake(UIColor* startColor, UIColor* endColor, CGPoint startPoint, CGPoint endPoint, CGSize viewSize);

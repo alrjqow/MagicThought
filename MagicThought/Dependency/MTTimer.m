@@ -32,11 +32,25 @@
     return [self getTimeWithDate:[formatter dateFromString:dateString] Format:format];
 }
 
++(NSTimeInterval)getTimeStampWithString:(NSString*)timeString
+{
+    NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
+    [formatter setDateFormat:@"yyyy-MM-dd HH:mm:ss"];
+    return [[formatter dateFromString:timeString] timeIntervalSince1970];
+}
+
 +(NSString*)getTimeWithDate:(NSDate*)date Format:(NSString*)format
 {
     NSDateFormatter* formater = [NSDateFormatter new];
     [formater setDateFormat:format ? format : @"YYYY-MM-dd HH:mm:ss"];
     return  [formater stringFromDate:date];
+}
+
++(NSDate*)getDateWithTime:(NSString*)time Format:(NSString*)format
+{
+    NSDateFormatter* formater = [NSDateFormatter new];
+    [formater setDateFormat:format ? format : @"YYYY-MM-dd HH:mm:ss"];
+    return  [formater dateFromString:time];
 }
 
 +(NSTimeInterval)getCurrentZoneTimeStamp
@@ -47,6 +61,30 @@
 +(NSTimeInterval)getCurrentTimeStamp
 {
     return [[NSDate date] timeIntervalSince1970];
+}
+
++(NSTimeInterval)getTodayBeginTimeStamp
+{
+    return [self getTime:0 andMinute:0];
+}
+
++ (NSTimeInterval)getTime: (NSInteger)hour andMinute:(NSInteger)minute {
+    NSCalendar *greCalendar = [[NSCalendar alloc] initWithCalendarIdentifier:NSCalendarIdentifierGregorian];
+
+    NSTimeZone *timeZone = [[NSTimeZone alloc] initWithName:@"Asia/Shanghai"];
+    [greCalendar setTimeZone: timeZone];
+
+    NSDateComponents *dateComponents = [greCalendar components:NSCalendarUnitYear | NSCalendarUnitMonth | NSCalendarUnitDay  fromDate:[NSDate date]];
+    //  定义一个NSDateComponents对象，设置一个时间点
+    NSDateComponents *dateComponentsForDate = [[NSDateComponents alloc] init];
+    [dateComponentsForDate setDay:dateComponents.day];
+    [dateComponentsForDate setMonth:dateComponents.month];
+    [dateComponentsForDate setYear:dateComponents.year];
+    [dateComponentsForDate setHour:hour];
+    [dateComponentsForDate setMinute:minute];
+
+    NSDate *dateFromDateComponentsForDate = [greCalendar dateFromComponents:dateComponentsForDate];
+    return [dateFromDateComponentsForDate timeIntervalSince1970];
 }
 
 +(BOOL)dValueBetweenCurrentZoneTimeStampAndLastStamp:(NSInteger)lastStamp IsOver:(NSInteger)time

@@ -47,30 +47,30 @@
 
 @interface UIView (MTLayoutFrame)
 
-@property (nonatomic,strong,readonly) MTLayoutFrame* mt_x;
+@property (nonatomic,strong,readonly) MTLayoutFrame* x_mt;
 
-@property (nonatomic,strong,readonly) MTLayoutFrame* mt_y;
+@property (nonatomic,strong,readonly) MTLayoutFrame* y_mt;
 
-@property (nonatomic,strong,readonly) MTLayoutFrame* mt_top;
+@property (nonatomic,strong,readonly) MTLayoutFrame* top_mt;
 
-@property (nonatomic,strong,readonly) MTLayoutFrame* mt_left;
+@property (nonatomic,strong,readonly) MTLayoutFrame* left_mt;
 
-@property (nonatomic,strong,readonly) MTLayoutFrame* mt_bottom;
+@property (nonatomic,strong,readonly) MTLayoutFrame* bottom_mt;
 
-@property (nonatomic,strong,readonly) MTLayoutFrame* mt_right;
+@property (nonatomic,strong,readonly) MTLayoutFrame* right_mt;
 
-@property (nonatomic,strong,readonly) MTLayoutFrame* mt_width;
+@property (nonatomic,strong,readonly) MTLayoutFrame* width_mt;
 
-@property (nonatomic,strong,readonly) MTLayoutFrame* mt_height;
+@property (nonatomic,strong,readonly) MTLayoutFrame* height_mt;
 
-@property (nonatomic,strong,readonly) MTLayoutFrame* mt_centerX;
+@property (nonatomic,strong,readonly) MTLayoutFrame* centerX_mt;
 
-@property (nonatomic,strong,readonly) MTLayoutFrame* mt_centerY;
+@property (nonatomic,strong,readonly) MTLayoutFrame* centerY_mt;
 
-@property (nonatomic,strong,readonly) MTLayoutFrame* mt_maxX;
+@property (nonatomic,strong,readonly) MTLayoutFrame* maxX_mt;
 
-@property (nonatomic,strong,readonly) MTLayoutFrame* mt_maxY;
+@property (nonatomic,strong,readonly) MTLayoutFrame* maxY_mt;
 
-@property (nonatomic,strong,readonly) MTLayoutFrame* mt_edge;
+@property (nonatomic,strong,readonly) MTLayoutFrame* edge_mt;
 
 @end

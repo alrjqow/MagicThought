@@ -23,21 +23,30 @@
 
 @implementation MTRefreshGifHeader
 
-+ (instancetype)headerWithRefreshingTarget:(id)target refreshingAction:(SEL)action
+-(instancetype)initWithFrame:(CGRect)frame
 {
-    MTRefreshGifHeader* header = [super headerWithRefreshingTarget:target refreshingAction:action];
-    [header setupSubview];
-    
-    return header;
+    if(self = [super initWithFrame:frame])
+    {
+        [self setupSubview];
+    }
+    return self;
 }
 
-+(instancetype)headerWithRefreshingBlock:(MJRefreshComponentRefreshingBlock)refreshingBlock
-{
-    MTRefreshGifHeader* header = [super headerWithRefreshingBlock:refreshingBlock];
-    [header setupSubview];
-            
-    return header;
-}
+//+ (instancetype)headerWithRefreshingTarget:(id)target refreshingAction:(SEL)action
+//{
+//    MTRefreshGifHeader* header = [super headerWithRefreshingTarget:target refreshingAction:action];
+//    [header setupSubview];
+//    
+//    return header;
+//}
+//
+//+(instancetype)headerWithRefreshingBlock:(MJRefreshComponentRefreshingBlock)refreshingBlock
+//{
+//    MTRefreshGifHeader* header = [super headerWithRefreshingBlock:refreshingBlock];
+//    [header setupSubview];
+//            
+//    return header;
+//}
 
 -(void)setupSubview
 {

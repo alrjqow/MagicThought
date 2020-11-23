@@ -9,6 +9,23 @@
 #import "MTConst.h"
 #import "UIDevice+DeviceInfo.h"
 
+//判断是几位整数
+NSInteger numberCount(NSInteger number)
+{
+    NSInteger count = 1;
+    NSInteger sum = 10;
+    while (YES) {
+                
+        if(sum > number)
+            return count;
+        else
+        {
+            sum *= 10;
+            count++;
+        }
+    }
+}
+
 //设置token
 NSString* UserToken_mt()
 {

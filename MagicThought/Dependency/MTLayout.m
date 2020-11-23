@@ -537,7 +537,7 @@ createMutableStringArray(verticalEdgeKeyArray)
 
 
 #define addLayout(property, key) \
--(MTLayoutFrame *)mt_##property{\
+-(MTLayoutFrame *)property##_mt{\
 [self.layoutFrame.horizontalKeyArray removeAllObjects];\
 [self.layoutFrame.verticalKeyArray removeAllObjects];\
 self.layoutFrame.isFinishEqualOrOffset = false;\
