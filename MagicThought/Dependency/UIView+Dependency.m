@@ -8,7 +8,9 @@
 
 #import "UIView+Dependency.h"
 #import "NSObject+ReuseIdentifier.h"
+#import "UIView+Frame.h"
 #import "objc/runtime.h"
+#import "UIView+Delegate.h"
 
 @interface UIButton()
 

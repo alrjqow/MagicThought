@@ -8,7 +8,7 @@
 
 #import "UILabel+Word.h"
 #import "MTLabel.h"
-
+#import "NSString+Exist.h"
 
 @implementation UILabel (Word)
 
