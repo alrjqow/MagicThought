@@ -46,49 +46,6 @@
 		78100D9625300EAA00CD6E1F /* MTBorderStyle.m in Sources */ = {isa = PBXBuildFile; fileRef = 78100D3C25300EA900CD6E1F /* MTBorderStyle.m */; };
 		78100D9725300EAA00CD6E1F /* UIView+Dependency.m in Sources */ = {isa = PBXBuildFile; fileRef = 78100D3D25300EA900CD6E1F /* UIView+Dependency.m */; };
 		78100D9825300EAA00CD6E1F /* MTWordStyle.h in Headers */ = {isa = PBXBuildFile; fileRef = 78100D3E25300EA900CD6E1F /* MTWordStyle.h */; };
-		78100D9925300EAA00CD6E1F /* UILabel+LineSpacing.h in Headers */ = {isa = PBXBuildFile; fileRef = 78100D4125300EA900CD6E1F /* UILabel+LineSpacing.h */; };
-		78100D9A25300EAA00CD6E1F /* UILabel+LineSpacing.m in Sources */ = {isa = PBXBuildFile; fileRef = 78100D4225300EA900CD6E1F /* UILabel+LineSpacing.m */; };
-		78100D9B25300EAA00CD6E1F /* UIColor+Image.h in Headers */ = {isa = PBXBuildFile; fileRef = 78100D4425300EA900CD6E1F /* UIColor+Image.h */; };
-		78100D9C25300EAA00CD6E1F /* UIColor+ColorfulColor.m in Sources */ = {isa = PBXBuildFile; fileRef = 78100D4525300EA900CD6E1F /* UIColor+ColorfulColor.m */; };
-		78100D9D25300EAA00CD6E1F /* UIColor+Image.m in Sources */ = {isa = PBXBuildFile; fileRef = 78100D4625300EA900CD6E1F /* UIColor+Image.m */; };
-		78100D9E25300EAA00CD6E1F /* UIColor+ColorfulColor.h in Headers */ = {isa = PBXBuildFile; fileRef = 78100D4725300EA900CD6E1F /* UIColor+ColorfulColor.h */; };
-		78100D9F25300EAA00CD6E1F /* UIView+ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 78100D4925300EA900CD6E1F /* UIView+ViewController.m */; };
-		78100DA025300EAA00CD6E1F /* UIView+Animate.m in Sources */ = {isa = PBXBuildFile; fileRef = 78100D4A25300EA900CD6E1F /* UIView+Animate.m */; };
-		78100DA125300EAA00CD6E1F /* UIView+Copy.m in Sources */ = {isa = PBXBuildFile; fileRef = 78100D4B25300EA900CD6E1F /* UIView+Copy.m */; };
-		78100DA225300EAA00CD6E1F /* UIView+Animate.h in Headers */ = {isa = PBXBuildFile; fileRef = 78100D4C25300EA900CD6E1F /* UIView+Animate.h */; };
-		78100DA325300EAA00CD6E1F /* UIView+ViewController.h in Headers */ = {isa = PBXBuildFile; fileRef = 78100D4D25300EA900CD6E1F /* UIView+ViewController.h */; };
-		78100DA425300EAA00CD6E1F /* UIView+Copy.h in Headers */ = {isa = PBXBuildFile; fileRef = 78100D4E25300EA900CD6E1F /* UIView+Copy.h */; };
-		78100DA525300EAA00CD6E1F /* CLLocation+Mar.m in Sources */ = {isa = PBXBuildFile; fileRef = 78100D5025300EA900CD6E1F /* CLLocation+Mar.m */; };
-		78100DA625300EAA00CD6E1F /* CLLocation+Mar.h in Headers */ = {isa = PBXBuildFile; fileRef = 78100D5125300EA900CD6E1F /* CLLocation+Mar.h */; };
-		78100DA725300EAA00CD6E1F /* NSString+MaxLength.h in Headers */ = {isa = PBXBuildFile; fileRef = 78100D5325300EA900CD6E1F /* NSString+MaxLength.h */; };
-		78100DA825300EAA00CD6E1F /* NSString+Hash.m in Sources */ = {isa = PBXBuildFile; fileRef = 78100D5425300EA900CD6E1F /* NSString+Hash.m */; };
-		78100DA925300EAA00CD6E1F /* NSString+Base64.m in Sources */ = {isa = PBXBuildFile; fileRef = 78100D5525300EA900CD6E1F /* NSString+Base64.m */; };
-		78100DAA25300EAA00CD6E1F /* NSString+TestString.m in Sources */ = {isa = PBXBuildFile; fileRef = 78100D5625300EA900CD6E1F /* NSString+TestString.m */; };
-		78100DAB25300EAA00CD6E1F /* NSString+WordHeight.m in Sources */ = {isa = PBXBuildFile; fileRef = 78100D5725300EA900CD6E1F /* NSString+WordHeight.m */; };
-		78100DAC25300EAA00CD6E1F /* NSString+Money.h in Headers */ = {isa = PBXBuildFile; fileRef = 78100D5825300EA900CD6E1F /* NSString+Money.h */; };
-		78100DAD25300EAA00CD6E1F /* NSString+Replace.h in Headers */ = {isa = PBXBuildFile; fileRef = 78100D5925300EA900CD6E1F /* NSString+Replace.h */; };
-		78100DAE25300EAA00CD6E1F /* NSString+MD5.h in Headers */ = {isa = PBXBuildFile; fileRef = 78100D5A25300EA900CD6E1F /* NSString+MD5.h */; };
-		78100DAF25300EAA00CD6E1F /* NSString+JKNormalRegex.m in Sources */ = {isa = PBXBuildFile; fileRef = 78100D5B25300EA900CD6E1F /* NSString+JKNormalRegex.m */; };
-		78100DB025300EAA00CD6E1F /* NSString+Bundle.m in Sources */ = {isa = PBXBuildFile; fileRef = 78100D5C25300EA900CD6E1F /* NSString+Bundle.m */; };
-		78100DB125300EAA00CD6E1F /* NSString+Unicode.m in Sources */ = {isa = PBXBuildFile; fileRef = 78100D5D25300EA900CD6E1F /* NSString+Unicode.m */; };
-		78100DB225300EAA00CD6E1F /* NSString+Encode.h in Headers */ = {isa = PBXBuildFile; fileRef = 78100D5E25300EA900CD6E1F /* NSString+Encode.h */; };
-		78100DB325300EAA00CD6E1F /* NSString+Hash.h in Headers */ = {isa = PBXBuildFile; fileRef = 78100D5F25300EA900CD6E1F /* NSString+Hash.h */; };
-		78100DB425300EAA00CD6E1F /* NSString+MaxLength.m in Sources */ = {isa = PBXBuildFile; fileRef = 78100D6025300EA900CD6E1F /* NSString+MaxLength.m */; };
-		78100DB525300EAA00CD6E1F /* NSString+Money.m in Sources */ = {isa = PBXBuildFile; fileRef = 78100D6125300EA900CD6E1F /* NSString+Money.m */; };
-		78100DB625300EAA00CD6E1F /* NSString+WordHeight.h in Headers */ = {isa = PBXBuildFile; fileRef = 78100D6225300EA900CD6E1F /* NSString+WordHeight.h */; };
-		78100DB725300EAA00CD6E1F /* NSString+TestString.h in Headers */ = {isa = PBXBuildFile; fileRef = 78100D6325300EA900CD6E1F /* NSString+TestString.h */; };
-		78100DB825300EAA00CD6E1F /* NSString+Base64.h in Headers */ = {isa = PBXBuildFile; fileRef = 78100D6425300EA900CD6E1F /* NSString+Base64.h */; };
-		78100DB925300EAA00CD6E1F /* NSString+Bundle.h in Headers */ = {isa = PBXBuildFile; fileRef = 78100D6525300EA900CD6E1F /* NSString+Bundle.h */; };
-		78100DBA25300EAA00CD6E1F /* NSString+JKNormalRegex.h in Headers */ = {isa = PBXBuildFile; fileRef = 78100D6625300EAA00CD6E1F /* NSString+JKNormalRegex.h */; };
-		78100DBB25300EAA00CD6E1F /* NSString+MD5.m in Sources */ = {isa = PBXBuildFile; fileRef = 78100D6725300EAA00CD6E1F /* NSString+MD5.m */; };
-		78100DBC25300EAA00CD6E1F /* NSString+Replace.m in Sources */ = {isa = PBXBuildFile; fileRef = 78100D6825300EAA00CD6E1F /* NSString+Replace.m */; };
-		78100DBD25300EAA00CD6E1F /* NSString+Encode.m in Sources */ = {isa = PBXBuildFile; fileRef = 78100D6925300EAA00CD6E1F /* NSString+Encode.m */; };
-		78100DBE25300EAA00CD6E1F /* NSString+Unicode.h in Headers */ = {isa = PBXBuildFile; fileRef = 78100D6A25300EAA00CD6E1F /* NSString+Unicode.h */; };
-		78100DBF25300EAA00CD6E1F /* UIViewController+Navigation.m in Sources */ = {isa = PBXBuildFile; fileRef = 78100D6C25300EAA00CD6E1F /* UIViewController+Navigation.m */; };
-		78100DC025300EAA00CD6E1F /* UIViewController+Navigation.h in Headers */ = {isa = PBXBuildFile; fileRef = 78100D6D25300EAA00CD6E1F /* UIViewController+Navigation.h */; };
-		78100DC125300EAA00CD6E1F /* Category.h in Headers */ = {isa = PBXBuildFile; fileRef = 78100D6E25300EAA00CD6E1F /* Category.h */; };
-		78100DC225300EAA00CD6E1F /* NSObject+HideKey.h in Headers */ = {isa = PBXBuildFile; fileRef = 78100D7025300EAA00CD6E1F /* NSObject+HideKey.h */; };
-		78100DC325300EAA00CD6E1F /* NSObject+HideKey.m in Sources */ = {isa = PBXBuildFile; fileRef = 78100D7125300EAA00CD6E1F /* NSObject+HideKey.m */; };
 		78100FBA25300EB500CD6E1F /* MTViewControllers.h in Headers */ = {isa = PBXBuildFile; fileRef = 78100DC625300EB400CD6E1F /* MTViewControllers.h */; };
 		78100FBB25300EB500CD6E1F /* MTViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 78100DC725300EB400CD6E1F /* MTViewController.m */; };
 		78100FBC25300EB500CD6E1F /* MTFeedBackInfoController.h in Headers */ = {isa = PBXBuildFile; fileRef = 78100DC925300EB400CD6E1F /* MTFeedBackInfoController.h */; };
@@ -497,6 +454,49 @@
 		7810116525300EB600CD6E1F /* MTTextView.h in Headers */ = {isa = PBXBuildFile; fileRef = 78100FB725300EB500CD6E1F /* MTTextView.h */; };
 		7810116625300EB600CD6E1F /* MTTextField.m in Sources */ = {isa = PBXBuildFile; fileRef = 78100FB825300EB500CD6E1F /* MTTextField.m */; };
 		7810116725300EB600CD6E1F /* MTTextVerifyModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 78100FB925300EB500CD6E1F /* MTTextVerifyModel.m */; };
+		785DE2BC256B4EBA0026B1B0 /* UILabel+LineSpacing.h in Headers */ = {isa = PBXBuildFile; fileRef = 785DE28B256B4EBA0026B1B0 /* UILabel+LineSpacing.h */; };
+		785DE2BD256B4EBA0026B1B0 /* UILabel+LineSpacing.m in Sources */ = {isa = PBXBuildFile; fileRef = 785DE28C256B4EBA0026B1B0 /* UILabel+LineSpacing.m */; };
+		785DE2BE256B4EBA0026B1B0 /* UIColor+Image.h in Headers */ = {isa = PBXBuildFile; fileRef = 785DE28E256B4EBA0026B1B0 /* UIColor+Image.h */; };
+		785DE2BF256B4EBA0026B1B0 /* UIColor+ColorfulColor.m in Sources */ = {isa = PBXBuildFile; fileRef = 785DE28F256B4EBA0026B1B0 /* UIColor+ColorfulColor.m */; };
+		785DE2C0256B4EBA0026B1B0 /* UIColor+Image.m in Sources */ = {isa = PBXBuildFile; fileRef = 785DE290256B4EBA0026B1B0 /* UIColor+Image.m */; };
+		785DE2C1256B4EBA0026B1B0 /* UIColor+ColorfulColor.h in Headers */ = {isa = PBXBuildFile; fileRef = 785DE291256B4EBA0026B1B0 /* UIColor+ColorfulColor.h */; };
+		785DE2C2256B4EBA0026B1B0 /* UIView+ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 785DE293256B4EBA0026B1B0 /* UIView+ViewController.m */; };
+		785DE2C3256B4EBA0026B1B0 /* UIView+Animate.m in Sources */ = {isa = PBXBuildFile; fileRef = 785DE294256B4EBA0026B1B0 /* UIView+Animate.m */; };
+		785DE2C4256B4EBA0026B1B0 /* UIView+Copy.m in Sources */ = {isa = PBXBuildFile; fileRef = 785DE295256B4EBA0026B1B0 /* UIView+Copy.m */; };
+		785DE2C5256B4EBA0026B1B0 /* UIView+Animate.h in Headers */ = {isa = PBXBuildFile; fileRef = 785DE296256B4EBA0026B1B0 /* UIView+Animate.h */; };
+		785DE2C6256B4EBA0026B1B0 /* UIView+ViewController.h in Headers */ = {isa = PBXBuildFile; fileRef = 785DE297256B4EBA0026B1B0 /* UIView+ViewController.h */; };
+		785DE2C7256B4EBA0026B1B0 /* UIView+Copy.h in Headers */ = {isa = PBXBuildFile; fileRef = 785DE298256B4EBA0026B1B0 /* UIView+Copy.h */; };
+		785DE2C8256B4EBA0026B1B0 /* CLLocation+Mar.m in Sources */ = {isa = PBXBuildFile; fileRef = 785DE29A256B4EBA0026B1B0 /* CLLocation+Mar.m */; };
+		785DE2C9256B4EBA0026B1B0 /* CLLocation+Mar.h in Headers */ = {isa = PBXBuildFile; fileRef = 785DE29B256B4EBA0026B1B0 /* CLLocation+Mar.h */; };
+		785DE2CA256B4EBA0026B1B0 /* NSString+MaxLength.h in Headers */ = {isa = PBXBuildFile; fileRef = 785DE29D256B4EBA0026B1B0 /* NSString+MaxLength.h */; };
+		785DE2CB256B4EBA0026B1B0 /* NSString+Hash.m in Sources */ = {isa = PBXBuildFile; fileRef = 785DE29E256B4EBA0026B1B0 /* NSString+Hash.m */; };
+		785DE2CC256B4EBA0026B1B0 /* NSString+Base64.m in Sources */ = {isa = PBXBuildFile; fileRef = 785DE29F256B4EBA0026B1B0 /* NSString+Base64.m */; };
+		785DE2CD256B4EBA0026B1B0 /* NSString+TestString.m in Sources */ = {isa = PBXBuildFile; fileRef = 785DE2A0256B4EBA0026B1B0 /* NSString+TestString.m */; };
+		785DE2CE256B4EBA0026B1B0 /* NSString+WordHeight.m in Sources */ = {isa = PBXBuildFile; fileRef = 785DE2A1256B4EBA0026B1B0 /* NSString+WordHeight.m */; };
+		785DE2CF256B4EBA0026B1B0 /* NSString+Money.h in Headers */ = {isa = PBXBuildFile; fileRef = 785DE2A2256B4EBA0026B1B0 /* NSString+Money.h */; };
+		785DE2D0256B4EBA0026B1B0 /* NSString+Replace.h in Headers */ = {isa = PBXBuildFile; fileRef = 785DE2A3256B4EBA0026B1B0 /* NSString+Replace.h */; };
+		785DE2D1256B4EBA0026B1B0 /* NSString+MD5.h in Headers */ = {isa = PBXBuildFile; fileRef = 785DE2A4256B4EBA0026B1B0 /* NSString+MD5.h */; };
+		785DE2D2256B4EBA0026B1B0 /* NSString+JKNormalRegex.m in Sources */ = {isa = PBXBuildFile; fileRef = 785DE2A5256B4EBA0026B1B0 /* NSString+JKNormalRegex.m */; };
+		785DE2D3256B4EBA0026B1B0 /* NSString+Bundle.m in Sources */ = {isa = PBXBuildFile; fileRef = 785DE2A6256B4EBA0026B1B0 /* NSString+Bundle.m */; };
+		785DE2D4256B4EBA0026B1B0 /* NSString+Unicode.m in Sources */ = {isa = PBXBuildFile; fileRef = 785DE2A7256B4EBA0026B1B0 /* NSString+Unicode.m */; };
+		785DE2D5256B4EBA0026B1B0 /* NSString+Encode.h in Headers */ = {isa = PBXBuildFile; fileRef = 785DE2A8256B4EBA0026B1B0 /* NSString+Encode.h */; };
+		785DE2D6256B4EBA0026B1B0 /* NSString+Hash.h in Headers */ = {isa = PBXBuildFile; fileRef = 785DE2A9256B4EBA0026B1B0 /* NSString+Hash.h */; };
+		785DE2D7256B4EBA0026B1B0 /* NSString+MaxLength.m in Sources */ = {isa = PBXBuildFile; fileRef = 785DE2AA256B4EBA0026B1B0 /* NSString+MaxLength.m */; };
+		785DE2D8256B4EBA0026B1B0 /* NSString+Money.m in Sources */ = {isa = PBXBuildFile; fileRef = 785DE2AB256B4EBA0026B1B0 /* NSString+Money.m */; };
+		785DE2D9256B4EBA0026B1B0 /* NSString+WordHeight.h in Headers */ = {isa = PBXBuildFile; fileRef = 785DE2AC256B4EBA0026B1B0 /* NSString+WordHeight.h */; };
+		785DE2DA256B4EBA0026B1B0 /* NSString+TestString.h in Headers */ = {isa = PBXBuildFile; fileRef = 785DE2AD256B4EBA0026B1B0 /* NSString+TestString.h */; };
+		785DE2DB256B4EBA0026B1B0 /* NSString+Base64.h in Headers */ = {isa = PBXBuildFile; fileRef = 785DE2AE256B4EBA0026B1B0 /* NSString+Base64.h */; };
+		785DE2DC256B4EBA0026B1B0 /* NSString+Bundle.h in Headers */ = {isa = PBXBuildFile; fileRef = 785DE2AF256B4EBA0026B1B0 /* NSString+Bundle.h */; };
+		785DE2DD256B4EBA0026B1B0 /* NSString+JKNormalRegex.h in Headers */ = {isa = PBXBuildFile; fileRef = 785DE2B0256B4EBA0026B1B0 /* NSString+JKNormalRegex.h */; };
+		785DE2DE256B4EBA0026B1B0 /* NSString+MD5.m in Sources */ = {isa = PBXBuildFile; fileRef = 785DE2B1256B4EBA0026B1B0 /* NSString+MD5.m */; };
+		785DE2DF256B4EBA0026B1B0 /* NSString+Replace.m in Sources */ = {isa = PBXBuildFile; fileRef = 785DE2B2256B4EBA0026B1B0 /* NSString+Replace.m */; };
+		785DE2E0256B4EBA0026B1B0 /* NSString+Encode.m in Sources */ = {isa = PBXBuildFile; fileRef = 785DE2B3256B4EBA0026B1B0 /* NSString+Encode.m */; };
+		785DE2E1256B4EBA0026B1B0 /* NSString+Unicode.h in Headers */ = {isa = PBXBuildFile; fileRef = 785DE2B4256B4EBA0026B1B0 /* NSString+Unicode.h */; };
+		785DE2E2256B4EBA0026B1B0 /* UIViewController+Navigation.m in Sources */ = {isa = PBXBuildFile; fileRef = 785DE2B6256B4EBA0026B1B0 /* UIViewController+Navigation.m */; };
+		785DE2E3256B4EBA0026B1B0 /* UIViewController+Navigation.h in Headers */ = {isa = PBXBuildFile; fileRef = 785DE2B7256B4EBA0026B1B0 /* UIViewController+Navigation.h */; };
+		785DE2E4256B4EBA0026B1B0 /* Category.h in Headers */ = {isa = PBXBuildFile; fileRef = 785DE2B8256B4EBA0026B1B0 /* Category.h */; };
+		785DE2E5256B4EBA0026B1B0 /* NSObject+HideKey.h in Headers */ = {isa = PBXBuildFile; fileRef = 785DE2BA256B4EBA0026B1B0 /* NSObject+HideKey.h */; };
+		785DE2E6256B4EBA0026B1B0 /* NSObject+HideKey.m in Sources */ = {isa = PBXBuildFile; fileRef = 785DE2BB256B4EBA0026B1B0 /* NSObject+HideKey.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -541,49 +541,6 @@
 		78100D3C25300EA900CD6E1F /* MTBorderStyle.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MTBorderStyle.m; sourceTree = "<group>"; };
 		78100D3D25300EA900CD6E1F /* UIView+Dependency.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+Dependency.m"; sourceTree = "<group>"; };
 		78100D3E25300EA900CD6E1F /* MTWordStyle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MTWordStyle.h; sourceTree = "<group>"; };
-		78100D4125300EA900CD6E1F /* UILabel+LineSpacing.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UILabel+LineSpacing.h"; sourceTree = "<group>"; };
-		78100D4225300EA900CD6E1F /* UILabel+LineSpacing.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UILabel+LineSpacing.m"; sourceTree = "<group>"; };
-		78100D4425300EA900CD6E1F /* UIColor+Image.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIColor+Image.h"; sourceTree = "<group>"; };
-		78100D4525300EA900CD6E1F /* UIColor+ColorfulColor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+ColorfulColor.m"; sourceTree = "<group>"; };
-		78100D4625300EA900CD6E1F /* UIColor+Image.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+Image.m"; sourceTree = "<group>"; };
-		78100D4725300EA900CD6E1F /* UIColor+ColorfulColor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIColor+ColorfulColor.h"; sourceTree = "<group>"; };
-		78100D4925300EA900CD6E1F /* UIView+ViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+ViewController.m"; sourceTree = "<group>"; };
-		78100D4A25300EA900CD6E1F /* UIView+Animate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+Animate.m"; sourceTree = "<group>"; };
-		78100D4B25300EA900CD6E1F /* UIView+Copy.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+Copy.m"; sourceTree = "<group>"; };
-		78100D4C25300EA900CD6E1F /* UIView+Animate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+Animate.h"; sourceTree = "<group>"; };
-		78100D4D25300EA900CD6E1F /* UIView+ViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+ViewController.h"; sourceTree = "<group>"; };
-		78100D4E25300EA900CD6E1F /* UIView+Copy.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+Copy.h"; sourceTree = "<group>"; };
-		78100D5025300EA900CD6E1F /* CLLocation+Mar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "CLLocation+Mar.m"; sourceTree = "<group>"; };
-		78100D5125300EA900CD6E1F /* CLLocation+Mar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "CLLocation+Mar.h"; sourceTree = "<group>"; };
-		78100D5325300EA900CD6E1F /* NSString+MaxLength.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+MaxLength.h"; sourceTree = "<group>"; };
-		78100D5425300EA900CD6E1F /* NSString+Hash.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+Hash.m"; sourceTree = "<group>"; };
-		78100D5525300EA900CD6E1F /* NSString+Base64.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+Base64.m"; sourceTree = "<group>"; };
-		78100D5625300EA900CD6E1F /* NSString+TestString.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+TestString.m"; sourceTree = "<group>"; };
-		78100D5725300EA900CD6E1F /* NSString+WordHeight.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+WordHeight.m"; sourceTree = "<group>"; };
-		78100D5825300EA900CD6E1F /* NSString+Money.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+Money.h"; sourceTree = "<group>"; };
-		78100D5925300EA900CD6E1F /* NSString+Replace.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+Replace.h"; sourceTree = "<group>"; };
-		78100D5A25300EA900CD6E1F /* NSString+MD5.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+MD5.h"; sourceTree = "<group>"; };
-		78100D5B25300EA900CD6E1F /* NSString+JKNormalRegex.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+JKNormalRegex.m"; sourceTree = "<group>"; };
-		78100D5C25300EA900CD6E1F /* NSString+Bundle.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+Bundle.m"; sourceTree = "<group>"; };
-		78100D5D25300EA900CD6E1F /* NSString+Unicode.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+Unicode.m"; sourceTree = "<group>"; };
-		78100D5E25300EA900CD6E1F /* NSString+Encode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+Encode.h"; sourceTree = "<group>"; };
-		78100D5F25300EA900CD6E1F /* NSString+Hash.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+Hash.h"; sourceTree = "<group>"; };
-		78100D6025300EA900CD6E1F /* NSString+MaxLength.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+MaxLength.m"; sourceTree = "<group>"; };
-		78100D6125300EA900CD6E1F /* NSString+Money.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+Money.m"; sourceTree = "<group>"; };
-		78100D6225300EA900CD6E1F /* NSString+WordHeight.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+WordHeight.h"; sourceTree = "<group>"; };
-		78100D6325300EA900CD6E1F /* NSString+TestString.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+TestString.h"; sourceTree = "<group>"; };
-		78100D6425300EA900CD6E1F /* NSString+Base64.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+Base64.h"; sourceTree = "<group>"; };
-		78100D6525300EA900CD6E1F /* NSString+Bundle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+Bundle.h"; sourceTree = "<group>"; };
-		78100D6625300EAA00CD6E1F /* NSString+JKNormalRegex.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+JKNormalRegex.h"; sourceTree = "<group>"; };
-		78100D6725300EAA00CD6E1F /* NSString+MD5.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+MD5.m"; sourceTree = "<group>"; };
-		78100D6825300EAA00CD6E1F /* NSString+Replace.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+Replace.m"; sourceTree = "<group>"; };
-		78100D6925300EAA00CD6E1F /* NSString+Encode.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+Encode.m"; sourceTree = "<group>"; };
-		78100D6A25300EAA00CD6E1F /* NSString+Unicode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+Unicode.h"; sourceTree = "<group>"; };
-		78100D6C25300EAA00CD6E1F /* UIViewController+Navigation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+Navigation.m"; sourceTree = "<group>"; };
-		78100D6D25300EAA00CD6E1F /* UIViewController+Navigation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIViewController+Navigation.h"; sourceTree = "<group>"; };
-		78100D6E25300EAA00CD6E1F /* Category.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Category.h; sourceTree = "<group>"; };
-		78100D7025300EAA00CD6E1F /* NSObject+HideKey.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+HideKey.h"; sourceTree = "<group>"; };
-		78100D7125300EAA00CD6E1F /* NSObject+HideKey.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+HideKey.m"; sourceTree = "<group>"; };
 		78100DC625300EB400CD6E1F /* MTViewControllers.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MTViewControllers.h; sourceTree = "<group>"; };
 		78100DC725300EB400CD6E1F /* MTViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MTViewController.m; sourceTree = "<group>"; };
 		78100DC925300EB400CD6E1F /* MTFeedBackInfoController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MTFeedBackInfoController.h; sourceTree = "<group>"; };
@@ -992,6 +949,49 @@
 		78100FB725300EB500CD6E1F /* MTTextView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MTTextView.h; sourceTree = "<group>"; };
 		78100FB825300EB500CD6E1F /* MTTextField.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MTTextField.m; sourceTree = "<group>"; };
 		78100FB925300EB500CD6E1F /* MTTextVerifyModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MTTextVerifyModel.m; sourceTree = "<group>"; };
+		785DE28B256B4EBA0026B1B0 /* UILabel+LineSpacing.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UILabel+LineSpacing.h"; sourceTree = "<group>"; };
+		785DE28C256B4EBA0026B1B0 /* UILabel+LineSpacing.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UILabel+LineSpacing.m"; sourceTree = "<group>"; };
+		785DE28E256B4EBA0026B1B0 /* UIColor+Image.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIColor+Image.h"; sourceTree = "<group>"; };
+		785DE28F256B4EBA0026B1B0 /* UIColor+ColorfulColor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+ColorfulColor.m"; sourceTree = "<group>"; };
+		785DE290256B4EBA0026B1B0 /* UIColor+Image.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+Image.m"; sourceTree = "<group>"; };
+		785DE291256B4EBA0026B1B0 /* UIColor+ColorfulColor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIColor+ColorfulColor.h"; sourceTree = "<group>"; };
+		785DE293256B4EBA0026B1B0 /* UIView+ViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+ViewController.m"; sourceTree = "<group>"; };
+		785DE294256B4EBA0026B1B0 /* UIView+Animate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+Animate.m"; sourceTree = "<group>"; };
+		785DE295256B4EBA0026B1B0 /* UIView+Copy.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+Copy.m"; sourceTree = "<group>"; };
+		785DE296256B4EBA0026B1B0 /* UIView+Animate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+Animate.h"; sourceTree = "<group>"; };
+		785DE297256B4EBA0026B1B0 /* UIView+ViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+ViewController.h"; sourceTree = "<group>"; };
+		785DE298256B4EBA0026B1B0 /* UIView+Copy.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+Copy.h"; sourceTree = "<group>"; };
+		785DE29A256B4EBA0026B1B0 /* CLLocation+Mar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "CLLocation+Mar.m"; sourceTree = "<group>"; };
+		785DE29B256B4EBA0026B1B0 /* CLLocation+Mar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "CLLocation+Mar.h"; sourceTree = "<group>"; };
+		785DE29D256B4EBA0026B1B0 /* NSString+MaxLength.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+MaxLength.h"; sourceTree = "<group>"; };
+		785DE29E256B4EBA0026B1B0 /* NSString+Hash.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+Hash.m"; sourceTree = "<group>"; };
+		785DE29F256B4EBA0026B1B0 /* NSString+Base64.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+Base64.m"; sourceTree = "<group>"; };
+		785DE2A0256B4EBA0026B1B0 /* NSString+TestString.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+TestString.m"; sourceTree = "<group>"; };
+		785DE2A1256B4EBA0026B1B0 /* NSString+WordHeight.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+WordHeight.m"; sourceTree = "<group>"; };
+		785DE2A2256B4EBA0026B1B0 /* NSString+Money.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+Money.h"; sourceTree = "<group>"; };
+		785DE2A3256B4EBA0026B1B0 /* NSString+Replace.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+Replace.h"; sourceTree = "<group>"; };
+		785DE2A4256B4EBA0026B1B0 /* NSString+MD5.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+MD5.h"; sourceTree = "<group>"; };
+		785DE2A5256B4EBA0026B1B0 /* NSString+JKNormalRegex.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+JKNormalRegex.m"; sourceTree = "<group>"; };
+		785DE2A6256B4EBA0026B1B0 /* NSString+Bundle.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+Bundle.m"; sourceTree = "<group>"; };
+		785DE2A7256B4EBA0026B1B0 /* NSString+Unicode.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+Unicode.m"; sourceTree = "<group>"; };
+		785DE2A8256B4EBA0026B1B0 /* NSString+Encode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+Encode.h"; sourceTree = "<group>"; };
+		785DE2A9256B4EBA0026B1B0 /* NSString+Hash.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+Hash.h"; sourceTree = "<group>"; };
+		785DE2AA256B4EBA0026B1B0 /* NSString+MaxLength.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+MaxLength.m"; sourceTree = "<group>"; };
+		785DE2AB256B4EBA0026B1B0 /* NSString+Money.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+Money.m"; sourceTree = "<group>"; };
+		785DE2AC256B4EBA0026B1B0 /* NSString+WordHeight.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+WordHeight.h"; sourceTree = "<group>"; };
+		785DE2AD256B4EBA0026B1B0 /* NSString+TestString.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+TestString.h"; sourceTree = "<group>"; };
+		785DE2AE256B4EBA0026B1B0 /* NSString+Base64.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+Base64.h"; sourceTree = "<group>"; };
+		785DE2AF256B4EBA0026B1B0 /* NSString+Bundle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+Bundle.h"; sourceTree = "<group>"; };
+		785DE2B0256B4EBA0026B1B0 /* NSString+JKNormalRegex.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+JKNormalRegex.h"; sourceTree = "<group>"; };
+		785DE2B1256B4EBA0026B1B0 /* NSString+MD5.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+MD5.m"; sourceTree = "<group>"; };
+		785DE2B2256B4EBA0026B1B0 /* NSString+Replace.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+Replace.m"; sourceTree = "<group>"; };
+		785DE2B3256B4EBA0026B1B0 /* NSString+Encode.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+Encode.m"; sourceTree = "<group>"; };
+		785DE2B4256B4EBA0026B1B0 /* NSString+Unicode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+Unicode.h"; sourceTree = "<group>"; };
+		785DE2B6256B4EBA0026B1B0 /* UIViewController+Navigation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+Navigation.m"; sourceTree = "<group>"; };
+		785DE2B7256B4EBA0026B1B0 /* UIViewController+Navigation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIViewController+Navigation.h"; sourceTree = "<group>"; };
+		785DE2B8256B4EBA0026B1B0 /* Category.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Category.h; sourceTree = "<group>"; };
+		785DE2BA256B4EBA0026B1B0 /* NSObject+HideKey.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+HideKey.h"; sourceTree = "<group>"; };
+		785DE2BB256B4EBA0026B1B0 /* NSObject+HideKey.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+HideKey.m"; sourceTree = "<group>"; };
 		78F3327C2239051C00DA02F6 /* MagicThought.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = MagicThought.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		78F332802239051C00DA02F6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -1051,112 +1051,6 @@
 				78100D3C25300EA900CD6E1F /* MTBorderStyle.m */,
 			);
 			path = Dependency;
-			sourceTree = "<group>";
-		};
-		78100D3F25300EA900CD6E1F /* Category */ = {
-			isa = PBXGroup;
-			children = (
-				78100D6E25300EAA00CD6E1F /* Category.h */,
-				78100D6F25300EAA00CD6E1F /* NSObject */,
-				78100D4025300EA900CD6E1F /* UILabel */,
-				78100D4325300EA900CD6E1F /* UIColor */,
-				78100D4825300EA900CD6E1F /* UIView */,
-				78100D4F25300EA900CD6E1F /* CLLocation */,
-				78100D5225300EA900CD6E1F /* NSString */,
-				78100D6B25300EAA00CD6E1F /* UIViewController */,
-			);
-			path = Category;
-			sourceTree = "<group>";
-		};
-		78100D4025300EA900CD6E1F /* UILabel */ = {
-			isa = PBXGroup;
-			children = (
-				78100D4125300EA900CD6E1F /* UILabel+LineSpacing.h */,
-				78100D4225300EA900CD6E1F /* UILabel+LineSpacing.m */,
-			);
-			path = UILabel;
-			sourceTree = "<group>";
-		};
-		78100D4325300EA900CD6E1F /* UIColor */ = {
-			isa = PBXGroup;
-			children = (
-				78100D4425300EA900CD6E1F /* UIColor+Image.h */,
-				78100D4625300EA900CD6E1F /* UIColor+Image.m */,
-				78100D4725300EA900CD6E1F /* UIColor+ColorfulColor.h */,
-				78100D4525300EA900CD6E1F /* UIColor+ColorfulColor.m */,
-			);
-			path = UIColor;
-			sourceTree = "<group>";
-		};
-		78100D4825300EA900CD6E1F /* UIView */ = {
-			isa = PBXGroup;
-			children = (
-				78100D4D25300EA900CD6E1F /* UIView+ViewController.h */,
-				78100D4925300EA900CD6E1F /* UIView+ViewController.m */,
-				78100D4C25300EA900CD6E1F /* UIView+Animate.h */,
-				78100D4A25300EA900CD6E1F /* UIView+Animate.m */,
-				78100D4E25300EA900CD6E1F /* UIView+Copy.h */,
-				78100D4B25300EA900CD6E1F /* UIView+Copy.m */,
-			);
-			path = UIView;
-			sourceTree = "<group>";
-		};
-		78100D4F25300EA900CD6E1F /* CLLocation */ = {
-			isa = PBXGroup;
-			children = (
-				78100D5025300EA900CD6E1F /* CLLocation+Mar.m */,
-				78100D5125300EA900CD6E1F /* CLLocation+Mar.h */,
-			);
-			path = CLLocation;
-			sourceTree = "<group>";
-		};
-		78100D5225300EA900CD6E1F /* NSString */ = {
-			isa = PBXGroup;
-			children = (
-				78100D5325300EA900CD6E1F /* NSString+MaxLength.h */,
-				78100D6025300EA900CD6E1F /* NSString+MaxLength.m */,
-				78100D5F25300EA900CD6E1F /* NSString+Hash.h */,
-				78100D5425300EA900CD6E1F /* NSString+Hash.m */,
-				78100D6425300EA900CD6E1F /* NSString+Base64.h */,
-				78100D5525300EA900CD6E1F /* NSString+Base64.m */,
-				78100D6325300EA900CD6E1F /* NSString+TestString.h */,
-				78100D5625300EA900CD6E1F /* NSString+TestString.m */,
-				78100D6225300EA900CD6E1F /* NSString+WordHeight.h */,
-				78100D5725300EA900CD6E1F /* NSString+WordHeight.m */,
-				78100D5825300EA900CD6E1F /* NSString+Money.h */,
-				78100D6125300EA900CD6E1F /* NSString+Money.m */,
-				78100D5925300EA900CD6E1F /* NSString+Replace.h */,
-				78100D6825300EAA00CD6E1F /* NSString+Replace.m */,
-				78100D5A25300EA900CD6E1F /* NSString+MD5.h */,
-				78100D6725300EAA00CD6E1F /* NSString+MD5.m */,
-				78100D6625300EAA00CD6E1F /* NSString+JKNormalRegex.h */,
-				78100D5B25300EA900CD6E1F /* NSString+JKNormalRegex.m */,
-				78100D6525300EA900CD6E1F /* NSString+Bundle.h */,
-				78100D5C25300EA900CD6E1F /* NSString+Bundle.m */,
-				78100D6A25300EAA00CD6E1F /* NSString+Unicode.h */,
-				78100D5D25300EA900CD6E1F /* NSString+Unicode.m */,
-				78100D5E25300EA900CD6E1F /* NSString+Encode.h */,
-				78100D6925300EAA00CD6E1F /* NSString+Encode.m */,
-			);
-			path = NSString;
-			sourceTree = "<group>";
-		};
-		78100D6B25300EAA00CD6E1F /* UIViewController */ = {
-			isa = PBXGroup;
-			children = (
-				78100D6D25300EAA00CD6E1F /* UIViewController+Navigation.h */,
-				78100D6C25300EAA00CD6E1F /* UIViewController+Navigation.m */,
-			);
-			path = UIViewController;
-			sourceTree = "<group>";
-		};
-		78100D6F25300EAA00CD6E1F /* NSObject */ = {
-			isa = PBXGroup;
-			children = (
-				78100D7025300EAA00CD6E1F /* NSObject+HideKey.h */,
-				78100D7125300EAA00CD6E1F /* NSObject+HideKey.m */,
-			);
-			path = NSObject;
 			sourceTree = "<group>";
 		};
 		78100DC525300EB400CD6E1F /* MTViewController */ = {
@@ -2034,6 +1928,112 @@
 			path = MTTextFieldVerify;
 			sourceTree = "<group>";
 		};
+		785DE289256B4EBA0026B1B0 /* Category */ = {
+			isa = PBXGroup;
+			children = (
+				785DE2B8256B4EBA0026B1B0 /* Category.h */,
+				785DE29C256B4EBA0026B1B0 /* NSString */,
+				785DE28A256B4EBA0026B1B0 /* UILabel */,
+				785DE28D256B4EBA0026B1B0 /* UIColor */,
+				785DE292256B4EBA0026B1B0 /* UIView */,
+				785DE299256B4EBA0026B1B0 /* CLLocation */,
+				785DE2B5256B4EBA0026B1B0 /* UIViewController */,
+				785DE2B9256B4EBA0026B1B0 /* NSObject */,
+			);
+			path = Category;
+			sourceTree = "<group>";
+		};
+		785DE28A256B4EBA0026B1B0 /* UILabel */ = {
+			isa = PBXGroup;
+			children = (
+				785DE28B256B4EBA0026B1B0 /* UILabel+LineSpacing.h */,
+				785DE28C256B4EBA0026B1B0 /* UILabel+LineSpacing.m */,
+			);
+			path = UILabel;
+			sourceTree = "<group>";
+		};
+		785DE28D256B4EBA0026B1B0 /* UIColor */ = {
+			isa = PBXGroup;
+			children = (
+				785DE28E256B4EBA0026B1B0 /* UIColor+Image.h */,
+				785DE290256B4EBA0026B1B0 /* UIColor+Image.m */,
+				785DE291256B4EBA0026B1B0 /* UIColor+ColorfulColor.h */,
+				785DE28F256B4EBA0026B1B0 /* UIColor+ColorfulColor.m */,
+			);
+			path = UIColor;
+			sourceTree = "<group>";
+		};
+		785DE292256B4EBA0026B1B0 /* UIView */ = {
+			isa = PBXGroup;
+			children = (
+				785DE293256B4EBA0026B1B0 /* UIView+ViewController.m */,
+				785DE294256B4EBA0026B1B0 /* UIView+Animate.m */,
+				785DE295256B4EBA0026B1B0 /* UIView+Copy.m */,
+				785DE296256B4EBA0026B1B0 /* UIView+Animate.h */,
+				785DE297256B4EBA0026B1B0 /* UIView+ViewController.h */,
+				785DE298256B4EBA0026B1B0 /* UIView+Copy.h */,
+			);
+			path = UIView;
+			sourceTree = "<group>";
+		};
+		785DE299256B4EBA0026B1B0 /* CLLocation */ = {
+			isa = PBXGroup;
+			children = (
+				785DE29A256B4EBA0026B1B0 /* CLLocation+Mar.m */,
+				785DE29B256B4EBA0026B1B0 /* CLLocation+Mar.h */,
+			);
+			path = CLLocation;
+			sourceTree = "<group>";
+		};
+		785DE29C256B4EBA0026B1B0 /* NSString */ = {
+			isa = PBXGroup;
+			children = (
+				785DE29D256B4EBA0026B1B0 /* NSString+MaxLength.h */,
+				785DE29E256B4EBA0026B1B0 /* NSString+Hash.m */,
+				785DE29F256B4EBA0026B1B0 /* NSString+Base64.m */,
+				785DE2A0256B4EBA0026B1B0 /* NSString+TestString.m */,
+				785DE2A1256B4EBA0026B1B0 /* NSString+WordHeight.m */,
+				785DE2A2256B4EBA0026B1B0 /* NSString+Money.h */,
+				785DE2AB256B4EBA0026B1B0 /* NSString+Money.m */,
+				785DE2A3256B4EBA0026B1B0 /* NSString+Replace.h */,
+				785DE2A4256B4EBA0026B1B0 /* NSString+MD5.h */,
+				785DE2A5256B4EBA0026B1B0 /* NSString+JKNormalRegex.m */,
+				785DE2A6256B4EBA0026B1B0 /* NSString+Bundle.m */,
+				785DE2A7256B4EBA0026B1B0 /* NSString+Unicode.m */,
+				785DE2A8256B4EBA0026B1B0 /* NSString+Encode.h */,
+				785DE2A9256B4EBA0026B1B0 /* NSString+Hash.h */,
+				785DE2AA256B4EBA0026B1B0 /* NSString+MaxLength.m */,
+				785DE2AC256B4EBA0026B1B0 /* NSString+WordHeight.h */,
+				785DE2AD256B4EBA0026B1B0 /* NSString+TestString.h */,
+				785DE2AE256B4EBA0026B1B0 /* NSString+Base64.h */,
+				785DE2AF256B4EBA0026B1B0 /* NSString+Bundle.h */,
+				785DE2B0256B4EBA0026B1B0 /* NSString+JKNormalRegex.h */,
+				785DE2B1256B4EBA0026B1B0 /* NSString+MD5.m */,
+				785DE2B2256B4EBA0026B1B0 /* NSString+Replace.m */,
+				785DE2B3256B4EBA0026B1B0 /* NSString+Encode.m */,
+				785DE2B4256B4EBA0026B1B0 /* NSString+Unicode.h */,
+			);
+			path = NSString;
+			sourceTree = "<group>";
+		};
+		785DE2B5256B4EBA0026B1B0 /* UIViewController */ = {
+			isa = PBXGroup;
+			children = (
+				785DE2B6256B4EBA0026B1B0 /* UIViewController+Navigation.m */,
+				785DE2B7256B4EBA0026B1B0 /* UIViewController+Navigation.h */,
+			);
+			path = UIViewController;
+			sourceTree = "<group>";
+		};
+		785DE2B9256B4EBA0026B1B0 /* NSObject */ = {
+			isa = PBXGroup;
+			children = (
+				785DE2BA256B4EBA0026B1B0 /* NSObject+HideKey.h */,
+				785DE2BB256B4EBA0026B1B0 /* NSObject+HideKey.m */,
+			);
+			path = NSObject;
+			sourceTree = "<group>";
+		};
 		78F332722239051C00DA02F6 = {
 			isa = PBXGroup;
 			children = (
@@ -2057,6 +2057,7 @@
 			children = (
 				78100E6C25300EB400CD6E1F /* README.md */,
 				78100E7325300EB400CD6E1F /* MTKit.h */,
+				785DE289256B4EBA0026B1B0 /* Category */,
 				78100D1725300EA900CD6E1F /* Dependency */,
 				78100DC525300EB400CD6E1F /* MTViewController */,
 				78100DE225300EB400CD6E1F /* Library */,
@@ -2085,7 +2086,6 @@
 				78100FB025300EB500CD6E1F /* MTTextFieldVerify */,
 				78100F9F25300EB500CD6E1F /* MTViewContentModel */,
 				78100F7825300EB500CD6E1F /* SubClass */,
-				78100D3F25300EA900CD6E1F /* Category */,
 				78F332802239051C00DA02F6 /* Info.plist */,
 			);
 			path = MagicThought;
@@ -2125,9 +2125,7 @@
 				7810114C25300EB600CD6E1F /* MTPageScrollCell.h in Headers */,
 				781010DA25300EB600CD6E1F /* MTBaseCollectionReusableView.h in Headers */,
 				7810111E25300EB600CD6E1F /* MTBaseApi.h in Headers */,
-				78100DAE25300EAA00CD6E1F /* NSString+MD5.h in Headers */,
 				7810102A25300EB600CD6E1F /* NSBundle+TZImagePicker.h in Headers */,
-				78100DBE25300EAA00CD6E1F /* NSString+Unicode.h in Headers */,
 				7810109825300EB600CD6E1F /* MTBaseAlertController.h in Headers */,
 				7810115B25300EB600CD6E1F /* MTHud.h in Headers */,
 				7810110F25300EB600CD6E1F /* MTAlert.h in Headers */,
@@ -2147,6 +2145,7 @@
 				781010F125300EB600CD6E1F /* MTDelegateTableView.h in Headers */,
 				78100D8A25300EAA00CD6E1F /* Reachability.h in Headers */,
 				7810107D25300EB600CD6E1F /* MTDocumentPreseter.h in Headers */,
+				785DE2E3256B4EBA0026B1B0 /* UIViewController+Navigation.h in Headers */,
 				781010C925300EB600CD6E1F /* UIImage+Cut.h in Headers */,
 				781010B525300EB600CD6E1F /* MTTenScrollView.h in Headers */,
 				781010A725300EB600CD6E1F /* MTTenScroll.h in Headers */,
@@ -2163,19 +2162,22 @@
 				78100FE725300EB600CD6E1F /* VKCssStyleConstants.h in Headers */,
 				7810115D25300EB600CD6E1F /* UIView+MBHud.h in Headers */,
 				78100D8F25300EAA00CD6E1F /* UIView+Frame.h in Headers */,
-				78100D9E25300EAA00CD6E1F /* UIColor+ColorfulColor.h in Headers */,
 				7810115125300EB600CD6E1F /* MTViewContentModels.h in Headers */,
 				7810111D25300EB600CD6E1F /* MTNetwork.h in Headers */,
 				781010DD25300EB600CD6E1F /* UIButton+Word.h in Headers */,
 				7810115025300EB600CD6E1F /* UIView+MTBaseViewContentModel.h in Headers */,
 				7810101725300EB600CD6E1F /* TZPhotoPickerController.h in Headers */,
 				781010AC25300EB600CD6E1F /* MTDynamicItem.h in Headers */,
+				785DE2C5256B4EBA0026B1B0 /* UIView+Animate.h in Headers */,
 				7810110625300EB600CD6E1F /* UIView+MTBackground.h in Headers */,
+				785DE2BC256B4EBA0026B1B0 /* UILabel+LineSpacing.h in Headers */,
+				785DE2CF256B4EBA0026B1B0 /* NSString+Money.h in Headers */,
 				78100FF925300EB600CD6E1F /* VKBorderRadiusStyle.h in Headers */,
 				7810106F25300EB600CD6E1F /* MTDeviceManager.h in Headers */,
 				78100FC925300EB600CD6E1F /* MTImageCell.h in Headers */,
 				7810103225300EB600CD6E1F /* TZProgressView.h in Headers */,
 				78100FCA25300EB600CD6E1F /* MTImagePlay.h in Headers */,
+				785DE2BE256B4EBA0026B1B0 /* UIColor+Image.h in Headers */,
 				7810110725300EB600CD6E1F /* NSArray+Alert.h in Headers */,
 				781010DC25300EB600CD6E1F /* UILabel+Word.h in Headers */,
 				7810106A25300EB600CD6E1F /* MTBigimageCellModel.h in Headers */,
@@ -2186,9 +2188,10 @@
 				781010DB25300EB600CD6E1F /* MTLoadingView.h in Headers */,
 				7810101625300EB600CD6E1F /* TZPhotoPreviewCell.h in Headers */,
 				7810105A25300EB600CD6E1F /* MTFileManager.h in Headers */,
+				785DE2D9256B4EBA0026B1B0 /* NSString+WordHeight.h in Headers */,
+				785DE2D1256B4EBA0026B1B0 /* NSString+MD5.h in Headers */,
 				781010E525300EB600CD6E1F /* UILabel+Size.h in Headers */,
 				7810109625300EB600CD6E1F /* MTBaseAlertPickerController.h in Headers */,
-				78100DBA25300EAA00CD6E1F /* NSString+JKNormalRegex.h in Headers */,
 				78100FC025300EB600CD6E1F /* MTSafariViewController.h in Headers */,
 				7810101525300EB600CD6E1F /* VKCssProtocol.h in Headers */,
 				781010E925300EB600CD6E1F /* MTDelegatePickerView.h in Headers */,
@@ -2198,24 +2201,24 @@
 				78100FFE25300EB600CD6E1F /* VKBorderColorStyle.h in Headers */,
 				78100D7725300EAA00CD6E1F /* Dependency.h in Headers */,
 				7810116525300EB600CD6E1F /* MTTextView.h in Headers */,
-				78100DC025300EAA00CD6E1F /* UIViewController+Navigation.h in Headers */,
 				7810106125300EB600CD6E1F /* NSArray+File.h in Headers */,
 				7810110925300EB600CD6E1F /* MTAlertViewConfig.h in Headers */,
 				781010AD25300EB600CD6E1F /* MTTenScrollModel.h in Headers */,
 				7810110425300EB600CD6E1F /* MTDelegateMode.h in Headers */,
 				7810115325300EB600CD6E1F /* MTViewContentModel.h in Headers */,
 				781010E025300EB600CD6E1F /* UITextField+Word.h in Headers */,
+				785DE2D6256B4EBA0026B1B0 /* NSString+Hash.h in Headers */,
 				7810110025300EB600CD6E1F /* MTDragCollectionView.h in Headers */,
 				7810104B25300EB600CD6E1F /* NSArray+Json.h in Headers */,
 				7810110C25300EB600CD6E1F /* MTWindow.h in Headers */,
 				78100FFB25300EB600CD6E1F /* VKBorderWidthStyle.h in Headers */,
 				78100D9425300EAA00CD6E1F /* UINavigationBar+Config.h in Headers */,
+				785DE2DA256B4EBA0026B1B0 /* NSString+TestString.h in Headers */,
 				7810102D25300EB600CD6E1F /* TZPhotoPreviewController.h in Headers */,
 				7810114825300EB600CD6E1F /* MTPageScrollController.h in Headers */,
 				7810113025300EB600CD6E1F /* MTInteractiveGestureTransitioningProtocol.h in Headers */,
 				781010EC25300EB600CD6E1F /* MTDelegateCollectionView.h in Headers */,
 				7810107825300EB600CD6E1F /* MTFileModel.h in Headers */,
-				78100DA625300EAA00CD6E1F /* CLLocation+Mar.h in Headers */,
 				7810107225300EB600CD6E1F /* MTManagers.h in Headers */,
 				7810100225300EB600CD6E1F /* VKFontWeightStyle.h in Headers */,
 				78100FD325300EB600CD6E1F /* SGDirWatchdog.h in Headers */,
@@ -2223,7 +2226,6 @@
 				7810100A25300EB600CD6E1F /* VKBorderBottomStyle.h in Headers */,
 				781010AE25300EB600CD6E1F /* MTTenScrollTitleViewModel.h in Headers */,
 				7810106225300EB600CD6E1F /* MTImageShowControllModel.h in Headers */,
-				78100DB625300EAA00CD6E1F /* NSString+WordHeight.h in Headers */,
 				78100D8225300EAA00CD6E1F /* UIView+Circle.h in Headers */,
 				7810107A25300EB600CD6E1F /* MTDocument.h in Headers */,
 				7810114725300EB600CD6E1F /* MTPageSumController.h in Headers */,
@@ -2236,7 +2238,6 @@
 				781010E825300EB600CD6E1F /* UITextView+Word.h in Headers */,
 				78100FCC25300EB600CD6E1F /* MTImagePlayView.h in Headers */,
 				78100FF625300EB600CD6E1F /* VKFontFamiltyStyle.h in Headers */,
-				78100DAD25300EAA00CD6E1F /* NSString+Replace.h in Headers */,
 				7810105625300EB600CD6E1F /* MTRefreshBackNormalFooter.h in Headers */,
 				781010A425300EB600CD6E1F /* MTTenScrollViewDelegateModel.h in Headers */,
 				78100FEA25300EB600CD6E1F /* VKFontColorStyle.h in Headers */,
@@ -2245,10 +2246,12 @@
 				781010A325300EB600CD6E1F /* MTTenScrollViewCellDelegateModel.h in Headers */,
 				78100FF825300EB600CD6E1F /* VKTextShadowStyle.h in Headers */,
 				7810107E25300EB600CD6E1F /* FileType.h in Headers */,
+				785DE2E4256B4EBA0026B1B0 /* Category.h in Headers */,
+				785DE2C7256B4EBA0026B1B0 /* UIView+Copy.h in Headers */,
 				7810109425300EB600CD6E1F /* MTBaseAlertGroupController.h in Headers */,
 				7810111725300EB600CD6E1F /* MTDelegateProtocol.h in Headers */,
 				78100FE025300EB600CD6E1F /* VKUIKitMarco.h in Headers */,
-				78100DB825300EAA00CD6E1F /* NSString+Base64.h in Headers */,
+				785DE2D0256B4EBA0026B1B0 /* NSString+Replace.h in Headers */,
 				7810112625300EB600CD6E1F /* MTInteractiveNavigationDelegate.h in Headers */,
 				78100FDF25300EB600CD6E1F /* NSObject+VKIdHelper.h in Headers */,
 				781010CE25300EB600CD6E1F /* MTBaseCellModel.h in Headers */,
@@ -2264,7 +2267,6 @@
 				781010E225300EB600CD6E1F /* MTStyle.h in Headers */,
 				78100FE825300EB600CD6E1F /* VKCssStylePch.h in Headers */,
 				7810116325300EB600CD6E1F /* MTTextField.h in Headers */,
-				78100DA425300EAA00CD6E1F /* UIView+Copy.h in Headers */,
 				7810111125300EB600CD6E1F /* MTPopViewConfig.h in Headers */,
 				781010ED25300EB600CD6E1F /* MTDelegateView.h in Headers */,
 				7810113125300EB600CD6E1F /* UIViewControllerTransitionModel.h in Headers */,
@@ -2279,19 +2281,19 @@
 				781010A525300EB600CD6E1F /* MTTenScrollBaseDelegateModel.h in Headers */,
 				7810106D25300EB600CD6E1F /* MTAuthorizationManager.h in Headers */,
 				781010B225300EB600CD6E1F /* MTTenScrollContentView.h in Headers */,
-				78100DA225300EAA00CD6E1F /* UIView+Animate.h in Headers */,
 				7810102B25300EB600CD6E1F /* TZAssetModel.h in Headers */,
 				7810106625300EB600CD6E1F /* MTAlertBigImageController.h in Headers */,
 				781010FC25300EB600CD6E1F /* MTDelegateTableViewCell.h in Headers */,
 				7810108625300EB600CD6E1F /* MTListController.h in Headers */,
 				7810113925300EB600CD6E1F /* MTTabBarItem.h in Headers */,
 				781010EA25300EB600CD6E1F /* MTDelegateCollectionViewCell.h in Headers */,
-				78100DA325300EAA00CD6E1F /* UIView+ViewController.h in Headers */,
+				785DE2CA256B4EBA0026B1B0 /* NSString+MaxLength.h in Headers */,
 				781010D625300EB600CD6E1F /* MTBaseTableViewCell.h in Headers */,
-				78100DC125300EAA00CD6E1F /* Category.h in Headers */,
 				7810100425300EB600CD6E1F /* UILabel+VKAddion.h in Headers */,
 				7810109125300EB600CD6E1F /* MTAlertSheetController.h in Headers */,
+				785DE2DC256B4EBA0026B1B0 /* NSString+Bundle.h in Headers */,
 				78100FEF25300EB600CD6E1F /* VKFontSizeStyle.h in Headers */,
+				785DE2E1256B4EBA0026B1B0 /* NSString+Unicode.h in Headers */,
 				78100FDB25300EB600CD6E1F /* UIView+VKCssProtocol.h in Headers */,
 				78100FCB25300EB600CD6E1F /* MTImagePlayViewModel.h in Headers */,
 				78100FBE25300EB600CD6E1F /* MTViewController.h in Headers */,
@@ -2304,17 +2306,17 @@
 				7810106725300EB600CD6E1F /* MTImageShowViewContentModel.h in Headers */,
 				7810115F25300EB600CD6E1F /* UIView+MTTextVerifyModel.h in Headers */,
 				781010C625300EB600CD6E1F /* UIImage+Base64.h in Headers */,
+				785DE2E5256B4EBA0026B1B0 /* NSObject+HideKey.h in Headers */,
 				781010D725300EB600CD6E1F /* MTEmptyBaseCell.h in Headers */,
 				781010A825300EB600CD6E1F /* MTTenScrollController.h in Headers */,
 				7810113525300EB600CD6E1F /* MTSafariView.h in Headers */,
+				785DE2D5256B4EBA0026B1B0 /* NSString+Encode.h in Headers */,
 				7810104A25300EB600CD6E1F /* NSDictionary+Json.h in Headers */,
-				78100DAC25300EAA00CD6E1F /* NSString+Money.h in Headers */,
 				7810113625300EB600CD6E1F /* SubClass.h in Headers */,
 				7810112425300EB600CD6E1F /* MTCardStyle1Transitioning.h in Headers */,
 				781010FF25300EB600CD6E1F /* MTDelegateHeaderFooterView.h in Headers */,
 				7810111A25300EB600CD6E1F /* MTApiProtocol.h in Headers */,
 				7810112A25300EB600CD6E1F /* MTNavigationPhotoBrowserController.h in Headers */,
-				78100DC225300EAA00CD6E1F /* NSObject+HideKey.h in Headers */,
 				7810102725300EB600CD6E1F /* TZImageCropManager.h in Headers */,
 				7810116225300EB600CD6E1F /* MTTextVerifyModel.h in Headers */,
 				7810114D25300EB600CD6E1F /* MTPageScrollView.h in Headers */,
@@ -2324,13 +2326,14 @@
 				7810106E25300EB600CD6E1F /* MTPhotoManager.h in Headers */,
 				781010C125300EB600CD6E1F /* UIImage+Draw.h in Headers */,
 				7810109E25300EB600CD6E1F /* MTAlertUIContainer.h in Headers */,
+				785DE2DB256B4EBA0026B1B0 /* NSString+Base64.h in Headers */,
+				785DE2C9256B4EBA0026B1B0 /* CLLocation+Mar.h in Headers */,
 				7810108925300EB600CD6E1F /* MTListControllers.h in Headers */,
 				7810112E25300EB600CD6E1F /* MTNavigationControllers.h in Headers */,
 				7810105C25300EB600CD6E1F /* NSData+File.h in Headers */,
 				7810108325300EB600CD6E1F /* MTHeaderRefreshListController.h in Headers */,
 				7810101F25300EB600CD6E1F /* TZImagePickerController.h in Headers */,
 				7810107025300EB600CD6E1F /* MTLocationManager.h in Headers */,
-				78100DB225300EAA00CD6E1F /* NSString+Encode.h in Headers */,
 				7810109325300EB600CD6E1F /* MTAlertGetPhotoWayController.h in Headers */,
 				7810104C25300EB600CD6E1F /* MTJsonTransform.h in Headers */,
 				7810100525300EB600CD6E1F /* VKBorderRightStyle.h in Headers */,
@@ -2341,13 +2344,11 @@
 				7810112125300EB600CD6E1F /* AnimateController.h in Headers */,
 				7810113325300EB600CD6E1F /* MTCountButton.h in Headers */,
 				7810100725300EB600CD6E1F /* UIButton+VKAddion.h in Headers */,
-				78100DB325300EAA00CD6E1F /* NSString+Hash.h in Headers */,
 				7810105425300EB600CD6E1F /* MTRefreshRing.h in Headers */,
 				7810100825300EB600CD6E1F /* VKTextTransformStyle.h in Headers */,
 				7810115225300EB600CD6E1F /* MTViewContentManager.h in Headers */,
 				781010B425300EB600CD6E1F /* MTTenScrollViewCell.h in Headers */,
 				7810111C25300EB600CD6E1F /* MTBaseDataModel.h in Headers */,
-				78100DA725300EAA00CD6E1F /* NSString+MaxLength.h in Headers */,
 				7810112C25300EB600CD6E1F /* MTNavigationTransitionController.h in Headers */,
 				7810108825300EB600CD6E1F /* MTBaseListController.h in Headers */,
 				7810102525300EB600CD6E1F /* TZAssetCell.h in Headers */,
@@ -2355,10 +2356,10 @@
 				7810109725300EB600CD6E1F /* MTAlertCollectionController.h in Headers */,
 				7810111F25300EB600CD6E1F /* NSObject+API.h in Headers */,
 				781010AB25300EB600CD6E1F /* TestController.h in Headers */,
-				78100D9B25300EAA00CD6E1F /* UIColor+Image.h in Headers */,
+				785DE2C1256B4EBA0026B1B0 /* UIColor+ColorfulColor.h in Headers */,
 				7810114F25300EB600CD6E1F /* MTPageScroll.h in Headers */,
+				785DE2C6256B4EBA0026B1B0 /* UIView+ViewController.h in Headers */,
 				7810113B25300EB600CD6E1F /* MTPageScrollViewModel.h in Headers */,
-				78100DB925300EAA00CD6E1F /* NSString+Bundle.h in Headers */,
 				7810108E25300EB600CD6E1F /* MTAlertPickerController.h in Headers */,
 				7810106B25300EB600CD6E1F /* MTImageShowCell.h in Headers */,
 				781010D825300EB600CD6E1F /* MTBaseCollectionViewCell.h in Headers */,
@@ -2367,6 +2368,7 @@
 				78100D8C25300EAA00CD6E1F /* MTConst.h in Headers */,
 				781010EB25300EB600CD6E1F /* MTDelegateCollectionReusableView.h in Headers */,
 				78100D7625300EAA00CD6E1F /* UIDevice+DeviceInfo.h in Headers */,
+				785DE2DD256B4EBA0026B1B0 /* NSString+JKNormalRegex.h in Headers */,
 				7810102C25300EB600CD6E1F /* TZVideoPlayerController.h in Headers */,
 				78100D9525300EAA00CD6E1F /* MTContentModelPropertyConst.h in Headers */,
 				7810108025300EB600CD6E1F /* MTPageInfoModel.h in Headers */,
@@ -2374,8 +2376,6 @@
 				78100FD725300EB600CD6E1F /* VKCssClassManager.h in Headers */,
 				7810107B25300EB600CD6E1F /* MTFileSelect.h in Headers */,
 				781010EE25300EB600CD6E1F /* MTDelegatePickerViewCell.h in Headers */,
-				78100DB725300EAA00CD6E1F /* NSString+TestString.h in Headers */,
-				78100D9925300EAA00CD6E1F /* UILabel+LineSpacing.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -2490,17 +2490,16 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				785DE2D2256B4EBA0026B1B0 /* NSString+JKNormalRegex.m in Sources */,
 				78100D9725300EAA00CD6E1F /* UIView+Dependency.m in Sources */,
 				7810100B25300EB600CD6E1F /* VKTextDecorationStyle.m in Sources */,
 				781010CB25300EB600CD6E1F /* MTBaseView.m in Sources */,
 				7810106925300EB600CD6E1F /* MTImageShowViewContentModel.m in Sources */,
-				78100DBC25300EAA00CD6E1F /* NSString+Replace.m in Sources */,
 				78100FD425300EB600CD6E1F /* VKCssHotReloader.m in Sources */,
 				7810113225300EB600CD6E1F /* MTCountButton.m in Sources */,
 				7810105D25300EB600CD6E1F /* MTFileManager.m in Sources */,
 				78100D7A25300EAA00CD6E1F /* UIView+Frame.m in Sources */,
 				78100FE325300EB600CD6E1F /* NSMutableAttributedString+VKAttributedString.m in Sources */,
-				78100D9A25300EAA00CD6E1F /* UILabel+LineSpacing.m in Sources */,
 				78100D8925300EAA00CD6E1F /* MTTimeModel.m in Sources */,
 				7810102025300EB600CD6E1F /* UIView+Layout.m in Sources */,
 				7810101A25300EB600CD6E1F /* TZAssetCell.m in Sources */,
@@ -2510,14 +2509,15 @@
 				78100FBB25300EB500CD6E1F /* MTViewController.m in Sources */,
 				781010FA25300EB600CD6E1F /* MTDelegateCollectionViewCell.m in Sources */,
 				7810102925300EB600CD6E1F /* TZPhotoPreviewCell.m in Sources */,
+				785DE2E6256B4EBA0026B1B0 /* NSObject+HideKey.m in Sources */,
 				7810112325300EB600CD6E1F /* MTCardStyle1Transitioning.m in Sources */,
 				7810102625300EB600CD6E1F /* TZImageManager.m in Sources */,
 				7810100025300EB600CD6E1F /* VKBorderBottomStyle.m in Sources */,
 				781010F425300EB600CD6E1F /* MTDelegateHeaderFooterView.m in Sources */,
 				78100FD525300EB600CD6E1F /* SGDirWatchdog.m in Sources */,
 				7810100325300EB600CD6E1F /* VKBorderLeftStyle.m in Sources */,
-				78100D9D25300EAA00CD6E1F /* UIColor+Image.m in Sources */,
 				78100FFC25300EB600CD6E1F /* VKBackgroundcolorStyle.m in Sources */,
+				785DE2D4256B4EBA0026B1B0 /* NSString+Unicode.m in Sources */,
 				781010A125300EB600CD6E1F /* MTTenScrollViewDelegateModel.m in Sources */,
 				78100FFA25300EB600CD6E1F /* VKTextStyle.m in Sources */,
 				7810106C25300EB600CD6E1F /* MTImageShowCell.m in Sources */,
@@ -2528,7 +2528,6 @@
 				7810109525300EB600CD6E1F /* MTAlertPickerController.m in Sources */,
 				7810103125300EB600CD6E1F /* TZGifPhotoPreviewController.m in Sources */,
 				7810114525300EB600CD6E1F /* MTPageSumController.m in Sources */,
-				78100DB125300EAA00CD6E1F /* NSString+Unicode.m in Sources */,
 				7810110825300EB600CD6E1F /* MTPopViewConfig.m in Sources */,
 				781010FB25300EB600CD6E1F /* MTDelegatePickerView.m in Sources */,
 				7810111025300EB600CD6E1F /* MTAlertViewConfig.m in Sources */,
@@ -2536,33 +2535,38 @@
 				7810101825300EB600CD6E1F /* TZImageCropManager.m in Sources */,
 				7810111825300EB600CD6E1F /* MTBaseDataModel.m in Sources */,
 				781010B125300EB600CD6E1F /* MTTenScrollTitleViewModel.m in Sources */,
+				785DE2C2256B4EBA0026B1B0 /* UIView+ViewController.m in Sources */,
 				78100FC725300EB600CD6E1F /* MTCollectionViewScaleLayout2.m in Sources */,
+				785DE2BF256B4EBA0026B1B0 /* UIColor+ColorfulColor.m in Sources */,
 				7810110225300EB600CD6E1F /* MTDelegateTableView.m in Sources */,
 				7810110D25300EB600CD6E1F /* NSArray+Alert.m in Sources */,
 				7810101C25300EB600CD6E1F /* TZAssetModel.m in Sources */,
-				78100DA025300EAA00CD6E1F /* UIView+Animate.m in Sources */,
 				7810114B25300EB600CD6E1F /* MTPageScrollView.m in Sources */,
 				781010E325300EB600CD6E1F /* UIButton+Word.m in Sources */,
 				7810115925300EB600CD6E1F /* UIView+MBHud.m in Sources */,
 				78100D7C25300EAA00CD6E1F /* MTTimer.m in Sources */,
+				785DE2C0256B4EBA0026B1B0 /* UIColor+Image.m in Sources */,
+				785DE2BD256B4EBA0026B1B0 /* UILabel+LineSpacing.m in Sources */,
 				7810114225300EB600CD6E1F /* MTPageTitleControllModel.m in Sources */,
 				78100FF425300EB600CD6E1F /* VKFontColorStyle.m in Sources */,
 				7810108125300EB600CD6E1F /* MTListController.m in Sources */,
 				7810105725300EB600CD6E1F /* MTRefreshRing.m in Sources */,
 				78100D7425300EAA00CD6E1F /* MTLayout.m in Sources */,
 				7810102F25300EB600CD6E1F /* TZImagePickerController.m in Sources */,
-				78100DC325300EAA00CD6E1F /* NSObject+HideKey.m in Sources */,
 				7810114925300EB600CD6E1F /* MTPageScrollCell.m in Sources */,
 				7810108425300EB600CD6E1F /* MTPageInfoModel.m in Sources */,
 				7810110A25300EB600CD6E1F /* MTPopView.m in Sources */,
 				78100FEE25300EB600CD6E1F /* VKTextShadowStyle.m in Sources */,
+				785DE2E2256B4EBA0026B1B0 /* UIViewController+Navigation.m in Sources */,
 				78100FBD25300EB600CD6E1F /* MTFeedBackInfoController.m in Sources */,
+				785DE2CD256B4EBA0026B1B0 /* NSString+TestString.m in Sources */,
 				781010D025300EB600CD6E1F /* MTLoadingView.m in Sources */,
 				781010B925300EB600CD6E1F /* MTTenScrollView.m in Sources */,
+				785DE2C4256B4EBA0026B1B0 /* UIView+Copy.m in Sources */,
+				785DE2CB256B4EBA0026B1B0 /* NSString+Hash.m in Sources */,
 				781010C025300EB600CD6E1F /* UIImage+Cut.m in Sources */,
 				78100FDC25300EB600CD6E1F /* UIView+VKMetrics.m in Sources */,
 				781010BC25300EB600CD6E1F /* UIImage+MTCircleImage.m in Sources */,
-				78100DB025300EAA00CD6E1F /* NSString+Bundle.m in Sources */,
 				7810116625300EB600CD6E1F /* MTTextField.m in Sources */,
 				78100D7825300EAA00CD6E1F /* MTConst.m in Sources */,
 				7810109B25300EB600CD6E1F /* MTBaseAlertCollectionController.m in Sources */,
@@ -2570,10 +2574,13 @@
 				781010C725300EB600CD6E1F /* UIImage+Draw.m in Sources */,
 				78100FF525300EB600CD6E1F /* VKTextAlignStyle.m in Sources */,
 				7810114A25300EB600CD6E1F /* MTPageTitleView.m in Sources */,
+				785DE2D3256B4EBA0026B1B0 /* NSString+Bundle.m in Sources */,
 				78100FD925300EB600CD6E1F /* VKCssClassManager.m in Sources */,
+				785DE2CC256B4EBA0026B1B0 /* NSString+Base64.m in Sources */,
 				7810100F25300EB600CD6E1F /* UILabel+VKAddion.m in Sources */,
 				78100FD825300EB600CD6E1F /* VKCssClassModal.m in Sources */,
 				7810112D25300EB600CD6E1F /* MTNavigationPhotoBrowserController.m in Sources */,
+				785DE2C8256B4EBA0026B1B0 /* CLLocation+Mar.m in Sources */,
 				78100D9625300EAA00CD6E1F /* MTBorderStyle.m in Sources */,
 				7810108C25300EB600CD6E1F /* MTAlertCollectionController.m in Sources */,
 				781010DE25300EB600CD6E1F /* UITextView+Word.m in Sources */,
@@ -2604,7 +2611,7 @@
 				7810105125300EB600CD6E1F /* MTAppDelegate.m in Sources */,
 				7810107325300EB600CD6E1F /* MTPhotoManager.m in Sources */,
 				7810107925300EB600CD6E1F /* FileType.m in Sources */,
-				78100DAA25300EAA00CD6E1F /* NSString+TestString.m in Sources */,
+				785DE2DF256B4EBA0026B1B0 /* NSString+Replace.m in Sources */,
 				7810116125300EB600CD6E1F /* MTTextView.m in Sources */,
 				78100FE125300EB600CD6E1F /* UIView+VKCssProtocol.m in Sources */,
 				781010BB25300EB600CD6E1F /* UIImage+Base64.m in Sources */,
@@ -2620,6 +2627,7 @@
 				7810100125300EB600CD6E1F /* VKBorderTopStyle.m in Sources */,
 				7810105925300EB600CD6E1F /* NSDictionary+File.m in Sources */,
 				7810101025300EB600CD6E1F /* VKTextTransformStyle.m in Sources */,
+				785DE2C3256B4EBA0026B1B0 /* UIView+Animate.m in Sources */,
 				7810100D25300EB600CD6E1F /* VKFontWeightStyle.m in Sources */,
 				781010F725300EB600CD6E1F /* MTDelegateView.m in Sources */,
 				7810110325300EB600CD6E1F /* UIView+Delegate.m in Sources */,
@@ -2627,6 +2635,7 @@
 				78100FD025300EB600CD6E1F /* MTImagePlayView0.m in Sources */,
 				78100FC225300EB600CD6E1F /* MTImageCell.m in Sources */,
 				7810102325300EB600CD6E1F /* TZProgressView.m in Sources */,
+				785DE2E0256B4EBA0026B1B0 /* NSString+Encode.m in Sources */,
 				78100FF025300EB600CD6E1F /* VKFontFamiltyStyle.m in Sources */,
 				7810108225300EB600CD6E1F /* MTBaseListController.m in Sources */,
 				781010D225300EB600CD6E1F /* MTBaseHeaderFooterView.m in Sources */,
@@ -2642,11 +2651,8 @@
 				78100D8325300EAA00CD6E1F /* UINavigationBar+Config.m in Sources */,
 				78100FDD25300EB600CD6E1F /* UIColor+VKUtlities.m in Sources */,
 				7810106525300EB600CD6E1F /* MTAlertBigImageController.m in Sources */,
-				78100DA125300EAA00CD6E1F /* UIView+Copy.m in Sources */,
 				781010E625300EB600CD6E1F /* UITextField+Word.m in Sources */,
-				78100DA925300EAA00CD6E1F /* NSString+Base64.m in Sources */,
 				781010AF25300EB600CD6E1F /* MTDynamicItem.m in Sources */,
-				78100DBD25300EAA00CD6E1F /* NSString+Encode.m in Sources */,
 				781010A625300EB600CD6E1F /* MTTenScrollViewCellDelegateModel.m in Sources */,
 				781010F825300EB600CD6E1F /* MTDelegateCollectionView.m in Sources */,
 				7810107525300EB600CD6E1F /* MTDeviceManager.m in Sources */,
@@ -2657,21 +2663,17 @@
 				7810112B25300EB600CD6E1F /* MTNavigationController.m in Sources */,
 				781010FD25300EB600CD6E1F /* MTDataSource.m in Sources */,
 				7810107125300EB600CD6E1F /* MTAuthorizationManager.m in Sources */,
-				78100DAB25300EAA00CD6E1F /* NSString+WordHeight.m in Sources */,
 				78100FEC25300EB600CD6E1F /* VKBorderRadiusStyle.m in Sources */,
 				7810110E25300EB600CD6E1F /* UIView+MTBackground.m in Sources */,
 				7810105825300EB600CD6E1F /* MTRefreshGifHeader.m in Sources */,
 				7810109025300EB600CD6E1F /* MTAlertDatePickerController.m in Sources */,
 				781010A225300EB600CD6E1F /* MTTenScrollBaseDelegateModel.m in Sources */,
-				78100DBF25300EAA00CD6E1F /* UIViewController+Navigation.m in Sources */,
 				7810116725300EB600CD6E1F /* MTTextVerifyModel.m in Sources */,
 				7810113D25300EB600CD6E1F /* MTPageScrollBaseViewModel.m in Sources */,
 				781010B025300EB600CD6E1F /* MTTenScrollModel.m in Sources */,
 				781010F925300EB600CD6E1F /* MTDelegateCollectionReusableView.m in Sources */,
 				78100D9325300EAA00CD6E1F /* UIView+Circle.m in Sources */,
 				7810108D25300EB600CD6E1F /* MTBaseAlertPickerController.m in Sources */,
-				78100DB425300EAA00CD6E1F /* NSString+MaxLength.m in Sources */,
-				78100D9F25300EAA00CD6E1F /* UIView+ViewController.m in Sources */,
 				7810101325300EB600CD6E1F /* VKCssStyleManager.m in Sources */,
 				7810113F25300EB600CD6E1F /* MTPageScrollCellViewModel.m in Sources */,
 				7810111B25300EB600CD6E1F /* NSObject+API.m in Sources */,
@@ -2679,32 +2681,30 @@
 				781010D325300EB600CD6E1F /* MTBaseCollectionViewCell.m in Sources */,
 				7810112F25300EB600CD6E1F /* UIViewControllerTransitionModel.m in Sources */,
 				7810104E25300EB600CD6E1F /* NSArray+Json.m in Sources */,
+				785DE2CE256B4EBA0026B1B0 /* NSString+WordHeight.m in Sources */,
 				7810109F25300EB600CD6E1F /* MTAlertUIContainer.m in Sources */,
 				7810100E25300EB600CD6E1F /* VKBorderRightStyle.m in Sources */,
-				78100DA825300EAA00CD6E1F /* NSString+Hash.m in Sources */,
 				7810107625300EB600CD6E1F /* MTDocument.m in Sources */,
-				78100D9C25300EAA00CD6E1F /* UIColor+ColorfulColor.m in Sources */,
 				7810103025300EB600CD6E1F /* TZLocationManager.m in Sources */,
+				785DE2D8256B4EBA0026B1B0 /* NSString+Money.m in Sources */,
 				781010AA25300EB600CD6E1F /* MTTenScrollController.m in Sources */,
-				78100DBB25300EAA00CD6E1F /* NSString+MD5.m in Sources */,
 				78100D8625300EAA00CD6E1F /* UIDevice+DeviceInfo.m in Sources */,
 				7810115525300EB600CD6E1F /* UIView+MTBaseViewContentModel.m in Sources */,
 				781010CC25300EB600CD6E1F /* MTEmptyBaseCell.m in Sources */,
-				78100DA525300EAA00CD6E1F /* CLLocation+Mar.m in Sources */,
 				78100FC425300EB600CD6E1F /* MTImagePlayView.m in Sources */,
 				781010CA25300EB600CD6E1F /* UIView+Image.m in Sources */,
 				7810115E25300EB600CD6E1F /* MTIndicatorView.m in Sources */,
 				781010E425300EB600CD6E1F /* UILabel+Word.m in Sources */,
 				7810107725300EB600CD6E1F /* MTDocumentPreseter.m in Sources */,
+				785DE2DE256B4EBA0026B1B0 /* NSString+MD5.m in Sources */,
 				781010CF25300EB600CD6E1F /* MTBaseCellModel.m in Sources */,
-				78100DAF25300EAA00CD6E1F /* NSString+JKNormalRegex.m in Sources */,
 				781010B625300EB600CD6E1F /* MTTenScrollTitleView.m in Sources */,
 				78100FC325300EB600CD6E1F /* MTImagePlayViewModel.m in Sources */,
-				78100DB525300EAA00CD6E1F /* NSString+Money.m in Sources */,
 				78100FC625300EB600CD6E1F /* MTCollectionViewScaleLayout.m in Sources */,
 				7810112725300EB600CD6E1F /* MTInteractiveNavigationDelegate.m in Sources */,
 				7810109C25300EB600CD6E1F /* MTBaseAlertGroupController.m in Sources */,
 				78100FF325300EB600CD6E1F /* VKBorderColorStyle.m in Sources */,
+				785DE2D7256B4EBA0026B1B0 /* NSString+MaxLength.m in Sources */,
 				78100FF725300EB600CD6E1F /* VKFontSizeStyle.m in Sources */,
 				781010D125300EB600CD6E1F /* MTBaseCollectionReusableView.m in Sources */,
 				7810104D25300EB600CD6E1F /* NSDictionary+Json.m in Sources */,

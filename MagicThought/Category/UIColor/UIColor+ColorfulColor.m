@@ -112,7 +112,7 @@
         size = self.bounds.size;
     
     //创建CGContextRef
-    UIGraphicsBeginImageContext(size);
+    UIGraphicsBeginImageContextWithOptions(size, false, 0);
     CGContextRef context = UIGraphicsGetCurrentContext();
         
     CGPathRef path = [UIBezierPath bezierPathWithRoundedRect:CGRectMake(0, 0, size.width, size.height) byRoundingCorners: borderStyle.borderCorners cornerRadii:CGSizeMake(borderStyle.borderRadius, borderStyle.borderRadius)].CGPath;

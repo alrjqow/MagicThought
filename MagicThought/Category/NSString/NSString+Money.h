@@ -13,6 +13,7 @@
 +(NSString*)stringWithMoneyHidePoint:(CGFloat)floatValue;
 
 -(NSString*)money;
+-(NSString*)floatMoney;
 
 -(NSString*)deleteFloatAllZero;
 
