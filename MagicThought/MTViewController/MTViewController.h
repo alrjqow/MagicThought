@@ -10,7 +10,6 @@
 #import <WebKit/WebKit.h>
 
 #import "UIView+MBHud.h"
-#import "NSObject+API.h"
 #import "NSObject+CommonProtocol.h"
 
 @class MTBaseDataModel;

@@ -7,7 +7,6 @@
 //
 
 #import "MTBaseListController.h"
-#import "MTBaseDataModel.h"
 #import "MTDataSourceModel.h"
 #import "NSString+Exist.h"
 #import "UIView+Frame.h"

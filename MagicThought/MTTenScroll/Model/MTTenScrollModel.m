@@ -16,8 +16,6 @@
 #import "MTWordStyle.h"
 #import "UIView+Frame.h"
 #import "NSObject+ReuseIdentifier.h"
-#import "NSObject+API.h"
-#import "MTBaseDataModel.h"
 
 NSString* MTTenScrollIdentifier = @"MTTenScrollIdentifier";
 

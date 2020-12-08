@@ -21,7 +21,6 @@
 
 #import "NSObject+ReuseIdentifier.h"
 
-#import "NSObject+API.h"
 #import "MTBaseDataModel.h"
 
 @interface UICollectionViewCell2 : MTDelegateCollectionViewCell

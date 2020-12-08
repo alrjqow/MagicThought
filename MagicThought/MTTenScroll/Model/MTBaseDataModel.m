@@ -8,6 +8,7 @@
 
 #import "MTBaseDataModel.h"
 
-@implementation MTBaseDataModel
+@implementation NSObject (API) @end
 
-@end
+@implementation MTBaseDataModel @end
+

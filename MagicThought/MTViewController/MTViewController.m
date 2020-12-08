@@ -11,7 +11,6 @@
 #import "MTCloud.h"
 #import "MJRefresh.h"
 
-#import "MTBaseDataModel.h"
 #import "UIViewController+Navigation.h"
 
 @interface MTViewController ()
@@ -86,15 +85,6 @@
     [super viewDidLayoutSubviews];
     
     _isViewDidLoad = YES;
-}
-
-
-#pragma mark - 网络请求
-
-- (void)whenRequestFail:(MTBaseDataModel *)model
-{
-    [super whenRequestFail:model];
-    [self whenEndRefreshing:false Model:model];
 }
 
 #pragma mark - 重载方法

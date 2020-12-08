@@ -19,7 +19,7 @@
     
     if(style.isAttributedWord)
     {
-        self.attributedText = style.attributedWordName;        
+        self.attributedText = style.attributedWordName;
         [self sizeToFit];
         return self;
     }
@@ -50,7 +50,7 @@
     self.textAlignment = style.wordHorizontalAlignment;
     
     if([self isKindOfClass:[MTLabel class]])
-    {        
+    {
         ((MTLabel*)self).verticalAlignment = style.wordVerticalAlignment;
     }
         

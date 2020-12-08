@@ -9,6 +9,49 @@
 #import <Foundation/Foundation.h>
 #import "YTKNetwork.h"
 
+@class MTBaseDataModel;
+
+@protocol MTApiProtocol<YTKRequestDelegate, YTKBatchRequestDelegate>
+
+/**当接收到数据*/
+-(void)whenGetBaseModel:(MTBaseDataModel*)model;
+
+/**当接收到十字滚动数据时*/
+-(void)whenGetTenScrollDataModel:(MTBaseDataModel *)model;
+
+/**当请求失败*/
+-(void)whenRequestFail:(MTBaseDataModel*)model;
+
+/**是否显示请求成功打印*/
+-(BOOL)isShowSuccessLog:(MTBaseDataModel*)model;
+
+@end
+
+
+@protocol MTBaseDataModelProtocol
+
+/**生成一个ytkrequest请求*/
+-(NSDictionary<NSString*,  NSArray<NSString*>*> *)apiRequestList;
+
+/**数据过滤1*/
+-(BOOL)filterIsResponseFailBy:(NSDictionary*)responseObject;
+
+/**数据过滤2*/
+-(NSString*)adjustResponseMsgBy:(NSDictionary*)responseObject;
+
+
+/**数据过滤4*/
+-(id)adjustDataByUrl:(NSString*)url  sourceData:(NSDictionary*)data;
+
+/**数据过滤5*/
+-(NSString*)adjustErrorMsg;
+
+
+@end
+
+@interface NSObject (API)<MTApiProtocol> @end
+
+
 @interface MTBaseDataModel : NSObject
 
 /**标识，用于区分同一请求接口，每次数据请求，主要用于数据上传时作区分*/

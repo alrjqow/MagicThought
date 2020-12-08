@@ -14,3 +14,4 @@
 #import "MTWindow.h"
 #import "UIView+MTBackground.h"
 #import "NSArray+Alert.h"
+#import "MTViewContentModel+MTAlert.h"

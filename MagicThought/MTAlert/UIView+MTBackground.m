@@ -121,6 +121,9 @@
         dimView.backgroundColor = rgba(0, 0, 0, 0.48);
         dimView.layer.zPosition = FLT_MAX;
         
+        UITapGestureRecognizer* tap = [UITapGestureRecognizer new];
+        [tap addTarget:self action:@selector(tapClick:)];
+        [dimView addGestureRecognizer:tap];
         self.mt_AnimationDuration = 0.3f;
         
         objc_setAssociatedObject(self, _cmd, dimView, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
@@ -128,7 +131,11 @@
     
     return dimView;
 }
-
+-(void)tapClick:(UITapGestureRecognizer*)tap
+{
+    if(self.mt_BackgroundView.mt_click)
+        self.mt_BackgroundView.mt_click(tap);
+}
 
 -(void)setMt_AnimationDuration:(NSTimeInterval)mt_AnimationDuration
 {

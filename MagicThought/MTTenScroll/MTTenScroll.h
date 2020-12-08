@@ -10,6 +10,7 @@
 #import "MTTenScrollController.h"
 
 #import "MTTenScrollModel.h"
+#import "MTBaseDataModel.h"
 #import "MTTenScrollTitleViewModel.h"
 
 #import "MTTenScrollContentView.h"
