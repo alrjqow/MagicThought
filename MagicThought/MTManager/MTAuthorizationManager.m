@@ -7,8 +7,6 @@
 //
 
 #import "MTAuthorizationManager.h"
-#import "MTAlertView.h"
-#import "NSArray+Alert.h"
 #import "MTConst.h"
 
 #import <AVFoundation/AVFoundation.h>
@@ -98,18 +96,7 @@
     
     if(!haveAuthorization)
     {
-        __weak __typeof(self) weakSelf = self;
-        @[
-            appTitle_mtAlert(),
-            content_mtAlert(message),
-            buttons_mtAlert(@[
-                @"不开启",
-                @"去开启".bindClick(^(NSString* order)
-                                 {
-                    [weakSelf openSettingWithURL:url];                    
-                }),
-            ])
-        ].alert_mt();
+   
     }
     
     return haveAuthorization;

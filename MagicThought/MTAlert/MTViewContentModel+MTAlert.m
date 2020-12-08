@@ -7,9 +7,14 @@
 //
 
 #import "MTViewContentModel+MTAlert.h"
-#import "NSObject+ReuseIdentifier.h"
 #import "MTWindow.h"
+#import "MTConst.h"
+#import "UIView+Frame.h"
 #import "UIView+MTBackground.h"
+#import "UIView+Delegate.h"
+#import "NSObject+ReuseIdentifier.h"
+
+#import <MJExtension.h>
 
 @implementation NSObject (MTAlert)
 

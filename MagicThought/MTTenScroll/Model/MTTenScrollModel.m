@@ -11,11 +11,13 @@
 #import "MTTenScrollTitleView.h"
 #import "MTTenScrollView.h"
 #import "MTConst.h"
-
+#import "MTBaseDataModel.h"
 
 #import "MTWordStyle.h"
 #import "UIView+Frame.h"
 #import "NSObject+ReuseIdentifier.h"
+
+
 
 NSString* MTTenScrollIdentifier = @"MTTenScrollIdentifier";
 

@@ -7,10 +7,8 @@
 //
 
 #import "MTWindow.h"
-#import "MTPopView.h"
-#import "UIView+MTBackground.h"
 
-@interface MTWindow()<UIGestureRecognizerDelegate>
+@interface MTWindow()
 
 @end
 
@@ -18,16 +16,9 @@
 
 - (instancetype)initWithFrame:(CGRect)frame
 {
-    self = [super initWithFrame:frame];
-    
-    if ( self )
+    if (self = [super initWithFrame:frame])
     {
         self.windowLevel = UIWindowLevelStatusBar + 1;
-        
-        UITapGestureRecognizer *gesture = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(actionTap:)];
-        gesture.cancelsTouchesInView = NO;
-        gesture.delegate = self;
-        [self addGestureRecognizer:gesture];
     }
     return self;
 }
@@ -43,28 +34,6 @@
     });
     
     return window;
-}
-
-- (void)actionTap:(UITapGestureRecognizer*)gesture
-{
-    if (!self.mt_BackgroundAnimating )
-    {
-        for ( UIView *v in [self attachView].mt_BackgroundView.subviews )
-        {
-            if ( [v isKindOfClass:[MTPopView class]] )
-            {
-                MTPopView *popupView = (MTPopView*)v;
-                if(popupView.touchWildToHide)
-                    [popupView hide];
-            }
-        }
-    }
-}
-
-
-- (BOOL)gestureRecognizer:(UIGestureRecognizer *)gestureRecognizer shouldReceiveTouch:(UITouch *)touch
-{
-    return ( touch.view == self.attachView.mt_BackgroundView );
 }
 
 - (UIView *)attachView

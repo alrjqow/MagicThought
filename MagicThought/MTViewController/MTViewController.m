@@ -113,18 +113,6 @@
 /**请求数据*/
 -(void)startRequest{}
 
--(void)whenEndRefreshing:(BOOL)isSuccess Model:(MTBaseDataModel *)model
-{
-    if(isSuccess)
-    {
-        if([self.endRefreshBlackList objectForKey:model.url])
-            return;
-        [self.view dismissIndicator];
-    }
-    else
-        [self.view showToast:model.msg];
-}
-
 #pragma mark - 点击事件
 
 

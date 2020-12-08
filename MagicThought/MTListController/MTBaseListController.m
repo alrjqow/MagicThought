@@ -133,19 +133,6 @@
 
 #pragma mark - 重载方法
 
-- (void)whenEndRefreshing:(BOOL)isSuccess Model:(MTBaseDataModel *)model
-{
-    [super whenEndRefreshing:isSuccess Model:model];
-    
-    if(isSuccess && [self.endRefreshBlackList objectForKey:model.url])
-        return;
-    
-    [self.listView.mj_header endRefreshing];
-    
-    if(![self isKindOfClass:NSClassFromString(@"MTHeaderFooterRefreshListController")])
-        [self.listView.mj_footer endRefreshing];
-}
-
 
 #pragma mark - 懒加载
 

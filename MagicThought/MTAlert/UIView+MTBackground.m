@@ -10,7 +10,7 @@
 #import <objc/runtime.h>
 #import "MTConst.h"
 #import "MTWindow.h"
-
+#import "NSObject+ReuseIdentifier.h"
 
 @interface UIView (ReferenceCount)
 

@@ -52,9 +52,6 @@
 /**请求数据*/
 -(void)startRequest;
 
-/**当结束刷新*/
--(void)whenEndRefreshing:(BOOL)isSuccess Model:(MTBaseDataModel*)model;
-
 @end
 
 

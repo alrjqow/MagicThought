@@ -39,19 +39,6 @@
 
 #pragma mark - 重载方法
 
--(void)whenEndRefreshing:(BOOL)isSuccess Model:(MTBaseDataModel *)model
-{
-    [super whenEndRefreshing:isSuccess Model:model];
-    
-    self.listView.mj_footer.hidden = !self.itemArr.count;
-    if(!self.infoModel.hasNext)
-        [self.listView.mj_footer endRefreshingWithNoMoreData];
-    else
-    {
-        [self.listView.mj_footer endRefreshing];
-        self.page++;
-    }
-}
 
 #pragma mark - 成员方法
 
