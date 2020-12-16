@@ -1005,7 +1005,6 @@
 				78DFAED3257F090A00E7085F /* MTProtocol */,
 				78DFAED7257F090A00E7085F /* MTTenScroll */,
 				78DFAEF7257F090A00E7085F /* Library */,
-				78DFAF62257F090A00E7085F /* MTImageShowAndBrowser */,
 				78DFAF6B257F090A00E7085F /* MTViewContentModel */,
 				78DFAF75257F090A00E7085F /* MTImagePlay */,
 				78DFAF87257F090A00E7085F /* MTPageScroll */,
@@ -1645,77 +1644,6 @@
 			path = TZImagePickerController;
 			sourceTree = "<group>";
 		};
-		78DFAF62257F090A00E7085F /* MTImageShowAndBrowser */ = {
-			isa = PBXGroup;
-			children = (
-				78DFAF63257F090A00E7085F /* 1.获取图片 */,
-				78DFAF64257F090A00E7085F /* 3.浏览大图 */,
-				78DFAF68257F090A00E7085F /* 2.缩略图展示 */,
-			);
-			path = MTImageShowAndBrowser;
-			sourceTree = "<group>";
-		};
-		78DFAF63257F090A00E7085F /* 1.获取图片 */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = "1.获取图片";
-			sourceTree = "<group>";
-		};
-		78DFAF64257F090A00E7085F /* 3.浏览大图 */ = {
-			isa = PBXGroup;
-			children = (
-				78DFAF65257F090A00E7085F /* ViewModel */,
-				78DFAF66257F090A00E7085F /* Controller */,
-				78DFAF67257F090A00E7085F /* View */,
-			);
-			path = "3.浏览大图";
-			sourceTree = "<group>";
-		};
-		78DFAF65257F090A00E7085F /* ViewModel */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = ViewModel;
-			sourceTree = "<group>";
-		};
-		78DFAF66257F090A00E7085F /* Controller */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Controller;
-			sourceTree = "<group>";
-		};
-		78DFAF67257F090A00E7085F /* View */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = View;
-			sourceTree = "<group>";
-		};
-		78DFAF68257F090A00E7085F /* 2.缩略图展示 */ = {
-			isa = PBXGroup;
-			children = (
-				78DFAF69257F090A00E7085F /* Model */,
-				78DFAF6A257F090A00E7085F /* View */,
-			);
-			path = "2.缩略图展示";
-			sourceTree = "<group>";
-		};
-		78DFAF69257F090A00E7085F /* Model */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Model;
-			sourceTree = "<group>";
-		};
-		78DFAF6A257F090A00E7085F /* View */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = View;
-			sourceTree = "<group>";
-		};
 		78DFAF6B257F090A00E7085F /* MTViewContentModel */ = {
 			isa = PBXGroup;
 			children = (
@@ -2065,8 +1993,8 @@
 		78DFB031257F090A00E7085F /* MTImageShow */ = {
 			isa = PBXGroup;
 			children = (
-				78DFB032257F090A00E7085F /* ControllModel */,
 				78DFB035257F090A00E7085F /* MTImageShow.h */,
+				78DFB032257F090A00E7085F /* ControllModel */,
 				78DFB036257F090A00E7085F /* Controller */,
 				78DFB039257F090A00E7085F /* Model */,
 				78DFB03E257F090A00E7085F /* View */,
