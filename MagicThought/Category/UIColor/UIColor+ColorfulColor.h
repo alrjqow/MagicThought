@@ -35,13 +35,13 @@
 -(void)createJianBianBackgroundColorWithStartColor:(UIColor*)startColor endColor:(UIColor*)endColor startPoint:(CGPoint)startPoint endPoint:(CGPoint)endPoint;
 
 /**生成渐变图片,默认线性角度为中线*/
--(UIImage*)createJianBianImageWithStartColor:(UIColor*)startColor endColor:(UIColor*)endColor startPoint:(CGPoint)startPoint endPoint:(CGPoint)endPoint;
--(UIImage*)createJianBianImageWithStartColor:(UIColor*)startColor endColor:(UIColor*)endColor startPoint:(CGPoint)startPoint endPoint:(CGPoint)endPoint Size:(CGSize)size;
--(UIImage*)createJianBianImageWithStartColor:(UIColor*)startColor endColor:(UIColor*)endColor startPoint:(CGPoint)startPoint endPoint:(CGPoint)endPoint BorderStyle:(MTBorderStyle*)borderStyle;
-
-/**生成渐变图片,自行调整线性角度*/
 -(UIImage*)createJianBianImageWithStartColor:(UIColor*)startColor endColor:(UIColor*)endColor;
 -(UIImage*)createJianBianImageWithStartColor:(UIColor*)startColor endColor:(UIColor*)endColor Size:(CGSize)size;
 -(UIImage*)createJianBianImageWithStartColor:(UIColor*)startColor endColor:(UIColor*)endColor BorderStyle:(MTBorderStyle*)borderStyle;
+
+/**生成渐变图片,自行调整线性角度*/
+-(UIImage*)createJianBianImageWithStartColor:(UIColor*)startColor endColor:(UIColor*)endColor startPoint:(CGPoint)startPoint endPoint:(CGPoint)endPoint;
+-(UIImage*)createJianBianImageWithStartColor:(UIColor*)startColor endColor:(UIColor*)endColor startPoint:(CGPoint)startPoint endPoint:(CGPoint)endPoint Size:(CGSize)size;
+-(UIImage*)createJianBianImageWithStartColor:(UIColor*)startColor endColor:(UIColor*)endColor startPoint:(CGPoint)startPoint endPoint:(CGPoint)endPoint BorderStyle:(MTBorderStyle*)borderStyle;
 
 @end
