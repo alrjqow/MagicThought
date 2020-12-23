@@ -7,7 +7,7 @@
 //
 
 #import "MTDelegateView.h"
-#import <MJExtension.h>
+#import <MJExtension/MJExtension.h>
 
 @implementation MTDelegateView
 

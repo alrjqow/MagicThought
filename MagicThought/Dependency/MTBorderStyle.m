@@ -7,7 +7,7 @@
 //
 
 #import "MTBorderStyle.h"
-#import <MJExtension.h>
+#import <MJExtension/MJExtension.h>
 
 
 @implementation MTBorderStyle

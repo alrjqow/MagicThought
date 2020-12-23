@@ -14,7 +14,7 @@
 #import "UIView+Delegate.h"
 #import "NSObject+ReuseIdentifier.h"
 
-#import <MJExtension.h>
+#import <MJExtension/MJExtension.h>
 
 @implementation NSObject (MTAlert)
 

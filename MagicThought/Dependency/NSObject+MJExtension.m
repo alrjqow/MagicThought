@@ -7,7 +7,7 @@
 //
 
 #import "NSObject+MJExtension.h"
-#import <MJExtension.h>
+#import <MJExtension/MJExtension.h>
 #import "NSString+Exist.h"
 
 @implementation UIColor(MJExtension)

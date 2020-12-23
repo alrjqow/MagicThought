@@ -20,7 +20,7 @@
 
 #import "NSObject+ReuseIdentifier.h"
 #import "UIView+Frame.h"
-#import <MJExtension.h>
+#import <MJExtension/MJExtension.h>
 #import "MTContentModelPropertyConst.h"
 #import "NSString+Exist.h"
 #import "UIView+MTBaseViewContentModel.h"
@@ -821,8 +821,8 @@ NSString* MTCellKeepStateOrder = @"MTCellKeepStateOrder";
         return [self.delegate collectionView:collectionView layout:collectionViewLayout sizeForItemAtIndexPath:indexPath];
     
     CGSize zeroSize = CGSizeMake(0.000001, 0.000001);
-    NSObject* data = [self getDataForIndexPath:indexPath];
-    NSObject* list = [self getSectionDataListForSection:indexPath.section];
+    NSArray* list = [self getSectionDataListForSection:indexPath.section];
+    NSObject* data = [self getDataForIndexPath:[NSIndexPath indexPathForRow:(indexPath.row % list.count) inSection:indexPath.section]];    
     
     if(data.mt_automaticDimension)
         [self getAutomaticDimensionSizeWithData:data IndexPath:indexPath SuperView:collectionView];

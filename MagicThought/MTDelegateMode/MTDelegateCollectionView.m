@@ -36,4 +36,15 @@
     return [UICollectionViewFlowLayout new];
 }
 
+-(MTDataSourceModel *)dataSourceModel
+{
+    if(!_dataSourceModel)
+    {
+        _dataSourceModel = MTDataSourceModel.new;
+        _dataSourceModel.scrollView = self;
+    }
+    
+    return _dataSourceModel;
+}
+
 @end

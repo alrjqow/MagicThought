@@ -10,7 +10,7 @@
 
 #import "Dependency.h"
 #import "SubClass.h"
-#import "Category.h"
+#import "MTCategory.h"
 #import "Library.h"
 #import "MTViewContentModels.h"
 

@@ -11,7 +11,7 @@
 #import "MTDelegateProtocol.h"
 #import "NSObject+ReuseIdentifier.h"
 #import "NSString+Exist.h"
-#import <MJExtension.h>
+#import <MJExtension/MJExtension.h>
 
 @interface MTTabBarController ()
 

@@ -10,7 +10,7 @@
 #import "NSString+Exist.h"
 #import "NSObject+ReuseIdentifier.h"
 
-#import <MJExtension.h>
+#import <MJExtension/MJExtension.h>
 
 @interface MTWordStyle ()
 

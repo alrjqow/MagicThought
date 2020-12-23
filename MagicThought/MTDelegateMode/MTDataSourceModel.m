@@ -14,6 +14,11 @@
 
 @implementation MTDataSourceModel
 
+-(void)reloadListView
+{
+    [self reloadListView:self.scrollView];
+}
+
 -(void)reloadListView:(UIScrollView*)listView
 {
     [listView reloadDataWithDataList:self.dataList SectionList:self.sectionList EmptyData:self.emptyData];

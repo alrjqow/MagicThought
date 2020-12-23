@@ -7,7 +7,7 @@
 //
 
 #import "MTPageScrollViewModel.h"
-#import <MJRefresh.h>
+#import <MJRefresh/MJRefresh.h>
 #import "UIView+MTBaseViewContentModel.h"
 #import "MTContentModelPropertyConst.h"
 #import "UIView+Frame.h"

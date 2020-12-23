@@ -7,7 +7,7 @@
 //
 
 #import "NSObject+ReuseIdentifier.h"
-#import "MJExtension.h"
+#import <MJExtension/MJExtension.h>
 #import "objc/runtime.h"
 #import "NSString+Exist.h"
 #import "MTContentModelPropertyConst.h"

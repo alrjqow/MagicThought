@@ -7,8 +7,11 @@
 //
 
 #import "UIView+Delegate.h"
+#import "MTDataSourceModel.h"
 
 @interface MTDelegateCollectionView : UICollectionView
+
+@property (nonatomic,strong) MTDataSourceModel* dataSourceModel;
 
 @property (nonatomic,strong, readonly) UICollectionViewLayout * layout;
 

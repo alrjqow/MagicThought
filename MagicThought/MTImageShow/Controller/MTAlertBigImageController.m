@@ -13,7 +13,7 @@
 #import "NSObject+ReuseIdentifier.h"
 #import "MTImageShowViewContentModel.h"
 
-#import <MJExtension.h>
+#import <MJExtension/MJExtension.h>
 
 @interface MTAlertBigImageController ()
 

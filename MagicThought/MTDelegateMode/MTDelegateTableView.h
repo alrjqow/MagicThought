@@ -7,9 +7,11 @@
 //
 
 #import "UIView+Delegate.h"
+#import "MTDataSourceModel.h"
 
 @interface MTDelegateTableView : UITableView<UITableViewDelegate, MTDelegateProtocol>
 
+@property (nonatomic,strong) MTDataSourceModel* dataSourceModel;
 
 @end
 

@@ -7,7 +7,7 @@
 //
 
 #import "MTBaseViewContentModel.h"
-#import <MJExtension.h>
+#import <MJExtension/MJExtension.h>
 #import "NSString+Exist.h"
 #import "UILabel+Size.h"
 #import "MTContentModelPropertyConst.h"

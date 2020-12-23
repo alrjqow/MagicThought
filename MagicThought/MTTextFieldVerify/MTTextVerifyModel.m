@@ -9,7 +9,7 @@
 #import "MTTextVerifyModel.h"
 #import "NSString+TestString.h"
 #import "NSString+Exist.h"
-#import <MJExtension.h>
+#import <MJExtension/MJExtension.h>
 
 @interface MTTextVerifyModel ()
 {

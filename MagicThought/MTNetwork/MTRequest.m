@@ -8,7 +8,7 @@
 
 #import "MTRequest.h"
 #import "NSString+Exist.h"
-#import <MJExtension.h>
+#import <MJExtension/MJExtension.h>
 
 typedef void(^MTRequestCallbackHandlerCallback)(id obj, NSString *mssage, BOOL success, MTRequest* request);
 

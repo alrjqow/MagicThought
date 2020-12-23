@@ -18,6 +18,9 @@
 
 @property (nonatomic,strong) NSObject* emptyData;
 
+@property (nonatomic,weak) UIScrollView* scrollView;
+
+-(void)reloadListView;
 -(void)reloadListView:(UIScrollView*)listView;
 
 @end

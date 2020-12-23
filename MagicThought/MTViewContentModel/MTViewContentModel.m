@@ -9,7 +9,7 @@
 #import "MTViewContentModel.h"
 #import "NSObject+ReuseIdentifier.h"
 
-#import <MJExtension.h>
+#import <MJExtension/MJExtension.h>
 
 @interface MTEstimateHeight : NSObject
 

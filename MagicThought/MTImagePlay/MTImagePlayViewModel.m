@@ -7,6 +7,7 @@
 //
 
 #import "MTImagePlayViewModel.h"
+#import "UIView+Frame.h"
 
 @interface MTImagePlayViewModel ()
 
@@ -111,7 +112,10 @@
 {
     if(!decelerate)
     {
-        _currentPage = scrollView.tag % self.dataCount;
+        CGFloat indexFloat = scrollView.offsetX / scrollView.width;
+        NSInteger index = indexFloat;
+        _currentPage = (index + ((indexFloat - index) > 0.5 ? 1 : 0)) % self.dataCount;
+        
         [self resetPosition];
         [self setupTimer];
     }
@@ -119,7 +123,10 @@
 
 - (void)scrollViewDidEndDecelerating:(UIScrollView *)scrollView
 {
-    _currentPage = scrollView.tag % self.dataCount;
+    CGFloat indexFloat = scrollView.offsetX / scrollView.width;
+    NSInteger index = indexFloat;
+    _currentPage = (index + ((indexFloat - index) > 0.5 ? 1 : 0)) % self.dataCount;
+    
     [self resetPosition];
     [self setupTimer];
 }
